@@ -43,3 +43,4 @@ Github Usernames: _____________________           _____________________
 | -       | It should be a little obvious.                                         | -       |        |
 |         |                                                                        |         |        |
 |         | Total:                                                                 | **100** |        |
+|         | Total:                                                                 | **100** |        |
