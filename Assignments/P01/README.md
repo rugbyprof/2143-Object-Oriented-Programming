@@ -1,4 +1,4 @@
-## Dungeon Game - Checklist
+## Dungeon Game master - Checklist
 
 Github Usernames: _____________________           _____________________
 
