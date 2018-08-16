@@ -44,3 +44,23 @@ Github Usernames: _____________________           _____________________
 |         |                                                                        |         |        |
 |         | Total:                                                                 | **100** |        |
 |         | Total:                                                                 | **100** |        |
+| ***4*** | ***Health***                                                           | **19**   |        |
+| -       | Player needs a health bar or health in a HUD.                          | -       |        |
+| -       | Colliding with monsters will decrease health significantly.            | -      |        |
+|         |                                                                        |         |        |
+| ***4*** | ***HUD***                                                              | **12**   |        |
+| -       | A Heads up display will exist.                                         | -       |        |
+| -       | It will keep track of player health, and coins collected.              | -       |        |
+| -       | It should be easy to read and stay in one game corner.                 | -       |        |
+|         |                                                                        |         |        |
+| ***5*** | ***Monsters***                                                         | **14**   |        |
+| -       | At least 2 places on a map will spawn some simple monster(s).          | -       |        |
+| -       | The monsters will move toward player.                                  | -       |        |
+| -       | Monsters that use animations will get more points.                     | -       |        |
+|         |                                                                        |         |        |
+| ***6*** | ***Finish Line***                                                      | **16**   |        |
+| -       | There should be a portal that takes player to finished screen.         | -       |        |
+| -       | It should be a little obvious.                                         | -       |        |
+|         |                                                                        |         |        |
+|         | Total:                                                                 | **100** |        |
+|         | Total:                                                                 | **100** |        |
