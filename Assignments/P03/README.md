@@ -1,43 +1,19 @@
-## Program 1 - Array Vector Class
-#### Due: September 7<sup>th</sup> by Classtime
+## Program 3 - Array Vector Class Overloaded 
+#### Due: September 24<sup>th</sup> by Classtime
 
 ## Overview
 
-- Write a class the will emulate (partially) a C++ vector. 
-- What does this mean? Well lets compare the two:
-    - `Arrays` allow us to store like items in contiguous memory locations.
-    - `Vectors` do as well.
-    - `Arrays` have a fixed size. Array of size 10, cannot store 11 items.
-    - `Vectors` will grow to accomodate the new item.
-    - `Arrays` use an integer index to access locations (slots or cells) in the array.
-    - `Vectors` do as well, but they also have methods (`push`,`pop`) to add items (really `push_back` and `pop_back`). 
-- Vectors do many other things ([see here](http://www.cplusplus.com/reference/vector/vector/)) but we are only going to implement the basics for your first program. 
+- Using your C++ vector class: 
+    - Add the ability to use `[ ]` (square brackets) to access the array container directly.
+
 
 ## Requirements
 
-- Write a C++ class that (loosely) implements the functionality of a C++ vector using an array as your storage container.
-- Your vector will only need to store integers at this time (we will fix that later).
-- It must be variable size:
-    - Initially, your array container should be sized at whatever size you see fit. However, allocating too much memory is a waste and you will lose points.
-    - If an item is pushed onto a full array, you will automatically resize the array to `1.5` times its current size, to accomodate the new item.
-    - If your array container becomes .40 full, you will shrink your container to half its size (unless your at the original allocated size).
-        - For example, if you start off with a container of 25, you may go up to 37, 55, 82 , etc., but it's size will never go below 25.
-- It must have `push_back` and `pop_back` implemented which adds an item to the end of the array and removes an item from the end of the array respectively.
-    -  What would pushing or popping from the front of the array require?
--  Some other public methods that might be helpful:
-    -  void print();
-    -  int size();
-    -  double percentFull();
+- 
 
 ## Testing your code
 
-- Write a program that creates an implementation of your vector class and runs the following tests on it:
-    - Create instance of `myvector` and immediately attempt to `pop_back` (remove from empty vector).
-    - Using same instance attempt to push a `string` onto your vector. It should fail without crashing.
-    - Insert the values 13,31,73 into your vector. Print it out.
-    - Insert 10000 items into your vector. Print the size of your vector.
-    - Remove 998 items from your vector. Print the size of your vector.
-    - Print out your vector.
+- 
 
 | #       | Item                                                                | Value           | Earned |
 | :------ | :------------------------------------------------------------------ | --------------: | ------ |
