@@ -1,0 +1,34 @@
+<html>
+<head><title>Chapter 22, Slide 07</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 22: The AWT and Swing :
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap22/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<p>
+<h1>Adapters Reduce Code Size</h1>
+<font size=+2>
+More often than not, programmers are interested in only one or two events,
+not all the possible events defined by the interface.
+<p>
+An adapter provides empty implementations, allowing the programmer to
+redefine only the events of interest.
+<pre>
+public class MouseAdapter implements MouseListener {
+	public void mouseClicked (MouseEvent e) { }
+	public void mouseEntered (MouseEvent e) { }
+	public void mouseExited (MouseEvent e) { }
+	public void mousePressed (MouseEvent e) { }
+	public void mouseReleased (MouseEvent e) { }
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 07</h6>
+<hr>
+</body>
+</html>

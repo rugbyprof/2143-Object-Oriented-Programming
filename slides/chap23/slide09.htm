@@ -1,0 +1,42 @@
+<html>
+<head><title>Chapter 23, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 23: Object Interconnections :
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap23/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>Control, or Sequence Coupling</h1>
+<font size=+2>
+This occurs when objects are linked by the fact that one must be
+manipulated before the other, but otherwise they have no connection.
+<p>
+Again, makes it difficult to understand a class in isolation.
+<p>
+Can be mitagated by making a controller class, that clearly indicates
+the sequence of operations.
+<pre>
+class MyClass {
+public:
+	doStuff () {
+		doFirst();
+		doSecond();
+		doThird();
+	}
+
+protected:
+	doFirst() { ... }
+	doSecond() { ... }
+	doThird() { ... }
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 09</h6>
+<hr>
+</body>
+</html>

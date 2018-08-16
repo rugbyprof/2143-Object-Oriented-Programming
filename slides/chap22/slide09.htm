@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 22, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 22: The AWT and Swing :
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap22/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>Buttons, Sliders, Text Boxes, and so on</h1>
+<font size=+2>
+Graphical components (Buttons, Sliders, Text Boxes, and many many more) are
+provided in the standard library.
+<p>
+The user places an instance of a class into the window.  Most use
+the listener event model to notify when they are changed.
+<pre>
+	Button butn = new Button ("do it!");
+	add("North", butn); // place at top of screen
+	butn.addActionListener (new doIt()); // add listener
+	..
+	private class doIt implements ActionListener {
+		public void actionPerformed (ActionEvent e) {
+			// what ever do it does
+			...
+		}
+	}
+</pre>
+The listener model avoids the need for inheritance from the component class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 09</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 24, Slide 08</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 24: Design Patterns :
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap24/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<p>
+<h1>Iterator</h1>
+<font size=+2>
+<b>Problem:</b> How do you provide a client access to elements in 
+a collection, without exposing the structure of the collection.
+<p><b>Solution:</b> Allow clients to manipulate an object that can return
+the current value and move to the next element in the collection.
+<p>Example, Enumerators in Java
+<pre>
+interface Enumerator {
+	public boolean hasMoreElements();
+	public Object nextElement();
+}
+
+Enumeator e = ...;
+while (e.hasMoreElements) {
+	Object val = e.nextElement();
+	...
+}
+</pre>
+The pattern applies, even if the interface is changed.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 08</h6>
+<hr>
+</body>
+</html>

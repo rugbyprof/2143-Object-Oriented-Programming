@@ -1,0 +1,36 @@
+<html>
+<head><title>Chapter 19, Slide 05</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 19: Container Classes :
+<td bgcolor=#FCCF97><a href="slide06.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide04.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide05.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap19/slide05.ram">real</a>
+<td bgcolor=#FCCF97><a href="text05.htm" target=text>text</a>
+</table>
+<p>
+<h1>Using Substitution and Downcasting</h1>
+<font size=+2>
+In Java and other languages, (almost) all values can be stored in a
+variable of type <b>Object</b>.
+<p>
+Therefore, we write containers that store <b>Object</b> values.
+<p>
+Problem. Requires a cast when a value is removed from the container.
+<pre>
+Vector aVector = new Vector();
+Cat Felice = new Cat();
+aVector.addElement(Felice);
+	...
+	// cast used to convert Object value to Cat
+Cat animal = (Cat) aVector.elementAt(0);
+</pre>
+Worse problem, typing errors are detected when a value is removed
+from the collection, not when it is inserted.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 05</h6>
+<hr>
+</body>
+</html>

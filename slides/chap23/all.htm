@@ -1,0 +1,594 @@
+<html>
+<head><title>Chapter 23, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 23</h1>
+<h1 ALIGN=center>Object interconnections </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap</a>
+<li><a href="slide02.htm"> Connections -- The Bane of Large Scale Programming</a>
+<li><a href="slide03.htm"> Visibility</a>
+<li><a href="slide04.htm"> Dependency</a>
+<li><a href="slide05.htm"> Coupling and Cohesion</a>
+<ol>
+<li><a href="slide06.htm"> Varieties of Coupling</a>
+<ol>
+<li><a href="slide07.htm"> Internal Data Coupling</a>
+<li><a href="slide08.htm"> Global Data Coupling</a>
+<li><a href="slide09.htm"> Control, or Sequence Coupling</a>
+<li><a href="slide10.htm"> Component Coupling</a>
+<li><a href="slide11.htm"> Parameter Coupling</a>
+<li><a href="slide12.htm"> Subclass Coupling</a>
+</ol>
+<li><a href="slide13.htm"> Varieties of Cohesion</a>
+</ol>
+<li><a href="slide14.htm"> Limiting Coupling - the Law of Demeter</a>
+<ol>
+<li><a href="slide15.htm"> Rewritten in Terms of Messages</a>
+<li><a href="slide16.htm"> What is Rules Out</a>
+</ol>
+<li><a href="slide17.htm"> Class-Level versus Object-Level Visibility</a>
+<li><a href="slide18.htm"> Active Values</a>
+<li><a href="slide19.htm"> Public, Subclass ans Private Faces</a>
+<li><a href="slide20.htm"> Control of Visibility</a>
+<ol>
+<li><a href="slide21.htm"> Friends in C++</a>
+<li><a href="slide22.htm"> Inner classes</a>
+<li><a href="slide23.htm"> Private Inheritance in C++</a>
+<li><a href="slide24.htm"> name Spaces, Packages or Units</a>
+</ol>
+<li><a href="slide25.htm"> Intentional Dependency</a>
+<li><a href="slide26.htm"> Chapter Summary</a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter we move up a level of abstraction, and consider collections
+of objects working together.
+<p>
+Our focus will be on how objects are connected to each other, and
+how one can make those connections as loose as possible.
+<p>
+Our primary tool for analyzing connectednesss will be the concepts of
+visibility and dependency.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Connections - The Bane of Large Scale Programming</h1>
+<P>
+Difficulties in developing large scale programs are often not so much a 
+matter of algorithmic complexity as they are of communication complexity.
+<P>
+If several programmers are working together on a project, need to control
+the amount of information one programmer must have about the code being
+developed by a second programmer.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Visibility</h1>
+<P>
+Visibility is an attribute of <EM>names</EM>.
+<P><UL>
+<LI>
+Names of variables, functions, fields, whatever.
+<p>
+<LI>
+If you can't name something, you can't manipulate it.
+<p>
+<LI>
+Languages already have a variety of mechanisms for the control of name
+visability.
+<p>
+<LI>
+OOP languages introduce a few new twists.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>Dependency</h1>
+<P>
+Dependency describes the degree to which one software component relies
+on another component to perform its responsibilities.
+<P>
+A high degree of dependency obviously limits code reuse - moving one
+component to a new project.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Coupling and Cohesion</h1>
+<P>
+Ideas from the Software Engineering Community, pre-dating OOP.
+<P><UL>
+<LI>
+<B>Coupling</B> refers to the extent to which one component uses another
+to perform actions.  Generally a goal is to reduce coupling between software.
+<p>
+<LI>
+<B>Cohesion</B> refers to the extent to which the actions of a component
+seem to be tied together in purpose.  Generally a goal is to increase 
+cohesion within a software component.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Varieties of Coupling</h1>
+Arranged from Bad to Better
+<P><UL>
+<LI>
+Internal data coupling
+<p>
+<LI>
+Global data coupling
+<p>
+<LI>
+Control (or sequence) coupling
+<p>
+<LI>
+Component coupline
+<p>
+<LI>
+Parameter coupling
+<p>
+<LI>
+Subclass coupling
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Internal Data Coupling</h1>
+<table><tr><td><pre>
+class  SneekyModifier {
+public:
+  void sneeky () {
+    // change my friends name		
+    myFriend->name = "Lucy";
+  }
+  Person * myFriend;
+};
+</font>
+</pre><td><pre>
+class Person {
+public:
+  Person () { 
+    name = "Larry";
+  }
+  string name;
+};  
+</font>
+</pre></table>
+<p>
+This is bad because it makes it difficult to understand a single class
+in isolation.
+<p>
+Can be mitigated by always making your data areas private or protected,
+and not exposing pointers to these areas.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Global Data Coupling</h1>
+<table><tr><td colspan=2><pre>
+
+		double todaysDow;
+
+</font></pre><tr><td><pre>
+class One {
+public:
+  void setDow () {
+    todaysDow = 9473;		
+  }
+};
+</font>
+</pre><td><pre>
+class Two {
+public:
+  void printDow () {
+    cout << "Today the Dow hit "
+      << todaysDow;
+  }
+};
+</font>
+</pre></table>
+Two or more classes that interact through a common global variable.
+Again, makes it difficult to understand a single class in insolation.
+<p>
+Can be mitigated by making a class that ``manages'' the global area,
+thereby reducing global coupling to component coupling.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Control, or Sequence Coupling</h1>
+This occurs when objects are linked by the fact that one must be
+manipulated before the other, but otherwise they have no connection.
+<p>
+Again, makes it difficult to understand a class in isolation.
+<p>
+Can be mitagated by making a controller class, that clearly indicates
+the sequence of operations.
+<pre>
+class MyClass {
+public:
+	doStuff () {
+		doFirst();
+		doSecond();
+		doThird();
+	}
+
+protected:
+	doFirst() { ... }
+	doSecond() { ... }
+	doThird() { ... }
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Component Coupling</h1>
+Occurs when one class holds an instance of another class.
+<pre>
+class Set {
+	...
+private:
+	List data;
+}
+</pre>
+Ideally, connection is one way.  Held component has no knowledge or holder.
+<p>
+This is a very weak and benign connection.  (Weak is good, remember).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Parameter Coupling</h1>
+Parameter coupling occurs when one object knows of another only through being
+passed as a parameter or a return value.
+<p>
+Another very weak (and therefore good) type of coupling.
+<pre>
+class MyClass {
+public:
+	void doSomething (Set aSet) {
+		...
+	}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Subclass Coupling</h1>
+Subclass coupling describes the relationship between a parent class and
+a child class.
+<p>
+Ideally the parent has no strong connection to the child,
+so the connection is one way.  Can understand the parent in isolation from
+the child.
+<pre>
+class Parent {
+	...
+}
+
+class Child extends Parent {
+	...
+}
+</pre>
+A very weak form of coupling. Which makes it a good design choice.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Varieties of Cohesion</h1>
+Also arranged from bad to better:
+<P><UL>
+<LI>
+Coincidental cohesion
+<p>
+<LI>
+Logical cohesion
+<p>
+<LI>
+Temporal cohesion
+<p>
+<LI>
+Communication cohesion
+<p>
+<LI>
+Sequential cohesion
+<p>
+<LI>
+Functional cohesion
+<p>
+<LI>
+Data cohesion
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Limiting Coupling - the Law of Demeter</h1>
+<P>
+The law of demeter is an attempt to limit the way in which one component
+can interact with another component.
+<P><BLOCKQUOTE>
+<B>Law of Demter</B>.  In any Method M attached to a class C, only methods
+defined by the following classes may be used:
+<DL COMPACT>
+<DT>1.
+<DD>The instance variable classes of C.
+<p>
+<DT>2.
+<DD>The argument classes of method M (including C); note that global objects
+or objects created inside the method M are considered arguments to M.
+</DL></BLOCKQUOTE>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 14</h6>
+<br>
+Named for the Demeter project at Northeaster University.
+<hr>
+</body>
+<p>
+<h1>Rewritten in terms of messages</h1>
+<P><B>Law of Demeter (weak form)</B>.  Inside a method, it is only permitted
+to access or send messages to the following objects:
+<P><DL COMPACT>
+<DT>1.
+<DD>The arguments associated with the method being executed (including the self
+object).
+<p>
+<DT>2.
+<DD>Instance variables for the receiver of the method.
+<p>
+<DT>3.
+<DD>Global variables.
+<p>
+<DT>4.
+<DD>Temporary variables created inside the method.
+</DL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 15</h6>
+<br>
+The <i>strong form</i> eliminates global variables and inherited data fields.
+<hr>
+</body>
+<p>
+<h1>What is ruled out</h1>
+<P>
+Basically, what is ruled out by the law of demeter is one object going in
+and directly manipulating the internal data values of another object.
+<P>
+Instead, all access to data values in another component should be made
+through procedures - thereby reducing data coupling to the weaker 
+parameter coupling.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 16</h6>
+<hr>
+</body>
+<p>
+<h1>Class-Level versus Object-Level Visibility</h1>
+Here is another interesting way that object-oriented languages have
+chosen to differ from each other.
+<P>
+Question: Are sisters and brothers allowed to look at each others private
+data fields?
+<P>
+An answer of YES is class-level visibility (C++ and Java) and answer of NO is
+object-level visibiity.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>Active Values</h1>
+<P>
+The creation of active values is a good illustration of why parameter coupling
+is better than direct manipulation.
+<P>
+Suppose we have an existing program and we just want to observe a data
+value - see when it gets set and changed.
+<P>
+Solution - create a new subclass that just changes those methods that
+set or read the data value.
+</font>
+<table><tr><td><pre>
+@interface Reactor : Object
+{ ...
+	double heat; ...
+}
+- (void)  setHeat: (double) newValue;	
+- (double) getHeat;
+@end
+</font>
+</pre><td><pre>
+@implementation GraphicalReactor : Reactor
+- (void) setHeat: (double) newValue
+	{
+		/* code necessary to */ 
+		/* update gauge */
+		[ super setHeat: newValue ];
+	}
+@end
+</font>
+</pre></table>
+Can add new functionality simply by replacing an object with an
+instance of a subclass; making no change to the original class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 18</h6>
+<hr>
+</body>
+<p>
+<h1>Public, Subclass and Private Faces</h1>
+<P>
+We have several times noted that object have a public and private face -
+inheritance introduces a third alternative, the subclass face.
+<P><UL>
+<LI>
+Public features are those aspects that users of the software component must
+have access to.
+<p>
+<LI>
+Private features are those aspects that the implementor of the software 
+component must have access to.
+<p>
+<LI>
+Protected features are those aspects that implementors of child classes
+can have access to.
+</UL>
+There are two types of clients for the class developer.
+These are user clients (those who use an instance of the class), 
+and subclass clients (those who will subclass from the class).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 19</h6>
+<hr>
+</body>
+<p>
+<h1>Control of Visibility</h1>
+The public/protected/private modifiers are the primary way to control
+visibility in most OO languages, the there are other mechanisms as well.
+<ul>
+<li>Friends in C++
+<p><li>Inner classes in Java and C++
+<p><li>Private Inheritance in C++
+<p><li>Name Spaces, Units or Packages
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 20</h6>
+<hr>
+</body>
+<p>
+<h1>Friends in C++</h1>
+In C++ a friend (class or method) is allowed access to all parts of a class.
+<pre>
+class Complex { 
+public: 
+	Complex(double, double); 
+	friend double abs(Complex&);
+private: 
+	double rp; 
+	double ip; 
+};
+
+double abs(Complex& x)
+{ 	return sqrt(x.rp * x.rp + x.ip * x.ip); }
+</pre>
+Friendship is something that is given away, not something that is taken.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 21</h6>
+<hr>
+</body>
+<p>
+<h1>Inner Classes</h1>
+Inner classes in Java and, to a lesser extent, nested classes in C++ and C#
+are allowed to access the data areas in the surrounding class.
+<pre>
+class AcontainerClass {
+	...
+		// return an enumerator
+	public Enumeration elements() 
+		{ return new MyEnumeration(); }
+	...
+		// inner class is allowed to see
+		// all aspects of surrounding class
+	private class MyEnumeration implements Enumeration {
+		...
+		public boolean hasMoreElements () { ... }
+		public Object nextElement() { ... }
+	}
+}
+</pre>
+Uses a lot for event listeners in Java, among other things.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 22</h6>
+<hr>
+</body>
+<p>
+<h1>Private Inheritance in C++</h1>
+In a public inheritance the public features of a parent become public
+features of a child.
+<p>
+In a private inheritance, the public and protected features of the parent
+do not filter through the child; and only the public features of the
+child are visible.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 23</h6>
+<hr>
+</body>
+<p>
+<h1>Name Spaces, Packages or Units</h1>
+Names Spaces (in C++), Packages (Java) or Units (Delphi and Object Pascal)
+give the programmer another way to encapsulate names, and release only
+those names that are necessary.
+<pre>
+package foo;
+	public class bar { // will be visible
+		...
+	}
+
+	class baz { // will not be visible outside package
+		...
+	}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 24</h6>
+<hr>
+</body>
+<p>
+<h1>Intentional Dependency</h1>
+<P>
+Sometimes want code to depend upon another class.
+<P>
+Sometimes want this even if the dependee doesn't  know the dependant.  
+(example, a model and its display).
+<P>
+Can be managed by having a separate ``dependancy manager''.  When an object
+changes, it tells the manager ``notify my depedants''.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 25</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+In this chapter we have examined a variety of topics related to dependency
+<ul>
+<li>How classes and objects can depend upon each other
+<p><li>How methods within a class can depend upon each other
+<p><li>How to control visibility, as a means of controlling dependency
+<p><li>How strong dependency can be weaked by using alternative designs
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 26</h6>
+<hr>
+</body>
+</body>
+</html>

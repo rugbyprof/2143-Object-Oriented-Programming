@@ -1,0 +1,28 @@
+<html>
+<head><title>Chapter 2, Slide 2</title></head>
+<body BGCOLOR=#ffffff>
+Introduction to OOP: Chapter 2: Responsibility Driven Design:
+<a href="slide3.htm">[next]</a>
+<a href="slide1.htm">[previous]</a>
+<a href="slide2.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap02/slide2.ram">[real]</a>
+<a href="text2.htm" target=text>[text]</a>
+<br>
+<h1>Why Start with Design</h1>
+<font size=+2>
+<ul>
+<li>Why start our discussion with a chapter on design? 
+<p>
+<li>Object-oriented <i>thinking</i> begins with object-oriented design
+<p>
+<li>It is the easiest way to give the student an appreciation of the problems of programming
+    in the large (realistic modern software development).
+<p>
+<li>Without understanding programming in the large, one cannot understand the importance
+    of OOP 
+</font>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="slide1.htm">Chapter 2</a>, Slide 2</h6>
+</body>
+</html>
+

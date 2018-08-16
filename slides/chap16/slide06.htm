@@ -1,0 +1,39 @@
+<html>
+<head><title>Chapter 16, Slide 06</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 16: Overriding :
+<td bgcolor=#FCCF97><a href="slide07.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide05.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide06.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap16/slide06.ram">real</a>
+<td bgcolor=#FCCF97><a href="text06.htm" target=text>text</a>
+</table>
+<p>
+<h1>Notating Overriding</h1>
+<font size=+2>
+In some languages (Smalltalk, Java) overriding occurs automatically when
+a child class redefines a method with the same name and type signature.
+<p>
+In some languages (C++) overriding will only occur if the parent class
+has declared the method in some special way (example, keyword <b>virtual</b>).
+<p>
+In some languages (Object Pascal) overriding will only occur if the child
+class declares the method in some special way (example, keyword <b>override</b>).
+<p>
+In some languages (C#, Delphi) overriding will only occur if both the
+parent and the child class declare the method in some special way.
+<pre>
+class Parent {   // C# example
+   public virtual int example (int a) { ... }
+}
+class Child : Parent {
+   public override int example (int a) { ... }
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 06</h6>
+<hr>
+</body>
+</html>

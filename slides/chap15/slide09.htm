@@ -1,0 +1,43 @@
+<html>
+<head><title>Chapter 15, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 15: Overloading :
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap15/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>Easy to Extend</h1>
+<font size=+2>
+Since output uses overloading, it is very easy to extend to new types.
+<pre>
+class Fraction {
+public:
+	Fraction (int top, int bottom) { t = top; b = bottom; }
+
+	int numerator() { return t; }
+	int denominator() { return b; }
+
+private:
+	int t, b;
+};
+
+ostream & operator << (ostream & destination, Fraction & source)
+{
+	destination << source.numerator() << "/" << source.denominator();
+	return destination;
+}
+
+Fraction f(3, 4);
+cout << "The value of f is " << f << '\n';
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 09</h6>
+<hr>
+</body>
+</html>
+

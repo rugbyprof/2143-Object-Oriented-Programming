@@ -1,0 +1,506 @@
+<html>
+<head><title>Chapter 7, Outline</title></head>
+<body BGCOLOR=#FCEADT>
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 8</h1>
+<h1 ALIGN=center>Inheritance and Substitution</h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap </a>
+<li><a href="slide02.htm"> Abstract idea of Inheritance</a>
+<li><a href="slide03.htm"> Practical Meaning of Inheritance</a>
+<li><a href="slide04.htm"> Private Public and Protected</a>
+<li><a href="slide05.htm"> Inheritance is both Extension and Contraction</a>
+<li><a href="slide06.htm"> The Is-a rule</a>
+<li><a href="slide07.htm"> Reuse of Code, Reuse of Concept </a>
+<li><a href="slide08.htm"> Syntax for Inheritance </a>
+<li><a href="slide09.htm"> Trees vs Forests </a>
+<ol>
+<li><a href="slide10.htm"> A Portion of the Little Smalltalk Hierarchy</a>
+</ol>
+<li><a href="slide11.htm"> An Argument for Substitution </a>
+<li><a href="slide12.htm"> Subclass vs Subtype </a>
+<li><a href="slide13.htm"> Syntax for Overriding </a>
+<li><a href="slide14.htm"> Interfaces and Abstract Classes </a>
+<li><a href="slide15.htm"> Forms of Inheritance</a>
+<ol>
+<li><a href="slide16.htm"> Specialization Inheritance</a>
+<li><a href="slide17.htm"> Specification Inheritance</a>
+<li><a href="slide18.htm"> Inheritance for Construction</a>
+<li><a href="slide19.htm"> Inheritance for Generalization or  Extension</a>
+<li><a href="slide20.htm"> Inheritance for Limitation</a>
+<li><a href="slide21.htm"> Inheritance for Variance</a>
+<li><a href="slide22.htm"> Summary of Forms of Inheritance</a>
+</ol>
+<li><a href="slide23.htm"> Benefits of Inheritance</a>
+<li><a href="slide24.htm"> The Costs of Inheritance</a>
+<li><a href="slide25.htm"> Chapter Summary</a>
+</ol>
+<p>
+<b>Other Material</b>
+<ul>
+<li>A printer friendly copy of <a href="all.htm">all slides</a>.
+<li>A more <a href="under.htm">Java-centric</a> view of this material.
+</ul>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter we will start to investigate the concepts of inheritance
+and substitution.
+<ul>
+<li>The intuitive and practical meanings of inheritance
+<p><li>The syntax used to describe inheritance and substitution
+<p><li>Some of the various forms of inheritance
+<p><li>The benefits and costs of inheritance
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 01</h6>
+<hr>
+<p>
+<h1>Abstract idea of Inheritance</h1>
+We motivated the idea of inheritance with a hierarchy of categories:
+</font>
+<p>
+<IMG SRC="slide02.gif" alt="hierarchy of categories" HEIGHT=400 WIDTH=500>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 02</h6>
+<hr>
+<p>
+<h1>Practical Meaning of Inheritance</h1>
+<P><UL>
+<LI>
+Data members in the parent are part of the child
+<p><li>Behavior defined in the parent are part of the child
+</UL>
+<P>
+Note that <b>private</b> aspects of the parent are <i>part</i> of the child,
+but are not accessible within the child class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 03</h6>
+<hr>
+<p>
+<h1>Private, Public and Protected</h1>
+There are now three levels of visibility modifiers:
+<ul>
+<li><b>private</b>: accessible only within the class definition
+(but memory is still found in the child class, just not accessible).
+<p><li><b>public</b>: accessible anywhere
+<p><li><b>protected</b>: accessible within the class definition
+or within the definition of child classes.
+</ul>
+</font>
+Note: Java interprets protected to mean accessible within same package
+<br>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 04</h6>
+<hr>
+<p>
+<h1>Inheritance is both Extension and Contraction</h1>
+<ul>
+<li>Because the behavior of a child class is strictly larger than the behavior
+of the parent, the child is an extension of the parent.  (larger)
+<p><li>Because the child can override behavior to make it fit a specialized
+situation, the child is a contraction of the parent. (smaller)
+</ul>
+This interplay between inheritance and overriding, extension and contraction,
+is what allows object-oriented systems to take very general tools and
+specialize them for specific projects.  This interplay is ultimately
+the source of a great deal of the power of OOP.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 05</h6>
+<hr>
+<p>
+<h1>The is-a Rule</h1>
+<P>
+Our idealization of inheritance is captured in a simple rule-of-thumb.
+<p>
+Try forming the English sentences ``An A is-a B''.  If it ``sounds right''
+to your ear, then A can be made a subclass of B.
+<P>
+A dog is-a mammal, and therefore a dog inherits from mammal
+<P>
+A car is-a engine sounds wrong, and therefore inheritance is not natual.
+but a car has-a engine.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 06</h6>
+<hr>
+<p>
+<h1>Reuse of Code, Reuse of Concept</h1>
+Why do we use inheritance?  Basically there are two major motivations:
+<ul>
+<li>Reuse of code.  Methods defined in the parent can be made available
+to the child without rewriting.  Makes it easy to create new abstractions.
+<p><li>Reuse of concept.  Methods described in the parent can be redefined
+and overridden in the child.  Although no code is shared between parent
+and child, the concept embodied in the definition is shared.
+</ul>
+An example of the latter from the case study in chapter 7, all graphical
+objects know how to <b>draw</b>.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 07</h6>
+<hr>
+<p>
+<h1>Syntax for Inheritance</h1>
+Languages use a variety of different syntax to indicate inheritance:
+<pre>
+class Wall : public GraphicalObject  -- c++
+
+class Wall extends GraphicalObject -- Java
+
+class Wall : GraphicalObject -- C#
+
+(defclass Wall (GraphicalObject) () ) -- CLOS
+
+type Wall = object (GraphicalObject) -- Object Pascal
+
+class Wall < GraphicalObject -- Ruby
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 08</h6>
+<hr>
+<p>
+<h1>Trees vs Forests</h1>
+<P>
+There are two common views of class hierarchies:
+<P><UL>
+<LI>
+All classes are part of a single large class hierarchy.
+Thus, there is one class that is the original ancestor of all other
+classes.  
+<br>
+Smalltalk, Java and Delphi Pascal do this.
+<p>
+<LI>
+Classes are only placed in hierarchies if they have a relationship - 
+results in a forest of many small hierarchies, but no single ancestor.
+<br>
+C++, Objective-C, and Apple Object Pascal do this.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 09</h6>
+<hr>
+<p>
+<h1>A portion of the Little Smalltalk Hierarchy</h1>
+<p>
+<IMG SRC="slide10.gif" alt="smalltalk inheritance hierarchy" HEIGHT=350 WIDTH=450>
+<br>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 10</h6>
+<hr>
+<p>
+<h1>An Argument for Substitution</h1>
+<P>
+Consider the following argument:
+<P><UL>
+<LI> Instances of the subclass must possess all data areas associated with
+the parent class.
+<p>
+<LI> Instances of the subclass must implement, through inheritance at least
+(if not explicitly overridden) all functionality defined for the parent
+class.  (They can also define new functionality, but that is unimportant
+for the present argument).
+<p>
+<LI> Thus, an instance of a child class can mimic the behavior of the parent
+class. It therefore seesm reasonable that a variable declared 
+as a parent, should be able to hold a value generated from the child class.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 11</h6>
+The <i>principle of substitutability</i> is sometimes called <i>Liskov 
+substitutability</i>, since one of the first people to describe the idea
+was Barbara Liskov, of MIT.
+<hr>
+<p>
+<h1>Subclass vs Subtype</h1>
+Of course, the problem with this argument is that a child class can override
+a method and make arbitrary changes.  It is therefore useful to define
+two separate concepts:
+<ul>
+<li>To say that A is a <b>subclass</b> of B merely asserts that A is formed
+using inheritance.
+<p><li>To say that a is a <b>subtype</b> of B asserts that A preserves the
+meaning of all the operations in B.
+</ul>
+It is possible to form subclasses that are not subtypes; and (in some languages
+at least) form subtypes that are not subclasses.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 12</h6>
+<br>
+(We will have much more to say on this topic in a later chapter).
+<hr>
+<p>
+<h1>Syntax for Overriding</h1>
+Some languages, such as C++, require that the programmer indicate
+in the parent class that overriding is a potential:
+<pre>
+
+	class GraphicalObject {
+	public:
+		virtual void draw();  // can be overridden
+	};
+
+</pre>
+Other languages, such as Object Pascal, require a modifier in the
+child class that overriding has taken place:
+<pre>
+type
+	Ball = object (GraphicalObject)
+		...
+		procedure draw; override; (* overriding has taken place *)
+	end
+</pre>
+Still other languages (C#, Delphi) require indications in both parent
+and child.  
+<br>
+And some languages (Smalltalk) do not require
+any indication in either parent class or child class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 13</h6>
+<hr>
+<p>
+<h1>Interfaces and Abstract Classes</h1>
+An interface is similar to a class, but does not provide any implementation.
+A child class must override all methods.  A middle ground is an abstract
+class.  Here some methods are defined, and some (abstract methods) are 
+undefined.  A child class must fill in the definition for abstract
+methods:
+<pre>
+abstract class Window {
+	...
+	abstract public void paint (); // child class must redefine
+	...
+}
+</pre>
+An interface is like an abstract class in which all methods are abstract.
+In C++ an abstract method is called a pure virtual method.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 14</h6>
+<hr>
+<p>
+<h1>Forms of Inheritance</h1>
+The choices between inheritance and overriding, subclass and subtypes,
+mean that inheritance can be used in a variety of different ways
+and for different purposes.  Many of these types of inheritance
+are given their own special names.  We will describe some of these
+specialized forms of inheritance.
+<ul>
+<li>Specialization
+<li>Specification
+<li>Construction
+<li>Generalization or Extension
+<li>Limitation
+<li>Variance
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 15</h6>
+<hr>
+<p>
+<h1>Specialization Inheritance</h1>
+<P>
+By far the most common form of inheritance is for specialization.
+<p>
+A good example is the Java hierarchy of Graphical components in the
+AWT:
+<ul>
+<li>Component
+<ul>
+<li>Label
+<li>Button
+<li>TextComponent
+<ul>
+<li>TextArea
+<li>TextField
+</ul>
+<li>CheckBox
+<li>ScrollBar
+</ul>
+</ul>
+Each child class overrides a method inherited from the parent in order
+to specialize the class in some way.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 16</h6>
+<hr>
+<p>
+<h1>Specification Inheritance</h1>
+If the parent class is abstract, we often say that it is providing
+a specification for the child class, and therefore it is specification
+inheritance (a variety of specialization inheritance).
+<p>
+Example: Java Event Listeners
+<p>
+ActionListener, MouseListener, and so on specify behavior, but must be
+subclassed.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 17</h6>
+<hr>
+<p>
+<h1>Inheritance for Construction</h1>
+If the parent class is used as a source for behavior, but the child
+class has no <i>is-a</i> relationship to the parent, then we say
+the child class is using inheritance for construction.
+<p>
+An example might be subclassing the idea of a <b>Set</b> from an existing
+<b>List</b> class.
+<p>
+Generally not a good idea, since it can break the principle of 
+substituability, but nevertheless sometimes found in practice.
+(More often in dynamically typed languages, such as Smalltalk).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 18</h6>
+<hr>
+<p>
+<h1>Inheritance for Generalization or Extension</h1>
+If a child class generalizes or extends the parent class by providing
+more functionality, but does not override any method, we call it
+inheritance for generalization.
+<p>
+The child class doesn't change anything inherited from the parent, it
+simply adds new features.
+<p>
+An example is Java Properties inheriting form Hashtable.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 19</h6>
+<hr>
+<p>
+<h1>Inheritance for Limitation</h1>
+If a child class overrides a method inherited from the parent in a way
+that makes it unusable (for example, issues an error message), then
+we call it inheritance for limitation.
+<p>
+For example, you have an existing <b>List</b> data type that allows items
+to be inserted at either end, and you override methods allowing insertion
+at one end in order to create a <b>Stack</b>.
+<p>
+Generally not a good idea, since it breaks the idea of substitution.
+But again, it is sometimes found in practice.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 20</h6>
+<hr>
+<p>
+<h1>Inheritance for Variance</h1>
+<P>
+Two or more classes that seem to be related, but its not clear who
+should be the parent and who should be the child.
+<p>
+Example: Mouse and TouchPad and JoyStick
+<p>
+Better solution, abstract out common parts to new parent class,
+and use subclassing for specialization.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 21</h6>
+<hr>
+<p>
+<h1>Summary of Forms of Inheritance</h1>
+<P><UL>
+<LI>
+<I>Specialization</I>.
+The child class is a special case of the parent class; in
+other words, the child class is a subtype of the parent class.
+<p>
+<LI>
+<I>Specification</I>.
+The parent class defines behavior that is implemented in the
+child class but not in the parent class.
+<p>
+<LI>
+<I>Construction</I>.
+The child class makes use of the behavior provided by the parent
+class, but is not a subtype of the parent class.
+<p>
+<LI>
+<I>Generalization</I>.
+The child class modifies or overrides some of the methods of the
+parent class.
+<p>
+<LI>
+<I>Extension</I>.
+The child class adds new functionality to the parent class, but
+does not change any inherited behavior.
+<p>
+<LI>
+<I>Limitation</I>.
+The child class restricts the use of some of the behavior inherited
+from the parent class.
+<p>
+<LI>
+<I>Variance</I>.
+The child class and parent class are variants of each other, and the
+class-subclass relationship is arbitrary.
+<p>
+<LI>
+<I>Combination</I>.
+The child class inherits features from more than one parent class.
+This is multiple inheritance and will be the subject of a later chapter.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 22</h6>
+<hr>
+<p>
+<h1>Benefits of Inheritance</h1>
+<P><UL>
+<LI>
+Software Reuse
+<p>
+<LI>
+Code Sharing
+<p>
+<LI>
+Improved Reliability
+<p>
+<LI>
+Consistency of Interface
+<p>
+<LI>
+Rapid Prototyping
+<p>
+<LI>
+Polymorphism
+<p>
+<LI>
+Information Hiding
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 23</h6>
+<hr>
+<p>
+<h1>Cost of Inheritance</h1>
+<P><UL>
+<LI>
+Execution speed
+<p>
+<LI>
+Program size
+<p>
+<LI>
+Message Passing Overhead
+<p>
+<LI>
+Program Complexity
+</UL>
+<p>
+This does not mean you should not use inheritance, but rather than you
+must understand the benefits, and weigh the benefits against the costs.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 24</h6>
+<hr>
+<p>
+<h1>Chapter Summary</h1>
+In this chapter we have begun the exploration of inheritance,
+a topic we will continue through the next several chapters.
+Topics we have addressed have included the following:
+<ul>
+<li>The meaning of inheritance
+<p><li>The syntax used to describe inheritance and overriding
+<p><li>The idea of substitution of a child class for a parent
+<p><li>The various forms of inheritance
+<p><li>The cost and benefits of inheritance
+</ul>
+
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 25</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<html>
+<head><title>Chapter 9, Slide 1</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 9</h1>
+<h1 ALIGN=center>The Solitaire Game</h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> The Solitaire Game </a>
+<li><a href="slide02.htm"> The class <TT>PlayingCard</TT></a>
+<ol>
+<li><a href="slide03.htm"> Some Features to Note </a>
+</ol>
+<li><a href="slide04.htm"> Separation of Data and View </a>
+<ol>
+<li><a href="slide05.htm"> The CardView is Eventually Implemented </a>
+</ol>
+<li><a href="slide06.htm"> The Game -- Klondike</a>
+<li><a href="slide07.htm"> Card Piles</a>
+<ol>
+<li><a href="slide08.htm"> The Class CardPile</a>
+<li><a href="slide09.htm"> Some Features to Note </a>
+<li><a href="slide10.htm"> Power of Inheritance </a>
+<li><a href="slide11.htm"> Suit Piles </a>
+<li><a href="slide12.htm"> Deck Pile </a>
+<li><a href="slide13.htm"> Discard Pile </a>
+<li><a href="slide14.htm"> Tableau Piles </a>
+</ol>
+<li><a href="slide15.htm"> The Polymorphic Game </a>
+<ol>
+<li><a href="slide16.htm"> Some Features to Note </a>
+</ol>
+<li><a href="slide17.htm"> The Main Program </a>
+<li><a href="slide18.htm"> Chapter summary </a>
+</ol>
+<p>
+<b>Source</b>
+<ul>
+<li>The <a href="applet/Solitare.java">source</a> and
+<a href="applet/index.htm">executable applet</a> for the application
+described in this chapter.
+(Not available on CD, see <a href="cd.htm">explanation</a>)
+</ul>
+<p>
+<b>Other Material</b>
+<ul>
+<li>A printer friendly copy of <a href="all.htm">all slides</a>
+<li>A <a href="cpp/ReadMe.htm">C++ version</a> of the program
+as it appeared in <b>An Introduction to
+Object-Oriented Programming</b> (1st edition, Addison-Wesley, 1991).
+<li>A <a href="under/index.htm">rewriting</a> of the application
+from my book <b>Understanding Object-Oriented Programming with Java</b>
+(Addison-Wesley, 1998).
+<li>Yet another <a href="cforj/ReadMe.htm">rewriting</a> in C++, from
+my book <b>C++ for Java Programmers</b>, published by Addison-Wesley, 1999.
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>The Solitare Game</h1>
+<ul>
+<li>A good example of the use of inheritance and overriding
+<p><li>Also useful to illustrate programming in C#
+<p><li>Built out of classes for cards, card piles, and the game application.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>The Class PlayingCard</h1>
+<pre>
+public class PlayingCard 
+{
+	public PlayingCard (Suits sv, int rv)
+		{ s = sv; r = rv; faceUp = false; }
+
+	public bool isFaceUp 
+	{
+		get { return faceUp; }
+	}
+	
+	public void flip () 
+	{ 
+		faceUp = ! faceUp;
+	}
+
+	public int rank
+	{
+		get { return r; }
+	}
+
+	public Suits suit
+	{
+		get { return s; }
+	}
+		
+	public Color color
+	{
+		get
+		{
+			if ( suit == Suits.Heart || suit == Suits.Diamond )
+				{ return Color.Red; }
+			return Color.Black;
+		}
+	}
+
+	private bool faceUp;
+	private int r;
+	private Suits s;
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Some Features to Note</h1>
+<ul>
+<li>The constructor for the class
+<p><li>Properties for faceup, rank and suit
+<p><li>Qualification of Enumerated Data Types
+<p><li>This class has no explicit information about application,
+can be easily moved to new applications.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>Separation of Data and View</h1>
+We reduce the complexity of card and card piles by separating out the
+data and view classes.
+<ul>
+<li>Allows views to be easily changed
+<p><li>Data has no idea how it is viewed
+<p><li>We do this in two steps, an abstract card view and an implementation
+of the class
+</ul>
+<pre>
+public abstract class CardView
+{
+	public abstract void display (PlayingCard aCard, int x, int y);
+
+	public static int Width = 50;
+	public static int Height = 70;
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>The CardView is Eventually Implemented</h1>
+The abstract class CardView will eventually be matched with an implementation.
+This implementation can encapsulate information about the specific
+graphics operations of the system.
+<pre>
+public class WinFormsCardView : CardView {
+	public WinFormsCardView (Graphics aGraphicsObject) {
+		g = aGraphicsObject;
+	}
+
+	public override void display (PlayingCard aCard,int x,int y) {
+		if  (aCard == null) {
+			Pen myPen = new Pen(Color.Black,2);
+			Brush myBrush = new SolidBrush (Color.White);
+			g.FillRectangle(myBrush,x,y,CardView.Width,CardView.Height);
+			g.DrawRectangle(myPen,x,y,CardView.Width,CardView.Height);
+		} else {
+			paintCard (aCard,x,y);
+		}
+	}
+
+	private void paintCard (PlayingCard aCard,int x,int y) {
+		...
+	}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>The Game -- Klondike</h1>
+<IMG SRC="slide06.gif" alt="picture of game layout">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Card Piles</h1>
+Note that most of the game consists of different types of card piles.
+<ul>
+<li>We abstract the common behavior and place it into a parent class
+(for example, managing the pile of cards).
+<p><li>We use overriding to specialize the behavior that is specific
+to each class.
+(for example, what it means when the pile is selected).
+<p><li>Since some piles share behavior that in other piles is overridden,
+the parent class can provide a default behavior that can sometimes
+be changed (for example, drawing).
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>The Class CardPile</h1>
+<pre>
+public class CardPile {
+	public CardPile (int xl, int yl )
+		{ x = xl; y = yl; pile = new Stack(); }
+
+	public PlayingCard top 
+		{ get { return (PlayingCard) pile.Peek (); } }
+
+	public bool isEmpty 
+		{ get { return pile.Count == 0; }	}
+
+	public PlayingCard pop 
+		{ get { return (PlayingCard) pile.Pop (); } }
+		
+		// the following are sometimes overridden
+	public virtual bool includes (int tx, int ty ) {
+		return( ( x <= tx ) && ( tx <= x + CardView.Width ) &&
+		    ( y <= ty ) && ( ty <= y + CardView.Height ) );
+	}
+
+	public virtual void select (int tx, int ty ) {
+		// do nothing--override
+	}
+
+	public virtual void addCard (PlayingCard aCard )
+		{ pile.Push(aCard); }
+
+	public virtual void display (CardView cv) {
+		if ( isEmpty ) {
+			cv.display(null, x, y);
+		} else {
+			cv.display((PlayingCard) pile.Peek(), x, y );
+		}
+	}
+
+	public virtual bool canTake (PlayingCard aCard)
+		{ return false; }
+
+	protected int x, y; // coordinates of the card pile
+	protected Stack pile; // card pile data
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 008</h6>
+<hr>
+</body>
+
+<p>
+<h1>Some Features to Note</h1>
+<ul>
+<li>The keyword <b>virtual</b> indicating which methods <i>may</i> be overridden.
+<p><li>Potentially overridden methods have nevertheless been given a default
+behavior
+<p><li>We have written isEmpty and pop as properties
+<p><li>The data fields have been protected
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Power of Inheritance</h1>
+By using the inherited default behavior, only a small number of
+the possible methods must actually be implemented.
+<p>
+<table border=0>
+<tr><td><td> CardPile <td> SuitPile <td> DeckPile <td> DiscardPile <td> TableauPile
+<tr><td>includes<td align=center>X<td><td><td><td align=center>X
+<tr><td>canTake<td align=center>X<td align=center>X<td><td><td align=center>X
+<tr><td>addCard<td align=center>X<td><td><td align=center>X<td>
+<tr><td>display<td align=center>X<td><td><td><td align=center>X
+<tr><td>select<td align=center>X<td><td align=center>X<td align=center>X<td align=center>X
+</table>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Suit Piles</h1>
+<pre>
+public class SuitPile : CardPile {
+	public SuitPile (int x, int y) : base(x, y) {	}
+
+	public override bool canTake (PlayingCard aCard ) {
+		if( isEmpty ) 
+			{ return( aCard.rank == 0 ); }
+		PlayingCard topCard = top;
+		return( ( aCard.suit == topCard.suit ) &&
+		   ( aCard.rank == topCard.rank + 1 ) );
+	}
+}
+</pre>
+Note use of keyword <b>base</b> in constructor, keyword <b>override</b>
+in canTake, call on properties.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>DeckPile</h1>
+<pre>
+public class DeckPile : CardPile {
+	public DeckPile (int x, int y) : base(x, y) {
+		// create the new deck
+		// first put cards into a local array
+		ArrayList aList = new ArrayList ();
+		for( int i = 0; i <= 12; i++) {
+			aList.Add(new PlayingCard(Suits.Heart, i));
+			aList.Add(new PlayingCard(Suits.Diamond, i));
+			aList.Add(new PlayingCard(Suits.Spade, i));
+			aList.Add(new PlayingCard(Suits.Club, i));
+		}
+			// then pull them out randomly
+		Random myRandom = new Random( );
+		for(int count = 0; count < 52; count++) {
+			int index = myRandom.Next(aList.Count);
+			addCard( (PlayingCard) aList [index] );
+			aList.RemoveAt(index);
+		}
+	}
+
+	public override void select (int tx, int ty) {
+		if ( isEmpty ) { return; }
+		Game.discardPile().addCard( pop );
+	}
+}
+</pre>
+Note use of system provided resources, such as <b>ArrayList</b>, <b>Random</b>.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>The Discard Pile</h1>
+<pre>
+public class DiscardPile : CardPile {
+	public DiscardPile (int x, int y ) : base(x, y) { }
+
+	public override void addCard (PlayingCard aCard) {
+		if( ! aCard.isFaceUp )
+			{ aCard.flip(); }
+		base.addCard( aCard );
+	}
+
+	public override void select (int tx, int ty) {
+		if( isEmpty ) { return; }
+		PlayingCard topCard = pop;
+		for( int i = 0; i < 4; i++ ) {
+			if( Game.suitPile(i).canTake( topCard ) ) {
+				Game.suitPile(i).addCard( topCard );
+				return;
+			}
+		}
+
+		for( int i = 0; i < 7; i++ ) {
+			if( Game.tableau(i).canTake( topCard ) ) {
+				Game.tableau(i).addCard( topCard );
+				return;
+			}
+		}
+		// nobody can use it, put it back on our stack
+		addCard(topCard);
+	}
+}
+</pre>
+Two different types of overriding, replacement and refinement.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Tableau Piles</h1>
+<pre>
+public class TablePile : CardPile {
+	public TablePile (int x, int y, int c) : base(x, y) {
+		// initialize our pile of cards
+		for(int i = 0; i < c; i++ ) {
+			addCard(Game.deckPile().pop);
+		}	
+		top.flip();
+	}
+
+	public override bool canTake (PlayingCard aCard ) {
+		if( isEmpty ) { return(aCard.rank == 12); }
+		PlayingCard topCard = top;
+		return( ( aCard.color != topCard.color ) &&
+			( aCard.rank    == topCard.rank - 1 ) );
+	}
+
+	public override bool includes (int tx, int ty) {
+		return( ( x <= tx ) && ( tx <= x + CardView.Width ) &&
+				( y <= ty ) );
+	}
+
+	public override void select (int tx, int ty) {
+		if( isEmpty ) { return; }
+		// if face down, then flip
+		PlayingCard topCard = top;
+		if( ! topCard.isFaceUp ) {
+			topCard.flip();
+			return;
+		}
+		// else see if any suit pile can take card
+		topCard = pop;
+		for(int i = 0; i < 4; i++ ) {
+			if( Game.suitPile(i).canTake( topCard ) ) {
+				Game.suitPile(i).addCard( topCard );
+				return;
+			}
+		}
+		// else see if any other table pile can take card
+		for(int i = 0; i < 7; i++ ) {
+			if( Game.tableau(i).canTake( topCard ) ) {
+				Game.tableau(i).addCard( topCard );
+				return;
+			}
+		}
+		addCard( topCard );
+	}
+
+	public override void display (CardView cv) {
+		Object [ ] cardArray = pile.ToArray();
+		int size = pile.Count;
+		int hs = CardView.Height / 2; // half size
+		int ty = y;
+		for (int i = pile.Count - 1; i >= 0; i--) {
+			cv.display((PlayingCard) cardArray[i], x, ty);
+			ty += hs;
+		}
+	}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>The Polymorphic Game</h1>
+<pre>
+public class Game {
+	static Game () {
+		allPiles = new CardPile[ 13 ];
+		allPiles[0] = new DeckPile(335, 5 );
+		allPiles[1] = new DiscardPile(268, 5 );
+		for( int i = 0; i < 4; i++ ) {
+			allPiles[2 + i] = new SuitPile(15 + 60 * i, 5);
+		}
+		for( int i = 0; i < 7; i++ ) {
+			allPiles[6+i] = new TablePile(5+55*i, 80, i+1);
+		}	
+	}
+
+	public static void paint (CardView cv) {
+		for( int i = 0; i < 13; i++ ) {
+			allPiles[i].display(cv );
+		}
+	}
+
+	public static void mouseDown (int x, int y) {
+		for( int i = 0; i < 13; i++ ) {
+			if( allPiles[i].includes(x, y) ) { 
+				allPiles [i].select(x, y);
+			}	
+		}
+	}
+
+	public static CardPile deckPile () { return allPiles[0]; }
+
+	public static CardPile discardPile () { return allPiles[1]; }
+
+	public static CardPile tableau (int index) { return allPiles[6+index]; }
+
+	public static CardPile suitPile (int index) { return allPiles[2+index]; }
+
+	private static CardPile[] allPiles;
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>Features to Note</h1>
+<ul>
+<li>Note that the array <b>allPiles</b> is declared as an array of 
+<b>CardPile</b>, but holds values from child classes
+<p><li>When <b>paint</b> is called, the method <b>display</b> invoked
+will be the appropriate one for each type of pile, not the method
+in <b>CardPile</b>.
+<p><li>Similarly, in <b>mouseDown</b>, different piles will use
+different implementations of <b>includes</b> and <b>select</b>
+<p><li>Because these methods are static, they can be accessed using
+only the class name (we saw this earlier).  There actually is no
+instance of <b>Game</b>, only the one class object.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 16</h6>
+<hr>
+</body>
+<p>
+<h1>The Main Program</h1>
+Details of the user interface are isolated in the main program.
+Much of this is automatically generated by the IDE.
+<pre>
+public class Solitaire : System.WinForms.Form {
+		// start of automatically generated code
+        private System.ComponentModel.Container components;
+
+        public Solitaire() { 
+            InitializeComponent();
+        }
+
+        public override void Dispose() { 
+            base.Dispose();
+            components.Dispose();
+        }
+
+        private void InitializeComponent() { 
+		this.components = new System.ComponentModel.Container ();
+		this.Text = "Solitaire";
+		this.AutoScaleBaseSize = new System.Drawing.Size (5, 13);
+		this.ClientSize = new System.Drawing.Size (392, 373);
+	}
+		// end of automatically generated code
+
+	protected override void OnMouseDown (MouseEventArgs e ) { 
+		Game.mouseDown(e.X, e.Y); 
+		this.Invalidate(); // force screen redraw
+		}
+		
+	protected override void OnPaint (PaintEventArgs pe ) {
+		Graphics g = pe.Graphics;
+		CardView cv = new WinFormsCardView(g);
+		Game.paint(cv);
+	}
+
+	public static void Main(string[] args) 
+		{ Application.Run(new Solitaire()); }
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+The most important features of this case study:
+<ul>
+<li>The use of inheritance and overriding in the card piles:
+<ul>
+<li>Reduces code developement
+<li>Insures common behavior
+<li>Makes possible the polymorphic evaluation of draw and select
+</ul>
+<p><li>The way we have isolated the card data and the card view
+<ul>
+<li>An abstract class for views
+<li>An implementation of the abstract class for .new specific implementation
+</ul>
+<p><li>How we have isolated the .net specific interface from the rest
+of the application.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 18</h6>
+<hr>
+</body>
+</body>
+</html>

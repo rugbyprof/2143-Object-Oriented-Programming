@@ -1,0 +1,35 @@
+<html>
+<head><title>Chapter 17, Slide 07</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 17: The Polymorphic Variable :
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap17/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<p>
+<h1>Downcast (Reverse Polymorpism)</h1>
+<font size=+2>
+It is sometimes necessary to undo the assignment to a polymorphic variable.
+<br>
+That is, to determine the variables true dynamic value, and assign it
+to a variable of the appropriate type.
+<p>
+This process is termed <i>down casting</i>, or, since it is undoing the
+polymorphic assignment, <i>reverse polymorphism</i>.
+<p>
+Various different syntaxs are used for this, see the book.
+<pre>
+Parent aVariable = ...;
+Child aCard;
+if (aVariable instanceof Child)
+	aChild = (Child) aVariable;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 07</h6>
+<hr>
+</body>
+</html>

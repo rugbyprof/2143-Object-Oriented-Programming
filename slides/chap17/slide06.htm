@@ -1,0 +1,39 @@
+<html>
+<head><title>Chapter 17, Slide 06</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 17: The Polymorphic Variable :
+<td bgcolor=#FCCF97><a href="slide07.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide05.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide06.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap17/slide06.ram">real</a>
+<td bgcolor=#FCCF97><a href="text06.htm" target=text>text</a>
+</table>
+<p>
+<h1>Self and Super</h1>
+<font size=+2>
+In Java and Smalltalk there is another pseudo-variable, named <b>super</b>.
+<p>
+Super is like <b>self</b>, only when a message is given to <b>super</b>
+it looks for the method in the parent class of the current class.
+<pre>
+class Parent {
+	void exampleOne () {
+		System.out.println("In parent method"); 
+	}
+}
+
+class Child extends Parent {
+	void exampleOne () {
+		System.out.println("In child method");
+		super.exampleOne();
+	}
+}
+</pre>
+Variable is called <b>base</b> in C#.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 06</h6>
+<hr>
+</body>
+</html>

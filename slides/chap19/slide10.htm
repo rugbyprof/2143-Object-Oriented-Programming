@@ -1,0 +1,33 @@
+<html>
+<head><title>Chapter 19, Slide 10</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 19: Container Classes :
+<td bgcolor=#FCCF97><a href="slide11.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide09.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide10.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap19/slide10.ram">real</a>
+<td bgcolor=#FCCF97><a href="text10.htm" target=text>text</a>
+</table>
+<p>
+<h1>An Example, Java Window Events</h1>
+<font size=+2>
+A good example is the way that window events are handled in Java.
+Each window maintains a list of listeners, each listener must implement
+a fixed interface (<b>WindowListener</b>).
+<pre>
+public class CloseQuit extends WindowAdapter {
+		// execute when the user clicks in the close box
+	public void windowClosing (WindowEvent e) {
+		System.exit(0); // halt the program
+	}
+}
+</pre>
+When an event occurs the window simply runs down the list of listener,
+invoking the appropriate method in each.  No downcasting required.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 10</h6>
+<hr>
+</body>
+</html>

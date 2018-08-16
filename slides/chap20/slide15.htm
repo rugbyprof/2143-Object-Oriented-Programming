@@ -1,0 +1,48 @@
+<html>
+<head><title>Chapter 20, Slide 15</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 20: The STL :
+<td bgcolor=#FCCF97><a href="slide16.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide14.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide15.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap20/slide15.ram">real</a>
+<td bgcolor=#FCCF97><a href="text15.htm" target=text>text</a>
+</table>
+<p>
+<h1>Maps, indexed data structures</h1>
+<font size=+2>
+<pre>
+typedef map&lt;string, int&gt; stringVector;
+typedef map&lt;string, stringVector&gt; graph;
+
+string pendleton("Pendleton");
+string pensacola("Pensacola");
+string peoria("Peoria");
+string phoenix("Phoenix");
+string pierre("Pierre");
+string pittsburgh("Pittsburgh");
+string princeton("Princeton");
+string pueblo("Pueblo");
+
+graph cityMap;
+
+cityMap[pendleton][phoenix] = 4;
+cityMap[pendleton][pueblo] = 8;
+cityMap[pensacola][phoenix] = 5;
+cityMap[peoria][pittsburgh] = 5;
+cityMap[peoria][pueblo] = 3;
+cityMap[phoenix][peoria] = 4;
+cityMap[phoenix][pittsburgh] = 10;
+cityMap[phoenix][pueblo] = 3;
+cityMap[pierre][pendleton] = 2;
+cityMap[pittsburgh][pensacola] = 4;
+cityMap[princeton][pittsburgh] = 2;
+cityMap[pueblo][pierre] = 3;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 15</h6>
+<hr>
+</body>
+</html>

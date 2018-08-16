@@ -1,0 +1,37 @@
+<html>
+<head><title>Chapter 11, Slide 08</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 11: Static and Dynamic Behavior:
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap11/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<p>
+<h1>Reverse Polymorphism</h1>
+<font size=+2>
+<P>
+Polymorphism says we can assign a value from a child class to an instance of 
+the parent class, but can this assignment then be reversed?  Under what 
+conditions?
+<P>
+<pre>
+var
+	pet : Mammal;
+	fido : Dog;
+	felice : Cat;
+begin
+	pet := fido;	// legal
+	fido := pet;	// is this legal? 
+end;
+</pre>
+<br>
+This is known as the problem of <EM>reverse polymorphism</EM>.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 11</a>, Slide 08</h6>
+<hr>
+</body>
+</html>

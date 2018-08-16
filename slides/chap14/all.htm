@@ -1,0 +1,214 @@
+<html>
+<head><title>Chapter 14, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 14</h1>
+<h1 ALIGN=center>Polymorphism and Software Reuse</h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap </a>
+<li><a href="slide02.htm"> Definition of Polymorphic </a>
+<li><a href="slide03.htm"> Major Forms of Polymorphism in Object Oriented Languages </a>
+<li><a href="slide04.htm"> Two Approaches to Software Reuse </a>
+<li><a href="slide05.htm"> Example -- Building Sets from Lists </a>
+<ol>
+<li><a href="slide06.htm"> Using Inheritance </a>
+<li><a href="slide07.htm"> Using Composition </a>
+</ol>
+<li><a href="slide08.htm"> Advantages and Disadvantages of Each Mechanism </a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter and the four that follow we will start to investigate
+polymorphism, as it is found in many forms in object-oriented languages.
+<p>
+In this chapter we will outline the four major types of polymorphism,
+then explore them in more detail in the later chapters.
+<p>
+The different mechanisms each have the same goal of encouraging
+software reuse, facilitating ease of understanding and speeding
+application development.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Definition of Polymorphic</h1>
+<b>Polymorphous</b>: Having, or assuming, various forms, characters, or styles.
+<p>
+From greek routes, poly = many, and Morphos = form (Morphus was the greek 
+god of sleep, who could assume many forms, and from which we derive the
+name Morphine, among other things).
+<p>
+A polymorphic compound can crystalize in many forms, such as carbon, which can 
+be graphite, diamonds, or fullerenes.
+<p>
+In programming languages, used for a variety of different mechanisms.
+</font>
+<p>
+Usage of the term is confused by the fact that it means something
+slightly different in the functional programming community than it
+does in the OO world.)
+<br>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Major Forms of Polymorphism in Object Oriented Languages</h1>
+There are four major forms of polymorphism in object-oriented languages:
+<ul>
+<li>Overloading (ad hoc polymorphism) -- one name that refers to 
+two or more different implementations. 
+<p><li>Overriding (inclusion polymorphism) -- A child class 
+redefining a method inherited from a
+parent class.
+<p><li>The Polymorphic Variable (assignment polymorphism) -- A 
+variable that can hold different 
+types of values during the course of execution.  It is called Pure Polymorphism
+when a polymorphic variable is used as a parameter.
+<p><li>Generics (or Templates) -- A way of creating general tools or classes
+by parameterizing on types.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>Two Approaches to Software Reuse</h1>
+One of the major goals of OOP is software reuse.
+We can illustrate this by considering two different approaches to
+reuse:
+<ul>
+<li>Inheritance -- the <i>is-a</i> relationship.
+<p><li>Composition -- the <i>has-a</i> relationship.
+</ul>
+We do this by considering an example problem that could use either
+mechanism.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1> Example - Building Sets from Lists </h1>
+<P>
+Suppose we have already a <B>List</B> data type with the following behavior:
+<P>
+Want to build the Set data type (elements are unique).
+<pre>
+class List {
+public:
+	void add (int);
+	int  includes (int);
+	void remove (int);
+	int firstElement ();
+};
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1> Using Inheritance </h1>
+<P>
+Only need specify what is <EM>new</EM> - the addition method.
+Everything else is given for free.
+<pre>
+class Set : public List { 
+public: 
+	void add(int);
+};
+
+void Set::add(int x) 
+{
+	if (! includes(x)) // only include if not already there
+		List::add(x);
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1> Using Composition </h1>
+<P>
+Everything must be redefined, but implementation can make use of the 
+list data structure.
+</font>
+<table><tr><td><pre>
+class Set {
+public:
+	void add(int);
+	int  includes(int);
+	void remove(int);
+	int firstElement();
+private:
+	List data;
+};
+</font>
+</pre><td><pre>
+	void Set::add (int x)
+	{
+		if (! data.includes(x))
+			data.add(x);
+	}
+
+	int Set::includes (int x)
+		{ return data.includes(x); }
+
+	void Set::remove (int x)
+		{ data.remove(x); }
+
+	int Set::firstElement ()
+		{ return data.firstElement(); }
+</font>
+</pre></table>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1> Advantages and Disadvantages of Each Mechanism </h1>
+<P><UL>
+<LI>
+Composition is simpler, and clearly indicates what operations
+are provided.
+<p>
+<li>
+Inheritance makes for shorter code, possibly increased functionality,
+but makes it more difficult to understand what behavior is being
+provided.
+<p>
+<li>
+Inheritance may open to the door for unintended usage, by means
+of unintended inheritance of behavior.
+<p>
+<li>
+Easier to change underlying details using composition (i.e., change
+the data representation).
+<p>
+<li>
+Inheritance may permit polymorphism
+<p>
+<li>
+Understandability is a toss-up, each has different complexity issues
+(size versus inheritance tree depth)
+<p>
+<li>
+Very small execution time advantage for inheritance
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Slide 08</h6>
+<hr>
+</body>
+</body>
+</html>

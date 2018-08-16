@@ -1,0 +1,36 @@
+<html>
+<head><title>Chapter 1, Slide 21</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 1: Thinking Object-Oriented :
+<td bgcolor=#FCCF97><a href="slide22.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide20.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide21.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap01/slide21.ram">real</a>
+<td bgcolor=#FCCF97><a href="text21.htm" target=text>text</a>
+</table>
+<p>
+<h1>Different Receivers, Same Message, Different Actions</h1>
+<font size=+2>
+<p>
+<pre>
+
+var
+	Fred : Florist;
+	Elizabeth : Friend;
+	Ken : Dentist;
+
+begin
+	Fred.sendFlowersTo(myFriend);  { will work }
+	Elizabeth.sendFlowersTo(myFriend); { will also work }
+	Ken.sendFlowersTo(myFriend); { will probably not work }
+end;
+
+</pre>
+The same message will result in different actions, depending upon who
+it is given to.
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 21</h6>
+<hr>
+</body>
+</html>

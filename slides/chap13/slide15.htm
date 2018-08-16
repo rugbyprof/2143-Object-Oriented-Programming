@@ -1,0 +1,35 @@
+<html>
+<head><title>Chapter 13, Slide 15</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 13: Multiple Inheritance:
+<td bgcolor=#FCCF97><a href="slide16.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide14.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide15.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap13/slide15.ram">real</a>
+<td bgcolor=#FCCF97><a href="text15.htm" target=text>text</a>
+</table>
+<p>
+<h1>Inner Classes</h1>
+<font size=+2>
+The ability to next classes in C++ and Java provides a mechanism that 
+is nearly equivalent to multiple inheritance, without the semantic problems.
+<pre>
+class Child extends ParentOne {
+	...
+	class InnerChild extends ParentTwo {
+		...
+		// can access both parents
+	}
+}
+</pre>
+Within the inner class you can access methods from both parent classes.
+This idiom is used a lot in Java.  Solves many problems that
+would otherwise be addressed using MI.
+Not exactly equivalent to MI, but very close.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 15</h6>
+<hr>
+</body>
+</html>

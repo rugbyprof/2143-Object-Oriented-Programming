@@ -1,0 +1,64 @@
+<html>
+<head><title>Chapter 7, Slide 6</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 7: A Billiards Game:
+<td bgcolor=#FCCF97><a href="slide07.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide05.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide06.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap07/slide06.ram">real</a>
+<td bgcolor=#FCCF97><a href="text06.htm" target=text>text</a>
+</table>
+<br>
+<h1>Objects can be Hit</h1>
+<font size=+2>
+<pre>
+procedure TWall.hitBy (aBall : TBall);
+begin
+		{ bounce the ball off the wall }
+	aBall.direction := convertFactor - aBall.direction;
+end;
+
+procedure THole.hitBy (aBall : TBall);
+begin
+		{ drain enery from ball }
+	aBall.energy := 0.0;
+
+		{ move ball }
+	if aBall = CueBall then
+		aBall.setCenter(50, 100)
+	else begin
+		saveRack := saveRack + 1;
+		aBall.setCenter (10 + saveRack * 15, 250);
+	end;
+end;
+
+procedure TBall.hitBy (aBall : TBall);
+var
+	da : real;
+begin
+		{ cut the energy of the hitting ball in half }
+	aBall.energy := aBall.energy / 2.0;
+
+		{ and add it to our own }
+	energy := energy + aBall.energy;
+
+		{ set our new direction }
+	direction := hitAngle(self.x - aBall.x, self.y - aBall.y);
+
+		{ and set the hitting balls direction }
+	da := aBall.direction - direction;
+	aBall.direction := aBall.direction + da;
+	
+		{ continue our update }
+	update;
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 6</h6>
+<hr>
+</body>
+</html>
+
+

@@ -1,0 +1,32 @@
+<html>
+<head><title>Chapter 27, Slide 10</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 27: Implementation :
+<td bgcolor=#FCCF97><a href="slide11.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide09.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide10.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap27/slide10.ram">real</a>
+<td bgcolor=#FCCF97><a href="text10.htm" target=text>text</a>
+</table>
+<p>
+<h1>Overridden Methods</h1>
+<font size=+2>
+We next consider those methods that are defined in a parent class,
+and overridden in a child class.
+<p>
+Problem, how can a polymorphic method invocation find the right method?
+Note that the right method can change during the course of execution,
+even for the same method call.
+<pre>
+CardPile * aCardPile = new DiscardPile();
+Card * aCard = ... ;
+
+aCardPile->addCard (aCard); // how to find the right method
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 10</h6>
+<hr>
+</body>
+</html>

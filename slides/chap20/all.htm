@@ -1,0 +1,444 @@
+<html>
+<head><title>Chapter 20, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 20</h1>
+<h1 ALIGN=center>The STL </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> What is the STL?</a>
+<li><a href="slide02.htm"> Generic Algorithms versus Encapsulation</a>
+<li><a href="slide03.htm"> Iterators</a>
+<ol>
+<li><a href="slide04.htm"> How do you describe a range of values</a>
+<li><a href="slide05.htm"> Begin and End</a>
+<li><a href="slide06.htm"> What must iterators do</a>
+<li><a href="slide07.htm"> Iterator Operations</a>
+</ol>
+<li><a href="slide08.htm"> Function Objects</a>
+<ol>
+<li><a href="slide09.htm"> Why do this?</a>
+</ol>
+<li><a href="slide10.htm"> Example Program-Inventory System</a>
+<ol>
+<li><a href="slide11.htm"> Inventory</a>
+<li><a href="slide12.htm"> Item Arrives in Shipment</a>
+<li><a href="slide13.htm"> Item Arrives on Order</a>
+<li><a href="slide14.htm"> Function Objects</a>
+</ol>
+<li><a href="slide15.htm"> Maps, indexed data structures</a>
+<ol>
+<li><a href="slide16.htm"> The Graph Being Represented</a>
+<li><a href="slide17.htm"> Representing a Distance</a>
+<li><a href="slide18.htm"> Shortest Path Algorithm</a>
+</ol>
+<li><a href="slide19.htm"> The Future of OOP</a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>What is the STL?</h1>
+<P><UL>
+<LI>
+The STL is a rich collection of standard data structures, recently 
+added to C++
+<p>
+<LI>
+Will elevate data structures to the level of, say, the I/O stream package
+(i.e., something taken for granted)
+<p>
+<LI>
+In many ways, is an anti-object-oriented design, yet it is powerful and
+it works.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Generic Algorithms versus Encapsulation</h1>
+<P>
+Object-Oriented programming holds <EM>encapsulation</EM> as an ideal, bundling
+all actions in one place.  Can make for ``fat'' classes.
+<P>
+The STL separates data structures and algorithms.  The data structures 
+are relatively small.  The algorithms are many.  Can be mixed and matched.
+<P>
+Allows for a much smaller class library.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Iterators</h1>
+<P><UL>
+<LI>
+Basic problem - how do you allow access to elements of collection,
+without knowing how the collection is organized?
+<p>
+<LI>
+Solution, define a new data type specifically for creating loops
+<p>
+<LI>
+A large number of algorithms are provided by the standard library,
+all built using iterators.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>How do you describe a range of values</h1>
+<P><UL>
+<LI>
+Notice how a range of values is often described by a starting value
+and a <EM>past-the-end</EM> value.
+<p>
+<LI>
+The past the end value is not part of the collection, but just a marker.
+</UL>
+<p>
+<img src="slide04.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Begin and End</h1>
+<P>
+By convention, containers return a starting value in response
+to <TT>begin()</TT>, and a past-the-end value in response to <TT>end()</TT>.
+<P>
+For example, to shuffle a vector of values:
+<pre>
+	random_shuffle
+		(aVector.begin(), aVector.end(), randomInteger);
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>What must iterators do</h1>
+<P>
+To see what iterators must do, consider a typical algorithm:
+<pre>
+	template &lt;class T&gt;
+	iterator find 
+		(iterator first, iterator last, T & value)
+	{
+		while (first != last && *first != value) ++first;
+		return first;
+	}
+
+</pre>
+<P>
+Could be used to find values in an array, or in a list:
+<pre>
+int data[100];
+	...
+int * where = find(data, data+100, 7);
+list&lt;int&gt;::iterator where = find(aList.begin(), aList.end(), 7);
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Iterator Operations</h1>
+<P><UL>
+<LI>
+An iterator can be compared for equality to another iterator.  They are equal when they point to the same position, and are otherwise not equal.
+<p>
+<LI>
+An iterator can be dereferenced using the * operator, 
+to obtain the value being denoted by the iterator.
+Depending upon the type of iterator and variety of underlying container,
+this value can also sometimes be used as the target of an assignment in 
+order to change the value being held by the container.
+<p>
+<LI>
+An iterator can be incremented, so that it refers to the next element in sequence, using the operator <TT>++</TT>.
+</UL>
+<P>
+What makes iterators possible is that all of these can be overloaded.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Function Objects</h1>
+<P>
+In C++ even the function call operator (parenthesis operator) can be 
+overloaded.  Allows for creation of objects that can be used like
+functions.
+<pre>
+class biggerThanThree {
+	public:
+		bool operator () (int v)
+			{ return v > 3; }
+};
+</pre>
+<P>
+Can be used to find the first value bigger than 3, for example.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Why do this?</h1>
+<P>
+Objects can take arguments computed at run-time, specialize functions in
+a way that simple functions cannot:
+<pre>
+	class biggerThan {
+	public:
+		biggerThan (int x) : testValue(x) { }
+		const int testValue;
+		bool operator () (int val)
+			{ return val > testValue; }
+	};
+
+	list&lt;int&gt;::iterator firstBig =
+		find_if (aList.begin(), aList.end(), biggerThan(12));
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 09</h6>
+<br>
+In functional languages, this kind of object is sometimes known as a <i>curry</i>.
+<hr>
+</body>
+<p>
+<h1>Example Program-Inventory System</h1>
+<P>
+A business, <EM>WorldWideWidgetWorks</EM>, manufactures widgets.
+<pre>
+class  Widget {
+public:
+		// constructors
+	Widget () : id_number (0) { }
+	Widget (int a) : id(a) { }
+		// operations
+	int id () { return id_number; }
+	void operator =  (Widget & rhs) 
+		{ id_number = rhs.id_number; }
+	bool operator == (Widget & rhs) 
+		{ id_number == rhs.id_number; }
+	bool operator <  (Widget & rhs) 
+		{ id_number < rhs.id_number; }
+protected:
+	int id_number;	// widget identification number
+};
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Inventory</h1>
+<P>
+Inventory is two lists - items on hand, items on back order.
+<pre>
+class inventory {
+public:
+		// process order for widget type wid
+	void order (int wid);	
+
+		// receive widget of type wid 
+		// in shipment
+	void receive (int wid);	
+
+protected:
+	list &lt;Widget&gt; on_hand;
+	list &lt;int&gt; on_order;
+};
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Item Arrives in Shipment</h1>
+<pre>
+void inventory::receive (int wid)
+	// process a widget received in shipment
+{ 	cout << "Received shipment of widget type " << wid << endl;
+
+	list&lt;int&gt;::iterator we_need = 
+			find (on_order.begin(), on_order.end(), wid); 
+
+	if (we_need != on_order.end()) {
+		cout << "Ship " << Widget(wid) << " to fill back order" << endl;
+		on_order.erase(we_need);
+		}
+	else
+		on_hand.push_front(Widget(wid));
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Item Arrives on Order</h1>
+<pre>
+void inventory::order (int wid)
+	// process an order for a widget with given id number
+{	 cout << "Received order for widget type " << wid << endl;
+
+	list&lt;Widget&gt;::iterator we_have = 
+		find_if(on_hand.begin(), on_hand.end(), WidgetTester(wid));
+
+	if (we_have != on_hand.end()) {
+		cout << "Ship " << *wehave << endl;
+		on_hand.erase(we_have);
+		}
+	else {
+		cout << "Back order widget of type "  << wid  << endl;
+		on_order.push_front(wid);
+		}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Function Objects</h1>
+<P>
+Created like an instance of a class, works like a function.
+<pre>
+class WidgetTester {
+public:
+	WidgetTester (int id) : test_id(id) { }
+	int test_id;
+
+		// define the function call operator
+	bool operator () (Widget & wid)
+		{ return wid.id() == test_id; }
+};
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>Maps, indexed data structures</h1>
+<pre>
+typedef map&lt;string, int&gt; stringVector;
+typedef map&lt;string, stringVector&gt; graph;
+
+string pendleton("Pendleton");
+string pensacola("Pensacola");
+string peoria("Peoria");
+string phoenix("Phoenix");
+string pierre("Pierre");
+string pittsburgh("Pittsburgh");
+string princeton("Princeton");
+string pueblo("Pueblo");
+
+graph cityMap;
+
+cityMap[pendleton][phoenix] = 4;
+cityMap[pendleton][pueblo] = 8;
+cityMap[pensacola][phoenix] = 5;
+cityMap[peoria][pittsburgh] = 5;
+cityMap[peoria][pueblo] = 3;
+cityMap[phoenix][peoria] = 4;
+cityMap[phoenix][pittsburgh] = 10;
+cityMap[phoenix][pueblo] = 3;
+cityMap[pierre][pendleton] = 2;
+cityMap[pittsburgh][pensacola] = 4;
+cityMap[princeton][pittsburgh] = 2;
+cityMap[pueblo][pierre] = 3;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>The Graph Being Represented</h1>
+<img src="slide16.gif">
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 16</h6>
+<hr>
+</body>
+<p>
+<h1>Representing a Distance</h1>
+<pre>
+struct DistancePair {
+	unsigned int first;
+	string second;
+	DistancePair() : first(0) { }
+	DistancePair(unsigned int f, string & s)
+		: first(f), second(s) { }
+};
+
+bool operator < (DistancePair & lhs, DistancePair & rhs)
+	{ return lhs.first < rhs.first; }
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>Shortest Path Algorithm</h1>
+<pre>
+void shortestDistance(const graph & cityMap, 
+		const string & start, stringVector & distances)
+{
+	// process a priority queue of distances to cities
+	priority_queue&lt;DistancePair, vector&lt;DistancePair&gt; ,
+		greater&lt;DistancePair&gt; &gt; que;
+	que.push(DistancePair(0, start));
+	
+	while (! que.empty()) {
+			// pull nearest city from queue
+		int distance = que.top().first;
+		string city = que.top().second;
+		que.pop();
+			// if we haven't seen it already, process it
+		if (0 == distances.count(city)) {
+				// then add it to shortest distance map
+			distances[city] = distance;
+				// and put values into queue
+			stringVector::iterator start, stop;
+			start = cityMap[city].begin();
+			stop = cityMap[city].end();
+			for (; start != stop; ++start) 
+				que.push(DistancePair(distance + (*start).second, 
+						(*start).first));	
+			}
+		}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 18</h6>
+<hr>
+</body>
+<p>
+<h1>The Future of OOP</h1>
+<P>
+Given that the STL is not OO, does this mean that OOP is dead?
+<P>
+No, only that inspiration can come from a number of sources, and not
+all problems are best solved in an OOP fashion.
+<P>
+However, many problems ARE best approached in an OOP manner.
+<P>
+Bottom line - know as much as you can about as many styles of programming
+as you can, and use the style most appropriate to the problem.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 19</h6>
+<hr>
+</body>
+</body>
+</html>

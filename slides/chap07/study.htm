@@ -1,0 +1,73 @@
+<html>
+<title>Introduction to OOP -- Timothy Budd -- Chapter 6 Study Guide</title>
+<body>
+
+
+<h2>An Introduction to Object-Oriented Programming</h2>
+<h3>By Timothy Budd</h3>
+<h2>Study Guide for Chapter 6</h2>
+<hr>
+<h2>Learning Objectives</h2>
+After reading this chapter, you should be able to:
+<ul>
+<li>
+Explain how the objects themselves can control the flow of execution in
+an object-oriented simulation.
+</ul>
+<p>
+Note that there are few new technical ideas presented in this chapter.
+Rather, the intent of the case study is to simply illustrate once again how
+it is possible to structure a computer program in such a way that the flow
+of execution is controlled and directed by a set of interacting software
+components.
+
+<hr>
+<h2>Study Questions</h2>
+
+You may wish to use the <b>print</b> or <b>save as</b> command 
+on your web browser to produce a copy of this study guide.  
+That way you can fill in the answers to the questions as part of 
+your assimilating the information you learn in this chapter.
+<ol>
+<li>
+Give some examples of how the design makes holes, walls, and balls
+responsible for their own behavior.
+<p>
+<li>
+By making each graphical object into a separate class, and making each
+responsible for a different aspect of behavior, the object-oriented
+design is able to support a great deal of information hiding.
+This, in turn, leads to programs which are consierably easier to modify
+than when conventional techniques are used.
+To illustrate this, explain what sections of code would need to be modifed
+to produce each of the following changes:
+<p>
+<ul>
+<li>Colored balls, rather than black and white.
+<p>
+<li>Walls which absorb a bit of energy when they reflect a ball.
+<p>
+<li>Holes which make a sound when they absorb a ball.
+<p>
+<li>Balls which make a sound when they strike.
+</ul>
+<p>
+<li>
+Once you have learned about inheritance (next chapter) you may wish to
+return to this case study.  We could have made the classes Hole, Wall
+and Ball all subclasses of a common parent class, say
+<b>GraphicalObject</b>.  We could then have factored out the common link
+and region fields into the parent class, as well as some of the common
+methods.  Finally, doing so would have permitted us to maintain a single
+common list of graphical objects, rather than separate lists for walls,
+balls and holes.  Explain how this would then have simplified some of the
+methods in this application.
+</ol>
+
+<hr>
+<address>
+Contents copyright 
+Timothy <a href="http://www.cs.orst.edu/~budd/">Budd</a>, 1995.
+</address>
+</body>
+</html>

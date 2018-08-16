@@ -1,0 +1,45 @@
+<html>
+<head><title>Chapter 21, Slide 17</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 21: Software Frameworks :
+<td bgcolor=#FCCF97><a href="slide18.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide16.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide17.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap21/slide17.ram">real</a>
+<td bgcolor=#FCCF97><a href="text17.htm" target=text>text</a>
+</table>
+<p>
+<h1>The Simulation Class</h1>
+<font size=+2>
+<pre>
+class Simulation {
+public:
+	Simulation () : eventQueue(), currentTime(0) { }
+
+	void scheduleEvent (event * newEvent) { eventQueue.push (newEvent); }
+	void run();
+	unsigned int currentTime;
+protected:
+	priority_queue&lt;vector<event *>, eventComparison> eventQueue;
+};
+
+void Simulation::run() {
+	// execute events until event queue becomes empty
+	while (! eventQueue.empty()) {
+		event * nextEvent = eventQueue.top();
+		eventQueue.pop();
+		time = nextEvent->time;
+		nextEvent->processEvent();
+		delete nextEvent;
+	}
+}
+</pre>
+The book continues with the development of a simulation based on
+this framework.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 17</h6>
+<hr>
+</body>
+</html>

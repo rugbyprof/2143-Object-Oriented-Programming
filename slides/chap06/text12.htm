@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Text for slide 13, Chapter 5 talk</title>
+</head>
+<body>
+<h1>The Last Queen</h1>
+<p>
+One issue we have not addressed in the pseudo-code descriptions of
+the algorithm is how to handle the leftmost queen, the queen that
+does not have any neighbor.   There are two broad solutions to
+this problem.
+<p>
+The first solution is to give this queen a null pointer.  This means
+each queen must always test this pointer value before sending any messages.
+<p>
+A second solution, in many ways a more object-oriented one, is to
+create a special sentinel value that indicates the end of the line for
+the list of queens.  This sentinel value responds to the same messages
+as the queens, but performs different actions (and, in particular, unlike
+the queens does not pass messages on to another object).
+<p>
+Both versions are described in the text.  We do not here in the slides
+go through the various solutions in detail.  However, you should at this
+point read chapter 5 and examine how this problem is solved in
+the different languages.
+
+<h6><a href="slide13.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap05/slide13.ram">[real]</a>
+ Text to accompany <a href="slide13.htm">slide13</a>,
+in <a href="slide1.htm">Chapter 5</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/2ndEdition/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>
+
+

@@ -1,0 +1,43 @@
+<html>
+<head><title>Chapter 7, Slide 5</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 7: A Billiards Game:
+<td bgcolor=#FCCF97><a href="slide06.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide04.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide05.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap07/slide05.ram">real</a>
+<td bgcolor=#FCCF97><a href="text05.htm" target=text>text</a>
+</table>
+<br>
+<h1>Graphical Objects can Draw themselves</h1>
+<font size=+2>
+<pre>
+
+procedure TWall.draw(canvas: TCanvas);
+begin
+        with canvas do begin
+                Brush.Style := bsSolid;
+                Brush.Color := clBlack;
+                fillRect(Rect(x, y, x + width, y + height));
+        end;
+end;
+
+procedure THole.draw(canvas : TCanvas);
+begin
+        with canvas do begin
+                Brush.Style := bsSolid;
+                Brush.Color := clBlack;
+                Ellipse(x-5, y-5, x+5, y+5);
+        end;
+end;
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 5</h6>
+<hr>
+</body>
+</html>
+
+

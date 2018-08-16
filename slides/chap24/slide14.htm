@@ -1,0 +1,44 @@
+<html>
+<head><title>Chapter 24, Slide 14</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 24: Design Patterns :
+<td bgcolor=#FCCF97><a href="slide15.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide13.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide14.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap24/slide14.ram">real</a>
+<td bgcolor=#FCCF97><a href="text14.htm" target=text>text</a>
+</table>
+<p>
+<h1>Double Dispatch (Multiple Polymorphism)</h1>
+<font size=+2>
+<b>Problem</b>: You have variation in two or more polymorphic variables.
+<p><b>Solution:</b> Make each a receiver in turn, each message ties down
+one source of variation.
+<p>Example, suppose we have a hierarchy of Shapes (Triangle, Square) and 
+Device (Printer, Terminal).  Two variables, one a Shape and one a Device.
+<p>
+First, pass a message to the device, passing the shape as argument:
+<pre>
+Shape aShape = ... ;
+Device aDevice = ...;
+
+aDevice.display(aShape);
+
+function Printer.display (Shape aShape)
+begin
+	aShape.displayOnPrinter (self);
+end;
+
+function Terminal.display (Shape aShape)
+begin
+	aShape.displayOnTerminal (self);
+end;
+</pre>
+One message fixes the device, but how to fix the shape?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 14</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head><title>Chapter 14, Slide 07</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 14: Polymorphism and Software Reuse:
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap14/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<p>
+<h1> Using Composition </h1>
+<font size=+2>
+<P>
+Everything must be redefined, but implementation can make use of the 
+list data structure.
+</font>
+<table><tr><td><pre>
+<font size=+2>
+class Set {
+public:
+	void add(int);
+	int  includes(int);
+	void remove(int);
+	int firstElement();
+private:
+	List data;
+};
+</font>
+</pre><td><pre>
+<font size=+2>
+	void Set::add (int x)
+	{
+		if (! data.includes(x))
+			data.add(x);
+	}
+
+	int Set::includes (int x)
+		{ return data.includes(x); }
+
+	void Set::remove (int x)
+		{ data.remove(x); }
+
+	int Set::firstElement ()
+		{ return data.firstElement(); }
+</font>
+</pre></table>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Slide 07</h6>
+<hr>
+</body>
+</html>

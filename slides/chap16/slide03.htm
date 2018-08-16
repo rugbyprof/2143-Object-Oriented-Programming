@@ -1,0 +1,35 @@
+<html>
+<head><title>Chapter 16, Slide 03</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 16: Overriding :
+<td bgcolor=#FCCF97><a href="slide04.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide02.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide03.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap16/slide03.ram">real</a>
+<td bgcolor=#FCCF97><a href="text03.htm" target=text>text</a>
+</table>
+<p>
+<h1>Overriding Comparisons in Smalltalk</h1>
+<font size=+2>
+An interesting example of overriding in found in class Magnitude in Smalltalk.
+<pre>
+<= arg
+	^ self < arg or: [ self = arg ]
+
+>= arg
+	^ arg <= self
+
+< arg
+	^ self <= arg and: [ self ~= arg ]
+
+> arg
+	^ arg < self
+</pre>
+Notice how these definitions are circular.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 03</h6>
+<hr>
+</body>
+</html>

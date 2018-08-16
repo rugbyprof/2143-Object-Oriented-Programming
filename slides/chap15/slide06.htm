@@ -1,0 +1,32 @@
+<html>
+<head><title>Chapter 15, Slide 06</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 15: Overloading :
+<td bgcolor=#FCCF97><a href="slide07.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide05.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide06.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap15/slide06.ram">real</a>
+<td bgcolor=#FCCF97><a href="text06.htm" target=text>text</a>
+</table>
+<p>
+<h1>Overloading Based on Type Signatures</h1>
+<font size=+2>
+A different type of overloading allows multiple implementations in the
+same scope to be resolved using type signatures.
+<pre>
+class Example {
+		// same name, three different methods
+	int sum (int a) { return a; }
+	int sum (int a, int b) { return a + b; }
+	int sum (int a, int b, int c) { return a + b + c; }
+}
+</pre>
+A type signature is the combination of argument types and return type.
+By looking at the signature of a call, can tell which version is intended.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 06</h6>
+<hr>
+</body>
+</html>

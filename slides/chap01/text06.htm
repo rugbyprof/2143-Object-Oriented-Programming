@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Text for slides, Chapter 1 talk</title>
+</head>
+<body>
+<h1>An Example from Computer Languages</h1>
+<p>
+Here is an example drawn from my own personal experience.
+Many years ago when I was a graduate student there was a fellow student
+who was pursuing a project in DNA research.  His particular problem had
+a very trivial statement.  A strand of DNA can be thought of as simply
+a very long sequence of four elements, which could be represented by the
+letters A, C, T and G.  His task was to see if any sequence of M values
+was repeated.  Here N, the number of elements in the DNA sequence, is
+hugely long but M, the size of the repeated sequence, was very small.
+<p>
+At the time FORTRAN was, and still is, considered the most ``efficient''
+computer language.  To find the repeated sequence the student therefore
+wrote a very short and direct FORTRAN program.  If you don't read
+FORTRAN don't worry, this program is simply the obvious triply nested
+loop, where the two outer loops control the starting point for a
+comparison search, and the third inner loops compares the next M elements.
+If the inner loop completes without finding any differences, then
+a matching sequence has been found.
+<p>
+The student tried the program on some small data sets and measured the
+time.  Extrapolating these measurements, the student then discovered that
+to run on the real data set would take several days.  At this time the
+mean time between failure of computers was measured in hours, so the
+depressed student determined that the likelihood of being able to run
+the program to completion was very small.
+<p>
+<h6><a href="slide06.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap01/slide06.ram">[real]</a>
+ Text to accompany <a href="slide06.htm">slide06</a>,
+in <a href="outline.htm">Chapter 1</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

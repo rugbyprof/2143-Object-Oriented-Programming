@@ -1,0 +1,61 @@
+<html>
+<head><title>Chapter 15, Slide 14</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 15: Overloading :
+<td bgcolor=#FCCF97><a href="slide15.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide13.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide14.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap15/slide14.ram">real</a>
+<td bgcolor=#FCCF97><a href="text14.htm" target=text>text</a>
+</table>
+<p>
+<h1>Arbitrary Number of Arguments in C#</h1>
+<font size=+2>
+The language C# has an interesting way to include arbitrary number of
+arguments:
+</font>
+<table><tr><td><pre>
+<font size=+2>
+class ParamsExample {
+	public void Write (int x) {
+		// use this with one argument
+		WriteString("Example one "); 
+		WriteString(x.ToString());
+	}
+
+	public void Write (double x, int y) {
+		// use this with two arguments
+		WriteString("Example two ");
+		WriteString(x.ToString()); 
+		WriteString(y.ToString());
+	}
+
+	public void Write (params object [ ] args) {
+		// use this with any other combination 
+		WriteString("Example three ");
+		for (int i = 0; i < args.GetLength(0); i++)
+			WriteString(args[i].ToString());
+	}
+}
+</font>
+</pre><td><pre>
+<font size=+2>
+	ParamsExample p;
+	p.Write(42);
+Example one 42
+	p.Write(3.14,159);
+Example two 3.14159
+	p.Write(1,2,3,4);
+Example three 1234
+	p.Write(3.14);
+Example three 3.14
+	p.Write(3,"abc");
+Example three 3abc
+</font>
+</pre></table>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 14</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Text for slides, Chapter 1 talk</title>
+</head>
+<body>
+<h1>A Better Solution</h1>
+<p>
+While despritately trying to save his thesis, the student encountered
+another student who was fluent in a different programming language.
+The language the second student used was APL, a language unfortunately
+not widely used any more.  However, the arguments comparing APL
+and FORTRAN given then mirror in a curious fashion the arguments 
+still heard in comparing Java and C++.  APL was an interpreted language,
+while FORTRAN was compiled.  For simple tasks APL had much slower execution,
+although development time was often much faster.  Thus, APL was often
+dismissed as a toy language, while FORTRAN was the language of choice
+for ``serious'' programmers.
+<p>
+Nevertheless, the APL programmer decided to try her hand at the problem.
+However, she approprached it from an entirely different persepective.
+Rather than thinking about the data as a single one-dimensional vector,
+she restructured the data into a two-dimensional matrix.  Each row
+of this matrix would have M elements.  The first row would have the
+first M values, the second would begin the M values that started at
+position 2 (note the overlap), and so on.
+<p>
+After constructing this matrix, the APL programmer then sorted the matrix
+by rows.  If any sequence was repeated, it would appear as two
+adjacent rows with the same values.  This was quite easy to detect.
+<p>
+The biggest surprize, however, lay in execution time.
+The new program, even though it was interpreted, ran in a fraction of the
+time required by the FORTRAN program.
+The thesis was saved, and the first student was thrilled.
+<p>
+<h6><a href="slide07.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap01/slide07.ram">[real]</a>
+ Text to accompany <a href="slide07.htm">slide07</a>,
+in <a href="outline.htm">Chapter 1</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

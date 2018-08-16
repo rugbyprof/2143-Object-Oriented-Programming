@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 20, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 20: The STL :
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap20/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>Why do this?</h1>
+<font size=+2>
+<P>
+Objects can take arguments computed at run-time, specialize functions in
+a way that simple functions cannot:
+<pre>
+	class biggerThan {
+	public:
+		biggerThan (int x) : testValue(x) { }
+		const int testValue;
+		bool operator () (int val)
+			{ return val > testValue; }
+	};
+
+	list&lt;int&gt;::iterator firstBig =
+		find_if (aList.begin(), aList.end(), biggerThan(12));
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 09</h6>
+<br>
+In functional languages, this kind of object is sometimes known as a <i>curry</i>.
+<hr>
+</body>
+</html>

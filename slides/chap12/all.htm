@@ -1,0 +1,483 @@
+<html>
+<head><title>Chapter 12, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 12</h1>
+<h1 ALIGN=center>Implications of Substitution</h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap </a>
+<li><a href="slide02.htm"> Idealization of the is-a Relationship </a>
+<li><a href="slide03.htm"> Memory Allocation - Stack and Heap Based </a>
+<li><a href="slide04.htm"> The Problem with Substitution </a>
+<li><a href="slide05.htm"> Memory Strategies </a>
+<ol>
+<li><a href="slide06.htm"> Minimum Static Space Allocation </a>
+<ol>
+<li><a href="slide07.htm"> Assigning a Larger Value to a Smaller Box </a>
+<li><a href="slide08.htm"> The Slicing Problem </a>
+<li><a href="slide09.htm"> Rules for Member Function Binding in C++ </a>
+<li><a href="slide10.htm"> Illustration </a>
+</ol>
+<li><a href="slide11.htm"> Maximum Static Space Allocation </a>
+<li><a href="slide12.htm"> Dynamic Memory Allocation </a>
+</ol>
+<li><a href="slide13.htm"> Meaning of Assignment </a>
+<ol>
+<li><a href="slide14.htm"> Copy Semantics versus Pointer Semantics </a>
+<li><a href="slide15.htm"> Problems with Pointer Semantics </a>
+</ol>
+<li><a href="slide16.htm"> An Old Joke Concerning Equality </a>
+<ol>
+<li><a href="slide17.htm"> Equality and Identity </a>
+<li><a href="slide18.htm"> Paradoxes of Equality, Part 1 </a>
+<li><a href="slide19.htm"> Paradoxes of Equality, Part 2 </a>
+<li><a href="slide20.htm"> Paradoxes of Equality, Part 3 </a>
+</ol>
+<li><a href="slide21.htm"> Chapter Summary </a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter we will investigate some of the implications of
+the principle of substitution in statically typed object-oriented
+programming languages.  In particular, we will consider:
+<ul>
+<li>The impact on memory management
+<p><li>The meaning of assignment
+<p><li>The distinction between testing for identity and testing for equality
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Idealization of <EM>is-a</EM> Relationship</h1>
+<P><UL>
+<LI>
+A <B>TextWindow</B> <EM>is-a</EM> <B>Window</B>
+<p>
+<LI>
+Because <B>TextWindow</B> is subclassed from <B>Window</B>, all behavior 
+associated with <B>Windows</B> is also manifest by instances of <B>TextWindow</B>.
+<p>
+<LI>
+Therefore, a variable declared as maintaining an instance of <B>Window</B>
+should be able to hold a value of type <B>TextWindow</B>.
+</UL>
+<P>
+Unfortunately, practical programming language implementation issues complicate
+this idealized picture.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Memory Allocation - Stack and Heap Based</h1>
+<P>
+Generally, programming languages use two different techniques for allocation
+of memory.
+<P><UL>
+<LI>
+<B>Stack</B>-based allocation.  Amount of space required is determined at
+compile time, based on static types of variables.  
+Memory allocation and release is tied to procedure entry/exit.
+Can be performed very efficiently.
+<p>
+<LI>
+<B>Heap</B>-based allocation.  Amount of space used can be determined at
+run-time, based upon dynamic considerations.
+Memory allocation and release is not tied to procedure entry/exit,
+and either must be handled by user or by a run-time library (garbage 
+collection).  Generally considered to be somewhat less efficient.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>The Problem with Substitution</h1>
+<table><tr><td><pre>
+class Window {
+public:
+	virtual void oops();
+private:
+	int height;
+	int width;
+};
+
+class TextWindow : public Window {
+public:
+	virtual void oops();
+private:
+	char * contents;
+	int cursorLocation;
+};
+</font>
+</pre><td><pre>
+	Window x; // how much space to set aside?
+	TextWindow y;
+	x = y; // what should happen here?
+
+
+
+
+
+
+
+
+
+</font>
+</pre></table>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Memory Strategies</h1>
+<P>
+How much memory should be set aside for the variable <TT>x</TT> ?
+<P><DL COMPACT>
+<DT>1.
+<DD>(<B>Minimum Static Space Allocation</B>)
+Allocate the amount of space necessary for the base class only.
+(C++)
+<p>
+<DT>2.
+<DD>(<B>Maximum Static Space Allocation</B>)
+Allocate the amount of space for the largest subclass.
+<p>
+<DT>3.
+<DD>(<B>Dynamic Space Allocation</B>)
+Allocate for x only the amount of space required to hold a pointer.
+(Smalltalk, Java)
+</DL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Minimum Static Space Allocation</h1>
+<P>
+The language C++ uses the minimum static space allocation approach.
+<P>
+This is very efficient, but leads to some subtle difficulties.
+<P>
+What happens in the following assignment?
+<pre>
+Window x;
+TextWindow y;
+
+x = y;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Assigning a Larger Value to a Smaller Box</h1>
+<IMG SRC="slide07.gif">
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>The Slicing Problem</h1>
+<P>
+The problem is you are trying to take a large box and squeeze it into a 
+small space.  Clearly this won't work.  Thus, the extra fields are simply
+sliced off.
+<P><B>Question</B> - Does this matter?
+<P><B>Answer</B> - Only if somebody notices.
+<P><B>Solution</B> - Design the language to make it difficult to notice.
+</font>
+<IMG SRC="slide08.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Rules for Member Function Binding in C++</h1>
+<P>
+The rules for deciding what member function to execute are complicated
+because of the slicing problem.
+<P><DL COMPACT>
+<DT>1.
+<DD>With variables that are declared normally, the binding of member function
+name to function body is based on the static type of the argument 
+(regardless whether the function is declared virtual or not).
+<p>
+<DT>2.
+<DD>With variables that are declared as references or pointers, the
+binding of the member function name to function body is based on
+the dynamic type if the function is declared as virtual, and the static
+type if not.
+</DL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Illustration</h1>
+<pre>
+void Window::oops()
+{	printf("Window oops\n"); }
+
+void TextWindow::oops()
+{	printf("TextWindow oops %d\n", cursorLocation);
+
+TextWindow x;
+
+Window a;
+Window * b;
+TextWindow * c;
+
+a = x;	a.oops();	// executes Window version
+b =  &x; b->oops();	// executes TextWindow or Window version;
+c = &x; c->oops();	// executes TextWindow version
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Maximum Static Space Allocation</h1>
+<P>
+A different approach would be to allocate the Maximum amount of space
+you would ever need.
+<P><UL>
+<LI>
+Would nicely solve the slicing problem.
+<p>
+<LI>
+Would often allocate unused space.
+<p>
+<LI>
+Maximum amount of space not known until all classes have been seen.
+<p>
+<LI>
+For this reason, not used in practice.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Dynamic Memory Allocation</h1>
+<P><UL>
+<LI>
+In the third approach, all objects are actually pointers.
+<p>
+<LI>
+Only enough space for a pointer is allocated at compile time.
+<p>
+<LI>
+Actual data storage is allocated on the heap at run-time.
+<p>
+<LI>
+Used in Smalltalk, Object Pascal, and Objective-C, Java.
+<p>
+<LI>
+Requires user to explicitly allocate new objects and, in some languages,
+explicitly free no longer used storage.
+<p>
+<LI>
+May also lead to pointer semantics for assignment and equality testing.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Meaning of Assignment?</h1>
+What does it mean whan an instance of a class is assigned to another variable?
+<pre>
+class Box {
+	public int value;
+}
+
+Box x = new Box();
+x.value = 7;
+Box y = x;
+y.value = 12;  // what is x.value?
+</pre>
+Two possibilities:
+<ul>
+<li>Copy semantics.  x and y are independent of each other, a change in one
+has no effect on the other.
+<p><li>Pointer semantcs.  x and y refer to the same object, and hence
+a change in one will alter the other.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Copy Semantics versus Pointer Semantics</h1>
+<P>
+If a value is indirectly accessed through a pointer, when an assignment
+is performed (or equality test is made) is the quantity assigned
+simply the pointer or is it the actual value?
+<p>
+<IMG SRC="slide14.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>Problems with Pointer Semantics</h1>
+<P><UL>
+<LI>
+If x is assigned to y and then changes are made to x, are these changes
+reflected in y?
+<p>
+<LI>
+If x is explicitly freed, what happens if the user tries to access 
+memory through y?
+<p>
+<LI>
+In C++, programmer can make assignment (equality testing) mean anything
+they want.
+<p>
+<LI>
+Object Pascal, Java uses pointer semantics, no built-in provision for 
+copies.
+<p>
+<LI>
+Smalltalk and Objective-C use pointer semantics, have several techniques 
+for making copies.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>An Old Joke Concerning Equality</h1>
+There is an old joke that goes something like this: A man walks into
+a pizza parlor and sits down.  A waiter comes to the table and asks the
+man what he would like to order.  The man looks around the room, then
+points to the woman sitting at the next table, and says ``I'll have what
+she is eating.''  The waiter thereupon walks to the womans table,
+picks up the half-eaten pizza from in front of her, and 
+places it before the startled customer.
+<p>
+A classic confusion between <b>equality</b> and <b>identity</b>.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 16</h6>
+<hr>
+</body>
+<p>
+<h1>Equality and Identity</h1>
+<ul>
+<li>A test for <b>identity</b> asks whether two variables refer to exactly
+the same object.
+<p><li>A test for <b>equality</b> asks whether two variables refer to
+values that are equivalent.
+</ul>
+Of course, the meaning of <i>equivalent</i> is inheritently domain specific.
+Object-oriented languages allow the programmer to control the meaning
+of the equality test by allowing the redefinition of a standard method.
+(for example, <b>equals</b> in Java).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>Paradoxes of Equality, Part 1</h1>
+But child classes cannot change the type signature of overridden methods.
+This means the argument must often be more general than one would like:
+<pre>
+class Object {
+	public boolean equals (Object right) { 
+		... 
+	}
+}
+
+class PlayingCard extends Object {
+	public boolean equals (Object right) {
+		... // right must be object even if we are only
+		... // interested in comparing cards to cards
+	}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 18</h6>
+<hr>
+</body>
+<p>
+<h1>Paradoxes of Equality, Part 2</h1>
+Because equality is a message sent to the left argument, there is
+no guarantee that properties such as symmetry or transitivity are preserved:
+<pre>
+
+class Foo {
+	boolean equals (Object right) { ... }
+}
+
+Foo a, b;
+
+if (a.equals(b))  // even if this is true
+
+if (b.equals(a))  // no guarantee that this is true
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 19</h6>
+<hr>
+</body>
+<p>
+<h1>Paradoxes of Equality, Part 3</h1>
+And if you add inheritance into the mix, the possibilities for paradoxical
+behavior increase even more.
+<pre>
+class Parent {
+	boolean equals (Object x) { ... }
+}
+
+class Child extends Parent {
+	boolean equals (Object x) { ... }
+}
+
+Parent p;
+Child c;
+
+if (p.equals(c)) // will execute using the parent method
+
+if (c.equals(p)) // will execute using the childs method
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 20</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+We have explored the implications that result from the inclusion of
+the principle of substitution in an object oriented programming language.
+<ul>
+<li>Because values are not known until run time, you either have
+complex semantics (as in C++) or objects are dynamic (as in Java and most other
+languages).
+<p><li>Because objects are dynamic, most object-oriented languages end 
+up using a garbage collection system.
+<p><li>Dynamic semantics naturally lean to pointer semantics for assignment
+<p><li>Pointer semantics mean that equality and identity are two different
+concepts
+<p><li>Since equality is domain specific, the programmer must be free to
+redefine the meaning as appropriate
+<p><li>Because the programmer can redefine equality arbitrarily, there is
+no guarantee that semantics of equals is preserved.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 21</h6>
+<hr>
+</body>
+</body>
+</html>

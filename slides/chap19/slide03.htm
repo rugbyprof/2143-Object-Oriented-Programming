@@ -1,0 +1,33 @@
+<html>
+<head><title>Chapter 19, Slide 03</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 19: Container Classes :
+<td bgcolor=#FCCF97><a href="slide04.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide02.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide03.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap19/slide03.ram">real</a>
+<td bgcolor=#FCCF97><a href="text03.htm" target=text>text</a>
+</table>
+<p>
+<h1>Tension between Strong Typing and Reuse</h1>
+<font size=+2>
+The situation is very different when we move to statically typed languages.
+There, the strong typing can get in the way of software reuse.
+<pre>
+type
+	Link = Record
+		value : integer
+		nextelement : ^ Link
+	end;
+</pre>
+What happens when we need a linked list of doubles?  or of a user
+defined type?
+<p>
+The strong typing is getting in the way of software reuse.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 03</h6>
+<hr>
+</body>
+</html>

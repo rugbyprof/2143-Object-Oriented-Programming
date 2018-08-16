@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 4, Slide 7</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 4: Classes and Methods:
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap03/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<p>
+<h1>A Typical Example, Class Definition in C++</h1>
+<font size=+2>
+<pre>
+
+class PlayingCard {
+public:
+    enum Suits {Spade, Diamond, Club, Heart};
+
+    Suits suit () { return suitValue; }
+    int   rank () { return rankValue; }
+
+private:
+    Suits suitValue;
+    int   rankValue;
+};
+
+</pre>
+<p>
+Note syntax for methods, data fields, and visibility modifiers.
+(Will see more on syntax later).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 7</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 24, Slide 13</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 24: Design Patterns :
+<td bgcolor=#FCCF97><a href="slide14.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide12.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide13.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap24/slide13.ram">real</a>
+<td bgcolor=#FCCF97><a href="text13.htm" target=text>text</a>
+</table>
+<p>
+<h1>Decorator (Filter, Wrapper)</h1>
+<font size=+2>
+<b>Problem</b>: Allow functionally to be layered around an abstraction, but
+still dynamically changable.
+<p><b>Solution:</b> Combine inheritance and composition.  By making
+an object that both subclasses from another class and holds an instance
+of the class, can add new behavior while referring all other behavior to
+the original class.
+<p><i>Example</i> Input Streams in the Java I/O System
+<pre>
+	// a buffered input stream is-an input stream
+class BufferedInputStream extends InputStream {
+
+	public BufferedInputStream (InputStream s) { data = s; }
+	...
+
+		// and a buffered input stream has-an input stream
+	private InputStream data;
+}
+</pre>
+An instance of BufferedInputStream can wrap around any other type of
+InputStream, and simply adds a little bit new functionality.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 13</h6>
+<hr>
+</body>
+</html>

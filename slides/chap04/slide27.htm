@@ -1,0 +1,39 @@
+<html>
+<head><title>Chapter 4, Slide 27</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 4: Classes and Methods:
+<td bgcolor=#FCCF97><a href="slide28.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide26.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide27.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap03/slide27.ram">real</a>
+<td bgcolor=#FCCF97><a href="text27.htm" target=text>text</a>
+</table>
+<p>
+<h1>Methods without Classes in Oberon</h1>
+<font size=+2>
+Oberon does not have classes, per se, but allows methods to be defined
+as a funny type of function:
+<pre>
+
+TYPE
+	PlayingCard = POINTER TO PlayingCardDesc;
+
+	PlayingCardDesc = RECORD
+		suit : INTEGER;
+		rank : INTEGER;
+		faceUp: BOOLEAN;
+	END
+
+PROCEDURE (aCard: PlayingCard) setFaceUp (b : BOOLEAN);
+BEGIN
+	aCard.faceUp = b;
+END
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 27</h6>
+<hr>
+</body>
+</html>

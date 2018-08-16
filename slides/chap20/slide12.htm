@@ -1,0 +1,36 @@
+<html>
+<head><title>Chapter 20, Slide 12</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 20: The STL :
+<td bgcolor=#FCCF97><a href="slide13.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide11.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide12.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap20/slide12.ram">real</a>
+<td bgcolor=#FCCF97><a href="text12.htm" target=text>text</a>
+</table>
+<p>
+<h1>Item Arrives in Shipment</h1>
+<font size=+2>
+<pre>
+void inventory::receive (int wid)
+	// process a widget received in shipment
+{ 	cout << "Received shipment of widget type " << wid << endl;
+
+	list&lt;int&gt;::iterator we_need = 
+			find (on_order.begin(), on_order.end(), wid); 
+
+	if (we_need != on_order.end()) {
+		cout << "Ship " << Widget(wid) << " to fill back order" << endl;
+		on_order.erase(we_need);
+		}
+	else
+		on_hand.push_front(Widget(wid));
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 12</h6>
+<hr>
+</body>
+</html>

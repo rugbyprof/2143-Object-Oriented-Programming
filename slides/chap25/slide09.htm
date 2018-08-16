@@ -1,0 +1,43 @@
+<html>
+<head><title>Chapter 25, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 25: Reflection and Introspection :
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap25/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>Class Loading</h1>
+<font size=+2>
+Java has a class named ClassLoader that allows you to define a class
+from an array of bytes:
+<pre>
+class SimpleClassLoader extends ClassLoader {
+	public Class getClass (String name) {
+		Class theClass = null;
+		try {
+			File f = new File(name);
+			InputStream is = new FileInputStream(f);
+			int bufsize = (int) f.length();
+			byte buf [] = new byte[bufsize];
+			is.read(buf, 0, bufsize);
+			is.close();
+			theClass = defineClass (null, buf, 0, buf.length);
+		} catch (Exception e) {
+			System.err.println("Error during load " + e);
+			System.exit(1);
+		}
+		return theClass;
+	}
+}
+</pre>
+Once you have a class, you can create instances, or execute methods.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 09</h6>
+<hr>
+</body>
+</html>

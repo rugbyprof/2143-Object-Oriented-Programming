@@ -1,0 +1,36 @@
+<html>
+<head><title>Chapter 17, Slide 02</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 17: The Polymorphic Variable :
+<td bgcolor=#FCCF97><a href="slide03.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide01.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide02.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap17/slide02.ram">real</a>
+<td bgcolor=#FCCF97><a href="text02.htm" target=text>text</a>
+</table>
+<p>
+<h1>Simple Polymorphic Variables</h1>
+<font size=+2>
+We saw simple polymorphic variables in the Solitare case study.
+<pre>
+public class Solitaire {
+      ...
+   static CardPile allPiles [ ];
+	...
+
+   public void paint(Graphics g) {
+      for (int i = 0; i < 13; i++)
+         allPiles[i].display(g);
+      }
+      ...
+}
+</pre>
+The variable was declared as CardPile, but actually held a number of
+different types.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 02</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,40 @@
+g/Chapter 2/s//Chapter 3/
+g/chap02/s//chap03/g
+/^Introduction to OOP:/d
+/BGCOLOR=#ffffff/c
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 3: Object-Oriented Design:
+.
+/\[next]/s/^/<td bgcolor=#FCCF97>/
+/\[next]/s//next/
+/\[previous]/s/^/<td bgcolor=#FCCF97>/
+/\[previous]/s//previous/
+/\[audio]/s/^/<td bgcolor=#FCCF97>/
+/\[audio]/s//audio/
+/\[real]/s/^/<td bgcolor=#FCCF97>/
+/\[real]/s//real/
+/\[text]/a
+</table>
+.
+/\[text]/s/^/<td bgcolor=#FCCF97>/
+/\[text]/s//text/
+g/slide1.htm/s//outline.htm/
+g/slide2.htm/s//slide02.htm/
+g/slide3.htm/s//slide03.htm/
+g/slide4.htm/s//slide04.htm/
+g/slide5.htm/s//slide05.htm/
+g/slide6.htm/s//slide06.htm/
+g/slide7.htm/s//slide07.htm/
+g/slide8.htm/s//slide08.htm/
+g/slide9.htm/s//slide09.htm/
+g/text2.htm/s//text02.htm/
+g/text3.htm/s//text03.htm/
+g/text4.htm/s//text04.htm/
+g/text5.htm/s//text05.htm/
+g/text6.htm/s//text06.htm/
+g/text7.htm/s//text07.htm/
+g/text8.htm/s//text08.htm/
+g/text9.htm/s//text09.htm/
+w

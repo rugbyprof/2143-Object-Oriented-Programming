@@ -1,0 +1,37 @@
+<html>
+<head><title>Chapter 25, Slide 08</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 25: Reflection and Introspection :
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap25/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<p>
+<h1>Dynamic Execution</h1>
+<font size=+2>
+You can also invoke the method, passing it the receiver and an array of
+arguments:
+<pre>
+	Class sc = String.class;
+	Class [ ] paramTypes = new Class[1];
+	paramTypes[0] = sc;
+	try {
+		Method mt = sc.getMethod("concat", paramTypes);
+		Object mtArgs [ ] = { "xyz" };
+		Object result = mt.invoke("abc", mtArgs);
+		System.out.println("result is " + result);
+	} catch (Exception e) {
+		System.out.println("Exception " + e);
+	}
+</pre>
+Here we dynamically look up a method, based both on name and type signature,
+then create an array of arguments, then execute the method.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 08</h6>
+<hr>
+</body>
+</html>

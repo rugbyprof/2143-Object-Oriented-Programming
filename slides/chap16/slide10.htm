@@ -1,0 +1,36 @@
+<html>
+<head><title>Chapter 16, Slide 10</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 16: Overriding :
+<td bgcolor=#FCCF97><a href="slide11.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide09.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide10.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap16/slide10.ram">real</a>
+<td bgcolor=#FCCF97><a href="text10.htm" target=text>text</a>
+</table>
+<p>
+<h1>Overriding for Optimization</h1>
+<font size=+2>
+Here is an example where a child class can do the same action more
+efficiently than the parent class.  Class Boolean has child classes
+True and False, and defines the following methods:
+<pre>
+"class Boolean"
+
+	& right
+		self ifTrue: [ right ifTrue: [ ^ true ] ].
+		^ false
+
+	| right
+		self ifTrue: [ ^ true ].
+		right ifTrue: [ ^ true ].
+		^ false
+</pre>
+These very general algorithms will work for either true or false values.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 10</h6>
+<hr>
+</body>
+</html>

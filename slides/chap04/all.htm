@@ -1,0 +1,750 @@
+<html>
+<head><title>Chapter 4, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 4</h1>
+<h1 ALIGN=center>Classes and Methods</h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap </a>
+<li><a href="slide02.htm"> Same Ideas, Different Terms </a>
+<li><a href="slide03.htm"> Encapsulation and Instantiation</a>
+<li><a href="slide04.htm"> Internal and External Views </a>
+<li><a href="slide05.htm"> Behavior and State </a>
+<li><a href="slide06.htm"> Class Definitions </a>
+<ol>
+<li><a href="slide07.htm"> A Typical Example, Class Definition n C++</a>
+<li><a href="slide08.htm"> Visibility Modifiers </a>
+<li><a href="slide09.htm"> A C# Class Definition </a>
+<li><a href="slide10.htm"> A Java Class Definition </a>
+<ol>
+<li><a href="slide11.htm"> Static and Final </a>
+</ol>
+<li><a href="slide12.htm"> Pascal Dialects </a>
+<ol>
+<li><a href="slide13.htm"> A Class Definition in Apple Object Pascal </a>
+<li><a href="slide14.htm"> A Class Definition in Delphi Pascal </a>
+</ol>
+<li><a href="slide15.htm"> A Class Definition in Smalltalk </a>
+</ol>
+<li><a href="slide16.htm"> Methods </a>
+<ol>
+<li><a href="slide17.htm"> An Example, from C# </a>
+<li><a href="slide18.htm"> Constructors </a>
+<li><a href="slide19.htm"> Accessor (or getter) methods </a>
+<ol>
+<li><a href="slide20.htm"> Why use an Accessor? </a>
+<li><a href="slide21.htm"> Setters (or mutators) </a>
+<li><a href="slide22.htm"> Constant Data Fields </a>
+</ol>
+<li><a href="slide23.htm"> Order of Methods </a>
+<li><a href="slide24.htm"> Separation of Definition and Implementation </a>
+<ol>
+<li><a href="slide25.htm"> Consderations in Method Definitions </a>
+</ol>
+</ol>
+<li><a href="slide26.htm"> Variations on Classes </a>
+<ol>
+<li><a href="slide27.htm"> Methods without Classes in Oberon </a>
+<li><a href="slide28.htm"> Interfaces in Java </a>
+<li><a href="slide29.htm"> Properties </a>
+<ol>
+<li><a href="slide30.htm"> Properties in C#</a>
+</ol>
+<li><a href="slide31.htm"> Inner or Nested Classes </a>
+<li><a href="slide32.htm"> Class Data Fields </a>
+</ol>
+<li><a href="slide33.htm"> Chapter Summary </a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+<p>
+<li>Contrast the <a href="cpp.htm">C++ and Java</a> class definitions.
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="slide1.htm">Chapter 4</a>, Outline</h6>
+<hr>
+
+
+<h1>Roadmap</h1>
+<P>
+Chapters 4 and 5 present two sides of OOP:
+<P><UL>
+<LI>
+Chapter 4 discusses the static, compile time representation of object-oriented programs.
+<p>
+<LI>
+Chapter 5 discusses the dynamic, run time behavior
+</UL>
+Both are important, and both chapters should be understood before you begin
+further investigation of object-oriented programming
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 1</h6>
+<hr>
+</body>
+
+
+<p>
+<h1>Same Ideas, Different Terms</h1>
+<P>
+All OOP languages have the following concepts, although the terms they use may
+differ:
+<P><UL>
+<LI>
+<B>classes</B>, object type, factory object
+<p>
+<LI>
+<B>instances</B>, objects
+<p>
+<LI>
+<B>message passing</B>, method lookup, member function invocation, method binding
+<p>
+<LI>
+<B>methods</B>, member function, method function
+<p>
+<LI>
+<B>inheritance</B>, subclassing
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 2</h6>
+<hr>
+</body>
+<p>
+<h1>Encapsulation and Instantiation</h1>
+<P>
+Classes provide a number of very important capabilities:
+<P><UL>
+<LI>
+<B>Encapsulation</B> - The purposeful hiding of information, thereby reducing
+the amount of details that need to be remembered/communicated among 
+programmers.
+<p>
+<LI>
+<B>A Service View</b> - The ability to characterise an object by the
+service it provides, without knowing how it performs its task.
+<p>
+<LI>
+<B>Instantiation</B> - The ability to create multiple instances of 
+an abstraction.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 3</h6>
+<hr>
+</body>
+<p>
+<h1>Internal and External Views
+</h1>
+<IMG SRC="slide04.gif" alt="two views of software">
+<p>
+As we noted in the last chapter, encapsulation means there are
+two views of the same system.  The outside, or service view, describes
+what an object does.  The inside, or implementation view, describes how
+it does it.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 4</h6>
+<hr>
+</body>
+<p>
+<h1>Behavior and State</h1>
+A class can also be viewed as a combination of <i>behavior</i> and <i>state</i>.
+<ul>
+<li>
+<b>Behavior</b>: The actions that an instance can perform in response to a 
+request. Implemented by methods.
+<p>
+<li><b>State</b>: The data that an object must maintain in order to successfully
+complete its behavior.
+Stored in instance variables (also known as data members, or data fields).
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 5</h6>
+<hr>
+</body>
+<p>
+<h1>Class Definitions</h1>
+We will use as a running example the class definition for a playing
+card abstraction, and show how this appears in several languages.
+<p>
+(Not all languages are shown in the overhead slides, more are provided
+in the textbook and on the web pages for the book).
+<p>
+Languages we will consider in this book include Java, C++, C#, Delphi 
+Pascal, Apple Pascal, Ruby, Python, Eiffel, Objective-C and Smalltalk. 
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 6</h6>
+<hr>
+</body>
+<p>
+<h1>A Typical Example, Class Definition in C++</h1>
+<pre>
+
+class PlayingCard {
+public:
+    enum Suits {Spade, Diamond, Club, Heart};
+
+    Suits suit () { return suitValue; }
+    int   rank () { return rankValue; }
+
+private:
+    Suits suitValue;
+    int   rankValue;
+};
+
+</pre>
+<p>
+Note syntax for methods, data fields, and visibility modifiers.
+(Will see more on syntax later).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 7</h6>
+<hr>
+</body>
+<p>
+<h1>Visibility Modifiers</h1>
+<p>
+The terms <b>public</b> and <b>private</b> are used to differentiate
+the internal and external aspects of a class.
+<ul>
+<li><b>public</b> features can be seen and manipulated by anybody -- 
+they are the external (interface or service) view.
+<p>
+<li><b>private</b> features can be manipuated only within a class. They
+are the internal (implementation) view.
+</ul>
+<p>
+Typically methods are public and data fields are private, but either can be
+placed in either category.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 8</h6>
+<hr>
+</body>
+<p>
+<h1>A C# Class Definition</h1>
+<pre>
+
+enum Suits {Spade, Diamond, Club, Heart};
+
+class PlayingCard {
+    public Suits suit () { return suitValue; }
+    public int   rank () { return rankValue; }
+
+    private Suits suitValue;
+    private int   rankValue;
+}
+
+</pre>
+C# class definitions have minor differences, no semicolon at end, enum cannot 
+be nested inside class, and visibility modifiers are applied to
+methods and data fields individually.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 9</h6>
+<hr>
+</body>
+<p>
+<h1>Java Class Definition</h1>
+<pre>
+
+class PlayingCard {
+    public  int suit () { return suitValue; }
+    public  int rank () { return rankValue; }
+
+    private int suitValue;
+    private int rankValue;
+
+    public static final int Spade = 1;
+    public static final int Diamond = 2;
+    public static final int Club = 3;
+    public static final int Heart = 4;
+}
+
+</pre>
+Java also applies visibility modifiers to each item indivually.
+Does not have enumerated data types, uses symbolic constants instead.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Static and Final</h1>
+Notice how symbolic constants are defined in Java:
+<p>
+<ul>
+<li><b>static</b> means that all instance share the same value.  One per class.
+Similar meaning in many languages.
+<p>
+<li><b>final</b> is Java specific, and means it will not be reassigned.
+(C++ has <b>const</b> keyword that is similar, although not exactly the same).
+<pre>
+
+    public static final int Spade = 1;
+    public static final int Diamond = 2;
+    public static final int Club = 3;
+    public static final int Heart = 4;
+</pre>
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Pascal Dialects</h1>
+We will consider two dialects of Pascal, both descended from the
+earlier language.
+<p>
+<ul>
+<li>Apple Object Pascal: Defined by Apple Computer, once widely used
+on the Macintosh, now much less commonly used.
+<p>
+<li>Delphi Pascal: Defined by Borland on the PC, still fairly widely used
+on that plaform.  (Called Kylix on the Linux platform).
+</ul>
+<br>
+Many similaries due to the common heritage, but some important 
+differences.
+<p>
+</font>
+(We consider only the language aspects of Delphi, there are many other
+features related to its visual interface that we will not describe).
+<br>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Class Definition in Apple Object Pascal</h1>
+<pre>
+
+type
+    Suits = (Heart, Club, Diamond, Spade);
+
+    PlayingCard = object
+        suit : Suits;
+        rand : integer;
+    end;
+
+</pre>
+No explicit visibility modifiers.  
+(Will later see syntax for methods).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Delphi Pascal</h1>
+<pre>
+
+type
+    Suits = (Heart, Club, Diamond, Spade);
+
+    TPlayingCard = class (TObject)
+        public
+            constructor Create (r : integer; s : Suits);
+
+            function suit : Suits;
+            function rank : int;
+
+        private
+            suitValue : Suits;
+            rankValue : integer;
+    end;
+
+</pre>
+Slightly different syntax, must name parent class, has visibility modifiers
+and constructors (more on those later).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>Smalltalk</h1>
+Smalltalk doesn't have a textual description for classes, but instead
+you define classes in a visual interface.  (Revolutionary idea in 1980,
+but now Visual Basic and Delphi programmers are used to similar facilities).
+<p>
+<img src="slide15.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>Methods</h1>
+Although syntax will differ depending upon language, all methods
+have the following:
+<ul>
+<li>A <b>name</b> that will be matched to a message to determine when
+the method should be executed.
+<p>
+<li>A <b>signature</b>, which is the combination of return type and
+argument types.  Methods with the same name can be distinguished by
+different signatures.
+<p>
+<li>a <b>body</b>, which is the code that will be executed when the
+method is invoked in response to a message.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 16</h6>
+<hr>
+</body>
+<p>
+<h1>An Example, from C#</h1>
+<pre>
+
+class PlayingCard {
+		// constructor, initialize new playing card
+	public PlayingCard (Suits is, int ir) 
+		{ suit = is; rank = ir; faceUp = true; }
+
+		// operations on a playing card
+	public boolean isFaceUp  ()           { return faceUp; }
+	public int     rank      ()           { return rankValue; }
+	public Suits   suit      ()           { return suitValue; }
+	public void    setFaceUp (boolean up) { faceUp = up; }
+	public void    flip      ()           { setFaceUp( !faceUp);}
+	public Color   color     ()           { 
+		if ((suit() == Suits.Diamond) || (suit() == Suits.Heart)) 
+			return Color.Red;
+		return Color.Black;
+	}
+		// private data values
+	private Suits suitValue;
+	private int rankValue;
+	private boolean faceUp;
+}
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>Constructor</h1>
+<pre>
+
+class PlayingCard {
+		// constructor, initialize new playing card
+	public PlayingCard (Suits is, int ir) 
+		{ suit = is; rank = ir; faceUp = true; }
+	...
+
+}
+
+</pre>
+A <b>constructor</b> is a method that is used to initialize a newly
+constructed object.  In C++, Java, C# and many other languages it
+has the same name as the class.  We will talk about constructors
+more in the next chapter.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 18</h6>
+<hr>
+</body>
+<p>
+<h1>Accessor (or getter) Methods</h1>
+An accessor (or getter) is a method that simply returns an internal data value:
+<pre>
+
+class PlayingCard {
+	...
+		// operations on a playing card
+	public int     rank      ()           { return rankValue; }
+	public Suits   suit      ()           { return suitValue; }
+	...
+	private int rankValue;
+}
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 19</h6>
+<hr>
+</body>
+<p>
+<h1>Why Use an Accessor?</h1>
+There are many reasons why an accessor is preferable to providing
+direct access to a data field.
+<ul>
+<li>You can make the data field read-only.
+<p><li>It provides better documentation that the data field is accessible
+<p><li>It makes it easier to later change the access behavior (count number
+of accesses, whatever).
+</ul>
+<p>
+Some conventions encourage the use of a name that begins with <b>get</b>,
+(as in <b>getRank()</b>), but this is not universally followed.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 20</h6>
+<hr>
+</body>
+<p>
+<h1>Setters (or mutators)</h1>
+A setter (sometimes called a mutator method) is a method that is used to
+change the state of an object:
+<pre>
+
+class PlayingCard {
+
+		// operations on a playing card
+	public void    setFaceUp (boolean up) { faceUp = up; }
+		...
+		// private data values
+	private boolean faceUp;
+}
+
+</pre>
+Mutators are less common than accessors, but reasons for using
+are similar.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 21</h6>
+<hr>
+</body>
+<p>
+<h1>Constant Data Fields</h1>
+Some languages allow data fields to be declared as constant 
+(<b>const</b> modifier in C++, <b>final</b> in Java, other languages
+have other conventions).
+<p>
+Constant data fields can be declared as public, since they
+cannot be changed.
+<pre>
+
+class PlayingCard { // Java example
+	...
+    public static final int Spade = 1;
+    public static final int Diamond = 2;
+    public static final int Club = 3;
+    public static final int Heart = 4;
+}
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 22</h6>
+<hr>
+</body>
+<p>
+<h1>Order of Methods</h1>
+For the most part, languages don't care about the order that methods
+are declared.  Here are some guidelines:
+<ul>
+<li>List important topics first.
+<p><li>Constructors are generally very important, list them first.
+<p><li>Put public features before private ones.
+<p><li>Break long lists into groups
+<p><li>List items in alphabetical order to make it easier to search.
+</ul>
+<p>
+Remember that class definitions will often be read by people other
+than the original programmer.  Remember the reader, and make it easy for them.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 23</h6>
+<hr>
+</body>
+<p>
+<h1>Separation of Definition and Implementation</h1>
+In some languages (such as C++ or Object Pascal) the definition of a 
+method can be separated from its implementation.  They may even be in a
+different file:
+<pre>
+
+class PlayingCard {
+public:
+	...
+	Colors  color     () ;
+	...
+};
+
+PlayingCard::Colors PlayingCard::color ( ) 
+{		
+		// return the face color of a playing card
+	if ((suit == Diamond) || (suit == Heart))
+		return Red;
+	return Black;
+}
+
+</pre>
+Notice need for fully-qualified names.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 24</h6>
+<hr>
+</body>
+<p>
+<h1>Considerations in Method Definitions</h1>
+In C++ you have a choice to define a method in the class interface, or
+separately in an implementation file.  How do you decide?
+<ul>
+<li>Readability.  Only put very small methods in the class definition,
+so that it is easier to read.
+<p><li>Semantics.  Methods defined in class interface 
+<i>may</i> (at the descretion of the compiler) be expanded in-line.  
+Another reason for only defining very small methods this way.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 25</h6>
+<hr>
+</body>
+<p>
+<h1>Variations on Classes</h1>
+We will consider a few of the mostly language-specific variations
+on the idea of a class.
+<ul>
+<li>Methods without classes in Oberon
+<p><li>Interfaces in Java (Methods without Implementations)
+<p><Li>Properties in Delphi and C#
+<p><li>Nested classes in Java and C++
+<p><li>Class Data fields
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 26</h6>
+<hr>
+</body>
+<p>
+<h1>Methods without Classes in Oberon</h1>
+Oberon does not have classes, per se, but allows methods to be defined
+as a funny type of function:
+<pre>
+
+TYPE
+	PlayingCard = POINTER TO PlayingCardDesc;
+
+	PlayingCardDesc = RECORD
+		suit : INTEGER;
+		rank : INTEGER;
+		faceUp: BOOLEAN;
+	END
+
+PROCEDURE (aCard: PlayingCard) setFaceUp (b : BOOLEAN);
+BEGIN
+	aCard.faceUp = b;
+END
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 27</h6>
+<hr>
+</body>
+<p>
+<h1>Interfaces in Java</h1>
+An interface is like a class, but it provides no implementation.
+Later, another class can declare that it supports the interface,
+and it must then give an implementation.
+<pre>
+
+public interface Storing {
+	void writeOut (Stream s);
+	void readFrom (Stream s);
+};
+
+public class BitImage implements Storing {
+	void writeOut (Stream s) {
+		// ...
+	}
+	void readFrom (Stream s) {
+		// ...
+	}
+};
+
+</pre>
+We will have much more to say about interfaces later after we discuss
+inheritance.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 28</h6>
+<hr>
+</body>
+<p>
+<h1>Properties</h1>
+Properties are a way to define getters and setters, but allow them to be
+used as if they were simple assignments and expressions:
+<pre>
+
+writeln ('rank is ', aCard.rank); (* rank is property of card *)
+aCard.rank = 5; (* changing the rank property *)
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 29</h6>
+<hr>
+</body>
+<p>
+<h1>Properties in C#</h1>
+<pre>
+
+public class PlayingCard {
+	public int rank {
+		get 
+		{
+			return rankValue;
+		}
+		set 
+		{
+			rankValue = value;
+		}
+	}
+	...
+	private int rankValue;
+}
+
+</pre>
+Omitting a set makes it read-only, omitting a get makes it write-only.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 30</h6>
+<hr>
+</body>
+<p>
+<h1>Inner or Nested Classes</h1>
+Some languages (C++ or Java) allow a class definition to be given inside
+another class definition.  Whether the inner class can access features of
+the outer class is different in different languages.
+<pre>
+
+class LinkedList {
+
+	...
+	private class Link { // inner class
+		public int value;
+		public Link next;
+	}
+}
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 31</h6>
+<hr>
+</body>
+<p>
+<h1>Class Data Fields</h1>
+Idea is that all instances of a class can share a common data field.
+Simple idea, but how to resolve the following paradox.  All instances
+have the same behavior:
+<ul>
+<li>Either they all initialize the common area, which seems bad, or
+<p>
+<li>Nobody initializes the common area, which is also bad.
+</ul>
+Different languages use a variety of mechanisms to get around this.
+See text for details.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 32</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+In this chapter we have examined the static, or compile time features
+of classes:
+<ul>
+<li>The syntax used for class definition
+<li>The meaning of visibility modifiers (public and private)
+<li>The syntax used for method definition
+<li>Accessor or getter methods, and mutator or setter methods
+<li>Variations on class themes
+<ol>
+<li>Oberon (methods without classes)
+<li>Interfaces
+<li>Properties
+<li>Nested classes
+<li>Class data fields
+</ol>
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 33</h6>
+<hr>
+</body>
+</body>
+</html>

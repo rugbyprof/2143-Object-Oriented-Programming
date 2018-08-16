@@ -1,0 +1,72 @@
+<html>
+<head><title>Chapter 7, Slide 7</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 7: A Billiards Game:
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap07/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<br>
+<h1>Balls move when updated</h1>
+<font size=+2>
+<pre>
+procedure TBall.update;
+var
+	hptr : THole;
+	wptr : TWall;
+	bptr : TBall;
+	dx, dy : integer;
+begin
+	if energy > 0.5 then begin
+		ballMoved := true;
+			{ decrease energy }
+		energy := energy - 0.05;
+			{ move ball }
+		dx := trunc(5.0 * cos(direction));
+		dy := trunc(5.0 * sin(direction));
+                x := x + dx;
+                y := y + dy;
+		
+			{ see if we hit a hole }
+		hptr := listOfHoles;
+		while (hptr <> nil) do
+			if hptr.hasIntersected(self) then begin
+				hptr.hitBy(self);
+				hptr := nil;
+			end
+			else
+				hptr := hptr.link;
+
+			{ see if we hit a wall }
+		wptr := listOfWalls;
+		while (wptr <> nil) do
+			if wptr.hasIntersected(self) then begin
+				wptr.hitBy(self);
+				wptr := nil;
+			end
+			else
+				wptr := wptr.link;
+
+			{ see if we hit a ball }
+		bptr := listOfBalls;
+		while (bptr <> nil) do
+			if (bptr <> self) and bptr.hasIntersected(self) then begin
+				bptr.hitBy(self);
+				bptr := nil;
+			end
+			else
+				bptr := bptr.link;
+	end;
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 7</h6>
+<hr>
+</body>
+</html>
+
+

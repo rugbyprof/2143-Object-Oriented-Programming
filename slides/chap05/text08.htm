@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Text for slides, Chapter 5 talk</title>
+</head>
+<body>
+<h1>Memory Recovery</h1>
+<p>
+Because the <b>new</b> operator is activated at run-time, it means that
+memory is allocated during the course of execution.  We call this process
+dynamic memory allocation.  On the flip side, it means there must
+be a process or recovering the memory associated with no longer useful 
+objects, since otherwise long running programs could quickly run out of
+memory.  There are two broad approces to this task.  In some languages
+the programmer must explicitly say when a value is no longer being used.
+In C++, for example, the programmer uses the statement <b>deleted</b>,
+while in Object Pascal the statement is named <b>free</b>.
+<p>
+The other approach is to use what is known as a <b>garbage collection</b>
+system.  A garbage collection system monitors memory use, and will
+automatically determine when a value is no longer being used,
+and hence can be recovered.
+<p>
+<h6><a href="slide08.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap05/slide08.ram">[real]</a>
+ Text to accompany <a href="slide08.htm">slide08</a>,
+in <a href="outline.htm">Chapter 5</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

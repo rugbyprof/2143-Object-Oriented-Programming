@@ -1,0 +1,37 @@
+<html>
+<head><title>Chapter 12, Slide 10</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 12: Implications of substitution:
+<td bgcolor=#FCCF97><a href="slide11.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide09.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide10.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap12/slide10.ram">real</a>
+<td bgcolor=#FCCF97><a href="text10.htm" target=text>text</a>
+</table>
+<p>
+<h1>Illustration</h1>
+<font size=+2>
+<pre>
+void Window::oops()
+{	printf("Window oops\n"); }
+
+void TextWindow::oops()
+{	printf("TextWindow oops %d\n", cursorLocation);
+
+TextWindow x;
+
+Window a;
+Window * b;
+TextWindow * c;
+
+a = x;	a.oops();	// executes Window version
+b =  &x; b->oops();	// executes TextWindow or Window version;
+c = &x; c->oops();	// executes TextWindow version
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 10</h6>
+<hr>
+</body>
+</html>

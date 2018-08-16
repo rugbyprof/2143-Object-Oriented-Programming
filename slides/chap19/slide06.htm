@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 19, Slide 06</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 19: Container Classes :
+<td bgcolor=#FCCF97><a href="slide07.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide05.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide06.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap19/slide06.ram">real</a>
+<td bgcolor=#FCCF97><a href="text06.htm" target=text>text</a>
+</table>
+<p>
+<h1>Heterogeneous Collections</h1>
+<font size=+2>
+Because any value can be stored in an <b>Object</b>, this allows heterogeneous
+collections; although the actual type must be checked when a value
+is removed:
+<pre>
+Stack stk = new Stack();
+stk.addElement(new Cat());
+stk.addElement(new Dog()); 
+	// ... adding more values
+	// now do something with Cat values
+if (stk.peek() instanceof Cat) {
+		// do conversion to Cat
+	Cat aCat = (Cat) stk.pop(); 
+	// .. also do something with cat values
+	// now do something with Dog values
+} else if (stk.peek() instanceof Dog) {
+		// do conversion to Dog
+	Dog aDog = (Dog) stk.pop(); 
+	// .. do something with Dog value
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 06</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head><title>Chapter 18, Slide 02</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 18: Generics :
+<td bgcolor=#FCCF97><a href="slide03.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide01.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide02.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap18/slide02.ram">real</a>
+<td bgcolor=#FCCF97><a href="text02.htm" target=text>text</a>
+</table>
+<p>
+<h1>Template Functions</h1>
+<font size=+2>
+The following illustrates a simple template function in C++, and its use.
+<pre>
+	template &lt;class T&gt; T max(T left, T right) {
+		if (left &lt right)
+			return right;
+		return left;
+	}
+
+	int a = max(3, 27);
+	double d = max(3.14, 2.75); // see how types differ
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 02</h6>
+<hr>
+</body>
+</html>

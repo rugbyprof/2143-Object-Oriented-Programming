@@ -1,0 +1,33 @@
+<html>
+<head><title>Chapter 18, Slide 07</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 18: Generics :
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap18/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<p>
+<h1>Inheritance and Generics</h1>
+<font size=+2>
+Remember the class Box.  Suppose a class Person has subclasses BoyChild and
+GirlChild.  What is the relationship between Box[Person] and Box[BoyChild]?
+<p>
+Unfortunately, runs into problems with the principle of substitution.
+<p>
+Assume Box[BoyChild] is a subclass of Box[Person], would make the following
+legal:
+<pre>
+Box[Person] aBox = new  Box[BoyChild];
+Person aGirl = new GirlChild;
+aBox.set(aGirl);
+</pre>
+A similar argument can be made for the reverse.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 07</h6>
+<hr>
+</body>
+</html>

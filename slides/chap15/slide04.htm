@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 15, Slide 04</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 15: Overloading :
+<td bgcolor=#FCCF97><a href="slide05.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide03.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide04.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap15/slide04.ram">real</a>
+<td bgcolor=#FCCF97><a href="text04.htm" target=text>text</a>
+</table>
+<p>
+<h1>Florist Example from Chapter 1</h1>
+<font size=+2>
+<pre>
+Procedure Friend.sendFlowersTo (anAddress : address);
+begin
+	go to florist;
+	give florist message sendFlowersTo(anAddress);
+end;
+
+Procedure Florist.sendFlowersTo (anAddress : address);
+begin
+	if address is nearby then
+		make up flower arrangement
+		tell delivery person sendFlowersTo(anAddress);
+	else
+		look up florist near anAddress
+		phone florist
+		give florist message sendFlowersTo(anAddress)
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 04</h6>
+<hr>
+</body>
+</html>

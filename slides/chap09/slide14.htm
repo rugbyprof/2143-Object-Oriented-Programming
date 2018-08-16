@@ -1,0 +1,80 @@
+<html>
+<head><title>Chapter 9, Slide 14</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 9: A Solitare Game:
+<td bgcolor=#FCCF97><a href="slide15.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide13.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide14.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap09/slide14.ram">real</a>
+<td bgcolor=#FCCF97><a href="text14.htm" target=text>text</a>
+</table>
+<p>
+<h1>Tableau Piles</h1>
+<font size=+2>
+<pre>
+public class TablePile : CardPile {
+	public TablePile (int x, int y, int c) : base(x, y) {
+		// initialize our pile of cards
+		for(int i = 0; i < c; i++ ) {
+			addCard(Game.deckPile().pop);
+		}	
+		top.flip();
+	}
+
+	public override bool canTake (PlayingCard aCard ) {
+		if( isEmpty ) { return(aCard.rank == 12); }
+		PlayingCard topCard = top;
+		return( ( aCard.color != topCard.color ) &&
+			( aCard.rank    == topCard.rank - 1 ) );
+	}
+
+	public override bool includes (int tx, int ty) {
+		return( ( x <= tx ) && ( tx <= x + CardView.Width ) &&
+				( y <= ty ) );
+	}
+
+	public override void select (int tx, int ty) {
+		if( isEmpty ) { return; }
+		// if face down, then flip
+		PlayingCard topCard = top;
+		if( ! topCard.isFaceUp ) {
+			topCard.flip();
+			return;
+		}
+		// else see if any suit pile can take card
+		topCard = pop;
+		for(int i = 0; i < 4; i++ ) {
+			if( Game.suitPile(i).canTake( topCard ) ) {
+				Game.suitPile(i).addCard( topCard );
+				return;
+			}
+		}
+		// else see if any other table pile can take card
+		for(int i = 0; i < 7; i++ ) {
+			if( Game.tableau(i).canTake( topCard ) ) {
+				Game.tableau(i).addCard( topCard );
+				return;
+			}
+		}
+		addCard( topCard );
+	}
+
+	public override void display (CardView cv) {
+		Object [ ] cardArray = pile.ToArray();
+		int size = pile.Count;
+		int hs = CardView.Height / 2; // half size
+		int ty = y;
+		for (int i = pile.Count - 1; i >= 0; i--) {
+			cv.display((PlayingCard) cardArray[i], x, ty);
+			ty += hs;
+		}
+	}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 14</h6>
+<hr>
+</body>
+</html>

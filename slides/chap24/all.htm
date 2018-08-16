@@ -1,0 +1,410 @@
+<html>
+<head><title>Chapter 24, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 24</h1>
+<h1 ALIGN=center>Design Patterns </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap</a>
+<li><a href="slide02.htm"> Inspiration, and a Vocabulary</a>
+<li><a href="slide03.htm"> Relationship to Dependency and Visibility</a>
+<li><a href="slide04.htm"> A simple Example, the Adapter</a>
+<ol>
+<li><a href="slide05.htm"> An Example Adapter</a>
+</ol>
+<li><a href="slide06.htm"> Describing Patterns</a>
+<li><a href="slide07.htm"> Example Patterns</a>
+<ol>
+<li><a href="slide08.htm"> Iterator</a>
+<li><a href="slide09.htm"> Software Factory</a>
+<li><a href="slide10.htm"> Strategy</a>
+<li><a href="slide11.htm"> Singleton</a>
+<li><a href="slide12.htm"> Composite</a>
+<li><a href="slide13.htm"> Decorator (Filter, Wrapper)</a>
+<li><a href="slide14.htm"> Double Dispatch (Multiple Polymorphism)</a>
+<ol>
+<li><a href="slide15.htm"> Double Dispatch, Continued</a>
+</ol>
+<li><a href="slide16.htm"> Proxy</a>
+<li><a href="slide17.htm"> Facade</a>
+<li><a href="slide18.htm"> Observer</a>
+</ol>
+<li><a href="slide19.htm"> Patterns and Frameworks</a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+When faced with a new problem, where do you look for inspiration?
+<p>
+Most people look to solutions of previous problems that have
+similar characteristics.
+<p>
+This insight is what is behind <i>design patterns</i>; collections
+of proven ways to structure the relatinships between objects in
+the pursuit of a given objective.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Inspiration, and a Vocabulary</h1>
+<ul>
+<li>Design patterns speed the process of finding a solution, by eliminating
+the need to reinvent well-known and proven solutions.
+<p><li>Just as important, design patterns provide a <i>vocabulary</i> with which
+to discuss the space of possible design choices.
+<p>
+This vocabulary is termed a <i>pattern language</i>.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Relationship to Dependency and Visibility</h1>
+Many patterns are involved with the concepts of dependency we introduced
+in the previous chapter.
+<p>
+Determining where strong dependencies are necessary, and
+how to weaken dependencies whenver possible.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>A Simple Example, The Adapter</h1>
+An adaptor is used to connect a client (an object that needs a service)
+with a server (an object that provides the service).
+<p>
+The client requires a certain interface, and while the server provides
+the necessary functionality, it does not support the interface.
+<p>
+The adapter changes the interface, without actually doing the work.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 04</h6>
+<br>
+The adapters in the Java graphics API are not true adapters in this sense
+of the word.
+<hr>
+</body>
+<p>
+<h1>An Example Adapter</h1>
+<pre>
+class MyCollection implements Collection {
+
+	public boolean isEmpty () 
+		{ return data.count() == 0; }
+	public int size () 
+		{ return data.count(); }
+	public void addElement (Object newElement) 
+		{data.add(newElement); }
+	public boolean containsElement (Object test)
+		{ return data.find(test) != null; }
+	public Object findElement (Object test) 
+		{ return data.find(test); }
+
+	private DataBox data = new DataBox();
+}
+</pre>
+DataBox is some collection that does not support the <b>Collection</b> 
+interface.
+<br>
+Adapters are often needed to connect software from different vendors.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Describing Patterns</h1>
+Patterns themselves have developed their own vocabulary for description:
+<ul>
+<li><b>name</b>.  Contributes to the pattern vocabulary
+<p><li><b>synopsis</b>.  Short description of the problem the pattern will solve.
+<p><li><b>forces</b>. Requirements, considerations, or necessary conditions
+<p><li><b>solution</b>. The essense of the solution
+<p><li><b>counterforces</b>.  Reasons for <i>not</i> using the pattern.
+<p><li><b>related patterns</b>.  Possible alternatives in the design.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Example Patterns</h1>
+We will briefly examine a number of common patterns:
+<ul>
+<li>Iterator
+<li>Software Factory
+<li>Strategy
+<li>Singleton
+<li>Composite
+<li>Decorator
+<li>Double-Dispatch
+<li>Flyweight
+<li>Proxy
+<li>Facade
+<li>Observer
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Iterator</h1>
+<b>Problem:</b> How do you provide a client access to elements in 
+a collection, without exposing the structure of the collection.
+<p><b>Solution:</b> Allow clients to manipulate an object that can return
+the current value and move to the next element in the collection.
+<p>Example, Enumerators in Java
+<pre>
+interface Enumerator {
+	public boolean hasMoreElements();
+	public Object nextElement();
+}
+
+Enumeator e = ...;
+while (e.hasMoreElements) {
+	Object val = e.nextElement();
+	...
+}
+</pre>
+The pattern applies, even if the interface is changed.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Software Factory</h1>
+<b>Problem:</b> How do you simplify the manipulation of many different
+implementations of the same interface (i.e., iterators).
+<p><b>Solution:</b> Hide creation within a method, have the method declare
+a return type that is more general than its actual return type.
+<pre>
+class SortedList {
+	...
+	Enumerator elements () { return new SortedListEnumerator(); }
+	...
+	private class SortedListEnumerator implements Enumerator {
+		...
+	}
+}
+</pre>
+The method is the ``factory'' in the name.  Users don't need to know
+the exact type the factory returns, only the declared type.  
+<p>The factory could even return different types, depending upon
+circumstances.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Strategy</h1>
+<b>Problem:</b> Allow the client the choice of many alternatives, but each 
+is complex, and you don't want to include code for all.
+<p><b>Solution:</b> Make many implementations of the same interface, 
+and allow the client to select one and give it back to you.
+<p><i>Example:</i> The layout managers in the AWT.  Several different
+layout managers are implemented, and the designer selects and creates one.
+<p>Gives the designer flexibility, keeps the code size down.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Singleton</h1>
+<b>Problem:</b> You want to ensure that there is never more than one instace
+of a given class.
+<p><b>Solution:</b> Make the constructor private, have a method that
+returns just one instance, which is held inside the class itself.
+<pre>
+class SingletonClass {
+public:
+	static SingletonClass * oneAndOnly () { return theOne; }
+private:
+	static SingletonClass * theOne;
+	SingletonClass () { ... }
+};
+
+	// static initialization
+SingletonClass * SingletonClass::theOne = new SingletonClass();
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Composite</h1>
+<b>Problem:</b> How do you facilitate creation of complex systems from simple
+parts?
+<p><b>Solution:</b> Provide a few simple components, and a system to 
+compose components (simple or otherwise) into new components.
+<p>Regular expressions are an example, are are type systems, or the nesting
+of panels within panels in the Java AWT API.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Decorator (Filter, Wrapper)</h1>
+<b>Problem</b>: Allow functionally to be layered around an abstraction, but
+still dynamically changable.
+<p><b>Solution:</b> Combine inheritance and composition.  By making
+an object that both subclasses from anther class and holds an instance
+of the class, can add new behavior while referring all other behavior to
+the original class.
+<p><i>Example</i> Input Streams in the Java I/O System
+<pre>
+	// a buffered input stream is-an input stream
+class BufferedInputStream extends InputStream {
+
+	public BufferedInputStream (InputStream s) { data = s; }
+	...
+
+		// and a buffered input stream has-an input stream
+	private InputStream data;
+}
+</pre>
+An instance of BufferedInputStream can wrap around any other type of
+InputStream, and simply adds a little bit new functionality.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Double Dispatch (Multiple Polymorphism)</h1>
+<b>Problem</b>: You have variation in two or more polymorphic variables.
+<p><b>Solution:</b> Make each a receiver in turn, each message ties down
+one source of variation.
+<p>Example, suppose we have a hierarchy of Shapes (Triangle, Square) and 
+Device (Printer, Terminal).  Two variables, one a Shape and one a Device.
+<p>
+First, pass a message to the device, passing the shape as argument:
+<pre>
+Shape aShape = ... ;
+Device aDevice = ...;
+
+aDevice.display(aShape);
+
+function Printer.display (Shape aShape)
+begin
+	aShape.displayOnPrinter (self);
+end;
+
+function Terminal.display (Shape aShape)
+begin
+	aShape.displayOnTerminal (self);
+end;
+</pre>
+One message fixes the device, but how to fix the shape?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>Double Dispatch, continued</h1>
+Each subclass of Shape must implement methods for each output device:
+<pre>
+class Triangle : public Shape {
+public:
+	Triangle (Point, Point, Point);
+		// ...
+	virtual void displayOnPrinter (Printer);
+	virtual void displayOnTerminal (Terminal);
+		// ...
+private:
+	Point p1, p2, p3;
+};
+
+void Triangle.displayOnPrinter (Printer p) {
+	// printer-specific code to 
+	// display triangle
+	// ...
+}
+
+void Triangle.displayOnTerminal (Terminal t) {
+	// terminal-specific code to 
+	// display triangle
+	// ...
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>Proxy</h1>
+<b>Problem:</b> How to hide unimportant communication details, such as
+a network, from the client.
+<p><b>Solution:</b> A proxy uses the interface that the client expects,
+but passes messages over the network to the server, gets back the response,
+and passes it to the client.  The client is therefore hidden from the
+network details.
+<p>
+<img src="slide16.gif">
+<p>
+Similar in some ways to adaptor, but here the intermediary and the server
+can have the same interface.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 16</h6>
+<hr>
+</body>
+<p>
+<h1>Facade</h1>
+<b>Problem</b>: Actual work is performed by two or more objects, but you want
+to hide this level of complexity from the client.
+<p><b>Solution:</b> Create a facade object that receives the messages,
+but passes commands on to the workers for completion.
+<p>
+<img src="slide17.gif">
+<p>
+Also similar to adapter and proxy.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>Observer</h1>
+<b>Problem:</b> How do you dynamically (at run time) add and remove connections
+between objects.
+<p><b>Solution:</b> An Observer Manager implements the following protocol:
+<ul>
+<li>``I Want to Observe X'' -- the OM will keep track of who is watching who
+<p><li>``Tell Everybody who is Observing Met that I have Changed'' -- the OM
+can then tell everybody that an object has changed.
+</ul>
+<p>In this way neither the observer nor the observed object need know the
+existance of the other.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 18</h6>
+<hr>
+</body>
+<p>
+<h1>Patterns and Frameworks</h1>
+<P><UL>
+<LI>
+Both are ways of describing and documenting solutions to common problems.
+<p>
+<LI>
+Frameworks are more ``shrinkwrapped'', ready for immediate use
+<p>
+<LI>
+Patterns are more abstract - many patterns are involved in the solution
+of one problem.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 19</h6>
+<hr>
+</body>
+</body>
+</html>

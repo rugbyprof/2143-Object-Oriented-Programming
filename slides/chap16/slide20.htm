@@ -1,0 +1,43 @@
+<html>
+<head><title>Chapter 16, Slide 20</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 16: Overriding :
+<td bgcolor=#FCCF97><a href="slide21.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide19.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide20.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap16/slide20.ram">real</a>
+<td bgcolor=#FCCF97><a href="text20.htm" target=text>text</a>
+</table>
+<p>
+<h1>Shadowing Methods</h1>
+<font size=+2>
+Many of those languages that require the virtual keyword in the parent class
+will use shadowing if it is omitted:
+<pre>
+class Parent {
+public: 	// note, no virtual keyword here
+	void example () { cout << "Parent" << endl; }
+};
+
+class Child : public Parent {
+public:
+	void example () { cout << "Child" << endl; }
+};
+
+	Parent * p = new Parent();
+	p->example()
+Parent
+	Child * c = new Child();
+	c->example()
+Child
+	p = c; // be careful here!
+	p->example()
+Parent
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 20</h6>
+<hr>
+</body>
+</html>

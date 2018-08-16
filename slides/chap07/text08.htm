@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Text for slide 9, Chapter 6 talk</title>
+</head>
+<body>
+<h1>Reaction to Mouse Down Events</h1>
+<p>
+To get the application started, we need a method that will be 
+triggered by the user hitting the mouse button.  The Apple
+library uses a function called <b>mouseButtonDown</b> for this
+purpose.  When the mouse goes down, we give the cue ball some energy.
+Here the cue ball is being held in a global variable.
+We also set the direction of the cue ball as away from the mouse
+position.  Then we loop over every ball, updating each in turn.
+As long as some ball is moving, the loop continues.
+<p>
+The important thing to note about this program is that the
+overall control is rather simple, and that the effect is achived
+by putting more responsibility into the individual objects themselves.
+Each ball is responsible for its own behavior, the controlling program
+knows very little about what is happening to any individual ball.
+<p>
+<h6><a href="slide9.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap06/slide9.ram">[real]</a>
+ Text to accompany <a href="slide9.htm">slide9</a>,
+in <a href="slide1.htm">Chapter 6</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/2ndEdition/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>
+
+

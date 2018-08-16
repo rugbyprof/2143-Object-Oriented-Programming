@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 5, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 5: Messages Instances and Initialization:
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap05/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>Memory Errors</h1>
+<font size=+2>
+Garbage collection systems impose a run-time overhead, but prevent a number
+of potential memory errors:
+<ul>
+<li>Running out of memory because the programmer forgot to free values
+<p><li>Using a memory value after it has been recovered
+<pre>
+
+	PlayingCard * aCard = new PlayingCard(Spade, 1);
+	delete aCard;
+	cout << aCard.rank();
+
+</pre>
+<p><li>Free the same value twice
+<pre>
+	PlayingCard * aCard = new PlayingCard(Spade, 1);
+	delete aCard;
+	delete aCard; // delete already deleted value
+
+</pre>
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 5</a>, Slide 09</h6>
+<hr>
+</body>
+</html>

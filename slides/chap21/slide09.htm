@@ -1,0 +1,42 @@
+<html>
+<head><title>Chapter 21, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 21: Software Frameworks :
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap21/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>A Sorting Framework</h1>
+<font size=+2>
+<pre>
+class InsertionSorter {
+public:
+	void sort () {
+		int n = size();
+		for (int i = 1; i < n; i++) {
+			int j = i - 1;
+			while (j >= 0 && lessThan(j+1, j)) {
+				swap(j, j+1);
+				j = j - 1;
+			}
+		}
+	}
+
+private:
+	virtual int size() = 0; // abstract methods
+	virtual boolean lessThan(int i, int j) = 0;
+	virtual void swap(int i, int j) = 0;
+}
+</pre>
+The part that is common in made into a foundation method, the
+part that changes are made into deferred methods.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 09</h6>
+<hr>
+</body>
+</html>

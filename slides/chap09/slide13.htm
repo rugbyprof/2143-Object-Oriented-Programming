@@ -1,0 +1,52 @@
+<html>
+<head><title>Chapter 9, Slide 13</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 9: A Solitare Game:
+<td bgcolor=#FCCF97><a href="slide14.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide12.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide13.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap09/slide13.ram">real</a>
+<td bgcolor=#FCCF97><a href="text13.htm" target=text>text</a>
+</table>
+<p>
+<h1>The Discard Pile</h1>
+<font size=+2>
+<pre>
+public class DiscardPile : CardPile {
+	public DiscardPile (int x, int y ) : base(x, y) { }
+
+	public override void addCard (PlayingCard aCard) {
+		if( ! aCard.isFaceUp )
+			{ aCard.flip(); }
+		base.addCard( aCard );
+	}
+
+	public override void select (int tx, int ty) {
+		if( isEmpty ) { return; }
+		PlayingCard topCard = pop;
+		for( int i = 0; i < 4; i++ ) {
+			if( Game.suitPile(i).canTake( topCard ) ) {
+				Game.suitPile(i).addCard( topCard );
+				return;
+			}
+		}
+
+		for( int i = 0; i < 7; i++ ) {
+			if( Game.tableau(i).canTake( topCard ) ) {
+				Game.tableau(i).addCard( topCard );
+				return;
+			}
+		}
+		// nobody can use it, put it back on our stack
+		addCard(topCard);
+	}
+}
+</pre>
+Two different types of overriding, replacement and refinement.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 13</h6>
+<hr>
+</body>
+</html>

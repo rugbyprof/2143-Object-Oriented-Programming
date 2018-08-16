@@ -1,0 +1,31 @@
+<html>
+<head><title>Chapter 19, Slide 16</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 19: Container Classes :
+<td bgcolor=#FCCF97><a href="slide17.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide15.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide16.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap19/slide16.ram">real</a>
+<td bgcolor=#FCCF97><a href="text16.htm" target=text>text</a>
+</table>
+<p>
+<h1>An Iterator Loop in C++</h1>
+<font size=+2>
+<pre>
+		// create starting and stopping iterators
+	list<string>::iterator start = aList.begin();
+	list<string>::iterator stop  = aList.end();
+		// then do the loop
+	for ( ; start != stop; start++ ) {
+		string value = *start; // get the value
+		// ... do something with the value
+	}
+</pre>
+Interface consists of three operations; comparison, increment, and dereference.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 16</h6>
+<hr>
+</body>
+</html>

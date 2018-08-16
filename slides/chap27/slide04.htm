@@ -1,0 +1,36 @@
+<html>
+<head><title>Chapter 27, Slide 04</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 27: Implementation :
+<td bgcolor=#FCCF97><a href="slide05.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide03.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide04.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap27/slide04.ram">real</a>
+<td bgcolor=#FCCF97><a href="text04.htm" target=text>text</a>
+</table>
+<p>
+<h1>The Corresponding Formal Argument</h1>
+<font size=+2>
+On the other side, the receiver pseudo-variable is just a formal argument:
+<p>
+Instead of 
+<pre>
+void CardPile::addCard (Card * aCard) {
+	...
+}
+</pre>
+We have
+<pre>
+void addCard (CardPile * this, Card * aCard) {
+	...
+}
+</pre>
+The first argument can then be used to access data members and other
+methods.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 04</h6>
+<hr>
+</body>
+</html>

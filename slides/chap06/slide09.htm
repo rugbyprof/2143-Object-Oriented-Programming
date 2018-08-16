@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 6, Slide 9</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 6: The Eight Queens Puzzle:
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap06/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<br>
+<h1>Advancing to Next Position</h1>
+<font size=+2>
+<pre>
+
+function queen.advance -> boolean
+
+	if row < 8 then begin
+		row := row + 1;
+		return self.findSolution
+	end
+
+		// cannot go further, move neighbor
+	if not neighbor.advance then
+		return false
+
+	row := 1
+	return self findSolution
+
+end
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 6</a>, Slide 9</h6>
+<hr>
+</body>
+</html>
+
+

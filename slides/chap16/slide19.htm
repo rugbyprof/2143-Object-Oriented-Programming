@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 16, Slide 19</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 16: Overriding :
+<td bgcolor=#FCCF97><a href="slide20.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide18.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide19.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap16/slide19.ram">real</a>
+<td bgcolor=#FCCF97><a href="text19.htm" target=text>text</a>
+</table>
+<p>
+<h1>Shadowing of Instance Variables in Java</h1>
+<font size=+2>
+Java allows instance variables to be redefined, and uses shadowing.
+<pre>
+class Parent {
+	public int x = 12;
+}
+
+class Child extend Parent {
+	public int x = 42; // shadows variable from parent class
+}
+
+	Parent p = new Parent();
+	System.out.println(p.x);
+12
+	Child c = new Child();
+	System.out.println(c.x);
+42
+	p = c; // be careful here!
+	System.out.println(p.x);
+12
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 19</h6>
+<hr>
+</body>
+</html>

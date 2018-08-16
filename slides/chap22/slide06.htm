@@ -1,0 +1,36 @@
+<html>
+<head><title>Chapter 22, Slide 06</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 22: The AWT and Swing :
+<td bgcolor=#FCCF97><a href="slide07.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide05.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide06.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap22/slide06.ram">real</a>
+<td bgcolor=#FCCF97><a href="text06.htm" target=text>text</a>
+</table>
+<p>
+<h1>Event Listeners</h1>
+<font size=+2>
+Event listeners are another good example of the use of inheritance and
+overriding in the Java AWT framework.
+<p>
+Every component (window, button, scroll bar) maintains a list of ``listeners'';
+objects that are interested in being notified when an event has taken place.
+<p>
+Each type of event is defined by an interface, such as the following:
+<pre>
+public interface MouseListener extends EventListener {
+	public void mouseClicked (MouseEvent e);
+	public void mouseEntered (MouseEvent e);
+	public void mouseExited (MouseEvent e);
+	public void mousePressed (MouseEvent e);
+	public void mouseReleased (MouseEvent e);
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 06</h6>
+<hr>
+</body>
+</html>
