@@ -1,5 +1,7 @@
 # 2143 Syllabus
 
+![banana](https://i5.walmartimages.ca/images/Enlarge/580/6_r/875806_R.jpg)
+
 ### Days Time Location
 
 - Days: MWF 1100am 1150pm 
