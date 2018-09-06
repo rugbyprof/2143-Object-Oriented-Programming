@@ -4,4 +4,4 @@
  | [L01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/L01) | [ Lectures L01 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/L01) | [ No Description](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/L01) | [N/A](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/L01) |
  | [N/A](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/N/A) |
 
-<sup>Last Updated: 2018-09-05 (Wed @ 15:34)</sup>
+<sup>Last Updated: 2018-09-06 (Thu @ 14:44)</sup>

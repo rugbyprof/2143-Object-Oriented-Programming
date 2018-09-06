@@ -30,6 +30,12 @@
     -  int size(); // public
     -  double percentFull(); // private
 
+## Starter Code
+
+- [main.cpp](./main.cpp)
+- [myVector.cpp](./myVector.cpp)
+- [myVector.h](./myVector.h)
+
 ## Testing your code
 
 - Write a program that creates an implementation of your vector class and runs the following tests on it:
