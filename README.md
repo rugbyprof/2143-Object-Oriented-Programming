@@ -1,5 +1,6 @@
 # 2143 Syllabus
 
+![description](https://github.com/yizhang0301/2143---oop-yizhang/blob/master/IMG_20180905_123528.jpg)
 
 ### Days Time Location
 
