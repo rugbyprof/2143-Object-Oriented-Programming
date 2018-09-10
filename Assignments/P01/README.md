@@ -1,5 +1,5 @@
 ## Program 1 - Array Vector Class
-#### Due: September 7<sup>th</sup> by Classtime
+#### Due: September 14<sup>th</sup> by Classtime
 
 ## Overview
 
@@ -61,9 +61,9 @@
 | -       | `main.cpp` contains tests to show requirements were met.            | -               |        |
 |         |                                                                     |                 |        |
 | ***3*** | ***Class Container***                                               | **0**           |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
+| -       | Used an array as the container for the vector                       | -               |        |
+| -       | Container grew at the appropriate time.                             | -               |        |
+| -       | Container shrank at the appropriate time.                           | -               |        |
 |         |                                                                     |                 |        |
 | ***4*** | ***Class Methods***                                                 | **0**           |        |
 | -       |                                                                     | -               |        |
@@ -71,8 +71,8 @@
 | -       |                                                                     | -               |        |
 |         |                                                                     |                 |        |
 | ***5*** | ***Tests***                                                         | **0**           |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
+| -       | Popping off empty vector returned false;                            | -               |        |
+| -       | Inserting string into vector threw an error (printed in this case). | -               |        |
 |         |                                                                     |                 |        |
 |         |                                                                     |                 |        |
 |         |                                                                     |                 |        |
