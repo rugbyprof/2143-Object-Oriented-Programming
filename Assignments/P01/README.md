@@ -47,6 +47,10 @@
     - Remove 998 items from your vector. Print the size of your vector.
     - Print out your vector.
 
+### Checklist
+
+(NOT TOTALLY COMPLETE)
+
 | #       | Item                                                                | Value           | Earned |
 | :------ | :------------------------------------------------------------------ | --------------: | ------ |
 | ***1*** | ***General***                                                       | **pass / fail** |        |
