@@ -39,7 +39,7 @@
 ## Testing your code
 
 - Write a program that creates an implementation of your vector class and runs the following tests on it:
-    - Create instance of `myvector` and immediately attempt to `pop_back` (remove from empty vector). 
+    - Create instance of `myvector` of size 10 and immediately attempt to `pop_back` (remove from empty vector). 
         - Removing from an empty vector should return `false`.
     - Using same instance attempt to push a `string` onto your vector. It should fail without crashing.
     - Insert the values 13,31,73 into your vector. Print it out.
