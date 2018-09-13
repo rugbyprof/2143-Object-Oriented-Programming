@@ -43,7 +43,7 @@
         - Removing from an empty vector should return `false`.
     - Insert the values 13,31,73 into your vector. Print it out.
     - Insert 10000 items into your vector. Print the size of your vector.
-    - Remove 998 items from your vector. Print the size of your vector.
+    - Remove 9998 items from your vector. Print the size of your vector.
     - Print out your vector.
 
 ### Checklist
