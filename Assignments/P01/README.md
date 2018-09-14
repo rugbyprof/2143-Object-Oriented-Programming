@@ -69,14 +69,14 @@
 | -       | Container shrank at the appropriate time.                           | -               |        |
 |         |                                                                     |                 |        |
 | ***4*** | ***Class Methods***                                                 | **0**           |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
+| -       | pushBack method exists and works correctly                          | -               |        |
+| -       | popBack method exists and works correctly                           | -               |        |
 | -       |                                                                     | -               |        |
 |         |                                                                     |                 |        |
 | ***5*** | ***Tests***                                                         | **0**           |        |
-| -       | Popping off empty vector returned false;                            | -               |        |
-| -       | Inserting string into vector threw an error (printed in this case). | -               |        |
-|         |                                                                     |                 |        |
-|         |                                                                     |                 |        |
+| -       | Popping off empty vector doesnt crash .                              | -               |        |
+| -       | Vector grows appropriately                                           | -               |        |
+|         | Vector shrinks appropriately                                        | -               |         |                
+|         | Output shows that program works appropriately.                       |                 |        |
 |         |                                                                     |                 |        |
 |         | Total:                                                              | **100**         |        |
