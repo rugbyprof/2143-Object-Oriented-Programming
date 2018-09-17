@@ -40,7 +40,7 @@
 
 - Write a program that creates an implementation of your vector class and runs the following tests on it:
     - Create instance of `myvector` of size 10 and immediately attempt to `pop_back` (remove from empty vector). 
-        - Removing from an empty vector should return `false`.
+        - Removing from an empty vector should not crash.
     - Insert the values 13,31,73 into your vector. Print it out.
     - Insert 10000 items into your vector. Print the size of your vector.
     - Remove 9998 items from your vector. Print the size of your vector.
