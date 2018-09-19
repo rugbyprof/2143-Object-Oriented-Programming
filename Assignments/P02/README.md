@@ -39,7 +39,7 @@ v2.push_back(30);
 int A[] = {1,2,3,4,5}
 
 
-v1.push_back(A);
+v1.push_back(A,5);
 // v1 contains: [8,1,2,3,4,5]
 
 v1 = v1 + v2;
