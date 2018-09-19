@@ -18,15 +18,14 @@ Using code from [templated.cpp](./templated.cpp) and from [repl.it](https://repl
 - Overlad `push_back` to accept an array of values which will be appended to the existing vector.
 
 
-
 ## Testing your code
 
 Given:
 
 ```cpp
 
-Vector v1;
-Vector v2;
+Vector<int> v1;
+Vector<int> v2;
 
 v1.push_back(8);
 // v1 contains: [8]
@@ -61,6 +60,8 @@ v2 = v2 * v1;
 
 v2[2] = 100;
 // v2 contains: [540,1260,100]
+
+// What about strings??
 
 ```
 
