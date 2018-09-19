@@ -1,83 +1,67 @@
-## Program 1 - Array Vector Class
-#### Due: September 14<sup>th</sup> by Classtime
+## Program 2 - Array Vector Class 2
+#### Due: September 28<sup>th</sup> by Classtime
 
 ## Overview
 
-- Write a class the will emulate (partially) a C++ vector. 
-- Here is a good overview of a c++ vector: https://www.geeksforgeeks.org/vector-in-cpp-stl/
-- What does this mean? Well lets compare the two:
-    - `Arrays` allow us to store like items in contiguous memory locations.
-    - `Vectors` do as well.
-    - `Arrays` have a fixed size. Array of size 10, cannot store 11 items.
-    - `Vectors` will grow to accommodate the new item.
-    - `Arrays` use an integer index to access locations (slots or cells) in the array.
-    - `Vectors` do as well, but they also have methods (`push`,`pop`) to add items (really `push_back` and `pop_back`). 
-- Vectors do many other things (see above link) but we are only going to implement the basics for your first program. 
+Using code from [templated.cpp](./templated.cpp) and from [repl.it](https://repl.it/@rugbyprof/p02-starter) create a more robust `Vector` class that includes added functionality.
+
 
 ## Requirements
+- Overload `[]` so that your `Vector` can be treated as an array. 
+- Overload `<<` (ostream) so that if your vector were used in a `cout` statement it would print the entire vector without a newline.
+- Overload `+` (addition) so that if your vector were used in an arithmetic operation, it would add two vectors together. 
+- Overload `-` (substraction) so that if your vector were used in an arithmetic operation, it would subtract two vectors. 
+- Overload `*` (multiplication) so that if your vector were used in an arithmetic operation, it would multiply two vectors. 
+- Overload `/` (division) so that if your vector were used in an arithmetic operation, it would divide two vectors. 
+- Overload `==` (equality) so that if your vector were used in an arithmetic operation, it would test for equality. 
+- Overload `=` (assignment) so that you can assign another vector and take on its values.
+- Overlad `push_back` to accept an array of values which will be appended to the existing vector.
 
-- Write a C++ class that (loosely) implements the functionality of a C++ vector using an array as your storage container.
-- Your vector will only need to store integers at this time (we will fix that later).
-- It must be variable size:
-    - Initially, your array container should be sized at whatever size you see fit. However, allocating too much memory is a waste and you will lose points.
-    - If an item is pushed onto a full array, you will automatically resize the array to `1.5` times its current size, to accommodate the new item.
-    - If your array container becomes .40 full, you will shrink your container to half its size (unless your at the original allocated size).
-        - For example, if you start off with a container of 25, you may go up to 37, 55, 82 , etc., but it's size will never go below 25.
-- It must have `push_back` and `pop_back` implemented which adds an item to the end of the array and removes an item from the end of the array respectively.
-    -  What would pushing or popping from the front of the array require?
--  Some other methods that might be helpful:
-    -  void print(); // public
-    -  int size(); // public
-    -  double percentFull(); // private
 
-## Starter Code
-
-- [main.cpp](./main.cpp)
-- [myVector.cpp](./myVector.cpp)
-- [myVector.h](./myVector.h)
 
 ## Testing your code
 
-- Write a program that creates an implementation of your vector class and runs the following tests on it:
-    - Create instance of `myvector` and immediately attempt to `pop_back` (remove from empty vector). 
-        - Removing from an empty vector should return `false`.
-    - Using same instance attempt to push a `string` onto your vector. It should fail without crashing.
-    - Insert the values 13,31,73 into your vector. Print it out.
-    - Insert 10000 items into your vector. Print the size of your vector.
-    - Remove 998 items from your vector. Print the size of your vector.
-    - Print out your vector.
+Given:
 
-### Checklist
+```cpp
 
-(NOT TOTALLY COMPLETE)
+Vector v1;
+Vector v2;
 
-| #       | Item                                                                | Value           | Earned |
-| :------ | :------------------------------------------------------------------ | --------------: | ------ |
-| ***1*** | ***General***                                                       | **pass / fail** |        |
-| -       | Github repository exists                                            |                 |        |
-| -       | `assignments` folder exists in Repo                                 |                 |        |
-| -       | `P01` folder exists in `assignments`                                |                 |        |
-| -       | Your Code is commented.                                             |                 |        |
-|         |                                                                     |                 |        |
-| ***2*** | ***Files***                                                         | **0**           |        |
-| -       | Class definition called `myvector.h` correctly created.             | -               |        |
-| -       | Class implementation called `myvector.cpp` contains implementation. | -               |        |
-| -       | `main.cpp` contains tests to show requirements were met.            | -               |        |
-|         |                                                                     |                 |        |
-| ***3*** | ***Class Container***                                               | **0**           |        |
-| -       | Used an array as the container for the vector                       | -               |        |
-| -       | Container grew at the appropriate time.                             | -               |        |
-| -       | Container shrank at the appropriate time.                           | -               |        |
-|         |                                                                     |                 |        |
-| ***4*** | ***Class Methods***                                                 | **0**           |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
-|         |                                                                     |                 |        |
-| ***5*** | ***Tests***                                                         | **0**           |        |
-| -       | Popping off empty vector returned false;                            | -               |        |
-| -       | Inserting string into vector threw an error (printed in this case). | -               |        |
-|         |                                                                     |                 |        |
-|         |                                                                     |                 |        |
-|         |                                                                     |                 |        |
-|         | Total:                                                              | **100**         |        |
+v1.push_back(8);
+// v1 contains: [8]
+
+v2.push_back(10);
+v2.push_back(20);
+v2.push_back(30);
+// v2 contains: [10,20,30]
+
+// Declare some int array
+int A[] = {1,2,3,4,5}
+
+
+v1.push_back(A);
+// v1 contains: [8,1,2,3,4,5]
+
+v1 = v1 + v2;
+// v1 contains: [18,21,32,3,4,5]
+
+cout<<v1<<endl;
+// would print: [18,21,32,3,4,5] to standard out.
+
+cout<<v1[2]<<endl;
+// would print: 32 to standard out.
+
+
+v2 = v2 * 3;
+// v2 contains: [30,60,90]
+
+v2 = v2 * v1;
+// v2 contains: [540,1260,2880]
+
+v2[2] = 100;
+// v2 contains: [540,1260,100]
+
+```
+
+
