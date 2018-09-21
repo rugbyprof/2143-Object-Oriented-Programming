@@ -1,1 +1,6 @@
 theme: jekyll-theme-modernist
+mypages:
+- section1: Section 1
+  audience: developers
+  product: acme
+  url: facebook.com
