@@ -1,4 +1,4 @@
-## SFML Install : Step by Step instructions
+## SFML Install - Step by Step instructions
 #### Due: No Due Date
 
 Written By: Tom Bauer
