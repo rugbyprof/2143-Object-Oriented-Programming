@@ -28,9 +28,9 @@
 
 ## Example:
 
-Your Name
-Date
-Class: 2143 OOP
+- Your Name
+- Date
+- Class: 2143 OOP
 
 ### Definitions
 
