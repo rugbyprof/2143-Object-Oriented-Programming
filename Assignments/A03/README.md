@@ -21,9 +21,10 @@
 
 ### What to turn in:
 
-1. Create a folder in your assignments folder called `A03`
-1. In that folder create a file called README.md
-1. Place your definitions in this file.
+- Create a folder in your assignments folder called `A03`
+- In that folder create a file called README.md
+- Place your definitions in this file.
+-  https://guides.github.com/features/mastering-markdown/
 
 
 ## Example:
