@@ -26,7 +26,13 @@
 - Place your definitions in this file.
 
 
-### Example:
+## Example:
+
+- Your Name
+- Date
+- Class: 2143 OOP
+
+### Definitions
 
 #### Class
 
