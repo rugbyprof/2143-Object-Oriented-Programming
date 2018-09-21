@@ -39,6 +39,7 @@
 > This is your definition of what a class is. Using images is A-ok. For example: 
 >
 ><img src="https://ds055uzetaobb.cloudfront.net/image_optimizer/722c82aff075a14313be7fa7463f7fedad151a0a.png" width=400>
+![class definition](https://ds055uzetaobb.cloudfront.net/image_optimizer/722c82aff075a14313be7fa7463f7fedad151a0a.png)
 
 #### Object
 > This is your object definition....
