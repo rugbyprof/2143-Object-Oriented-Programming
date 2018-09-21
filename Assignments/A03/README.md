@@ -21,9 +21,9 @@
 
 ### What to turn in:
 
-- Create a folder in your assignments folder called `A03`
-- In that folder create a file called README.md
-- Place your definitions in this file.
+1. Create a folder in your assignments folder called `A03`
+1. In that folder create a file called README.md
+1. Place your definitions in this file.
 
 
 ## Example:
