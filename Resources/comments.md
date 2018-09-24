@@ -118,7 +118,8 @@
      *  Purpose: Calculate the total of 6 checks
      * 
      *  @author Ada Lovelace
-     *  @version 1.1 01/03/17 
+     *  @version 1.1 01/03/17
+     *  @github repo: https://github.com/your-repo-name
      */
 ```
 
@@ -136,6 +137,7 @@
      * 
      *  @author Ada Lovelace
      *  @version 1.1 01/03/17 
+     *  @github repo: https://github.com/your-repo-name
      */
  ```
 
@@ -180,6 +182,7 @@
 * 
 *  @author Ada Lovelace
 *  @version 1.1 01/03/17 
+*  @github repo: https://github.com/your-repo-name
 */
 
 
