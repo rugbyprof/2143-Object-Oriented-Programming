@@ -3,7 +3,7 @@
 
 ## Overview
 
-Using code from [templated.cpp](./templated.cpp) and from [repl.it](https://repl.it/@rugbyprof/p02-starter) create a more robust `Vector` class that includes added functionality.
+Using code from [repl.it](https://repl.it/@rugbyprof/p02-starter) create a more robust `Vector` class that includes added functionality.
 
 
 ## Requirements
