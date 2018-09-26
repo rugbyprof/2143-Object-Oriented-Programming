@@ -1,6 +1,7 @@
 # 2143 Syllabus
 
 
+
 ### Days Time Location
 
 - Days: MWF 1100am 1150pm 

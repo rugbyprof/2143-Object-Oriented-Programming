@@ -1,5 +1,5 @@
 ## Program 1 - Array Vector Class
-#### Due: September 7<sup>th</sup> by Classtime
+#### Due: September 14<sup>th</sup> by Classtime
 
 ## Overview
 
@@ -30,44 +30,20 @@
     -  int size(); // public
     -  double percentFull(); // private
 
+## Starter Code
+
+- [main.cpp](./main.cpp)
+- [myVector.cpp](./myVector.cpp)
+- [myVector.h](./myVector.h)
+
 ## Testing your code
 
 - Write a program that creates an implementation of your vector class and runs the following tests on it:
-    - Create instance of `myvector` and immediately attempt to `pop_back` (remove from empty vector). 
-        - Removing from an empty vector should return `false`.
-    - Using same instance attempt to push a `string` onto your vector. It should fail without crashing.
+    - Create instance of `myvector` of size 10 and immediately attempt to `pop_back` (remove from empty vector). 
+        - Removing from an empty vector should not crash.
     - Insert the values 13,31,73 into your vector. Print it out.
     - Insert 10000 items into your vector. Print the size of your vector.
-    - Remove 998 items from your vector. Print the size of your vector.
+    - Remove 9998 items from your vector. Print the size of your vector.
     - Print out your vector.
 
-| #       | Item                                                                | Value           | Earned |
-| :------ | :------------------------------------------------------------------ | --------------: | ------ |
-| ***1*** | ***General***                                                       | **pass / fail** |        |
-| -       | Github repository exists                                            |                 |        |
-| -       | `assignments` folder exists in Repo                                 |                 |        |
-| -       | `P01` folder exists in `assignments`                                |                 |        |
-| -       | Your Code is commented.                                             |                 |        |
-|         |                                                                     |                 |        |
-| ***2*** | ***Files***                                                         | **0**           |        |
-| -       | Class definition called `myvector.h` correctly created.             | -               |        |
-| -       | Class implementation called `myvector.cpp` contains implementation. | -               |        |
-| -       | `main.cpp` contains tests to show requirements were met.            | -               |        |
-|         |                                                                     |                 |        |
-| ***3*** | ***Class Container***                                               | **0**           |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
-|         |                                                                     |                 |        |
-| ***4*** | ***Class Methods***                                                 | **0**           |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
-|         |                                                                     |                 |        |
-| ***5*** | ***Tests***                                                         | **0**           |        |
-| -       |                                                                     | -               |        |
-| -       |                                                                     | -               |        |
-|         |                                                                     |                 |        |
-|         |                                                                     |                 |        |
-|         |                                                                     |                 |        |
-|         | Total:                                                              | **100**         |        |
+
