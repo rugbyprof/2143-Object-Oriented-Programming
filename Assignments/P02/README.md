@@ -1,5 +1,5 @@
 ## Program 2 - Array Vector Class 2
-#### Due: September 28<sup>th</sup> by Classtime
+#### Due: October 1<sup>st</sup> by Classtime
 
 ## Overview
 
