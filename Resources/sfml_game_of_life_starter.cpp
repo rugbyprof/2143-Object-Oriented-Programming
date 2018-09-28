@@ -6,7 +6,6 @@
 struct lifeCell : public sf::Drawable {
 	sf::RectangleShape rect;
 	bool alive;
-	//sf::Color color;
 protected:
 	void draw(sf::RenderTarget& target, sf::RenderStates state) const
 	{
@@ -14,13 +13,19 @@ protected:
 	}
 };
 
+/**
+* Starter class to represent game of life
+*/
 class gameOfLife  {
 private:
-	lifeCell **World;
-	int Rows;
-	int Cols;
-	sf::RenderWindow &WindowRef;
+	lifeCell **World;				// double pointer to a lifeCell (defined above)
+	int Rows;						// num rows in game board
+	int Cols;						// num cols in game board
+	sf::RenderWindow &WindowRef;	// reference to sfml window so we can draw to it.
 
+	/**
+	* Creates the game board, resets it (0's it out), then randomly populates it.
+	*/
 	void init() {
 		
 		World = new lifeCell *[Rows];
@@ -34,24 +39,40 @@ private:
 	}
 
 public:
+	/**
+	* GameOfLife Constructor extends sfml WindowRef
+	* @param:
+	*    sf::RenderWindow : a reference to our sfml window
+	*
+	*/
 	gameOfLife(sf::RenderWindow &thatWindow) : WindowRef(thatWindow){
 		Rows = 30;
 		Cols = 20;
 		init();
 	}
 
+	/**
+	* GameOfLife Constructor extends sfml WindowRef
+	* @param:
+	*    sf::RenderWindow : a reference to our sfml window
+	*    int rows : num of rows in board
+	*    int cols : num of cols in board
+	*
+	*/
 	gameOfLife(sf::RenderWindow &thatWindow, int rows,int cols) : WindowRef(thatWindow) {
 		Rows = rows;
 		Cols = cols;
 		init();
 	}
 
+
+
+
 	void resetBoard() {
 		for (int i = 0; i < Rows; i++) {
 			for (int j = 0; j < Cols; j++) {
 				World[i][j].rect.setSize(sf::Vector2f(CELLSIZE, CELLSIZE));
 				World[i][j].alive = 0;
-				//World[i][j].color = sf::Color::Black;
 				World[i][j].rect.setPosition((i + 1)*CELLSIZE, (j + 1)*CELLSIZE);
 			}
 		}
@@ -66,7 +87,6 @@ public:
 			if (World[r][c].alive == 0) {
 				World[r][c].alive = 1;
 				World[r][c].rect.setFillColor(sf::Color::Green);
-				//World[r][c].color = sf::Color::Green;
 				count++;
 			}
 		}
@@ -89,7 +109,14 @@ public:
 };
 
 
-
+/**
+* Not used in GOL but this is an example of a function that makes a 2D array
+* of sfml rectangle shapes.
+* @params:
+*    int rows - number of rows in 2D array
+*    int cols - numberof cols in 2D array
+* @returns: **RectangleShape (pointer)
+*/
 sf::RectangleShape** makeWorld(int rows, int cols) {
 	sf::RectangleShape **World;
 
@@ -106,17 +133,6 @@ sf::RectangleShape** makeWorld(int rows, int cols) {
 	}
 
 	return World;
-}
-
-
-
-void print2d(int**world, int rows, int cols) {
-	for (int i = 0; i < rows; i++) {
-		for (int j = 0; j < cols; j++) {
-			std::cout << world[i][j];
-		}
-		std::cout << std::endl;
-	}
 }
 
 
@@ -151,18 +167,9 @@ directionType direction(sf::CircleShape shape, sf::Vector2u winSize) {
 	return d;
 }
 
-void moveShape(sf::CircleShape& shape,int x,int y, sf::Vector2u window) {
-	directionType d = direction(shape,window);
-	std::cout << d.x << "," << d.y << std::endl;
-	shape.move(x*d.x, y*d.y);
-}
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(600, 600), "SFML works!");
-	//sf::CircleShape shape(20.f);
-	//shape.setFillColor(sf::Color(150, 50, 250));
-	//shape.setOutlineThickness(5);
-	//shape.setOutlineColor(sf::Color(250, 150, 100));
+	sf::RenderWindow window(sf::VideoMode(600, 600), "Game of Life");
 
 	int frameRate = 5;
 	int frameCount = 0;
@@ -173,7 +180,6 @@ int main() {
 
 	gameOfLife Gol(window,width/CELLSIZE,height/CELLSIZE);
 
-	//sf::Vector2f position = shape.getPosition();
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -187,14 +193,12 @@ int main() {
 		Gol.randomlyPopulate();
 		Gol.printBoard();
 
-		//moveShape(shape, 1, 1, size);
-		
-		//window.draw(shape);
 
 		if (frameCount % frameRate == 0) {
 			window.display();
 		}
 
+		
 		frameCount++;
 	}
 	return 0;
