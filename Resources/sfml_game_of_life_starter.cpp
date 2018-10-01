@@ -13,7 +13,7 @@ using namespace sf;
 * Methods:
 * 	void draw(RenderTarget& target, RenderStates state) const 
 */
-struct lifeCell : public sf::Drawable {
+struct lifeCell : public Drawable {
 	RectangleShape rect;
 	bool alive;
 protected:
@@ -35,7 +35,7 @@ private:
 	lifeCell **World;				// double pointer to a lifeCell (defined above)
 	int Rows;					// num rows in game board
 	int Cols;					// num cols in game board
-	sf::RenderWindow &WindowRef;	// reference to sfml window so we can draw to it.
+	RenderWindow &WindowRef;	// reference to sfml window so we can draw to it.
 
 	/**
 	* Creates the game board, resets it (0's it out), then randomly populates it.
@@ -56,7 +56,7 @@ public:
 	/**
 	* GameOfLife Constructor extends sfml WindowRef
 	* @param:
-	*    sf::RenderWindow : a reference to our sfml window
+	*    RenderWindow : a reference to our sfml window
 	*
 	*/
 	gameOfLife(sf::RenderWindow &thatWindow) : WindowRef(thatWindow){
@@ -68,12 +68,12 @@ public:
 	/**
 	* GameOfLife Constructor extends sfml WindowRef
 	* @param:
-	*    sf::RenderWindow : a reference to our sfml window
+	*    RenderWindow : a reference to our sfml window
 	*    int rows : num of rows in board
 	*    int cols : num of cols in board
 	*
 	*/
-	gameOfLife(sf::RenderWindow &thatWindow, int rows,int cols) : WindowRef(thatWindow) {
+	gameOfLife(RenderWindow &thatWindow, int rows,int cols) : WindowRef(thatWindow) {
 		Rows = rows;
 		Cols = cols;
 		init();
@@ -154,8 +154,8 @@ public:
 *    int cols - numberof cols in 2D array
 * @returns: **RectangleShape (pointer)
 */
-sf::RectangleShape** makeWorld(int rows, int cols) {
-	sf::RectangleShape **World;
+RectangleShape** makeWorld(int rows, int cols) {
+	RectangleShape **World;
 
 	World = new sf::RectangleShape *[rows];
 
