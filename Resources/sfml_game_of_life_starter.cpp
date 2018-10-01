@@ -3,11 +3,25 @@
 
 #define CELLSIZE 10
 
+using namespace sf;
+
+/**
+* lifeCell : A single instance of a cell in a Game of Life array
+* Data-Elements:
+* 	RectangleShape rect;	// sfml rectangle type
+* 	bool alive;		// is cell alive or not
+* Methods:
+* 	void draw(RenderTarget& target, RenderStates state) const 
+*/
 struct lifeCell : public sf::Drawable {
-	sf::RectangleShape rect;
+	RectangleShape rect;
 	bool alive;
 protected:
-	void draw(sf::RenderTarget& target, sf::RenderStates state) const
+	/**
+	* void draw: draws an SFML shape to an SFML window.
+	*/
+	void draw(RenderTarget& target, RenderStates state) const // means this method won't change 
+								  // anything...	
 	{
 		target.draw(rect);
 	}
@@ -19,8 +33,8 @@ protected:
 class gameOfLife  {
 private:
 	lifeCell **World;				// double pointer to a lifeCell (defined above)
-	int Rows;						// num rows in game board
-	int Cols;						// num cols in game board
+	int Rows;					// num rows in game board
+	int Cols;					// num cols in game board
 	sf::RenderWindow &WindowRef;	// reference to sfml window so we can draw to it.
 
 	/**
@@ -66,8 +80,15 @@ public:
 	}
 
 
-
-
+	/**
+	* Function: resetBoard
+	* 	Sets the size of each rectangle to CELLSIZE (necessary?)
+	*       Also sets each cell to NOT alive     
+	* @param:
+	*	None
+	* @returns:
+	*       None
+	*/
 	void resetBoard() {
 		for (int i = 0; i < Rows; i++) {
 			for (int j = 0; j < Cols; j++) {
@@ -78,6 +99,14 @@ public:
 		}
 	}
 
+	/**
+	* Function: randomlyPopulate
+	* 	Sets max_life number of cells to alive   
+	* @param:
+	*	int max_life
+	* @returns:
+	*       None
+	*/
 	void randomlyPopulate(int max_life = 30) {
 		int count = 0;
 		int r, c;
@@ -92,6 +121,14 @@ public:
 		}
 	}
 
+	/**
+	* Function: printBoard
+	* 	Prints board to an sfml window   
+	* @param:
+	*	None
+	* @returns:
+	*       None
+	*/
 	void printBoard() {
 		int x = 0;
 		int y = 0;
@@ -135,7 +172,14 @@ sf::RectangleShape** makeWorld(int rows, int cols) {
 	return World;
 }
 
-
+/**
+* directionType : A single instance of a cell in a Game of Life array
+* Data-Elements:
+* 	int x;	// x direction (positive = right)
+* 	int y;	// y direction (positive = down)
+* Methods:
+* 	None
+*/
 struct directionType {
 	int x;
 	int y;
@@ -145,6 +189,13 @@ struct directionType {
 	}
 };
 
+/**
+* directionType direction: 
+* @params:
+*    int rows - number of rows in 2D array
+*    int cols - numberof cols in 2D array
+* @returns: **RectangleShape (pointer)
+*/
 directionType direction(sf::CircleShape shape, sf::Vector2u winSize) {
 	sf::Vector2f position = shape.getPosition();
 
@@ -169,12 +220,12 @@ directionType direction(sf::CircleShape shape, sf::Vector2u winSize) {
 
 
 int main() {
-	sf::RenderWindow window(sf::VideoMode(600, 600), "Game of Life");
+	RenderWindow window(VideoMode(600, 600), "Game of Life");
 
 	int frameRate = 5;
 	int frameCount = 0;
 
-	sf::Vector2u size = window.getSize();
+	Vector2u size = window.getSize();
 	unsigned int width = size.x;
 	unsigned int height = size.y;
 
@@ -182,9 +233,9 @@ int main() {
 
 
 	while (window.isOpen()) {
-		sf::Event event;
+		Event event;
 		while (window.pollEvent(event)) {
-			if (event.type == sf::Event::Closed)
+			if (event.type == Event::Closed)
 				window.close();
 		}
 		window.clear();
