@@ -7,11 +7,13 @@ using namespace sf;
 
 /**
 * lifeCell : A single instance of a cell in a Game of Life array
-* Data-Elements:
+* @Extends:
+*   sf::Drawable
+* @Data-Elements:
 * 	RectangleShape rect;	// sfml rectangle type
 * 	bool alive;		// is cell alive or not
-* Methods:
-* 	void draw(RenderTarget& target, RenderStates state) const 
+* @Methods:
+* 	void draw(RenderTarget& target, RenderStates state) const
 */
 struct lifeCell : public Drawable {
 	RectangleShape rect;
@@ -30,7 +32,7 @@ protected:
 /**
 * Starter class to represent game of life
 */
-class gameOfLife  {
+class gameOfLife {
 private:
 	lifeCell **World;				// double pointer to a lifeCell (defined above)
 	int Rows;					// num rows in game board
@@ -41,7 +43,7 @@ private:
 	* Creates the game board, resets it (0's it out), then randomly populates it.
 	*/
 	void init() {
-		
+
 		World = new lifeCell *[Rows];
 
 		for (int i = 0; i < Rows; i++) {
@@ -59,7 +61,7 @@ public:
 	*    RenderWindow : a reference to our sfml window
 	*
 	*/
-	gameOfLife(sf::RenderWindow &thatWindow) : WindowRef(thatWindow){
+	gameOfLife(RenderWindow &thatWindow) : WindowRef(thatWindow) {
 		Rows = 30;
 		Cols = 20;
 		init();
@@ -73,7 +75,7 @@ public:
 	*    int cols : num of cols in board
 	*
 	*/
-	gameOfLife(RenderWindow &thatWindow, int rows,int cols) : WindowRef(thatWindow) {
+	gameOfLife(RenderWindow &thatWindow, int rows, int cols) : WindowRef(thatWindow) {
 		Rows = rows;
 		Cols = cols;
 		init();
@@ -83,7 +85,7 @@ public:
 	/**
 	* Function: resetBoard
 	* 	Sets the size of each rectangle to CELLSIZE (necessary?)
-	*       Also sets each cell to NOT alive     
+	*       Also sets each cell to NOT alive
 	* @param:
 	*	None
 	* @returns:
@@ -92,7 +94,7 @@ public:
 	void resetBoard() {
 		for (int i = 0; i < Rows; i++) {
 			for (int j = 0; j < Cols; j++) {
-				World[i][j].rect.setSize(sf::Vector2f(CELLSIZE, CELLSIZE));
+				World[i][j].rect.setSize(Vector2f(CELLSIZE, CELLSIZE));
 				World[i][j].alive = 0;
 				World[i][j].rect.setPosition((i + 1)*CELLSIZE, (j + 1)*CELLSIZE);
 			}
@@ -101,7 +103,7 @@ public:
 
 	/**
 	* Function: randomlyPopulate
-	* 	Sets max_life number of cells to alive   
+	* 	Sets max_life number of cells to alive
 	* @param:
 	*	int max_life
 	* @returns:
@@ -115,7 +117,7 @@ public:
 			c = rand() % Cols;
 			if (World[r][c].alive == 0) {
 				World[r][c].alive = 1;
-				World[r][c].rect.setFillColor(sf::Color::Green);
+				World[r][c].rect.setFillColor(Color::Green);
 				count++;
 			}
 		}
@@ -123,7 +125,7 @@ public:
 
 	/**
 	* Function: printBoard
-	* 	Prints board to an sfml window   
+	* 	Prints board to an sfml window
 	* @param:
 	*	None
 	* @returns:
@@ -157,15 +159,15 @@ public:
 RectangleShape** makeWorld(int rows, int cols) {
 	RectangleShape **World;
 
-	World = new sf::RectangleShape *[rows];
+	World = new RectangleShape *[rows];
 
 	for (int i = 0; i < rows; i++) {
-		World[i] = new sf::RectangleShape[cols];
+		World[i] = new RectangleShape[cols];
 	}
 
 	for (int i = 0; i < rows; i++) {
 		for (int j = 0; j < cols; j++) {
-			World[i][j].setSize(sf::Vector2f(10, 10));
+			World[i][j].setSize(Vector2f(10, 10));
 		}
 	}
 
@@ -190,14 +192,14 @@ struct directionType {
 };
 
 /**
-* directionType direction: 
+* directionType direction:
 * @params:
 *    int rows - number of rows in 2D array
 *    int cols - numberof cols in 2D array
 * @returns: **RectangleShape (pointer)
 */
-directionType direction(sf::CircleShape shape, sf::Vector2u winSize) {
-	sf::Vector2f position = shape.getPosition();
+directionType direction(CircleShape shape, Vector2u winSize) {
+	Vector2f position = shape.getPosition();
 
 	directionType d;
 
@@ -229,7 +231,7 @@ int main() {
 	unsigned int width = size.x;
 	unsigned int height = size.y;
 
-	gameOfLife Gol(window,width/CELLSIZE,height/CELLSIZE);
+	gameOfLife Gol(window, width / CELLSIZE, height / CELLSIZE);
 
 
 	while (window.isOpen()) {
@@ -249,7 +251,7 @@ int main() {
 			window.display();
 		}
 
-		
+
 		frameCount++;
 	}
 	return 0;
