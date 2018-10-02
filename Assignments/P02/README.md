@@ -1,9 +1,9 @@
 ## Program 2 - Array Vector Class 2
-#### Due: September 28<sup>th</sup> by Classtime
+#### Due: October 1<sup>st</sup> by Classtime
 
 ## Overview
 
-Using code from [templated.cpp](./templated.cpp) and from [repl.it](https://repl.it/@rugbyprof/p02-starter) create a more robust `Vector` class that includes added functionality.
+Using code from [repl.it](https://repl.it/@rugbyprof/p02-starter) create a more robust `Vector` class that includes added functionality.
 
 
 ## Requirements

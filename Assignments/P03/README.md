@@ -48,7 +48,7 @@ int main() {
 
 ### Requirements
 
-- Add a proper comment block to your `main.cpp`.
-    - I changed the comments requirements (added github repo line) so [go look](../Resources/comments.md).
+
+- FYI: I changed the comments requirements (added github repo line) so [go look](../Resources/comments.md).
 - Screen shot your green dot output with enough of your desktop to show me its running on your machine.
 - Turn in a printed copy of your commented `main.cpp` and your screenshot at the beginning of class.
