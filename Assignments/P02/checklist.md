@@ -18,11 +18,9 @@
 | |Overload == (equality) so that if your vector were used in an arithmetic operation, it would test for equality.|   |
 | |Overload = (assignment) so that you can assign another vector and take on its values.|   |
 | |Overlad push_back to accept an array of values which will be appended to the existing vector.|   |
+|         |                                                                     |                 |        |
 | ***1*** | ***Testing***                                                       | **25** |        |
 | -       | All methods thoroughly tested and showed in output.                |                 |        |
-| -       |  Your Code is commented.                               |                 |        |
-| -       |                                          |                 |        |
-| -       |                                              |                 |        |
 |         |                                                                     |                 |        |
 |         | Total:                                                              | **100**         |        |
 
