@@ -5,27 +5,19 @@
 | ***1*** | ***General***                                                       | **10** |        |
 | -       | Github repository exists                                            |                 |        |
 | -       | `assignments` folder exists in Repo                                 |                 |        |
-| -       | `P01` folder exists in `assignments`                                |                 |        |
+| -       | `P02` folder exists in `assignments`                                |                 |        |
 | -       | Your Code is commented.                                             |                 |        |
 |         |                                                                     |                 |        |
-| ***2*** | ***Files***                                                         | **10**          |        |
-| -       | Class definition called `myvector.h` correctly created.             | -               |        |
-| -       | Class implementation called `myvector.cpp` contains implementation. | -               |        |
-| -       | `main.cpp` contains tests to show requirements were met.            | -               |        |
-|         |                                                                     |                 |        |
-| ***3*** | ***Class Container***                                               | **50**          |        |
-| -       | Used an array as the container for the vector                       | -               |        |
-| -       | Container grew at the appropriate time.                             | -               |        |
-| -       | Container shrank at the appropriate time.                           | -               |        |
-|         |                                                                     |                 |        |
-| ***4*** | ***Class Methods***                                                 | **10**          |        |
-| -       | pushBack method exists and works correctly                          | -               |        |
-| -       | popBack method exists and works correctly                           | -               |        |
-|         |                                                                     |                 |        |
-| ***5*** | ***Tests***                                                         | **20**          |        |
-| -       | Printing of test info show program functioned correctly             | -               |        |
-|         | (Not based on correctness of program, just based on running tests)  |                 |        |
-|         |                                                                     |                 |        |
+| ***2*** | ***Methods***                                                       | **90**          |        |
+| |Overload [] so that your Vector can be treated as an array.
+| |Overload << (ostream) so that if your vector were used in a cout statement it would print the entire vector without a newline.|   |        
+| |Overload + (addition) so that if your vector were used in an arithmetic operation, it would add two vectors together.|   |
+| |Overload - (substraction) so that if your vector were used in an arithmetic operation, it would subtract two vectors.|   |
+| |Overload * (multiplication) so that if your vector were used in an arithmetic operation, it would multiply two vectors.|   |
+| |Overload / (division) so that if your vector were used in an arithmetic operation, it would divide two vectors.|   |
+| |Overload == (equality) so that if your vector were used in an arithmetic operation, it would test for equality.|   |
+| |Overload = (assignment) so that you can assign another vector and take on its values.|   |
+| |Overlad push_back to accept an array of values which will be appended to the existing vector.|   |
 |         | Total:                                                              | **100**         |        |
 
 ## Testing your code
