@@ -8,7 +8,7 @@
 | -       | `P02` folder exists in `assignments`                                |                 |        |
 | -       | Your Code is commented.                                             |                 |        |
 |         |                                                                     |                 |        |
-| ***2*** | ***Methods***                                                       | **90**          |        |
+| ***2*** | ***Methods***                                                       | **65**          |        |
 | |Overload [] so that your Vector can be treated as an array.
 | |Overload << (ostream) so that if your vector were used in a cout statement it would print the entire vector without a newline.|   |        
 | |Overload + (addition) so that if your vector were used in an arithmetic operation, it would add two vectors together.|   |
@@ -18,13 +18,11 @@
 | |Overload == (equality) so that if your vector were used in an arithmetic operation, it would test for equality.|   |
 | |Overload = (assignment) so that you can assign another vector and take on its values.|   |
 | |Overlad push_back to accept an array of values which will be appended to the existing vector.|   |
+| ***1*** | ***Testing***                                                       | **25** |        |
+| -       | All methods thoroughly tested and showed in output.                |                 |        |
+| -       |  Your Code is commented.                               |                 |        |
+| -       |                                          |                 |        |
+| -       |                                              |                 |        |
+|         |                                                                     |                 |        |
 |         | Total:                                                              | **100**         |        |
 
-## Testing your code
-
-- Write a program that creates an implementation of your vector class and runs the following tests on it:
-    - Create instance of `myvector` of size 10 and immediately attempt to `pop_back` (remove from empty vector should not crash).
-    - Insert the values 13,31,73 into your vector. Print it out.
-    - Insert 10000 items into your vector. Print the size of your vector.
-    - Remove 9998 items from your vector. Print the size of your vector.
-    - Print out your vector.
