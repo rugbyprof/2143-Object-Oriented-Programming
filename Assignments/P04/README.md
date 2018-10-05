@@ -1,5 +1,5 @@
 # Game of Life 
-#### Due: TBD
+#### Due: 15<sup>th</sup> October at classtime
 
 ## Overview
 
