@@ -96,3 +96,36 @@ struct golCell {
 | | countNeighbors   | Counts the neighbors for a given cell |
 | | onWorld       | determines if a cell is within the matrix| 
 
+### Requirements
+
+- You will write a class based program using the SFML library to visualize your Game of Life program as best as you can, but is not the primary focus of the program.
+- Your code should be as organized as possible. This means:
+ - Functions should only do single tasks (e.g. printing the board, counting neighbors, checking the rules). 
+ - Your main program should be small, and really only "drive" or "start" the program. See below (excluding SFML):
+ 
+ ```cpp
+ int main(int argc, char** argv){
+    GameOfLife G(600,600); // create with some window size
+    
+    G.init("filename.txt");
+    G.run(1000); // run for 1000 generations.
+    G.print("outfilename.txt");
+ 
+ }
+ ```
+- Your code should take a set of command line parameters:
+  - 1st param is the filename to be read in.
+  - 2nd param is the number of generations to be run.
+  - 3rd param is the filename to write your output to.
+  
+### What to turn in
+
+- A copy of your c++ code properly commented.
+- A copy of your input and output files.
+- Your name should be on everything NOT HAND WRITTEN.
+- Even your input file should have a digitally printed name.
+
+
+
+ 
+ 
