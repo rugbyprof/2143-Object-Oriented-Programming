@@ -1,5 +1,5 @@
 # Program 4 - Game of Life 
-#### Due: 15<sup>th</sup> October at classtime
+#### Due: October 15<sup>th</sup> at classtime
 
 ## Overview
 
