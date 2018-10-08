@@ -114,6 +114,7 @@
 ```cpp
      /**
      *  Course: CMPS 2143 - OOP
+     *  Program: Program 2 or P02
      *
      *  Purpose: Calculate the total of 6 checks
      * 
