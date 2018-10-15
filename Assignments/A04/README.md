@@ -1,4 +1,4 @@
-## Framerate example
+## Framerate example - Barely a program 
 #### Due: Friday 5<sup>th</sup> beginning of Class.
 
 Using the code from [here](https://github.com/rugbyprof/2143-Object-Oriented-Programming/blob/master/Resources/sfml_game_of_life_2.cpp).
