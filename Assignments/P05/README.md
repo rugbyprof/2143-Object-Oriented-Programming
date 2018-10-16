@@ -41,31 +41,42 @@
   
 ```cpp
 /**
-* State 0: uncovered
-* State 1: 1 nearby bomb
-* State 2: 2 nearby bombs
-* ...
-* State 8: 8 nearby bombs
-* State 9: bomb
-* State 10:
+*
 */
 class MineCell{
-  int State;
+private:
+  sf::Sprite sprite;
   int NearbyBombs;
   bool Visited;
-  
+  bool isBomb;
+public:
   MineCell(){
-    State = 0;
+    NearbyBombs = 0;
+    Visited = 0;
+    isBomb = 0;
   }
-
+  
+  // method to set sprite
+  // method to set NearbyBombs
+  // method to set Visited
+  // method to set isBomb
+  // method to get NearbyBombs
+  // method to get Visited
+  // method to get isBomb  
 };
 
-vo
+
 class MineSweeper {
 private:
   MineCell **World;
-  
+  int rows;
+  int cols;
+  bool onWorld(int r,int c); // private method to check if some cell is in bounds
+  void calculateNeighbors(); // calculates NearbyBombs called after randomlyPopulate is called
 public:
+  void readFromFile(string file_name); // reads MineSweeper data from file and loads 2D array
+  void randomlyPopulate(int num_bombs); // random loads MineSweeper with num_bombs.
+  void printMineSweeper(); // print World data to console 
 };
 ```
   
