@@ -38,4 +38,26 @@
   
 ### Part 2
 
-- We now 
+- We now should have a class that holds a MineSweeper game, but has ZERO game logic.
+- We are still not at the point where we should incorporate SFML.
+- But what are we missing? Lets look at the rules <sup>[source](https://zyxyvy.wordpress.com/2012/08/11/the-rules-of-minesweeper/</sup>):
+    - The game of minesweeper begins upon the opening of the first square the player clicks open, which starts the timer.
+    - The grid of mines for a board is pre-generated before the start of the game. The first square clicked never contains a mine. If it did contain a mine in the board pre-generation, the mine is moved to the upper-left hand corner of the board, and if that was a mine, the next square over to the right, and so on.
+    - When a square is successfully opened without containing a mine, it shows a number. The number indicates the number of mines that exist in the eight squares touching the square the number was in.
+    - If the number would have been a 0, the number 0 is not shown, and all squares touching that square are opened as well.
+
+
+
+
+
+
+    - Mouse Click capture (SFML disregard)
+    - Drawing sprites (SFML disregard)
+    - Handling a mouse click (AHA!)
+    
+
+
+
+
+
+
