@@ -45,12 +45,17 @@
     - The grid of mines for a board is pre-generated before the start of the game. The first square clicked never contains a mine. If it did contain a mine in the board pre-generation, the mine is moved to the upper-left hand corner of the board, and if that was a mine, the next square over to the right, and so on.
     - When a square is successfully opened without containing a mine, it shows a number. The number indicates the number of mines that exist in the eight squares touching the square the number was in.
     - If the number would have been a 0, the number 0 is not shown, and all squares touching that square are opened as well.
-
-
-
-
-
-
+    - When a square is right-clicked, a flag appears over the square. Right-clicking is intended for marking a square as a mine. Right-click again to remove the flag. Each time a square is flagged, the number of “mines left” display is decremented.
+    - The number of mines in a board is pre-determined. A Beginner board has 10 mines on an 8-by-8 board, an Intermediate board has 40 mines on a 16-by-16 board, and an Expert board has 99 mines on a 16-by-30 board. 
+- From the rules I see we need a couple of things to keep track of:
+    - A timer that displays seconds played.
+    - Total Bombs in the game.
+    - Marked bombs (if succesfully `if (marked_bombs_count == total_bombs){you win}`).
+    - Mines left (for display purposes. `total-bombs - flags = bombs_left`).
+    - A game finished check (all bombs successfully marked).
+    
+### Part 3 
+    
     - Mouse Click capture (SFML disregard)
     - Drawing sprites (SFML disregard)
     - Handling a mouse click (AHA!)
