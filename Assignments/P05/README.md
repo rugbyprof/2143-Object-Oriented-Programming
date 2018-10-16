@@ -102,6 +102,9 @@ public:
 
 - It would be real easy to want to add SFML here, but lets hold off. There are plenty of methods we can still write and make sure we put ourself in a good position to make our lives easier. There are also some possible classes we could create. What is a class? A collection of data and methods that work on that data. A class is used to organize similar purposed methods together, like methods that all work on a timer! Timer class below:
 
+NOTE: SFML provides clock functionality: https://www.sfml-dev.org/tutorials/2.5/system-time.php 
+We can use whichever we want. 
+
 ```cpp
 /**
 * GameTimer
