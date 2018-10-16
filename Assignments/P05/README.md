@@ -100,7 +100,64 @@ public:
     
 ### Part 3 
 
-- It would be real easy to want to add SFML here, but lets hold off. There are plenty of methods we can still write and make sure we put ourself in a good position to make our lives easier. There are also some possible classes we could create. What is a class? A collection of data and methods that work on that data. A class is used to organize similar purposed methods together, like methods that all work on a timer! 
+- It would be real easy to want to add SFML here, but lets hold off. There are plenty of methods we can still write and make sure we put ourself in a good position to make our lives easier. There are also some possible classes we could create. What is a class? A collection of data and methods that work on that data. A class is used to organize similar purposed methods together, like methods that all work on a timer! Timer class below:
+
+```cpp
+/**
+* GameTimer
+* Requires: #include <chrono>
+* Purpose:
+*     Package together like methods to create a game clock, or a clock to determine if mouse clicks are happening too fast, etc.
+*/
+class GameTimer{
+	std::chrono::high_resolution_clock::time_point startTime;   // chrono time type for a start timer
+	std::chrono::high_resolution_clock::time_point endTime;     // chrono time type for a ending timer
+  std::chrono::high_resolution_clock::time_point currentTime; // chrono time type for checking running time
+	std::chrono::duration<double> timeSpan;
+  
+  /**
+  * Constructor initializes our timers.
+  */
+  GameTimer(){
+    startTime = std::chrono::high_resolution_clock::now();
+    endTime = std::chrono::high_resolution_clock::now();
+    currentTime = std::chrono::high_resolution_clock::now();
+    timeSpan = 0;
+  }
+  
+  /**
+  * Starts our timer
+  * Params: none
+  * Returns: void
+  */
+  void StartTimer(){
+    startTime = std::chrono::high_resolution_clock::now();
+  }
+  
+  /**
+  * Stops our timer
+  * Params: none
+  * Returns: int - span (in seconds) from start to end
+  */
+  int StopTimer(){
+    endTime = std::chrono::high_resolution_clock::now();
+    timeSpan = std::chrono::duration_cast<std::chrono::duration<double>>(endTime - startTime);
+    return timeSpan;
+  }
+ 
+  /**
+  * Grabs current running time without stopping our timer
+  * Params: none
+  * Returns: int - span (in seconds) from start to current
+  */
+  int TimeRunning(){
+    currentTime = std::chrono::high_resolution_clock::now();
+    timeSpan = std::chrono::duration_cast<std::chrono::duration<double>>(currentTime - startTime);
+    return timeSpan;
+  }
+  
+}
+```
 
 
   
