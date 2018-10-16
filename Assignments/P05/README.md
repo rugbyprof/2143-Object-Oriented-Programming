@@ -110,11 +110,12 @@ public:
 *     Package together like methods to create a game clock, or a clock to determine if mouse clicks are happening too fast, etc.
 */
 class GameTimer{
-	std::chrono::high_resolution_clock::time_point startTime;   // chrono time type for a start timer
-	std::chrono::high_resolution_clock::time_point endTime;     // chrono time type for a ending timer
+private:
+  std::chrono::high_resolution_clock::time_point startTime;   // chrono time type for a start timer
+  std::chrono::high_resolution_clock::time_point endTime;     // chrono time type for a ending timer
   std::chrono::high_resolution_clock::time_point currentTime; // chrono time type for checking running time
-	std::chrono::duration<double> timeSpan;
-  
+  std::chrono::duration<double> timeSpan;
+public:
   /**
   * Constructor initializes our timers.
   */
