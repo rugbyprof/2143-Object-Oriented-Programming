@@ -24,9 +24,18 @@
 ### Part 1
 
 - Ignore any SFML logic initially
+- Create a class / struct that:
+  - Defines a MineSweeper cell with:
+    - Its state (covered, a number, a bomb, flag, etc)
+    - Neighboring bombs (int)
+    - Uncovered (boolean)
+    - ??
+    - We can add more if we find a need.
 - Create a class that:
   - Reads in a MineSweeper layout from a file.
   - Randomly generates a MineSweeper layout.
   - Prints the layout to the console.
   
 ### Part 2
+
+- We now 
