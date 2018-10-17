@@ -34,6 +34,29 @@ int main()
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	std::chrono::duration<double> time_span;
 
+	sf::Font font;
+	if (!font.loadFromFile("arial.ttf"))
+	{
+		// error...
+	}
+
+	sf::Text text;
+
+	// select the font
+	text.setFont(font); // font is a sf::Font
+
+	// set the string to display
+	text.setString("00:00");
+
+	// set the character size
+	text.setCharacterSize(24); // in pixels, not points!
+
+	// set the color
+	text.setFillColor(sf::Color::Red);
+
+	// set the text style
+	text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
 
 	sf::Texture squareTexture;
 	if (!squareTexture.loadFromFile("square.png"))
@@ -118,6 +141,8 @@ int main()
 				window.draw(MineWorld[i][j].sprite);
 			}
 		}
+
+		window.draw(text);
 
 		t2 = std::chrono::high_resolution_clock::now();
 		time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
