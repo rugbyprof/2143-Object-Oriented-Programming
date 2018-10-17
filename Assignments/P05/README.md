@@ -1,6 +1,9 @@
 ## Program 5 - Minesweeper
 ### Due: TBD
 
+### Helper Code 
+- https://repl.it/@rugbyprof/MineSweeper1
+
 ### Incremental Programming
 
 - Start small
