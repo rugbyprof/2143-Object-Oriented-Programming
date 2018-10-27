@@ -24,7 +24,7 @@ Write a class that uses the SFML `Clock` and `Time` classes to create us a count
 using namespace std;
 
 class Counter{
-
+    // Your awesomeness here...
 };
 
 
