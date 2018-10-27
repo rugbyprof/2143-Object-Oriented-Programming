@@ -63,3 +63,12 @@ int main()
 }
 
 ```
+
+### Deliverables:
+
+- Turn in a copy of your completely commented code at the beginning of class.
+- Make sure your code makes it onto github in your assignments folder under a folder called `A05`.
+- Along with your code, your folder should contain 2 animated gifs of your clock running: one with an incrementing clock, and one with a decrementing clock. 
+
+> https://www.getcloudapp.com/ has a free "gif capture" feature to record a portion of your screen. You can use this (or some other software of your choice) to create an animated gif of your clock running. The gif should include only the portion of your screen that has the clock.
+
