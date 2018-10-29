@@ -15,6 +15,8 @@ Write a class that uses the SFML `Clock` and `Time` classes to create us a count
 - The example below prints to stdout but you can print your timer text to the sfml window. 
 
 
+### Example SFML
+
 ```cpp
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -57,6 +59,54 @@ int main()
         window.clear();
         //window.draw(shape);
         window.display();
+    }
+
+    return 0;
+}
+
+```
+
+### Class Usage
+
+This is just a snippet without the SFML, but your clock should be used something like the following:
+
+```cpp
+
+#include <SFML/Graphics.hpp>
+#include <iostream>
+
+// https://www.sfml-dev.org/tutorials/2.5/system-time.php
+
+using namespace std;
+
+class Counter{
+    // Your awesomeness here...
+};
+
+int main()
+{
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+
+    Counter myClock1(5,0); // start at 5 and decrement to 0
+
+    Counter myClock2(0,5); // start at 0 and increment to 5
+
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear();
+        //window.draw(shape);
+        window.display();
+
+        if(myClock1.isFinished()){
+            window.close();
+        }
     }
 
     return 0;
