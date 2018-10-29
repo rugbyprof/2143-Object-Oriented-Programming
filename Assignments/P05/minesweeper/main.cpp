@@ -95,16 +95,16 @@ struct GameBoard {
 int main(int argc, char** argv)
 {
 
-    TextureManager tex;
-    vector<string> files;
+//     TextureManager tex;
+//     vector<string> files;
 
-    files = tex.scanDir("./playing_cards/");
-    tex.stdPrintDir();
-    tex.LoadTextures();
+//     files = tex.scanDir("./playing_cards/");
+//     tex.stdPrintDir();
+//     tex.LoadTextures();
 
-    sf::Texture t;
-    t = tex.getTextureByName("3_of_hearts");
-    std::cout << t.getSize().x << std::endl;
+//     sf::Texture t;
+//     t = tex.getTextureByName("3_of_hearts");
+//     std::cout << t.getSize().x << std::endl;
 
     bool mouseWasPressed = false;
     bool gameStart = false;
