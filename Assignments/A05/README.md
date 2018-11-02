@@ -102,6 +102,7 @@ int main()
 
         window.clear();
         //window.draw(shape);
+        myClock1.update();
         window.display();
 
         if(myClock1.isFinished()){
