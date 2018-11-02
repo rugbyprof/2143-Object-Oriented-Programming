@@ -101,8 +101,12 @@ int main()
         }
 
         window.clear();
-        //window.draw(shape);
+        
         myClock1.update();
+        //Draw your clock 
+        // Method 1: window.draw(myClock1);
+        //or
+        // Method 2: myClock.draw(window);
         window.display();
 
         if(myClock1.isFinished()){
