@@ -56,9 +56,10 @@ Tile::Tile()
     xScale = 1.0;
     yScale = 1.0;
     if (!tileTexture.loadFromFile("images/square.png")) {
-        std::cout << "Could not load images/square.png ... " << std::endl;
+        //std::cout << "Could not load images/square.png ... " << std::endl;
+    }else{
+        this->setTexture(tileTexture);
     }
-    this->setTexture(tileTexture);
 }
 
 /**
@@ -114,11 +115,16 @@ void Tile::scaleImage(int origWidth, int origHeight, int newWidth, int newHeight
  *      height          {int}      : set height of sprite
  *      texture_path    {string}   : path to image file 
  */
-void Tile::resetTile(int width, int height,string texture_path)
+void Tile::resetTile(int width, int height, string texture_name)
 {
     origWidth = width;
     origHeight = height;
-    setTileTexture(texture_path);
+    xScale = 1.0;
+    yScale = 1.0;
+    if (!tileTexture.loadFromFile(texture_name)) {
+        std::cout << "Could not load " + texture_name + " ... " << std::endl;
+    }
+    this->setTexture(tileTexture);
 }
 
 /**

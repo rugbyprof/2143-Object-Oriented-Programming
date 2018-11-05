@@ -32,21 +32,21 @@ using namespace std;
  */
 class GameClock : public Group {
 private:
-    sf::Font font; // clocks font
-    int fontSize; // size of font in pixels
-    string position; // N,NE,E,SE,S,SW,W,NW, C [N = top center, NE = top right, E = far right vertically centered, ..., C = centered ]
-    sf::Text text; // var to hold clock digits
-    sf::Clock gameClock; // SFML clock type
+    sf::Font font;          // clocks font
+    int fontSize;           // size of font in pixels
+    string position;        // N,NE,E,SE,S,SW,W,NW, C [N = top center, NE = top right, E = far right vertically centered, ..., C = centered ]
+    sf::Text text;          // var to hold clock digits
+    sf::Clock gameClock;    // SFML clock type
     sf::Time startTime;
-    sf::Time elapsedTime; // SFML time type
-    sf::Color textColor; // Color of clock text
+    sf::Time elapsedTime;   // SFML time type
+    sf::Color textColor;    // Color of clock text
     sf::Color backgroundColor; // Color behind clock
     sf::Vector2f clockCoord; // Locations to print clock
     sf::RectangleShape clockRectangle; // Rectangle representing clock back.
-    int clockBuffer; // Padding around clock digits (size of rectangle)
-    int gameBuffer; // Padding around game border (if any);
-    int gameWidth; // Actual width of game window
-    int gameHeight; // Actual height of game window
+    int clockBuffer;        // Padding around clock digits (size of rectangle)
+    int gameBuffer;         // Padding around game border (if any);
+    int gameWidth;          // Actual width of game window
+    int gameHeight;         // Actual height of game window
 
 public:
     /**
@@ -114,6 +114,18 @@ public:
         position = pos;
         clockBuffer = clock_buffer;
         _init();
+    }
+
+    /**
+     * Public: setBackgroundColor
+     *    Set the color of the rectangle behind the clock 
+     * @Params: 
+     *   c {sf::Color} : sfml color type. Example: sf::Color(255,0,0) (red).
+     * @returns:
+     *   void
+     */
+    void setBackgroundColor(sf::Color c){
+        clockRectangle.setFillColor(c);
     }
 
     /**
