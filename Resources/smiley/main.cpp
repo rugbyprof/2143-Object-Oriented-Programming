@@ -49,7 +49,7 @@ public:
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML Smiley!");
+    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML Smiley!", sf::Style::Fullscreen);
 
 
     DrawMe D;

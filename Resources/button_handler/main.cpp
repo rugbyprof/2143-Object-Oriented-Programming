@@ -43,19 +43,20 @@ class ButtonClass : public Tile {
 private:
 
 public:
-	ButtonClass(int x, int y,int sizex,int sizey) {
-		resetTile(sizex, sizey, "./up.png");
-		setOrigin(sizex/2, sizey/2);
-		setPosition(x, y);
+	ButtonClass(int x, int y,int osizex,int osizey,int sizex,int sizey) {
+		resetTile(osizex, osizey, "./normal.png");
 		setSize(sizex, sizey);
+		setOrigin(osizex/2, osizey/2);
+		setPosition(x, y);
+		
 	}
 
 	void pressButton() {
-		setTileTexture("./down.png");
+		setTileTexture("./pressed.png");
 	}
 
 	void releaseButton() {
-		setTileTexture("./up.png");
+		setTileTexture("./normal.png");
 	}
 };
 
@@ -73,18 +74,18 @@ public:
 
 	void checkPressAll(int x,int y) {
 		for (int i = 0; i < buttonArray.size(); i++) {
-			if()
+			
 		}
 	}
 };
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(300, 300), "Smiley Face");
+	sf::RenderWindow window(sf::VideoMode(500, 500), "Smiley Face");
 
 	//DrawGroup DG;
-	ButtonClass button1(100,100,64,64);
-	ButtonClass button2(170, 170, 64, 64);
+	ButtonClass button1(100,100,440,417,64,64);
+	ButtonClass button2(170,170,440,417,64,64);
 
 	//ButtonHandler handler;
 
