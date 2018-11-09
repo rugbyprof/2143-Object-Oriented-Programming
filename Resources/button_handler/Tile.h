@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -28,6 +29,8 @@ class Tile : public sf::Sprite {
 private:
     int origWidth;
     int origHeight;
+    int scaledWidth;
+    int scaledHeight;
     float xScale;
     float yScale;
     sf::Texture tileTexture;
@@ -38,6 +41,7 @@ public:
     void resetTile(int , int ,string);
     void setSize(int , int );
     void setTileTexture(string);
+    bool intersectsWith(int,int);
 };
 
 
@@ -53,6 +57,8 @@ Tile::Tile()
 {
     origWidth = 0;
     origHeight = 0;
+    scaledWidth = 0;
+    scaledHeight = 0;
     xScale = 1.0;
     yScale = 1.0;
     if (!tileTexture.loadFromFile("images/square.png")) {
@@ -75,6 +81,8 @@ Tile::Tile(int width, int height, string texture_name)
 {
     origWidth = width;
     origHeight = height;
+    scaledWidth = width;
+    scaledHeight = height;
     xScale = 1.0;
     yScale = 1.0;
     if (!tileTexture.loadFromFile(texture_name)) {
@@ -99,6 +107,9 @@ void Tile::scaleImage(int origWidth, int origHeight, int newWidth, int newHeight
     xScale = float(newWidth) / float(origWidth);
     yScale = float(newHeight) / float(origHeight);
 
+    scaledWidth = newWidth;
+    scaledHeight = newHeight;
+
     //this = the sprite we inherited from
     //so we are scaling the sprite
     this->setScale(xScale, yScale);
@@ -119,6 +130,8 @@ void Tile::resetTile(int width, int height, string texture_name)
 {
     origWidth = width;
     origHeight = height;
+    scaledWidth = width;
+    scaledHeight = height;
     xScale = 1.0;
     yScale = 1.0;
     if (!tileTexture.loadFromFile(texture_name)) {
@@ -146,6 +159,9 @@ void Tile::setSize(int new_width, int new_height)
     }
     float xScale = float(new_width) / float(origWidth);
     float yScale = float(new_height) / float(origHeight);
+
+    scaledWidth = new_width;
+    scaledHeight = new_height;
     this->setScale(xScale, yScale);
 }
 
@@ -157,8 +173,22 @@ void Tile::setSize(int new_width, int new_height)
  *      texture_path {string}  : path / filename of texture image
  */
 void Tile::setTileTexture(string texture_path){
+    std::cout<<"setting texture: "<<texture_path<<std::endl;
     if (!tileTexture.loadFromFile(texture_path)) {
         std::cout << "Could not load " + texture_path + " ... " << std::endl;
     }
     this->setTexture(tileTexture);
+}
+
+bool Tile::intersectsWith(int x, int y){
+    // get the bounding box of the entity
+    sf::FloatRect boundingBox = this->getGlobalBounds();
+
+    std::cout<<boundingBox.left<<":"<<boundingBox.top<<" "<<x<<","<<y<<std::endl;
+
+    if (boundingBox.contains(x,y))
+    {
+        return true;
+    }
+    return false;
 }
