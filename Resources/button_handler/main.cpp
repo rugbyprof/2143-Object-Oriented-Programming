@@ -89,7 +89,6 @@ int main()
 
 	//ButtonHandler handler;
 
-
 	while (window.isOpen())
 	{
 		sf::Event event;

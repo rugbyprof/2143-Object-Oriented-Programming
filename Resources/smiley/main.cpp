@@ -9,7 +9,6 @@ using namespace std;
 // https://d2trtkcohkrm90.cloudfront.net/images/emoji/apple/ios-11/128/slightly-smiling-face.png
 
 
-
 class DrawMe : public Group{
 private:
     Tile smiley;
