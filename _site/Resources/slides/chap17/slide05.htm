@@ -1,0 +1,44 @@
+<html>
+<head><title>Chapter 17, Slide 05</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 17: The Polymorphic Variable :
+<td bgcolor=#FCCF97><a href="slide06.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide04.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide05.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap17/slide05.ram">real</a>
+<td bgcolor=#FCCF97><a href="text05.htm" target=text>text</a>
+</table>
+<p>
+<h1>Example, Repainting Window</h1>
+<font size=+2>
+<pre>
+class Window {
+	public void repaint () {
+			// invoke the deferred method paint.
+			// Because the implicit receiver, this,
+			// is polymorphic, the method from the
+			// child class will be executed
+		paint (graphicsContext);
+	}
+
+	abstract public void paint (Graphics g); // deferred
+
+	private Graphics graphicsContext;
+}
+
+class GraphicsWindow extends Window {
+	public void paint (Graphics g) {
+		// do the appropriate painting job
+	}
+}
+</pre>
+Only the child class knows how to paint the window.
+The receiver variable is responsible for remembering the actual class
+of the receiver when executing the method in the parent class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 05</h6>
+<hr>
+</body>
+</html>

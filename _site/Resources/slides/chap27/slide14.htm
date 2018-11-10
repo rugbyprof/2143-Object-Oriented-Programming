@@ -1,0 +1,33 @@
+<html>
+<head><title>Chapter 27, Slide 14</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 27: Implementation :
+<td bgcolor=#FCCF97><a href="slide15.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide13.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide14.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap27/slide14.ram">real</a>
+<td bgcolor=#FCCF97><a href="text14.htm" target=text>text</a>
+</table>
+<p>
+<h1>Building A Virtual Table for a Subclass</h1>
+<font size=+2>
+<P>
+When a subclass is created, a new virtual method table is generated.
+<P><UL>
+<LI>
+Methods that are inherited point to the same function as the parent class.
+(and are found in the same offset in the virtual method table).
+<p>
+<LI>
+Methods that are overridden occupy the same offset location, but 
+point to the new function, instead of the version in the parent class.
+</UL>
+<p>
+<img src="slide14.png">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 14</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head><title>Chapter 21, Slide 10</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 21: Software Frameworks :
+<td bgcolor=#FCCF97><a href="slide11.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide09.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide10.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap21/slide10.ram">real</a>
+<td bgcolor=#FCCF97><a href="text10.htm" target=text>text</a>
+</table>
+<p>
+<h1>Specializing the Sorting Framework</h1>
+<font size=+2>
+To apply the framework to a new problem, we subclass and override the
+deferred methods:
+<pre>
+class EmployeeSorter : public InsertionSorter {
+public:
+	EmployeeSorter (Employee * d[], int n) 
+		{ data = d; sze = n; }
+private:
+	Employee * data[];
+	int sze = n;
+
+	virtual int size () { return sze; }
+
+	virtual bool lessThan (int i, int j) 
+		{ return data[i]->startingYear < data[j]->startingYear; }
+
+	virtual void swap (int i, int j) {
+		Employee * temp = v[i];
+		v[i] = v[j];
+		v[j] = temp;
+	}
+}
+</pre>
+We can now reuse the high level algorithm without making any change
+to the original source code!
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 10</h6>
+<hr>
+</body>
+</html>

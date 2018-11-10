@@ -1,0 +1,34 @@
+<html>
+<head><title>Chapter 11, Slide 07</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 11: Static and Dynamic Behavior:
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap11/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<p>
+<h1>Importance of Static Class</h1>
+<font size=+2>
+In a statically typed object-oriented language, the <b>legality</b> of a
+message is determined at <b>compile time</b>, based on the static class.
+<p>
+A message can produce a compile error, even if no run-time error could
+possibly arize:
+<pre>
+class Mammal { }
+class Dog extends Mammal { 
+	void speak() { System.out.println("woof"); }
+}
+
+Mammal pet = new Dog;
+pet.speak(); // will generate error, Mammals don't speak
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 11</a>, Slide 07</h6>
+<hr>
+</body>
+</html>

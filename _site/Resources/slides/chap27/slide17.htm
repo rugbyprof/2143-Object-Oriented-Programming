@@ -1,0 +1,41 @@
+<html>
+<head><title>Chapter 27, Slide 17</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 27: Implementation :
+<td bgcolor=#FCCF97><a href="slide18.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide16.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide17.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap27/slide17.ram">real</a>
+<td bgcolor=#FCCF97><a href="text17.htm" target=text>text</a>
+</table>
+<p>
+<h1>Dispatch Tables</h1>
+<font size=+2>
+<P>
+In languages without static typing it is not practical to use a virtual table,
+since such a table would need to encode <EM>all</EM> methods, not simply those
+in a given class hierarchy.
+<P>
+An alternative technique uses a pointer to a list of selector/method pairs.
+<P>
+When a method is invoked, a run-time search is performed to match the method
+being called with the list of known selectors, until an appropriate method
+is found.
+
+<P>
+In Objective-C the message
+<pre>
+[ neighbor checkrow: row column: column ]
+</pre>
+<P>
+is translated into
+<pre>
+objc_msgSend(neighbor, "checkrow:column:", row, column)
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 17</h6>
+<hr>
+</body>
+</html>

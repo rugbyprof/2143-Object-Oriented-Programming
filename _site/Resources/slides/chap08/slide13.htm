@@ -1,0 +1,44 @@
+<html>
+<head><title>Chapter 8, Slide 13</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 8: Inheritance and Substitution:
+<td bgcolor=#FCCF97><a href="slide14.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide12.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide13.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap08/slide13.ram">real</a>
+<td bgcolor=#FCCF97><a href="text13.htm" target=text>text</a>
+</table>
+<p>
+<h1>Syntax for Overriding</h1>
+<font size=+2>
+Some languages, such as C++, require that the programmer indicate
+in the parent class that overriding is a potential:
+<pre>
+
+	class GraphicalObject {
+	public:
+		virtual void draw();  // can be overridden
+	};
+
+</pre>
+Other languages, such as Object Pascal, require a modifier in the
+child class that overriding has taken place:
+<pre>
+type
+	Ball = object (GraphicalObject)
+		...
+		procedure draw; override; (* overriding has taken place *)
+	end
+</pre>
+Still other languages (C#, Delphi) require indications in both parent
+and child.  
+<br>
+And some languages (Smalltalk) do not require
+any indication in either parent class or child class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 13</h6>
+<hr>
+</body>
+</html>

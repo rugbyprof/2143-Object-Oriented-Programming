@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Program 1 - Array Vector Class | 2143-Object-Oriented-Programming</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Program 1 - Array Vector Class" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Object Oriented Programming in C++" />
+<meta property="og:description" content="Object Oriented Programming in C++" />
+<link rel="canonical" href="http://localhost:4000/Assignments/P01/" />
+<meta property="og:url" content="http://localhost:4000/Assignments/P01/" />
+<meta property="og:site_name" content="2143-Object-Oriented-Programming" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Assignments/P01/","headline":"Program 1 - Array Vector Class","description":"Object Oriented Programming in C++","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ad139bb13b0fb0aa2244a2b1ddeb5e3cc5a2677a">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">2143-Object-Oriented-Programming</a></h1>
+      
+
+      <h2 id="program-1---array-vector-class">Program 1 - Array Vector Class</h2>
+<h4 id="due-september-14th-by-classtime">Due: September 14<sup>th</sup> by Classtime</h4>
+
+<h2 id="overview">Overview</h2>
+
+<ul>
+  <li>Write a class the will emulate (partially) a C++ vector.</li>
+  <li>Here is a good overview of a c++ vector: https://www.geeksforgeeks.org/vector-in-cpp-stl/</li>
+  <li>What does this mean? Well lets compare the two:
+    <ul>
+      <li><code class="highlighter-rouge">Arrays</code> allow us to store like items in contiguous memory locations.</li>
+      <li><code class="highlighter-rouge">Vectors</code> do as well.</li>
+      <li><code class="highlighter-rouge">Arrays</code> have a fixed size. Array of size 10, cannot store 11 items.</li>
+      <li><code class="highlighter-rouge">Vectors</code> will grow to accommodate the new item.</li>
+      <li><code class="highlighter-rouge">Arrays</code> use an integer index to access locations (slots or cells) in the array.</li>
+      <li><code class="highlighter-rouge">Vectors</code> do as well, but they also have methods (<code class="highlighter-rouge">push</code>,<code class="highlighter-rouge">pop</code>) to add items (really <code class="highlighter-rouge">push_back</code> and <code class="highlighter-rouge">pop_back</code>).</li>
+    </ul>
+  </li>
+  <li>Vectors do many other things (see above link) but we are only going to implement the basics for your first program.</li>
+</ul>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Write a C++ class that (loosely) implements the functionality of a C++ vector using an array as your storage container.</li>
+  <li>Your vector will only need to store integers at this time (we will fix that later).</li>
+  <li>It must be variable size:
+    <ul>
+      <li>Initially, your array container should be sized at whatever size you see fit. However, allocating too much memory is a waste and you will lose points.</li>
+      <li>If an item is pushed onto a full array, you will automatically resize the array to <code class="highlighter-rouge">1.5</code> times its current size, to accommodate the new item.</li>
+      <li>If your array container becomes .40 full, you will shrink your container to half its size (unless your at the original allocated size).
+        <ul>
+          <li>For example, if you start off with a container of 25, you may go up to 37, 55, 82 , etc., but it’s size will never go below 25.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>It must have <code class="highlighter-rouge">push_back</code> and <code class="highlighter-rouge">pop_back</code> implemented which adds an item to the end of the array and removes an item from the end of the array respectively.
+    <ul>
+      <li>What would pushing or popping from the front of the array require?</li>
+    </ul>
+  </li>
+  <li>Some other methods that might be helpful:
+    <ul>
+      <li>void print(); // public</li>
+      <li>int size(); // public</li>
+      <li>double percentFull(); // private</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="starter-code">Starter Code</h2>
+
+<ul>
+  <li><a href="/Assignments/P01/main.cpp">main.cpp</a></li>
+  <li><a href="/Assignments/P01/myVector.cpp">myVector.cpp</a></li>
+  <li><a href="/Assignments/P01/myVector.h">myVector.h</a></li>
+</ul>
+
+<h2 id="testing-your-code">Testing your code</h2>
+
+<ul>
+  <li>Write a program that creates an implementation of your vector class and runs the following tests on it:
+    <ul>
+      <li>Create instance of <code class="highlighter-rouge">myvector</code> of size 10 and immediately attempt to <code class="highlighter-rouge">pop_back</code> (remove from empty vector).
+        <ul>
+          <li>Removing from an empty vector should not crash.</li>
+        </ul>
+      </li>
+      <li>Insert the values 13,31,73 into your vector. Print it out.</li>
+      <li>Insert 10000 items into your vector. Print the size of your vector.</li>
+      <li>Remove 9998 items from your vector. Print the size of your vector.</li>
+      <li>Print out your vector.</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

@@ -1,0 +1,2 @@
+- https://jakevdp.github.io/blog/2012/12/01/a-primer-on-python-metaclasses/
+- http://blog.thedigitalcatonline.com/blog/2014/09/01/python-3-oop-part-5-metaclasses/#.WI6vtrYrKWY

@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 12, Slide 20</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 12: Implications of substitution:
+<td bgcolor=#FCCF97><a href="slide21.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide19.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide20.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap12/slide20.ram">real</a>
+<td bgcolor=#FCCF97><a href="text20.htm" target=text>text</a>
+</table>
+<p>
+<h1>Paradoxes of Equality, Part 3</h1>
+<font size=+2>
+And if you add inheritance into the mix, the possibilities for paradoxical
+behavior increase even more.
+<pre>
+class Parent {
+	boolean equals (Object x) { ... }
+}
+
+class Child extends Parent {
+	boolean equals (Object x) { ... }
+}
+
+Parent p;
+Child c;
+
+if (p.equals(c)) // will execute using the parent method
+
+if (c.equals(p)) // will execute using the childs method
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 20</h6>
+<hr>
+</body>
+</html>

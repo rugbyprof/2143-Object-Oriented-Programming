@@ -1,0 +1,33 @@
+<html>
+<head><title>Chapter 22, Slide 05</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 22: The AWT and Swing :
+<td bgcolor=#FCCF97><a href="slide06.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide04.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide05.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap22/slide05.ram">real</a>
+<td bgcolor=#FCCF97><a href="text05.htm" target=text>text</a>
+</table>
+<p>
+<h1>Showing the Use of a Layout Manager</h1>
+<font size=+2>
+<pre>
+class MyPanel extends JPanel {
+	public MyPanel () {
+		...
+		setLayoutManger (new BorderLayout());
+	}
+}
+</pre>
+Both JPanel and BorderLayout are part of the framework, not written by
+the end programmer.   The end programmer selects the appropriate
+type of layout manager.  In this fashion the framework provides
+a flexible solution, without making the frame class overly large.
+(As it would be if it needed to hold all layout managers).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 05</h6>
+<hr>
+</body>
+</html>

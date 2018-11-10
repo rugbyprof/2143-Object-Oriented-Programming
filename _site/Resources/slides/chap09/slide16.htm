@@ -1,0 +1,32 @@
+<html>
+<head><title>Chapter 9, Slide 16</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 9: A Solitare Game:
+<td bgcolor=#FCCF97><a href="slide17.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide15.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide16.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap09/slide16.ram">real</a>
+<td bgcolor=#FCCF97><a href="text16.htm" target=text>text</a>
+</table>
+<p>
+<h1>Features to Note</h1>
+<font size=+2>
+<ul>
+<li>Note that the array <b>allPiles</b> is declared as an array of 
+<b>CardPile</b>, but holds values from child classes
+<p><li>When <b>paint</b> is called, the method <b>display</b> invoked
+will be the appropriate one for each type of pile, not the method
+in <b>CardPile</b>.
+<p><li>Similarly, in <b>mouseDown</b>, different piles will use
+different implementations of <b>includes</b> and <b>select</b>
+<p><li>Because these methods are static, they can be accessed using
+only the class name (we saw this earlier).  There actually is no
+instance of <b>Game</b>, only the one class object.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 16</h6>
+<hr>
+</body>
+</html>

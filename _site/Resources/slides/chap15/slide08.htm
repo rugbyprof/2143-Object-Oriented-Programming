@@ -1,0 +1,33 @@
+<html>
+<head><title>Chapter 15, Slide 08</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 15: Overloading :
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap15/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<p>
+<h1>Stream Output in C++</h1>
+<font size=+2>
+Stream output in C++ is a good example of the power of overloading.
+Every primitive type has a different stream output function.
+<pre>
+	ostream & operator << (ostream & destination, int source);
+	ostream & operator << (ostream & destination, short source);
+	ostream & operator << (ostream & destination, long source);
+	ostream & operator << (ostream & destination, char source);
+	ostream & operator << (ostream & destination, char *  source);
+	// ... and so on
+
+	double d = 3.14;
+	cout << "The answer is " << d << '\n';
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 08</h6>
+<hr>
+</body>
+</html>

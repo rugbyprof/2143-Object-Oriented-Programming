@@ -1,0 +1,35 @@
+<html>
+<head><title>Chapter 15, Slide 07</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 15: Overloading :
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap15/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<p>
+<h1>Resolution Performed at Compile Time</h1>
+<font size=+2>
+Note that resolution is almost always performed at compile time,
+based on static types, and not dynamic values.
+<pre>
+class Parent { ... };
+
+class Child : public Parent { ... };
+
+void Test(Parent * p) { cout << "in parent" << endl; }
+void Test(Child * c) { cout << "in child" << endl }
+
+	Parent * value = new Child();
+
+	Test(value); 
+</pre>
+Example will, perhaps surprizingly, execute parent function.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 07</h6>
+<hr>
+</body>
+</html>

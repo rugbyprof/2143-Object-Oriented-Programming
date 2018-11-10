@@ -1,0 +1,50 @@
+<html>
+<head><title>Chapter 23, Slide 08</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 23: Object Interconnections :
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap23/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<p>
+<h1>Global Data Coupling</h1>
+<table><tr><td colspan=2><pre>
+<font size=+2>
+
+		double todaysDow;
+
+</font></pre><tr><td><pre>
+<font size=+2>
+class One {
+public:
+  void setDow () {
+    todaysDow = 9473;		
+  }
+};
+</font>
+</pre><td><pre>
+<font size=+2>
+class Two {
+public:
+  void printDow () {
+    cout << "Today the Dow hit "
+      << todaysDow;
+  }
+};
+</font>
+</pre></table>
+<font size=+2>
+Two or more classes that interact through a common global variable.
+Again, makes it difficult to understand a single class in insolation.
+<p>
+Can be mitigated by making a class that ``manages'' the global area,
+thereby reducing global coupling to component coupling.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 08</h6>
+<hr>
+</body>
+</html>

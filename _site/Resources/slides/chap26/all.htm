@@ -1,0 +1,190 @@
+<html>
+<head><title>Chapter 26, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 26</h1>
+<h1 ALIGN=center>Distributed Computing</h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap</a>
+<li><a href="slide02.htm"> An Object Oriented Community</a>
+<li><a href="slide03.htm"> Relaxing the Rules</a>
+<li><a href="slide04.htm"> Client-Server Computing</a>
+<li><a href="slide05.htm"> Making it Easier to write Client Sever Systems</a>
+<li><a href="slide06.htm"> Next Level of Complexity</a>
+<li><a href="slide07.htm"> Object Serialization</a>
+<li><a href="slide08.htm"> Asking an Object About its State</a>
+<ul>
+<li><a href="slide09.htm"> Across a Network</a>
+</ul>
+<li><a href="slide10.htm"> The Future</a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter we will explore some of the implications of
+programming in a distributed environment.
+<ul>
+<li>network programming
+<li>mobile programming
+<li>component based programming
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>An Object Oriented Community</h1>
+Recall that we have been asserting that an object-oriented program
+is properly thought of as a member of a community
+<p>
+<img src="slide02.gif">
+<p>
+if we relax the rules for membership in this community, we move
+the paradigm in different directions.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Slide 02</h6>
+<hr>
+</body>
+
+<p>
+<h1>Relaxing the rules</h1>
+What are some of the ways we can relax the rules?
+<ul>
+<li>Allowing objects to be written in different languages -- (corba, dcom)
+<p>
+<li>Allowing objects on the same machine to form connections dynamically -- (java beans)
+<p>
+<li>Allowing objects to reside on different computers -- (distributed
+computing)
+<p>
+<li>Allowing objects on different computers to form connections dynamically -- (mobile computing)
+</ul>
+All of these are conceptually easy, but the devil is in the details.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>Client-Server Computing</h1>
+The simplest type of interaction is allowing objects to reside on
+different computers, but with known interfaces.
+<p>
+This is termed client/server computing.
+<p>
+The book describes a simple client/server system.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Making it Easier to Write Client Server Systems</h1>
+Java simplifies the production of client/server systems by providing
+ready-made library routines for
+<ul>
+<li>Address -- IP addresses or domain names.
+<li>Ports -- an address in a computer for creating connections
+<li>Sockets -- a connection between one computer and an address/port on
+another computer
+<li>Streams -- for reading from and writing to a socket.
+</ul>
+Doesn't mean it can't be done in other languages, but Java makes
+it a lot easier since they have spent a lot of time giving you simple
+interfaces for these activities.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Next Level of Complexity</h1>
+The next level of complexity is a general server who is ready to accept
+connections from many clients, perhaps many at one time.
+<p>
+The book describes a system for this.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Object Serialization</h1>
+Another useful feature (which should perhaps have been described in
+the metaprogramming chapter) is the ability to transfer objects across
+a network connection and regenerate them on the far side.
+<p>
+Called object serialization, sometimes marshalling.
+<p>
+Again, Java has a nice facility for this.  Other langauges may as well,
+but I'm less familiar with them.
+<p>
+The book gives an example of object serialization.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Asking an Object About its State</h1>
+Moving back to a single machine, there are systems that allow a program
+to dynamically inquire the capabilities of another class, and then
+add it into a running program.
+<p>
+A good example is Java Beans, which is not described in the book.
+Again, this is built on the reflection facilities described in
+the previous chapter.
+<p>
+The programmer collects a bunch of <i>components</i>, then assembles
+them into a new application.   Often components have a visual
+interface, and can be assembled using a visual tool, without needing
+to write (much) programming.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Across a Network</h1>
+The next level of complexity is to do the same sort of thing, but
+allow the components to exist across the network.
+<p>
+This is part of what MS is trying to do with its dot-net program.
+Allow the creation of components which can then be assembled even
+when they exist on widely separated computers.
+<p>
+Many parts of this problem:
+<ul>
+<li>Registration -- how do you find out what components exist out there?
+<li>Interface Query -- how do you find out what interfaces these components
+use
+<li>Connection -- how do you make a dynamic connection with a remote object
+<li>Interaction -- how do you communicate with a remote object
+</ul>
+<p>
+Each of these steps is at the moment unstandarized, but a lot of
+effort is going into each.  Expect a lot of work on this in the future.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>The Future</h1>
+I expect that in three years time this chapter will be a lot richer and
+a lot thicker.  There is an awful lot of work going on in this area
+right now.  Some of these ideas will be successful and continue,
+some will die out and be replaced.
+<p>
+You should expect to be hearing more about distributing / network / web based
+computing as time goes on.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 26</a>, Slide 10</h6>
+<hr>
+</body>
+</body>
+</html>

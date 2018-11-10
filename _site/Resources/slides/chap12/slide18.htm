@@ -1,0 +1,36 @@
+<html>
+<head><title>Chapter 12, Slide 18</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 12: Implications of substitution:
+<td bgcolor=#FCCF97><a href="slide19.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide17.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide18.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap12/slide18.ram">real</a>
+<td bgcolor=#FCCF97><a href="text18.htm" target=text>text</a>
+</table>
+<p>
+<h1>Paradoxes of Equality, Part 1</h1>
+<font size=+2>
+But child classes cannot change the type signature of overridden methods.
+This means the argument must often be more general than one would like:
+<pre>
+class Object {
+	public boolean equals (Object right) { 
+		... 
+	}
+}
+
+class PlayingCard extends Object {
+	public boolean equals (Object right) {
+		... // right must be object even if we are only
+		... // interested in comparing cards to cards
+	}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 18</h6>
+<hr>
+</body>
+</html>

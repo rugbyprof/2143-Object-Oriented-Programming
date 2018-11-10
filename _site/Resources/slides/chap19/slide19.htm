@@ -1,0 +1,35 @@
+<html>
+<head><title>Chapter 19, Slide 19</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 19: Container Classes :
+<td bgcolor=#FCCF97><a href="slide20.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide18.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide19.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap19/slide19.ram">real</a>
+<td bgcolor=#FCCF97><a href="text19.htm" target=text>text</a>
+</table>
+<p>
+<h1>The Visitor in C++ in the STL</h1>
+<font size=+2>
+<pre>
+class printingObject {
+public:
+	void operator () (int x) 
+	{
+		cout << "value is " << x << endl;
+	}
+};
+
+printingObject printer;  // create an instance of the function object
+
+for_each (aList.begin(), aList.end(), printer);
+</pre>
+The function <b>for_each</b> passes the object to element element in
+the collection.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 19</h6>
+<hr>
+</body>
+</html>

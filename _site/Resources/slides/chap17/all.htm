@@ -1,0 +1,238 @@
+<html>
+<head><title>Chapter 17, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 17</h1>
+<h1 ALIGN=center>The Polymorphic Variable </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap </a>
+<li><a href="slide02.htm"> Simple Polymorphic Variables </a>
+<li><a href="slide03.htm"> The Receiver Variable </a>
+<ol>
+<li><a href="slide04.htm"> The Receiver Variable In Frameworks </a>
+<li><a href="slide05.htm"> Example, Repainting a Window </a>
+</ol>
+<li><a href="slide06.htm"> Self and Super </a>
+<li><a href="slide07.htm"> Downcasting (Reverse Polymorphism) </a>
+<li><a href="slide08.htm"> Pure Polymorphism </a>
+<ol>
+<li><a href="slide09.htm"> Another Example of Pure Polymorphism </a>
+</ol>
+<li><a href="slide10.htm"> Chapter Summary </a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+A polymorphic variable is a variable that can hold values of different types
+during the course of execution.  In this chapter we will consider:
+<ul>
+<li>Simple polymrophic variables
+<p><li>The Receiver variable
+<p><li>Reverse polymorphism
+<p><li>Pure Polymorphism
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Simple Polymorphic Variables</h1>
+We saw simple polymorphic variables in the Solitare case study.
+<pre>
+public class Solitaire {
+      ...
+   static CardPile allPiles [ ];
+	...
+
+   public void paint(Graphics g) {
+      for (int i = 0; i < 13; i++)
+         allPiles[i].display(g);
+      }
+      ...
+}
+</pre>
+The variable was declared as CardPile, but actually held a number of
+different types.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>The Receiver Variable</h1>
+The most common polymorphic variable is the one that holds the
+receiver during the execution of a method.
+<p>
+Call <b>this</b> in C++ and Java, <b>self</b> in Smalltalk and Objective-C,
+<b>current</b> in Eiffel.
+<p>
+Holds the actual value (the dynamic class) during execution, not
+the static class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>The Receiver Variable in Frameworks</h1>
+The greatest power of the receiver variable comes in the 
+development of software frameworks.
+<p>
+In a framework, some methods are implemented in the parent class and not
+overridden (called foundation method), others are defined in the 
+parent class, but intended to be overridden (called deferred method).
+<p>
+Consider a class <b>Window</b> with subclasses <b>TextWindow</b> and
+<b>GraphicsWindow</b>.
+<p>
+The combination of foundation and deferred methods allow high level
+algorithms to be reused and specialized in new situations.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Example, Repainting Window</h1>
+<pre>
+class Window {
+	public void repaint () {
+			// invoke the deferred method paint.
+			// Because the implicit receiver, this,
+			// is polymorphic, the method from the
+			// child class will be executed
+		paint (graphicsContext);
+	}
+
+	abstract public void paint (Graphics g); // deferred
+
+	private Graphics graphicsContext;
+}
+
+class GraphicsWindow extends Window {
+	public void paint (Graphics g) {
+		// do the appropriate painting job
+	}
+}
+</pre>
+Only the child class knows how to paint the window.
+The receiver variable is responsible for remembering the actual class
+of the receiver when executing the method in the parent class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Self and Super</h1>
+In Java and Smalltalk there is another pseudo-variable, named <b>super</b>.
+<p>
+Super is like <b>self</b>, only when a message is given to <b>super</b>
+it looks for the method in the parent class of the current class.
+<pre>
+class Parent {
+	void exampleOne () {
+		System.out.println("In parent method"); 
+	}
+}
+
+class Child extends Parent {
+	void exampleOne () {
+		System.out.println("In child method");
+		super.exampleOne();
+	}
+}
+</pre>
+Variable is called <b>base</b> in C#.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Downcast (Reverse Polymorpism)</h1>
+It is sometimes necessary to undo the assignment to a polymorphic variable.
+<br>
+That is, to determine the variables true dynamic value, and assign it
+to a variable of the appropriate type.
+<p>
+This process is termed <i>down casting</i>, or, since it is undoing the
+polymorphic assignment, <i>reverse polymorphism</i>.
+<p>
+Various different syntaxs are used for this, see the book.
+<pre>
+Parent aVariable = ...;
+Child aCard;
+if (aVariable instanceof Child)
+	aChild = (Child) aVariable;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Pure Polymorphism</h1>
+A <i>polymorphic method</i> (also called <i>pure polymorphism</i>)
+occurs when a polymorphic variable is used as an argument.
+Different effects are formed by using different types of value.
+<pre>
+class StringBuffer {
+	String append (Object value)
+		{ return append(value.toString()); }
+	...
+}
+</pre>
+Different objects implement toString differently, so the effects will
+vary depending upon the argument.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Another Example of Pure Polymorphism</h1>
+This example is from Smalltalk.
+<pre>
+between: low and: high
+	^ (low <= self) and: [ self <= high]
+</pre>
+Different arguments will implement the relational test differently,
+so different effects can be achieved.
+<pre>
+x between: $a and: $z
+
+x between: 1 and: 100
+
+x between: 3.14 and: 4.56
+
+x between: "abc" and: "pdq"
+
+x between: 10@5 and:  50@40
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+<ul>
+<li>A polymorphic Variable is a variable that can reference more than one 
+type of object
+<p><li>Polymorphic variables derive their power from interaction with
+inheritance, overriding and substituion.
+<p><li>A common polymorphic variable is the implicit variable that maintains
+the reciever during the execution of a method
+<p><li>Downcasting is the undoing of a polymorphic assignment
+<p><li>Pure polymorphism occurs when a polymorphic variable is
+used as an argument.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 10</h6>
+<hr>
+</body>
+</body>
+</html>

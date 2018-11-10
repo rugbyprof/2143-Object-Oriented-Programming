@@ -1,0 +1,320 @@
+<html>
+<head><title>Chapter 13, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 13</h1>
+<h1 ALIGN=center>Multiple Inheritance</h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap </a>
+<li><a href="slide02.htm"> Inheritance as Categorization </a>
+<li><a href="slide03.htm"> Inheritance as Combination </a>
+<li><a href="slide04.htm"> An Example -- Complex Numbers </a>
+<ol>
+<li><a href="slide05.htm"> Possible Solutions </a>
+<li><a href="slide06.htm"> Numbers as Combinations </a>
+</ol>
+<li><a href="slide07.htm"> Another Example -- Walking Menus </a>
+<li><a href="slide08.htm"> Problem with MI - Name Ambiguity </a>
+<ol>
+<li><a href="slide09.htm"> One Solution: Redefinition </a>
+<li><a href="slide10.htm"> Problem with Redefinition Solution </a>
+<li><a href="slide11.htm"> Other Approaches to Name Ambiguity </a>
+</ol>
+<li><a href="slide12.htm"> Multiple Inheritance of Interfaces </a>
+<li><a href="slide13.htm"> Inheritance from Common Ancestors </a>
+<ol>
+<li><a href="slide14.htm"> Data Field in Common Ancestor </a>
+</ol>
+<li><a href="slide15.htm"> Inner Classes </a>
+<li><a href="slide16.htm"> Chapter Summary </a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter we will investigate some of the 
+problems that can arize when a language
+allows a child class to have multiple parents.
+<ul>
+<li>Name ambiguity
+<p><li>Impact on substitution
+<p><li>The Problem of Common Ancestors
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Inheritance as Categorization</h1>
+In one sense, the process of inheritance is a form of categorization.
+<br>
+A TextWindow is a type of Window, so class <b>TextWindow</b> inherits from
+class <b>Window</b>.
+<p>
+But in the real world, most objects can be categorized in a variety of
+ways.  The author of the textbook is
+<ul>
+<li>North American
+<li>Male
+<li>Professor
+<li>Parent
+</ul>
+None of these are proper subsets of the other, and we cannot
+make a single rooted inheritance hierarchy out of them.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Inheritance as Combination</h1>
+Instead, real world objects are combinations of features from different
+classification schemes, each category giving some new insight into the whole:
+<ul>
+<li>Author is North American, and
+<li>Author is Male, and
+<li>Author is a Professor, and
+<li>Author is a Parent.
+</ul>
+Note that we have not lost the is-a relationship; it still applies in
+each case.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 03</h6>
+<hr>
+</body>
+
+<p>
+<h1>CS Example - Complex Numbers</h1>
+<P>
+Two abstract classifications
+<UL>
+<LI>
+<B>Magnitude</B> - things that can be compared to each other.
+<LI>
+<B>Number</B> - things that can perform arithmetic
+</UL>
+<P>
+Three specific classes 
+<UL>
+<LI>
+<B>Integer</B> - comparable and arithmetic
+<LI>
+<B>Char</B> - comparable but not arithmetic
+<LI>
+<B>Complex</B> - arithmetic but not comparable
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Possible Solutions</h1>
+<P><DL COMPACT>
+<DT>1.
+<DD>Make Number subclass of Magnitude, but redefine comparison operators in
+class complex to give error message if used.
+(<EM>subclassing for limitation</EM>)
+<p>
+<DT>2.
+<DD>Don't use inheritance at all - redefine all operators in all classes.
+(<EM>flattening the inheritance tree</EM>).
+<p>
+<DT>3.
+<DD>Use part inheritance, but simulate others - use Number, but have each
+number implement all relational operators.
+<p>
+<DT>4.
+<DD>Make Number and Magnitude independent, and have Integer inherit from both.
+(<EM>multiple inheritance</EM>).
+</DL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Inheritance as a form of Combination</h1>
+<img src="slide06.gif">
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Another Example - Walking Menus</h1>
+<P><UL>
+<LI>
+A <B>Menu</B> is a structure charged with displaying itself when selected
+by the user.
+<p>
+<LI>
+A <B>Menu</B> maintains a collection of <B>MenuItems</B>.
+<p>
+<LI>
+Each <B>MenuItem</B> knows how to respond when selected.
+<p>
+<LI>
+A <EM>cascading menu</EM> is both a <B>MenuItem</B> and a <B>Menu</B>.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Problem with MI - Name Ambiguity</h1>
+<P>
+What happens when same name is used in both parent classes.
+<P><UL>
+<LI>
+A CardDeck knows how to <B>draw</B> a Card.
+<p>
+<LI>
+A GraphicalItem knows how to <B>draw</B> an image on a screen.
+<p>
+<LI>
+A GraphicalCardDeck should be able to <B>draw</B>.  which?
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>One Solution: Redefinition</h1>
+One solution is to redefine one or the other operation in the child class.
+<pre>
+class GraphicalCardDeck : public CardDeck, public GraphicalObject {
+public:
+	virtual void draw () { return CardDeck::draw(); } 
+	virtual void paint () { GraphicalObject::draw(); }
+}
+
+	GraphicalCardDeck gcd;
+	gcd->draw(); // selects CardDeck draw
+	gcd->paint(); // selects GraphicalObject draw
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Problem with Redefinition Solution</h1>
+The redefinition solution is not without cost, however.  
+<p>
+Now what happens when we run up against the principle of substitution?
+<pre>
+
+	GraphicalObject * g = new GraphicalCardDeck();
+	g->draw(); // opps, doing wrong method!
+
+</pre>
+This problem can be mitigated, but the solution is complex and not perfect.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Other Approaches to Name Ambiguity</h1>
+Other languages use different approaches to solving the problem
+of ambiguous names
+<ul>
+<li>Eiffel uses the ability to rename features from the parent class.
+A polymorphic variable accessing through the parents name will access
+the renamed feature in the child.
+<p><li>CLOS and Python resolve ambiguous names by the order in which the 
+parent classes are listed.  The first occurrence of the name found in
+a systematic search is the one selected.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Multiple Inheritance of Interfaces</h1>
+Multiple inheritance of interfaces does not present the same problem
+of name ambiguity as does multiple inheritance of classes.
+<ul>
+<li>Either the ambiguous methods in the parent classes have different
+type signatures, in which case there is no problem, or
+<p><li>The ambiguous methods in the parent classes have the same signature.
+Still no problem, since what is inherited is only a specification,
+not an implementation.
+</ul>
+This is why Java permits multiple inheritance of interfaces, not of
+classes.
+</font>
+<p>
+Nevertheless, C# does not permit the same method name to be inherited
+from two parent interfaces.
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Inheritance from Common Ancestors</h1>
+<P>
+Another problem with MI occurs when parent classes have a common root
+ancestor.  Does the new object have one or two instances of the
+ancestor?
+</font>
+<p>
+<IMG SRC="slide13.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Data Field in Common Ancestor</h1>
+Imagine that the common ancestor declares a data member.  Should the
+child class have one copy of this data field, or two?
+<p>
+Both answers can be justified with examples.
+<p>
+C++ gets around this by introducing the idea of a <b>virtual</b> parent class.
+If your parent is virtual there is one copy, and if not there is two.
+<p>
+Not a perfect solution, and makes the language complicated.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>Inner Classes</h1>
+The ability to next classes in C++ and Java provides a mechanism that 
+is nearly equivalent to multiple inheritance, without the semantic problems.
+<pre>
+class Child extends ParentOne {
+	...
+	class InnerChild extends ParentTwo {
+		...
+		// can access both parents
+	}
+}
+</pre>
+Within the inner class you can access methods from both parent classes.
+This idiom is used a lot in Java.  Solves many problems that
+would otherwise be addressed using MI.
+Not exactly equivalent to MI, but very close.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+In this chapter we have explored some of the problems that arise
+of the concept of multiple inheritance.
+<ul>
+<li>Name ambiguity
+<p><li>Impact on substitution
+<p><li>The Problem of Common Ancestors
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 16</h6>
+<hr>
+</body>
+</body>
+</html>

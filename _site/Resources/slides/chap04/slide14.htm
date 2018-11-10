@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 4, Slide 14</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 4: Classes and Methods:
+<td bgcolor=#FCCF97><a href="slide15.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide13.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide14.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap03/slide14.ram">real</a>
+<td bgcolor=#FCCF97><a href="text14.htm" target=text>text</a>
+</table>
+<p>
+<h1>Delphi Pascal</h1>
+<font size=+2>
+<pre>
+
+type
+    Suits = (Heart, Club, Diamond, Spade);
+
+    TPlayingCard = class (TObject)
+        public
+            constructor Create (r : integer; s : Suits);
+
+            function suit : Suits;
+            function rank : int;
+
+        private
+            suitValue : Suits;
+            rankValue : integer;
+    end;
+
+</pre>
+Slightly different syntax, must name parent class, has visibility modifiers
+and constructors (more on those later).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 14</h6>
+<hr>
+</body>
+</html>

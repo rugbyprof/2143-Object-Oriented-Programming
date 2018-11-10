@@ -1,0 +1,265 @@
+<html>
+<head><title>Chapter 22, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 22</h1>
+<h1 ALIGN=center>The AWT and Swing </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap</a>
+<li><a href="slide02.htm"> Classes Frame and JFrame</a>
+<li><a href="slide03.htm"> Panel and JPanel</a>
+<li><a href="slide04.htm"> Layout Manager</a>
+<ol>
+<li><a href="slide05.htm"> Showing the Use of a Layout Manager</a>
+</ol>
+<li><a href="slide06.htm"> Event Listeners</a>
+<ol>
+<li><a href="slide07.htm"> Adapters Reduce Code Size</a>
+<li><a href="slide08.htm"> Creating a Listener</a>
+</ol>
+<li><a href="slide09.htm"> Buttons, Sliders, Text boxes and so on</a>
+<ol>
+<li><a href="slide10.htm"> Combining Component and Listener in one Class</a>
+</ol>
+<li><a href="slide11.htm"> Chapter Summary</a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter we will examine the Java AWT library for graphical user
+interfaces, noting in particular how it uses the framework concepts
+developed in the last chapter.
+<ul>
+<li>The class <b>Frame</b> for the main windows
+<p><li>The Layout Manager classes
+<p><li>Event Listeners
+<p><li>User Interface Components
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Classes Frame and JFrame</h1>
+The place to begin is the class Frame (in AWT) or JFrame (in Swing).
+These give the overall window for the application, and hold features
+such as the title bar and menu bar.
+<ul>
+<li>Many foundation methods that provide a huge amount of standard
+behavior.
+<p><li>A few methods that are sometimes overriden, such as <b>paint</b>.
+</ul>
+This is a straightforward implementation of the framework ideas
+discussed in the previous chapter.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 02</h6>
+<br>
+The Swing library was introduced in Java 1.3, and has slowly replaced
+the older AWT library.
+<hr>
+</body>
+<p>
+<h1>Panel and JPanel</h1>
+The window is combined with an instance of class <b>Panel</b> (JPanel in Swing)
+<p>
+This class is the screen on to which drawing operations are directed.
+<p>
+JPanel can include components (buttons and the like) and can 
+refine the method <b>paint</b>.
+<br>
+(The overridden method must invoke the parent method, in order to
+render features of the window not included in the user constructed
+portions).
+<pre>
+class MyPanel extends JPanel {
+	...
+	public void paint (Graphics g) {
+		super.paint(g);
+		...
+	}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>Layout Manager</h1>
+Here is a problem.
+<ul>
+<li>The algorithm used to lay out various graphical elements (buttons 
+and the like) can only be determined by the end programmer.
+<p><li>But writing layout algorithms is complex, probably not something
+most programmers can do.
+<p><li>So, how to provide the necessarily flexibility within a simple
+framework?
+<p><li>Solution -- provide a variety of different layout managers
+(border layout, grid layout, so on), allow the end programmer to select
+one of the many choices, and give it back to the framework.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 04</h6>
+<hr>
+</body>
+
+<p>
+<h1>Showing the Use of a Layout Manager</h1>
+<pre>
+class MyPanel extends JPanel {
+	public MyPanel () {
+		...
+		setLayoutManger (new BorderLayout());
+	}
+}
+</pre>
+Both JPanel and BorderLayout are part of the framework, not written by
+the end programmer.   The end programmer selects the appropriate
+type of layout manager.  In this fashion the framework provides
+a flexible solution, without making the frame class overly large.
+(As it would be if it needed to hold all layout managers).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Event Listeners</h1>
+Event listeners are another good example of the use of inheritance and
+overriding in the Java AWT framework.
+<p>
+Every component (window, button, scroll bar) maintains a list of ``listeners'';
+objects that are interested in being notified when an event has taken place.
+<p>
+Each type of event is defined by an interface, such as the following:
+<pre>
+public interface MouseListener extends EventListener {
+	public void mouseClicked (MouseEvent e);
+	public void mouseEntered (MouseEvent e);
+	public void mouseExited (MouseEvent e);
+	public void mousePressed (MouseEvent e);
+	public void mouseReleased (MouseEvent e);
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Adapters Reduce Code Size</h1>
+More often than not, programmers are interested in only one or two events,
+not all the possible events defined by the interface.
+<p>
+An adapter provides empty implementations, allowing the programmer to
+redefine only the events of interest.
+<pre>
+public class MouseAdapter implements MouseListener {
+	public void mouseClicked (MouseEvent e) { }
+	public void mouseEntered (MouseEvent e) { }
+	public void mouseExited (MouseEvent e) { }
+	public void mousePressed (MouseEvent e) { }
+	public void mouseReleased (MouseEvent e) { }
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Creating a Listener</h1>
+The programmer then creates a new class that subclasses the adapter and
+overrides the methods of interest, then registers an instance of the class
+with the component.
+<pre>
+class MyWindow extends JFrame {
+	public MyWindow () {
+		...
+		addMouseListener (new MouseKeeper());
+	}
+	...
+	private class MouseKeeper extends MouseAdapter {
+		public void mousePressed (MouseEvent e) {
+			...
+		}
+	}
+}
+</pre>
+Inner classes are particularly usefor for this idiom.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Buttons, Sliders, Text Boxes, and so on</h1>
+Graphical components (Buttons, Sliders, Text Boxes, and many many more) are
+provided in the standard library.
+<p>
+The user places an instance of a class into the window.  Most use
+the listener event model to notify when they are changed.
+<pre>
+	Button butn = new Button ("do it!");
+	add("North", butn); // place at top of screen
+	butn.addActionListener (new doIt()); // add listener
+	..
+	private class doIt implements ActionListener {
+		public void actionPerformed (ActionEvent e) {
+			// what ever do it does
+			...
+		}
+	}
+</pre>
+The listener model avoids the need for inheritance from the component class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Combining Component and Listener in one Class</h1>
+Sometimes, a better encapsulation results from combining inheritance
+from the component class with implementation of the listener.
+The component then becomes its own listener.
+<pre>
+class ColorButton extends Button implements ActionListener {
+	private Color ourColor;
+
+	public ColorButton (Color c, String name) {
+		super (name); // create the button
+		ourColor = c; // save the color value
+		addActionListener (this); // add ourselves as listener
+	}
+
+	public void actionPerformed (ActionEvent e) { 
+			// set color for middle panel
+		setFromColor (ourColor); 
+	}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+The AWT illustrates the application of the framework concept at many
+different levels.  In this chapter we have examined
+<ul>
+<li>The window class, inheriting from <b>Frame</b>
+<p><li>The panel class, inheriting from <b>JPanel</b>
+<p><li>The layout manager, the user selecting one of several alternatives
+<p><li>The event model, using the concept of listeners
+<p><li>The standard components
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 11</h6>
+<hr>
+</body>
+</body>
+</html>

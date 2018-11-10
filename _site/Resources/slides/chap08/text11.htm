@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Text for slides, Chapter 8 talk</title>
+</head>
+<body>
+<h1>Substition</h1>
+<p>
+Now we consider one of the most interesting ideas in object-oriented
+programming.  The notion of substitution.  Consider the following
+argument:
+<P><UL>
+<LI> Instances of the subclass must possess all data areas associated with
+the parent class.
+<p>
+<LI> Instances of the subclass must implement, through inheritance at least
+(if not explicitly overridden) all functionality defined for the parent
+class.  (They can also define new functionality, but that is unimportant
+for the present argument).
+</ul>
+<p>
+thus, if we look only at behavior, it seems like an instance
+of a child class ought to be suitable in any situation where
+an instance of the parent class is expected.
+<p>
+Following this line of thought leads to the idea that one should
+be able to declare a class as an instance of the parent class,
+and assign it a value from the child class.
+<p>
+This is the idea of substitution, sometimes termed liskov substitution.
+<p>
+<h6><a href="slide11.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap08/slide11.ram">[real]</a>
+ Text to accompany <a href="slide11.htm">slide11</a>,
+in <a href="outline.htm">Chapter 8</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

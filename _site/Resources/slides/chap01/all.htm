@@ -1,0 +1,625 @@
+<html>
+<head><title>Chapter 1, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 1</h1>
+<h1 ALIGN=center>Thinking Object-Oriented </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap</a>
+<li><a href="slide02.htm"> Conflicing Objectives</a>
+<li><a href="slide03.htm"> Why has OOP Remained Popular for so long?</a>
+<li><a href="slide04.htm"> A new Paradigm</a>
+<ol>
+<li><a href="slide05.htm"> Sapir-Whorf Hypothesis</a>
+<li><a href="slide06.htm"> Example from Computer Languages</a>
+<ol>
+<li><a href="slide07.htm"> A Better Solution</a>
+<li><a href="slide08.htm"> Why did the Second Programmer find a Better Solution</a>
+</ol>
+<li><a href="slide09.htm"> Church's Conjecture</a>
+</ol>
+<li><a href="slide10.htm"> Imperative Programming</a>
+<ol>
+<li><a href="slide11.htm"> Visualization of Imperative Programming</a>
+</ol>
+<li><a href="slide12.htm"> Why Not Build a Program out of Computers?</a>
+<ol>
+<li><a href="slide13.htm"> Recursive Design</a>
+</ol>
+<li><a href="slide14.htm"> Kays Description of Object-Oriented Programming</a>
+<ol>
+<li><a href="slide15.htm"> Illustration of OOP Concepts -- Sending Flowers to a Friend</a>
+<li><a href="slide16.htm"> Elements of OOP - Agents and Communities</a>
+<li><a href="slide17.htm"> Elements of OOP - Objects</a>
+<li><a href="slide18.htm"> Elements of OOP - Messages</a>
+<li><a href="slide19.htm"> Information Hiding</a>
+<li><a href="slide20.htm"> Elements of OOP - Receivers</a>
+<li><a href="slide21.htm"> Different Receivers, Same Message, Different Actions</a>
+<li><a href="slide22.htm"> Behavior and Interpretation</a>
+<li><a href="slide23.htm"> Elements of OOP - Recursive Design</a>
+<li><a href="slide24.htm"> Non-interference</a>
+<li><a href="slide25.htm"> Elements of OOP - Classes</a>
+<li><a href="slide26.htm"> Hierarchies of Categories</a>
+<li><a href="slide27.htm"> A Class Hierarchy</a>
+<li><a href="slide28.htm"> Elements of OOP - Inheritance</a>
+<li><a href="slide29.htm"> Elements of OOP - Overriding</a>
+</ol>
+<li><a href="slide30.htm"> Computing as Simulation</a>
+<ol>
+<li><a href="slide31.htm"> Metaphor and Problem Solving</a>
+<li><a href="slide32.htm"> Quote from newsweek</a>
+</ol>
+<li><a href="slide33.htm"> Chapter Summary</a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter we begin our exploration of object-oriented programming.
+Among the topics we will explore:
+<p>
+What is a paradigm?  Why is this term used to describe the object-oriented
+approach to problem solving?
+<p>
+How does language influence thought?
+<p>
+What are some of the characteristics of the object-oriented way of thinking?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Conflicting Objectives</h1>
+Along the way, I'll try to convince you the validity of the following
+two assertions:
+<ul>
+<li>OOP is a revolutionary idea, totally unlike anything that has come before in programming languages
+<p>
+<li>OOP is an evolutionary step, following naturally on the heels of earlier programming abstractions
+</ul>
+Both are true.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Why has OOP Remained Popular for so long?</h1>
+OOP has been the dominant programming paradigm for more than twenty years.
+Why is it so popular?
+<ul>
+<li>Proven record of success.
+<p><li>Scales well from small problems to large
+<p><li>Resonant similarity to techniques for thinking about problems in
+other domains.
+</ul>
+Nevertheless, programming is still a task that requires skill and learning.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>A New Paradigm</h1>
+Object-oriented programming is often described as a new paradigm.
+<p>
+We start by considering the definition of this term:
+<p>
+<b>Par a digm</b> <i>n.</i>
+A list of all the inflectional forms of a word taken as illustrative example of the conjugation or declension to which it belongs.  An example or model.
+[Late Latein <i>paradigma</i>, from Greek <i>paradeigma</i>, modern
+<i>paradeiknunai</i>, to compare, exhibit.]
+<p>
+What is the world does this have to do with computer programming languages?
+<p>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Sapir-Whorf Hypothesis</h1>
+In linguistics there is a hypothesis that the language in which an idea or thought is expressed colors or directs in a very emphatic manner that nature of the thought:
+<p>
+<ul>
+<li>Eskimo (or Innuit) languages and snow
+<p>
+<li>Arabic languages and camels
+</ul>
+<p>
+What is true of natural languages is even more true of artificial computer languages
+<p>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Example from Computer Languages</h1>
+<p>
+A student working in DNA research had the task of finding repeated 
+sequences of M values in a long sequence of values:
+<p>
+<pre>
+    ACTCGGATCTTGCATTTCGGCAATTGGACCCTGACTTGGCCA ...
+</pre>
+<p>
+Wrote the simplest (and therefore, most efficient?) program:
+<p>
+<pre>
+    DO 10 I = 1, N-M
+    DO 10 J = I+1, N-M
+    FOUND = .TRUE.
+    DO 20 K = 1, M
+20  IF X[I+K-1] .NE. X[J+K-1] THEN FOUND = .FALSE.
+    IF FOUND THEN ...
+10  CONTINUE
+</pre>
+<p>
+Took a depressingly long time.
+<p>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>A Better Solution</h1>
+<p>
+A friend writing in APL found a much better solution by rearranging the data and sorting.
+<p>
+<pre>
+	A  C  T  C  G  G  positions 1 to M
+	C  T  C  G  G  A  positions 2 to M+1
+	T  C  G  G  A  T  positions 3 to M+2
+	C  G  G  A  T  T  positions 4 to M+3
+	G  G  A  T  T  C  positions 5 to M+4
+	G  A  T  T  C  T  positions 6 to M+5
+	 .  .  . 
+	T  G  G  A  C  C 
+	G  G  A  C  C  C
+	 .  .  . 
+</pre>
+<p>
+Ran surprizingly quickly, thesis saved.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>What lead to the discovery?</h1>
+<p>
+Why did the APL programmer find the better solution?
+<p>
+<ul>
+<li>Fortran programmer was blinded by a culture that valued loops, simple programs
+<p>
+<li>Sorting is a built-in operation in APL, good programmers try to find novel uses for sorting
+</ul>
+The fundamental point is that the language you speak leads you in
+one direction or another.
+<p>
+But what about the Sapir-Whorf hypothesis, that says there are some thoughts
+you can express in one language that you cannot express in another?
+<p>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Church's Conjucture</h1>
+<p>
+In computation we have the following assertion:
+<p>
+<b>Church's Conjecture:</b> Any computation for which there exists an effective procedure can be realized by a Turing machine language.
+<p>
+Anything can be done in any language, but it may simply be easier or more efficient to use one language or another.
+<p>
+Would YOU want to write an event-driven GUI interface in Turing machine?
+<p>
+Bottom line: Languages lead you, but do not prevent you from going 
+anywhere you want.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Imperative Programming</h1>
+<p>
+So, what are the paradigms of programming?
+<p>
+Imperative programming is the ``traditional'' model of computation.
+<ul>
+<li>State
+<li>Variables
+<li>Assignment
+<li>Loops
+</ul>
+<p>
+A processing unit is separate from memory, and ``acts'' upon memory.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Visualization of Imperative Programming</h1>
+<p>
+<IMG SRC="slide11.gif">
+<p>
+Sometimes called the ``pigeon-hole'' model of computation.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Why Not Build a Program out of Computers?</h1>
+Alan Kay thought about this conventional design of the computer, and
+asked why we constructed the whole out of pieces that were useless by
+themselves.
+<p>
+Why not build a whole out of pieces that were similar at all levels of
+detail?  (Think of fractals).
+<p>
+Idea: A program can be build out of little computing agents.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Recursive Design</h1>
+<p>
+<IMG SRC="slide13.gif">
+<p>
+The structure of the part mirrors the structure of the larger unit.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Kay's Description of Object-Oriented Programming</h1>
+<p>
+Object-oriented programming is based on the priciple of recursive design.
+<ol>
+<li>Everything is an object
+<p>
+<li>Objects perform computation by making requests of each other through the passing of messages
+<p>
+<li>Every object has it's own memory, which consists of other objects.
+<p>
+<li>Every object is an instance of a class.  A class groups similar objects.
+<p>
+<li>The class is the repository for behavior associated with an object
+<p>
+<li>Classes are organized into singly-rooted tree structure, called an inheritance hierarchy.
+</ol>
+<p>
+We can illustrate these principles by considering how I go about solving
+a problem in real life.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>Illustration of OOP Concepts -- Sending Flowers to a Friend</h1>
+<p>
+To illustrate the concepts of OOP in an easily understood framework, consider the problem of sending flowers to a friend who lives in a different city.
+Chris is sending flowers to Robin.
+<p>
+Chris can't deliver them directly.  So Chris uses the services of
+the local Florist.
+<p>
+Chris tells the Florist (named Fred) the address for Robin, how much to
+spend, and the type of flowers to send.
+<p>
+Fred contacts a florist in Robins city, who arranges the flowers,
+then contacts a driver, who delivers the flowers.
+<p>
+If we start to think about it, there may even be other people involved
+in this transaction.  There is the flower grower, perhaps somebody in
+charge of arrangments, and so on.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>Agents and  Communities</h1>
+Our first observation is that results are achieved through the interaction
+of agents, which we will call objects.
+<p>
+Furthermore, any nontrivial activity requires the interaction of an
+entire community of objects working together.
+<p>
+Each object has a part to play, a service they provide to the other
+members of the community.
+<p>
+<img src="slide16.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 16</h6>
+<hr>
+</body>
+<p>
+<h1>Elements of OOP - Objects</h1>
+<p>
+So we have Kay's first principle.
+<ol>
+<li>Everything is an object.
+</ol>
+<p>
+Actions in OOP are performed by agents, called <i>instances</i> or <i>objects</i>.
+<p>
+There are many agents working together in my scenario.  We have Chris,
+Robin, the florist, the florist in Robins city, the driver,
+the flower arranger, and the grower.  Each agent has a part to play,
+and the result is produced when all work together in the solution of
+a problem.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>Elements of OOP - Messages</h1>
+<p>
+And principle number 2:
+<ol start=2>
+<li>
+Objects perform computation by making requests of each other through the passing of messages
+</ol>
+<p>
+Actions in OOP are produced in response to requests for actions, called
+<i>messges</i>.  An instance may accept a message, and in return will perform
+an action and return a value.
+<p>
+To begin the process of sending the flowers, Chris gives a message to Fred.
+Fred in turn gives a message to the florist in Robins city, who 
+gives another message to the driver, and so on.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 18</h6>
+<hr>
+</body>
+<p>
+<h1>Information Hiding</h1>
+<p>
+Notice that I, as a user of a service being provided by an object, need only know the name of the messages that the object will accept.
+<p>
+I need not have any idea how the actions performed in response to my request will be carried out.
+<p>
+Having accepted a message, an object is responsible for carrying it out.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 19</h6>
+<hr>
+</body>
+<p>
+<h1>Elements of OOP - Receivers</h1>
+<p>
+Messages differ from traditional function calls in two very important respects:
+<p>
+<ul>
+<li>
+In a message there is a designated <i>receiver</i> that accepts the message
+<p>
+<li>The interpretation of the message may be different, depending upon the receiver
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 20</h6>
+<hr>
+</body>
+<p>
+<h1>Different Receivers, Same Message, Different Actions</h1>
+<p>
+<pre>
+
+var
+	Fred : Florist;
+	Elizabeth : Friend;
+	Ken : Dentist;
+
+begin
+	Fred.sendFlowersTo(myFriend);  { will work }
+	Elizabeth.sendFlowersTo(myFriend); { will also work }
+	Ken.sendFlowersTo(myFriend); { will probably not work }
+end;
+
+</pre>
+The same message will result in different actions, depending upon who
+it is given to.
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 21</h6>
+<hr>
+</body>
+<p>
+<h1>Behavior and Interpretation</h1>
+<p>
+Although different objects may accept the same message, the actions (<i>behavior</i>) the object will perform will likely be different.
+<p>
+The determination of what behavior to perform may be made at run-time, 
+a form of <i>late binding</i>.
+<p>
+The fact that the same name can mean two entirely different operations is
+one form of <i>polymorphism</i>, a topic we will discuss at length
+in subsequent chapters.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 22</h6>
+<hr>
+</body>
+<p>
+<h1>Elements of OOP - Recursive Design</h1>
+<p>
+<ol start=3>
+<li>Every object has it's own memory, which consists of other objects.
+</ol>
+<p>
+Each object is like a miniature computer itself - a specialized processor performing a specific task.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 23</h6>
+<hr>
+</body>
+<p>
+<h1>Non-interference</h1>
+<p>
+It is important that objects be allowed to perform their task however
+they see fit, without unnecessary interactions or interference with
+other objects.
+<ul>
+<li>``Instead of a bit-grinding processor ... plundering data structures,
+we have a universe of well-behaved object that courteously ask each other
+to carry out their various desires'' -- Dan Ingalls.
+<p>
+<li>``Ask not what you can do <i>to</i> your data structures, but ask what your data structures can do <i>for</i> you''
+</ul>
+<p>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 24</h6>
+<hr>
+</body>
+<p>
+<h1>Elements of OOP - Classes</h1>
+<ol start=4>
+<li>Every object is an instance of a class.  A class groups similar objects.
+<p>
+<li>The class is the repository for behavior associated with an object.
+</ol>
+<p>
+The behavior I expect from Fred is determined from a general idea I have of the behavior of Florists.
+<p>
+We say Fred is an <i>instance</i> of the <i>class</i> Florist.
+<p>
+Behavior is associated with classes, not with individual instances.
+All objects  that are instances of a class use the same method in response to
+similar messages.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 25</h6>
+<hr>
+</body>
+<p>
+<h1>Hierarchies of Categories</h1>
+<p>
+But there is more that I know about Fred then just that he is a Florist.
+I know he is a ShopKeeper, and a Human, and a Mammal, and a Material 
+Objects, and so on.
+<p>
+At each level of abstraction I have certain information recorded.
+That information is applicable to all lower (more specialized) levels.
+<p>
+<img src="slide26.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 26</h6>
+<hr>
+</body>
+<p>
+<h1>Class Hierarchies</h1>
+<p>
+<img src="slide27.gif" alt="picture of class hierarchy">
+<p>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 27</h6>
+<hr>
+</body>
+<p>
+<h1>Elements of OOP - Inheritance</h1>
+<p>
+<ol start=6>
+<li>Classes are organized into a singly-rooted tree structure, called an inheritance hierarchy
+</ol>
+<p>
+Information (data and/or behavior) I associate with one level of abstraction 
+in a class hierarchy is automatically applicable to lower levels of the hierarchy.
+<p>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 28</h6>
+<hr>
+</body>
+<p>
+<h1>Elements of OOP - Overriding</h1>
+<p>
+Subclasses can alter or override information inherited from parent classes:
+<p>
+<ul>
+<li>All mammals give birth to live young
+<p>
+<li>A platypus is an egg-laying mammal
+</ul>
+Inheritance combined with overriding are where most of the power of OO
+originates.
+<p>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 29</h6>
+<hr>
+</body>
+<p>
+<h1>Computing as Simulation</h1>
+<p>
+<ul>
+<li>The OOP view of computation is similar to creating a universe of interacting computing objects
+<p>
+<li>Similar to the way in which a committee or club might be organized
+<p>
+<li>Also very similar to a style of simulation called discrete event-driven simulation
+<p>
+<li>Easily under estimated advantage of this view -- power of metaphor.
+</ul>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 30</h6>
+<hr>
+</body>
+<p>
+<h1>Metaphor and Problem Solving</h1>
+<p>
+Because the OOP view is similar to the way in which people go about
+solving problems in real life (finding another agent to do the real
+work!), intuition, ideas, and understanding from everyday experience
+can be brought to bear on computing.
+<p>
+On the other hand, common sense was seldom useful when computers
+were viewed in the process-state model, since few people solve their
+everyday problems using pigeon-holes.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 31</h6>
+<hr>
+</body>
+<p>
+<h1>From Newsweek</h1>
+<p>
+``Unlike the usual programming method -- writing software one line at a
+time-- NeXT's ``object-oriented'' system offers larger building blocks
+that developers can quickly assemble the way a kid builds faces on Mr.
+Potato Head.''
+<br>
+<IMG SRC=slide32a.gif alt="Mr. Potato Head Picture">
+<p>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 32</h6>
+<hr>
+</body>
+<p>
+<h1>Summary</h1>
+<p>
+<ul>
+<p><li>
+Object-oriented programming is not simply features added to
+a programming language.  Rather, it is a new way of <i>thinking</i>
+<p><li>
+Object-oriented programming views a program as a community of
+agents, termed <i>objects</i>.
+Each object is responsible for a specific task.
+<p><li>
+An object is an encapsulation of <i>state</i> (data values) and <i>behavior</i>
+(operations).
+<p><li>
+The behavior of objects is dictated by the object
+<i>class</i>.
+<p><li>
+An object will exhibit its behavior by invoking a method (similar to
+executing a procedure) in response to a message.  
+<p><li>
+Objects and classes extend the concept of abstract data types by 
+adding the notion of <i>inheritance</i>.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 33</h6>
+<hr>
+</body>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 24, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 24: Design Patterns :
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap24/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>Software Factory</h1>
+<font size=+2>
+<b>Problem:</b> How do you simplify the manipulation of many different
+implementations of the same interface (i.e., iterators).
+<p><b>Solution:</b> Hide creation within a method, have the method declare
+a return type that is more general than its actual return type.
+<pre>
+class SortedList {
+	...
+	Enumerator elements () { return new SortedListEnumerator(); }
+	...
+	private class SortedListEnumerator implements Enumerator {
+		...
+	}
+}
+</pre>
+The method is the ``factory'' in the name.  Users don't need to know
+the exact type the factory returns, only the declared type.  
+<p>The factory could even return different types, depending upon
+circumstances.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 24</a>, Slide 09</h6>
+<hr>
+</body>
+</html>

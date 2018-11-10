@@ -1,0 +1,35 @@
+<html>
+<head><title>Chapter 12, Slide 19</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 12: Implications of substitution:
+<td bgcolor=#FCCF97><a href="slide20.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide18.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide19.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap12/slide19.ram">real</a>
+<td bgcolor=#FCCF97><a href="text19.htm" target=text>text</a>
+</table>
+<p>
+<h1>Paradoxes of Equality, Part 2</h1>
+<font size=+2>
+Because equality is a message sent to the left argument, there is
+no guarantee that properties such as symmetry or transitivity are preserved:
+<pre>
+
+class Foo {
+	boolean equals (Object right) { ... }
+}
+
+Foo a, b;
+
+if (a.equals(b))  // even if this is true
+
+if (b.equals(a))  // no guarantee that this is true
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 19</h6>
+<hr>
+</body>
+</html>

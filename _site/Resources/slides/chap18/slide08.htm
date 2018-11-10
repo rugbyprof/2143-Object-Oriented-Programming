@@ -1,0 +1,35 @@
+<html>
+<head><title>Chapter 18, Slide 08</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 18: Generics :
+<td bgcolor=#FCCF97><a href="outline.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap18/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<p>
+<h1>Inheritance and Arrays</h1>
+<font size=+2>
+Can make a similar argument for arrays:
+<pre>
+BoyChild [ ] boys = new BoyChild[10];
+
+Person [ ] people = boys;  // copy or pointer semantics?
+
+GirlChild sally = new GirlChild;
+
+people[1] = sally;
+</pre>
+If pointer semantics are used for the array assignment then this
+can produce type errors.  Java allows the assignment, but uses
+a run-time check to catch the last assignment error!
+<p>
+Other languages make the array assignment illegal.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 08</h6>
+<hr>
+</body>
+</html>

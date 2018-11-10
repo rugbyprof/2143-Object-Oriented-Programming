@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>SFML Install - Step by Step instructions | 2143-Object-Oriented-Programming</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="SFML Install - Step by Step instructions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Object Oriented Programming in C++" />
+<meta property="og:description" content="Object Oriented Programming in C++" />
+<link rel="canonical" href="http://localhost:4000/Resources/Install_SFML/" />
+<meta property="og:url" content="http://localhost:4000/Resources/Install_SFML/" />
+<meta property="og:site_name" content="2143-Object-Oriented-Programming" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Resources/Install_SFML/","headline":"SFML Install - Step by Step instructions","description":"Object Oriented Programming in C++","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ad139bb13b0fb0aa2244a2b1ddeb5e3cc5a2677a">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">2143-Object-Oriented-Programming</a></h1>
+      
+
+      <h2 id="sfml-install---step-by-step-instructions">SFML Install - Step by Step instructions</h2>
+<h4 id="due-no-due-date">Due: No Due Date</h4>
+
+<p>Written By: Tom Bauer</p>
+
+<h3 id="instructions">Instructions</h3>
+
+<ul>
+  <li>Go to https://www.sfml-dev.org/download/sfml/2.5.0/ to download the files.</li>
+  <li>Go to the location of your downloaded file.</li>
+  <li>Right click and extract the file (remember where you unzipped it).</li>
+  <li>Find the folder <code class="highlighter-rouge">SFML-2.5.0</code> (which will be inside the originally extracted folder)</li>
+  <li>Move it directly to the <code class="highlighter-rouge">C:</code> drive.</li>
+  <li>Open Visual Studio
+    <ul>
+      <li>create a new program</li>
+      <li>select empty project and give it a name (e.g. sfml_test)</li>
+    </ul>
+  </li>
+  <li>After your project is open in visual studio, right click on the project and go down to <code class="highlighter-rouge">add</code> and select <code class="highlighter-rouge">new item</code>.</li>
+  <li>Add a <code class="highlighter-rouge">.cpp</code> and name the file <code class="highlighter-rouge">main.cpp</code>
+vRight click again on project (in project explorer) and select <code class="highlighter-rouge">Properties</code>.</li>
+  <li>Make sure that under the Configurations drop down that you have <code class="highlighter-rouge">All Configurations</code>.</li>
+  <li>On the left-hand side box, go down to <code class="highlighter-rouge">C/C++</code> and expand that menu. Select <code class="highlighter-rouge">General</code> in the sub-menu.</li>
+  <li>Click on <code class="highlighter-rouge">General</code> and then in the right side click <code class="highlighter-rouge">Additional Include Directories</code>.</li>
+  <li>Click the drop-down arrow to the right and select <code class="highlighter-rouge">edit</code>.</li>
+  <li>Click in the empty area to add the name of the directory that it is in and copy this:
+    <pre><code class="language-txt">C:\SFML-2.5.0\include         
+</code></pre>
+    <ul>
+      <li>and paste it in that spot.</li>
+      <li>Click on OK</li>
+    </ul>
+  </li>
+  <li>Now go back to the left-hand side box and go down to <code class="highlighter-rouge">Linker</code> and expand that.</li>
+  <li>Click on ìGeneralî and then in the right side click ìAdditional Library Directoriesî</li>
+  <li>Click the drop-down arrow to the right and select ìeditî</li>
+  <li>Copy and paste this into that entry:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\SFML-2.5.0\lib
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Click on OK</p>
+  </li>
+  <li>Now go under ìLinkerî again and this time go to <code class="highlighter-rouge">Input</code></li>
+  <li>On the right side click <code class="highlighter-rouge">Additional Dependencies</code></li>
+  <li>Click the drop-down arrow to the right and select <code class="highlighter-rouge">edit</code></li>
+  <li>In the box that opens up, copy and paste the following:</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sfml-main.lib
+sfml-graphics.lib
+sfml-window.lib
+sfml-system.lib
+sfml-audio.lib
+sfml-network.lib
+</code></pre></div></div>
+
+<ul>
+  <li>Now go to the SFML folder in the C: drive and go into the bin folder</li>
+  <li>
+    <p>Select All and copy and paste those into the folder where your main.cpp for this project is located</p>
+  </li>
+  <li>Now for the test program, copy and paste the following:</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;SFML/Graphics.hpp&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span> <span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="s">"SFML works!"</span><span class="p">);</span>
+    <span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span> <span class="n">shape</span><span class="p">(</span><span class="mf">100.</span><span class="n">f</span><span class="p">);</span>
+    <span class="n">shape</span><span class="p">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="o">::</span><span class="n">Green</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">isOpen</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">sf</span><span class="o">::</span><span class="n">Event</span> <span class="n">event</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">pollEvent</span><span class="p">(</span><span class="n">event</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">sf</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Closed</span><span class="p">)</span>
+                <span class="n">window</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="n">window</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+        <span class="n">window</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
+        <span class="n">window</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Build and Run the program and it should display a window with a black background and a green circle</li>
+</ul>
+
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

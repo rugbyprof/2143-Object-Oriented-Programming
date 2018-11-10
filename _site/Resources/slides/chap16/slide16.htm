@@ -1,0 +1,34 @@
+<html>
+<head><title>Chapter 16, Slide 16</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 16: Overriding :
+<td bgcolor=#FCCF97><a href="slide17.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide15.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide16.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap16/slide16.ram">real</a>
+<td bgcolor=#FCCF97><a href="text16.htm" target=text>text</a>
+</table>
+<p>
+<h1>Simulating Refinement with Replacement</h1>
+<font size=+2>
+In most languages the most important features of a refinement can
+be simulated, even if the language uses replacement.
+<pre>
+void Parent::example (int a) {
+    cout << "in parent code\n";
+}
+
+void Child::example (int a) {
+    Parent::example(12); // do parent code
+    cout << "in child code\n"; // then child code
+}
+</pre>
+Note that this is not quite the same as Beta, as here the child wraps
+around the parent, while in Beta the parent wraps around the child.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 16</h6>
+<hr>
+</body>
+</html>

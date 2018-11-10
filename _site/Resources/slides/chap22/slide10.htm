@@ -1,0 +1,39 @@
+<html>
+<head><title>Chapter 22, Slide 10</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 22: The AWT and Swing :
+<td bgcolor=#FCCF97><a href="slide11.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide09.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide10.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap22/slide10.ram">real</a>
+<td bgcolor=#FCCF97><a href="text10.htm" target=text>text</a>
+</table>
+<p>
+<h1>Combining Component and Listener in one Class</h1>
+<font size=+2>
+Sometimes, a better encapsulation results from combining inheritance
+from the component class with implementation of the listener.
+The component then becomes its own listener.
+<pre>
+class ColorButton extends Button implements ActionListener {
+	private Color ourColor;
+
+	public ColorButton (Color c, String name) {
+		super (name); // create the button
+		ourColor = c; // save the color value
+		addActionListener (this); // add ourselves as listener
+	}
+
+	public void actionPerformed (ActionEvent e) { 
+			// set color for middle panel
+		setFromColor (ourColor); 
+	}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 10</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head><title>Chapter 18, Slide 03</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 18: Generics :
+<td bgcolor=#FCCF97><a href="slide04.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide02.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide03.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap18/slide03.ram">real</a>
+<td bgcolor=#FCCF97><a href="text03.htm" target=text>text</a>
+</table>
+<p>
+<h1>Can Even Be Used with User Defined Types</h1>
+<font size=+2>
+<pre>
+class Fraction {
+public:
+	Fraction (int top, int bottom) { t = top; b = bottom; }
+
+	int numerator() { return t; }
+	int denominator() { return b; }
+
+	bool operator < (Fraction & right) 
+		{ return t * right.b < right.t * b; }
+
+private:
+	int t, b;
+};
+
+Fraction x(3, 4);
+Fraction y(7, 8);
+Fraction z = max(x, y);
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 03</h6>
+<hr>
+</body>
+</html>

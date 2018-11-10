@@ -1,0 +1,63 @@
+<html>
+<head><title>Chapter 11, Slide 12</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 11: Static and Dynamic Behavior:
+<td bgcolor=#FCCF97><a href="slide13.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide11.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide12.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap11/slide12.ram">real</a>
+<td bgcolor=#FCCF97><a href="text12.htm" target=text>text</a>
+</table>
+<p>
+<h1>Documenting Method Binding</h1>
+<font size=+2>
+In many languages dynamic binding is the default.  If a child class overrides
+a method in the parent, using the same type signature, then the selected
+method will be determined by the dynamic type.
+<p>
+In other languages (C++, Delphi, C#) the programmer must indicate which
+methods are dynamically bound and which are statically type.
+In C#, for example, this is done using the <b>virtual</b> keyword.
+</font>
+<table><tr><td><pre>
+<font size=+2>
+class Animal {
+public:
+	virtual void speak () { cout << "Animal Speak !\n"; }
+	void reply () { cout << "Animal Reply !\n"; }
+};
+
+class Dog : Animal {
+public:
+	override void speak () { cout << "woof !\n"; }
+	void reply () { cout << "woof again!\n"; }
+};
+
+class Bird : Animal {
+public:
+	virtual void speak () { cout << "tweet !\n"; }
+};
+</font>
+</pre><td><pre>
+<font size=+2>
+	Animal a;
+	Dog b;
+	b.speak();
+woof !
+	a  = b;
+	a.speak();
+woof !
+	Bird c;
+	c.speak();
+tweet !
+	a = c;
+	a.speak();
+tweet !
+</font>
+</pre></table>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 11</a>, Slide 12</h6>
+<hr>
+</body>
+</html>

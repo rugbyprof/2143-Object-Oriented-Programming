@@ -1,0 +1,35 @@
+<html>
+<head><title>Chapter 14, Slide 06</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 14: Polymorphism and Software Reuse:
+<td bgcolor=#FCCF97><a href="slide07.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide05.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide06.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap14/slide06.ram">real</a>
+<td bgcolor=#FCCF97><a href="text06.htm" target=text>text</a>
+</table>
+<p>
+<h1> Using Inheritance </h1>
+<font size=+2>
+<P>
+Only need specify what is <EM>new</EM> - the addition method.
+Everything else is given for free.
+<pre>
+class Set : public List { 
+public: 
+	void add(int);
+};
+
+void Set::add(int x) 
+{
+	if (! includes(x)) // only include if not already there
+		List::add(x);
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 14</a>, Slide 06</h6>
+<hr>
+</body>
+</html>

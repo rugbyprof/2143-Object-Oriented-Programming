@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 19, Slide 07</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 19: Container Classes :
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap19/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<p>
+<h1>Using Classes as Objects to do Type Checking</h1>
+<font size=+2>
+In languages in which classes are objects, and have the ability to
+tell if an object is an instance, the container can hold the
+class object that represents its type:
+<pre>
+var
+	stack : TStack;
+	aCat : TCat;
+	aDog : TDog;
+
+begin
+		// create a stack that can hold only TCat values
+	stack := TStack.Create (TCat);
+	stack.push (aCat); // ok
+	stack.push (aDog); // will raise exception
+	...
+end
+
+</pre>
+Allows typing errors to be caught on insertion, but uses more space
+and time.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 07</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head><title>Chapter 20, Slide 11</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 20: The STL :
+<td bgcolor=#FCCF97><a href="slide12.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide10.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide11.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap20/slide11.ram">real</a>
+<td bgcolor=#FCCF97><a href="text11.htm" target=text>text</a>
+</table>
+<p>
+<h1>Inventory</h1>
+<font size=+2>
+<P>
+Inventory is two lists - items on hand, items on back order.
+<pre>
+class inventory {
+public:
+		// process order for widget type wid
+	void order (int wid);	
+
+		// receive widget of type wid 
+		// in shipment
+	void receive (int wid);	
+
+protected:
+	list &lt;Widget&gt; on_hand;
+	list &lt;int&gt; on_order;
+};
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 11</h6>
+<hr>
+</body>
+</html>

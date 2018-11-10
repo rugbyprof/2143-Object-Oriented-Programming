@@ -1,0 +1,37 @@
+<html>
+<head><title>Chapter 17, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 17: The Polymorphic Variable :
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap17/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>Another Example of Pure Polymorphism</h1>
+<font size=+2>
+This example is from Smalltalk.
+<pre>
+between: low and: high
+	^ (low <= self) and: [ self <= high]
+</pre>
+Different arguments will implement the relational test differently,
+so different effects can be achieved.
+<pre>
+x between: $a and: $z
+
+x between: 1 and: 100
+
+x between: 3.14 and: 4.56
+
+x between: "abc" and: "pdq"
+
+x between: 10@5 and:  50@40
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 09</h6>
+<hr>
+</body>
+</html>

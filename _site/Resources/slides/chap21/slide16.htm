@@ -1,0 +1,42 @@
+<html>
+<head><title>Chapter 21, Slide 16</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 21: Software Frameworks :
+<td bgcolor=#FCCF97><a href="slide17.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide15.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide16.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap21/slide16.ram">real</a>
+<td bgcolor=#FCCF97><a href="text16.htm" target=text>text</a>
+</table>
+<p>
+<h1>A Generalized Event Driven Simulation Framework</h1>
+<font size=+2>
+A generalized discrete event-driven simulation can be formed based
+around the class <b>Event</b>:
+<pre>
+class Event {
+public:
+	Event (unsigned int t) : time(t) { }
+
+	const unsigned int time;
+	virtual void processEvent () = 0;
+};
+
+class eventComparison {
+public:
+	bool operator () (event * left, event * right) 
+		{ return left->time > right->time; }
+};
+</pre>
+An event is an action that will take place at a specific time.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 16</h6>
+<br>
+Discrete event driven simulations were the type of application that
+helped drive the design of the first object-oriented programming
+language, Simula.  (Early 1960's).
+<hr>
+</body>
+</html>

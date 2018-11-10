@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Text for slides, Chapter 2 talk</title>
+</head>
+<body>
+<h1>Information Hiding -- the Problem of Stacks</h1>
+<p>
+Here is an example problem that we will use as illustration in the
+next several slides.  Imagine a programming teach containing several
+indivduals.  One programmer is charged with the development of
+a stack data abstraction.   The stack can be characterized by 
+several routines, push, pop, top, and so on.  So the programmer
+dutifully sits down and develops a program, such as the one shown here.
+<p>
+Now imagine that the second programmer wants to use the stack.   The
+second programmer must know of the names for the routines: push, pop,
+top.  But what about the underlying data values; those values used
+in the implementation of the stack.  here these are the array named
+datastack and the integer value named datatop.  These values cannot
+be local to any single routine, since they must be shared between
+the different functions.  In a language in which procedures are our
+only abstraction mechanism, the only other choice is to make them
+global.  But this means that the second programmer, the programmer
+who only wanted to use the stack, must be made aware of the names
+for these values; if for no other reason then they are not allowed
+to define other variables with the same name.
+<p>
+Multiply this problem several hundredfold and you see the difficulty
+of using procedures as an abstraction mechanism.
+<p>
+<h6><a href="slide24.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap02/slide24.ram">[real]</a>
+ Text to accompany <a href="slide24.htm">slide24</a>,
+in <a href="outline.htm">Chapter 2</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

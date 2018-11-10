@@ -1,0 +1,35 @@
+<html>
+<head><title>Chapter 6, Slide 11</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 6: The Eight Queens Puzzle:
+<td bgcolor=#FCCF97><a href="slide12.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide10.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide11.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap06/slide11.ram">real</a>
+<td bgcolor=#FCCF97><a href="text11.htm" target=text>text</a>
+</table>
+<br>
+<h1>Can Attack</h1>
+<font size=+2>
+<pre>
+
+function canAttack(r, c)
+	if r = row then
+		return true
+	cd := column - c;
+	if (row + cd = r) or (row - cd = r) then
+		return true;
+	return neighbor.canAttack(r, c)
+end
+</pre>
+For a diagonal, the difference in row must equal the difference
+in columns.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 6</a>, Slide 11</h6>
+<hr>
+</body>
+</html>
+
+

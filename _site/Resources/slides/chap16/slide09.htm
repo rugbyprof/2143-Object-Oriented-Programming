@@ -1,0 +1,31 @@
+<html>
+<head><title>Chapter 16, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 16: Overriding :
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap16/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>Overriding a Default Method</h1>
+<font size=+2>
+We saw one example of overriding a default method in the solitare game.
+Here is another from Smalltalk.  Class Number has child classes Integer,
+Fraction and Float.  Method <sqrt> in class Number is defined as follows:
+<pre>
+"class Number"
+	sqrt
+		^ self asFloat sqrt
+</pre>
+The method in class Float clearly must perform something different, in
+this case actually computing the square root.  The parent class has
+a method that will work in most, but not all, child classes.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 09</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 23, Slide 15</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 23: Object Interconnections :
+<td bgcolor=#FCCF97><a href="slide16.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide14.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide15.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap23/slide15.ram">real</a>
+<td bgcolor=#FCCF97><a href="text15.htm" target=text>text</a>
+</table>
+<p>
+<h1>Rewritten in terms of messages</h1>
+<font size=+2>
+<P><B>Law of Demeter (weak form)</B>.  Inside a method, it is only permitted
+to access or send messages to the following objects:
+<P><DL COMPACT>
+<DT>1.
+<DD>The arguments associated with the method being executed (including the self
+object).
+<p>
+<DT>2.
+<DD>Instance variables for the receiver of the method.
+<p>
+<DT>3.
+<DD>Global variables.
+<p>
+<DT>4.
+<DD>Temporary variables created inside the method.
+</DL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 15</h6>
+<br>
+The <i>strong form</i> eliminates global variables and inherited data fields.
+<hr>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Program 2 - Array Vector Class 2 | 2143-Object-Oriented-Programming</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Program 2 - Array Vector Class 2" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Object Oriented Programming in C++" />
+<meta property="og:description" content="Object Oriented Programming in C++" />
+<link rel="canonical" href="http://localhost:4000/Assignments/P02/" />
+<meta property="og:url" content="http://localhost:4000/Assignments/P02/" />
+<meta property="og:site_name" content="2143-Object-Oriented-Programming" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Assignments/P02/","headline":"Program 2 - Array Vector Class 2","description":"Object Oriented Programming in C++","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ad139bb13b0fb0aa2244a2b1ddeb5e3cc5a2677a">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">2143-Object-Oriented-Programming</a></h1>
+      
+
+      <h2 id="program-2---array-vector-class-2">Program 2 - Array Vector Class 2</h2>
+<h4 id="due-october-1st-by-classtime">Due: October 1<sup>st</sup> by Classtime</h4>
+
+<h2 id="overview">Overview</h2>
+
+<p>Using code from <a href="https://repl.it/@rugbyprof/p02-starter">repl.it</a> create a more robust <code class="highlighter-rouge">Vector</code> class that includes added functionality.</p>
+
+<h2 id="requirements">Requirements</h2>
+<ul>
+  <li>Overload <code class="highlighter-rouge">[]</code> so that your <code class="highlighter-rouge">Vector</code> can be treated as an array.</li>
+  <li>Overload <code class="highlighter-rouge">&lt;&lt;</code> (ostream) so that if your vector were used in a <code class="highlighter-rouge">cout</code> statement it would print the entire vector without a newline.</li>
+  <li>Overload <code class="highlighter-rouge">+</code> (addition) so that if your vector were used in an arithmetic operation, it would add two vectors together.</li>
+  <li>Overload <code class="highlighter-rouge">-</code> (substraction) so that if your vector were used in an arithmetic operation, it would subtract two vectors.</li>
+  <li>Overload <code class="highlighter-rouge">*</code> (multiplication) so that if your vector were used in an arithmetic operation, it would multiply two vectors.</li>
+  <li>Overload <code class="highlighter-rouge">/</code> (division) so that if your vector were used in an arithmetic operation, it would divide two vectors.</li>
+  <li>Overload <code class="highlighter-rouge">==</code> (equality) so that if your vector were used in an arithmetic operation, it would test for equality.</li>
+  <li>Overload <code class="highlighter-rouge">=</code> (assignment) so that you can assign another vector and take on its values.</li>
+  <li>Overlad <code class="highlighter-rouge">push_back</code> to accept an array of values which will be appended to the existing vector.</li>
+</ul>
+
+<h2 id="testing-your-code">Testing your code</h2>
+
+<p>Given:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">Vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span><span class="p">;</span>
+<span class="n">Vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">;</span>
+
+<span class="n">v1</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">8</span><span class="p">);</span>
+<span class="c1">// v1 contains: [8]
+</span>
+<span class="n">v2</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">v2</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">v2</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+<span class="c1">// v2 contains: [10,20,30]
+</span>
+<span class="c1">// Declare some int array
+</span><span class="kt">int</span> <span class="n">A</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">}</span>
+
+
+<span class="n">v1</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span>
+<span class="c1">// v1 contains: [8,1,2,3,4,5]
+</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span><span class="p">;</span>
+<span class="c1">// v1 contains: [18,21,32,3,4,5]
+</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">v1</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="c1">// would print: [18,21,32,3,4,5] to standard out.
+</span>
+<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">v1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="c1">// would print: 32 to standard out.
+</span>
+
+<span class="n">v2</span> <span class="o">=</span> <span class="n">v2</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span>
+<span class="c1">// v2 contains: [30,60,90]
+</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">v2</span> <span class="o">*</span> <span class="n">v1</span><span class="p">;</span>
+<span class="c1">// v2 contains: [540,1260,2880]
+</span>
+<span class="n">v2</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="c1">// v2 contains: [540,1260,100]
+</span>
+<span class="c1">// What about strings??
+</span>
+</code></pre></div></div>
+
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

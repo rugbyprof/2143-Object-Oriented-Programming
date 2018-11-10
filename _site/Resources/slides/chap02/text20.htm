@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Text for slides, Chapter 2 talk</title>
+</head>
+<body>
+<h1>Patterns</h1>
+<p>
+In recent years there has been a lot of hype concerning a concept called
+patterns.  Patterns are really just another attempt to document and
+reuse abstractions.  
+The idea of a pattern is to create a description of a set of proven
+and useful relationships between objects.  These descriptions can then
+be a guide used to help in the solution of new problems.
+<p>
+The idea is perhaps best illustrated with a simple example.  Lets consider
+the proxy pattern.  The proxy is useful when we have a client and
+server relationship, but there are details concerning the way in which
+the client and server are connected that are unimportant as far as
+the client is concerned.  Most often this is found in networks, where
+the client is found on one machine, and the server is found on another.
+The details of trasferring information across the network are unimportant
+to the client, who simply wants some information.  One way to address
+this problem is to create a proxy.  The proxy has the same interface
+as the server, but does not perform the given operations.  Instead, the
+proxy handles the marshalling of information across the network,
+the reception of the results, and hands back the results to the client.
+In this fashion the client is isolated from needing to know the
+network details.
+<p>
+We will examine many more patterns in a later chapter.
+<p>
+<h6><a href="slide20.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap02/slide20.ram">[real]</a>
+ Text to accompany <a href="slide20.htm">slide20</a>,
+in <a href="outline.htm">Chapter 2</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

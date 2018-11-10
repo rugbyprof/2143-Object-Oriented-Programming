@@ -1,0 +1,42 @@
+<html>
+<head><title>Chapter 1, Slide 06</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 1: Thinking Object-Oriented :
+<td bgcolor=#FCCF97><a href="slide07.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide05.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide06.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap01/slide06.ram">real</a>
+<td bgcolor=#FCCF97><a href="text06.htm" target=text>text</a>
+</table>
+<p>
+<h1>Example from Computer Languages</h1>
+<font size=+2>
+<p>
+A student working in DNA research had the task of finding repeated 
+sequences of M values in a long sequence of values:
+<p>
+<pre>
+    ACTCGGATCTTGCATTTCGGCAATTGGACCCTGACTTGGCCA ...
+</pre>
+<p>
+Wrote the simplest (and therefore, most efficient?) program:
+<p>
+<pre>
+    DO 10 I = 1, N-M
+    DO 10 J = I+1, N-M
+    FOUND = .TRUE.
+    DO 20 K = 1, M
+20  IF X[I+K-1] .NE. X[J+K-1] THEN FOUND = .FALSE.
+    IF FOUND THEN ...
+10  CONTINUE
+</pre>
+<p>
+Took a depressingly long time.
+<p>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 1</a>, Slide 06</h6>
+<hr>
+</body>
+</html>

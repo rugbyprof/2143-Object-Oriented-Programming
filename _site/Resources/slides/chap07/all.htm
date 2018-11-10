@@ -1,0 +1,284 @@
+<html>
+<head><title>Chapter 7, Outline</title></head>
+<body BGCOLOR=#FCEADT>
+<a href="slide01.htm">[first slide]</a>
+<h1 ALIGN=center>Introduction to Object Oriented Programming</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 7</h1>
+<h1 ALIGN=center>Case Study: A Billiards Game </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Purpose of Chapter</a>
+<li><a href="slide02.htm"> Picture of Billiards Table</a>
+<li><a href="slide03.htm"> Graphical Object Class</a>
+<li><a href="slide04.htm"> Objects must be initialized</a>
+<li><a href="slide05.htm"> Graphical Objects can Draw themselves</a>
+<li><a href="slide06.htm"> Objects can be Hit</a>
+<li><a href="slide07.htm"> Balls move when updated</a>
+<li><a href="slide08.htm"> Reaction to Mouse Down Events</a>
+<li><a href="slide09.htm"> Using Inheritance</a>
+</ol>
+<b>Source Code</b>
+<ul>
+<li>Source code in Object Pascal <a href="billiard.p">without inheritance</a>.
+<li>Source code in Object Pascal <a href="billtwo.p">using inheritance</a>.
+</ul>
+<p><b>Other Material</b>
+<ul>
+<li>Printer friendly copy of <a href="all.htm">all slides</a>
+<li>Another <a href="java.htm">Ball Game</a> in Java
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 1</h6>
+<hr>
+
+
+<br>
+<h1>Purpose of Chapter</h1>
+<P>
+The purpose of this chapter is to once again illustrate the design
+of a program as a universe of interacting agents working together
+to produce the desired outcome.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 1</h6>
+<hr>
+
+
+<br>
+<h1>Picture of Billiards Table</h1>
+<br>
+<IMG SRC="slide02.gif" alt="picture of billiards table" WIDTH=500 HEIGHT=300>
+<br>
+Not pool, not really billiards, but a bunch of balls bouncing around.
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 2</h6>
+<hr>
+
+
+<br>
+<h1>Graphical Object Class</h1>
+<P>
+Every graphical object has a link field and a region of space.
+<pre>
+Wall = object 
+	link : Wall;        (* data fields *)
+	region : Rect;
+		(* factor used to reflect striking balls *)
+	convertFactor : real;
+
+	procedure initialize  (* initialization function *)
+		(left, top, right, bottom : integer; cf : real);
+
+	procedure draw;	 (* draw wall *)
+
+		(* notify wall that a ball has struck *)
+	procedure hitBy (aBall : Ball);
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 3</h6>
+<hr>
+
+
+<br>
+<h1>Objects must be initialized</h1>
+<pre>
+procedure Wall.initialize 
+	(left, top, right, bottom : integer; cf : real);
+begin
+		(* initialize conversion factor *)
+	convertFactor := cf;
+	link := nil;
+	
+		(* set up region for wall *)
+	SetRect (region, left, top, right, bottom);
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 4</h6>
+<hr>
+
+
+<br>
+<h1>Graphical Objects can Draw themselves</h1>
+<pre>
+procedure Wall.draw;
+begin
+	PaintRect (region);
+end;
+
+procedure hole.draw;
+begin
+	PaintOval (region);
+end;
+
+procedure Ball.draw;
+begin
+	if self = CueBall then
+			(* draw an open circle *)
+		FrameOval (region)
+	else
+			(* draw a filled circle *)
+		PaintOval (region)
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 5</h6>
+<hr>
+
+
+<br>
+<h1>Objects can be Hit</h1>
+<pre>
+procedure Wall.hitBy (aBall : Ball);
+begin
+		(* bounce the ball off the wall *)
+	aBall.setDirection(convertFactor - aBall.direction);
+end;
+
+procedure Hole.hitBy (aBall : Ball);
+begin
+		(* drain energy from ball, remove it *)
+	aBall.energy := 0.0;
+	aBall.erase;
+		(* move ball *)
+	if aBall = CueBall then
+		aBall.setCenter(50, 100)
+	else begin
+		saveRack := saveRack + 1;
+		aBall.setCenter (10 + saveRack * 15, 250);
+	end;
+	(* redraw ball *) aBall.draw;
+end;
+
+procedure Ball.hitBy (aBall : Ball);
+var
+	da : real;
+begin
+		(* cut the energy of the hitting ball in half *)
+	aBall.energy := aBall.energy / 2;
+
+		(* and add it to our own *)
+	energy := energy + aBall.energy;
+
+		(* set our new direction *)
+	setDirection(hitAngle(self.x - aBall.x, self.y - aBall.y));
+
+		(* and set the hitting balls direction *)
+	da := aBall.direction - direction;
+	aBall.setDirection (aBall.direction + da);
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 6</h6>
+<hr>
+
+
+<br>
+<h1>Balls move when updated</h1>
+<pre>
+procedure Ball.update;
+var
+	hptr : Hole;
+	wptr : Wall;
+	bptr : Ball;
+	dx, dy : integer;
+	theIntersection : Rect;
+begin
+	if energy > 0.5 then begin
+		ballMoved := true;
+			(* erase ball *)
+		erase;
+			(* decrease energy *)
+		energy := energy - 0.05;
+			(* move ball *)
+		dx := trunc(5.0 * cos(direction));
+		dy := trunc(5.0 * sin(direction));
+		offsetRect(region, dx, dy);
+			(* redraw ball *)
+		draw;
+			(* see if we hit a hole *)
+		hptr := listOfHoles;
+		while (hptr <> nil) do 
+			if SectRect (region, hptr.region, 
+				theIntersection) then begin
+				hptr.hitBy(self);
+				hptr := nil;
+			end
+			else
+				hptr := hptr.link;
+
+			(* see if we hit a wall *)
+		wptr := listOfWalls;
+		while (wptr <> nil) do 
+			if SectRect (region, wptr.region, 
+				theIntersection) then begin
+				wptr.hitBy(self);
+				wptr := nil;
+			end
+			else
+				wptr := wptr.link;
+
+			(* see if we hit a ball *)
+		bptr := listOfBalls;
+		bhit := nil;
+		while (bptr <> nil) do 
+			if (bptr <> self) and 
+				SectRect (region, bptr.region, 
+				theIntersection) then begin
+				bptr.hitBy(self);
+				bptr := nil;
+			end
+			else
+				bptr := bptr.link;
+	end;
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 7</h6>
+<hr>
+
+
+<br>
+<h1>Reaction to Mouse Down Events</h1>
+<pre>
+procedure mouseButtonDown (x, y : integer);
+var
+	bptr : Ball;
+begin
+		(* give the cue ball some energy *)
+	CueBall.energy := 20.0;
+		(* and a direction *)
+	CueBall.setDirection(hitAngle (cueBall.x - x, cueBall.y - y));
+		(* then update as long as any ball moves *)
+	ballMoved := true;
+	while ballMoved do begin
+		ballMoved := false;
+		bptr := listOfBalls;
+		while bptr <> nil do begin
+			bptr.update;
+			bptr := bptr.link;
+		end;
+	end;
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 8</h6>
+<hr>
+
+
+<br>
+<h1>Using Inheritance</h1>
+<P>
+The program can be greatly simplfied by making all graphical objects
+inherit from a common base class.
+<P>
+We will have much more to say about inheritance, and the power that 
+comes from the use of inheritance, in subsequent chapters.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 9</h6>
+<hr>
+
+
+</body>
+</html>

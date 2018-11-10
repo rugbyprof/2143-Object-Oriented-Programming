@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Text for slides, Chapter 8 talk</title>
+</head>
+<body>
+<h1>Subclass vs Subtype</h1>
+<p>
+Of course, what the argument for substitition ignores is that child
+classes can override behavior in arbitrary ways.  This, there is no
+guarantee that the child will act anything like the parent.
+<p>
+It is therefore useful to define two separate concepts.
+The idea of a subclass is simply a statement about definition, it
+claims that inheritance was used in the construction of the child class.
+<p>
+The concept of subtype talks about behavior, independent of construction.
+A class is a subtype of another if it preserves the behavior of the
+first.
+<p>
+The two are unrelated.  It is easy to make subclasses that are
+not subtypes (by redefining a method without preserving behavior).
+It is also possible, although not as easy, to form subtypes that
+are not subclasses.
+<p>
+<h6><a href="slide12.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap08/slide12.ram">[real]</a>
+ Text to accompany <a href="slide12.htm">slide12</a>,
+in <a href="outline.htm">Chapter 8</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

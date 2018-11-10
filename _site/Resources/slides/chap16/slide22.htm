@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 16, Slide 22</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 16: Overriding :
+<td bgcolor=#FCCF97><a href="slide23.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide21.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide22.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap16/slide22.ram">real</a>
+<td bgcolor=#FCCF97><a href="text22.htm" target=text>text</a>
+</table>
+<p>
+<h1>Covariance and Contravariance</h1>
+<font size=+2>
+Frequently it seems like it would be nice if when a method is
+overridden we could change the argument types or return types.
+A change that moves down the inheritance hierarchy, making it more
+specific, is said to be covariant.  A change that moves up the inheritance
+hierarchy is said to be contravariant.
+<pre>
+class Parent {
+	void test (covar : Mammal, contravar : Mammal) : boolean
+}
+
+class Child extends Parent {
+	void test (covar : Cat, contravar : Animal) : boolean
+}
+</pre>
+While appealing, this idea runs into trouble with the principle of
+substitution.
+<pre>
+	Parent aValue = new  Child();
+	aValue.text(new Dog(), new Mammal()); // is this legal??
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 22</h6>
+<hr>
+</body>
+</html>

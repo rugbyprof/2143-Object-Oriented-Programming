@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Text for slides, Chapter 5 talk</title>
+</head>
+<body>
+<h1>Memory Errors</h1>
+<p>
+The arguments for and against the use of garbage collection pit
+efficiency against correctness.  A GC system necessarily imposes 
+a penalty in execution time, on the other hand it can significantly
+reduce programming errors.  Language designers fall on both sides
+of this argument.
+<p>
+Among the errors that a garbage collection system can help avoid
+are the following.  Most obviously running out of memory because
+the programmer forgot to free values.  But another error is using
+a memory value after it has been recovered (that is, after the
+programmer has indicated it can be deleted).  A third type of error
+is attempting to free the same value twice.
+In systems that lack garbage collection systems any of these can
+lead to difficult to detect errors.
+<p>
+<h6><a href="slide09.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap05/slide09.ram">[real]</a>
+ Text to accompany <a href="slide09.htm">slide09</a>,
+in <a href="outline.htm">Chapter 5</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

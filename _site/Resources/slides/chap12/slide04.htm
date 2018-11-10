@@ -1,0 +1,52 @@
+<html>
+<head><title>Chapter 12, Slide 04</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 12: Implications of substitution:
+<td bgcolor=#FCCF97><a href="slide05.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide03.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide04.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap12/slide04.ram">real</a>
+<td bgcolor=#FCCF97><a href="text04.htm" target=text>text</a>
+</table>
+<p>
+<h1>The Problem with Substitution</h1>
+<table><tr><td><pre>
+<font size=+2>
+class Window {
+public:
+	virtual void oops();
+private:
+	int height;
+	int width;
+};
+
+class TextWindow : public Window {
+public:
+	virtual void oops();
+private:
+	char * contents;
+	int cursorLocation;
+};
+</font>
+</pre><td><pre>
+<font size=+2>
+	Window x; // how much space to set aside?
+	TextWindow y;
+	x = y; // what should happen here?
+
+
+
+
+
+
+
+
+
+</font>
+</pre></table>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 04</h6>
+<hr>
+</body>
+</html>

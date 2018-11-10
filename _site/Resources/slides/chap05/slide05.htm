@@ -1,0 +1,37 @@
+<html>
+<head><title>Chapter 5, Slide 05</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 5: Messages Instances and Initialization:
+<td bgcolor=#FCCF97><a href="slide06.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide04.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide05.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap05/slide05.ram">real</a>
+<td bgcolor=#FCCF97><a href="text05.htm" target=text>text</a>
+</table>
+<p>
+<h1>The Receiver Variable</h1>
+<font size=+2>
+Inside a method, the receiver can be accessed by means of a pseudo-variable
+<ul>
+<li>Called <b>this</b> in Java, C++, C#
+<p><li>Called <b>self</b> in Smalltalk, Objective-C, Object Pascal
+<p><li>Called <b>current</b> in Eiffel
+</ul>
+<pre>
+
+function PlayingCard.color : colors;
+begin
+	if (self.suit = Heart) or (self.suit = Diamond) then
+		color := Red
+	else
+		color := Black;
+end
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 5</a>, Slide 05</h6>
+<hr>
+</body>
+</html>

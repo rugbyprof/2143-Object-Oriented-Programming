@@ -1,0 +1,49 @@
+<html>
+<head><title>Chapter 20, Slide 18</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 20: The STL :
+<td bgcolor=#FCCF97><a href="slide19.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide17.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide18.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap20/slide18.ram">real</a>
+<td bgcolor=#FCCF97><a href="text18.htm" target=text>text</a>
+</table>
+<p>
+<h1>Shortest Path Algorithm</h1>
+<font size=+2>
+<pre>
+void shortestDistance(const graph & cityMap, 
+		const string & start, stringVector & distances)
+{
+	// process a priority queue of distances to cities
+	priority_queue&lt;DistancePair, vector&lt;DistancePair&gt; ,
+		greater&lt;DistancePair&gt; &gt; que;
+	que.push(DistancePair(0, start));
+	
+	while (! que.empty()) {
+			// pull nearest city from queue
+		int distance = que.top().first;
+		string city = que.top().second;
+		que.pop();
+			// if we haven't seen it already, process it
+		if (0 == distances.count(city)) {
+				// then add it to shortest distance map
+			distances[city] = distance;
+				// and put values into queue
+			stringVector::iterator start, stop;
+			start = cityMap[city].begin();
+			stop = cityMap[city].end();
+			for (; start != stop; ++start) 
+				que.push(DistancePair(distance + (*start).second, 
+						(*start).first));	
+			}
+		}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 18</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head><title>Chapter 19, Slide 08</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 19: Container Classes :
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap19/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<p>
+<h1>Storing Primitive Values</h1>
+<font size=+2>
+In some languages (Java, Delphi) primitive types are not objects.
+<p>
+These values cannot be stored using this scheme.
+<p>
+Thus, languages introduce <i>wrapper</i> classes that do nothing but
+hold a primitive value.
+<pre>
+Vector aVector = new Vector();
+aVector.add(new Integer(17)); // wrap up primitive int as Integer
+...
+Integer a = aVector.elementAt(1);
+int x = a.intValue(); // must subsequently be unwrapped
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 08</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head><title>Chapter 21, Slide 07</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 21: Software Frameworks :
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap21/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<p>
+<h1>An Example of a Low Level Abstraction, Sorting Employee Records</h1>
+<font size=+2>
+Suppose we want to sort employee records.  We could write the following.
+</font>
+<table><tr><td><pre>
+<font size=+2>
+class Employee {
+public:
+	string name;
+	int salary;
+	int startingYear;	
+}
+</font>
+</pre><td><pre>
+<font size=+2>
+void sort (Employee * data[ ], int n) {
+	for (int i = 1; i < n; i++) {
+		int j = i-1;
+		while (j >= 0 && 
+		   v[j+1]->startingYear < v[j]->startingYear) {
+			// swap elements
+			Employee * temp = v[j];
+			v[j] = v[j+1];
+			v[j+1] = temp;
+			j = j - 1;
+		}
+	}
+}
+</font>
+</pre></table>
+<font size=+2>
+But what happens if we want to change it?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 07</h6>
+<hr>
+</body>
+</html>

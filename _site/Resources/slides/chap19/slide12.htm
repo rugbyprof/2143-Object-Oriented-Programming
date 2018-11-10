@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 19, Slide 12</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 19: Container Classes :
+<td bgcolor=#FCCF97><a href="slide13.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide11.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide12.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap19/slide12.ram">real</a>
+<td bgcolor=#FCCF97><a href="text12.htm" target=text>text</a>
+</table>
+<p>
+<h1>Collection Traversal</h1>
+<font size=+2>
+Here is another difficult problem.  How to you allow access to elements
+of a collection without exposing the internal structure?
+<p>
+Consider the conventional solution:
+<pre>
+var
+	aList : List;	(* the list being manipulated *)
+	p : Link;	(* a pointer for the loop *)
+
+begin
+	...
+	p := aList.firstLink;
+	while (p <> nil) do begin
+		writeln (p.value);
+		p := p^.nextElement;
+	end;
+</pre>
+Needed to expose the link type, and the field <b>nextElement</b>.
+<br>
+Can we avoid this problem?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 12</h6>
+<hr>
+</body>
+</html>

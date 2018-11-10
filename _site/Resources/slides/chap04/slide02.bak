@@ -1,0 +1,39 @@
+<html>
+<head><title>Chapter 4, Slide 2</title></head>
+<body BGCOLOR=#ffffff>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 4: Classes and Methods:
+<td bgcolor=#E0E0E0><a href="slide03.htm">next</a>
+<td bgcolor=#E0E0E0><a href="slide01.htm">previous</a>
+<td bgcolor=#E0E0E0><a href="slide02.au">audio</a>
+<td bgcolor=#E0E0E0><a href="http://www.cs.orst.edu/~cs582/real/chap03/slide02.ram">real</a>
+<td bgcolor=#E0E0E0><a href="text02.htm" target=text>text</a>
+</table>
+<p>
+<h1>Same Ideas, Different Terms</h1>
+<font size=+2>
+<P>
+All OOP languages have the following concepts, although the terms they use may
+differ:
+<P><UL>
+<LI>
+<B>classes</B>, object type, factory object
+<p>
+<LI>
+<B>instances</B>, objects
+<p>
+<LI>
+<B>message passing</B>, method lookup, member function invocation, method binding
+<p>
+<LI>
+<B>methods</B>, member function, method function
+<p>
+<LI>
+<B>inheritance</B>, subclassing
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 2</h6>
+<hr>
+</body>
+</html>

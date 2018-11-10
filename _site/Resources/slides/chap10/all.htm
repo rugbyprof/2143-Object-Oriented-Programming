@@ -1,0 +1,202 @@
+<html>
+<head><title>Chapter 10, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 10</h1>
+<h1 ALIGN=center>Subclasses and Subtypes</h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap </a>
+<li><a href="slide02.htm"> Subtype, Subclass and Substitution </a>
+<li><a href="slide03.htm"> What is a Type? </a>
+<ol>
+<li><a href="slide04.htm"> The Problem of Defining Types </a>
+</ol>
+<li><a href="slide05.htm"> The Definition of Subtype </a>
+<li><a href="slide06.htm"> Subclasses are not Necessarily Subtypes </a>
+<li><a href="slide07.htm"> The Substitution Paradox </a>
+<ol>
+<li><a href="slide08.htm"> The Undecidability of the Subtype Relationship </a>
+<li><a href="slide09.htm"> Is This a Problem? </a>
+</ol>
+<li><a href="slide10.htm"> Chapter Summary </a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter we will explore the relationships between the two concepts
+of subclass and subtype.
+<ul>
+<li>To assert that one class is a subclass of another is to simply
+say it was built using inheritance.  It is a statement concerning how
+it was constructed.
+<p><li>To assert that one class is a subtype of another is to say
+that it preserves the purpose of the original.  It is a statement
+concerning meaning.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Subtype, Subclass and Substitution</h1>
+The distinction between subtype and subclass is important because of their
+relationship to substitution.
+<p>
+Recall the argument that asserted a child class has the same behavior
+as the parent, and thus a variable declared as the parent class
+should in fact be allowed to hold a value generated from a child class.
+<p>
+But does this argument always hold true?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>What is a type?</h1>
+What do we mean when we use the term <b>type</b> in describing a programming
+language?
+<ul>
+<li>A set of values.  (The type int, for example, describes 
+-2147483648 to 2147483647)
+<p><li>A set of operations.  (We can do arithmetic on ints, not on booleans).
+<p><li>A set of properties.  (If we divide 8 by 5 we are not surprized when the
+result is 1, and not 1.6).
+</ul>
+What about when we consider classes (or interfaces) as a system 
+for defining types?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>The Problem of Defining Types</h1>
+Consider how we might define a Stack ADT:
+<pre>
+interface Stack {
+	public void push (Object value);
+	public Object top ();
+	public void pop ();
+}
+</pre>
+Notice how the interface itself says nothing about the LIFO property,
+which is the key defining feature of a stack.  Is the following a stack?
+<pre>
+class NonStack implements Stack {
+	public void push (Object value) { v = value; }
+	public Object top () { return v; }
+	public void pop () { v = null; }
+
+	private Object v = null;
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>The Definition of Subtype</h1>
+So now we can better understand the concept of a subtype.
+<p>
+A subtype preserves the meaning (purpose, or intent) of the parent.
+<p>
+Problem, meaning is extremely difficult to define.  
+Think about how to define the LIFO characteristics of the stack.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Subclasses are not Necessarily Subtypes</h1>
+It is easy to create a subclass that is not a subtype -- 
+think of <b>NonStack</b>.
+<p>
+It is also possible to create subtypes that are not subclasses.
+Think of <b>Array</b> in Smalltalk.  This class is characterized by
+the following interface:
+<pre>
+	at: input put: value
+	at: int
+	size
+</pre>
+But class <b>Dictionary</b> will also support the same interface, and
+perform similar actions -- but Dictionary is not a subclass of Array.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>The Substitution Paradox</h1>
+There is a curious paradox that lies at the heart of most strongly typed
+object-oriented programming languages.
+<ul>
+<li>Substitution is permitted, based on subclasses.
+That is, a variable declared as the parent type is allowed to hold
+a value derived from a child type.
+<p><li>Yet from a semantic point of view, substitution only makes
+sense if the expression value is a subtype of the target variable.
+</ul>
+If substitution only makes sense for subtypes and not for all subclasses,
+why do programming languages based the validity of assignment on
+subclasses?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>The Undecidability of the Subtype Relationship</h1>
+It is trivial to determine if one class is a subclass of another.
+<p>
+It is extremely difficult to define meaning (think of the Stack ADT), and
+even if you can it is almost always impossible to determine if one class
+preserves the meaning of another.
+<p>
+One of the classic corollaries of the halting problem is that there is
+no procedure that can determine, in general, if two programs have
+equivalent behavior.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Is This a Problem?</h1>
+What does it take to create a subclass that is not a subtype?
+<ul>
+<li>The new class must override at least one method from the parent
+<p><li>It must preserve the type signatures
+<p><li>But it must violate some important property of the parent
+</ul>
+Is this common?  Not likely.  But it shows you where to look for
+problem areas.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+<ul>
+<li>To say a class is a subclass of another simply asserts that is was built
+using inheritance.
+<p><li>By itself, the subclass relationship says nothing about
+the behavior of the child in relation to the parent.
+<p><li>The term subtype is used to describe a class that matches the
+behavior of another class.
+<p><li>It is easy to build subclasses that are not subtypes.  It is possible
+(although not as easy) to build subtypes that are not subclasses.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 10</h6>
+<hr>
+</body>
+</body>
+</html>
