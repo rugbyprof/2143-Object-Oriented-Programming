@@ -15,6 +15,7 @@ private:
     Tile smiley;
     sf::RectangleShape rectangle;
     float angle;
+    int justFlippedX;
 public:
     DrawMe(){
         smiley.resetTile(128,128,"./smiley.png");
@@ -36,6 +37,28 @@ public:
 
     }
 
+    void moveSmiley(float dx,float dy){
+        sf::Vector2f pos = smiley.getPosition();
+
+        if(pos.x > 300){
+            cout<<pos.x<<","<<pos.y<<endl;
+            dx *= -1;
+            if(dx < 0){
+                pos.x -= 20;
+            }else{
+                pos.x += 20;
+            }
+            smiley.setPosition(pos);
+        }
+
+        if(pos.y > 400)
+            dy *= -1;
+
+        cout<<dx<<","<<dy<<endl;
+
+        smiley.move(dx,dy);
+    }
+
     void changeSmiley(string image){
         smiley.setTileTexture(image);
     }
@@ -47,13 +70,14 @@ public:
     }
 };
 
-class GameClock{
+class GameClock : public Group{
 private:
     sf::Text text;          // var to hold clock digits
     sf::Clock gameClock;    // SFML clock type
     sf::Time startTime;
     sf::Font font;
     sf::Color textColor;
+    sf::RectangleShape rectangle;
     int fontSize;
 public:
     GameClock(){
@@ -78,9 +102,18 @@ public:
 
         text.setStyle(sf::Text::Bold);
 
+        rectangle.setSize(sf::Vector2f(100, 100));
+        rectangle.setFillColor(sf::Color::Black);
+        rectangle.setOutlineColor(sf::Color::Green);
+        rectangle.setOutlineThickness(2);
+        rectangle.setOrigin(50,50);
+        rectangle.setPosition(100, 100);
+        this->push_back(text);
+        this->push_back(rectangle);
+
     }
 
-    void printClock(sf::RenderWindow &window,int gameWidth, int gameHeight){
+    void printClock(int gameWidth, int gameHeight){
 
         int itime = gameClock.getElapsedTime().asSeconds();
 
@@ -98,13 +131,12 @@ public:
         text.setOrigin(origin);
         text.setPosition(coord);
 
-        window.draw(text);
     }
 };
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(300, 300), "SFML Smiley!");
+    sf::RenderWindow window(sf::VideoMode(300, 400), "SFML Smiley!");
 
 
     DrawMe D;
@@ -128,9 +160,11 @@ int main()
             D.changeSmiley("./smiley.png");
         }
 
+        D.moveSmiley(.05,.05);
         window.clear();
         window.draw(D);
-        G.printClock(window,300,300);
+        G.printClock(300,400);
+        window.draw(G);
         D.update();
 
         window.display();
