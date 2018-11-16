@@ -1,14 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
+#include "Counter.h"
 #include "Group.h"
 
 using namespace std;
 
 /**
  * Class: GameClock:
- * Extends: Group
+ * Extends: Group, Counter
  * Public:
  *    // Default constructor needs window width/height. 
  *    GameClock(int game_width, int game_height, int game_buffer = 0);
@@ -30,15 +30,12 @@ using namespace std;
  *    // cardinal directions, then calls this one. 
  *    void _setClockPosition(sf::Vector2f coord);
  */
-class GameClock : public Group {
+class GameClock : public Counter, public Group {
 private:
     sf::Font font;          // clocks font
     int fontSize;           // size of font in pixels
     string position;        // N,NE,E,SE,S,SW,W,NW, C [N = top center, NE = top right, E = far right vertically centered, ..., C = centered ]
     sf::Text text;          // var to hold clock digits
-    sf::Clock gameClock;    // SFML clock type
-    sf::Time startTime;
-    sf::Time elapsedTime;   // SFML time type
     sf::Color textColor;    // Color of clock text
     sf::Color backgroundColor; // Color behind clock
     sf::Vector2f clockCoord; // Locations to print clock
@@ -64,17 +61,22 @@ public:
         gameHeight = game_height;
         gameBuffer = game_buffer;
 
-        if (!font.loadFromFile("arial.ttf")) {
-            cout << "Error loading font 'arial.ttf'...";
+        // if (!font.loadFromFile("./assets/Segment7Standard.otf")) {
+        //     cout << "Error loading font 'Segment7Standard.otf'...";
+        //     exit(0);
+        // }
+
+        if (!font.loadFromFile("./assets/RadioNewsman.ttf")) {
+            cout << "Error loading font 'Segment7Standard.otf'...";
             exit(0);
         }
 
         textColor = sf::Color(0, 255, 0); // green
         backgroundColor = sf::Color(0, 0, 0); // black
         clockRectangle.setFillColor(sf::Color(0, 0, 0));
-        fontSize = 24;
+        fontSize = 48;
         position = "C";
-        clockBuffer = 10;
+        clockBuffer = 20;
         _init();
 
         // Push shapes onto our "Group" vector so we can print them together.
@@ -116,6 +118,10 @@ public:
         _init();
     }
 
+    void updateClock(){
+        text.setString(getCurrent());
+    }
+
     /**
      * Public: setBackgroundColor
      *    Set the color of the rectangle behind the clock 
@@ -126,6 +132,20 @@ public:
      */
     void setBackgroundColor(sf::Color c){
         clockRectangle.setFillColor(c);
+    }
+
+    /**
+     * Public: setBorder
+     *    Set the color of the rectangle around the clock 
+     * @Params: 
+     *   c {sf::Color} : sfml color type. Example: sf::Color(255,0,0) (red).
+     *   width {float} : width of border
+     * @returns:
+     *   void
+     */
+    void setBorder(sf::Color c,float width=1){
+        clockRectangle.setOutlineThickness(width);
+        clockRectangle.setOutlineColor(c);
     }
 
     /**
@@ -140,6 +160,10 @@ public:
     {
         sf::Vector2f coord; // var to hold calculated position
 
+        float xBuffer = text.getLocalBounds().width + gameBuffer;
+        float yBuffer = text.getLocalBounds().height + gameBuffer;
+
+
         // if p is empty, set p = to default value from class data member
         if (p == "") {
             p = position;
@@ -149,49 +173,49 @@ public:
         if (p == "N") {
 
             coord.x = gameWidth / 2;
-            coord.y = 0;
+            coord.y = yBuffer;
         }
         // Top Right
         else if (p == "NE") {
 
-            coord.x = gameWidth;
-            coord.y = 0;
+            coord.x = gameWidth - xBuffer;
+            coord.y = yBuffer;
         }
         // Right Middle
         else if (p == "E") {
 
-            coord.x = gameWidth;
+            coord.x = gameWidth - xBuffer;
             coord.y = gameHeight / 2;
         }
         // Bottom Right
         else if (p == "SE") {
 
-            coord.x = gameWidth;
-            coord.y = gameHeight;
+            coord.x = gameWidth - xBuffer;
+            coord.y = gameHeight - (yBuffer*2);
         }
         // Bottom Center
         else if (p == "S") {
 
             coord.x = gameWidth / 2;
-            coord.y = gameHeight;
+            coord.y = gameHeight - (yBuffer*2);
         }
         // Bottom Left
         else if (p == "SW") {
 
-            coord.x = 0;
-            coord.y = gameHeight;
+            coord.x = xBuffer;
+            coord.y = gameHeight - (yBuffer*2);
         }
         // Left Middle
         else if (p == "W") {
 
-            coord.x = 0;
+            coord.x = xBuffer;;
             coord.y = gameHeight / 2;
         }
         // Top Left
         else if (p == "NW") {
 
-            coord.x = 0;
-            coord.y = 0;
+            coord.x = xBuffer;
+            coord.y = yBuffer;
         }
         // Center Middle
         else {
@@ -215,35 +239,8 @@ public:
         _setClockPosition(coord);
     }
 
-    void startClock()
-    {
-        gameClock.restart();
-        // sf::Time elapsed = clock.restart();
-        // updateGame(elapsed);
-    }
 
-    int getIntRunningTime()
-    {
-        return gameClock.getElapsedTime().asSeconds();
-        
-    }
 
-    float getFloatRunningTime()
-    {
-        return gameClock.getElapsedTime().asSeconds();
-        
-    }
-
-    void updateClock(){
-        int time = gameClock.getElapsedTime().asSeconds();
-        string ptime = "";
-        if(time < 10){
-            ptime = "0" + to_string(time);
-        }else{
-            ptime = to_string(time);
-        }
-        text.setString(ptime);
-    }
 
 private:
     /**
@@ -256,11 +253,18 @@ private:
      */
     void _init()
     {
+
+        //Counter method
+        setFormat("II:SS");
+
+        //Counter method
+        resetCounter();
+
         // select the font
         text.setFont(font); // font is a sf::Font
 
         // set the string to display
-        text.setString("0");
+        text.setString(getCurrent());
 
         // set the character size
         text.setCharacterSize(fontSize); // in pixels, not points!
@@ -275,8 +279,6 @@ private:
         //text.setPosition(sf::Vector2f(WIDTH / 2.0f, HEIGHT / 2.0f));
 
         setClockPosition();
-
-        elapsedTime = sf::Time::Zero;
 
         push_back(clockRectangle);
         push_back(text);
@@ -295,18 +297,19 @@ private:
         float textWidth = text.getLocalBounds().width;
         float textHeight = text.getLocalBounds().height;
 
-        coord.x += gameBuffer;
-        coord.y += gameBuffer;
+        // coord.x += gameBuffer;
+        // coord.y += gameBuffer;
 
         sf::Vector2f origin(textWidth / 2.0f, textHeight / 2.0f);
-
+      
         text.setOrigin(origin);
         text.setPosition(coord);
 
-        // sf::FloatRect textRect = text.getLocalBounds();
-
         clockRectangle.setSize(sf::Vector2f(textWidth + clockBuffer, textHeight + clockBuffer));
         clockRectangle.setOrigin(origin);
+
+        coord.x -= clockBuffer / 2.0;
+
         clockRectangle.setPosition(coord);
     }
 };

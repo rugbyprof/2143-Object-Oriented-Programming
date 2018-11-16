@@ -35,11 +35,11 @@ public:
     Tile();
     Tile(int , int , string );
     void scaleImage(int , int , int , int );
-    void resetTile(int , int ,string);
+    void initTile(int , int ,string);
     void setSize(int , int );
     void setTileTexture(string);
+    sf::Texture getTexture();
 };
-
 
 
 /**
@@ -161,4 +161,8 @@ void Tile::setTileTexture(string texture_path){
         std::cout << "Could not load " + texture_path + " ... " << std::endl;
     }
     this->setTexture(tileTexture);
+}
+
+sf::Texture Tile::getTexture(){
+    return tileTexture;
 }
