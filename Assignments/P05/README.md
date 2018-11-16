@@ -1,5 +1,5 @@
 ## Counter Class - Extending / Inheriting For A Better Clock
-#### Due: Wednesday November 14<sup>nd</sup> by classtime.
+#### Due:TBD
 
 ### Overview (Original):
 
