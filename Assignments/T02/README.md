@@ -62,6 +62,8 @@ Which do you think you would use more often: inheritance vs composition?
 
 
 - https://repl.it/@rugbyprof/ObeseListLovers
-- https://repl.it/@rugbyprof/copyconstructorandoverloadingoperators
+- https://repl.it/@rugbyprof/overloadingoperatorslist
+- https://repl.it/@rugbyprof/classconstructors
+- https://repl.it/@rugbyprof/listcopyconstructor
 - https://repl.it/@rugbyprof/staticobjectcounter
 - https://repl.it/@rugbyprof/listcopyconstructor
