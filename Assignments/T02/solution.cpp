@@ -7,15 +7,15 @@ using namespace std;
 
 // #	  Word	        
 // 1	  Constructor	  I	  A member function of which initializes objects of a class
-// 2	  Friend	      G	  Can access private and protected members of other class in which it is declared
+// 2	  Friend	  G	  Can access private and protected members of other class in which it is declared
 // 3	  Inheritance	  B	  The capability of a class to derive properties and characteristics from another class
 // 4	  Overloading	  F	  It provides multiple definitions of the function by changing signature (parameters)
-// 5	  Override	    AH	A member function which is declared within base class and is re-defined by derived class
-// 6	  Polymorphism	E	  Overriding an operator for a class is an example of ….
-// 7	  Protected	    C	  Supports an important feature of Object Oriented Programming known as Data Hiding
-// 8	  Static	      D	  Preserves their value even after they are out of their scope
-// 9	  This	        J	  A constant pointer that holds the memory address of the current object
-// 10	  Virtual	      HA	The redefinition of base class function in its derived class with same signature
+// 5	  Override	  AH	A member function which is declared within base class and is re-defined by derived class
+// 6	  Polymorphism	  E	  Overriding an operator for a class is an example of ….
+// 7	  Protected	  C	  Supports an important feature of Object Oriented Programming known as Data Hiding
+// 8	  Static	  D	  Preserves their value even after they are out of their scope
+// 9	  This	          J	  A constant pointer that holds the memory address of the current object
+// 10	  Virtual	  HA	The redefinition of base class function in its derived class with same signature
 
 // Note: I missed a key word in the definition of "H". It should have read:
 // A member function which is declared within base class and must be re-defined by derived class
