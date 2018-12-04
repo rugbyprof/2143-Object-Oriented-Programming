@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Text for slide23, Chapter 2 talk</title>
+</head>
+<body>
+<h1>Behavior and State</h1>
+<p>
+One dichotomy we see in the description of software components is
+the separation into behavior and state.
+<br>
+The <EM>behavior</EM> of a component is the set of actions a component
+can perform.   The complete set of behavior for a component is
+sometimes called the protocol.
+<br>
+The <EM>state</EM> of a component represents all the information 
+(data values) held within a component.
+<p>
+Normally the external description of a comonent should emphasize
+behavior, and downplay the state.  It is considered very bad form
+if one object requires direct access to the state of another in order
+to perform its task.  Instead, all actions should be mediated by 
+behaviors.
+<p>
+Notice that it is common for behavior to change state.  For example,
+the edit behavior of a recipe may change the preparation instructions,
+which is part of the state.
+<p>
+<h6><a href="slide23.au">[audio] 23</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap02/slide23.ram">[real] 23</a>
+ Text to accompany <a href="slide23.htm">slide 23</a>,
+in <a href="slide1.htm">Chapter 2</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/2ndEdition/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>
+
+

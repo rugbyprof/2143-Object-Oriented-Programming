@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>2143 OOP - Test 1 | 2143-Object-Oriented-Programming</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="2143 OOP - Test 1" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Object Oriented Programming in C++" />
+<meta property="og:description" content="Object Oriented Programming in C++" />
+<link rel="canonical" href="http://localhost:4000/Assignments/T01/solution.html" />
+<meta property="og:url" content="http://localhost:4000/Assignments/T01/solution.html" />
+<meta property="og:site_name" content="2143-Object-Oriented-Programming" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Assignments/T01/solution.html","headline":"2143 OOP - Test 1","description":"Object Oriented Programming in C++","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ad139bb13b0fb0aa2244a2b1ddeb5e3cc5a2677a">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">2143-Object-Oriented-Programming</a></h1>
+      
+
+      <h1 id="2143-oop---test-1">2143 OOP - Test 1</h1>
+
+<p>Name: <strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><em>__</em></p>
+
+<h4 id="instructions">Instructions</h4>
+
+<ul>
+  <li>Use pencil only</li>
+  <li>Write your name at the top of all pages turned in.</li>
+  <li>Staple pages together at the top left corner.</li>
+  <li>Make sure your pages are in order, with questions also in order.</li>
+  <li>Handwriting that is illegible (messy, small, not straight) will lose points.</li>
+  <li>Indentation matters. Keep code aligned correctly.</li>
+  <li>Failure to comply will result in loss of letter grade.</li>
+  <li>All answers will be written on the paper provided, and not directly on the test.</li>
+</ul>
+
+<h4 id="background">Background:</h4>
+<ul>
+  <li>A polygon is a 2D shape made up of 3 or more sides.</li>
+</ul>
+
+<p><img src="https://d3vv6lp55qjaqc.cloudfront.net/items/1H3p1Z3s1U1n3o0e262B/polygon.png" width="150" /></p>
+
+<ul>
+  <li>Each side can also be thought of as a line with a beginning point (x<sub>1</sub>,y<sub>1</sub>) and an ending point (x<sub>2</sub>,y<sub>2</sub>).
+    <ul>
+      <li>For example, the polygon above has Points: P<sub>0</sub>, P<sub>1</sub>,P<sub>2</sub>,P<sub>3</sub>,P<sub>4</sub></li>
+      <li>It also has Lines: (P<sub>0</sub>, P<sub>1</sub>),(P<sub>1</sub>, P<sub>2</sub>),(P<sub>2</sub>,P<sub>3</sub>),(P<sub>3</sub>,P<sub>4</sub>),(P<sub>4</sub>,P<sub>0</sub>).</li>
+    </ul>
+  </li>
+  <li>The length of a line (or distance between two points can be calculated using the following formula:
+<img src="https://d3vv6lp55qjaqc.cloudfront.net/items/1p0u211H0n3P3V0c0G26/Image%202018-10-22%20at%208.27.08%20AM.png" width="175" /></li>
+  <li>Remember that:
+    <ul>
+      <li>Square root is <code class="highlighter-rouge">sqrt(some number)</code></li>
+      <li>Exponentiation is <code class="highlighter-rouge">pow(2,3)</code> or 2<sup>3</sup>.</li>
+    </ul>
+  </li>
+  <li>A bounding box of a polygon can be found by finding the 4 extreme <code class="highlighter-rouge">x,y</code> values 
+<img src="http://www.yaldex.com/games-programming/FILES/08fig40.gif" width="300" /></li>
+</ul>
+
+<h4 id="general">General</h4>
+<ul>
+  <li>You are going to write 3 class definitions</li>
+  <li>Each class should have methods to set / get the data members of the class.</li>
+  <li>Each class definition should build on the previous class.</li>
+  <li>Do not implement any methods until asked, definitions only.</li>
+</ul>
+
+<h4 id="question-1">Question 1:</h4>
+
+<p>What are the 3 Central Principles of OOP?</p>
+
+<p><strong>Answer</strong>:</p>
+<blockquote>
+
+  <ul>
+    <li>Abstraction</li>
+    <li>Encapsulation</li>
+    <li>Inheritance</li>
+  </ul>
+</blockquote>
+
+<h4 id="question-2---point-class">Question 2 - Point Class</h4>
+
+<ul>
+  <li>Write a class that represents a point (x,y).</li>
+  <li>X and Y are integer values.</li>
+</ul>
+
+<p><strong>Answer</strong>:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">class</span> <span class="nc">Point</span><span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Point</span><span class="p">();</span>            <span class="c1">// required
+</span>    <span class="n">Point</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span>     <span class="c1">// optional to set x,y when a point is created
+</span>
+    <span class="c1">// General Instructions said to include Setters and Getters
+</span>    <span class="kt">void</span> <span class="n">setX</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>     <span class="c1">// required setter
+</span>    <span class="kt">void</span> <span class="n">setY</span><span class="p">(</span><span class="kt">int</span><span class="p">);</span>     <span class="c1">// required setter
+</span>    <span class="kt">void</span> <span class="n">setXY</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span><span class="c1">// optional setter
+</span>
+    <span class="kt">int</span> <span class="n">getX</span><span class="p">();</span>         <span class="c1">// required getter
+</span>    <span class="kt">int</span> <span class="n">getY</span><span class="p">();</span>         <span class="c1">// required getter
+</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="question-3---line-class">Question 3 - Line Class</h4>
+
+<ul>
+  <li>Write a class that represents a line  (x<sub>1</sub>,y<sub>1</sub>) ,(x<sub>2</sub>,y<sub>2</sub>).</li>
+  <li>Your class should have 2 constructors:
+    <ul>
+      <li>One that takes 4 values x<sub>1</sub>,y<sub>1</sub>,x<sub>2</sub>,y<sub>2</sub></li>
+      <li>One that takes 2 values P<sub>1</sub>,P<sub>2</sub>.</li>
+    </ul>
+  </li>
+  <li>This class can return the length of its line.</li>
+</ul>
+
+<p><strong>Answer</strong>:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Line</span><span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">Point</span> <span class="n">Start</span><span class="p">;</span>            <span class="c1">// required
+</span>    <span class="n">Point</span> <span class="n">End</span><span class="p">;</span>              <span class="c1">// required
+</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Line</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span>  <span class="c1">// required
+</span>    <span class="n">Line</span><span class="p">(</span><span class="n">Point</span><span class="p">,</span><span class="n">Point</span><span class="p">);</span>      <span class="c1">// required
+</span>    <span class="kt">double</span> <span class="n">length</span><span class="p">();</span>        <span class="c1">// required
+</span>
+    <span class="c1">// General Instructions said to include Setters and Getters
+</span>
+    <span class="kt">void</span> <span class="n">setStart</span><span class="p">(</span><span class="n">Point</span><span class="p">);</span>   <span class="c1">// one of these setters required
+</span>    <span class="kt">void</span> <span class="n">setStart</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span>  
+
+    <span class="kt">void</span> <span class="n">setEnd</span><span class="p">(</span><span class="n">Point</span><span class="p">);</span>     <span class="c1">// one of these setters required
+</span>    <span class="kt">void</span> <span class="n">setEnd</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span>   
+
+    <span class="n">Point</span> <span class="n">getStart</span><span class="p">();</span>       <span class="c1">// getter
+</span>    <span class="n">Point</span> <span class="n">getEnd</span><span class="p">();</span>         <span class="c1">// getter
+</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="question-4---polygon-class">Question 4 - Polygon Class</h4>
+<ul>
+  <li>Write a class that represents a polygon.</li>
+  <li>Your polygon can have between <code class="highlighter-rouge">3</code> and <code class="highlighter-rouge">N</code> sides.</li>
+  <li>Your class should have multiple constructors:
+    <ul>
+      <li>One that initializes an empty polygon</li>
+      <li>One that accepts an array of points [P<sub>1</sub>,P<sub>2</sub>,…,.P<sub>n</sub>].</li>
+      <li>One that accepts an array of lines.</li>
+    </ul>
+  </li>
+  <li>This class can return the perimeter of the polygon.</li>
+  <li>This class can return the area of a bounding box of the polygon.</li>
+</ul>
+
+<p><strong>Answer</strong>:</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Polygon</span><span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="n">Line</span> <span class="o">*</span><span class="n">poly</span><span class="p">;</span>                     <span class="c1">// required data member
+</span>                                    <span class="c1">// to hold sides (lines)
+</span>
+    <span class="kt">int</span> <span class="n">numSides</span><span class="p">;</span>                   <span class="c1">// size of array of lines
+</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">Polygon</span><span class="p">();</span>                      <span class="c1">// required constructor
+</span>    <span class="n">Polygon</span><span class="p">(</span><span class="n">Points</span><span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span>           <span class="c1">// required constructor
+</span>    <span class="n">Polygon</span><span class="p">(</span><span class="n">Lines</span><span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span>            <span class="c1">// required constructor
+</span>    <span class="kt">double</span> <span class="n">perimeter</span><span class="p">();</span>             <span class="c1">// required method
+</span>    <span class="kt">double</span> <span class="n">bboxArea</span><span class="p">();</span>              <span class="c1">// required method   
+</span>
+    <span class="c1">// General Instructions said to include Setters and Getters
+</span>
+    <span class="kt">void</span> <span class="n">setLines</span><span class="p">(</span><span class="n">Lines</span><span class="o">*</span><span class="p">,</span><span class="kt">int</span><span class="p">);</span>      <span class="c1">// setter
+</span>    <span class="n">Line</span><span class="o">*</span> <span class="n">getLines</span><span class="p">();</span>               <span class="c1">// getter
+</span><span class="p">};</span>
+</code></pre></div></div>
+
+<h4 id="question-5---implementation">Question 5 - Implementation</h4>
+<ul>
+  <li>Implement the perimeter method of the polygon.</li>
+</ul>
+
+<p><strong>Answer</strong>:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">Polygon</span><span class="o">::</span><span class="n">perimeter</span><span class="p">(){</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="n">numSides</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">poly</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">length</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="question-6---bonus">Question 6 - Bonus</h4>
+<ul>
+  <li>Implement the bounding box method of the polygon.</li>
+</ul>
+
+<p><strong>Answer</strong>:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">double</span> <span class="n">Polygon</span><span class="o">::</span><span class="n">bboxArea</span><span class="p">(){</span>
+    <span class="c1">// Init Min Max vars to be compared to
+</span>    <span class="kt">int</span> <span class="n">minX</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">,</span> <span class="n">minY</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">maxX</span> <span class="o">=</span> <span class="n">INT_MIN</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="n">INT_MIN</span><span class="p">;</span>
+    <span class="c1">// Vars to hold each points values
+</span>    <span class="kt">int</span> <span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">;</span>
+    <span class="c1">// Vars to hold points pulled from a line in the polygon
+</span>    <span class="n">Point</span> <span class="n">S</span><span class="p">,</span><span class="n">E</span><span class="p">;</span>
+
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">numSides</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">S</span> <span class="o">=</span> <span class="n">poly</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">getStart</span><span class="p">();</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">poly</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">getEnd</span><span class="p">();</span>
+        <span class="n">x1</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">getX</span><span class="p">();</span>
+        <span class="n">y1</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">getY</span><span class="p">();</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">E</span><span class="p">.</span><span class="n">getX</span><span class="p">();</span>
+        <span class="n">y2</span> <span class="o">=</span> <span class="n">E</span><span class="p">.</span><span class="n">getY</span><span class="p">();</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">x1</span><span class="o">&gt;</span><span class="n">maxX</span><span class="p">)</span> <span class="n">maxX</span> <span class="o">=</span> <span class="n">x1</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">y1</span><span class="o">&gt;</span><span class="n">maxY</span><span class="p">)</span> <span class="n">maxY</span> <span class="o">=</span> <span class="n">y1</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">x1</span><span class="o">&lt;</span><span class="n">minX</span><span class="p">)</span> <span class="n">minX</span> <span class="o">=</span> <span class="n">x1</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">y1</span><span class="o">&lt;</span><span class="n">minY</span><span class="p">)</span> <span class="n">minY</span> <span class="o">=</span> <span class="n">y1</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">x2</span><span class="o">&gt;</span><span class="n">maxX</span><span class="p">)</span> <span class="n">maxX</span> <span class="o">=</span> <span class="n">x2</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">y2</span><span class="o">&gt;</span><span class="n">maxY</span><span class="p">)</span> <span class="n">maxY</span> <span class="o">=</span> <span class="n">y2</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">x2</span><span class="o">&lt;</span><span class="n">minX</span><span class="p">)</span> <span class="n">minX</span> <span class="o">=</span> <span class="n">x2</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">y2</span><span class="o">&lt;</span><span class="n">minY</span><span class="p">)</span> <span class="n">minY</span> <span class="o">=</span> <span class="n">y2</span><span class="p">;</span>       
+    <span class="p">}</span>
+
+    <span class="c1">// Lines to be used to calculate the area (width x height)
+</span>    <span class="n">Line</span> <span class="n">Width</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="n">minX</span><span class="p">,</span><span class="n">minY</span><span class="p">),</span><span class="n">Point</span><span class="p">(</span><span class="n">maxX</span><span class="p">,</span><span class="n">minY</span><span class="p">));</span>
+    <span class="n">Line</span> <span class="n">Height</span><span class="p">(</span><span class="n">Point</span><span class="p">(</span><span class="n">minX</span><span class="p">,</span><span class="n">minY</span><span class="p">),</span><span class="n">Point</span><span class="p">(</span><span class="n">minX</span><span class="p">,</span><span class="n">maxY</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="n">Width</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">*</span> <span class="n">Height</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

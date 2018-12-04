@@ -1,0 +1,36 @@
+<html>
+<head><title>Chapter 16, Slide 18</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 16: Overriding :
+<td bgcolor=#FCCF97><a href="slide19.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide17.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide18.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap16/slide18.ram">real</a>
+<td bgcolor=#FCCF97><a href="text18.htm" target=text>text</a>
+</table>
+<p>
+<h1>Overriding versus Shadowing</h1>
+<font size=+2>
+It is common in programming languages for one declaration of a variable
+to shadow a previous variable of the same name:
+<pre>
+class Silly {
+	private int x; // an instance variable named x
+
+	public void example (int x) { // x shadows instance variable
+		int a = x+1;
+		while (a > 3) {
+			int x = 1; // local variable shadows parameter
+			a = a - x;
+		}
+	}
+}
+</pre>
+Shadowing can be resolved at compile time, does not require any run-time search.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 18</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head><title>Chapter 27, Slide 11</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 27: Implementation :
+<td bgcolor=#FCCF97><a href="slide12.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide10.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide11.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap27/slide11.ram">real</a>
+<td bgcolor=#FCCF97><a href="text11.htm" target=text>text</a>
+</table>
+<p>
+<h1>Solution, a Virtual Method Table</h1>
+<font size=+2>
+The solution is that every object contains an extra hidden data field.
+This data field points to an array of pointers to functions.
+The array is determined by the current dynamic type, and is shared
+by all instances of the class.
+<p>
+The offset of each method can be determined at compile time.
+<p>
+<img src="slide11.png">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 11</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Program 3 - SFML Tutorial Starter | 2143-Object-Oriented-Programming</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Program 3 - SFML Tutorial Starter" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Object Oriented Programming in C++" />
+<meta property="og:description" content="Object Oriented Programming in C++" />
+<link rel="canonical" href="http://localhost:4000/Assignments/P03/" />
+<meta property="og:url" content="http://localhost:4000/Assignments/P03/" />
+<meta property="og:site_name" content="2143-Object-Oriented-Programming" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Assignments/P03/","headline":"Program 3 - SFML Tutorial Starter","description":"Object Oriented Programming in C++","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ad139bb13b0fb0aa2244a2b1ddeb5e3cc5a2677a">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">2143-Object-Oriented-Programming</a></h1>
+      
+
+      <h2 id="program-3---sfml-tutorial-starter">Program 3 - SFML Tutorial Starter</h2>
+<h4 id="due-october-1st-by-classtime">Due: October 1<sup>st</sup> by Classtime</h4>
+
+<h2 id="overview">Overview</h2>
+
+<p>Using the SFML libraries in this folder, here are the steps you need to go through to get the following simple program to work.  BTW this is the usual approach for installing a large number of API’s that you might be interested in out there so pay close attention to the process.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;SFML/Graphics.hpp&gt;
+</span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+ <span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span> <span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="s">"SFML works!"</span><span class="p">);</span>
+ <span class="n">sf</span><span class="o">::</span><span class="n">CircleShape</span> <span class="n">shape</span><span class="p">(</span><span class="mf">100.</span><span class="n">f</span><span class="p">);</span>
+ <span class="n">shape</span><span class="p">.</span><span class="n">setFillColor</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">Color</span><span class="o">::</span><span class="n">Green</span><span class="p">);</span>
+ <span class="k">while</span> <span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">isOpen</span><span class="p">())</span> <span class="p">{</span>
+  <span class="n">sf</span><span class="o">::</span><span class="n">Event</span> <span class="n">event</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">pollEvent</span><span class="p">(</span><span class="n">event</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">sf</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Closed</span><span class="p">)</span>
+      <span class="n">window</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="n">window</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+  <span class="n">window</span><span class="p">.</span><span class="n">draw</span><span class="p">(</span><span class="n">shape</span><span class="p">);</span>
+  <span class="n">window</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+<span class="p">}</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Fire up visual studio 15 or 17 and use the above as your main program.</li>
+  <li>IF your using Visual Studio 2017 - use the zip with <code class="highlighter-rouge">17</code> in it. Otherwise, use the other one (for older versions of Visual Studio).</li>
+  <li>Copy the appropriate <code class="highlighter-rouge">zip</code> file to your <code class="highlighter-rouge">C:</code> drive. I will be using the SFML17 version for the below discussion.</li>
+  <li>Change the solution platform (at the top of vs) from x86 to x64.  Be sure and do this before you do the following steps.</li>
+</ul>
+
+<p><img src="https://d3vv6lp55qjaqc.cloudfront.net/items/0M2N3e0Y11361X2g3z0F/%5Bd68e935ee0b434f208e9fe13789158b6%5D_Image+2018-09-24+at+10.02.01+AM.png" width="500" /></p>
+
+<ul>
+  <li>Go go <code class="highlighter-rouge">Project-&gt;Properties-&gt;Configuration Properties-&gt;VC++ Directories-&gt;Include Directories</code> and add <code class="highlighter-rouge">C:\SFML17-2.4.2\include</code>.</li>
+  <li>Go go <code class="highlighter-rouge">Project-&gt;Properties-&gt;Configuration Properties-&gt;VC++ Directories-&gt;Library Directories</code> and add <code class="highlighter-rouge">C:\SFML17-2.4.2\lib</code>.</li>
+</ul>
+
+<p><img src="https://d3vv6lp55qjaqc.cloudfront.net/items/352P0O0v1V023U3G0K0U/%5B9c23c58f631f34b8df97afecb198886c%5D_Image+2018-09-24+at+9.59.27+AM.png" width="500" /></p>
+
+<blockquote>
+  <p>Note that this tells visual where to look for your include files ( ie. <code class="highlighter-rouge">#include &lt;SFML/Graphics.hpp&gt;</code>) and your lib files ( ie. <code class="highlighter-rouge">sfml-graphics-d.lib; sfml-window-d.lib; sfml-system-d.lib; sfml-audio-d.lib</code>) , these are the debug versions denoted by the -d at the end.</p>
+</blockquote>
+
+<ul>
+  <li>Copy the DLL’s from <code class="highlighter-rouge">C:\SFML17-2.4.2\bin</code> to your project directory that has your <code class="highlighter-rouge">main.cpp</code> file.  (This is just one of the places they can be placed. See <a href="https://msdn.microsoft.com/en-us/library/7d83bc18.aspx">here</a> for other options).</li>
+  <li>Go to <code class="highlighter-rouge">Project-&gt;Properties-&gt;Configuration Properties-&gt;Linker-&gt;Input</code> and add <code class="highlighter-rouge">sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;</code> to the list.  This tells the linker which libs to actually look for in the <code class="highlighter-rouge">C:\SFML17-2.4.2\lib</code> directory that you specified above.</li>
+</ul>
+
+<p><img src="https://d3vv6lp55qjaqc.cloudfront.net/items/1U1t0f1K3Q3y2c3C2L3M/%5B7223c17edf6cdcaa7a1507a18589a768%5D_Image+2018-09-24+at+10.12.38+AM.png" width="500" /></p>
+
+<ul>
+  <li>Now compile and run the program. If you don’t get external linking errors etc. and it runs, you are amazing. If not double check everything above and try again.  You should get a small window with a large green dot in the middle.</li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+  <li>FYI: I changed the comments requirements (added github repo line) so <a href="../Resources/comments.md">go look</a>.</li>
+  <li>Screen shot your green dot output with enough of your desktop to show me its running on your machine.</li>
+  <li>Turn in a printed copy of your commented <code class="highlighter-rouge">main.cpp</code> and your screenshot at the beginning of class.</li>
+</ul>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

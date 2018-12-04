@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 19, Slide 11</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 19: Container Classes :
+<td bgcolor=#FCCF97><a href="slide12.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide10.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide11.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap19/slide11.ram">real</a>
+<td bgcolor=#FCCF97><a href="text11.htm" target=text>text</a>
+</table>
+<p>
+<h1>A Third Alternative, Generics</h1>
+<font size=+2>
+Generics, as we described in the last chapter, are a third approach.
+<pre>
+template &lt;class T&gt; class List {
+public:
+	void	addElement (T newValue);
+	T	firstElement ();
+
+private:
+	Link<T> * firstLink;
+
+	private class Link { // nested class
+	public:
+		T	value;
+		Link *	nextLink;
+
+		Link (T v, Link * n) : value(v), nextLink(n) { }
+	};
+};
+</pre>
+Allow for both strong typing and reuse.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 11</h6>
+<hr>
+</body>
+</html>

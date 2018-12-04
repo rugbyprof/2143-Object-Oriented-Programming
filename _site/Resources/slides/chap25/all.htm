@@ -1,0 +1,241 @@
+<html>
+<head><title>Chapter 25, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 25</h1>
+<h1 ALIGN=center>Reflection and Introspection </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap</a>
+<li><a href="slide02.htm"> Class Objects</a>
+<ol>
+<li><a href="slide03.htm"> Things you can do with a Class Object</a>
+<li><a href="slide04.htm"> Getting the Class from a String</a>
+<li><a href="slide05.htm"> Testing if an Object is an Instance of a Class</a>
+</ol>
+<li><a href="slide06.htm"> Methods as Objects</a>
+<ol>
+<li><a href="slide07.htm"> Using a Method</a>
+<li><a href="slide08.htm"> Dynamic Execution</a>
+</ol>
+<li><a href="slide09.htm"> Class Loading</a>
+<li><a href="slide10.htm"> Metaclasses -- Strange Loops</a>
+<ol>
+<li><a href="slide11.htm"> Rational for MetaClasses</a>
+</ol>
+<li><a href="slide12.htm"> Relation to Components</a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+Reflection and Introspection imply a program that can dynamically learn 
+about or modify itself.
+<ul>
+<li>Learn the class of objects
+<p><li>Learn what methods an object responds to
+<p><li>Creating instances from class objects
+<p><li>Dynamically adding new classes 
+<p><li>Dynamically adding new methods to existing classes
+</ul>
+Not all abilities are found in all languages.  Some languages do not have
+any support for reflection or introspection.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Class Objects</h1>
+In most languages, introspection begins with an object that represents
+the class.  Typically this object has class <b>Class</b>.
+<p>
+<table>
+</table>
+
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Things you can do with a Class Variable</h1>
+One operation that can be performed with a value of type class is to get its
+parent class
+<pre>
+	Class parentClass = aClass.getSuperclass(); // Java
+</pre>
+Another operation is to get the list of all subclasses for a class.
+<pre>
+	aSet <- aClass subclasses  " Smalltalk "
+</pre>
+You can also get the name of the class as a string
+<pre>
+	char * name = typeinfo(aVariable).name();  // C++
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>Getting the Class from a String</h1>
+In some languages, you can take the name of a class (a string) and from this
+get the class object.
+<pre>
+	Class aClass = Class.forName("classname"); // Java
+</pre>
+The class does not even have to be loaded.  The class will automatically be
+loaded for you.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Testing if an Object is an Instance of a Class</h1>
+We have seen already that most languages provide a way to test if
+an object is an instance of a class
+<pre>
+	if Member(aVariable, Child) then
+		aChild = Child(aVariable)   (* Object Pascal *)
+</pre>
+This is needed for downcasting.
+<p>
+However, if you find yourself using this a lot, then you aren't thinking
+in an object-oriented way, since often such situations can be better
+written using polymorphism.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Methods as Objects</h1>
+The next level of complexity is treating a method as an object.
+<p>
+First step is to get a collection of methods from a class
+<pre>
+	Method [ ] methods = aClass.getDeclaredMethods();  // Java
+
+	aSet <- aClass selectors.   // Smalltalk
+<pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Using a Method</h1>
+What can you do with a method object?  You can do the usual things of getting
+its names, argument type signatures, so on.
+<pre>
+	System.out.println(methods[0].getName());
+	Class c = methods[0].getReturnType();
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Dynamic Execution</h1>
+You can also invoke the method, passing it the receiver and an array of
+arguments:
+<pre>
+	Class sc = String.class;
+	Class [ ] paramTypes = new Class[1];
+	paramTypes[0] = sc;
+	try {
+		Method mt = sc.getMethod("concat", paramTypes);
+		Object mtArgs [ ] = { "xyz" };
+		Object result = mt.invoke("abc", mtArgs);
+		System.out.println("result is " + result);
+	} catch (Exception e) {
+		System.out.println("Exception " + e);
+	}
+</pre>
+Here we dynamically look up a method, based both on name and type signature,
+then create an array of arguments, then execute the method.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Class Loading</h1>
+Java has a class named ClassLoader that allows you to define a class
+from an array of bytes:
+<pre>
+class SimpleClassLoader extends ClassLoader {
+	public Class getClass (String name) {
+		Class theClass = null;
+		try {
+			File f = new File(name);
+			InputStream is = new FileInputStream(f);
+			int bufsize = (int) f.length();
+			byte buf [] = new byte[bufsize];
+			is.read(buf, 0, bufsize);
+			is.close();
+			theClass = defineClass (null, buf, 0, buf.length);
+		} catch (Exception e) {
+			System.err.println("Error during load " + e);
+			System.exit(1);
+		}
+		return theClass;
+	}
+}
+</pre>
+Once you have a class, you can create instances, or execute methods.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Metaclasses -- Strange Loops</h1>
+You can get into some interesting places by asking the right questions.
+<ul>
+<li>A class is an object.
+<p><li>All objects are instances of a class.
+<p><li>What is the class of a class?
+</ul>
+In Java this path circles back on itself very quickly; Class is an
+intance of itself.
+<p>
+In Smalltalk, the path goes on a bit longer before it circles back on itself.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Rational for Metaclasses</h1>
+Remember that by
+introducing new classes that represent classes, Smalltalk was able to
+solve the following problem
+<ul>
+<li>How do you give unique behavior to just one instance of a class?
+<p>(For example, the behavior to initialize newly created instances of
+a class).
+</ul>
+The answer was, you don't.  You add a new child class that defines
+the behavior you want, and put this between the object and the true parent.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Relationship to Components</h1>
+Relection and Introspection have taken on increasing importance as
+the field moves from object-based computing to component-based
+computing (COM, Corba, JavaBeans, etc).
+<p>
+This is because components must often be dynamically loaded
+and executed.   And reflection is the underlying mechanism that
+permits this.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 25</a>, Slide 12</h6>
+<hr>
+</body>
+</body>
+</html>

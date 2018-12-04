@@ -1,0 +1,41 @@
+<html>
+<head><title>Chapter 7, Slide 3</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 7: A Billiards Game:
+<td bgcolor=#FCCF97><a href="slide04.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide02.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide03.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap07/slide03.ram">real</a>
+<td bgcolor=#FCCF97><a href="text03.htm" target=text>text</a>
+</table>
+<br>
+<h1>Graphical Object Class</h1>
+<font size=+2>
+<P>
+Every graphical object has a link field and a region of space.
+<pre>
+
+TWall = class(TObject)
+public
+	constructor create 
+		(ix, iy, iw, ih : Integer; cf : Real; ilink : TWall);
+	procedure draw (canvas : TCanvas);
+	function hasIntersected(aBall : Tball) : Boolean;
+	procedure hitBy (aBall : TBall);
+private
+	x, y : Integer;
+	height, width : Integer;
+	convertFactor : Real;
+	link : TWall;
+end;
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 3</h6>
+<hr>
+</body>
+</html>
+
+

@@ -1,0 +1,37 @@
+<html>
+<head><title>Chapter 15, Slide 13</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 15: Overloading :
+<td bgcolor=#FCCF97><a href="slide14.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide12.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide13.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap15/slide13.ram">real</a>
+<td bgcolor=#FCCF97><a href="text13.htm" target=text>text</a>
+</table>
+<p>
+<h1>Optional Parameters</h1>
+<font size=+2>
+Some languages allow the programmer to create optional parameters, usually
+only at the end of the parameter list:
+<pre>
+function Count (A, B : Integer; C : Integer = 0; D : Integer = 0);
+begin
+		(* Result is a pseudo-variable used *)
+		(* to represent result of any function *)
+	Result := A + B + C + D;
+end
+
+begin
+	Writeln (Count(2, 3, 4, 5)); // can use four arguments
+	Writeln (Count(2, 3, 4)); // or three
+	Writeln (Count(2, 3)); // or two
+end
+</pre>
+Such a program will have more than one type signature.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 13</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Text for slides, Chapter 4 talk</title>
+</head>
+<body>
+<h1>Considerations in C++ Method Definitions</h1>
+<p>
+In C++ you have a choice.  You can either define a method directly in
+the class body, or you can define it outside the class.  How do you decide?
+<p>
+There are a couple of items to keep in mind.  The first is always 
+readability.  What makes it easier for the person reading the class
+description.  In C++ this means you should put only very small 
+methods, those having only one or two statements, in the class definition.
+Anything larger should be put in an implementation file.
+<p>
+In C++ there is also a semantics issue to consider.  Methods defined
+in the class body may, at the discrection of the compiler, be expanded
+in-line.  This means the body of the method will replace the call,
+and they will be executed much more efficiently.  This is another
+reason why only very short methods should be defined this way.
+(But also why doing so might result in a dramatic improvement in performance).
+<p>
+<h6><a href="slide25.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap04/slide25.ram">[real]</a>
+ Text to accompany <a href="slide25.htm">slide25</a>,
+in <a href="outline.htm">Chapter 4</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

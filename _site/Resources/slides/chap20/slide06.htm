@@ -1,0 +1,40 @@
+<html>
+<head><title>Chapter 20, Slide 06</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 20: The STL :
+<td bgcolor=#FCCF97><a href="slide07.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide05.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide06.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap20/slide06.ram">real</a>
+<td bgcolor=#FCCF97><a href="text06.htm" target=text>text</a>
+</table>
+<p>
+<h1>What must iterators do</h1>
+<font size=+2>
+<P>
+To see what iterators must do, consider a typical algorithm:
+<pre>
+	template &lt;class T&gt;
+	iterator find 
+		(iterator first, iterator last, T & value)
+	{
+		while (first != last && *first != value) ++first;
+		return first;
+	}
+
+</pre>
+<P>
+Could be used to find values in an array, or in a list:
+<pre>
+int data[100];
+	...
+int * where = find(data, data+100, 7);
+list&lt;int&gt;::iterator where = find(aList.begin(), aList.end(), 7);
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 06</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<html>
+<head><title>Chapter 21, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 21</h1>
+<h1 ALIGN=center>Software Frameworks </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap</a>
+<li><a href="slide02.htm"> The Tension between Reuse and Specialization</a>
+<li><a href="slide03.htm"> Reuse of Code, Reuse of Concept</a>
+<li><a href="slide04.htm"> A Simple Example, a GUI System</a>
+<li><a href="slide05.htm"> Deferred Methods, Two Views of the Same Thing</a>
+<li><a href="slide06.htm"> Reuse of High Level Abstractions</a>
+<li><a href="slide07.htm"> An Example of a Low Level Abstraction, Sortin gEmployee Records</a>
+<ol>
+<li><a href="slide08.htm"> Types of Reuse</a>
+<li><a href="slide09.htm"> A Sorting Framework</a>
+<li><a href="slide10.htm"> Specializing the Sorting Framework</a>
+</ol>
+<li><a href="slide11.htm"> An Upsize Down Library </a>
+<li><a href="slide12.htm"> Not Just One Class</a>
+<li><a href="slide13.htm"> Flexibility and Rigidity</a>
+<li><a href="slide14.htm"> An Example Framework, the Java Applet API</a>
+<li><a href="slide15.htm"> Simulation Framework from Chapter 7</a>
+<li><a href="slide16.htm"> A Generalized Event Driven Simulation Framework</a>
+<ol>
+<li><a href="slide17.htm"> The Simulation Class</a>
+</ol>
+<li><a href="slide18.htm"> Chapter Summary</a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+Software frameworks are one of the primary means for large scale
+software reuse, and rapid application development.
+<p>
+In this chapter we will examine the technologies that make software
+frameworks possible.
+<ul>
+<li>The Tension between Reuse and Specialization
+<p><li>Reuse of Code, Reuse of Concept
+<p><li>High and Low Level Abstractions
+<p><li>Some Example Frameworks
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>The Tension between Reuse and Specialization</h1>
+<ul>
+<li>A truly general purpose tool cannot contain features specific to any one
+application
+<p><li>Solving most problems requires application specific features
+<p><li>How do you bridge the gap between general purpose and application
+independent tools and an application that will solve a real problem?
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Reuse of Code, Reuse of Concept</h1>
+The solution comes from the two ways we have been using inheritance from
+the beginning of the book.
+<ul>
+<li>Reuse of code.  Certain methods, call foundation methods, are defined 
+in a general purpose class.
+These provide functionality that is common to many applications.
+<p><li>Reuse of code.  Other methods, called specialization methods, are 
+defined in a parent class, but overridden in child classes.
+These provide the means to specialize an application to a new situation.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>A Simple Example, a GUI System</h1>
+A simple example might be a framework for user interfaces:
+<ul>
+<li>Class <b>Window</b>: methods
+<p>
+<ul>
+<li><i>foundation:</i> setTitle, setWindowSize, moveWindowTo, addMenu, repaint
+<li><i>specialization:</i> mouseDown, keyPress, paint
+</ul>
+<p><li>class <b>Childwindow</b>: methods
+<p>
+<ul>
+<li>paint, mouseDown, keyPress
+</ul>
+</ul>
+The foundation method are applicable to any type of window.
+The deferred specialization methods are appropriate only to one type
+of application.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Deferred Methods, Two Views of the Same Thing</h1>
+By working with deferred methods, the application class views the
+application in one way, and the child class in another.
+<p>
+<img src="slide05.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 05</h6>
+<br>(picture got cut off, sorry).
+<hr>
+</body>
+<p>
+<h1>Reuse of High Level Abstractions</h1>
+Software frameworks provide a different type of reuse:
+<ul>
+<li>Conventional libraries of procedures provide a means for reuse
+of low level abstractions (I/O libraries, math functions, and so on).
+<p><li>Software frameworks provide a means for reuse of high level
+abstractions, and still allow them to be specialized for new situations.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>An Example of a Low Level Abstraction, Sorting Employee Records</h1>
+Suppose we want to sort employee records.  We could write the following.
+</font>
+<table><tr><td><pre>
+class Employee {
+public:
+	string name;
+	int salary;
+	int startingYear;	
+}
+</font>
+</pre><td><pre>
+void sort (Employee * data[ ], int n) {
+	for (int i = 1; i < n; i++) {
+		int j = i-1;
+		while (j >= 0 && 
+		   v[j+1]->startingYear < v[j]->startingYear) {
+			// swap elements
+			Employee * temp = v[j];
+			v[j] = v[j+1];
+			v[j+1] = temp;
+			j = j - 1;
+		}
+	}
+}
+</font>
+</pre></table>
+But what happens if we want to change it?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Types of Reuse</h1>
+We can reuse the <i>idea</i> of a merge sort, but cannot reuse
+the binary without modifications to the original source code.
+<ul>
+<li>Might want to sort on salary, instead of starting year
+<p><li>Might want to do comparisons of string (e.g., name), not integers
+<p><li>Might want to sort a different type of structure
+</ul>
+To create an object-oriented software framework, we must first ask ourselves
+<i>what are the likely sources of change?</i>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>A Sorting Framework</h1>
+<pre>
+class InsertionSorter {
+public:
+	void sort () {
+		int n = size();
+		for (int i = 1; i < n; i++) {
+			int j = i - 1;
+			while (j >= 0 && lessThan(j+1, j)) {
+				swap(j, j+1);
+				j = j - 1;
+			}
+		}
+	}
+
+private:
+	virtual int size() = 0; // abstract methods
+	virtual boolean lessThan(int i, int j) = 0;
+	virtual void swap(int i, int j) = 0;
+}
+</pre>
+The part that is common in made into a foundation method, the
+part that changes are made into deferred methods.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Specializing the Sorting Framework</h1>
+To apply the framework to a new problem, we subclass and override the
+deferred methods:
+<pre>
+class EmployeeSorter : public InsertionSorter {
+public:
+	EmployeeSorter (Employee * d[], int n) 
+		{ data = d; sze = n; }
+private:
+	Employee * data[];
+	int sze = n;
+
+	virtual int size () { return sze; }
+
+	virtual bool lessThan (int i, int j) 
+		{ return data[i]->startingYear < data[j]->startingYear; }
+
+	virtual void swap (int i, int j) {
+		Employee * temp = v[i];
+		v[i] = v[j];
+		v[j] = temp;
+	}
+}
+</pre>
+We can now reuse the high level algorithm without making any change
+to the original source code!
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>An Upside Down Library</h1>
+<table border=1>
+</table>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Not Just One Class</h1>
+I don't want to give the impression that a framework is always just one class.
+<p>
+Often, a framework is a collection of many classes.  For example, a typical
+GUI framework might have
+<ul>
+<li>Window classes
+<p><li>Button or scroll bar classes
+<p><li>Text box classes
+</ul>
+All can be specialized by the combination of foundation methods for
+overall structure, and deferred methods for specialization.
+
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Flexibility and Rigidity</h1>
+A framework can be tremendously helpful in allowing a programmer to
+rapidly create new application, but only when the application fits into
+the general structure envisioned by the creator of the framework.
+<p>
+If an application falls outside that framework, then it can be very difficult
+to overcome the framework.
+<p>
+For example, if the designer of the framework has not encapsulated
+the right sources of variation in a method, or has forgotten to declare
+a method as <b>virtual</b>, then it can be very difficult to work with.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>An Example Framework, The Java Applet API</h1>
+The Java Applet API is one simple example of a software framework.
+<p>
+<table>
+<tr><td>init()<td>Invoked whe the applet is initialized
+<tr><td>start()<td>Invoked th start the application
+<tr><td>paint(Graphics)<td>Invoked to repaint the window
+<tr><td>stop()<td>Invoked when the applet is halted
+<tr><td>destroy<td>Invoked when the applet is terminated
+</table>
+<p>
+Lots of other classes for constructing buttons and menus, and so on.
+
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>Simulation Framework from Chapter 7</h1>
+Here is a framework like we might use in Chapter 7 (the billiards game).
+<pre>
+GraphicalObject = object
+		(* data fields *)
+	link : GraphicalObject;
+	region : Rect;
+
+		(* initialization function *)
+	procedure setRegion (left, top,  right, bottom : integer);
+
+		(* operations that graphical objects perform *)
+	procedure draw;
+	procedure update;
+	function intersect (anObj : GraphicalObject) :  boolean;
+	procedure hitBy (anObj : GraphicalObject);
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>A Generalized Event Driven Simulation Framework</h1>
+A generalized discrete event-driven simulation can be formed based
+around the class <b>Event</b>:
+<pre>
+class Event {
+public:
+	Event (unsigned int t) : time(t) { }
+
+	const unsigned int time;
+	virtual void processEvent () = 0;
+};
+
+class eventComparison {
+public:
+	bool operator () (event * left, event * right) 
+		{ return left->time > right->time; }
+};
+</pre>
+An event is an action that will take place at a specific time.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 16</h6>
+<br>
+Discrete event driven simulations were the type of application that
+helped drive the design of the first object-oriented programming
+language, Simula.  (Early 1960's).
+<hr>
+</body>
+<p>
+<h1>The Simulation Class</h1>
+<pre>
+class Simulation {
+public:
+	Simulation () : eventQueue(), currentTime(0) { }
+
+	void scheduleEvent (event * newEvent) { eventQueue.push (newEvent); }
+	void run();
+	unsigned int currentTime;
+protected:
+	priority_queue&lt;vector<event *>, eventComparison> eventQueue;
+};
+
+void Simulation::run() {
+	// execute events until event queue becomes empty
+	while (! eventQueue.empty()) {
+		event * nextEvent = eventQueue.top();
+		eventQueue.pop();
+		time = nextEvent->time;
+		nextEvent->processEvent();
+		delete nextEvent;
+	}
+}
+</pre>
+The book continues with the development of a simulation based on
+this framework.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+A framework is a way of organizing classes so as to solve a class of
+related problems
+<ul>
+<li>The framework balances software reuse and the ability to specialize
+a tool to a new application
+<p><li>The framework achieves this by combining inheritance of code
+and inheritance of concept (overriding).
+<p><li>Frameworks can be developed for any application where you can
+extract and generalize the ways in which code will change.
+<p><li>Frameworks are great if your new application fits the scheme
+of the designed, but very inflexible if it does not.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 21</a>, Slide 18</h6>
+<hr>
+</body>
+</body>
+</html>

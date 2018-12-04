@@ -1,0 +1,197 @@
+<html>
+<head><title>Chapter 18, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 18</h1>
+<h1 ALIGN=center>Generics </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Generics </a>
+<li><a href="slide02.htm"> Template Functions </a>
+<ol>
+<li><a href="slide03.htm"> Can Even be Used with User Defined Types </a>
+</ol>
+<li><a href="slide04.htm"> Template Classes </a>
+<ol>
+<li><a href="slide05.htm"> Can Be Filled with Different Arguments </a>
+</ol>
+<li><a href="slide06.htm"> Bounded Genericity </a>
+<li><a href="slide07.htm"> Inheritance and Generics </a>
+<li><a href="slide08.htm"> Inheritance and Arrays </a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Generics</h1>
+The idea of a <i>generic</i> (or <i>template</i>) is yet another approach
+to software reuse.
+<p>
+The time, the basic idea is to develop code by leave certain key types
+unspecified, to be filled in later.
+<p>
+In many ways this is like a parameter that is filled with may different
+values.  Here, however, the parameters are types, and not values.
+<p>
+Generics are used both with functions and with classes.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Template Functions</h1>
+The following illustrates a simple template function in C++, and its use.
+<pre>
+	template &lt;class T&gt; T max(T left, T right) {
+		if (left &lt right)
+			return right;
+		return left;
+	}
+
+	int a = max(3, 27);
+	double d = max(3.14, 2.75); // see how types differ
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Can Even Be Used with User Defined Types</h1>
+<pre>
+class Fraction {
+public:
+	Fraction (int top, int bottom) { t = top; b = bottom; }
+
+	int numerator() { return t; }
+	int denominator() { return b; }
+
+	bool operator < (Fraction & right) 
+		{ return t * right.b < right.t * b; }
+
+private:
+	int t, b;
+};
+
+Fraction x(3, 4);
+Fraction y(7, 8);
+Fraction z = max(x, y);
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>Template Classes</h1>
+While template functions are useful, it is more common to use templates
+with classes.
+<pre>
+template &lt;class T> class Box {
+public:
+	Box (T initial) : value(initial) { }
+	T getValue() { return value; }
+	setValue (T newValue) { value = newValue; }
+private:
+	T value;
+};
+
+	Box&lt;int> iBox(7);
+	cout &lt;&lt; iBox.getValue();
+7
+	iBox.setValue(12);
+	cout &lt;&lt; iBox.getValue();
+12
+</pre>
+Notice how the programmer filled in the template argument when
+creating a new variable.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Can Be Filled with Different Arguments</h1>
+<pre>
+
+	iBox.setValue(3.1415); // ERROR - invalid type
+
+	Box &lt;double&gt; dBox(2.7);
+	cout << dBox.getValue();
+2.7
+	dBox.setValue(3.1415);
+	cout << dBox.getValue();
+3.1415
+	iBox = dBox; // ERROR - mismatched types
+</pre>
+In the next chapter we
+will see how generics are used to create collection classes.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Bounded Genericity</h1>
+Some languages (Eiffel, others) allow the programmer to place a type
+on the template argument:
+<pre>
+class
+	Hash_Table [ H -> Hashable ]
+	...
+</pre>
+The restriction says that the argument (here named H) can only be
+a subclass of Hashable.
+<p>
+This feature allows the compiler to do stronger type checking,
+and produce more meaningful error messages.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Inheritance and Generics</h1>
+Remember the class Box.  Suppose a class Person has subclasses BoyChild and
+GirlChild.  What is the relationship between Box[Person] and Box[BoyChild]?
+<p>
+Unfortunately, runs into problems with the principle of substitution.
+<p>
+Assume Box[BoyChild] is a subclass of Box[Person], would make the following
+legal:
+<pre>
+Box[Person] aBox = new  Box[BoyChild];
+Person aGirl = new GirlChild;
+aBox.set(aGirl);
+</pre>
+A similar argument can be made for the reverse.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Inheritance and Arrays</h1>
+Can make a similar argument for arrays:
+<pre>
+BoyChild [ ] boys = new BoyChild[10];
+
+Person [ ] people = boys;  // copy or pointer semantics?
+
+GirlChild sally = new GirlChild;
+
+people[1] = sally;
+</pre>
+If pointer semantics are used for the array assignment then this
+can produce type errors.  Java allows the assignment, but uses
+a run-time check to catch the last assignment error!
+<p>
+Other languages make the array assignment illegal.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 08</h6>
+<hr>
+</body>
+</body>
+</html>

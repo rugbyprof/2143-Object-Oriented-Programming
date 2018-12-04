@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Lectures L01 - SFML | 2143-Object-Oriented-Programming</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Lectures L01 - SFML" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Object Oriented Programming in C++" />
+<meta property="og:description" content="Object Oriented Programming in C++" />
+<link rel="canonical" href="http://localhost:4000/Lectures/L01/" />
+<meta property="og:url" content="http://localhost:4000/Lectures/L01/" />
+<meta property="og:site_name" content="2143-Object-Oriented-Programming" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Lectures/L01/","headline":"Lectures L01 - SFML","description":"Object Oriented Programming in C++","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ad139bb13b0fb0aa2244a2b1ddeb5e3cc5a2677a">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">2143-Object-Oriented-Programming</a></h1>
+      
+
+      <h2 id="lectures-l01---sfml">Lectures L01 - SFML</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Get the size of your current window.
+</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2u</span> <span class="n">size</span> <span class="o">=</span> <span class="n">window</span><span class="p">.</span><span class="n">getSize</span><span class="p">();</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">width</span> <span class="o">=</span> <span class="n">size</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">height</span> <span class="o">=</span> <span class="n">size</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+
+<span class="c1">// set the absolute position of the entity
+</span><span class="n">entity</span><span class="p">.</span><span class="n">setPosition</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+
+<span class="c1">// move the entity relatively to its current position
+</span><span class="n">entity</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+
+<span class="c1">// retrieve the absolute position of the entity
+</span><span class="n">sf</span><span class="o">::</span><span class="n">Vector2f</span> <span class="n">position</span> <span class="o">=</span> <span class="n">entity</span><span class="p">.</span><span class="n">getPosition</span><span class="p">();</span> <span class="c1">// = (15, 55)
+</span>
+
+</code></pre></div></div>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

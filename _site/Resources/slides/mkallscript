@@ -1,0 +1,5 @@
+sed -f ../rmlast outline.htm
+foreach A (slide*.htm)
+sed -f ../makeall ${A}
+end
+cat ../lastlines

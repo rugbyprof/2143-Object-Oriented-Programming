@@ -1,0 +1,55 @@
+<html>
+<head><title>Chapter 23, Slide 18</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 23: Object Interconnections :
+<td bgcolor=#FCCF97><a href="slide19.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide17.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide18.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap23/slide18.ram">real</a>
+<td bgcolor=#FCCF97><a href="text18.htm" target=text>text</a>
+</table>
+<p>
+<h1>Active Values</h1>
+<font size=+2>
+<P>
+The creation of active values is a good illustration of why parameter coupling
+is better than direct manipulation.
+<P>
+Suppose we have an existing program and we just want to observe a data
+value - see when it gets set and changed.
+<P>
+Solution - create a new subclass that just changes those methods that
+set or read the data value.
+</font>
+<table><tr><td><pre>
+<font size=+2>
+@interface Reactor : Object
+{ ...
+	double heat; ...
+}
+- (void)  setHeat: (double) newValue;	
+- (double) getHeat;
+@end
+</font>
+</pre><td><pre>
+<font size=+2>
+@implementation GraphicalReactor : Reactor
+- (void) setHeat: (double) newValue
+	{
+		/* code necessary to */ 
+		/* update gauge */
+		[ super setHeat: newValue ];
+	}
+@end
+</font>
+</pre></table>
+<font size=+2>
+Can add new functionality simply by replacing an object with an
+instance of a subclass; making no change to the original class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 18</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head><title>Chapter 23, Slide 07</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 23: Object Interconnections :
+<td bgcolor=#FCCF97><a href="slide08.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide06.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide07.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap23/slide07.ram">real</a>
+<td bgcolor=#FCCF97><a href="text07.htm" target=text>text</a>
+</table>
+<p>
+<h1>Internal Data Coupling</h1>
+<table><tr><td><pre>
+<font size=+2>
+class  SneekyModifier {
+public:
+  void sneeky () {
+    // change my friends name		
+    myFriend->name = "Lucy";
+  }
+  Person * myFriend;
+};
+</font>
+</pre><td><pre>
+<font size=+2>
+class Person {
+public:
+  Person () { 
+    name = "Larry";
+  }
+  string name;
+};  
+</font>
+</pre></table>
+<p>
+<font size=+2>
+This is bad because it makes it difficult to understand a single class
+in isolation.
+<p>
+Can be mitigated by always making your data areas private or protected,
+and not exposing pointers to these areas.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 07</h6>
+<hr>
+</body>
+</html>

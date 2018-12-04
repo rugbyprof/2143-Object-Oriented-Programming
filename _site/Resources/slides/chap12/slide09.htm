@@ -1,0 +1,35 @@
+<html>
+<head><title>Chapter 12, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 12: Implications of substitution:
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap12/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>Rules for Member Function Binding in C++</h1>
+<font size=+2>
+<P>
+The rules for deciding what member function to execute are complicated
+because of the slicing problem.
+<P><DL COMPACT>
+<DT>1.
+<DD>With variables that are declared normally, the binding of member function
+name to function body is based on the static type of the argument 
+(regardless whether the function is declared virtual or not).
+<p>
+<DT>2.
+<DD>With variables that are declared as references or pointers, the
+binding of the member function name to function body is based on
+the dynamic type if the function is declared as virtual, and the static
+type if not.
+</DL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 09</h6>
+<hr>
+</body>
+</html>

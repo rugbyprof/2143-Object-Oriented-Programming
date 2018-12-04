@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 15, Slide 12</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 15: Overloading :
+<td bgcolor=#FCCF97><a href="slide13.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide11.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide12.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap15/slide12.ram">real</a>
+<td bgcolor=#FCCF97><a href="text12.htm" target=text>text</a>
+</table>
+<p>
+<h1>Example Illustrating Redefinition Models</h1>
+<font size=+2>
+The following example will illustrate the difference in these two models.
+<pre>
+class Parent {
+	public void example (int a) 
+		{ System.out.println("in parent method"); }
+}
+
+class Child extends Parent {
+	public void example (int a, int b)
+		{ System.out.println("in child method"); }
+}
+
+	Child aChild = new Child();
+	aChild.example(3);
+</pre>
+Will execute parent method in Java and C# 
+(Merge model) and give error in C++
+(hierarchical model).  Delphi allows programmer control over this.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 12</h6>
+<hr>
+</body>
+</html>

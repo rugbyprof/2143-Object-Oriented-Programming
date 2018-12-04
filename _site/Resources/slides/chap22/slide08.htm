@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 22, Slide 08</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 22: The AWT and Swing :
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap22/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<p>
+<h1>Creating a Listener</h1>
+<font size=+2>
+The programmer then creates a new class that subclasses the adapter and
+overrides the methods of interest, then registers an instance of the class
+with the component.
+<pre>
+class MyWindow extends JFrame {
+	public MyWindow () {
+		...
+		addMouseListener (new MouseKeeper());
+	}
+	...
+	private class MouseKeeper extends MouseAdapter {
+		public void mousePressed (MouseEvent e) {
+			...
+		}
+	}
+}
+</pre>
+Inner classes are particularly usefor for this idiom.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 08</h6>
+<hr>
+</body>
+</html>

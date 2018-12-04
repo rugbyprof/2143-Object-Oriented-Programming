@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Text for slide 8, Chapter 6 talk</title>
+</head>
+<body>
+<h1>Balls move when updated</h1>
+<p>
+To move the application along, we update every ball.
+When a ball is updated, if it has energy it erases itself, moves a little,
+decreases its energy, redraws itself, then sees if it has hit anything.
+Since holes, balls and walls are on separate lists, different loops
+are required to check for each.  If the ball hits another object,
+the object is notified that it has been hit by the given ball.
+Notice the use of the pseudo-variable <b>self</b> as the argument
+to the <b>hitBy</b> call.
+
+<h6><a href="slide8.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap06/slide8.ram">[real]</a>
+ Text to accompany <a href="slide8.htm">slide8</a>,
+in <a href="slide1.htm">Chapter 6</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/2ndEdition/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>
+
+

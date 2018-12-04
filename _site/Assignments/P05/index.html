@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Counter Class - Extending / Inheriting For A Better Clock | 2143-Object-Oriented-Programming</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Counter Class - Extending / Inheriting For A Better Clock" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Object Oriented Programming in C++" />
+<meta property="og:description" content="Object Oriented Programming in C++" />
+<link rel="canonical" href="http://localhost:4000/Assignments/P05/" />
+<meta property="og:url" content="http://localhost:4000/Assignments/P05/" />
+<meta property="og:site_name" content="2143-Object-Oriented-Programming" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Assignments/P05/","headline":"Counter Class - Extending / Inheriting For A Better Clock","description":"Object Oriented Programming in C++","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ad139bb13b0fb0aa2244a2b1ddeb5e3cc5a2677a">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">2143-Object-Oriented-Programming</a></h1>
+      
+
+      <h2 id="counter-class---extending--inheriting-for-a-better-clock">Counter Class - Extending / Inheriting For A Better Clock</h2>
+<h4 id="due-wednesday-november-14nd-by-classtime">Due: Wednesday November 14<sup>nd</sup> by classtime.</h4>
+
+<h3 id="overview-original">Overview (Original):</h3>
+
+<p>Write a class that uses the SFML <code class="highlighter-rouge">Clock</code> and <code class="highlighter-rouge">Time</code> classes to create us a counter class. Your class will allow a user to do the following:</p>
+
+<ul>
+  <li>Start a timer.</li>
+  <li>Reset a timer.</li>
+  <li>Set a length of time to run.</li>
+  <li>Allow your timer to count up to some value (or have no ending time).</li>
+  <li>Allow your timer to count down to some value (or have no ending time).</li>
+  <li>For this class assume the user wants to display only discrete seconds (1,2,3) not (1.23,1.24,1.25…..,2.0)</li>
+  <li>When your timer is finished, it will close the sfml window.</li>
+  <li>The example below prints to stdout but you can print your timer text to the sfml window.</li>
+</ul>
+
+<h3 id="overview">Overview</h3>
+
+<h3 id="example-sfml">Example SFML</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;SFML/Graphics.hpp&gt;
+#include &lt;iostream&gt;
+</span>
+<span class="c1">// https://www.sfml-dev.org/tutorials/2.5/system-time.php
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Counter</span><span class="p">{</span>
+    <span class="c1">// Your awesomeness here...
+</span><span class="p">};</span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span> <span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="s">"SFML works!"</span><span class="p">);</span>
+
+    <span class="n">sf</span><span class="o">::</span><span class="n">Clock</span> <span class="n">clock</span><span class="p">;</span> 
+    <span class="n">sf</span><span class="o">::</span><span class="n">Time</span> <span class="n">start</span><span class="p">;</span>
+    <span class="n">sf</span><span class="o">::</span><span class="n">Time</span> <span class="n">end</span><span class="p">;</span>
+    <span class="n">sf</span><span class="o">::</span><span class="n">Time</span> <span class="n">elapsed</span><span class="p">;</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">sf</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">sf</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">isOpen</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">sf</span><span class="o">::</span><span class="n">Event</span> <span class="n">event</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">pollEvent</span><span class="p">(</span><span class="n">event</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">sf</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Closed</span><span class="p">)</span>
+                <span class="n">window</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">clock</span><span class="p">.</span><span class="n">getElapsedTime</span><span class="p">();</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Incrementing Clock: "</span><span class="o">&lt;&lt;</span><span class="n">elapsed</span><span class="p">.</span><span class="n">asSeconds</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">clock</span><span class="p">.</span><span class="n">getElapsedTime</span><span class="p">();</span>
+        <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">"Decrementing Clock: "</span><span class="o">&lt;&lt;</span><span class="n">start</span><span class="p">.</span><span class="n">asSeconds</span><span class="p">()</span><span class="o">-</span><span class="n">elapsed</span><span class="p">.</span><span class="n">asSeconds</span><span class="p">()</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+
+        <span class="n">window</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+        <span class="c1">//window.draw(shape);
+</span>        <span class="n">window</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="class-usage">Class Usage</h3>
+
+<p>This is just a snippet without the SFML, but your clock should be used something like the following:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">#include &lt;SFML/Graphics.hpp&gt;
+#include &lt;iostream&gt;
+</span>
+<span class="c1">// https://www.sfml-dev.org/tutorials/2.5/system-time.php
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Counter</span><span class="p">{</span>
+    <span class="c1">// Your awesomeness here...
+</span><span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">sf</span><span class="o">::</span><span class="n">RenderWindow</span> <span class="n">window</span><span class="p">(</span><span class="n">sf</span><span class="o">::</span><span class="n">VideoMode</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="s">"SFML works!"</span><span class="p">);</span>
+
+    <span class="n">Counter</span> <span class="n">myClock1</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// start at 5 and decrement to 0
+</span>
+    <span class="n">Counter</span> <span class="n">myClock2</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// start at 0 and increment to 5
+</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">isOpen</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">sf</span><span class="o">::</span><span class="n">Event</span> <span class="n">event</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">window</span><span class="p">.</span><span class="n">pollEvent</span><span class="p">(</span><span class="n">event</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">sf</span><span class="o">::</span><span class="n">Event</span><span class="o">::</span><span class="n">Closed</span><span class="p">)</span>
+                <span class="n">window</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="n">window</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+        
+        <span class="n">myClock1</span><span class="p">.</span><span class="n">update</span><span class="p">();</span>
+        <span class="c1">//Draw your clock 
+</span>        <span class="c1">// Method 1: window.draw(myClock1);
+</span>        <span class="c1">//or
+</span>        <span class="c1">// Method 2: myClock.draw(window);
+</span>        <span class="n">window</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">myClock1</span><span class="p">.</span><span class="n">isFinished</span><span class="p">()){</span>
+            <span class="n">window</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="deliverables">Deliverables:</h3>
+
+<ul>
+  <li>Turn in a copy of your completely commented code at the beginning of class.</li>
+  <li>The name of your <code class="highlighter-rouge">cpp</code> file should be <code class="highlighter-rouge">counter.cpp</code>.</li>
+  <li>Make sure your code makes it onto github in your assignments folder under a folder called <code class="highlighter-rouge">A05</code>.</li>
+  <li>Along with your code, your folder should contain 2 animated gifs of your clock running: one with an incrementing clock, and one with a decrementing clock.</li>
+  <li>Name your two gifs <code class="highlighter-rouge">increment.gif</code> and <code class="highlighter-rouge">decrement.gif</code></li>
+</ul>
+
+<blockquote>
+  <p>https://www.getcloudapp.com/ has a free “gif capture” feature to record a portion of your screen. You can use this (or some other software of your choice) to create an animated gif of your clock running. The gif should include only the portion of your screen that has the clock.</p>
+</blockquote>
+
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

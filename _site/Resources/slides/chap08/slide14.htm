@@ -1,0 +1,34 @@
+<html>
+<head><title>Chapter 8, Slide 14</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 8: Inheritance and Substitution:
+<td bgcolor=#FCCF97><a href="slide15.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide13.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide14.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap08/slide14.ram">real</a>
+<td bgcolor=#FCCF97><a href="text14.htm" target=text>text</a>
+</table>
+<p>
+<h1>Interfaces and Abstract Classes</h1>
+<font size=+2>
+An interface is similar to a class, but does not provide any implementation.
+A child class must override all methods.  A middle ground is an abstract
+class.  Here some methods are defined, and some (abstract methods) are 
+undefined.  A child class must fill in the definition for abstract
+methods:
+<pre>
+abstract class Window {
+	...
+	abstract public void paint (); // child class must redefine
+	...
+}
+</pre>
+An interface is like an abstract class in which all methods are abstract.
+In C++ an abstract method is called a pure virtual method.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 8</a>, Slide 14</h6>
+<hr>
+</body>
+</html>

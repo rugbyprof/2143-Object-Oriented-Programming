@@ -1,0 +1,39 @@
+<html>
+<head><title>Chapter 22, Slide 03</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 22: The AWT and Swing :
+<td bgcolor=#FCCF97><a href="slide04.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide02.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide03.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap22/slide03.ram">real</a>
+<td bgcolor=#FCCF97><a href="text03.htm" target=text>text</a>
+</table>
+<p>
+<h1>Panel and JPanel</h1>
+<font size=+2>
+The window is combined with an instance of class <b>Panel</b> (JPanel in Swing)
+<p>
+This class is the screen on to which drawing operations are directed.
+<p>
+JPanel can include components (buttons and the like) and can 
+refine the method <b>paint</b>.
+<br>
+(The overridden method must invoke the parent method, in order to
+render features of the window not included in the user constructed
+portions).
+<pre>
+class MyPanel extends JPanel {
+	...
+	public void paint (Graphics g) {
+		super.paint(g);
+		...
+	}
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 22</a>, Slide 03</h6>
+<hr>
+</body>
+</html>

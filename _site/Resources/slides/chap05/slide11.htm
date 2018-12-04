@@ -1,0 +1,43 @@
+<html>
+<head><title>Chapter 5, Slide 11</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 5: Messages Instances and Initialization:
+<td bgcolor=#FCCF97><a href="slide12.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide10.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide11.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap05/slide11.ram">real</a>
+<td bgcolor=#FCCF97><a href="text11.htm" target=text>text</a>
+</table>
+<p>
+<h1>Overloaded Constructors</h1>
+<font size=+2>
+Constructors are often overloaded, meaning there are a number of functions with
+the same name.  They are differentiated by the type signature, and the
+arguments used in the function call or declaration:
+<pre>
+
+class PlayingCard {
+public:
+	PlayingCard ( )  // default constructor, 
+			// used when no arguments are given
+		{ suit = Diamond; rank = 1; faceUp = true; }
+
+	PlayingCard (Suit is) // constructor with one argument
+		{ suit = is; rank = 1; faceUp = true; }
+
+	PlayingCard (Suit is, int ir) // constructor with two arguments
+		{ suit = is; rank = ir; faceUp = true; }
+};
+
+PlayingCard *cardOne = new PlayingCard();
+PlayingCard *cardTwo = new PlayingCard(Heart);
+PlayingCard *cardThree = new PlayingCard(Diamond, 7);
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 5</a>, Slide 11</h6>
+<hr>
+</body>
+</html>

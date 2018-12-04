@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Text for slides, Chapter 4 talk</title>
+</head>
+<body>
+<h1>Why Use an Accessor</h1>
+<p>
+There are several reasons to prefer the use of an accessor method over
+allowing direct access to a data field.  Most important, by using
+an accessor one can make the data field read only.  The accessor allows
+other objects to read the value of the data field, but not change it.
+An accessor provides better documentation that the data field is
+accessible.  And finally using an accessor makes it easier to accomodate
+later changes to the access behavior.  For example, one might want to
+count the number of accesses to a data value, or  the set some other value
+when a data field is accessed, or whatever.  This can be easily accomodated
+when an accessor is used, but is difficult otherwise.
+<p>
+Some languages suggest or encourage a special convention for accessors.
+A common convention is to use the name get as a prefix, as in getRank.
+However, this convention is not universally followed.
+<p>
+<h6><a href="slide20.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap04/slide20.ram">[real]</a>
+ Text to accompany <a href="slide20.htm">slide20</a>,
+in <a href="outline.htm">Chapter 4</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+<head><title>Chapter 9, Slide 02</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 9: A Solitare Game:
+<td bgcolor=#FCCF97><a href="slide03.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide01.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide02.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap09/slide02.ram">real</a>
+<td bgcolor=#FCCF97><a href="text02.htm" target=text>text</a>
+</table>
+<p>
+<h1>The Class PlayingCard</h1>
+<font size=+2>
+<pre>
+public class PlayingCard 
+{
+	public PlayingCard (Suits sv, int rv)
+		{ s = sv; r = rv; faceUp = false; }
+
+	public bool isFaceUp 
+	{
+		get { return faceUp; }
+	}
+	
+	public void flip () 
+	{ 
+		faceUp = ! faceUp;
+	}
+
+	public int rank
+	{
+		get { return r; }
+	}
+
+	public Suits suit
+	{
+		get { return s; }
+	}
+		
+	public Color color
+	{
+		get
+		{
+			if ( suit == Suits.Heart || suit == Suits.Diamond )
+				{ return Color.Red; }
+			return Color.Black;
+		}
+	}
+
+	private bool faceUp;
+	private int r;
+	private Suits s;
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 02</h6>
+<hr>
+</body>
+</html>

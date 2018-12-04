@@ -1,0 +1,32 @@
+<html>
+<head><title>Chapter 27, Slide 19</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 27: Implementation :
+<td bgcolor=#FCCF97><a href="slide20.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide18.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide19.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap27/slide19.ram">real</a>
+<td bgcolor=#FCCF97><a href="text19.htm" target=text>text</a>
+</table>
+<p>
+<h1>Method Cache</h1>
+<font size=+2>
+<P>
+In order to avoid the cost of a dynamic search of dispatch tables, a single
+global <EM>cache</EM> can be used to hold frequently invoked methods.
+<P>
+The cache is used as a large hash table.
+<P>
+Prior to searching a dispatch table, the a single hashed entry is examined -
+if it matches the selector being sought, the method is used, if not the
+dispatch table is searched and the new entry replaces the value in the
+hash table.
+<P>
+Assuming a good hash function is used, efficiency can be very high.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 19</h6>
+<hr>
+</body>
+</html>

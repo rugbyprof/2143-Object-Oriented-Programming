@@ -1,0 +1,1068 @@
+<html>
+<head><title>Chapter 3, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 3</h1>
+<h1 ALIGN=center>Object-Oriented Design</h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide02.htm">Why Start with design ? </a>
+<li><a href="slide03.htm">Programming in the Small and Programming in the Large</a>
+<li><a href="slide04.htm">Basis for Design</a>
+<li><a href="slide05.htm">Responsibility Driven Design</a>
+<ol>
+<li><a href="slide06.htm">Directed Evolution</a>
+<li><a href="slide07.htm">An Example, the IIKH</a>
+<li><a href="slide08.htm">Your Job</a>
+<li><a href="slide09.htm">Abilities of the IIKH </a>
+<li><a href="slide10.htm">Characterization by Behavior </a>
+<li><a href="slide11.htm">Working Through Scenarios </a>
+<li><a href="slide12.htm">Software Components</a>
+<li><a href="slide13.htm">CRC Cards</a>
+<li><a href="slide14.htm">The first component, The Greeter</a>
+<li><a href="slide15.htm">The Recipe Database Component </a>
+<ol>
+<li><a href="slide15a.htm">The who/what cycle</a>
+<li><a href="slide16.htm">Postponing Decisions</a>
+</ol>
+<li><a href="slide17.htm">Responsibilities of a Recipe</a>
+<li><a href="slide18.htm">The Planner Component</a>
+<li><a href="slide19.htm">The Date Component</a>
+<li><a href="slide20.htm">The Meal Component</a>
+<li><a href="slide21.htm">The Six Components</a>
+<li><a href="slide21a.htm">Interaction Diagrams</a>
+<li><a href="slide22.htm">Characteristics of Components</a>
+<ol>
+<li><a href="slide23.htm">Behavior and State</a>
+<li><a href="slide24.htm">Instances and Classes </a>
+<li><a href="slide25.htm">Coupling and Cohesion</a>
+<li><a href="slide26.htm">Interface and Implementation</a>
+</ol>
+<li><a href="slide27.htm">Two views of a Software System</a>
+<ol>
+<li><a href="slide28.htm">Parnas' Principles</a>
+<li><a href="slide29.htm">Public and Private View</a>
+</ol>
+<li><a href="slide30.htm">Next Step - Formalize the Interface</a>
+<ol>
+<li><a href="slide31.htm">A Rose by any other Name </a>
+</ol>
+<li><a href="slide32.htm">Documentation </a>
+<ol>
+<li><a href="slide33.htm">User Manual</a>
+<li><a href="slide34.htm">Quality</a>
+<li><a href="slide35.htm">System Design Documentation </a>
+</ol>
+<li><a href="slide36.htm">Preparing for Change </a>
+</ol>
+<li><a href="slide37.htm">Next Step - Select Representations for Subsystems </a>
+<li><a href="slide38.htm">Step - Implement and Test Subsystems</a>
+<li><a href="slide39.htm">Step - Integration and Testing</a>
+<li><a href="slide40.htm">Maintainence and Evolution</a>
+<li><a href="slide41.htm">Common Design Flaws</a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Outline</h6>
+<hr>
+
+
+<li><a href="slide3.htm">Programming in the Small and Programming in the Large</a>
+<li><a href="slide4.htm">Basis for Design</a>
+<li><a href="slide5.htm">Responsibility Driven Design</a>
+<ol>
+<li><a href="slide6.htm">Directed Evolution</a>
+<li><a href="slide7.htm">An Example, the IIKH</a>
+<li><a href="slide8.htm">Your Job</a>
+<li><a href="slide9.htm">Abilities of the IIKH </a>
+<li><a href="slide10.htm">Characterization by Behavior </a>
+<li><a href="slide11.htm">Working Through Scenarios </a>
+<li><a href="slide12.htm">Software Components</a>
+<li><a href="slide13.htm">CRC Cards</a>
+<li><a href="slide14.htm">The first component, The Greeter</a>
+<li><a href="slide15.htm">The Recipe Database Component </a>
+<ol>
+<li><a href="slide15a.htm">The who/what cycle</a>
+<li><a href="slide16.htm">Postponing Decisions</a>
+</ol>
+<li><a href="slide17.htm">Responsibilities of a Recipe</a>
+<li><a href="slide18.htm">The Planner Component</a>
+<li><a href="slide19.htm">The Date Component</a>
+<li><a href="slide20.htm">The Meal Component</a>
+<li><a href="slide21.htm">The Six Components</a>
+<li><a href="slide21a.htm">Interaction Diagrams</a>
+<li><a href="slide22.htm">Characteristics of Components</a>
+<ol>
+<li><a href="slide23.htm">Behavior and State</a>
+<li><a href="slide24.htm">Instances and Classes </a>
+<li><a href="slide25.htm">Coupling and Cohesion</a>
+<li><a href="slide26.htm">Interface and Implementation</a>
+</ol>
+<li><a href="slide27.htm">Two views of a Software System</a>
+<ol>
+<li><a href="slide28.htm">Parnas' Principles</a>
+<li><a href="slide29.htm">Public and Private View</a>
+</ol>
+<li><a href="slide30.htm">Next Step - Formalize the Interface</a>
+<ol>
+<li><a href="slide31.htm">A Rose by any other Name </a>
+</ol>
+<li><a href="slide32.htm">Documentation </a>
+<ol>
+<li><a href="slide33.htm">User Manual</a>
+<li><a href="slide34.htm">Quality</a>
+<li><a href="slide35.htm">System Design Documentation </a>
+</ol>
+<li><a href="slide36.htm">Preparing for Change </a>
+</ol>
+<li><a href="slide37.htm">Next Step - Select Representations for Subsystems </a>
+<li><a href="slide38.htm">Step - Implement and Test Subsystems</a>
+<li><a href="slide39.htm">Step - Integration and Testing</a>
+<li><a href="slide40.htm">Maintainence and Evolution</a>
+<li><a href="slide41.htm">Common Design Flaws</a>
+</ol>
+<p>
+<b>Other Material</b>
+<ul>
+<li><a href="study.htm">Self Assessment  Study Guide</a>
+<li>Another <a href="java.htm">view</a> from my book <b>Understanding 
+Object-Oriented Programming with Java</b>
+</ul>
+<h6 ALIGN=right>Intro OOP, <a href="slide1.htm">Chapter 2</a>, Slide 1</h6>
+</body>
+
+<br>
+<h1>Why Start with Design</h1>
+<ul>
+<li>Why start our discussion with a chapter on design? 
+<p>
+<li>Object-oriented <i>thinking</i> begins with object-oriented design
+<p>
+<li>It is the easiest way to give the student an appreciation of the problems of programming
+    in the large (realistic modern software development).
+<p>
+<li>Without understanding programming in the large, one cannot understand the importance
+    of OOP 
+</font>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 2</h6>
+</body>
+
+<br>
+<h1>Programming in the Small and Programming in the Large</h1>
+<P>
+Programming in the Small:
+<UL>
+<LI>
+One programmer, understands everything from top to bottom.
+<LI>
+Major problem is the development of algorithms.
+</UL>
+<P>
+Programming in the Large:
+<UL>
+<LI>
+System is developed by large team of programmers
+<LI>
+Major problems are management of details and communication between
+programmers and between their respective software subsystems.
+</UL>
+<P>
+</font>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 3</h6>
+</body>
+
+
+<br>
+<h1>Basis for Design</h1>
+<P>
+Consider for the moment what aspects of a problem are known first:
+<P><UL>
+<LI>
+Data Structures
+<LI>
+Functions
+<LI>
+A Formal Specification
+<LI>
+Behavior
+</UL>
+<P>
+A design technique based on behavior can be applied from the very beginning
+of a problem, whereas techniques based on more structural properties
+necessarily require more preliminary analysis.
+
+</font>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 4</h6>
+</body>
+
+
+<br>
+<h1>Responsibility Driven Design</h1>
+<P>
+A design technique that has the following properties:
+<P><UL>
+<p>
+<LI>
+Can deal with ambiguous and incomplete specifications.
+<p>
+<LI>
+Naturally flows from Analysis to Solution.
+<p>
+<LI>
+Easily integrates with various aspects of software development.
+</UL>
+<P>
+</font>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 5</h6>
+</body>
+
+
+<br>
+<h1>Directed Evolution</h1>
+<P>
+Let us take specifications as they occur in nature
+<P><UL>
+<p>
+<LI>
+Imprecise
+<p>
+<LI>
+Ambiguous
+<p>
+<LI>
+Unclear
+</UL>
+<P>
+and rather than attempt to change human nature, let us direct the
+evolution of the specification in concert with the design of the
+software system.
+</font>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 6</h6>
+</body>
+
+
+<br>
+<h1>An Example, the IIKH</h1>
+<P>
+Imagine you are the chief software architect in a major computing firm.
+<P>
+The president of the firm rushes into your office with a specification for the
+next PC-based product.  It is drawn on the back of a dinner napkin.
+<P>
+Briefly, the <EM>Intelligent Interactive Kitchen Helper</EM> will replace the
+box of index cards of recipes in the average kitchen.
+</font>
+<br>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 7</h6>
+</body>
+
+
+<br>
+<h1>Your Job</h1>
+<P>
+Your job is to develop the software that will implement the IIKH.
+<P>
+<IMG SRC="slide08.gif" alt="picture of an index box">
+<BR>
+</font>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 8</h6>
+</body>
+
+
+<br>
+<h1>Abilities of the IIKH</h1>
+<P>
+Here are some of the things a user can do with the IIKH:
+<P><UL>
+<LI>
+Browse a database of recipes
+<LI>
+Add a new recipe to the database
+<LI>
+Edit or annotate an existing recipe
+<LI>
+Plan a meal consisting of several courses
+<LI>
+Scale a recipe for some number of users
+<LI>
+Plan a longer period, say a week
+<LI>
+Generate a grocery list that includes all the items in all the menus for a
+period
+</UL>
+<P>
+</font>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 9</h6>
+</body>
+
+
+<br>
+<h1>Characterization by Behavior</h1>
+<P>
+Just as an Abstract Data Type is characterized more by behavior than by 
+representation, the goal in using Responsibility Driven Design will be to
+first characterize the application by <EM>behavior</EM>.
+<P><UL>
+<LI>
+First capture the behavior of the entire application.
+<p>
+<LI>
+Refine this into behavioral descriptions of subsystems.
+<p>
+<LI>
+Refine behavior descriptions into code.
+</UL>
+<P>
+This emphasis on behavior is a hallmark of Object-Oriented programming.
+</font>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 10</h6>
+</body>
+
+
+<br>
+<h1>Working Through Scenarios</h1>
+<P>
+Because of the ambiguity in the specification, the major tool we will use
+to uncover the desired behavior is to walk through application scenarios.
+<P><UL>
+<LI>
+Pretend we had already a working application.  Walk through the various
+uses of the system.
+<p>
+<LI>
+Establish the ``look and feel'' of the system.
+<p>
+<LI>
+<p>
+Make sure we have uncovered all the intended uses.
+<p>
+<LI>
+Develop descriptive documentation.
+<p>
+<LI>
+Create the high level software design.
+</UL>
+Other authors use the term ``use-cases'' for this process of developing
+scenarios.
+</font>
+<hr>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 11</h6>
+</body>
+
+
+<br>
+<h1>Software Components</h1>
+<P>
+A software <EM>component</EM> is simply an abstract design entity with which we
+can associate responsibilities for different tasks.
+<P>
+May eventually be turned into a class, a function, a module, or something
+else.
+<P><UL>
+<LI>
+A component must have a small well defined set of responsibilities
+<p>
+<LI>
+A component should interact with other components to the minimal extent possible
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 12</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>CRC Cards</h1>
+<P>
+Components are most easily described using CRC cards.  A CRC card records
+the name, responsibilities, and collaborators of an component.
+<P>
+<UL>
+<LI>
+Inexpensive, Erasable, Physical
+</UL>
+<IMG SRC="slide13.gif" alt="picture of CRC card">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 13</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>The first component, The Greeter</h1>
+<P>
+Let us return to the development of the IIKH.  The first component your team
+defines is <a href="slide14.gif">the Greeter</a>.  When the 
+application is started, the Greeter
+puts an informative and friendly welcome window (the greeting) on the screen.
+<P>
+Offer the user the choice of several different actions
+<P><UL>
+<LI>
+Casually browse the database of recipes.
+<LI>
+Add a new recipe.
+<LI>
+Edit or annotate a recipe.
+<LI>
+Review a plan for several meals.
+<LI>
+Create a plan of meals.
+</UL>
+<P>
+Many of the details concerning exactly how this is to be done can be 
+ignored for the moment.
+<P>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 14</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>The Recipe Database Component</h1>
+<P>
+Ignoring the planning of meals for the moment, your team elects to next
+explore the recipe database component.
+<P><UL>
+<LI>
+Must Maintain the Database of recipes.
+<p>
+<LI>
+Must Allow the user to <EM>browse</EM> the database.
+<p>
+<LI>
+Must permit the user to edit or annotate an existing recipe.
+<p>
+<LI>
+Must permit the user to add a new recipe.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 15</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>The Who/What Cycle</h1>
+<P>
+As we walk through scenarios, we go through cycles of identifying
+a what, followed by a who
+<ul>
+<li><b>What</b> action needs to be performed at this moment,
+<p>
+<li><b>Who</b> is the component charged with performing the action
+</UL>
+Every <i>what</i> must have a <i>who</i>, otherwise it simply will not happen.
+Sometimes the <i>who</i> might not be obvious at first, i.e., who should 
+be in charge of editing a recipe?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 15a</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Postponing Decisions</h1>
+<P>
+Many decisions, such as the method of browsing, can be ignored for the
+moment, as they are entirely encapsulated within the recipe database component,
+and do not effect other components.
+<P><UL>
+<LI>
+Scroll bars and windows?
+<p>
+<LI>
+A virtual ``book'' with thumb-holes and flipping pages?
+<p>
+<LI>
+Keywords and phrases?
+</UL>
+<P>
+Only need to note that somehow the user can manipulate the database to
+select a specific recipe.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 16</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Responsibilities of a Recipe</h1>
+<P>
+We make the recipe itself into an active data structure.  It maintains
+information, but also performs tasks.
+<P><UL>
+<LI>
+Maintains the list of ingredients and transformation algorithm.
+<p>
+<LI>
+Must know how to edit these data values.
+<p>
+<LI>
+Must know how to interactively display itself on the output device.
+<p>
+<LI>
+Must know how to print itself.
+<p>
+<LI>
+We will add other actions later (ability to scale itself, produce integrate
+ingredients into a grocery list, and so on).
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 17</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>The Planner Component</h1>
+<P>
+Returning to the greeter, we start a different scenario.  This leads to the
+description of the <I>Planner</I>.
+<P><UL>
+<LI>
+Permits the user to select a sequence of dates for planning.
+<p>
+<LI>
+Permits the user to edit an existing plan.
+<p>
+<LI>
+Associates with <I>Date</I> object.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 18</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>The Date Component</h1>
+<P>
+The <I>Date</I> component holds a sequence of meals for an individual date.
+<P><UL>
+<LI>
+User can edit specific meals.
+<p>
+<LI>
+User can annotate information about dates (''Bob's Birthday'', ``Christmas
+Dinner'', and so on).
+<p>
+<LI>
+Can print out grocery list for entire set of meals.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 19</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>The Meal Component</h1>
+<P>
+The <I>Meal</I> component holds information about a single meal.
+<P><UL>
+<LI>
+Allows user to interact with the recipe database to select individual
+recipes for meals.
+<p>
+<LI>
+User sets number of people to be present at meal, recipes are automatically
+scaled.
+<p>
+<LI>
+Can produce grocery list for entire meal, by combining grocery lists from
+individual scaled recipes.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 20</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>The Six Components</h1>
+<P>
+Having walked through the various scenarios, you team eventually decides
+everything can be accomplished using only six software components.
+<P>
+<IMG SRC="slide21.gif" ALT="picture of the six components">
+<P>
+You can at this point assign the different components to different
+programmers for development.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 21</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Interaction Diagrams</h1>
+<P>
+The picture on the previous slide captures static relationships,
+but not the dynamic flow of messages in a senario.  That information
+can be recorded by an interaction diagram.
+<P>
+<IMG SRC="slide21a.gif" ALT="picture of the six components">
+<P>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 21a</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Characteristics of Components</h1>
+<P>
+Let us return to the idea of a software component.
+<P>
+There are many different aspects to this simple idea, we will consider
+just a few:
+<P><UL>
+<LI>
+Behavior and State
+<p>
+<LI>
+Instances and Classes
+<p>
+<LI>
+Coupling and Cohesion
+<p>
+<LI>
+Interface and Implementation
+<p>
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 22</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Behavior and State</h1>
+<P>
+All components can be characterized by two aspects:
+<P><UL>
+<LI>
+The <EM>behavior</EM> of a component is the set of actions a component
+can perform.   The complete set of behavior for a component is
+sometimes called the protocol.
+<p>
+<LI>
+The <EM>state</EM> of a component represents all the information 
+(data values) held within a component.
+</UL>
+<P>
+Notice that it is common for behavior to change state.  For example,
+the edit behavior of a recipe may change the preparation instructions,
+which is part of the state.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 23</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Instances and Classes</h1>
+<P>
+We can now clarify a point we earlier ignored.  There are likely
+many <EM>instances</EM> of recipe, but they will all <EM>behave</EM>
+in the same way.  We say the behavior is common to the class <b>Recipe</b>.
+<P>
+<IMG SRC="slide24.gif" alt="picture of classes and instance">
+<P>
+Since earlier our goal was to identify behavior, we ignored this
+distinction and concentrated on prototypical objects.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 24</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Coupling and Cohesion</h1>
+<P>
+The separation of tasks into the domains of different components should be
+guided by the concepts of <EM>coupling</EM> and <EM>cohesion</EM>.
+<P><UL>
+<LI>
+Cohesion is the degree to which the tasks assigned to a component seem to
+form a meaningful unit.  Want to maximize cohesion.
+<p>
+<LI>
+Coupling is the degree to which the ability to fulfill a certain
+responsibility depends upon the actions of another component.  Want to
+minimize coupling.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 25</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Interface and Implementation</h1>
+<P>
+We have characterized software components by what they can do.
+<P>
+The user of a software component need only know what it does,
+not how it does it.
+<P>``Ask not what you can do <EM>to</EM> a data structure, 
+<br>ask instead what your data structures can do <EM>for</EM> you''.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 26</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Two views of a Software System</h1>
+<P>
+This naturally leads to two views of a software system.
+<p>
+<IMG SRC="slide27.gif" alt="two views of an edit buffer">
+<P>
+The term <EM>information hiding</EM> is used to describe the purposeful
+hiding of implementation details</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 27</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Parnas' Principles</h1>
+<P>
+These ideas were captured by computer scientist David Parnas in a pair of
+rules, which are known as Parnas' Principles:
+<P><UL>
+<LI>
+The developer of a software component must provide the intended user with
+all the information needed to make effective use of the services provided
+by the component, and should provide <EM>no</EM> other information.
+<p>
+<LI>
+The implementor of a software component must be provided with all the
+information necessary to carry out the given responsibilities assigned to
+the component, and should be provided with <EM>no</EM> other information.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 28</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Public and Private View</h1>
+<P>
+In C++ and Java, Parnas's Principles lead to the ideas of a public and private view.
+<P><UL>
+<LI>
+Public view - those features (data or behavior) that other components can
+see and use
+<p>
+<LI>
+Private view - those features (data or behavior) that are used only
+within the component
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 29</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Next Step - Formalize the Interface</h1>
+<P>
+The next step is to formalize the channels of communication between the
+components.
+<P><UL>
+<LI>
+The general structure of each component is identified.
+<p>
+<LI>
+Components with only one behavior may be made into functions.
+<p>
+<LI>
+Components with many behaviors are probably more easily implemented as classes.
+<p>
+<LI>
+Names are given to each of the responsibilities - these will eventually be
+mapped on to procedure names.
+<p>
+<LI>
+Information is assigned to each component and accounted for.
+<p>
+<LI>
+Scenarios are replayed in order to ensure all data is available.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 30</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>A Rose by any other Name</h1>
+<P>
+Government bureaucrats have long shown us that obscure and idiomatic names
+can make even the simplest operation sound intimidating.
+<P>
+The selection of names is an important task.
+<P><UL>
+<LI>
+Names should be evocative in the context of the problem.
+<p>
+<LI>
+Names should be short.
+<p>
+<LI>
+Names should be pronounceable (read them out load).
+<p>
+<LI>
+Names should be consistent within the project.
+<p>
+<LI>
+Avoid digits within a name.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 31</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Documentation</h1>
+<P>
+Besides CRC cards, it is important that the development of other
+documentation be performed almost from the beginning.
+<P>
+The two most important documents are the user manual and the design
+documentation of the software system.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 32</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>User Manual</h1>
+<P>
+The user manual describes the application as seen by the user.
+<P><UL>
+<LI>
+Does not depend upon the implementation, so can be developed before the
+implementation.
+<p>
+<LI>
+Can naturally flow from the process of walking through scenarios.
+<p>
+<LI>
+Can be carried back to the clients to make sure the users and the
+implementors have the same ideas.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 33</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Quality</h1>
+<P>
+You should always remember that the primary measure of quality is the
+degree to which your customers (clients) are satisfied with your product.
+<P>
+Since often customers do not know exactly what it is they want, it is 
+important to work with the client early in the design phase to make sure
+the system your are developing is the desired product.  One very important
+way to do this is to create the user manual even before the software is
+written.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 34</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>System Design Documentation</h1>
+<P>
+Record the decisions made during the process of system design.
+<P><UL>
+<LI>
+Record the arguments for and against any major decision, and the factors 
+influencing the final choice.
+<LI>
+Record CRC cards for the major components.
+<LI>
+Maintain a log or diary of the process schedule.
+<LI>
+Important to produce this while the ideas are fresh, not in hindsight when
+many details will have been forgotten.
+<LI>
+Note the code only records the outcome of decisions, not factors that
+lead up to decisions being made.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 35</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Preparing for Change</h1>
+<P>
+Your design team should also keep in mind that change is inevitable.
+Users requirements change with experience, hardware changes, government
+regulations change.
+<P><UL>
+<LI>
+Try to predict the most likely sources of change, and isolate the effect.
+Common changes include interfaces, file formats, communication protocols.
+<LI>
+Isolate interfaces to hardware that is likely to change.
+<LI>
+Reduce dependency of one software component on another.
+<LI>
+Keep accurate record of the reasoning behind every major decision in the 
+design documentation.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 36</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Next Step - Select Representations for Subsystems</h1>
+<P>
+Next the internal representation of the software subsystem corresponding to
+each component is selected.
+<P>
+Knowledge of the classic data structures of Computer Science is important
+here.
+<P>
+Often once data structures have been selected, the code is almost
+self-evident.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 37</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Step - Implement and Test Subsystems</h1>
+<P>
+Classic techniques, such as <EM>stepwise refinement</EM>, are used to
+implement each of the subsystems.
+<P>
+Subsystems are validated in isolation.
+<P><UL>
+<LI>
+Informal proofs of correctness for the subsystem are developed.
+<LI>
+Identify necessary conditions for correct functioning.
+Try to minimize conditions, and test input values whenever possible.
+<LI>
+Software testing is used as a confidence building measure.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 38</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Step - Integration and Testing</h1>
+<P>
+Components are slowly integrated into completed system.
+<P>
+Stubs can be used to perform testing all during integration.
+<P>
+Errors discovered during integration to cause reinvestigation of validation
+techniques performed at the subsystem level.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 39</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Maintainence and Evolution</h1>
+<P>
+Software does not remain fixed after the first working version is released.
+<P><UL>
+<LI>
+Errors or bugs can be discovered.  Must be corrected.
+<LI>
+Requirements may change.  Say as a result of government regulations, 
+or standardization among similar products.
+<LI>
+Hardware may change.
+<LI>
+Users expectations may change.  Greater functionality, more features.
+Often as a result of competition from similar products.
+<LI>
+Better documentation may be required.
+</UL>
+<P>
+A good design recognizes the inevitability of change, and plans an
+accommodation for these activities from the very beginning.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 40</h6>
+<hr>
+</body>
+
+
+<br>
+<h1>Common Design Flaws</h1>
+<P>
+The following categories present some of the more common design flaws:
+<P><B>Direct modification</B>
+Components that make direct modification of data values in other components
+are a direct violation of encapsulation.
+<P>
+Such coupling makes for inflexible designs.
+<P><B>Too Much Responsibility</B>
+Components with too much responsibility are difficult to understand and to use.
+<P>
+Responsibility should be broken into smaller meaningful packages and 
+distributed.
+<P><B>No Responsibility</B>
+Components with no responsibility serve no purpose.
+<P>
+Often arise when designers equate physical existence with logical design
+existence.
+<P>``Money is no object''
+<P><B>Components with unused responsibility</B>
+<P>
+Usually the result of designing software components without thinking
+about how they will be used.
+<P><B>Misleading Names</B>
+<P>
+Names should be short and unambiguously indicate what the responsibilities
+of the component involve.
+<P>
+<BR>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 3</a>, Slide 41</h6>
+<hr>
+This slide completes the material from Chapter two.
+</body>
+
+
+</body>
+</html>

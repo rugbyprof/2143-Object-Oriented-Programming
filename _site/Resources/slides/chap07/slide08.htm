@@ -1,0 +1,42 @@
+<html>
+<head><title>Chapter 7, Slide 8</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 7: A Billiards Game:
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap07/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<br>
+<h1>Reaction to Mouse Down Events</h1>
+<font size=+2>
+<pre>
+procedure TfrmGraphics.DoClick (Sender: TObject; 
+	Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+	bptr : TBall;
+begin
+	cueBall.energy := 20.0;
+	cueBall.setDirection(hitAngle(cueBall.x - x, cueBall.y - y));
+		{ then loop as long as called for }
+	ballMoved := true;
+	while ballMoved do begin
+		ballMoved := false;
+		bptr := listOfBalls;
+		while bptr <> nil do begin
+			bptr.update;
+			bptr := bptr.link;
+		end;
+	end;
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 7</a>, Slide 8</h6>
+<hr>
+</body>
+</html>
+
+

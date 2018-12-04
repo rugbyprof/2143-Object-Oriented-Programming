@@ -1,0 +1,435 @@
+<html>
+<head><title>Chapter 19, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 19</h1>
+<h1 ALIGN=center>Container Classes </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap </a>
+<li><a href="slide02.htm"> Containers in Dynamically Typed Languages </a>
+<li><a href="slide03.htm"> Tension between Strong Typing and Reuse </a>
+<ol>
+<li><a href="slide04.htm"> Can OO Techniques Solve This? </a>
+<li><a href="slide05.htm"> Using Substitution and Downcasting </a>
+<ol>
+<li><a href="slide06.htm"> Heterogeneous Collections </a>
+<li><a href="slide07.htm"> Using Classes as Objects to do Type Checking </a>
+<li><a href="slide08.htm"> Storing Primitive Values </a>
+</ol>
+<li><a href="slide09.htm"> Using Substitution and Overriding </a>
+<ol>
+<li><a href="slide10.htm"> An Example, Java Window Events </a>
+</ol>
+<li><a href="slide11.htm"> A Third Alternative, Generics </a>
+</ol>
+<li><a href="slide12.htm"> Collection Traversal </a>
+<ol>
+<li><a href="slide13.htm"> Two Solutions </a>
+<ol>
+<li><a href="slide14.htm"> Iterators </a>
+<ol>
+<li><a href="slide15.htm"> An Enumeration Loop in Java </a>
+<li><a href="slide16.htm"> An Iterator Loop in C++ </a>
+<li><a href="slide17.htm"> Iterators and Encapsulation</a>
+</ol>
+<li><a href="slide18.htm"> Alternative, the Visitor </a>
+<ol>
+<li><a href="slide19.htm"> The Visitor in C++ in the STL </a>
+</ol>
+</ol>
+</ol>
+<li><a href="slide20.htm"> Chapter Summary </a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter we will examine how object-oriented programming techniques
+can be applied to the problem of creating container, or collection classes.
+<ul>
+<li>Containers in Dynamically Typed Languages
+<p><li>The Tension between Reuse and Strong Typing
+<p><li>Object Oriented Solutions 
+<ul>
+<li>Substitution and Downcasting
+<li>Substitution and Overriding
+<li>Templates
+</ul>
+<p><li>Collection Traversals
+<ul>
+<li>Iterators
+<li>Visitors
+</ul>
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Containers in Dynamically Typed Languages</h1>
+Collection classes are simple to write in dynamically typed languages,
+Since all variables are polymorphic.
+<p>
+Contains simply hold values in variables (which can hold anything),
+and when they are removed from the container they can be assigned to
+any variable.
+<p>
+Dynamically typed languages have historically come with a rich set
+of container classes in their standard library.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Tension between Strong Typing and Reuse</h1>
+The situation is very different when we move to statically typed languages.
+There, the strong typing can get in the way of software reuse.
+<pre>
+type
+	Link = Record
+		value : integer
+		nextelement : ^ Link
+	end;
+</pre>
+What happens when we need a linked list of doubles?  or of a user
+defined type?
+<p>
+The strong typing is getting in the way of software reuse.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>Can OO Techniques Solve This</h1>
+Can we bring any of the OO techniques (subsitution, polymorphism) into the
+solution of this problem?  We examine three techniques:
+<ul>
+<li>Using Substitution and Downcasting
+<p><li>Using Substitution and Overriding
+<p><li>Using Templates (or Generics)
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Using Substitution and Downcasting</h1>
+In Java and other languages, (almost) all values can be stored in a
+variable of type <b>Object</b>.
+<p>
+Therefore, we write containers that store <b>Object</b> values.
+<p>
+Problem. Requires a cast when a value is removed from the container.
+<pre>
+Vector aVector = new Vector();
+Cat Felice = new Cat();
+aVector.addElement(Felice);
+	...
+	// cast used to convert Object value to Cat
+Cat animal = (Cat) aVector.elementAt(0);
+</pre>
+Worse problem, typing errors are detected when a value is removed
+from the collection, not when it is inserted.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Heterogeneous Collections</h1>
+Because any value can be stored in an <b>Object</b>, this allows heterogeneous
+collections; although the actual type must be checked when a value
+is removed:
+<pre>
+Stack stk = new Stack();
+stk.addElement(new Cat());
+stk.addElement(new Dog()); 
+	// ... adding more values
+	// now do something with Cat values
+if (stk.peek() instanceof Cat) {
+		// do conversion to Cat
+	Cat aCat = (Cat) stk.pop(); 
+	// .. also do something with cat values
+	// now do something with Dog values
+} else if (stk.peek() instanceof Dog) {
+		// do conversion to Dog
+	Dog aDog = (Dog) stk.pop(); 
+	// .. do something with Dog value
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Using Classes as Objects to do Type Checking</h1>
+In languages in which classes are objects, and have the ability to
+tell if an object is an instance, the container can hold the
+class object that represents its type:
+<pre>
+var
+	stack : TStack;
+	aCat : TCat;
+	aDog : TDog;
+
+begin
+		// create a stack that can hold only TCat values
+	stack := TStack.Create (TCat);
+	stack.push (aCat); // ok
+	stack.push (aDog); // will raise exception
+	...
+end
+
+</pre>
+Allows typing errors to be caught on insertion, but uses more space
+and time.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Storing Primitive Values</h1>
+In some languages (Java, Delphi) primitive types are not objects.
+<p>
+These values cannot be stored using this scheme.
+<p>
+Thus, languages introduce <i>wrapper</i> classes that do nothing but
+hold a primitive value.
+<pre>
+Vector aVector = new Vector();
+aVector.add(new Integer(17)); // wrap up primitive int as Integer
+...
+Integer a = aVector.elementAt(1);
+int x = a.intValue(); // must subsequently be unwrapped
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Using Substitution and Overriding</h1>
+In certain situations we can eliminate the downcast, replacing it with
+overriding.
+<p>
+This only works, however, if you can predict ahead of time what operations
+you want to do on a collection.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>An Example, Java Window Events</h1>
+A good example is the way that window events are handled in Java.
+Each window maintains a list of listeners, each listener must implement
+a fixed interface (<b>WindowListener</b>).
+<pre>
+public class CloseQuit extends WindowAdapter {
+		// execute when the user clicks in the close box
+	public void windowClosing (WindowEvent e) {
+		System.exit(0); // halt the program
+	}
+}
+</pre>
+When an event occurs the window simply runs down the list of listener,
+invoking the appropriate method in each.  No downcasting required.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>A Third Alternative, Generics</h1>
+Generics, as we described in the last chapter, are a third approach.
+<pre>
+template &lt;class T&gt; class List {
+public:
+	void	addElement (T newValue);
+	T	firstElement ();
+
+private:
+	Link<T> * firstLink;
+
+	private class Link { // nested class
+	public:
+		T	value;
+		Link *	nextLink;
+
+		Link (T v, Link * n) : value(v), nextLink(n) { }
+	};
+};
+</pre>
+Allow for both strong typing and reuse.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Collection Traversal</h1>
+Here is another difficult problem.  How to you allow access to elements
+of a collection without exposing the internal structure?
+<p>
+Consider the conventional solution:
+<pre>
+var
+	aList : List;	(* the list being manipulated *)
+	p : Link;	(* a pointer for the loop *)
+
+begin
+	...
+	p := aList.firstLink;
+	while (p <> nil) do begin
+		writeln (p.value);
+		p := p^.nextElement;
+	end;
+</pre>
+Needed to expose the link type, and the field <b>nextElement</b>.
+<br>
+Can we avoid this problem?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Two Solutions</h1>
+There are two common solutions:
+<ul>
+<li>Create an iterator; an object that facilitates access to elements
+and enumeration over the collection.
+<p><li>The vistor.  Bundle the action to be performed as an object,
+and pass it to the collection.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Iterator</h1>
+An iterator is an object that has two major responsibilities:
+<ul>
+<li>Provide access to the current element
+<p><li>Provide a way to move to the next element
+</ul>
+Different languages use different interfaces, but the basic idea is the
+same.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>An Enumeration Loop in Java</h1>
+<pre>
+		// create the iterator object
+	Enumeration e = aList.elements();
+		// then do the loop
+	while (e.hasMoreElements()) {
+		Object obj = e.nextElement();
+		// ... do something with obj
+	}
+</pre>
+Interface consists of two methods, <b>hasMoreElements</b> and <b>nextElement</b>.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>An Iterator Loop in C++</h1>
+<pre>
+		// create starting and stopping iterators
+	list<string>::iterator start = aList.begin();
+	list<string>::iterator stop  = aList.end();
+		// then do the loop
+	for ( ; start != stop; start++ ) {
+		string value = *start; // get the value
+		// ... do something with the value
+	}
+</pre>
+Interface consists of three operations; comparison, increment, and dereference.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 16</h6>
+<hr>
+</body>
+<p>
+<h1>Iterators and Encapsulation</h1>
+Note that the iterator must almost always have detailed knowledge of the
+internal data structure.  Wasn't our goal to hide these details?
+<p>
+Not exactly.  The iterator is usually developed by the same programmer
+creating the data structure.  It can share detailed knowledge with the
+data structure.  And <i>using</i> the iterator does not require any
+knowledge of how the iterator is <i>implemented</i>.
+<p>
+Often friends (in C++) or nested classes (in Java) can be used to
+help the iterator share information with the container.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>Alternative, the Visitor</h1>
+An alternative to iterators is the idea of a visitor.
+Requires the ability to bundle the action to be performed into an object,
+and hand it to the collection.
+<p>
+This is most common technique used in Smalltalk
+<pre>
+aList do: [:x | ('element is' + x) print ].
+</pre>
+The block is passed as argument to the list, which turns around and
+executes the block on each element.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 18</h6>
+<hr>
+</body>
+<p>
+<h1>The Visitor in C++ in the STL</h1>
+<pre>
+class printingObject {
+public:
+	void operator () (int x) 
+	{
+		cout << "value is " << x << endl;
+	}
+};
+
+printingObject printer;  // create an instance of the function object
+
+for_each (aList.begin(), aList.end(), printer);
+</pre>
+The function <b>for_each</b> passes the object to element element in
+the collection.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 19</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+<ul>
+<li>Collection Classes are easy to write in dynamically typed languages
+<p><li>In statically typed languages, there is a conflict between reuse
+and strong typing
+<p><li>Three approaches to overcoming this include
+<ul>
+<li>Using substitution and downcasting
+<li>Using substitution and overriding
+<li>Using generics
+</ul>
+<p><li>A related problem, looping over elements
+<ul>
+<li>The iterator solution
+<li>The visitor solution
+</ul>
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 19</a>, Slide 20</h6>
+<hr>
+</body>
+</body>
+</html>

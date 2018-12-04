@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Text for slides, Chapter 5 talk</title>
+</head>
+<body>
+<h1>Metaclasses</h1>
+<p>
+The object/class model sometimes makes for subtle oddities.
+For example, in Smalltalk <b>new</b> is just a message, like any other
+message.  The reciever for the message is a class, an instance of <b>Class</b>.
+<p>
+So, let us know ask where a constructor; that is, a class specific 
+initialization, could fit into this picture.  Such a method cannot be part
+of the collection of messages understood by instances of the class,
+since we do yet have an instance.
+<p>
+But such a message cannot be understood by class <b>Class</b>, since
+not all classes have the same constructor semantics.  So, where should
+we put this behavior for individual class instances?
+<p>
+<h6><a href="slide12.au">[audio]</a>
+<a href="http://www.cs.orst.edu/~cs582/real/chap05/slide12.ram">[real]</a>
+ Text to accompany <a href="slide12.htm">slide12</a>,
+in <a href="outline.htm">Chapter 5</a> of <a href="ftp://ftp.cs.orst.edu/pub/budd/oopintro/">An Introduction to Object-Oriented Programming</a></h6>
+</body>
+</html>

@@ -14,6 +14,8 @@ private:
     Tile smiley;
     sf::RectangleShape rectangle;
     float angle;
+    float dx;
+    float dy;
 public:
     DrawMe(){
         smiley.resetTile(128,128,"./smiley.png");
@@ -33,14 +35,34 @@ public:
         this->push_back(rectangle);
         this->push_back(smiley);
 
+        dx = .5;
+        dy = .5;
+
     }
 
     void changeSmiley(string image){
         smiley.setTileTexture(image);
     }
 
-    void update(){
+    void update(int width,int height){
+
+        int buffer = 25;
+
+        sf::Vector2f pos = smiley.getPosition();
+
         rectangle.rotate(angle);
+
+        if(pos.x > (width-buffer) || pos.x < (0 + buffer)){
+            dx = dx * -1;
+        }
+
+        if(pos.y > (height-buffer) || pos.y < (0 + buffer)){
+            dy = dy * -1;
+        }
+
+        smiley.move(dx,dy);
+
+
 
         angle += .0001;
     }
@@ -101,7 +123,7 @@ public:
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(300, 300), "SFML Smiley!");
+    sf::RenderWindow window(sf::VideoMode(300, 400), "SFML Smiley!");
 
 
     DrawMe D;
@@ -125,10 +147,12 @@ int main()
             D.changeSmiley("./smiley.png");
         }
 
+
+
         window.clear();
         window.draw(D);
-        G.printClock(window,300,300);
-        D.update();
+        G.printClock(window,300,400);
+        D.update(300,400);
 
         window.display();
     }

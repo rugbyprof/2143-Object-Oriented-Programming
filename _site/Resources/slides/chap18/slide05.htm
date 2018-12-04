@@ -1,0 +1,34 @@
+<html>
+<head><title>Chapter 18, Slide 05</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 18: Generics :
+<td bgcolor=#FCCF97><a href="slide06.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide04.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide05.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap18/slide05.ram">real</a>
+<td bgcolor=#FCCF97><a href="text05.htm" target=text>text</a>
+</table>
+<p>
+<h1>Can Be Filled with Different Arguments</h1>
+<font size=+2>
+<pre>
+
+	iBox.setValue(3.1415); // ERROR - invalid type
+
+	Box &lt;double&gt; dBox(2.7);
+	cout << dBox.getValue();
+2.7
+	dBox.setValue(3.1415);
+	cout << dBox.getValue();
+3.1415
+	iBox = dBox; // ERROR - mismatched types
+</pre>
+In the next chapter we
+will see how generics are used to create collection classes.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 18</a>, Slide 05</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,434 @@
+<html>
+<head><title>Chapter 27, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 27</h1>
+<h1 ALIGN=center>Implementation </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap</a>
+<li><a href="slide02.htm"> Two General Approaches to Implementation</a>
+<li><a href="slide03.htm"> The Receiver as Argument</a>
+<ol>
+<li><a href="slide04.htm"> The Corresponding Formal Argument</a>
+</ol>
+<li><a href="slide05.htm"> Non-virtual methods</a>
+<li><a href="slide06.htm"> Name Encoding</a>
+<li><a href="slide07.htm"> Inherited Methods</a>
+<ol>
+<li><a href="slide08.htm"> The Problem with Multiple Inheritance</a>
+<li><a href="slide09.htm"> The Slicing Problem</a>
+</ol>
+<li><a href="slide10.htm"> Overridden Methods</a>
+<ol>
+<li><a href="slide11.htm"> Solution, A Virtual Method Table</a>
+<li><a href="slide12.htm"> Instances Share the same Virtual Method Table</a>
+<li><a href="slide13.htm"> Method Calls become Indexed Offsets</a>
+<li><a href="slide14.htm"> Building a Virtual Table for a Subclass</a>
+<li><a href="slide15.htm"> Virtual Method Table for Subclasses</a>
+<li><a href="slide16.htm"> Elimination of Virtual Calls</a>
+</ol>
+<li><a href="slide17.htm"> Dispatch Tables</a>
+<ol>
+<li><a href="slide18.htm"> An Object and Its Dispatch Table</a>
+<li><a href="slide19.htm"> Method Cache</a>
+<li><a href="slide20.htm"> The Messaging Function checking the Cache</a>
+</ol>
+<li><a href="slide21.htm"> Bytecode Interpreters</a>
+<ol>
+<li><a href="slide22.htm"> Bytecodes in the Little Smalltalk System</a>
+</ol>
+<li><a href="slide23.htm"> Just In Time Compilers</a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+Topics covered in this chapter include:
+<ul>
+<li>Compilers vs Interpreters
+<li>The Receiver as Argument
+<li>Inherited Methods
+<ul>
+<li>The problem of Multiple Inheritance
+</ul>
+<li>Overridden Methods
+<ul>
+<li>Name Encoding
+</ul>
+<li>Dispatch Tables
+<li>Bytecode Interpreters
+<li>Just in Time Compilation
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Two General Approaches to Implementation</h1>
+<P><UL>
+<LI>
+<B>Compilers</B> - translated into basic machine code, source code 
+not available at run-time, generally very efficient.
+<p>
+<LI>
+<B>Interpreters</B> - translated into intermediate representation, source
+code available for reference at run-time, generally somewhat less efficient.
+</UL>
+<P>
+Endpoints are clear, but there are lots of gray areas in the middle.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 02</h6>
+<br>
+Java JIT systems are one of those gray areas between compilers and interpreters
+<hr>
+</body>
+<p>
+<h1>The Receiver as Arguments</h1>
+A method is eventually invoked just like any other function.  This
+means that the receiver just be passed as an argument.
+Traditionally, it is passed as the first argument.
+<p>
+This means a method call, such as
+<pre>
+aCardPile->addCard (currentCard)
+</pre>
+Is translated into
+<pre>
+addCard (aCardPile, currentCard)
+</pre>
+(This is ignoring the method lookup process, which we will discuss
+shortly).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>The Corresponding Formal Argument</h1>
+On the other side, the receiver pseudo-variable is just a formal argument:
+<p>
+Instead of 
+<pre>
+void CardPile::addCard (Card * aCard) {
+	...
+}
+</pre>
+We have
+<pre>
+void addCard (CardPile * this, Card * aCard) {
+	...
+}
+</pre>
+The first argument can then be used to access data members and other
+methods.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Non-virtual Methods</h1>
+In languages that permit both virtual and non-virtual methods (such as C++)
+a non-virtual method is translated into a simple procedure call.
+<ul>
+<li>The receiver is made into the first argument
+<p><li>The name is encoded to make it unique
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Name Encoding</h1>
+<P><UL>
+<LI>
+Different classes are allowed to have functions with the same name.
+<p>
+<LI>
+Some languages (C++) even permit multiple functions with the same name
+within a class.
+<p>
+<LI>
+Yet linkers usually want every function to have a unique name.
+<p>
+<LI>
+<EM>Solution</EM> - generate an internal name that encodes both class name,
+function name, and argument types.
+<p>
+<LI>
+Example:  Foo::Bar_int_float_int
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 06</h6>
+<br>
+An encoded name is sometimes called a <i>mangled name</i>.
+You will sometimes see mangled names in error messages generated by a linker.
+<hr>
+</body>
+<p>
+<h1>Inherited Methods</h1>
+Now consider those methods defined in a parent class, but used by a child class.
+<p>
+How is it that this mechanism can work?  Normally you cannot change the
+types of arguments (recall that the receiver is just an argument).
+<p>
+Solution is that the data associated with an instance of a child class is 
+an <i>extension</i> of the data associated with the parent class.
+<p>
+This means that data fields in the parent class will be found at the
+<i>same offset</i> in the child class.
+<p>
+<img src="slide07.png">
+<br>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>The Problem with Multiple Inheritance</h1>
+The idea that a child is an extension of the parent explains one of the most
+vexing problems in the implementation of multiple inheritance.
+<p>
+A child can extend one parent, or the other, but not both.
+<p>
+That is the offset of data fields in the child cannot simultaneously match
+both parents.
+<p>
+<img src="slide08.png">
+<br>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Slicing Problem</h1>
+The idea that a child can extend the data area of the parent also makes
+it difficult to support both the following goals
+<ol>
+<li>The goal of keeping memory on the stack, which is laid out at compile time
+<p><li>The goal of supporting the polymorphic variable, which can hold
+an instance of the child class at run time.
+</ol>
+<p>
+Most OO languages uphold (2) and abandon (1), C++ is an exception in
+that it upholds (1) and therefore abandons (2).
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Overridden Methods</h1>
+We next consider those methods that are defined in a parent class,
+and overridden in a child class.
+<p>
+Problem, how can a polymorphic method invocation find the right method?
+Note that the right method can change during the course of execution,
+even for the same method call.
+<pre>
+CardPile * aCardPile = new DiscardPile();
+Card * aCard = ... ;
+
+aCardPile->addCard (aCard); // how to find the right method
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Solution, a Virtual Method Table</h1>
+The solution is that every object contains an extra hidden data field.
+This data field points to an array of pointers to functions.
+The array is determined by the current dynamic type, and is shared
+by all instances of the class.
+<p>
+The offset of each method can be determined at compile time.
+<p>
+<img src="slide11.png">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Instances Share the same Virtual Method Table</h1>
+Two instances of a class will share the same virtual method table.
+<p>
+<img src="slide12.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Method Calls Become Indexed Offsets</h1>
+<P>
+Each object maintains a pointer to a table, called the <EM>virtual method
+table</EM>.
+<P>
+Virtual methods are identified by a fixed address in this table.
+
+<P>
+A method call, such as
+<pre>
+A.foo(B, C)
+</pre>
+<P>
+is translated into
+<pre>
+(* A.virTable[idx])(A, B, C)
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Building A Virtual Table for a Subclass</h1>
+<P>
+When a subclass is created, a new virtual method table is generated.
+<P><UL>
+<LI>
+Methods that are inherited point to the same function as the parent class.
+(and are found in the same offset in the virtual method table).
+<p>
+<LI>
+Methods that are overridden occupy the same offset location, but 
+point to the new function, instead of the version in the parent class.
+</UL>
+<p>
+<img src="slide14.png">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>Virtual method Table for Subclasses</h1>
+<img src="slide15.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>Elimination of Virtual Calls</h1>
+Even though the overhead of a virtual call is small, it can still add up.
+<p>
+If the (dynamic) class of the receiver is know, a virtual call can simply
+become an ordinary procedure call
+<p>
+Good optimizing compiles spend a considerable amount of time tracing possible
+execution flows to gather this information.
+<p>
+Sometimes methods can even be expanded in-line at the point of call.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 16</h6>
+<hr>
+</body>
+<p>
+<h1>Dispatch Tables</h1>
+<P>
+In languages without static typing it is not practical to use a virtual table,
+since such a table would need to encode <EM>all</EM> methods, not simply those
+in a given class hierarchy.
+<P>
+An alternative technique uses a pointer to a list of selector/method pairs.
+<P>
+When a method is invoked, a run-time search is performed to match the method
+being called with the list of known selectors, until an appropriate method
+is found.
+
+<P>
+In Objective-C the messages
+<pre>
+[ neighbor checkrow: row column: column ]
+</pre>
+<P>
+is translated into
+<pre>
+objc_msgSend(neighbor, "checkrow:column:", row, column)
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>An Object and Its Dispatch Table</h1>
+<img src="slide18.gif">
+<br>
+An important difference is that the dispatch table is searched at run-time,
+not at compile time.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 18</h6>
+<br>
+Objective-C uses a linear list for the table, Smalltalk generally uses
+a balanced search tree, but the idea is similar.
+<hr>
+</body>
+<p>
+<h1>Method Cache</h1>
+<P>
+In order to avoid the cost of a dynamic search of dispatch tables, a single
+global <EM>cache</EM> can be used to hold frequently invoked methods.
+<P>
+The cache is used as a large hash table.
+<P>
+Prior to searching a dispatch table, the a single hashed entry is examined -
+if it matches the selector being sought, the method is used, if not the
+dispatch table is searched and the new entry replaces the value in the
+hash table.
+<P>
+Assuming a good hash function is used, efficiency can be very high.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 19</h6>
+<hr>
+</body>
+<p>
+<h1>The Messaging Function checking the Cache</h1>
+<img src="slide20.gif">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 20</h6>
+<hr>
+</body>
+<p>
+<h1>Bytecode Interpreters</h1>
+An implementation technique that is widely used (Smalltalk, Java)
+<ul>
+<li>Program is compiled into an ``assembly language'' for an imaginary machine.
+<p><li>Since this assembly code is often represented by a string of bytes,
+it is called bytecode.
+<p><li>Since the machine is imaginary, can run on any platform.
+<p><li>But it must be simulated (by a virtual machine) and hence you pay an
+execution time cost.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 21</h6>
+<hr>
+</body>
+<p>
+<h1>Bytecodes in the Little Smalltalk System</h1>
+<img src="slide22.png">
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 22</h6>
+<hr>
+</body>
+<p>
+<h1>Just In Time Compilers</h1>
+A currently popular mix between compilers and interpreters.
+<p>
+Key idea, first time a method is executed, translate the bytecode into
+native machine code.
+<p>
+Gives fast execution time, pay penalty for translation (and analysis if you
+want to do a good job).
+<p>
+Currently very popular with Java systems.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 23</h6>
+<hr>
+</body>
+</body>
+</html>

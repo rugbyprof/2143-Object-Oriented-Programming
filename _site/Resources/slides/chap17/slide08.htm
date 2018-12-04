@@ -1,0 +1,32 @@
+<html>
+<head><title>Chapter 17, Slide 08</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 17: The Polymorphic Variable :
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap17/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<p>
+<h1>Pure Polymorphism</h1>
+<font size=+2>
+A <i>polymorphic method</i> (also called <i>pure polymorphism</i>)
+occurs when a polymorphic variable is used as an argument.
+Different effects are formed by using different types of value.
+<pre>
+class StringBuffer {
+	String append (Object value)
+		{ return append(value.toString()); }
+	...
+}
+</pre>
+Different objects implement toString differently, so the effects will
+vary depending upon the argument.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 17</a>, Slide 08</h6>
+<hr>
+</body>
+</html>

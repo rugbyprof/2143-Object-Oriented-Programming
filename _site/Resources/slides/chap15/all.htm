@@ -1,0 +1,355 @@
+<html>
+<head><title>Chapter 15, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 15</h1>
+<h1 ALIGN=center>Overloading </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap </a>
+<li><a href="slide02.htm"> Definition of Overloading </a>
+<li><a href="slide03.htm"> Overloading Based on Scopes </a>
+<ol>
+<li><a href="slide04.htm"> Florist Example from Chapter 1 </a>
+<li><a href="slide05.htm"> Resolving Overloaded Names </a>
+</ol>
+<li><a href="slide06.htm"> Overloading Based on type Signatures </a>
+<ol>
+<li><a href="slide07.htm"> Resolution Performed at Compile Time </a>
+<li><a href="slide08.htm"> Stream Output in C++ </a>
+<li><a href="slide09.htm"> Easy to Extend </a>
+<li><a href="slide10.htm"> Conversion and Coercison </a>
+</ol>
+<li><a href="slide11.htm"> Redefinitions </a>
+<ol>
+<li><a href="slide12.htm"> Example Illustrating Redefinition Models </a>
+</ol>
+<li><a href="slide13.htm"> Optional Parameters </a>
+<ol>
+<li><a href="slide14.htm"> Arbitrary Number of Arguments in C# </a>
+</ol>
+<li><a href="slide15.htm"> Chapter Summary </a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+In this chapter we will investigate the idea of overloading.
+<ul>
+<li>Overloading based on scopes
+<p><li>Overloading based on type signatures
+<p><li>Coercison, Conversion and Casts
+<p><li>Redefinition
+<p><li>Polyadicity
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>A Definition of Overloading</h1>
+We say a term is <i>overloaded</i> if it has two or more meanings.
+<p>
+Most words in natural languages are overloaded, and confusion is resolved
+by means of context.
+<p>
+Same is true of OO languages.  There are two important classes of context
+that are used to resolve overloaded names
+<ul>
+<li>Overloading based on Scopes
+<p><li>Overloading based on Type Signatures
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Overloading Based on Scopes</h1>
+A <i>name scope</i> defines the portion of a program in which a name can
+be used, or the way it can be used.  Scopes are introduced using
+lots of different mechanisms:
+<ul>
+<li>Classes or interfaces
+<p><li>Packages or Units
+<p><li>Procedures or Functions
+<p><li>in some languages, even Blocks
+</ul>
+An advantage of scopes is that the same name can appear in two or more
+scopes with no ambiguity.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>Florist Example from Chapter 1</h1>
+<pre>
+Procedure Friend.sendFlowersTo (anAddress : address);
+begin
+	go to florist;
+	give florist message sendFlowersTo(anAddress);
+end;
+
+Procedure Florist.sendFlowersTo (anAddress : address);
+begin
+	if address is nearby then
+		make up flower arrangement
+		tell delivery person sendFlowersTo(anAddress);
+	else
+		look up florist near anAddress
+		phone florist
+		give florist message sendFlowersTo(anAddress)
+end;
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Resolving Overloaded Names</h1>
+This type of overloading is resolved by looking at the type of the
+receiver.
+<p>
+Allows the same name to be used in unrelated classes.
+<p>
+Since names need not be distinct, 
+allows short, easy to remember, meaningful names.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Overloading Based on Type Signatures</h1>
+A different type of overloading allows multiple implementations in the
+same scope to be resolved using type signatures.
+<pre>
+class Example {
+		// same name, three different methods
+	int sum (int a) { return a; }
+	int sum (int a, int b) { return a + b; }
+	int sum (int a, int b, int c) { return a + b + c; }
+}
+</pre>
+A type signature is the combination of argument types and return type.
+By looking at the signature of a call, can tell which version is intended.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Resolution Performed at Compile Time</h1>
+Note that resolution is almost always performed at compile time,
+based on static types, and not dynamic values.
+<pre>
+class Parent { ... };
+
+class Child : public Parent { ... };
+
+void Test(Parent * p) { cout << "in parent" << endl; }
+void Test(Child * c) { cout << "in child" << endl }
+
+	Parent * value = new Child();
+
+	Test(value); 
+</pre>
+Example will, perhaps surprizingly, execute parent function.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Stream Output in C++</h1>
+Stream output in C++ is a good example of the power of overloading.
+Every primitive type has a different stream output function.
+<pre>
+	ostream & operator << (ostream & destination, int source);
+	ostream & operator << (ostream & destination, short source);
+	ostream & operator << (ostream & destination, long source);
+	ostream & operator << (ostream & destination, char source);
+	ostream & operator << (ostream & destination, char *  source);
+	// ... and so on
+
+	double d = 3.14;
+	cout << "The answer is " << d << '\n';
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Easy to Extend</h1>
+Since output uses overloading, it is very easy to extend to new types.
+<pre>
+class Fraction {
+public:
+	Fraction (int top, int bottom) { t = top; b = bottom; }
+
+	int numerator() { return t; }
+	int denominator() { return b; }
+
+private:
+	int t, b;
+};
+
+ostream & operator << (ostream & destination, Fraction & source)
+{
+	destination << source.numerator() << "/" << source.denominator();
+	return destination;
+}
+
+Fraction f(3, 4);
+cout << "The value of f is " << f << '\n';
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 09</h6>
+<hr>
+</body>
+
+<p>
+<h1>Conversion and Coercisons</h1>
+When one adds conversions into the mix, resolving overloaded function or method
+calls can get very complex.  Many different types of conversions:
+<ul>
+<li>Implicit value changing conversion (such as integer to real)
+<p><li>Implicit conversion that does not change value
+(pointer to child class converted into pointer to parent)
+<p><li>Explicit conversions (casts)
+<p><li>Conversion operators (C++ and the like)
+</ul>
+See text for illustration of the complex rules.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>Redefinitions</h1>
+A <i>redefinition</i> occurs when a child class changes the type
+signature of a method in the parent class.
+<br>
+Two different types of rules are used to resolve name:
+<ul>
+<li>
+The <i>merge</i> model.  The scope of the child is merged with the scope
+of the parent.
+<p><li>The <i>hierarchical</i> model.  Scopes are separate.  Search is
+made for first scope containing name, then for best fit within the scope.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Example Illustrating Redefinition Models</h1>
+The following example will illustrate the difference in these two models.
+<pre>
+class Parent {
+	public void example (int a) 
+		{ System.out.println("in parent method"); }
+}
+
+class Child extends Parent {
+	public void example (int a, int b)
+		{ System.out.println("in child method"); }
+}
+
+	Child aChild = new Child();
+	aChild.example(3);
+</pre>
+Will execute parent method in Java and C# 
+(Merge model) and give error in C++
+(hierarchical model).  Delphi allows programmer control over this.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Optional Parameters</h1>
+Some languages allow the programmer to create optional parameters, usually
+only at the end of the parameter list:
+<pre>
+function Count (A, B : Integer; C : Integer = 0; D : Integer = 0);
+begin
+		(* Result is a pseudo-variable used *)
+		(* to represent result of any function *)
+	Result := A + B + C + D;
+end
+
+begin
+	Writeln (Count(2, 3, 4, 5)); // can use four arguments
+	Writeln (Count(2, 3, 4)); // or three
+	Writeln (Count(2, 3)); // or two
+end
+</pre>
+Such a program will have more than one type signature.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Arbitrary Number of Arguments in C#</h1>
+The language C# has an interesting way to include arbitrary number of
+arguments:
+</font>
+<table><tr><td><pre>
+class ParamsExample {
+	public void Write (int x) {
+		// use this with one argument
+		WriteString("Example one "); 
+		WriteString(x.ToString());
+	}
+
+	public void Write (double x, int y) {
+		// use this with two arguments
+		WriteString("Example two ");
+		WriteString(x.ToString()); 
+		WriteString(y.ToString());
+	}
+
+	public void Write (params object [ ] args) {
+		// use this with any other combination 
+		WriteString("Example three ");
+		for (int i = 0; i < args.GetLength(0); i++)
+			WriteString(args[i].ToString());
+	}
+}
+</font>
+</pre><td><pre>
+	ParamsExample p;
+	p.Write(42);
+Example one 42
+	p.Write(3.14,159);
+Example two 3.14159
+	p.Write(1,2,3,4);
+Example three 1234
+	p.Write(3.14);
+Example three 3.14
+	p.Write(3,"abc");
+Example three 3abc
+</font>
+</pre></table>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 14</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+In this chapter we have looked at various aspects of overloading
+<ul>
+<li>Overloading based on Scopes
+<p><li>Overloading based on Type Signatures
+<p><li>Redefinition
+<p><li>Polyadicity (functions with variable number of arguments).
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 15</a>, Slide 15</h6>
+<hr>
+</body>
+</body>
+</html>

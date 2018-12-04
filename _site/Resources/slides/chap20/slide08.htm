@@ -1,0 +1,33 @@
+<html>
+<head><title>Chapter 20, Slide 08</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 20: The STL :
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide08.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap20/slide08.ram">real</a>
+<td bgcolor=#FCCF97><a href="text08.htm" target=text>text</a>
+</table>
+<p>
+<h1>Function Objects</h1>
+<font size=+2>
+<P>
+In C++ even the function call operator (parenthesis operator) can be 
+overloaded.  Allows for creation of objects that can be used like
+functions.
+<pre>
+class biggerThanThree {
+	public:
+		bool operator () (int v)
+			{ return v > 3; }
+};
+</pre>
+<P>
+Can be used to find the first value bigger than 3, for example.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 08</h6>
+<hr>
+</body>
+</html>

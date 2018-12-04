@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "__locale": "cpp",
+        "algorithm": "cpp",
+        "chrono": "cpp",
+        "limits": "cpp",
+        "ratio": "cpp"
+    }
+}

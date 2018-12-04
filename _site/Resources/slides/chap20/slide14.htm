@@ -1,0 +1,33 @@
+<html>
+<head><title>Chapter 20, Slide 14</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 20: The STL :
+<td bgcolor=#FCCF97><a href="slide15.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide13.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide14.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap20/slide14.ram">real</a>
+<td bgcolor=#FCCF97><a href="text14.htm" target=text>text</a>
+</table>
+<p>
+<h1>Function Objects</h1>
+<font size=+2>
+<P>
+Created like an instance of a class, works like a function.
+<pre>
+class WidgetTester {
+public:
+	WidgetTester (int id) : test_id(id) { }
+	int test_id;
+
+		// define the function call operator
+	bool operator () (Widget & wid)
+		{ return wid.id() == test_id; }
+};
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 20</a>, Slide 14</h6>
+<hr>
+</body>
+</html>

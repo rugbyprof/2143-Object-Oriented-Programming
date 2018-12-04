@@ -1,0 +1,42 @@
+<html>
+<head><title>Chapter 4, Slide 24</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 4: Classes and Methods:
+<td bgcolor=#FCCF97><a href="slide25.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide23.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide24.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap03/slide24.ram">real</a>
+<td bgcolor=#FCCF97><a href="text24.htm" target=text>text</a>
+</table>
+<p>
+<h1>Separation of Definition and Implementation</h1>
+<font size=+2>
+In some languages (such as C++ or Object Pascal) the definition of a 
+method can be separated from its implementation.  They may even be in a
+different file:
+<pre>
+
+class PlayingCard {
+public:
+	...
+	Colors  color     () ;
+	...
+};
+
+PlayingCard::Colors PlayingCard::color ( ) 
+{		
+		// return the face color of a playing card
+	if ((suit == Diamond) || (suit == Heart))
+		return Red;
+	return Black;
+}
+
+</pre>
+Notice need for fully-qualified names.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 24</h6>
+<hr>
+</body>
+</html>

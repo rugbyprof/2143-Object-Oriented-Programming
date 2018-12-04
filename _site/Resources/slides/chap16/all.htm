@@ -1,0 +1,574 @@
+<html>
+<head><title>Chapter 16, Outline</title></head>
+<body >
+<h1 ALIGN=center>Introduction to Object Oriented Programming, 3rd Ed</h1>
+<h2 ALIGN=center><a href="http://www.cs.orst.edu/~budd/">Timothy A. Budd</a></h2>
+<h1 ALIGN=center>Chapter 16</h1>
+<h1 ALIGN=center>Overriding </h1>
+<p>
+<b>Outline</b>
+<ol>
+<li><a href="slide01.htm"> Roadmap </a>
+<li><a href="slide02.htm"> Difference from Overloading </a>
+<li><a href="slide03.htm"> Overriding  Comparison in Smalltalk </a>
+<ol>
+<li><a href="slide04.htm"> Subclasses of Magnitude in Little Smalltalk </a>
+<li><a href="slide05.htm"> Overridden Relationals </a>
+</ol>
+<li><a href="slide06.htm"> Notating Overriding </a>
+<li><a href="slide07.htm"> Replacement and Refinement </a>
+<ol>
+<li><a href="slide08.htm"> Reasons to use Replacement </a>
+<ol>
+<li><a href="slide09.htm"> Overriding a Default Method </a>
+<li><a href="slide10.htm"> Overriding for Optimization </a>
+<ol>
+<li><a href="slide11.htm"> More Efficient Versions in class True </a>
+</ol>
+<li><a href="slide12.htm"> Downside of Replacement </a>
+</ol>
+<li><a href="slide13.htm"> Refinement in Beta </a>
+<ol>
+<li><a href="slide14.htm"> Example, Print Anchors </a>
+<li><a href="slide15.htm"> Making Child Classes </a>
+</ol>
+<li><a href="slide16.htm"> Simulating Refinement with Replacement </a>
+<li><a href="slide17.htm"> Constructors use Refinement </a>
+</ol>
+<li><a href="slide18.htm"> Overridng versus Shadowing </a>
+<ol>
+<li><a href="slide19.htm"> Shadowing of Instance Variables in Java </a>
+<li><a href="slide20.htm"> Shadowing Methods </a>
+<li><a href="slide21.htm"> Overriding, Shadowing and Redefinition </a>
+</ol>
+<li><a href="slide22.htm"> Covariance and Contravariance </a>
+<ol>
+<li><a href="slide23.htm"> Contravariant Return Types </a>
+<li><a href="slide24.htm"> A Safe Variance Change </a>
+</ol>
+<li><a href="slide25.htm"> Chapter Summary </a>
+</ol>
+<p><b>Other Material</b>
+<ul>
+<li>A printer friendly version of <a href="all.htm">all slides</a>
+</ul>
+
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Outline</h6>
+<hr>
+
+
+<p>
+<h1>Roadmap</h1>
+A method in a child class <i>overrides</i> a method in the parent class
+if it has the name name and type signature.
+<br>
+In this chapter we will investigate some of the issues that arise from the
+use of overriding.
+<ul>
+<li>Difference from Overloading
+<p><li>Notations
+<p><li>Replacement and Refinement
+<p><li>Shadowing
+<p><li>Covariance and Contravariance
+</ul>
+
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 01</h6>
+<hr>
+</body>
+<p>
+<h1>Difference from Overloading</h1>
+Like overloading, there are two distinct methods with the same name.
+But there are differences:
+<ul>
+<li>Overriding only occurs in the context of the parent/child relationship
+<p><li>The type signatures must match
+<p><li>Overridden methods are sometimes combined together
+<p><li>Overriding is resolved at run-time, not at compile time.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 02</h6>
+<hr>
+</body>
+<p>
+<h1>Overriding Comparisons in Smalltalk</h1>
+An interesting example of overriding in found in class Magnitude in Smalltalk.
+<pre>
+<= arg
+	^ self < arg or: [ self = arg ]
+
+>= arg
+	^ arg <= self
+
+< arg
+	^ self <= arg and: [ self ~= arg ]
+
+> arg
+	^ arg < self
+</pre>
+Notice how these definitions are circular.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 03</h6>
+<hr>
+</body>
+<p>
+<h1>Subclasses of Magnitude in Little Smalltalk</h1>
+<IMG SRC="slide04.gif" height=300 width=500>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 04</h6>
+<hr>
+</body>
+<p>
+<h1>Overridden Relationals</h1>
+<P>
+Child classes need only override <EM>one</EM> method (for example &lt;) to
+get effect of all relationals.
+<P><UL>
+<LI>
+Overridden in class Integer to mean integer less than.
+<p>
+<LI>
+Overridden in class Char to be ascii ordering sequence.
+<p>
+<LI>
+Overridden in class String to mean lexicalgraphic ordering.
+<p>
+<LI>
+Overridden in class Point to mean lower-left quadrant.
+</UL>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 05</h6>
+<hr>
+</body>
+<p>
+<h1>Notating Overriding</h1>
+In some languages (Smalltalk, Java) overriding occurs automatically when
+a child class redefines a method with the same name and type signature.
+<p>
+In some languages (C++) overriding will only occur if the parent class
+has declared the method in some special way (example, keyword <b>virtual</b>).
+<p>
+In some languages (Object Pascal) overriding will only occur if the child
+class declares the method in some special way (example, keyword <b>override</b>).
+<p>
+In some languages (C#, Delphi) overriding will only occur if both the
+parent and the child class declare the method in some special way.
+<pre>
+class Parent {   // C# example
+   public virtual int example (int a) { ... }
+}
+class Child : Parent {
+   public override int example (int a) { ... }
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 06</h6>
+<hr>
+</body>
+<p>
+<h1>Replacement and Refinement</h1>
+There are actually two different ways that overriding can be handled:
+<ul>
+<li>A <i>replacement</i> totally and completely replaces the code in the
+parent class the code in the child class.
+<p><li>A <i>refinement</i> executes the code in the parent class, and
+adds to it the code in the child class.
+</ul>
+Most languages use both types of semantics in different situations.
+Constructors, for example, almost always use refinement.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 07</h6>
+<hr>
+</body>
+<p>
+<h1>Reasons to use Replacement</h1>
+There are a number of reasons to use replacement of methods.
+<ul>
+<li>The method in the parent class is abstract, it must be replaced.
+<p><li>The method in the parent class is a default method, not appropriate for
+all situations.
+<p><li>The method in the parent can be more efficiently executed in the child.
+</ul>
+We will give examples of the latter two.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 08</h6>
+<hr>
+</body>
+<p>
+<h1>Overriding a Default Method</h1>
+We saw one example of overriding a default method in the solitare game.
+Here is another from Smalltalk.  Class Number has child classes Integer,
+Fraction and Float.  Method <sqrt> in class Number is defined as follows:
+<pre>
+"class Number"
+	sqrt
+		^ self asFloat sqrt
+</pre>
+The method in class Float clearly must perform something different, in
+this case actually computing the square root.  The parent class has
+a method that will work in most, but not all, child classes.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 09</h6>
+<hr>
+</body>
+<p>
+<h1>Overriding for Optimization</h1>
+Here is an example where a child class can do the same action more
+efficiently than the parent class.  Class Boolean has child classes
+True and False, and defines the following methods:
+<pre>
+"class Boolean"
+
+	& right
+		self ifTrue: [ right ifTrue: [ ^ true ] ].
+		^ false
+
+	| right
+		self ifTrue: [ ^ true ].
+		right ifTrue: [ ^ true ].
+		^ false
+</pre>
+These very general algorithms will work for either true or false values.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 10</h6>
+<hr>
+</body>
+<p>
+<h1>More Efficient Versions in class True</h1>
+In class True we know the left argument is true, and therefore can make
+more efficient algorithms.
+<pre>
+" class True "
+
+	& right
+		^ right
+
+	| right
+		^ true
+</pre>
+Similar code in class False.  These are faster than the code in the
+parent class, but have the same effect.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 11</h6>
+<hr>
+</body>
+<p>
+<h1>Downside of Replacement</h1>
+The down side of replacement semantics is that there is no guarantee
+that the child class will have any meaning at all similar to the
+parent class.
+<p>
+For example, a child class could redefine <b>sqrt</b> to compute
+the cube root of its argument.
+<p>
+This goes back to the difference between subclasses and subtypes.
+<p>
+A refinement makes this more difficult to do, since whatever the parent
+does is guaranteed to be part of the child.  This is why most languages
+use refinement semantics for constructors.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 12</h6>
+<hr>
+</body>
+<p>
+<h1>Refinement in Beta</h1>
+Beta is interesting in that it always uses refinement.
+<p>
+The parent method is always executed first.
+If it executes the special statement
+<pre>
+	inner;
+</pre>
+then, at that point the child method is executed.  The child class can
+in turn do an inner, and so on arbitrarily.
+<p>
+If a class has no child, then an inner statement has no effect.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 13</h6>
+<hr>
+</body>
+<p>
+<h1>Example, Print Anchors</h1>
+Here is an example, printing html anchor tags.
+<pre>
+class Anchor {
+	public void printAnchor () {
+		print('&lt;A href="http:');
+		inner;
+		print('">');
+	}
+}
+</pre>
+If we create an instance and class printAnchor, the output we expect will
+be produced.
+<pre>
+	Anchor a = new Anchor();
+	a.printAnchor();
+
+&lt;A href="http:">
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 14</h6>
+<br>
+Note, I have translates these into a pseudo-code, rather than true Beta
+syntax, so as to bring out the important points and not spend a lot
+of time discussing minor syntactic issues.
+<hr>
+</body>
+<p>
+<h1>Making Child Classes</h1>
+We can create child classes to any level:
+<pre>
+class OSUAnchor extends Anchor {
+	public void printAnchor () {
+		print('//www.cs.orst.edu/');
+		inner;
+	}
+}
+
+class BuddAnchor extends OSUAnchor {
+	public void printAnchor () {
+		print('~budd/');
+		inner;
+	}
+}
+
+	Anchor anAnchor = new BuddAnchor();
+	anAchor.printAnchor();
+&lt;A href=http:"//www.cs.orst.edu/~budd/">
+</pre>
+Trace carefully the flow of control, and see how it differs from
+replacement.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 15</h6>
+<hr>
+</body>
+<p>
+<h1>Simulating Refinement with Replacement</h1>
+In most languages the most important features of a refinement can
+be simulated, even if the language uses replacement.
+<pre>
+void Parent::example (int a) {
+    cout << "in parent code\n";
+}
+
+void Child::example (int a) {
+    Parent::example(12); // do parent code
+    cout << "in child code\n"; // then child code
+}
+</pre>
+Note that this is not quite the same as Beta, as here the child wraps
+around the parent, while in Beta the parent wraps around the child.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 16</h6>
+<hr>
+</body>
+<p>
+<h1>Constructors use Refinement</h1>
+In most languages that have constructors, a constructor will 
+always use refinement.
+<p>
+This guarantees that whatever initialization the parent class
+performs will always be included as part of the initialization of
+the child class.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 17</h6>
+<hr>
+</body>
+<p>
+<h1>Overriding versus Shadowing</h1>
+It is common in programming languages for one declaration of a variable
+to shadow a previous variable of the same name:
+<pre>
+class Silly {
+	private int x; // an instance variable named x
+
+	public void example (int x) { // x shadows instance variable
+		int a = x+1;
+		while (a > 3) {
+			int x = 1; // local variable shadows parameter
+			a = a - x;
+		}
+	}
+}
+</pre>
+Shadowing can be resolved at compile time, does not require any run-time search.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 18</h6>
+<hr>
+</body>
+<p>
+<h1>Shadowing of Instance Variables in Java</h1>
+Java allows instance variables to be redefined, and uses shadowing.
+<pre>
+class Parent {
+	public int x = 12;
+}
+
+class Child extend Parent {
+	public int x = 42; // shadows variable from parent class
+}
+
+	Parent p = new Parent();
+	System.out.println(p.x);
+12
+	Child c = new Child();
+	System.out.println(c.x);
+42
+	p = c; // be careful here!
+	System.out.println(p.x);
+12
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 19</h6>
+<hr>
+</body>
+<p>
+<h1>Shadowing Methods</h1>
+Many of those languages that require the virtual keyword in the parent class
+will use shadowing if it is omitted:
+<pre>
+class Parent {
+public: 	// note, no virtual keyword here
+	void example () { cout << "Parent" << endl; }
+};
+
+class Child : public Parent {
+public:
+	void example () { cout << "Child" << endl; }
+};
+
+	Parent * p = new Parent();
+	p->example()
+Parent
+	Child * c = new Child();
+	c->example()
+Child
+	p = c; // be careful here!
+	p->example()
+Parent
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 20</h6>
+<hr>
+</body>
+<p>
+<h1>Overriding, Shadowing and Redefinition</h1>
+<table border=3>
+<tr><td>
+Overriding
+</font>
+<td>
+The type signatures are the same in both parent and child classes,
+<br>and the method is declared as <b>virtual</b> in the parent class.
+</font>
+<tr><td>
+Shadowing
+</font>
+<td>
+<p>
+The type signatures are the same in both parent and child classes,
+<br>but the method was not declared as virtual in the parent class.
+</font>
+<tr><td>
+Redefinition
+</font>
+<td>
+<p>
+The type signature in the child class differs 
+<br>from that given in the parent class.
+</font>
+</table>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 21</h6>
+<hr>
+</body>
+<p>
+<h1>Covariance and Contravariance</h1>
+Frequently it seems like it would be nice if when a method is
+overridden we could change the argument types or return types.
+A change that moves down the inheritance hierarchy, making it more
+specific, is said to be covariant.  A change that moves up the inheritance
+hierarchy is said to be contravariant.
+<pre>
+class Parent {
+	void test (covar : Mammal, contravar : Mammal) : boolean
+}
+
+class Child extends Parent {
+	void test (covar : Cat, contravar : Animal) : boolean
+}
+</pre>
+While appealing, this idea runs into trouble with the principle of
+substitution.
+<pre>
+	Parent aValue = new  Child();
+	aValue.text(new Dog(), new Mammal()); // is this legal??
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 22</h6>
+<hr>
+</body>
+<p>
+<h1>Contravariant Return Types</h1>
+To see how a contravariant change can get you into trouble, consider
+changing the return types:
+<pre>
+	class Parent {
+		Mammal test ( ) {
+			return new Cat();
+		}
+	}
+
+	class  Child extends Parent {
+		Animal test () {
+			return new Bird();
+		}
+	}
+
+	Parent aParent = new Child();
+	Mammal result = aValue.test(); // is this legal?
+</pre>
+Most languages subscribe to the novariance rule: no change in type signatures.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 23</h6>
+<hr>
+</body>
+<p>
+<h1>A Safe Variance Change</h1>
+C++ allows the following type of change in signature:
+<pre>
+class Parent {
+public:
+	Parent * clone () { return new Parent(); }
+};
+
+class Child : public Parent {
+public:
+	Child * clone () { return new Child(); }
+};
+</pre>
+No type errors can result from this change.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 24</h6>
+<hr>
+</body>
+<p>
+<h1>Chapter Summary</h1>
+<ul>
+<li>An override occurs when a method in the child classes uses the same
+name and type signature as a method in the parent class.
+<p><li>Unlike overloading, overriding is resolved at run-time.
+<p><li>There are two possible means for an overriding, replacement and
+refinement.
+<p><li>A name can shadow another name.  Some languages permit both shadowing
+and overriding.  Shadowing is resolved at compile time.
+<p><li>A change in the type signature can be covariant or contravariant,
+if it moves down or up the type hierarchy.
+The semantics of both types of change can be subtle.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 25</h6>
+<hr>
+</body>
+</body>
+</html>

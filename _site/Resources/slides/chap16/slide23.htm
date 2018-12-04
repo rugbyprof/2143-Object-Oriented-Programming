@@ -1,0 +1,39 @@
+<html>
+<head><title>Chapter 16, Slide 23</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 16: Overriding :
+<td bgcolor=#FCCF97><a href="slide24.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide22.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide23.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap16/slide23.ram">real</a>
+<td bgcolor=#FCCF97><a href="text23.htm" target=text>text</a>
+</table>
+<p>
+<h1>Contravariant Return Types</h1>
+<font size=+2>
+To see how a contravariant change can get you into trouble, consider
+changing the return types:
+<pre>
+	class Parent {
+		Mammal test ( ) {
+			return new Cat();
+		}
+	}
+
+	class  Child extends Parent {
+		Animal test () {
+			return new Bird();
+		}
+	}
+
+	Parent aParent = new Child();
+	Mammal result = aValue.test(); // is this legal?
+</pre>
+Most languages subscribe to the novariance rule: no change in type signatures.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 16</a>, Slide 23</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head><title>Chapter 27, Slide 13</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 27: Implementation :
+<td bgcolor=#FCCF97><a href="slide14.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide12.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide13.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap27/slide13.ram">real</a>
+<td bgcolor=#FCCF97><a href="text13.htm" target=text>text</a>
+</table>
+<p>
+<h1>Method Calls Become Indexed Offsets</h1>
+<font size=+2>
+<P>
+Each object maintains a pointer to a table, called the <EM>virtual method
+table</EM>.
+<P>
+Virtual methods are identified by a fixed address in this table.
+
+<P>
+A method call, such as
+<pre>
+A.foo(B, C)
+</pre>
+<P>
+is translated into
+<pre>
+(* A.virTable[idx])(A, B, C)
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 27</a>, Slide 13</h6>
+<hr>
+</body>
+</html>

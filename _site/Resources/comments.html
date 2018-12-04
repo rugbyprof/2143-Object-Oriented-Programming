@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>2143-Object-Oriented-Programming | Object Oriented Programming in C++</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="2143-Object-Oriented-Programming" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Object Oriented Programming in C++" />
+<meta property="og:description" content="Object Oriented Programming in C++" />
+<link rel="canonical" href="http://localhost:4000/Resources/comments.html" />
+<meta property="og:url" content="http://localhost:4000/Resources/comments.html" />
+<meta property="og:site_name" content="2143-Object-Oriented-Programming" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Resources/comments.html","headline":"2143-Object-Oriented-Programming","description":"Object Oriented Programming in C++","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ad139bb13b0fb0aa2244a2b1ddeb5e3cc5a2677a">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">2143-Object-Oriented-Programming</a></h1>
+      
+
+      <p>How To Document and Organize Your C++ Code
+ ==========================================</p>
+
+<p>### On This Page</p>
+
+<ul>
+  <li><a href="#ovw">1. Introduction</a></li>
+  <li><a href="#naming">2. Naming Conventions</a></li>
+  <li><a href="#comment">3. Comments</a>
+    <ul>
+      <li><a href="#blockcomment">3.1. Block Comments</a></li>
+      <li><a href="#filecomment">3.2. File Comment Block</a></li>
+      <li><a href="#functioncomment">3.3. Function Comment Block</a></li>
+      <li><a href="#docexample">3.4. Example Program Documentation</a></li>
+    </ul>
+  </li>
+  <li><a href="#curlybrace">4. Curly Braces</a></li>
+  <li><a href="#whitespace">5. Whitespace</a></li>
+  <li><a href="#constants">6. Constants</a></li>
+  <li><a href="#globalvars">7. No global variables</a></li>
+</ul>
+
+<hr />
+
+<h3 id="introduction">Introduction</h3>
+<hr />
+
+<p>Programming style is about how you organize and document your code. Style is more than a matter of aesthetic interest. A program written following a consistent style is easier to read, easier to correct and easier to maintain.</p>
+
+<p>A program may be written only once, but is read many times:</p>
+
+<ul>
+  <li>During debugging</li>
+  <li>When adding to the program</li>
+  <li>When updating the program</li>
+  <li>When trying to understand the program</li>
+</ul>
+
+<p>Anything that makes a program more readable and understandable saves lots of time, even in the short run.</p>
+
+<p>Most programmers agree that coding standards are important. The problem is that there is no single standard for C++. As a professional programmer, you must be prepared to adapt your style to the standards of your company or project.</p>
+
+<p>This course follows often-used industry coding standards. Some portion of the grade for most programming assignments is based on your coding style and how well it conforms to this document.</p>
+
+<p>### 2. Naming Conventions</p>
+
+<p>#### 2.1. Use Meaningful Names</p>
+
+<p>Choose names that suggest their purpose. Good names help you understand the problem you are solving.</p>
+
+<p>#### 2.2. Variable Names</p>
+
+<p>There are two commonly-used styles you may use. However, you must be consistent and only use one of them in a program. The instructor’s preference is the first style.</p>
+
+<ol>
+  <li>
+    <p>Start with a lower-case letter and use uppercase letters as separators. Do not use underbars ( <code class="highlighter-rouge">'_'</code>).</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">myVar</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Use all lower case letters and use underbars ( <code class="highlighter-rouge">'_'</code>) as separators.</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">my_var</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>#### 2.3. Constant Names</p>
+
+<p>Use all capital letters and use underbars ( <code class="highlighter-rouge">'_'</code>) as separators.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">const</span> <span class="kt">int</span> <span class="n">MY_CONST</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>#### 2.4. Function Names</p>
+
+<p>There are two commonly-used styles you may use. However, you must be consistent and only use one of them in a program. The instructor’s preference is the first style.</p>
+
+<ol>
+  <li>
+    <p>Start with a lower-case letter and use uppercase letters as separators. Do not use underbars ( <code class="highlighter-rouge">'_'</code>).</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">myFunction</span><span class="p">()</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Use all lower case letters and use underbars ( <code class="highlighter-rouge">'_'</code>) as separators.</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">my_function</span><span class="p">()</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>#### 2.5. Class Names</p>
+
+<p>Start with an upper-case letter and use uppercase letters as separators. Do not use underbars ( <code class="highlighter-rouge">'_'</code>).</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">class</span> <span class="nc">MyClassName</span>
+</code></pre></div></div>
+
+<p>### 3. Comments</p>
+
+<p>Comments are explanatory notes for the humans reading a program. With good name choices, comments can be minimal in a program. The only required comments are block comments at the beginning of each file and before each function declaration. Block comments are described in the next section.</p>
+
+<p>One other time to add comments, other than block comments, is when your code is unusual or obscure. When something is important and not obvious, it merits a comment.</p>
+
+<p>#### 3.1. Block Comments</p>
+
+<p><a href="http://www.stack.nl/~dimitri/doxygen/index.html">Doxygen</a> is a tool that examines the declarations and documentation comments of your code to produce a set of HTML pages. Another tool is <a href="http://ccdoc.sourceforge.net/">Ccdoc</a>. The pages produced by these tools describe your code to other programmers. For an example of the documentation produced, see the <a href="http://ccdoc.sourceforge.net/htdocs/introduction/introduction.htm">Introduction</a> to CcDoc.</p>
+
+<p>The documentation comments are derived from block comments, which you create as follows:</p>
+
+<ul>
+  <li>Indent the first line to align with the code below the comment.</li>
+  <li>Start the comment with the begin-comment symbol ( <code class="highlighter-rouge">/**</code>) followed by a return.</li>
+  <li>Add a description of the purpose of the class or function.</li>
+  <li>Insert a blank comment line between the description and the list of tags, as shown.</li>
+  <li>Insert additional blank lines to create various tags.</li>
+  <li>The last line begins with the end-comment symbol ( <code class="highlighter-rouge">*/</code>) indented so the asterisks line up and followed by a return. Note that the end-comment symbol contains only a single asterisk.</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="cm">/**
+     *  Course: CMPS 2143 - OOP
+     *  Program: Program 2 or P02
+     *
+     *  Purpose: Calculate the total of 6 checks
+     * 
+     *  @author Ada Lovelace
+     *  @version 1.1 01/03/17
+     *  @github repo: https://github.com/your-repo-name
+     */</span>
+</code></pre></div></div>
+
+<ul>
+  <li>For more information on the tags, see the CcDoc <a href="http://ccdoc.sourceforge.net/htdocs/users_guide/users_guide.htm#directives">Directives</a>.</li>
+</ul>
+
+<p>#### 3.2. File Comment Block</p>
+
+<p>Every source file must have a comment block at the top containing the course number, assignment number, name of the file and purpose of the file. One or two lines is usually sufficient to explain the purpose. In addition, you must add the author tag containing your name and the version tag containing the date the assignment is due. For example:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="cm">/**
+     *  Course: CMPS 3013 - Algorithms
+     *  Assignment: P02
+     *  Purpose: Calculate the total of 6 checks
+     * 
+     *  @author Ada Lovelace
+     *  @version 1.1 01/03/17 
+     *  @github repo: https://github.com/your-repo-name
+     */</span>
+</code></pre></div></div>
+
+<p>The following tags always must be used:</p>
+
+<ul>
+  <li><a href="http://ccdoc.sourceforge.net/htdocs/users_guide/users_guide.htm#at_author">@author</a></li>
+  <li><a href="http://ccdoc.sourceforge.net/htdocs/users_guide/users_guide.htm#at_version">@version</a></li>
+</ul>
+
+<p>#### 3.3. Function Comment Block</p>
+
+<p>Every function must have a comment block before the function prototype declaration. For example:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cm">/**
+  *  Encodes a single digit of a POSTNET "A" bar code.
+  *
+  *  @param {int} digit the single digit to encode.
+  *  @return {string} a bar code of the digit using "|" as the long bar and "," as the half bar.
+  */</span>
+
+
+ <span class="n">string</span> <span class="n">encode</span><span class="p">(</span><span class="kt">int</span> <span class="n">digit</span><span class="p">);</span>
+</code></pre></div></div>
+<p>The first line is a description of how to use the function.</p>
+
+<p>Where appropriate, the following tags must be used:</p>
+
+<ul>
+  <li><a href="http://ccdoc.sourceforge.net/htdocs/users_guide/users_guide.htm#at_param">@param</a></li>
+  <li><a href="http://ccdoc.sourceforge.net/htdocs/users_guide/users_guide.htm#at_returns">@return</a></li>
+</ul>
+
+<p>#### 3.4. Example Program Documentation</p>
+
+<p>The following short program shows a brief example of properly-documented source code.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+*  Course: CMPS 3013 - Algorithms
+*  Assignment: P02
+*  Purpose: Calculate the total of 6 checks
+* 
+*  @author Ada Lovelace
+*  @version 1.1 01/03/17 
+*  @github repo: https://github.com/your-repo-name
+*/</span>
+
+
+ <span class="cp">#include &lt;iostream&gt;
+</span> 
+ <span class="cp">#include &lt;cmath&gt;
+</span> <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+ <span class="k">const</span> <span class="kt">double</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span><span class="p">;</span>
+ 
+<span class="cm">/**
+ *   Returns the area of a circle with the specified radius.
+ *
+ *   @param {double} radius : The radius of the circle.
+ *   @return {double} : The area of the circle.
+ */</span>
+ <span class="kt">double</span> <span class="n">area</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">);</span>
+ 
+<span class="cm">/**
+ *  Returns the volume of a sphere with the specified radius.
+ *
+ *  @param {double} radius : The radius of the circle.
+ *  @return {double} The volume of the sphere.
+ */</span>
+ <span class="kt">double</span> <span class="n">volume</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">);</span>
+ 
+ <span class="c1">// Controls operation of the program.
+</span> <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+     <span class="kt">double</span> <span class="n">radius_of_both</span><span class="p">,</span> <span class="n">area_of_circle</span><span class="p">,</span> <span class="n">volume_of_sphere</span><span class="p">;</span>
+ 
+     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a radius to use for both a circle</span><span class="se">\\</span><span class="s">n"</span>
+             <span class="o">&lt;&lt;</span> <span class="s">"and a sphere (in inches): "</span><span class="p">;</span>
+     <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">radius_of_both</span><span class="p">;</span>
+ 
+     <span class="n">area_of_circle</span> <span class="o">=</span> <span class="n">area</span><span class="p">(</span><span class="n">radius_of_both</span><span class="p">);</span>
+     <span class="n">volume_of_sphere</span> <span class="o">=</span> <span class="n">volume</span><span class="p">(</span><span class="n">radius_of_both</span><span class="p">);</span>
+ 
+     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Radius = "</span> <span class="o">&lt;&lt;</span> <span class="n">radius_of_both</span> <span class="o">&lt;&lt;</span> <span class="s">" inches</span><span class="se">\\</span><span class="s">n"</span>
+             <span class="o">&lt;&lt;</span> <span class="s">"Area of circle = "</span> <span class="o">&lt;&lt;</span> <span class="n">area_of_circle</span>
+             <span class="o">&lt;&lt;</span> <span class="s">" square inches</span><span class="se">\\</span><span class="s">n"</span>
+             <span class="o">&lt;&lt;</span> <span class="s">"Volume of sphere = "</span> <span class="o">&lt;&lt;</span> <span class="n">volume_of_sphere</span>
+             <span class="o">&lt;&lt;</span> <span class="s">" cubic inches</span><span class="se">\\</span><span class="s">n"</span><span class="p">;</span>
+ 
+     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+ <span class="p">}</span>
+ 
+ <span class="c1">// Returns the area of a circle with the specified radius.
+</span> <span class="kt">double</span> <span class="nf">area</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="p">(</span><span class="n">PI</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+ <span class="p">}</span>
+ 
+ <span class="c1">// Returns the volume of a sphere with the specified radius.
+</span> <span class="kt">double</span> <span class="nf">volume</span><span class="p">(</span><span class="kt">double</span> <span class="n">radius</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="p">((</span><span class="mf">4.0</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">pow</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+ <span class="p">}</span>
+ 
+</code></pre></div></div>
+
+<p>### 4. Curly Braces</p>
+
+<p>A fervent issue of great debate in programming circles is placement of curly braces. Either of the following two styles is acceptable in this course:</p>
+
+<ol>
+  <li>Place the initial brace on the same line as the keyword and the trailing brace inline on its own line with the keyword:
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+     
+<span class="k">while</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Place brace under and inline with keywords:</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+     
+<span class="k">while</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>The first style is traditional for Unix and C programmers and is the personal preference of the instructor and <a href="http://www.stroustrup.com/bs_faq2.html#layout-style">Bjarne Stroustrup</a>.</p>
+
+<p>#### 4.1. When Braces are Needed</p>
+
+<p>All <code class="highlighter-rouge">if</code>, <code class="highlighter-rouge">while</code> and <code class="highlighter-rouge">do</code> statements must either have braces or be on a single line. This helps to make sure someone adding a line of code does not forget to add braces.</p>
+
+<p>### 5. Whitespace</p>
+
+<p>Always layout your source code so that elements that are part of a group go together.</p>
+
+<p>#### 5.1. Line Length</p>
+
+<p>Limit your line lenght to about 80 characters since long lines make it difficult to read your program code, especially on smaller screens.</p>
+
+<p>#### 5.2. Spacing Around Operators</p>
+
+<p>Always put spaces before and after binary operators, including <code class="highlighter-rouge">&lt;&lt;</code> and <code class="highlighter-rouge">&gt;&gt;</code>. This improves the readability of expressions. For example:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>
+ <span class="kt">double</span> <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">42</span> <span class="o">-</span> <span class="n">d</span> <span class="o">/</span> <span class="mi">100</span><span class="p">;</span>
+ <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>#### 5.3. Indentation</p>
+
+<p>Always indent within curly braces. Use 3 or 4 spaces for each indentation level, but be consistent. For example:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kt">int</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{</span>
+     <span class="kt">int</span> <span class="n">dragons</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the number of dragons: "</span>
+     <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">dragons</span><span class="p">;</span>
+     <span class="k">while</span> <span class="p">(</span><span class="n">dragons</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">Dragon</span> <span class="n">d</span> <span class="o">=</span> <span class="n">getDragon</span><span class="p">();</span>
+         <span class="k">if</span> <span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">isFriendly</span><span class="p">())</span> <span class="p">{</span>
+             <span class="n">rideDragon</span><span class="p">();</span>
+         <span class="p">}</span>
+         <span class="n">dragons</span> <span class="o">=</span> <span class="n">dragons</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+     <span class="p">}</span>
+     <span class="k">return</span> <span class="mi">42</span><span class="p">;</span>
+ <span class="p">}</span>
+</code></pre></div></div>
+
+<p>#### 5.4. <code class="highlighter-rouge">if-else-if-else</code> Formatting</p>
+
+<p>Always line up <code class="highlighter-rouge">if</code> statements with their associated <code class="highlighter-rouge">else</code> statement. Beyond that, there are two common styles that you may use:</p>
+
+<ol>
+  <li>Place the initial brace on the same line as the keyword and the trailing brace inline on the same line as the next statement. For example:
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>               <span class="c1">// Comment
+</span>    <span class="p">...</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>        <span class="c1">// Comment
+</span>    <span class="p">...</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>                       <span class="c1">// Comment
+</span>    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Place brace under and inline with keywords. For example:</p>
+
+    <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>                 <span class="c1">// Comment
+</span><span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>            <span class="c1">// Comment
+</span><span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="k">else</span>                           <span class="c1">// Comment
+</span><span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>### 6. Constants</p>
+
+<p>In C++, you declare constants, which are variables that cannot change, using the keyword <code class="highlighter-rouge">const</code>. You may use local constants within functions, member constants declared in a class, or global constants declared outside of any class or function.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">const</span> <span class="kt">int</span> <span class="n">MY_CONSTANT</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Because of their special meaning, write constants in all upper case and use underbars ( <code class="highlighter-rouge">'_'</code>) as separators.</p>
+
+<p>### 7. No Global Variables</p>
+
+<p>A global variable is declared outside of any function and can be accessed by any function in a program. For example, in the following code <code class="highlighter-rouge">myGlobal</code> is a global variable.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="cp">#include &lt;iostream&gt;
+</span> <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+ 
+ <span class="kt">double</span> <span class="n">myGlobal</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+ 
+ <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+     <span class="c1">// main function code
+</span>     <span class="n">myGlobal</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+ <span class="p">}</span>
+ 
+ <span class="kt">void</span> <span class="nf">anotherFunc</span><span class="p">()</span> <span class="p">{</span>
+     <span class="n">myGlobal</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="c1">// other functions
+</span></code></pre></div></div>
+
+<p>There is rarely a need to use global variables. Moreover, global variables make a program harder to understand and to maintain. Thus, for this course, do NOT use global variables.</p>
+
+<p><sup>Source: http://www.edparrish.net/common/cppdoc.html </sup></p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

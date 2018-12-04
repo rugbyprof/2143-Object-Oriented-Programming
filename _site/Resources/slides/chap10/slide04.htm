@@ -1,0 +1,39 @@
+<html>
+<head><title>Chapter 10, Slide 04</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 10: Subclasses and Subtypes:
+<td bgcolor=#FCCF97><a href="slide05.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide03.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide04.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap10/slide04.ram">real</a>
+<td bgcolor=#FCCF97><a href="text04.htm" target=text>text</a>
+</table>
+<p>
+<h1>The Problem of Defining Types</h1>
+<font size=+2>
+Consider how we might define a Stack ADT:
+<pre>
+interface Stack {
+	public void push (Object value);
+	public Object top ();
+	public void pop ();
+}
+</pre>
+Notice how the interface itself says nothing about the LIFO property,
+which is the key defining feature of a stack.  Is the following a stack?
+<pre>
+class NonStack implements Stack {
+	public void push (Object value) { v = value; }
+	public Object top () { return v; }
+	public void pop () { v = null; }
+
+	private Object v = null;
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 10</a>, Slide 04</h6>
+<hr>
+</body>
+</html>

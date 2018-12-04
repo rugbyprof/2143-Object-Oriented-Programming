@@ -1,0 +1,38 @@
+<html>
+<head><title>Chapter 12, Slide 13</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 12: Implications of substitution:
+<td bgcolor=#FCCF97><a href="slide14.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide12.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide13.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap12/slide13.ram">real</a>
+<td bgcolor=#FCCF97><a href="text13.htm" target=text>text</a>
+</table>
+<p>
+<h1>Meaning of Assignment?</h1>
+<font size=+2>
+What does it mean whan an instance of a class is assigned to another variable?
+<pre>
+class Box {
+	public int value;
+}
+
+Box x = new Box();
+x.value = 7;
+Box y = x;
+y.value = 12;  // what is x.value?
+</pre>
+Two possibilities:
+<ul>
+<li>Copy semantics.  x and y are independent of each other, a change in one
+has no effect on the other.
+<p><li>Pointer semantcs.  x and y refer to the same object, and hence
+a change in one will alter the other.
+</ul>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 12</a>, Slide 13</h6>
+<hr>
+</body>
+</html>

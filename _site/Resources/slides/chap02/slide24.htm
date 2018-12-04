@@ -1,0 +1,43 @@
+<html>
+<head><title>Chapter 2, Slide 24</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 2: Abstraction :
+<td bgcolor=#FCCF97><a href="slide25.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide23.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide24.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap02/slide24.ram">real</a>
+<td bgcolor=#FCCF97><a href="text24.htm" target=text>text</a>
+</table>
+<p>
+<h1>Information Hiding -- The Problem of Stacks</h1>
+<font size=+2>
+<p>
+<pre>
+int datastack[100];
+int datatop = 0;
+
+void init()     // initialize the stack
+{ datatop = 0; }
+
+void push(int val)   // push a value on to the stack
+{ if (datatop < 100)
+		datastack [datatop++] = val; }
+
+int top()   // get the top of the stack
+{ if (datatop > 0)
+		return datastack [datatop - 1];
+	return 0; }
+
+int pop()   // pop element from the stack
+{ if (datatop > 0)
+		return datastack [--datatop]; 
+	return 0; }
+</pre>
+Where can you hide the implementation?
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 2</a>, Slide 24</h6>
+<hr>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Program 4 - Game of Life | 2143-Object-Oriented-Programming</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Program 4 - Game of Life" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Object Oriented Programming in C++" />
+<meta property="og:description" content="Object Oriented Programming in C++" />
+<link rel="canonical" href="http://localhost:4000/Assignments/P04/" />
+<meta property="og:url" content="http://localhost:4000/Assignments/P04/" />
+<meta property="og:site_name" content="2143-Object-Oriented-Programming" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/Assignments/P04/","headline":"Program 4 - Game of Life","description":"Object Oriented Programming in C++","@type":"WebPage","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=ad139bb13b0fb0aa2244a2b1ddeb5e3cc5a2677a">
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">2143-Object-Oriented-Programming</a></h1>
+      
+
+      <h1 id="program-4---game-of-life">Program 4 - Game of Life</h1>
+<h4 id="due-october-15th-at-classtime">Due: October 15<sup>th</sup> at classtime</h4>
+
+<h2 id="overview">Overview</h2>
+
+<p>The Game of Life was invented by John Conway (as you might have gathered).  It consists of a collection of cells which, based on a few mathematical rules, can live, die or multiply.  The “game” is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input from humans. One interacts with the Game of Life by creating an initial configuration and observing how it evolves.</p>
+
+<p>The universe of the Game of Life is an infinite two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead. Every cell interacts with its eight neighbors, which are the cells that are directly horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:</p>
+
+<ol>
+  <li>Any live cell with fewer than two live neighbors dies, as if caused by under-population.</li>
+  <li>Any live cell with more than three live neighbors dies, as if by overcrowding.</li>
+  <li>Any live cell with two or three live neighbors lives on to the next generation.</li>
+  <li>Any dead cell with exactly three live neighbors becomes a live cell.</li>
+</ol>
+
+<p>Your implementation will not be an infinite two-dimensional orthogonal grid of square cells, but a finite dynamically allocated 2-dimensional array of <code class="highlighter-rouge">golCell</code>’s (game of life cells).  A <code class="highlighter-rouge">golCell</code> contains:</p>
+
+<ul>
+  <li>isAlive (bool [true,false])</li>
+  <li>neighborCount (int # of neighbors)</li>
+</ul>
+
+<p>In class we discussed how to get from our current state to the next state by adding two matrices together, however we are going to use a different method to go from one generation to the next.</p>
+
+<ul>
+  <li>If you look below, the far left is the current “state” of the game, where the two values are: <code class="highlighter-rouge">isAlive</code> and <code class="highlighter-rouge">neighborCount</code> respectively.</li>
+  <li>You can traverse the game board and count each cells neighbors storing its neighbor-count within the cell.</li>
+  <li>Once each cell has its neighbors counted, you can apply the rules (killing 2 and spawning 2 in this example) and also reset the neighbor counts to zero.</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">State</th>
+      <th style="text-align: center">Calculate Transition</th>
+      <th style="text-align: center">Apply Transition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><img src="https://d3vv6lp55qjaqc.cloudfront.net/items/3q2C2c2d2H1n1W1L1426/Image%202018-10-02%20at%206.43.39%20PM.png" width="250" /></td>
+      <td style="text-align: center"><img src="https://d3vv6lp55qjaqc.cloudfront.net/items/022V2T3i2p2V2p0v3a3u/Image%202018-10-02%20at%206.44.26%20PM.png" width="250" /></td>
+      <td style="text-align: center"><img src="https://cl.ly/f106f3413fb2/Image%2525202018-10-02%252520at%2525206.55.48%252520PM.png" width="250" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="initializing-the-game">Initializing the Game</h3>
+
+<p>How do we start our zero person game? We need to have an initial state (generation 0) for our game to be played. We are going to do this by reading in a file that will be formatted like below and named “gen_zero.txt”. The first two numbers are rows and columns respectively.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 8 10
+ 0000000000
+ 0000000100
+ 0000011000
+ 0000110000
+ 0000100000
+ 0001000000
+ 0000000000
+ 0000000000
+</code></pre></div></div>
+
+<h2 id="data-elements">Data Elements</h2>
+
+<h3 id="data-structures">Data Structures</h3>
+
+<h3 id="golcell">golCell</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">golCell</span> <span class="p">{</span>
+  <span class="kt">bool</span> <span class="n">isAlive</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">neighborCount</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="gameboard">gameBoard</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  <span class="n">golCell</span><span class="o">**</span> <span class="n">gameBoard</span><span class="p">;</span>
+
+  <span class="n">gameBoard</span> <span class="o">=</span> <span class="k">new</span> <span class="n">golCell</span><span class="o">*</span> <span class="p">[</span><span class="n">rows</span><span class="p">];</span>
+  
+  <span class="c1">// get memory for each row
+</span>  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">rows</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+      <span class="n">gameBoard</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">golCell</span> <span class="p">[</span><span class="n">cols</span><span class="p">];</span>
+
+</code></pre></div></div>
+
+<h3 id="data-elements-1">Data Elements</h3>
+<p>|   Member         |     Description   |
+|:—————|:——————–|
+| int FrameCount  | Total times game loop did loop |
+| int FrameRate   | Allow user to slow down animation |
+| int Rows        | Number of rows in world |
+| int Cols        |  Number of cols in world | 
+| golCell** gameBoard  | 2D game world of <code class="highlighter-rouge">golCell</code>s |</p>
+
+<h2 id="methods">Methods</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Method</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Primary</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">printWorld</td>
+      <td style="text-align: left">Prints world to game window</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">goNextGen</td>
+      <td style="text-align: left">Transitions from current to next generation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Helper</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">countNeighbors</td>
+      <td style="text-align: left">Counts the neighbors for a given cell</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">onWorld</td>
+      <td style="text-align: left">determines if a cell is within the matrix</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+  <li>You will write a class based program using the SFML library to visualize your Game of Life program as best as you can, but is not the primary focus of the program.</li>
+  <li>Your code should be as organized as possible. This means:</li>
+  <li>Functions should only do single tasks (e.g. printing the board, counting neighbors, checking the rules).</li>
+  <li>Your main program should be small, and really only “drive” or “start” the program. See below (excluding SFML):</li>
+</ul>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kt">int</span> <span class="n">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">argv</span><span class="p">){</span>
+    <span class="n">GameOfLife</span> <span class="n">G</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span><span class="mi">600</span><span class="p">);</span> <span class="c1">// create with some window size
+</span>    
+    <span class="n">G</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="s">"filename.txt"</span><span class="p">);</span>
+    <span class="n">G</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span> <span class="c1">// run for 1000 generations.
+</span>    <span class="n">G</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"outfilename.txt"</span><span class="p">);</span>
+ 
+ <span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li>Your code should take a set of command line parameters:
+    <ul>
+      <li>1st param is the filename to be read in.</li>
+      <li>2nd param is the number of generations to be run.</li>
+      <li>3rd param is the filename to write your output to.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="what-to-turn-in">What to turn in</h3>
+
+<ul>
+  <li>A copy of your c++ code properly commented.</li>
+  <li>A copy of your input and output files.</li>
+  <li>Your name should be on everything NOT HAND WRITTEN.</li>
+  <li>Even your input file should have a digitally printed name.</li>
+</ul>
+
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    
+  </body>
+</html>

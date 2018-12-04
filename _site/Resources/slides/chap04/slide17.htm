@@ -1,0 +1,45 @@
+<html>
+<head><title>Chapter 4, Slide 17</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 4: Classes and Methods:
+<td bgcolor=#FCCF97><a href="slide18.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide16.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide17.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap03/slide17.ram">real</a>
+<td bgcolor=#FCCF97><a href="text17.htm" target=text>text</a>
+</table>
+<p>
+<h1>An Example, from C#</h1>
+<font size=+2>
+<pre>
+
+class PlayingCard {
+		// constructor, initialize new playing card
+	public PlayingCard (Suits is, int ir) 
+		{ suit = is; rank = ir; faceUp = true; }
+
+		// operations on a playing card
+	public boolean isFaceUp  ()           { return faceUp; }
+	public int     rank      ()           { return rankValue; }
+	public Suits   suit      ()           { return suitValue; }
+	public void    setFaceUp (boolean up) { faceUp = up; }
+	public void    flip      ()           { setFaceUp( !faceUp);}
+	public Color   color     ()           { 
+		if ((suit() == Suits.Diamond) || (suit() == Suits.Heart)) 
+			return Color.Red;
+		return Color.Black;
+	}
+		// private data values
+	private Suits suitValue;
+	private int rankValue;
+	private boolean faceUp;
+}
+
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 4</a>, Slide 17</h6>
+<hr>
+</body>
+</html>

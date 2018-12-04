@@ -1,0 +1,32 @@
+<html>
+<head><title>Chapter 13, Slide 09</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 13: Multiple Inheritance:
+<td bgcolor=#FCCF97><a href="slide10.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide08.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide09.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap13/slide09.ram">real</a>
+<td bgcolor=#FCCF97><a href="text09.htm" target=text>text</a>
+</table>
+<p>
+<h1>One Solution: Redefinition</h1>
+<font size=+2>
+One solution is to redefine one or the other operation in the child class.
+<pre>
+class GraphicalCardDeck : public CardDeck, public GraphicalObject {
+public:
+	virtual void draw () { return CardDeck::draw(); } 
+	virtual void paint () { GraphicalObject::draw(); }
+}
+
+	GraphicalCardDeck gcd;
+	gcd->draw(); // selects CardDeck draw
+	gcd->paint(); // selects GraphicalObject draw
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 13</a>, Slide 09</h6>
+<hr>
+</body>
+</html>

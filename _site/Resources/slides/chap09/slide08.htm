@@ -1,0 +1,63 @@
+<html>
+<head><title>Chapter 9, Slide 008</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 9: A Solitare Game:
+<td bgcolor=#FCCF97><a href="slide09.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide07.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide008.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap09/slide008.ram">real</a>
+<td bgcolor=#FCCF97><a href="text008.htm" target=text>text</a>
+</table>
+<p>
+<h1>The Class CardPile</h1>
+<font size=+2>
+<pre>
+public class CardPile {
+	public CardPile (int xl, int yl )
+		{ x = xl; y = yl; pile = new Stack(); }
+
+	public PlayingCard top 
+		{ get { return (PlayingCard) pile.Peek (); } }
+
+	public bool isEmpty 
+		{ get { return pile.Count == 0; }	}
+
+	public PlayingCard pop 
+		{ get { return (PlayingCard) pile.Pop (); } }
+		
+		// the following are sometimes overridden
+	public virtual bool includes (int tx, int ty ) {
+		return( ( x <= tx ) && ( tx <= x + CardView.Width ) &&
+		    ( y <= ty ) && ( ty <= y + CardView.Height ) );
+	}
+
+	public virtual void select (int tx, int ty ) {
+		// do nothing--override
+	}
+
+	public virtual void addCard (PlayingCard aCard )
+		{ pile.Push(aCard); }
+
+	public virtual void display (CardView cv) {
+		if ( isEmpty ) {
+			cv.display(null, x, y);
+		} else {
+			cv.display((PlayingCard) pile.Peek(), x, y );
+		}
+	}
+
+	public virtual bool canTake (PlayingCard aCard)
+		{ return false; }
+
+	protected int x, y; // coordinates of the card pile
+	protected Stack pile; // card pile data
+}
+</pre>
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 008</h6>
+<hr>
+</body>
+</html>
+

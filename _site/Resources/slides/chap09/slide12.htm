@@ -1,0 +1,48 @@
+<html>
+<head><title>Chapter 9, Slide 12</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 9: A Solitare Game:
+<td bgcolor=#FCCF97><a href="slide13.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide11.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide12.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap09/slide12.ram">real</a>
+<td bgcolor=#FCCF97><a href="text12.htm" target=text>text</a>
+</table>
+<p>
+<h1>DeckPile</h1>
+<font size=+2>
+<pre>
+public class DeckPile : CardPile {
+	public DeckPile (int x, int y) : base(x, y) {
+		// create the new deck
+		// first put cards into a local array
+		ArrayList aList = new ArrayList ();
+		for( int i = 0; i <= 12; i++) {
+			aList.Add(new PlayingCard(Suits.Heart, i));
+			aList.Add(new PlayingCard(Suits.Diamond, i));
+			aList.Add(new PlayingCard(Suits.Spade, i));
+			aList.Add(new PlayingCard(Suits.Club, i));
+		}
+			// then pull them out randomly
+		Random myRandom = new Random( );
+		for(int count = 0; count < 52; count++) {
+			int index = myRandom.Next(aList.Count);
+			addCard( (PlayingCard) aList [index] );
+			aList.RemoveAt(index);
+		}
+	}
+
+	public override void select (int tx, int ty) {
+		if ( isEmpty ) { return; }
+		Game.discardPile().addCard( pop );
+	}
+}
+</pre>
+Note use of system provided resources, such as <b>ArrayList</b>, <b>Random</b>.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 9</a>, Slide 12</h6>
+<hr>
+</body>
+</html>

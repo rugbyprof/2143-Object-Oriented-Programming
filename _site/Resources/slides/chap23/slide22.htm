@@ -1,0 +1,39 @@
+<html>
+<head><title>Chapter 23, Slide 22</title></head>
+<body BGCOLOR=#FCEADT>
+<table border=0>
+<tr><td>Introduction to OOP
+<td>Chapter 23: Object Interconnections :
+<td bgcolor=#FCCF97><a href="slide23.htm">next</a>
+<td bgcolor=#FCCF97><a href="slide21.htm">previous</a>
+<td bgcolor=#FCCF97><a href="slide22.au">audio</a>
+<td bgcolor=#FCCF97><a href="http://www.cs.orst.edu/~cs582/real/chap23/slide22.ram">real</a>
+<td bgcolor=#FCCF97><a href="text22.htm" target=text>text</a>
+</table>
+<p>
+<h1>Inner Classes</h1>
+<font size=+2>
+Inner classes in Java and, to a lesser extent, nested classes in C++ and C#
+are allowed to access the data areas in the surrounding class.
+<pre>
+class AcontainerClass {
+	...
+		// return an enumerator
+	public Enumeration elements() 
+		{ return new MyEnumeration(); }
+	...
+		// inner class is allowed to see
+		// all aspects of surrounding class
+	private class MyEnumeration implements Enumeration {
+		...
+		public boolean hasMoreElements () { ... }
+		public Object nextElement() { ... }
+	}
+}
+</pre>
+Uses a lot for event listeners in Java, among other things.
+</font>
+<h6 ALIGN=right>Intro OOP, <a href="outline.htm">Chapter 23</a>, Slide 22</h6>
+<hr>
+</body>
+</html>
