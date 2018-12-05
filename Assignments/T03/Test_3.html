@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test_3.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/**
+ * GitHub Gist Theme
+ * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
+ */
+
+.hljs {
+  display: block;
+  background: white;
+  padding: 0.5em;
+  color: #333333;
+  overflow-x: auto;
+}
+
+.hljs-comment,
+.hljs-meta {
+  color: #969896;
+}
+
+.hljs-string,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-strong,
+.hljs-emphasis,
+.hljs-quote {
+  color: #df5000;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type {
+  color: #a71d5d;
+}
+
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-attribute {
+  color: #0086b3;
+}
+
+.hljs-section,
+.hljs-name {
+  color: #63a35c;
+}
+
+.hljs-tag {
+  color: #333333;
+}
+
+.hljs-title,
+.hljs-attr,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #795da3;
+}
+
+.hljs-addition {
+  color: #55a532;
+  background-color: #eaffea;
+}
+
+.hljs-deletion {
+  color: #bd2c00;
+  background-color: #ffecec;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///Users/griffin/Dropbox/_Courses/5373-Internet-Programming/Resources/markdown-css-themes/markdown8.html" type="text/css">
+</head>
+<body>
+<h1 id="2143-oop---test-3">2143 OOP - Test 3</h1>
+<p>Name: __________________________________</p>
+<center>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Possible</th>
+<th>Earned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>10</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>100</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</center>
+<h4 id="instructions">Instructions</h4>
+<ul>
+<li>Use pencil only</li>
+<li>Write your name at the top of all pages turned in.</li>
+<li>Staple pages together at the top left corner.</li>
+<li>Make sure your pages are in order, with questions also in order.</li>
+<li>Handwriting that is illegible (messy, small, not straight) will lose points.</li>
+<li>Indentation matters. Keep code aligned correctly.</li>
+<li>Failure to comply will result in loss of letter grade.</li>
+<li>All answers will be written on the paper provided, and not directly on the test.</li>
+</ul>
+<div class="page"/>
+<h3 id="question-1">Question 1</h3>
+<ul>
+<li>A) ______________ Is the object definition;</li>
+<li>B) ______________ Is the object;</li>
+<li>C) <code>name</code> and <code>id</code> are
+<ul>
+<li>a) public</li>
+<li>b) private</li>
+<li>c) protected</li>
+<li>d) private and protected</li>
+<li>e) a b &amp; c</li>
+</ul>
+</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">person</span> {</span> 
+	<span class="hljs-keyword">char</span> name[<span class="hljs-number">20</span>]; 
+	<span class="hljs-keyword">int</span> id; 
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getdetails</span><span class="hljs-params">()</span></span>{}
+}; 
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{ 
+	person p1;
+} 
+</div></code></pre>
+<hr>
+<h3 id="question-2">Question 2</h3>
+<p>A) True / False : The structure below provides an adequate example of encapsulation.</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Fraction</span> {</span> 
+	<span class="hljs-keyword">int</span> numerator; 
+	<span class="hljs-keyword">int</span> denominator;
+		
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n,<span class="hljs-keyword">int</span> d)</span> 
+	</span>{ 
+		numerator = n;
+		denominator = d;
+	} 
+	
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span> 
+	</span>{ 
+		<span class="hljs-built_in">cout</span>&lt;&lt;numerator&lt;&lt;<span class="hljs-string">"/"</span>&lt;&lt;denominator&lt;&lt;<span class="hljs-built_in">endl</span>;
+	} 
+}; 
+</div></code></pre>
+<p>B) What minimal changes to the struct above would you have to make to implement proper <strong><code>data abstraction</code></strong> or <strong><code>implementation hiding</code></strong>.</p>
+<div class="page"/>
+<h3 id="question-3">Question 3</h3>
+<p>Polymorphism means to have many forms. What this means in OOP is that we override and overload methods in our classes. There are two distinct categories of polymorphism: <strong>compile time</strong> and <strong>run time</strong>. Look atIn the list below and on your answer sheet indicate which type they are: <strong>C</strong> for compile time, <strong>R</strong> for run time, or <strong>B</strong> for both.</p>
+<ul>
+<li>A) Operator overloading.</li>
+<li>B) Method overloading.</li>
+<li>C) Method overriding.</li>
+</ul>
+<hr>
+<h3 id="question-4">Question 4</h3>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Vehicle</span> {</span> 
+<span class="hljs-keyword">public</span>: 
+	Vehicle() 
+	{ 
+	<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"This is a Vehicle"</span> &lt;&lt; <span class="hljs-built_in">endl</span>; 
+	} 
+}; 
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FourWheeler</span> {</span> 
+<span class="hljs-keyword">public</span>: 
+	FourWheeler() 
+	{ 
+	<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"This is a 4 wheeler Vehicle"</span> &lt;&lt; <span class="hljs-built_in">endl</span>; 
+	} 
+}; 
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span>:</span> <span class="hljs-keyword">public</span> Vehicle, <span class="hljs-keyword">public</span> FourWheeler { 
+
+}; 
+
+<span class="hljs-comment">// main function </span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> 
+</span>{ 
+	Car obj; 
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; 
+} 
+</div></code></pre>
+<p>What is the output of the inheritance example above?</p>
+<hr>
+<h3 id="question-5">Question 5</h3>
+<p>abstraction</p>
+<h3 id="question-6">Question 6</h3>
+<p>To add two fractions you need to:</p>
+<ul>
+<li>Find a common denominator by finding the LCM (Least Common Multiple) of the two denominators.</li>
+<li>Change the fractions to have the same denominator and add both terms.</li>
+<li>Reduce the final fraction obtained into its simpler form by dividing both numerator and denominator by the largest common factor.</li>
+</ul>
+<p>Assume you have the following class that has all of those listed methods implemented for you.</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">fraction</span>{</span>
+	<span class="hljs-keyword">int</span> numerator;
+	<span class="hljs-keyword">int</span> denominator;
+	<span class="hljs-function">fraction <span class="hljs-title">reduce</span><span class="hljs-params">(fraction f)</span></span>;
+	<span class="hljs-keyword">int</span>  lca,<span class="hljs-keyword">int</span> b);
+<span class="hljs-keyword">public</span>:
+	fraction(<span class="hljs-keyword">int</span> n,<span class="hljs-keyword">int</span> d);
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setumerator</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setDenominator</span><span class="hljs-params">(<span class="hljs-keyword">int</span> d)</span></span>;
+}
+</div></code></pre>
+<p>Overload the <code>+</code> sign to add two fractions. You can assume your defining your method inline. Assume all th methods above are implemented. Just write the overloaded method ... nothing else.</p>
+<h3 id="question-7">Question 7</h3>
+<ul>
+<li>A) All class members declared as __________ will be available to everyone.</li>
+<li>B) This access modifier is similar to one of the other access modifiers, the difference is that the class member declared as ________ are inaccessible outside the class but they can be accessed by any subclass (derived class).</li>
+<li>C) Only member functions or __________ __________ of another class are allowed to access the private data members of this class.</li>
+<li>D) The __________ data members of this class can be accessed from anywhere in the program using the dot operator.</li>
+<li>E) The class members declared as __________ can be accessed only by the functions inside the class.</li>
+</ul>
+<h3 id="question-8">Question 8</h3>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">base</span> 
+{</span> 
+<span class="hljs-keyword">public</span>: 
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fun_1</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"base-1\n"</span>; } 
+	<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fun_2</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"base-2\n"</span>; } 
+	<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fun_3</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"base-3\n"</span>; } 
+	<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fun_4</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"base-4\n"</span>; } 
+}; 
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">derived</span> :</span> <span class="hljs-keyword">public</span> base 
+{ 
+<span class="hljs-keyword">public</span>: 
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fun_1</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"derived-1\n"</span>; } 
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fun_2</span><span class="hljs-params">()</span> </span>{ <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"derived-2\n"</span>; } 
+	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">fun_4</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>{ <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"derived-4\n"</span>; } 
+}; 
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> 
+</span>{ 
+    base *p; 
+    derived obj1; 
+    p = &amp;obj1; 
+
+    p-&gt;fun_1();  <span class="hljs-comment">// Question A</span>
+    p-&gt;fun_2();  <span class="hljs-comment">// Question B</span>
+    p-&gt;fun_3();  <span class="hljs-comment">// Question C</span>
+    p-&gt;fun_4();  <span class="hljs-comment">// Question D</span>
+    p-&gt;fun_4(<span class="hljs-number">5</span>); <span class="hljs-comment">// Question E</span>
+
+    <span class="hljs-comment">// Question F: are the three lines below valid? State why or why not.</span>
+    derived *p1;
+    base p2;
+    p1 = &amp;p2;
+}
+</div></code></pre>
+<p>For questions A-F write on your answer sheet what prints out, or if it errors and why.</p>
+
+</body>
+</html>
