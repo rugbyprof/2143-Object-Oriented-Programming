@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+  then
+    echo "Need an input file!"
+  else
+    filename="${1%%.*}"
+    extension="${1##*.}"
+    objectName="$filename.o"
+fi
+
+if [ -z "$2" ]
+  then
+    echo "Need an output file!"
+  else
+    echo $filename
+    echo $extension
+    echo "Compiling $1 → $objectName ..."
+    g++ -std=c++11 -c "$1" -I/usr/local/include
+    echo "Linking $objectName with -lsfml-graphics -lsfml-window -lsfml-system and creating $2..."
+    g++ $objectName -o $2 -L/usr/local/lib -lsfml-graphics -lsfml-window -lsfml-system
+    
+fi

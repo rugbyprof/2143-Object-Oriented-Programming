@@ -173,6 +173,7 @@ void Tile::setSize(int new_width, int new_height)
  *      texture_path {string}  : path / filename of texture image
  */
 void Tile::setTileTexture(string texture_path){
+    std::cout<<"setting texture: "<<texture_path<<std::endl;
     if (!tileTexture.loadFromFile(texture_path)) {
         std::cout << "Could not load " + texture_path + " ... " << std::endl;
     }
@@ -184,8 +185,6 @@ bool Tile::intersectsWith(int x, int y){
     sf::FloatRect boundingBox = this->getGlobalBounds();
 
     std::cout<<boundingBox.left<<":"<<boundingBox.top<<" "<<x<<","<<y<<std::endl;
-
-
 
     if (boundingBox.contains(x,y))
     {
