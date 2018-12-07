@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
+#include <math.h>
 #include "Tile.h"
 #include "Group.h"
 
@@ -8,16 +8,19 @@ using namespace std;
 
 // https://d2trtkcohkrm90.cloudfront.net/images/emoji/apple/ios-11/128/slightly-smiling-face.png
 
-
-
 class DrawMe : public Group{
 private:
     Tile smiley;
     sf::RectangleShape rectangle;
     float angle;
     int justFlippedX;
+    float xDirection;
+    float yDirection;
 public:
     DrawMe(){
+        xDirection = 1.0;
+        yDirection = 1.0;
+
         smiley.resetTile(128,128,"./smiley.png");
         smiley.setPosition(sf::Vector2f(100.0, 100.0));
         smiley.setSize(64,64);
@@ -33,30 +36,32 @@ public:
         angle = .01;
         
         this->push_back(rectangle);
-        this->push_back(smiley);
+        this->push_back(smiley);    
 
     }
 
     void moveSmiley(float dx,float dy){
         sf::Vector2f pos = smiley.getPosition();
 
+        cout<<pos.x<<","<<pos.y<<endl;
+            
         if(pos.x > 300){
-            cout<<pos.x<<","<<pos.y<<endl;
-            dx *= -1;
-            if(dx < 0){
-                pos.x -= 20;
-            }else{
-                pos.x += 20;
-            }
-            smiley.setPosition(pos);
+            xDirection = -1.0;
         }
+        if(pos.y > 400){
+            yDirection = -1.0;
+        }
+    
+        if(pos.x < 0){
+            xDirection = 1.0;
+        }
+        if(pos.y < 0){
+            yDirection = 1.0;
+        }
+            
+        cout<<(float)dx*(float)xDirection<<","<<(float)dy*(float)yDirection<<endl;
 
-        if(pos.y > 400)
-            dy *= -1;
-
-        cout<<dx<<","<<dy<<endl;
-
-        smiley.move(dx,dy);
+        smiley.move(dx * xDirection , dy * yDirection);
     }
 
     void changeSmiley(string image){
@@ -134,6 +139,8 @@ public:
     }
 };
 
+
+
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(300, 400), "SFML Smiley!");
@@ -141,7 +148,6 @@ int main()
 
     DrawMe D;
     GameClock G;
-
     
     while (window.isOpen())
     {
@@ -160,14 +166,19 @@ int main()
             D.changeSmiley("./smiley.png");
         }
 
-        D.moveSmiley(.05,.05);
+
+        D.moveSmiley(.55,.55);
+
+    
         window.clear();
-        window.draw(D);
+        
         G.printClock(300,400);
         window.draw(G);
         D.update();
-
+        window.draw(D);
         window.display();
+
+
     }
 
     return 0;
