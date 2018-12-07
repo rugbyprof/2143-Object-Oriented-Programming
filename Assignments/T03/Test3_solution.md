@@ -261,6 +261,7 @@ C: base-3
 D: base-4
 E: error : no matching function in base class 
 F: error : pointing a derived class type to a base class is illegal
+```
 
 ### Question 9
 
