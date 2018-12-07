@@ -145,7 +145,6 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(300, 400), "SFML Smiley!");
 
-
     DrawMe D;
     GameClock G;
     
@@ -168,8 +167,7 @@ int main()
 
 
         D.moveSmiley(.55,.55);
-
-    
+        
         window.clear();
         
         G.printClock(300,400);
