@@ -287,7 +287,7 @@ Using the above class definition, write a copy constructor for the ***LinkedList
 ```cpp
 //answer
 
-LinkedList(const LinkedList L){
+LinkedList(const LinkedList &L){
     Node* Temp = L.head;
 
     while(Temp){
