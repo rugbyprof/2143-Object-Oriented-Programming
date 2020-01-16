@@ -1,0 +1,6 @@
+hello:this is my first def
+hello:this is your def
+be:all that you can be
+aim:high
+smoke:pot
+dont:laugh

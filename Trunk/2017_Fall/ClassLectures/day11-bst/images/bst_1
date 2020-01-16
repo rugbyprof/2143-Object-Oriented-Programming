@@ -1,0 +1,515 @@
+digraph "./images/bst_1" {
+	0 [label=63 color=black fillcolor=lightblue2 shape=box style=filled]
+	1 [label=24 color=black fillcolor=lightblue2 shape=box style=filled]
+		0 -> 1
+	2 [label=19 color=black fillcolor=lightblue2 shape=box style=filled]
+		1 -> 2
+	3 [label=4 color=black fillcolor=lightblue2 shape=box style=filled]
+		2 -> 3
+	4 [label=1 color=black fillcolor=lightblue2 shape=box style=filled]
+		3 -> 4
+	5 [label=0 color=black fillcolor=lightblue2 shape=box style=filled]
+		4 -> 5
+	6 [label="*" color=gray shape=point]
+		5 -> 6 [arrowhead=box arrowsize=.5]
+	7 [label="*" color=gray shape=point]
+		5 -> 7 [arrowhead=box arrowsize=.5]
+	8 [label=3 color=black fillcolor=lightblue2 shape=box style=filled]
+		4 -> 8
+	9 [label=2 color=black fillcolor=lightblue2 shape=box style=filled]
+		8 -> 9
+	10 [label="*" color=gray shape=point]
+		9 -> 10 [arrowhead=box arrowsize=.5]
+	11 [label="*" color=gray shape=point]
+		9 -> 11 [arrowhead=box arrowsize=.5]
+	12 [label="*" color=gray shape=point]
+		8 -> 12 [arrowhead=box arrowsize=.5]
+	13 [label=16 color=black fillcolor=lightblue2 shape=box style=filled]
+		3 -> 13
+	14 [label=10 color=black fillcolor=lightblue2 shape=box style=filled]
+		13 -> 14
+	15 [label=8 color=black fillcolor=lightblue2 shape=box style=filled]
+		14 -> 15
+	16 [label=6 color=black fillcolor=lightblue2 shape=box style=filled]
+		15 -> 16
+	17 [label=5 color=black fillcolor=lightblue2 shape=box style=filled]
+		16 -> 17
+	18 [label="*" color=gray shape=point]
+		17 -> 18 [arrowhead=box arrowsize=.5]
+	19 [label="*" color=gray shape=point]
+		17 -> 19 [arrowhead=box arrowsize=.5]
+	20 [label=7 color=black fillcolor=lightblue2 shape=box style=filled]
+		16 -> 20
+	21 [label="*" color=gray shape=point]
+		20 -> 21 [arrowhead=box arrowsize=.5]
+	22 [label="*" color=gray shape=point]
+		20 -> 22 [arrowhead=box arrowsize=.5]
+	23 [label=9 color=black fillcolor=lightblue2 shape=box style=filled]
+		15 -> 23
+	24 [label="*" color=gray shape=point]
+		23 -> 24 [arrowhead=box arrowsize=.5]
+	25 [label="*" color=gray shape=point]
+		23 -> 25 [arrowhead=box arrowsize=.5]
+	26 [label=11 color=black fillcolor=lightblue2 shape=box style=filled]
+		14 -> 26
+	27 [label="*" color=gray shape=point]
+		26 -> 27 [arrowhead=box arrowsize=.5]
+	28 [label=13 color=black fillcolor=lightblue2 shape=box style=filled]
+		26 -> 28
+	29 [label=12 color=black fillcolor=lightblue2 shape=box style=filled]
+		28 -> 29
+	30 [label="*" color=gray shape=point]
+		29 -> 30 [arrowhead=box arrowsize=.5]
+	31 [label="*" color=gray shape=point]
+		29 -> 31 [arrowhead=box arrowsize=.5]
+	32 [label=15 color=black fillcolor=lightblue2 shape=box style=filled]
+		28 -> 32
+	33 [label=14 color=black fillcolor=lightblue2 shape=box style=filled]
+		32 -> 33
+	34 [label="*" color=gray shape=point]
+		33 -> 34 [arrowhead=box arrowsize=.5]
+	35 [label="*" color=gray shape=point]
+		33 -> 35 [arrowhead=box arrowsize=.5]
+	36 [label="*" color=gray shape=point]
+		32 -> 36 [arrowhead=box arrowsize=.5]
+	37 [label=18 color=black fillcolor=red shape=box style=filled]
+		13 -> 37
+	38 [label=17 color=black fillcolor=lightblue2 shape=box style=filled]
+		37 -> 38
+	39 [label="*" color=gray shape=point]
+		38 -> 39 [arrowhead=box arrowsize=.5]
+	40 [label="*" color=gray shape=point]
+		38 -> 40 [arrowhead=box arrowsize=.5]
+	41 [label="*" color=gray shape=point]
+		37 -> 41 [arrowhead=box arrowsize=.5]
+	42 [label=22 color=black fillcolor=lightblue2 shape=box style=filled]
+		2 -> 42
+	43 [label=20 color=black fillcolor=lightblue2 shape=box style=filled]
+		42 -> 43
+	44 [label="*" color=gray shape=point]
+		43 -> 44 [arrowhead=box arrowsize=.5]
+	45 [label=21 color=black fillcolor=lightblue2 shape=box style=filled]
+		43 -> 45
+	46 [label="*" color=gray shape=point]
+		45 -> 46 [arrowhead=box arrowsize=.5]
+	47 [label="*" color=gray shape=point]
+		45 -> 47 [arrowhead=box arrowsize=.5]
+	48 [label=23 color=black fillcolor=lightblue2 shape=box style=filled]
+		42 -> 48
+	49 [label="*" color=gray shape=point]
+		48 -> 49 [arrowhead=box arrowsize=.5]
+	50 [label="*" color=gray shape=point]
+		48 -> 50 [arrowhead=box arrowsize=.5]
+	51 [label=34 color=black fillcolor=lightblue2 shape=box style=filled]
+		1 -> 51
+	52 [label=33 color=black fillcolor=lightblue2 shape=box style=filled]
+		51 -> 52
+	53 [label=31 color=black fillcolor=lightblue2 shape=box style=filled]
+		52 -> 53
+	54 [label=29 color=black fillcolor=lightblue2 shape=box style=filled]
+		53 -> 54
+	55 [label=26 color=black fillcolor=lightblue2 shape=box style=filled]
+		54 -> 55
+	56 [label=25 color=black fillcolor=lightblue2 shape=box style=filled]
+		55 -> 56
+	57 [label="*" color=gray shape=point]
+		56 -> 57 [arrowhead=box arrowsize=.5]
+	58 [label="*" color=gray shape=point]
+		56 -> 58 [arrowhead=box arrowsize=.5]
+	59 [label=28 color=black fillcolor=lightblue2 shape=box style=filled]
+		55 -> 59
+	60 [label=27 color=black fillcolor=lightblue2 shape=box style=filled]
+		59 -> 60
+	61 [label="*" color=gray shape=point]
+		60 -> 61 [arrowhead=box arrowsize=.5]
+	62 [label="*" color=gray shape=point]
+		60 -> 62 [arrowhead=box arrowsize=.5]
+	63 [label="*" color=gray shape=point]
+		59 -> 63 [arrowhead=box arrowsize=.5]
+	64 [label=30 color=black fillcolor=lightblue2 shape=box style=filled]
+		54 -> 64
+	65 [label="*" color=gray shape=point]
+		64 -> 65 [arrowhead=box arrowsize=.5]
+	66 [label="*" color=gray shape=point]
+		64 -> 66 [arrowhead=box arrowsize=.5]
+	67 [label=32 color=black fillcolor=lightblue2 shape=box style=filled]
+		53 -> 67
+	68 [label="*" color=gray shape=point]
+		67 -> 68 [arrowhead=box arrowsize=.5]
+	69 [label="*" color=gray shape=point]
+		67 -> 69 [arrowhead=box arrowsize=.5]
+	70 [label="*" color=gray shape=point]
+		52 -> 70 [arrowhead=box arrowsize=.5]
+	71 [label=59 color=black fillcolor=lightblue2 shape=box style=filled]
+		51 -> 71
+	72 [label=50 color=black fillcolor=lightblue2 shape=box style=filled]
+		71 -> 72
+	73 [label=40 color=black fillcolor=lightblue2 shape=box style=filled]
+		72 -> 73
+	74 [label=39 color=black fillcolor=lightblue2 shape=box style=filled]
+		73 -> 74
+	75 [label=35 color=black fillcolor=lightblue2 shape=box style=filled]
+		74 -> 75
+	76 [label="*" color=gray shape=point]
+		75 -> 76 [arrowhead=box arrowsize=.5]
+	77 [label=37 color=black fillcolor=lightblue2 shape=box style=filled]
+		75 -> 77
+	78 [label=36 color=black fillcolor=lightblue2 shape=box style=filled]
+		77 -> 78
+	79 [label="*" color=gray shape=point]
+		78 -> 79 [arrowhead=box arrowsize=.5]
+	80 [label="*" color=gray shape=point]
+		78 -> 80 [arrowhead=box arrowsize=.5]
+	81 [label=38 color=black fillcolor=lightblue2 shape=box style=filled]
+		77 -> 81
+	82 [label="*" color=gray shape=point]
+		81 -> 82 [arrowhead=box arrowsize=.5]
+	83 [label="*" color=gray shape=point]
+		81 -> 83 [arrowhead=box arrowsize=.5]
+	84 [label="*" color=gray shape=point]
+		74 -> 84 [arrowhead=box arrowsize=.5]
+	85 [label=46 color=black fillcolor=lightblue2 shape=box style=filled]
+		73 -> 85
+	86 [label=44 color=black fillcolor=lightblue2 shape=box style=filled]
+		85 -> 86
+	87 [label=41 color=black fillcolor=lightblue2 shape=box style=filled]
+		86 -> 87
+	88 [label="*" color=gray shape=point]
+		87 -> 88 [arrowhead=box arrowsize=.5]
+	89 [label=43 color=black fillcolor=lightblue2 shape=box style=filled]
+		87 -> 89
+	90 [label=42 color=black fillcolor=lightblue2 shape=box style=filled]
+		89 -> 90
+	91 [label="*" color=gray shape=point]
+		90 -> 91 [arrowhead=box arrowsize=.5]
+	92 [label="*" color=gray shape=point]
+		90 -> 92 [arrowhead=box arrowsize=.5]
+	93 [label="*" color=gray shape=point]
+		89 -> 93 [arrowhead=box arrowsize=.5]
+	94 [label=45 color=black fillcolor=lightblue2 shape=box style=filled]
+		86 -> 94
+	95 [label="*" color=gray shape=point]
+		94 -> 95 [arrowhead=box arrowsize=.5]
+	96 [label="*" color=gray shape=point]
+		94 -> 96 [arrowhead=box arrowsize=.5]
+	97 [label=49 color=black fillcolor=lightblue2 shape=box style=filled]
+		85 -> 97
+	98 [label=48 color=black fillcolor=lightblue2 shape=box style=filled]
+		97 -> 98
+	99 [label=47 color=black fillcolor=lightblue2 shape=box style=filled]
+		98 -> 99
+	100 [label="*" color=gray shape=point]
+		99 -> 100 [arrowhead=box arrowsize=.5]
+	101 [label="*" color=gray shape=point]
+		99 -> 101 [arrowhead=box arrowsize=.5]
+	102 [label="*" color=gray shape=point]
+		98 -> 102 [arrowhead=box arrowsize=.5]
+	103 [label="*" color=gray shape=point]
+		97 -> 103 [arrowhead=box arrowsize=.5]
+	104 [label=53 color=black fillcolor=lightblue2 shape=box style=filled]
+		72 -> 104
+	105 [label=51 color=black fillcolor=lightblue2 shape=box style=filled]
+		104 -> 105
+	106 [label="*" color=gray shape=point]
+		105 -> 106 [arrowhead=box arrowsize=.5]
+	107 [label=52 color=black fillcolor=lightblue2 shape=box style=filled]
+		105 -> 107
+	108 [label="*" color=gray shape=point]
+		107 -> 108 [arrowhead=box arrowsize=.5]
+	109 [label="*" color=gray shape=point]
+		107 -> 109 [arrowhead=box arrowsize=.5]
+	110 [label=57 color=black fillcolor=lightblue2 shape=box style=filled]
+		104 -> 110
+	111 [label=54 color=black fillcolor=lightblue2 shape=box style=filled]
+		110 -> 111
+	112 [label="*" color=gray shape=point]
+		111 -> 112 [arrowhead=box arrowsize=.5]
+	113 [label=56 color=black fillcolor=lightblue2 shape=box style=filled]
+		111 -> 113
+	114 [label=55 color=black fillcolor=lightblue2 shape=box style=filled]
+		113 -> 114
+	115 [label="*" color=gray shape=point]
+		114 -> 115 [arrowhead=box arrowsize=.5]
+	116 [label="*" color=gray shape=point]
+		114 -> 116 [arrowhead=box arrowsize=.5]
+	117 [label="*" color=gray shape=point]
+		113 -> 117 [arrowhead=box arrowsize=.5]
+	118 [label=58 color=black fillcolor=lightblue2 shape=box style=filled]
+		110 -> 118
+	119 [label="*" color=gray shape=point]
+		118 -> 119 [arrowhead=box arrowsize=.5]
+	120 [label="*" color=gray shape=point]
+		118 -> 120 [arrowhead=box arrowsize=.5]
+	121 [label=60 color=black fillcolor=lightblue2 shape=box style=filled]
+		71 -> 121
+	122 [label="*" color=gray shape=point]
+		121 -> 122 [arrowhead=box arrowsize=.5]
+	123 [label=61 color=black fillcolor=lightblue2 shape=box style=filled]
+		121 -> 123
+	124 [label="*" color=gray shape=point]
+		123 -> 124 [arrowhead=box arrowsize=.5]
+	125 [label=62 color=black fillcolor=lightblue2 shape=box style=filled]
+		123 -> 125
+	126 [label="*" color=gray shape=point]
+		125 -> 126 [arrowhead=box arrowsize=.5]
+	127 [label="*" color=gray shape=point]
+		125 -> 127 [arrowhead=box arrowsize=.5]
+	128 [label=93 color=black fillcolor=lightblue2 shape=box style=filled]
+		0 -> 128
+	129 [label=80 color=black fillcolor=lightblue2 shape=box style=filled]
+		128 -> 129
+	130 [label=63 color=black fillcolor=lightblue2 shape=box style=filled]
+		129 -> 130
+	131 [label="*" color=gray shape=point]
+		130 -> 131 [arrowhead=box arrowsize=.5]
+	132 [label=74 color=black fillcolor=lightblue2 shape=box style=filled]
+		130 -> 132
+	133 [label=70 color=black fillcolor=lightblue2 shape=box style=filled]
+		132 -> 133
+	134 [label=65 color=black fillcolor=lightblue2 shape=box style=filled]
+		133 -> 134
+	135 [label=64 color=black fillcolor=lightblue2 shape=box style=filled]
+		134 -> 135
+	136 [label="*" color=gray shape=point]
+		135 -> 136 [arrowhead=box arrowsize=.5]
+	137 [label="*" color=gray shape=point]
+		135 -> 137 [arrowhead=box arrowsize=.5]
+	138 [label=66 color=black fillcolor=lightblue2 shape=box style=filled]
+		134 -> 138
+	139 [label="*" color=gray shape=point]
+		138 -> 139 [arrowhead=box arrowsize=.5]
+	140 [label=69 color=black fillcolor=lightblue2 shape=box style=filled]
+		138 -> 140
+	141 [label=68 color=black fillcolor=lightblue2 shape=box style=filled]
+		140 -> 141
+	142 [label=67 color=black fillcolor=lightblue2 shape=box style=filled]
+		141 -> 142
+	143 [label="*" color=gray shape=point]
+		142 -> 143 [arrowhead=box arrowsize=.5]
+	144 [label="*" color=gray shape=point]
+		142 -> 144 [arrowhead=box arrowsize=.5]
+	145 [label="*" color=gray shape=point]
+		141 -> 145 [arrowhead=box arrowsize=.5]
+	146 [label="*" color=gray shape=point]
+		140 -> 146 [arrowhead=box arrowsize=.5]
+	147 [label=71 color=black fillcolor=lightblue2 shape=box style=filled]
+		133 -> 147
+	148 [label="*" color=gray shape=point]
+		147 -> 148 [arrowhead=box arrowsize=.5]
+	149 [label=72 color=black fillcolor=lightblue2 shape=box style=filled]
+		147 -> 149
+	150 [label="*" color=gray shape=point]
+		149 -> 150 [arrowhead=box arrowsize=.5]
+	151 [label=73 color=black fillcolor=lightblue2 shape=box style=filled]
+		149 -> 151
+	152 [label="*" color=gray shape=point]
+		151 -> 152 [arrowhead=box arrowsize=.5]
+	153 [label="*" color=gray shape=point]
+		151 -> 153 [arrowhead=box arrowsize=.5]
+	154 [label=78 color=black fillcolor=lightblue2 shape=box style=filled]
+		132 -> 154
+	155 [label=76 color=black fillcolor=lightblue2 shape=box style=filled]
+		154 -> 155
+	156 [label=75 color=black fillcolor=lightblue2 shape=box style=filled]
+		155 -> 156
+	157 [label="*" color=gray shape=point]
+		156 -> 157 [arrowhead=box arrowsize=.5]
+	158 [label="*" color=gray shape=point]
+		156 -> 158 [arrowhead=box arrowsize=.5]
+	159 [label=77 color=black fillcolor=lightblue2 shape=box style=filled]
+		155 -> 159
+	160 [label="*" color=gray shape=point]
+		159 -> 160 [arrowhead=box arrowsize=.5]
+	161 [label="*" color=gray shape=point]
+		159 -> 161 [arrowhead=box arrowsize=.5]
+	162 [label=79 color=black fillcolor=lightblue2 shape=box style=filled]
+		154 -> 162
+	163 [label="*" color=gray shape=point]
+		162 -> 163 [arrowhead=box arrowsize=.5]
+	164 [label="*" color=gray shape=point]
+		162 -> 164 [arrowhead=box arrowsize=.5]
+	165 [label=86 color=black fillcolor=lightblue2 shape=box style=filled]
+		129 -> 165
+	166 [label=82 color=black fillcolor=lightblue2 shape=box style=filled]
+		165 -> 166
+	167 [label=81 color=black fillcolor=lightblue2 shape=box style=filled]
+		166 -> 167
+	168 [label="*" color=gray shape=point]
+		167 -> 168 [arrowhead=box arrowsize=.5]
+	169 [label="*" color=gray shape=point]
+		167 -> 169 [arrowhead=box arrowsize=.5]
+	170 [label=85 color=black fillcolor=lightblue2 shape=box style=filled]
+		166 -> 170
+	171 [label=83 color=black fillcolor=lightblue2 shape=box style=filled]
+		170 -> 171
+	172 [label="*" color=gray shape=point]
+		171 -> 172 [arrowhead=box arrowsize=.5]
+	173 [label=84 color=black fillcolor=lightblue2 shape=box style=filled]
+		171 -> 173
+	174 [label="*" color=gray shape=point]
+		173 -> 174 [arrowhead=box arrowsize=.5]
+	175 [label="*" color=gray shape=point]
+		173 -> 175 [arrowhead=box arrowsize=.5]
+	176 [label="*" color=gray shape=point]
+		170 -> 176 [arrowhead=box arrowsize=.5]
+	177 [label=91 color=black fillcolor=lightblue2 shape=box style=filled]
+		165 -> 177
+	178 [label=87 color=black fillcolor=lightblue2 shape=box style=filled]
+		177 -> 178
+	179 [label="*" color=gray shape=point]
+		178 -> 179 [arrowhead=box arrowsize=.5]
+	180 [label=89 color=black fillcolor=lightblue2 shape=box style=filled]
+		178 -> 180
+	181 [label=88 color=black fillcolor=lightblue2 shape=box style=filled]
+		180 -> 181
+	182 [label="*" color=gray shape=point]
+		181 -> 182 [arrowhead=box arrowsize=.5]
+	183 [label="*" color=gray shape=point]
+		181 -> 183 [arrowhead=box arrowsize=.5]
+	184 [label=90 color=black fillcolor=lightblue2 shape=box style=filled]
+		180 -> 184
+	185 [label="*" color=gray shape=point]
+		184 -> 185 [arrowhead=box arrowsize=.5]
+	186 [label="*" color=gray shape=point]
+		184 -> 186 [arrowhead=box arrowsize=.5]
+	187 [label=92 color=black fillcolor=lightblue2 shape=box style=filled]
+		177 -> 187
+	188 [label="*" color=gray shape=point]
+		187 -> 188 [arrowhead=box arrowsize=.5]
+	189 [label="*" color=gray shape=point]
+		187 -> 189 [arrowhead=box arrowsize=.5]
+	190 [label=106 color=black fillcolor=lightblue2 shape=box style=filled]
+		128 -> 190
+	191 [label=95 color=black fillcolor=lightblue2 shape=box style=filled]
+		190 -> 191
+	192 [label=94 color=black fillcolor=lightblue2 shape=box style=filled]
+		191 -> 192
+	193 [label="*" color=gray shape=point]
+		192 -> 193 [arrowhead=box arrowsize=.5]
+	194 [label="*" color=gray shape=point]
+		192 -> 194 [arrowhead=box arrowsize=.5]
+	195 [label=96 color=black fillcolor=lightblue2 shape=box style=filled]
+		191 -> 195
+	196 [label="*" color=gray shape=point]
+		195 -> 196 [arrowhead=box arrowsize=.5]
+	197 [label=100 color=black fillcolor=lightblue2 shape=box style=filled]
+		195 -> 197
+	198 [label=98 color=black fillcolor=lightblue2 shape=box style=filled]
+		197 -> 198
+	199 [label=97 color=black fillcolor=lightblue2 shape=box style=filled]
+		198 -> 199
+	200 [label="*" color=gray shape=point]
+		199 -> 200 [arrowhead=box arrowsize=.5]
+	201 [label="*" color=gray shape=point]
+		199 -> 201 [arrowhead=box arrowsize=.5]
+	202 [label=99 color=black fillcolor=lightblue2 shape=box style=filled]
+		198 -> 202
+	203 [label="*" color=gray shape=point]
+		202 -> 203 [arrowhead=box arrowsize=.5]
+	204 [label="*" color=gray shape=point]
+		202 -> 204 [arrowhead=box arrowsize=.5]
+	205 [label=102 color=black fillcolor=lightblue2 shape=box style=filled]
+		197 -> 205
+	206 [label=101 color=black fillcolor=lightblue2 shape=box style=filled]
+		205 -> 206
+	207 [label="*" color=gray shape=point]
+		206 -> 207 [arrowhead=box arrowsize=.5]
+	208 [label="*" color=gray shape=point]
+		206 -> 208 [arrowhead=box arrowsize=.5]
+	209 [label=104 color=black fillcolor=lightblue2 shape=box style=filled]
+		205 -> 209
+	210 [label=103 color=black fillcolor=lightblue2 shape=box style=filled]
+		209 -> 210
+	211 [label="*" color=gray shape=point]
+		210 -> 211 [arrowhead=box arrowsize=.5]
+	212 [label="*" color=gray shape=point]
+		210 -> 212 [arrowhead=box arrowsize=.5]
+	213 [label=105 color=black fillcolor=lightblue2 shape=box style=filled]
+		209 -> 213
+	214 [label="*" color=gray shape=point]
+		213 -> 214 [arrowhead=box arrowsize=.5]
+	215 [label="*" color=gray shape=point]
+		213 -> 215 [arrowhead=box arrowsize=.5]
+	216 [label=119 color=black fillcolor=lightblue2 shape=box style=filled]
+		190 -> 216
+	217 [label=115 color=black fillcolor=lightblue2 shape=box style=filled]
+		216 -> 217
+	218 [label=109 color=black fillcolor=lightblue2 shape=box style=filled]
+		217 -> 218
+	219 [label=108 color=black fillcolor=lightblue2 shape=box style=filled]
+		218 -> 219
+	220 [label=107 color=black fillcolor=lightblue2 shape=box style=filled]
+		219 -> 220
+	221 [label="*" color=gray shape=point]
+		220 -> 221 [arrowhead=box arrowsize=.5]
+	222 [label="*" color=gray shape=point]
+		220 -> 222 [arrowhead=box arrowsize=.5]
+	223 [label="*" color=gray shape=point]
+		219 -> 223 [arrowhead=box arrowsize=.5]
+	224 [label=114 color=black fillcolor=lightblue2 shape=box style=filled]
+		218 -> 224
+	225 [label=110 color=black fillcolor=lightblue2 shape=box style=filled]
+		224 -> 225
+	226 [label="*" color=gray shape=point]
+		225 -> 226 [arrowhead=box arrowsize=.5]
+	227 [label=112 color=black fillcolor=lightblue2 shape=box style=filled]
+		225 -> 227
+	228 [label=111 color=black fillcolor=lightblue2 shape=box style=filled]
+		227 -> 228
+	229 [label="*" color=gray shape=point]
+		228 -> 229 [arrowhead=box arrowsize=.5]
+	230 [label="*" color=gray shape=point]
+		228 -> 230 [arrowhead=box arrowsize=.5]
+	231 [label=113 color=black fillcolor=lightblue2 shape=box style=filled]
+		227 -> 231
+	232 [label="*" color=gray shape=point]
+		231 -> 232 [arrowhead=box arrowsize=.5]
+	233 [label="*" color=gray shape=point]
+		231 -> 233 [arrowhead=box arrowsize=.5]
+	234 [label="*" color=gray shape=point]
+		224 -> 234 [arrowhead=box arrowsize=.5]
+	235 [label=118 color=black fillcolor=lightblue2 shape=box style=filled]
+		217 -> 235
+	236 [label=117 color=black fillcolor=lightblue2 shape=box style=filled]
+		235 -> 236
+	237 [label=116 color=black fillcolor=lightblue2 shape=box style=filled]
+		236 -> 237
+	238 [label="*" color=gray shape=point]
+		237 -> 238 [arrowhead=box arrowsize=.5]
+	239 [label="*" color=gray shape=point]
+		237 -> 239 [arrowhead=box arrowsize=.5]
+	240 [label="*" color=gray shape=point]
+		236 -> 240 [arrowhead=box arrowsize=.5]
+	241 [label="*" color=gray shape=point]
+		235 -> 241 [arrowhead=box arrowsize=.5]
+	242 [label=120 color=black fillcolor=lightblue2 shape=box style=filled]
+		216 -> 242
+	243 [label="*" color=gray shape=point]
+		242 -> 243 [arrowhead=box arrowsize=.5]
+	244 [label=126 color=black fillcolor=lightblue2 shape=box style=filled]
+		242 -> 244
+	245 [label=125 color=black fillcolor=lightblue2 shape=box style=filled]
+		244 -> 245
+	246 [label=124 color=black fillcolor=lightblue2 shape=box style=filled]
+		245 -> 246
+	247 [label=122 color=black fillcolor=lightblue2 shape=box style=filled]
+		246 -> 247
+	248 [label=121 color=black fillcolor=lightblue2 shape=box style=filled]
+		247 -> 248
+	249 [label="*" color=gray shape=point]
+		248 -> 249 [arrowhead=box arrowsize=.5]
+	250 [label="*" color=gray shape=point]
+		248 -> 250 [arrowhead=box arrowsize=.5]
+	251 [label=123 color=black fillcolor=lightblue2 shape=box style=filled]
+		247 -> 251
+	252 [label="*" color=gray shape=point]
+		251 -> 252 [arrowhead=box arrowsize=.5]
+	253 [label="*" color=gray shape=point]
+		251 -> 253 [arrowhead=box arrowsize=.5]
+	254 [label="*" color=gray shape=point]
+		246 -> 254 [arrowhead=box arrowsize=.5]
+	255 [label="*" color=gray shape=point]
+		245 -> 255 [arrowhead=box arrowsize=.5]
+	256 [label="*" color=gray shape=point]
+		244 -> 256 [arrowhead=box arrowsize=.5]
+}

@@ -1,0 +1,167 @@
+digraph "./images/bst_11" {
+	940 [label=25 color=black fillcolor=lightblue2 shape=box style=filled]
+	941 [label=11 color=black fillcolor=lightblue2 shape=box style=filled]
+		940 -> 941
+	942 [label=2 color=black fillcolor=lightblue2 shape=box style=filled]
+		941 -> 942
+	943 [label=0 color=black fillcolor=lightblue2 shape=box style=filled]
+		942 -> 943
+	944 [label="*" color=gray shape=point]
+		943 -> 944 [arrowhead=box arrowsize=.5]
+	945 [label=1 color=black fillcolor=lightblue2 shape=box style=filled]
+		943 -> 945
+	946 [label="*" color=gray shape=point]
+		945 -> 946 [arrowhead=box arrowsize=.5]
+	947 [label="*" color=gray shape=point]
+		945 -> 947 [arrowhead=box arrowsize=.5]
+	948 [label=10 color=black fillcolor=lightblue2 shape=box style=filled]
+		942 -> 948
+	949 [label=6 color=black fillcolor=lightblue2 shape=box style=filled]
+		948 -> 949
+	950 [label=4 color=black fillcolor=lightblue2 shape=box style=filled]
+		949 -> 950
+	951 [label="*" color=gray shape=point]
+		950 -> 951 [arrowhead=box arrowsize=.5]
+	952 [label="*" color=gray shape=point]
+		950 -> 952 [arrowhead=box arrowsize=.5]
+	953 [label=8 color=black fillcolor=lightblue2 shape=box style=filled]
+		949 -> 953
+	954 [label="*" color=gray shape=point]
+		953 -> 954 [arrowhead=box arrowsize=.5]
+	955 [label="*" color=gray shape=point]
+		953 -> 955 [arrowhead=box arrowsize=.5]
+	956 [label="*" color=gray shape=point]
+		948 -> 956 [arrowhead=box arrowsize=.5]
+	957 [label=19 color=black fillcolor=lightblue2 shape=box style=filled]
+		941 -> 957
+	958 [label=12 color=black fillcolor=lightblue2 shape=box style=filled]
+		957 -> 958
+	959 [label="*" color=gray shape=point]
+		958 -> 959 [arrowhead=box arrowsize=.5]
+	960 [label=15 color=black fillcolor=lightblue2 shape=box style=filled]
+		958 -> 960
+	961 [label=14 color=black fillcolor=lightblue2 shape=box style=filled]
+		960 -> 961
+	962 [label="*" color=gray shape=point]
+		961 -> 962 [arrowhead=box arrowsize=.5]
+	963 [label="*" color=gray shape=point]
+		961 -> 963 [arrowhead=box arrowsize=.5]
+	964 [label=18 color=black fillcolor=lightblue2 shape=box style=filled]
+		960 -> 964
+	965 [label=17 color=black fillcolor=lightblue2 shape=box style=filled]
+		964 -> 965
+	966 [label="*" color=gray shape=point]
+		965 -> 966 [arrowhead=box arrowsize=.5]
+	967 [label="*" color=gray shape=point]
+		965 -> 967 [arrowhead=box arrowsize=.5]
+	968 [label="*" color=gray shape=point]
+		964 -> 968 [arrowhead=box arrowsize=.5]
+	969 [label=23 color=black fillcolor=lightblue2 shape=box style=filled]
+		957 -> 969
+	970 [label=22 color=black fillcolor=lightblue2 shape=box style=filled]
+		969 -> 970
+	971 [label=21 color=black fillcolor=lightblue2 shape=box style=filled]
+		970 -> 971
+	972 [label="*" color=gray shape=point]
+		971 -> 972 [arrowhead=box arrowsize=.5]
+	973 [label="*" color=gray shape=point]
+		971 -> 973 [arrowhead=box arrowsize=.5]
+	974 [label="*" color=gray shape=point]
+		970 -> 974 [arrowhead=box arrowsize=.5]
+	975 [label="*" color=gray shape=point]
+		969 -> 975 [arrowhead=box arrowsize=.5]
+	976 [label=37 color=black fillcolor=lightblue2 shape=box style=filled]
+		940 -> 976
+	977 [label=31 color=black fillcolor=lightblue2 shape=box style=filled]
+		976 -> 977
+	978 [label=25 color=black fillcolor=lightblue2 shape=box style=filled]
+		977 -> 978
+	979 [label="*" color=gray shape=point]
+		978 -> 979 [arrowhead=box arrowsize=.5]
+	980 [label=27 color=black fillcolor=lightblue2 shape=box style=filled]
+		978 -> 980
+	981 [label="*" color=gray shape=point]
+		980 -> 981 [arrowhead=box arrowsize=.5]
+	982 [label=28 color=black fillcolor=lightblue2 shape=box style=filled]
+		980 -> 982
+	983 [label="*" color=gray shape=point]
+		982 -> 983 [arrowhead=box arrowsize=.5]
+	984 [label=30 color=black fillcolor=lightblue2 shape=box style=filled]
+		982 -> 984
+	985 [label="*" color=gray shape=point]
+		984 -> 985 [arrowhead=box arrowsize=.5]
+	986 [label="*" color=gray shape=point]
+		984 -> 986 [arrowhead=box arrowsize=.5]
+	987 [label=35 color=black fillcolor=lightblue2 shape=box style=filled]
+		977 -> 987
+	988 [label=32 color=black fillcolor=lightblue2 shape=box style=filled]
+		987 -> 988
+	989 [label="*" color=gray shape=point]
+		988 -> 989 [arrowhead=box arrowsize=.5]
+	990 [label=34 color=black fillcolor=lightblue2 shape=box style=filled]
+		988 -> 990
+	991 [label=33 color=black fillcolor=lightblue2 shape=box style=filled]
+		990 -> 991
+	992 [label="*" color=gray shape=point]
+		991 -> 992 [arrowhead=box arrowsize=.5]
+	993 [label="*" color=gray shape=point]
+		991 -> 993 [arrowhead=box arrowsize=.5]
+	994 [label="*" color=gray shape=point]
+		990 -> 994 [arrowhead=box arrowsize=.5]
+	995 [label=36 color=black fillcolor=lightblue2 shape=box style=filled]
+		987 -> 995
+	996 [label="*" color=gray shape=point]
+		995 -> 996 [arrowhead=box arrowsize=.5]
+	997 [label="*" color=gray shape=point]
+		995 -> 997 [arrowhead=box arrowsize=.5]
+	998 [label=49 color=black fillcolor=lightblue2 shape=box style=filled]
+		976 -> 998
+	999 [label=46 color=black fillcolor=lightblue2 shape=box style=filled]
+		998 -> 999
+	1000 [label=42 color=black fillcolor=lightblue2 shape=box style=filled]
+		999 -> 1000
+	1001 [label=39 color=black fillcolor=lightblue2 shape=box style=filled]
+		1000 -> 1001
+	1002 [label=38 color=black fillcolor=lightblue2 shape=box style=filled]
+		1001 -> 1002
+	1003 [label="*" color=gray shape=point]
+		1002 -> 1003 [arrowhead=box arrowsize=.5]
+	1004 [label="*" color=gray shape=point]
+		1002 -> 1004 [arrowhead=box arrowsize=.5]
+	1005 [label=40 color=black fillcolor=lightblue2 shape=box style=filled]
+		1001 -> 1005
+	1006 [label="*" color=gray shape=point]
+		1005 -> 1006 [arrowhead=box arrowsize=.5]
+	1007 [label=41 color=black fillcolor=lightblue2 shape=box style=filled]
+		1005 -> 1007
+	1008 [label="*" color=gray shape=point]
+		1007 -> 1008 [arrowhead=box arrowsize=.5]
+	1009 [label="*" color=gray shape=point]
+		1007 -> 1009 [arrowhead=box arrowsize=.5]
+	1010 [label=44 color=black fillcolor=lightblue2 shape=box style=filled]
+		1000 -> 1010
+	1011 [label=43 color=black fillcolor=lightblue2 shape=box style=filled]
+		1010 -> 1011
+	1012 [label="*" color=gray shape=point]
+		1011 -> 1012 [arrowhead=box arrowsize=.5]
+	1013 [label="*" color=gray shape=point]
+		1011 -> 1013 [arrowhead=box arrowsize=.5]
+	1014 [label=45 color=black fillcolor=lightblue2 shape=box style=filled]
+		1010 -> 1014
+	1015 [label="*" color=gray shape=point]
+		1014 -> 1015 [arrowhead=box arrowsize=.5]
+	1016 [label="*" color=gray shape=point]
+		1014 -> 1016 [arrowhead=box arrowsize=.5]
+	1017 [label=47 color=black fillcolor=lightblue2 shape=box style=filled]
+		999 -> 1017
+	1018 [label="*" color=gray shape=point]
+		1017 -> 1018 [arrowhead=box arrowsize=.5]
+	1019 [label=48 color=black fillcolor=lightblue2 shape=box style=filled]
+		1017 -> 1019
+	1020 [label="*" color=gray shape=point]
+		1019 -> 1020 [arrowhead=box arrowsize=.5]
+	1021 [label="*" color=gray shape=point]
+		1019 -> 1021 [arrowhead=box arrowsize=.5]
+	1022 [label="*" color=gray shape=point]
+		998 -> 1022 [arrowhead=box arrowsize=.5]
+}

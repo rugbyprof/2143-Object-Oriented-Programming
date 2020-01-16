@@ -1,0 +1,6 @@
+- [study_guide_1](./study_guide_1.md)
+- [study_guide_2](./study_guide_2.md)
+- [Berkley Lab](https://inst.eecs.berkeley.edu/~cs61a/fa14/lab/lab06/)
+- [inheritence_explanation](./inheritence_explanation.md)
+- [intro-to-classes](./intro-to-classes.md)
+- [fraction_inclass.py](./LectureCode/fraction_inclass.py)
