@@ -21,7 +21,11 @@ If you have had me before, and this seems **TL;DR** make sure you:
 
 The first step in doing well in any of my courses is establishing a base of communication. Why? Not everything can be done while we are in class. 
 
-Assignments will (and should) be challenging. Therefore you will need help from me and your classmates. Using Slack provides communication well class if over. I realize that most work gets done in the evening and want to make myself available for questions. So we will use a chat client built for developers called [Slack](https://slack.com)<sup>2</sup>. You should have gotten an invite already from me. Accept it. If you didn't, ask me for another invite. [Here](https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-users) is a getting started guide to help you use slack. Slack is an app. It can be installed OR viewed via a web browser using a URL. 
+Assignments will (and should) be challenging. Therefore, you will need help from me and your classmates. Using [Slack](https://slack.com)<sup>2</sup> (a chat client) provides a communication portal after class and regardless of where you are. I realize that most work gets done in the evening and off campus. By using Slack,you don't have to wait until the lab is open, or until I have office hours.
+
+You can ask questions multiple ways on Slack. Either on our public class channel, or privately between users. If you post a question on the public channel, your fellow students can help with an answer. This is good, because most questions revolve around interpretation of an assignment: "What did Griffin mean when he asked __________?" These questions help everyone interpret an assignment correctly, and I can jump in to give a definitive answer. You can also privately ask me a question on a direct channel. I will do my best to answer in an expedient amount of time. Some days I may answer immediately, and some days I may not answer at all. I try my best, but I will also not be a slave to slack :) I mostly will answer quickly, even late at night.
+
+You should have gotten an invite already from me. Accept it. If you didn't, ask me for another invite. [Here](https://get.slack.help/hc/en-us/articles/218080037-Getting-started-for-new-users) is a getting started guide to help you use slack. Slack is an app. It can be installed OR viewed via a web browser using a URL. 
 
 #### Slack provides
 
@@ -39,14 +43,14 @@ So, **NO email!** Unless I specifically ask. Slack is your communication conduit
 2. **The students that monitor our slack channel and participate in discussions almost alway do better. I've used slack since it was established almost 10 years ago and I can say with a high level of confidence that students who participate on Slack to better in the course.**
 3. **YOU WILL** update your profile so your avatar in chats shows either an image of you, or an avatar that ends up on your github repo's main page.
 
-Now that we have our communication client set up, we probably need to start getting the actual programming environment ready! We will be doing many things from the command line this semester. Windows is not know for it's command line prowess, so we need to give it some assistance. 
+Now that we have our communication client set up, we probably need to start getting the actual programming environment ready! We will be doing many things from the command line this semester. Windows is not known for it's command line prowess, so we need to give it some assistance. 
 
 ### VsCode (NOT Visual Studio)
 ---
 
 <img src="http://cs.mwsu.edu/~griffin/zcloud/zcloud-files/vscode.svg.png" width="175">
 
-Vscode is a lightweight editor that will also let us compile and run C++ programs. I like it much more than Visual Studio because we do not need all of what Visual Studio offers. VsCode is a more straight forward way to running C++ programs, and I think you will benefit from using it. VsCode is NOT a compiler. What does this mean? When you use Visual Studio you are using an IDE (Integrated Development Environment). The `integrated` means that many components are "integrated" within the "environment": editor, compiler, linker, library managament, debugger, team support, version control and much more. It's the kitchen sink of writing programs, and we only need an editor and compiler. The debugger is a good way of tracking down nasty problems, but we mostly debug using `cout` statements. Vscode has debug capabilities which I will touch on during the semester.
+Vscode is a lightweight editor that will also let us compile and run C++ programs. I like it much more than Visual Studio because we do not need all of what Visual Studio offers. VsCode is a more straight forward way to running C++ programs, and I think you will benefit from using it. VsCode is NOT a compiler. What does this mean? When you use Visual Studio you are using an IDE (Integrated Development Environment). The `integrated` means that many components are "integrated" within the "environment": editor, compiler, linker, library managament, debugger, team support, version control and much more. It's the kitchen sink of writing programs, but we really only need an editor and compiler (with a couple of helper tools).  Vscode has debug capabilities which I will touch on during the semester.
 
 To instal VsCode, go here:
 - https://code.visualstudio.com/
@@ -54,13 +58,13 @@ To instal VsCode, go here:
 To add C++ support go here (don't worry about `Remote Development`)
 - https://code.visualstudio.com/docs/languages/cpp
 
-### Your Code Repository
+### Your Own Code Repository
 
 ---
 
 <img src="http://cs.mwsu.edu/~griffin/zcloud/zcloud-files/github.svg" width="175">
 
-In addition to our team chat and code editor, we need a place where we can store / retreive our code base. A `code base` is a collection of source code that is used to build a particular software system. Where `software system` in the context of class is basically our programs. Github is where you will get all of your starter code (from my repo) for each of your assignments, and it's also where you will store all of your own completed assignments. By putting all of your code on GitHub, you are basically starting a code portfolio which, if you continue to add to it after you finish my course, will allow potential employers to view your collection of programs and make you that much more marketable.
+In addition to our team chat and code editor, we will be using `version control` software to organize all of our code. WHAT?!?! **Version Control**?? Please trust me when I say you will be better for using some kind of version control. In this case we will use `git` (the version control sofwtare) in conjunction with `github` a web site that makes your programs publicly viewable. There is a bit of a learning curve, but you will thank me for it. 
 
 #### What is Git?
 
@@ -125,7 +129,7 @@ If you're not familiar with `markdown` you can go [here](https://guides.github.c
 ### Class Roster
 ---
 
-<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/google_sheets_icon.png" width="150"> 
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/google-sheets.png" width="150"> 
 
 #### Update the Class Roster:
 
@@ -135,12 +139,13 @@ If you're not familiar with `markdown` you can go [here](https://guides.github.c
 
 Add:
 
-1. Your name (last, first)
-2. Your email
-3. Your github username<sup>*</sup>
-4. A link to your 2143-OOP repository<sup>*</sup>
+1. If your first and last name are not present, add them along with an email address.
+2. If your email on my roster is incorrect, or you use a different one, then change it.
+3. Add your github username<sup>*</sup>
+4. Add a link to your 2143-OOP repository<sup>*</sup>
 
 *Your repository name and your github username are NOT the same thing.
+*I should be able to click your repo link, and your github repository (along with your README file ... images and all ... should proudly be displayed).
 
 ### Rules for emailing me:
 ---
@@ -153,12 +158,10 @@ Add:
     - last name,
     - course number
     - Link to any assignment that your asking about
-5) Now CLOSE YOUR EMAIL CLIENT AND MESSAGE ME ON SLACK.
+5) Now ***CLOSE YOUR EMAIL CLIENT AND MESSAGE ME ON SLACK***.
 
 Sources:
 - <sub>[1] http://en.wikipedia.org/wiki/Git_(software)</sub>
 - <sub>[2] https://slack.com</sub>
-- <sub>[3] http://www.openbookproject.net/courses/webappdev/units/softwaredesign/resources/install_python_win7.html </sub>
 - <sub>[4] https://code.visualstudio.com/</sub>
 - <sub>[5] https://git-for-windows.github.io/</sub>
-- <sub>[6] https://www.python.org/</sub>
