@@ -1,19 +1,20 @@
-# 2143 Syllabus
+# 2143-Algorithms
 
-# old!
+### Roster
+![](https://d3vv6lp55qjaqc.cloudfront.net/items/220B0V0H3c041K2p251Z/google-sheets-16.png?X-CloudApp-Visitor-Id=1094421) [Class Roster](https://docs.google.com/spreadsheets/d/18bmuAJBjV5Yw5tzzXht_Dz1gcwoYvydZgtCaR_nECOw/edit?usp=sharing)
 
-### Days Time Location
 
-- Days: MWF 1100am 1150pm 
-- Location: BO 320 
-- Final Exam: Monday Dec 10<sup>th</sup>, 10:30a.m. - 12:30 p.m.
-- Dates: August 25<sup>th</sup> - Dec 10<sup>th</sup>
-- Holidays: 
-    - Thanksgiving Holidays begin 10:00 p.m. November 20<sup>th</sup>
-- Last Day for “W”, 4:00 p.m. – October 29<sup>th</sup>
-- Companion Website:
-    - https://github.com/rugbyprof/2143-Object-Oriented-Programming
-
+### General Course Info
+- __Days:__ MW 11:00 a.m. - 12:20 p.m. 
+- __Location:__ BO 320
+- [__Semester:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal1920.pdf)Tue Jan 21<sup>st</sup> - Wed May 8<sup>th</sup>
+- [__Holidays:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal1920.pdf)
+  - __Martin Luther King's Birthday__ Mon Jan 20<sup>th</sup>
+  - __Spring Break:__ Mon Mar 16<sup>th</sup> - Fri Mar 21<sup>st</sup> 
+  - __Easter Break:__ Wed Apr 8<sup>th</sup> - Fri Apr 10<sup>th</sup>
+- [__Last Day for “W”:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal1920.pdf) Mon Mar 30<sup>th</sup>
+- [__Last Day of Class:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal1920.pdf) Fri May 8<sup>th</sup>
+- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/spring20finals.pdf) Monday May 11<sup>th</sup>, 10:30 a.m. - 12:30 p.m.
 
 ## Course Topics
 
