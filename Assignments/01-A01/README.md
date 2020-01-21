@@ -88,7 +88,7 @@ I use github as a homebase for all assignments, lectures, and resources. It's ba
 - When you create a Github account, you must choose a `username`.
 - This is very important to remember, because you will update the class roster with this username so I know where to find all your assignments.
 - Create a repository named:
-    - `3013-DS-yourlastname`
+    - `2143-OOP-yourlastname`
     - replace the `yourlastname` with your last name to make it unique.
 - Check the box that says: "Add a README.md file"
 
@@ -100,6 +100,19 @@ I use github as a homebase for all assignments, lectures, and resources. It's ba
     - Your first and last name
     - Your email address
     - Your website (if you have one)
+
+***Example README.md***
+
+If you're not familiar with `markdown` you can go [here](https://guides.github.com/features/mastering-markdown/) to get an idea of what it can do for you. It's basically a simple syntax that you can use to format files. Use the template below to get your `README` started:
+
+```md
+## Albert Einstein
+#### Repo: 2143 Object Oriented Repo
+#### Email: albert.einstein@yahoo.com
+#### Website: https://en.wikipedia.org/wiki/Albert_Einstein
+#### Image:
+![Albert Einstein](https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein.png)
+```
 
 ### Class Roster
 ---
