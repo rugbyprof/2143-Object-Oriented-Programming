@@ -1,5 +1,5 @@
 ## Assignment 1 - Getting Started
-#### Due: Thursday January 23rd by classtime!!
+#### Due: 01-23-2020 (Thursday @ 11:00 a.m.)
 
 ## Getting Setup
 
@@ -50,7 +50,7 @@ Vscode is a lightweight editor that will also let us compile and run C++ program
 To instal VsCode, go here:
 - https://code.visualstudio.com/
 
-To add C++ support go here (don't worry about `Remote Developmen`)
+To add C++ support go here (don't worry about `Remote Development`)
 - https://code.visualstudio.com/docs/languages/cpp
 
 ### Your Code Repository
