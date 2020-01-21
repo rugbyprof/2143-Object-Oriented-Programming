@@ -4,3 +4,4 @@
 - Yes, this is due as well!
 - I will need class participation to work out the bugs on different platforms.
   
+- https://www.sfml-dev.org/tutorials/2.5/
