@@ -3,4 +3,15 @@
  | ------------|------------|------------|------------|
  | [01-A01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A01) | [ Assignment 1 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A01) | [ Getting Started](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A01) | [Thursday January 23rd by classtime!!](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A01) |
 
-<sup>Last Updated: 2020-01-21 (Tue @ 02:21)</sup>
+    
+    ## File Legend
+    
+    | Folder Name | Description |
+    |:-----------|:-------------|
+    |xxx-**A**xxx | This is some kind of an ***Assignment***, where an `assignment` can be anything that isn't big enough to be a full fledged program, and not specific enough to be a homework. |
+    |xxx-**H**xxx | This is a ***Homework***. Something pretty specific, usually not requiring a lot of programming. |
+    |xxx-**P**xxx | This is a program. Where is must be compile, run error free, commented, and correct. |
+    |xxx-**T**xxx | This is a test. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
+    
+    
+<sup>Last Updated: 2020-01-21 (Tue @ 02:34)</sup>
