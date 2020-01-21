@@ -37,6 +37,7 @@ So, **NO email!** Unless I specifically ask. Slack is your communication conduit
 
 1. I **highly** recommend installing slack on your mobile device as well as your own computer. I often upload help, or code suggestions on Slack in the evening or on weekends. Having slack on your mobile device will give you the best chance of getting the `alert` or notification that something was done.
 2. **The students that monitor our slack channel and participate in discussions almost alway do better. I've used slack since it was established almost 10 years ago and I can say with a high level of confidence that students who participate on Slack to better in the course.**
+3. **YOU WILL** update your profile so your avatar in chats shows either an image of you, or an avatar that ends up on your github repo's main page.
 
 Now that we have our communication client set up, we probably need to start getting the actual programming environment ready! We will be doing many things from the command line this semester. Windows is not know for it's command line prowess, so we need to give it some assistance. 
 
@@ -96,10 +97,11 @@ I use github as a homebase for all assignments, lectures, and resources. It's ba
 
 - Edit the readme file on github and place your contact information inside along with a picture of YOU. NOT an avatar. NOT a thumbnail. But an easily identifiable picture of you.
 - Your readme should include:
-    - Your image
     - Your first and last name
     - Your email address
     - Your website (if you have one)
+    - Your image
+    - Slack / Github avatar
 
 ***Example README.md***
 
@@ -112,7 +114,13 @@ If you're not familiar with `markdown` you can go [here](https://guides.github.c
 #### Website: https://en.wikipedia.org/wiki/Albert_Einstein
 #### Image:
 ![Albert Einstein](https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein.png)
+#### Avatar:
+![Avatar](https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein_avatar.png)
 ```
+
+***will result in***
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein_out.png" width="300">
 
 ### Class Roster
 ---
@@ -130,7 +138,7 @@ Add:
 1. Your name (last, first)
 2. Your email
 3. Your github username<sup>*</sup>
-4. A link to your 1063-DS repository<sup>*</sup>
+4. A link to your 2143-OOP repository<sup>*</sup>
 
 *Your repository name and your github username are NOT the same thing.
 
