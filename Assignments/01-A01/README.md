@@ -118,14 +118,14 @@ If you're not familiar with `markdown` you can go [here](https://guides.github.c
 ![Avatar](https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein_avatar.png)
 ```
 
-***will result in***
+***will result in*** (avatar not included in example)
 
 <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein_out.png" width="300">
 
 ### Class Roster
 ---
 
-![](https://d3vv6lp55qjaqc.cloudfront.net/items/220B0V0H3c041K2p251Z/google-sheets-16.png?X-CloudApp-Visitor-Id=1094421) 
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/google_sheets_icon.png" width="150"> 
 
 #### Update the Class Roster:
 
