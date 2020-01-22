@@ -1,5 +1,5 @@
 ## Assignment 2 - Commenting C++ Code 
-#### Due: 01-28-2020 (Tuesday @ 11:00 a.m.)
+#### Due: 01-28-2020 (Tuesday @ 12:30 p.m.)
 
 ### Overview
 
@@ -14,6 +14,17 @@ This assignment is more about breaking the ice with github, with a little to do 
 
 - Create a folder in your `Assignments` folder called `02-CommentedCode` 
 - Place your commented `main.cpp` file into this `02-CommentedCode` folder.
-- Upload your `Assignments` folder to github BEFORE the due date. 
-- When you are done, you should have a github repo that looks like:
-- MORE TO COME AFTER CLASS
+
+
+### Your Assignments Folder
+
+- Everytime you upload a new assignment to your github repo, it should be in a folder with the name given to it by the assignment. 
+- Each folder should begin with its assignment number. This will keep the folders in order after creation and upload.
+- Your folder will also have a `README.md` file in its root. This `README.md` will contain a table that is basically a "directory" for every assignment in the assignments folder. Below is an example (link will not work since the Assignments folder is not in my repo):
+
+| Number | Folder                              | Description                            |
+| :----: | ----------------------------------- | -------------------------------------- |
+| 02     | [02-CommentedCode](./CommentedCode) | Assignment to ensure proper commenting |
+
+
+- Upload your assignment to github BEFORE the due date. 
