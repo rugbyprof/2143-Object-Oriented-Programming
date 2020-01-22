@@ -12,8 +12,8 @@ This assignment is more about breaking the ice with github, with a little to do 
 
 ### Upload Your Commented Program
 
-- Create a folder in your `Assignments` folder called `CommentedCode` 
-- Place your commented `main.cpp` file into this `CommentedCode` folder.
+- Create a folder in your `Assignments` folder called `02-CommentedCode` 
+- Place your commented `main.cpp` file into this `02-CommentedCode` folder.
 - Upload your `Assignments` folder to github BEFORE the due date. 
 - When you are done, you should have a github repo that looks like:
 - MORE TO COME AFTER CLASS

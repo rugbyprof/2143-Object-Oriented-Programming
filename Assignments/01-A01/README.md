@@ -126,6 +126,21 @@ If you're not familiar with `markdown` you can go [here](https://guides.github.c
 
 <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein_out.png" width="300">
 
+### Assignments Folder
+
+- Create an `Assignments` folder inside your github repository
+- In the `Assignments` folder, create a `README.md` file that has the following in it:
+
+```md
+## Assignments
+
+| Number | Folder | Description |
+| :----: | ------ | ----------- |
+|        |        |             |
+```
+
+- This will be a table in the root of your folder that will eventually hold a link to each assignment uploaded to github.
+
 ### Class Roster
 ---
 
