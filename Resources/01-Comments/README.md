@@ -195,3 +195,74 @@ printed program (unless we create a banner page).
      *      List*   : a pointer to a linked list of integers.
      */
 ```
+
+#### Comments in General
+
+- Variable declarations should have a comment after them:
+
+```cpp
+    T **Array;          // Pointer to allocate dynamic array
+    int Next;           // Next available location
+    int MaxSize;        // Max size since were using array
+    int HeapSize;       // Actual number of items in the array.
+    bool isMax;         // true = max heap false = mi
+
+```
+
+- Code should be commented enough to describe action in general:
+- The following is taken from a "heap" class. Knowing in general how a heap works, and by having access to the other code in the file, the comments below are enough to give the reviewer an idea of what this function is doing. 
+```cpp
+    /**
+     * Function PickChild:
+     *      Return index of child to swap with or -1 to not swap.
+     * 
+     * Params:
+     *      [int] index - index of parent element
+     * Returns
+     *      [int] index - index to swap with or -1 to not swap
+     */
+    int PickChild(int i) {
+        if (RightChild(i) >= Next) {    // No right child
+            if (LeftChild(i) >= Next) { // No left child
+                return -1;              
+            } else { // you know there is only a left child
+                return LeftChild(i);
+            }
+        } else {        //right child exists 
+            
+            if(isMax){  //This is a "maxheap"
+                        // return child with "greater" value
+                if (Array[RightChild(i)]->priority > Array[LeftChild(i)]->priority) {
+                    return RightChild(i);
+                } else {
+                    return LeftChild(i);
+                }
+            }else{
+                // return child with "smaller" value
+                if (Array[RightChild(i)]->priority < Array[LeftChild(i)]->priority) {
+                    return RightChild(i);
+                } else {
+                    return LeftChild(i);
+                }   
+            }
+
+        }
+    }
+```
+
+### Style of Comments
+
+**Good:**
+```c++
+  int num1, num2, num3;     // user entered numbers
+  double average;			// calculated average of the numbers
+  int score1,				// score on exam 1
+      score2;				// score on exam 2
+```
+**Bad:**
+```c++
+  int num1, num2, num3;          // user entered numbers
+  double average;    // calculated average of the numbers
+  int score1,    // score on exam 1
+      score2;			    // score on exam 2
+```
