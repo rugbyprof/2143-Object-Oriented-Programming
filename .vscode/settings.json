@@ -13,5 +13,6 @@
         "typeinfo": "cpp",
         "algorithm": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "cSpell.enabled": false
 }

@@ -7,10 +7,12 @@ One of the nice features of C++ is that you can give special meanings to operato
 
 The following set of operators is commonly overloaded for user-defined classes:
 
-*   = (assignment operator)
-*   \+ \- * (binary arithmetic operators)
-*   += -= *= (compound assignment operators)
-*   == != (comparison operators)
+| operators      | description                     |
+| :------------- | :------------------------------ |
+| `=`            | (assignment operator)           |
+| `+` `-` `*`    | (binary arithmetic operators)   |
+| `+=` `-=` `*=` | (compound assignment operators) |
+| `==` `!=`      | (comparison operators)          |
 
 Here are some guidelines for implementing these operators. These guidelines are very important to follow, so definitely get in the habit early.
 
@@ -18,6 +20,7 @@ Here are some guidelines for implementing these operators. These guidelines are 
 
 The assignment operator has a signature like this:
 
+```cpp
   class MyClass {
   public:
     ...
@@ -28,6 +31,7 @@ The assignment operator has a signature like this:
   MyClass a, b;
   ...
   b = a;   // Same as b.operator=(a);
+```
 
 Notice that the = operator takes a const-reference to the right hand side of the assignment. The reason for this should be obvious, since we don't want to change that value; we only want to change what's on the left hand side.
 
