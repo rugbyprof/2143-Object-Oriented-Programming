@@ -65,8 +65,3 @@
 - Programs containing syntax errors are unacceptable and will be returned without grading (your programs must work).
 - Periodically homework assignments will be taken up and graded. It is the student's responsibility to keep up with assignments and to ask questions over the assigned work, even if absent. All homework assignments are due at the specified time that may or may not be in conjunction with a class day. All assignments / homeworks will be uploaded via Github.
 
-## Links
-
-- https://hackernoon.com/error-handling-in-c-or-why-you-should-use-eithers-in-favor-of-exceptions-and-error-codes-f0640912eb45
-- https://www.geeksforgeeks.org/vector-in-cpp-stl/
-  
