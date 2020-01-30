@@ -13,5 +13,11 @@
 - Put your edited source code in this folder. 
 - Keep the `main.cpp` name for the file.
 - Make sure you  `COMMENT` your code!
-- Bring a printed copy of your code with banner to class on Thursday.
-  
+- Bring a printed copy of your code to class on Thursday.
+- Don't forget your banner (cover page).
+
+```
+H03
+2143
+LASTNAME
+```

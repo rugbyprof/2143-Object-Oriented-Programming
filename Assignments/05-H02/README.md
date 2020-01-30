@@ -77,3 +77,10 @@ Using `Card` and `Deck` as examples, come up with functionality (using similar w
 - Your document should be written in markdown.
 - Bring a print out of your readme to class on the due date.
 - There is an extension called `Markdown PDF` that will convert markdown files to PDF's to assist in printing.
+- Don't forget your banner (cover page).
+
+```
+H02
+2143
+LASTNAME
+```
