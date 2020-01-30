@@ -1,4 +1,4 @@
-## Homework 3 - Poker Game Design
+## Homework 2 - Poker Game Design
 #### Due: 02-04-2020 (Tuesday @ 11:00 a.m.)
 
 ### Overview

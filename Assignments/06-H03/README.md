@@ -1,4 +1,4 @@
-## Homework 2 - Overloading Operators
+## Homework 3 - Overloading Operators
 #### Due: 02-06-2020 (Thursday @ 11:00 a.m.)
 
 ### Overview
