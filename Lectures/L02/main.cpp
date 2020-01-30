@@ -1,15 +1,15 @@
 ///////////////////////////////////////////////////////////////////////////////
-//                   
+//
 // Author:           Terry Griffin
 // Email:            terry.griffin@msutexas.edu
 // Course:           CMPS 2143
 // Semester:         Spring 2020
-// Date:             Jan 28th 
+// Date:             Jan 28th
 //
 // Description:
-//    This code adds some improvements to our vector class written in the previous
-//    lesson. I won't comment this file like the previous one. I will simply 
-//    comment the additions to our class. 
+//    This code adds some improvements to our vector class written in the
+//    previous lesson. I won't comment this file like the previous one. I will
+//    simply comment the additions to our class.
 //
 /////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
@@ -17,16 +17,14 @@
 using namespace std;
 
 // Our previous node was not templated it only
-// held integers. By 
+// held integers. By
 template <typename T>
 struct Node {
-  T data;       // Now data will be whatever "T" is.
+  T data;  // Now data will be whatever "T" is.
   Node* next;
   Node* prev;
 
-  Node() {
-    next = prev = NULL;
-  }
+  Node() { next = prev = NULL; }
 
   // d is whatever type "T" is.
   Node(T d) {
@@ -34,7 +32,7 @@ struct Node {
     next = prev = NULL;
   }
 
-  // "friend" keyword gives one class access to the private and 
+  // "friend" keyword gives one class access to the private and
   // protected components of another class
 
   // This overloads the "<<" operator allowing us to send
@@ -45,18 +43,21 @@ struct Node {
 
   // This overloads the assignment (=) operator allowing
   // us to assign the value of one Node to another
-  void operator=(const Node& obj) { this->data = obj.data; }
+  void operator=(const Node& obj) { 
+    this->data = obj.data; 
+  }
+
 };
 
 // We need to also template the MyVector class because
 // if the Node is templated, then the methods in this class
-// need to be templated as well so the data types can 
+// need to be templated as well so the data types can
 // change to match what we need our Node to store.
 template <class T>
 class MyVector {
  private:
-  Node<T>* Head;    // Pointers need to know what type the node will
-  Node<T>* Tail;    // be storing.
+  Node<T>* Head;  // Pointers need to know what type the node will
+  Node<T>* Tail;  // be storing.
   int size;
 
  public:
@@ -66,7 +67,7 @@ class MyVector {
   }
 
   // This is a copy constructor.
-  // A copy constructor receives an object of the 
+  // A copy constructor receives an object of the
   // same type, and then makes a copy of the incoming
   // object.
   // For simple objects, the system can create a copy
@@ -76,17 +77,15 @@ class MyVector {
   MyVector(const MyVector& obj) {
     Head = Tail = NULL;
     size = 0;
-    cout<<"Copy Constructor\n";
-    Node<T>* Temp = obj.Head;   
+    cout << "Copy Constructor\n";
+    Node<T>* Temp = obj.Head;
     while (Temp) {
       this->pushBack(Temp->data);
       Temp = Temp->next;
     }
   }
 
-  int Size(){
-    return size;
-  }
+  int Size() { return size; }
 
   // we replace every "int" from previous version
   // with a "T".
@@ -178,7 +177,6 @@ class MyVector {
     Node<T>* temp = obj.Head;
 
     while (temp) {
- 
       os << "[";
       os << temp->data;
       os << "]";
@@ -190,7 +188,6 @@ class MyVector {
 
     return os;
   }
-
 
   // Overload the "[]" square brackets so we can treat our list
   // similar to an array. This will let us obtain a value from
@@ -208,9 +205,9 @@ class MyVector {
     return temp->data;
   }
 
-  // This is the "+" plus sign being overloaded to 
-  // concatenate two lists end to end returning a 
-  // third new list. 
+  // This is the "+" plus sign being overloaded to
+  // concatenate two lists end to end returning a
+  // third new list.
   MyVector operator+(const MyVector& lhs) {
     Node<T>* temp1 = Head;
     Node<T>* temp2 = lhs.Head;
@@ -231,9 +228,9 @@ class MyVector {
   }
 
   // The sort will still work??
-  // It should as long as the "T" values are defined 
+  // It should as long as the "T" values are defined
   // to use comparison operators (we will discuss later).
-  // For now types like float,string,int will all work. 
+  // For now types like float,string,int will all work.
   void Sort(bool asc = true) {
     Node<T>* Start = Head;
 
@@ -269,19 +266,22 @@ class MyVector {
 // Griffins cheap random string function
 // only does all caps. You should fix it
 // to do both upper and lowercase!
-string randString(int len){
+string randString(int len) {
   string s;
-  for(int i=0;i<len;i++){
-    s += char((rand()%26)+65);
+  for (int i = 0; i < len; i++) {
+    s += char((rand() % 26) + 65);
   }
   return s;
 }
-
 
 // main driver to test our new templated vector class
 int main() {
   MyVector<int> V1;
   MyVector<int> V2;
+
+  Node<int>* N1 = new Node<int>(33);
+  Node<int>* N2 = new Node<int>(34);
+
 
   for (int i = 0; i < 10; i++) {
     V1.pushFront(rand() % 100);
@@ -293,7 +293,7 @@ int main() {
 
   MyVector<int> V3(V2);
 
-  cout<<V3.Size()<<endl;
+  cout << V3.Size() << endl;
 
   cout << V2 << endl;
   cout << V3 << endl;
@@ -315,8 +315,6 @@ int main() {
   }
 
   cout << V4 << endl;
-  cout<<endl;
+  cout << endl;
   cout << V5 << endl;
-
-
 }

@@ -26,7 +26,8 @@
 - Create a folder in your assignments folder called `H01`
 - In that folder create a file called README.md
 - Place your definitions in this file.
--  https://guides.github.com/features/mastering-markdown/
+- Help with markdown: https://guides.github.com/features/mastering-markdown/
+- Do not print them out and bring them to class. Just put them in your repository.
 
 
 ## Example:
