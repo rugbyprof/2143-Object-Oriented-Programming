@@ -1,30 +1,46 @@
+#include "termio.h"
 #include <iostream>
 #include <string>
-#include "termio.h"
 
 using namespace std;
+
 
 const string spade = "♠";
 const string diamond = "♦";
 const string heart = "♥";
 const string club = "♣";
 
-const string suits[4]={"♠", "♦", "♣", "♥"};
-const string colors[4]={"&60","&20","&60","&20"};
-const string ranks[13]={"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+const string suits[4] = {"♠", "♦", "♣", "♥"};
+const string colors[4] = {"&60", "&20", "&60", "&20"};
+//const string colors[4] = {"&16", "&12", "&16", "&12"};
+const string ranks[13] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
 
-
-class Card{
+class Card {
 private:
-    int suitNum;    // 0-3
-    int rank;       // 0 - 13
-    int number;     // 1-52
-    int value;      // 1-14 
-    string suitChar;
-    string rankChar;
-    string color;
+    int suitNum;        // value 0-3 : num index of suit
+    int rank;           // 0-13      : num value of rank
+    int number;         // 1-52      : unique value determines card
+    int value;          // 1-14      : numeric value used for comparison         
+    string suitChar;    // "♠", "♦", "♣", "♥"
+    string rankChar;    // Ace, 1 ,2 ,3 ... Q, K
+    string color;       // Spade=blue, Diamond=red, etc.
+
 public:
-    Card(int num){
+    /**
+     * Public : Card
+     * 
+     * Description:
+     *      Represents a single card in a deck of cards to include a 
+     *      value along with rank and suit. We are assuming a standard
+     *      card type in a deck of playing cards.
+     * 
+     * Params:
+     *      int :  value from 0 - 51 that represents a card in a deck.
+     * 
+     * Returns:
+     *      None
+     */
+    Card(int num) {
         number = num;
         suitNum = number / 13;
         suitChar = suits[suitNum];
@@ -32,88 +48,103 @@ public:
         rank = number % 13;
         rankChar = ranks[rank];
     }
-    
-    string Repr(){
+
+    /**
+     * Public : Repr
+     * 
+     * Description:
+     *      Returns a string representation of the card class with 
+     *      colors embedded. 
+     * 
+     * Params:
+     *      None
+     * 
+     * Returns:
+     *      [string] - representation of card
+     */
+    string Repr() {
         string s = "";
-        s += "┌────┐\n";
-        s += "│";
-        if(rank != 9){
-            s+=" ";
+        s += color + "┌────┐&00 \n";
+        s += color + "│";
+        if (rank != 9) {
+            s += color + " ";
         }
-        s += color+rankChar + " " + suitChar + "&00│\n";
-        s +=  "└────┘";
+        s += color + rankChar + " " + suitChar + "│&00 \n";
+        s += color + "└────┘&00 ";
         return s;
     }
 
-    friend ostream& operator<<(ostream& os, Card obj){
+    /**
+     * Public : operator <<
+     * 
+     * Description:
+     *      Overload ostream and send the string representation "Repr"
+     *      of the card. 
+     * 
+     * Params:
+     *      [ostream&] : os 
+     *      [Card]     : obj
+     * 
+     * Returns:
+     *      [ostream&]
+     */
+    friend ostream &operator<<(ostream &os, Card obj) {
 
         os << obj.Repr();
 
         return os;
     }
 
-    // friend ostream& operator<<(ostream& os,const Card obj){
+    bool operator<(const Card& rhs){
+        return this->rank < rhs.rank;
+    }
 
-    //     os << "┌────┐\n";
-    //     os << "│";
-    //     if(obj.rank != 9){
-    //         os<<" ";
-    //     }
-    //     os << obj.rankChar << " " << obj.suitChar<<"│\n";
-    //     os << "└────┘";
+    bool operator>(const Card& rhs){
+        return this->rank > rhs.rank;
+    }
 
-    //     return os;
-    // }
-
-
+    bool operator==(const Card& rhs){
+        return this->rank == rhs.rank;
+    }
 
 
 };
 
-class Deck{
+class Deck {
     // dealCard
     // shuffleCards
     // resetDeck
-
 };
 
-class Hand{
-
+class Hand {
 };
 
-class Game{
-
+class Game {
 };
 
-
-
-
-int main(){
+int main() {
     Term::IO io;
-    Card* cards[52];
-    for(int i=0;i<52;i++){
-        cards[i]= new Card(i);
-        io<<Term::clear;
-        io<<cards[i]->Repr()<<"\n";
-        io<<Term::sleep(300);
+    Card *cards[52];
+
+    // for (int i = 0; i < 52; i++) {
+    //     cards[i] = new Card(i);
+    //     io << Term::clear;
+    //     io << cards[i]->Repr() << "\n";
+    //     io << Term::sleep(100);
+    // }
+
+    for (int i = 0; i < 100; i++) {
+        Card c1(rand() % 52);
+        Card c2(rand() % 52);
+        Card c3(rand() % 52);
+        Card c4(rand() % 52);
+        Card c5(rand() % 52);
+        io << Term::clear;
+        io << Term::fuse({c1.Repr(),c2.Repr(), c3.Repr(), c4.Repr(), c5.Repr()}) << "\n";
+        io << Term::sleep(100);
     }
-    // Card c1(4);
-    // Card c2(14);
-    // Card c3(23);
-    // Card c4(38);
-    // Card c5(29);
 
-
-
-    // io<<Term::Point(5,0);
-
-    
-
-    // cout<<Term::fuse({c1.Repr(),c2.Repr(),c3.Repr(),c4.Repr(),c5.Repr()})<<endl;
-
-
-
-
+    //io<<Term::Point(5,0);
 
     return 0;
 }
