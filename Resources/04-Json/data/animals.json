@@ -1,0 +1,308 @@
+[
+    {
+        "animal_name": "Brown brocket",
+        "longitude": 32.3448813,
+        "latitude": 49.660465,
+        "date": -1335689972,
+        "version": "9.77",
+        "validated": false,
+        "adjuster": 0.43
+    },
+    {
+        "animal_name": "Puffin, horned",
+        "longitude": -99.1732936,
+        "latitude": 19.602311,
+        "date": -1398164147,
+        "version": "2.2.4",
+        "validated": true,
+        "adjuster": 0.56
+    },
+    {
+        "animal_name": "Red-capped cardinal",
+        "longitude": 105.8215718,
+        "latitude": 21.5743109,
+        "date": -1183373450,
+        "version": "0.6.8",
+        "validated": false,
+        "adjuster": 0.75
+    },
+    {
+        "animal_name": "Boa, emerald green tree",
+        "longitude": -90.6793295,
+        "latitude": 14.6072726,
+        "date": -317093191,
+        "version": "7.65",
+        "validated": false,
+        "adjuster": 0.8
+    },
+    {
+        "animal_name": "Baboon, olive",
+        "longitude": 23.5500468,
+        "latitude": 55.8117129,
+        "date": -1473528544,
+        "version": "0.46",
+        "validated": false,
+        "adjuster": 0.16
+    },
+    {
+        "animal_name": "Orca",
+        "longitude": -83.0683519,
+        "latitude": 40.0506279,
+        "date": 235502449,
+        "version": "2.2",
+        "validated": false,
+        "adjuster": 0.47
+    },
+    {
+        "animal_name": "Possum, ring-tailed",
+        "longitude": 99.4819782,
+        "latitude": 18.2868231,
+        "date": -1774014772,
+        "version": "6.7",
+        "validated": false,
+        "adjuster": 0.29
+    },
+    {
+        "animal_name": "Gull, dusky",
+        "longitude": 48.4345577,
+        "latitude": 41.4266886,
+        "date": -1263369172,
+        "version": "9.00",
+        "validated": true,
+        "adjuster": 0.2
+    },
+    {
+        "animal_name": "Armadillo, nine-banded",
+        "longitude": 106.5701927,
+        "latitude": -7.1221059,
+        "date": -1129447692,
+        "version": "0.5.7",
+        "validated": false,
+        "adjuster": 0.39
+    },
+    {
+        "animal_name": "Raccoon dog",
+        "longitude": -67.8823146,
+        "latitude": -15.4979257,
+        "date": -1503939276,
+        "version": "6.8",
+        "validated": false,
+        "adjuster": 0.7
+    },
+    {
+        "animal_name": "Wombat, southern hairy-nosed",
+        "longitude": 30.4754399,
+        "latitude": 59.76039,
+        "date": -2146235095,
+        "version": "0.5.2",
+        "validated": true,
+        "adjuster": 0.38
+    },
+    {
+        "animal_name": "Hawk, ferruginous",
+        "longitude": 14.424426,
+        "latitude": 35.910325,
+        "date": 58248606,
+        "version": "6.75",
+        "validated": false,
+        "adjuster": 0.5
+    },
+    {
+        "animal_name": "Pacific gull",
+        "longitude": -97.5294628,
+        "latitude": 25.8263535,
+        "date": -1287832293,
+        "version": "0.4.0",
+        "validated": false,
+        "adjuster": 0.68
+    },
+    {
+        "animal_name": "Tortoise, indian star",
+        "longitude": -58.601544,
+        "latitude": -34.6906944,
+        "date": 377831373,
+        "version": "0.15",
+        "validated": true,
+        "adjuster": 0.51
+    },
+    {
+        "animal_name": "Tammar wallaby",
+        "longitude": 15.4759099,
+        "latitude": 46.019373,
+        "date": 464126601,
+        "version": "3.48",
+        "validated": false,
+        "adjuster": 0.29
+    },
+    {
+        "animal_name": "Francolin, swainson's",
+        "longitude": 99.0571089,
+        "latitude": 9.2964349,
+        "date": -29933383,
+        "version": "3.40",
+        "validated": false,
+        "adjuster": 0.13
+    },
+    {
+        "animal_name": "Fowl, helmeted guinea",
+        "longitude": 113.8614481,
+        "latitude": -7.0197713,
+        "date": 568068176,
+        "version": "7.5.1",
+        "validated": true,
+        "adjuster": 0.63
+    },
+    {
+        "animal_name": "Springbuck",
+        "longitude": 21.2810466,
+        "latitude": 52.2871973,
+        "date": -158649994,
+        "version": "2.7.3",
+        "validated": false,
+        "adjuster": 0.45
+    },
+    {
+        "animal_name": "Racer, blue",
+        "longitude": 116.8776192,
+        "latitude": -1.2088413,
+        "date": -964795680,
+        "version": "0.66",
+        "validated": true,
+        "adjuster": 0.67
+    },
+    {
+        "animal_name": "Hoffman's sloth",
+        "longitude": -47.3535246,
+        "latitude": -3.0050767,
+        "date": 325240538,
+        "version": "7.7.3",
+        "validated": true,
+        "adjuster": 0.33
+    },
+    {
+        "animal_name": "Peccary, white-lipped",
+        "longitude": 105.7751383,
+        "latitude": 34.5750415,
+        "date": -1128369371,
+        "version": "0.5.1",
+        "validated": false,
+        "adjuster": 0.49
+    },
+    {
+        "animal_name": "Tasmanian devil",
+        "longitude": 107.5408308,
+        "latitude": 47.2495437,
+        "date": 549954373,
+        "version": "3.6",
+        "validated": false,
+        "adjuster": 0.69
+    },
+    {
+        "animal_name": "Common eland",
+        "longitude": 50.5006231,
+        "latitude": 35.3042606,
+        "date": 222394149,
+        "version": "6.41",
+        "validated": false,
+        "adjuster": 0.22
+    },
+    {
+        "animal_name": "Blue shark",
+        "longitude": -46.7294577,
+        "latitude": -23.3233727,
+        "date": -1646871057,
+        "version": "6.0",
+        "validated": false,
+        "adjuster": 0.17
+    },
+    {
+        "animal_name": "Stork, openbill",
+        "longitude": -85.7,
+        "latitude": 38.2,
+        "date": -2157840861,
+        "version": "4.0.0",
+        "validated": true,
+        "adjuster": 0.28
+    },
+    {
+        "animal_name": "Savanna fox",
+        "longitude": -86.1828047,
+        "latitude": 14.8751623,
+        "date": -437402177,
+        "version": "0.4.2",
+        "validated": true,
+        "adjuster": 0.28
+    },
+    {
+        "animal_name": "Civet, common palm",
+        "longitude": 13.0188387,
+        "latitude": 58.0780287,
+        "date": -1392253150,
+        "version": "0.8.7",
+        "validated": true,
+        "adjuster": 0.6
+    },
+    {
+        "animal_name": "Laughing kookaburra",
+        "longitude": 0.3350126,
+        "latitude": 46.5838069,
+        "date": -1706519347,
+        "version": "0.5.6",
+        "validated": false,
+        "adjuster": 0.77
+    },
+    {
+        "animal_name": "Toddy cat",
+        "longitude": 39.591263,
+        "latitude": 51.820919,
+        "date": -1830768075,
+        "version": "5.96",
+        "validated": true,
+        "adjuster": 0.41
+    },
+    {
+        "animal_name": "Steenbuck",
+        "longitude": 69.15038,
+        "latitude": 36.22242,
+        "date": -1548026462,
+        "version": "0.39",
+        "validated": true,
+        "adjuster": 0.1
+    },
+    {
+        "animal_name": "Kori bustard",
+        "longitude": -55.1513801,
+        "latitude": -24.9852879,
+        "date": -2034560895,
+        "version": "8.6.4",
+        "validated": true,
+        "adjuster": 0.22
+    },
+    {
+        "animal_name": "Pine squirrel",
+        "longitude": 116.354462,
+        "latitude": -8.283558,
+        "date": -1410667012,
+        "version": "0.28",
+        "validated": true,
+        "adjuster": 0.48
+    },
+    {
+        "animal_name": "Red-headed woodpecker",
+        "longitude": 7.3732655,
+        "latitude": 6.8429422,
+        "date": -1151771997,
+        "version": "9.9",
+        "validated": false,
+        "adjuster": 0.72
+    },
+    {
+        "animal_name": "Little brown dove",
+        "longitude": 121.0143507,
+        "latitude": 14.6141298,
+        "date": -1818627777,
+        "version": "5.09",
+        "validated": true,
+        "adjuster": 0.83
+    }
+]
