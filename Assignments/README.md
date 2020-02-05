@@ -7,6 +7,7 @@
  | [04-H01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/04-H01) | [ Homework 1 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/04-H01) | [ Basic OOP terminology](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/04-H01) | [02-04-2020 (Tuesday @ 11:00 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/04-H01) |
  | [05-H02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-H02) | [ Homework 2 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-H02) | [ Poker Game Design](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-H02) | [02-04-2020 (Tuesday @ 11:00 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-H02) |
  | [06-H03](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) | [ Homework 3 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) | [ Overloading Operators](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) | [02-06-2020 (Thursday @ 11:00 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) |
+ | [N/A](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/N/A) |
 
     
 ## File Legend
@@ -19,8 +20,4 @@
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
     
-<<<<<<< HEAD
-<sup>Last Updated: 2020-01-31 (Fri @ 11:59)</sup>
-=======
-<sup>Last Updated: 2020-02-03 (Mon @ 16:43)</sup>
->>>>>>> adc0ed1a9b39d9394192001fe96f4105c27e9bb8
+<sup>Last Updated: 2020-02-05 (Wed @ 14:24)</sup>
