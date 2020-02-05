@@ -2,7 +2,7 @@
 
 ### Overview
 
-- The assignment banner is purley an organizational addition for Professor Griffin to keep your assignments organized. 
+- The assignment banner is purely an organizational addition for Professor Griffin to keep your assignments organized. 
 - That does not mean you can choose not to do it, or do it incorrectly.
 - Students majoring in computer science (or Meng or Math) should not have trouble doing this correctly.
 - The banner is a **COVER SHEET** which is printed on its OWN page. 
