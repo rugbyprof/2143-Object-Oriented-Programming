@@ -44,9 +44,11 @@ When writing "requirements" for our classes (and were are following a very **loo
 
 **Example:**
 
-> - A **card** (the \<**thing**\>) should know its **value** (the <**something**\>) so it can be **compared** (the \<**this**\>) to other cards.
-> - A deck (the \<thing\>) is composed of 1 - N cards. This is more of a relationship between card and deck so it doesn't necessarily fit the ***\<thing\>*** ***\<something\>*** ***\<this\>*** approach. We could force it, but it's not necessary.
-> - A deck (the \<thing\>) is composed of 1 - N cards (the <something\>) so it can provide a set of cards for a game (the \<this\>). Seems **forced** and reduncant.
+- A **card** (the \<**thing**\>) should know its **value** (the <**something**\>) so it can be **compared** (the \<**this**\>) to other cards.
+- A deck (the \<thing\>) is composed of 1 - N cards. 
+  - This is more of a relationship between card and deck so it doesn't necessarily fit the ***\<thing\>*** ***\<something\>*** ***\<this\>*** approach. 
+- We could force it, but it's not necessary.
+  - A deck (the \<thing\>) is composed of 1 - N cards (the <something\>) so it can provide a set of cards for a game (the \<this\>). Seems **forced** and reduncant.
 
 #### Card
 
