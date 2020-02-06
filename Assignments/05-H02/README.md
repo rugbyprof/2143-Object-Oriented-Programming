@@ -38,7 +38,7 @@ When designing classes with the OOP mindset, you should follow a few principles 
    - Game
    - Poker
 
-#### Requirements
+#### Requirements / Attributes
 
 When writing "requirements" for our classes (and were are following a very **loose** design process) you should think in the following terms:  The ***\<thing\>*** should provide ***\<something\>*** so we can do ***\<this\>***. They don't ALL of to fit this exactly, but each "requirement" or "attribute" should at least have a ***\<subject\>*** => ***\<verb\>*** approach.
 
