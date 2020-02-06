@@ -38,14 +38,18 @@ When designing classes with the OOP mindset, you should follow a few principles 
    - Game
    - Poker
 
+#### Requirements
+
+When writing "requirements" for our classes (and were are following a very **loose** design process) you should think in the following terms:  The ***\<thing\>*** should provide ***\<something\>*** so we can do ***\<this\>***. They don't ALL of to fit this exactly, but each "requirement" or "attribute" should at least have a ***\<subject\>*** => ***\<verb\>*** approach.
+
 #### Card
 
 A truly abstract card would not have a suit and rank (those are playing cards and we may want magic cards :) ), but this is an issue we will tackle later.
 
-- A card should know its value (some value not necessarily related to suit and rank).
-- A card (for poker) should know its suit and rank.
+- A card should know its value (some value not necessarily related to suit and rank) so it can be compared to other cards.
+- A card (for poker) should know its suit and rank so it can be compared to other cards.
 - A card should know how to print itself.
-- A card should know how to be compared to other cards (`<`, `>`, `==`, `!=`).
+- A card should know how to be compared to other cards (`<`, `>`, `==`, `!=`) so we can quantify scores.
 
 #### Deck
 
