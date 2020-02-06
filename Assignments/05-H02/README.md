@@ -42,6 +42,12 @@ When designing classes with the OOP mindset, you should follow a few principles 
 
 When writing "requirements" for our classes (and were are following a very **loose** design process) you should think in the following terms:  The ***\<thing\>*** should provide ***\<something\>*** so we can do ***\<this\>***. They don't ALL of to fit this exactly, but each "requirement" or "attribute" should at least have a ***\<subject\>*** => ***\<verb\>*** approach.
 
+**Example:**
+
+> - A card (the \<thing\>) should know its value (the <something\>) so it can be compared (the \<this\>) to other cards.
+> - A deck (the \<thing\>) is composed of 1 - N cards. This is more of a relationship between card and deck so it doesn't necessarily fit the ***\<thing\>*** ***\<something\>*** ***\<this\>*** approach. We could force it, but it's not necessary.
+> - A deck (the \<thing\>) is composed of 1 - N cards (the <something\>) so it can provide a set of cards for a game (the \<this\>). Seems **forced** and reduncant.
+
 #### Card
 
 A truly abstract card would not have a suit and rank (those are playing cards and we may want magic cards :) ), but this is an issue we will tackle later.
