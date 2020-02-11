@@ -7,7 +7,7 @@
  | [04-H01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/04-H01) | [ Homework 1 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/04-H01) | [ Basic OOP terminology](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/04-H01) | [02-04-2020 (Tuesday @ 11:00 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/04-H01) |
  | [05-H02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-H02) | [ Homework 2 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-H02) | [ Poker Game Design](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-H02) | [02-04-2020 (Tuesday @ 11:00 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-H02) |
  | [06-H03](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) | [ Homework 3 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) | [ Overloading Operators](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) | [02-06-2020 (Thursday @ 11:00 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) |
- | [N/A](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/N/A) |
+ | [07-H04](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-H04) | [ Homework 4 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-H04) | [ Poker Game Design](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-H04) | [02-18-2020 (Tuesday @ 11:00 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-H04) |
 
     
 ## File Legend
@@ -20,4 +20,4 @@
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
     
-<sup>Last Updated: 2020-02-05 (Wed @ 14:24)</sup>
+<sup>Last Updated: 2020-02-11 (Tue @ 17:31)</sup>
