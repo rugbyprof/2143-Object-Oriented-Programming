@@ -121,7 +121,7 @@ Would result in:
 
 ### Diagram
 
-<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.wholething.png" width="150">
+<img src="draw.io.wholething.png" width="400">
 
 
 ### Deliverables
