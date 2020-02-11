@@ -7,7 +7,7 @@ This lesson is a lot like the last poker assignment except we will be formalizin
 
 [![Class Diagram Video](https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/uml_vid_250.png)](https://www.youtube.com/embed/UI6lqHOVHic) 
 
-You can use lucidcharts to do your diagrams, or you can use [draw.io](draw.io) to make your diagrams. Lucidchart is free to some extent, but it makes you create an account where  [draw.io](draw.io) does not. 
+You can use lucidcharts to do your diagrams, or you can use [draw.io](https://draw.io) to make your diagrams. Lucidchart is free to some extent, but it makes you create an account where  [draw.io](https://www.draw.io/) does not. 
 
 <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.step1" width="250">
 
