@@ -3,9 +3,11 @@
 
 ### Overview
 
-
+This lesson is a lot like the last poker assignment except we will be formalizing your poker game designs using `class design` methods. Below is a video from lucidcharts that explains it very well. Better than I could :) 
 
 [![Class Diagram Video](https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/uml_vid_250.png)](https://www.youtube.com/embed/UI6lqHOVHic) 
+
+You can use lucidcharts to do your diagrams, or you can use [draw.io](draw.io) to make your diagrams. Lucidchart is free to some extent, but it makes you create an account where  [draw.io](draw.io) does not. 
 
 <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.step1" width="250">
 
@@ -13,29 +15,9 @@
 
 ### Poker Classes 
 
- We want to create a set of classes to implement a poker game. But I want you to along the lines of: "Can my classes be used for other games as well?" The only class that should end up highly coupled with the game "poker" is a `poker` class! Even a `game` class shouldn't think "poker only". 
-
- Here are a list of classes we might want to implement. We don't have to be limited to just these.
-
- - Possible Classes:
-   - Card
-   - Deck
-   - Hand
-   - Player
-   - Game
-   - Poker
+Below is a set of poker classes as I see them, convert them to Class Diagrams 
 
 #### Requirements / Attributes
-
-When writing "requirements" for our classes (and were are following a very **loose** design process) you should think in the following terms:  The ***\<thing\>*** should provide ***\<something\>*** so we can do ***\<this\>***. They don't ALL of to fit this exactly, but each "requirement" or "attribute" should at least have a ***\<subject\>*** => ***\<verb\>*** approach.
-
-**Example:**
-
-- A **card** (the \<**thing**\>) should know its **value** (the <**something**\>) so it can be **compared** (the \<**this**\>) to other cards.
-- A deck (the \<thing\>) is composed of 1 - N cards. 
-  - This is more of a relationship between card and deck so it doesn't necessarily fit the ***\<thing\>*** ***\<something\>*** ***\<this\>*** approach. 
-- We could force it, but it's not necessary.
-  - A deck (the \<thing\>) is composed of 1 - N cards (the <something\>) so it can provide a set of cards for a game (the \<this\>). Seems **forced** and reduncant.
 
 #### Card
 
@@ -58,28 +40,101 @@ Again, if we don't think of playing cards, a deck should just be able to hold an
 
 ----
 
-Using `Card` and `Deck` as examples, come up with functionality (using similar wording) for the classes below. 
-
 #### Hand
+
+- A hand is composed of 1 - N cards 
+- A hand can add card(s)
+- A hand can remove card(s)
+- A hand can order cards
+- A hand can shuffle cards
+- A hand can display (print) its cards
+- A hand can calculate its value 
+- A hand can be compared to other hands
+
+----
 
 #### Player
 
-#### Game
+- A player has a unique identifier 
+- A player has a bank of units (money)  (Bank could be its own class)
+- A player can add to its bank
+- A player can remove from its bank
+- A player has a `hand`
 
-#### Poker
+----
+
+#### Poker Game
+
+- A game is composed of 2-N players
+- A game keeps track of a score for each player
+- A game determines if someone has won the game
+- A game can be started
+- A game can be terminated
+- A game can print a current summary of game (who has what score, who is in what place)
+
+----
+
+
+
+### Example Document
+
+You would replace the example lables with the poker game labels:
+
+```
+### Person
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.person" width="200">
+
+### Street
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.street" width="200">
+
+### Student
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.student" width="200">
+
+### Professor
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.professor" width="200">
+
+### Diagram
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.wholething" width="400">
+```
+Would result in:
+
+### Person
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.person.png" width="150">
+
+### Street
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.street.png" width="150">
+
+### Student
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.student.png" width="150">
+
+### Professor
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.professor.png" width="150">
+
+### Diagram
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.wholething.png" width="150">
 
 
 ### Deliverables
 
-- Create a folder called `H02` in your `Assignments` folder. 
-- Add a `README.md` file in your `H02` folder with all of your class designs listed in an orderly fashion.
-- Your document should be written in markdown.
+- Create a folder called `H04` in your `Assignments` folder. 
+- Add a `README.md` file in your `H04` folder with all of your class designs listed in an orderly fashion.
+- Your document should be written in markdown. 
 - Bring a print out of your readme to class on the due date.
 - There is an extension called `Markdown PDF` that will convert markdown files to PDF's to assist in printing.
 - Don't forget your banner (cover page).
 
 ```
-H02
+H04
 2143
 LASTNAME
 ```
