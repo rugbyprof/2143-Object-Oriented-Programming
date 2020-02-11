@@ -5,7 +5,9 @@
 
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UI6lqHOVHic" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Class Diagram Video](https://www.youtube.com/embed/UI6lqHOVHic)](https://www.youtube.com/embed/UI6lqHOVHic) 
+
+
 
 <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.step1" width="250">
 
