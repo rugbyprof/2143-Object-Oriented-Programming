@@ -99,7 +99,7 @@ You would replace the example lables with the poker game labels:
 
 ### Diagram
 
-<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.wholething" width="400">
+<img src="draw.io.wholething" width="400">
 ```
 Would result in:
 
