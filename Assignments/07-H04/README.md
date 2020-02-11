@@ -129,8 +129,11 @@ Would result in:
 - Create a folder called `H04` in your `Assignments` folder. 
 - Add a `README.md` file in your `H04` folder with all of your class designs listed in an orderly fashion.
 - Your document should be written in markdown. 
+- Don't forget to include your Name and essentials at the top of the document.
+- No hand written anything will be graded.
 - Bring a print out of your readme to class on the due date.
 - There is an extension called `Markdown PDF` that will convert markdown files to PDF's to assist in printing.
+- If your not using VSCode then you can replace `github` with `gitprint` in the url of your readme and print it that way.
 - Don't forget your banner (cover page).
 
 ```
