@@ -5,7 +5,7 @@
 
 
 
-[![Class Diagram Video](https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/uml_vid.png)](https://www.youtube.com/embed/UI6lqHOVHic) 
+[![Class Diagram Video](https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/uml_vid_250.png)](https://www.youtube.com/embed/UI6lqHOVHic) 
 
 <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.step1" width="250">
 
