@@ -7,10 +7,9 @@
 
 - In principle, private and protected members of a class cannot be accessed from outside the same class in which they are declared. 
 - However, this rule does not apply to "friends".
-
-- Friends are **`functions`** or **`classes`** declared with the **`friend`** keyword.
-
-- A non-member function can access the **`private`** and **`protected`** members of a class if it is declared a **`friend`** of that class. That is done by including a declaration of this external function within the class, and preceding it with the keyword **`friend`**:
+- *Friends* are **`functions`** or **`classes`** declared with the **`friend`** keyword.
+- A non-member function can access the **`private`** and **`protected`** members of a class if it is declared a **`friend`** of that class. 
+- That is done by including a declaration of this external function within the class, and preceding it with the keyword **`friend`**:
 
 ```cpp
 // friend functions
@@ -49,7 +48,9 @@ int main () {
 24 
 ```
 
-The duplicate function is a **`friend`** of class Rectangle. Therefore, function duplicate is able to access the members width and height (which are private) of different objects of type Rectangle. Notice though that neither in the declaration of duplicate nor in its later use in main, function duplicate is considered a member of class Rectangle. It isn't! It simply has access to its private and protected members without being a member.
+- The duplicate function is a **`friend`** of class Rectangle. Therefore, function `duplicate` is able to access the members width and height (which are private) of different objects of type `Rectangle`. 
+- Notice though that neither in the declaration of duplicate nor in its later use in main, function duplicate is considered a member of class Rectangle. It isn't! 
+- It simply has access to its private and protected members without being a member.
 
 Typical use cases of **`friend`** functions are operations that are conducted between two different classes accessing private or protected members of both.
 
@@ -106,7 +107,7 @@ int main () {
 - There is something else new in this example: at the beginning of the program, there is an **empty declaration** of class Square. 
 - This is necessary because class Rectangle uses Square (as a parameter in member convert), and Square uses Rectangle (declaring it a `friend`).
 
-***Friendships are never corresponded unless specified***
+- ***Friendships are never corresponded unless specified***
 - In our example, Rectangle is considered a `friend` class by Square, but Square is not considered a `friend` by Rectangle. 
 - Therefore, the member functions of Rectangle can access the protected and private members of Square but not the other way around. 
 - Of course, Square could also be declared `friend` of Rectangle, if needed, granting such an access.
