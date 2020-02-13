@@ -2,7 +2,6 @@
 
 <sup>source: http://www.cplusplus.com/doc/tutorial/inheritance/</sup>
 
-<script src="https://gist.github.com/rugbyprof/2c9fe2e9d59b112e11cced4c42929305.js"></script>
 
 ### Friend Functions
 
