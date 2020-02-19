@@ -71,6 +71,9 @@ inline string fuse(string left, string right, bool pad = false);
 /** Fuses multiple multi-line strings together for printing side-by-side. */
 inline string fuse(std::initializer_list<string> strings, bool pad = false);
 
+/** Fuses multiple multi-line strings together for printing side-by-side using vector of strings. */
+inline string fuse(std::vector<string> strings, bool pad = false);
+
 /** Split a string and store each new substring in a vector. */
 inline vector<string> split(string text, char delim, bool include = false);
 
@@ -331,6 +334,18 @@ std::string Term::fuse(std::initializer_list<string> strings, bool pad)
     // Moving the initializer_list into a vector b/c I think they're easier
     vector<string> vstrings;
     vstrings.insert(vstrings.end(), strings.begin(), strings.end());
+    // Loop through all strings and fuse them
+    for (int i = 0; i < vstrings.size(); i++)
+    {
+        result = fuse(result, vstrings[i], pad);
+    }
+    return result;
+}
+std::string Term::fuse(std::vector<string> vstrings, bool pad)
+{
+    // Variable for storing the resulting string
+    string result = "";
+
     // Loop through all strings and fuse them
     for (int i = 0; i < vstrings.size(); i++)
     {
