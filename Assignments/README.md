@@ -9,6 +9,7 @@
  | [06-H03](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) | [ Homework 3 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) | [ Overloading Operators](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) | [02-06-2020 (Thursday @ 12:30 p.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-H03) |
  | [07-H04](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-H04) | [ Homework 4 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-H04) | [ Poker Game Design](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-H04) | [02-18-2020 (Tuesday @ 12:30 p.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-H04) |
  | [08-T01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-T01) | [ Test 1 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-T01) | [ OOP Concepts](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-T01) | [02-27-2020 (Thursday @ 12:30 p.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-T01) |
+ | [09-H05](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H05) | [ Playing Cards ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H05) | [ Not Just Poker](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H05) | [02-25-2020 (Teusday @ 12:30 p.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H05) |
 
     
 ## File Legend
@@ -21,4 +22,4 @@
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
     
-<sup>Last Updated: 2020-02-20 (Thu @ 11:55)</sup>
+<sup>Last Updated: 2020-02-20 (Thu @ 12:25)</sup>
