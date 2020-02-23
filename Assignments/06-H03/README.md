@@ -1,5 +1,5 @@
 ## Homework 3 - Overloading Operators
-#### Due: 02-06-2020 (Thursday @ 11:00 a.m.)
+#### Due: 02-06-2020 (Thursday @ 12:30 p.m.)
 
 ### Overview
 

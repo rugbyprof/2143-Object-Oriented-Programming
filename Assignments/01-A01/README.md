@@ -1,5 +1,5 @@
 ## Assignment 1 - Getting Started
-#### Due: 01-23-2020 (Thursday @ 11:00 a.m.)
+#### Due: 01-23-2020 (Thursday @ 12:30 p.m.)
 
 ## Getting Setup
 
