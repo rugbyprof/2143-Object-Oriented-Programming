@@ -1,0 +1,21 @@
+Standard: Cpp11
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 0
+AccessModifierOffset: -4
+NamespaceIndentation: All
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterEnum: false
+  AfterStruct: false
+  AfterClass: false
+  SplitEmptyFunction: true
+  AfterControlStatement: false
+  AfterNamespace: false
+  AfterFunction: false
+  AfterUnion: false
+  AfterExternBlock: false
+  BeforeCatch: false
+  BeforeElse: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: true

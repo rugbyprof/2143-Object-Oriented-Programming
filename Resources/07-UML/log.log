@@ -1,0 +1,603 @@
+[
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<meta content=\"en-GB\" itemprop=\"inLanguage\">",
+        "source": "input",
+        "line": 1,
+        "column": 75
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</meta>",
+        "source": "input",
+        "line": 1,
+        "column": 75
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<time datetime=\"2020-01-23T18:41:06+05:30\" itemprop=\"dateModified\">",
+        "source": "input",
+        "line": 1,
+        "column": 365
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</time>",
+        "source": "input",
+        "line": 1,
+        "column": 463
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<form action=\"https://www.guru99.com/Customization/ccavenue/uml/ccavRequestHandler.php\" method=\"post\" name=\"customerData\">",
+        "source": "input",
+        "line": 1,
+        "column": 2808
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<tr>",
+        "source": "input",
+        "line": 1,
+        "column": 2931
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<td>",
+        "source": "input",
+        "line": 1,
+        "column": 2935
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<input id=\"tid\" name=\"tid\" readonly type=\"hidden\">",
+        "source": "input",
+        "line": 1,
+        "column": 2939
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</input>",
+        "source": "input",
+        "line": 1,
+        "column": 2939
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</td>",
+        "source": "input",
+        "line": 1,
+        "column": 2993
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</tr>",
+        "source": "input",
+        "line": 1,
+        "column": 2998
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3004
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<td>",
+        "source": "input",
+        "line": 1,
+        "column": 3008
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<input name=\"merchant_id\" type=\"hidden\" value=\"239125\">",
+        "source": "input",
+        "line": 1,
+        "column": 3012
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</input>",
+        "source": "input",
+        "line": 1,
+        "column": 3012
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</td>",
+        "source": "input",
+        "line": 1,
+        "column": 3068
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3073
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3079
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<td>",
+        "source": "input",
+        "line": 1,
+        "column": 3083
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<input id=\"order_id\" name=\"order_id\" type=\"hidden\">",
+        "source": "input",
+        "line": 1,
+        "column": 3087
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</input>",
+        "source": "input",
+        "line": 1,
+        "column": 3087
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</td>",
+        "source": "input",
+        "line": 1,
+        "column": 3139
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3144
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3150
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<td>",
+        "source": "input",
+        "line": 1,
+        "column": 3154
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<input name=\"amount\" type=\"hidden\" value=\"699\">",
+        "source": "input",
+        "line": 1,
+        "column": 3158
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</input>",
+        "source": "input",
+        "line": 1,
+        "column": 3158
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</td>",
+        "source": "input",
+        "line": 1,
+        "column": 3206
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3211
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3217
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<td>",
+        "source": "input",
+        "line": 1,
+        "column": 3221
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<input name=\"currency\" type=\"hidden\" value=\"INR\">",
+        "source": "input",
+        "line": 1,
+        "column": 3225
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</input>",
+        "source": "input",
+        "line": 1,
+        "column": 3225
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</td>",
+        "source": "input",
+        "line": 1,
+        "column": 3275
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3280
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3286
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<td>",
+        "source": "input",
+        "line": 1,
+        "column": 3290
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<input name=\"redirect_url\" type=\"hidden\" value=\"https://www.guru99.com/Customization/ccavenue/uml/ccavResponseHandler.php\">",
+        "source": "input",
+        "line": 1,
+        "column": 3294
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</input>",
+        "source": "input",
+        "line": 1,
+        "column": 3294
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</td>",
+        "source": "input",
+        "line": 1,
+        "column": 3418
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3423
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3429
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<td>",
+        "source": "input",
+        "line": 1,
+        "column": 3433
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<input name=\"cancel_url\" type=\"hidden\" value=\"https://www.guru99.com/uml-tutorial-pdf.html\">",
+        "source": "input",
+        "line": 1,
+        "column": 3437
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</input>",
+        "source": "input",
+        "line": 1,
+        "column": 3437
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</td>",
+        "source": "input",
+        "line": 1,
+        "column": 3530
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3535
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3541
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<td>",
+        "source": "input",
+        "line": 1,
+        "column": 3545
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<input name=\"language\" type=\"hidden\" value=\"EN\">",
+        "source": "input",
+        "line": 1,
+        "column": 3549
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</input>",
+        "source": "input",
+        "line": 1,
+        "column": 3549
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</td>",
+        "source": "input",
+        "line": 1,
+        "column": 3598
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3603
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3609
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<td>",
+        "source": "input",
+        "line": 1,
+        "column": 3613
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "<input class=\"button button-blue\" type=\"submit\" value=\"Buy Now ₹ 699\">",
+        "source": "input",
+        "line": 1,
+        "column": 3617
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</input>",
+        "source": "input",
+        "line": 1,
+        "column": 3617
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</td>",
+        "source": "input",
+        "line": 1,
+        "column": 3688
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</tr>",
+        "source": "input",
+        "line": 1,
+        "column": 3693
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</form>",
+        "source": "input",
+        "line": 1,
+        "column": 3699
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</div>",
+        "source": "input",
+        "line": 1,
+        "column": 3707
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</div>",
+        "source": "input",
+        "line": 1,
+        "column": 3714
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</div>",
+        "source": "input",
+        "line": 1,
+        "column": 4115
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</div>",
+        "source": "input",
+        "line": 1,
+        "column": 4410
+    },
+    {
+        "type": "SkippedContent",
+        "verbosity": "INFO",
+        "contents": "</div>",
+        "source": "input",
+        "line": 1,
+        "column": 5075
+    },
+    {
+        "type": "Fetching",
+        "verbosity": "INFO",
+        "path": "https://www.guru99.com/images/1/ebook_look_inside.png"
+    },
+    {
+        "type": "Fetching",
+        "verbosity": "INFO",
+        "path": "https://www.guru99.com/images/1/uml_cover.jpg"
+    },
+    {
+        "type": "Fetching",
+        "verbosity": "INFO",
+        "path": "https://www.guru99.com/images/1/paypal.png"
+    },
+    {
+        "type": "Fetching",
+        "verbosity": "INFO",
+        "path": "https://www.guru99.com/images/1/visa.png"
+    },
+    {
+        "type": "Fetching",
+        "verbosity": "INFO",
+        "path": "https://www.guru99.com/images/1/mastercard.png"
+    },
+    {
+        "type": "Fetching",
+        "verbosity": "INFO",
+        "path": "https://www.guru99.com/images/1/american.png"
+    },
+    {
+        "type": "Fetching",
+        "verbosity": "INFO",
+        "path": "https://www.guru99.com/images/1/discover.png"
+    },
+    {
+        "type": "Fetching",
+        "verbosity": "INFO",
+        "path": "https://www.guru99.comhttps://spark.thrivecart.com/0x0/https%3A%2F%2Fthrivecart.s3.amazonaws.com%2Fuser_assets%2F3QCQFG56%2Fproducts%2F36%2Fbuynowimage-1570192991.png"
+    },
+    {
+        "type": "CouldNotFetchResource",
+        "verbosity": "WARNING",
+        "message": "InvalidUrlException \"https://www.guru99.comhttps://spark.thrivecart.com/0x0/https%3A%2F%2Fthrivecart.s3.amazonaws.com%2Fuser_assets%2F3QCQFG56%2Fproducts%2F36%2Fbuynowimage-1570192991.png\" \"Invalid port\"\rReplacing image with description.",
+        "path": "https://www.guru99.comhttps://spark.thrivecart.com/0x0/https%3A%2F%2Fthrivecart.s3.amazonaws.com%2Fuser_assets%2F3QCQFG56%2Fproducts%2F36%2Fbuynowimage-1570192991.png"
+    },
+    {
+        "type": "Extracting",
+        "verbosity": "INFO",
+        "path": "./images/5e2d075234bd00c3d7e6abbde75c1ee33621b573.png"
+    },
+    {
+        "type": "Extracting",
+        "verbosity": "INFO",
+        "path": "./images/73ba1ad5a2a2ada340dbf58e124ff91aa939a50c.png"
+    },
+    {
+        "type": "Extracting",
+        "verbosity": "INFO",
+        "path": "./images/86a0b82fb08f2fb6aa54e8fdb81811a4fd3a42c2.png"
+    },
+    {
+        "type": "Extracting",
+        "verbosity": "INFO",
+        "path": "./images/b7ee0ac8ca04614117ee1df04b8865f0a2ad1427.jpg"
+    },
+    {
+        "type": "Extracting",
+        "verbosity": "INFO",
+        "path": "./images/d69d2d1bf117e6f5fe9db61a28efbe9bbd074fb8.png"
+    },
+    {
+        "type": "Extracting",
+        "verbosity": "INFO",
+        "path": "./images/f48a6109914092c2ebd60c056c9ba4effb7de9d6.png"
+    },
+    {
+        "type": "Extracting",
+        "verbosity": "INFO",
+        "path": "./images/fb9aa63c579c426ddcf53620304578a5c3a0c4aa.png"
+    }
+]
