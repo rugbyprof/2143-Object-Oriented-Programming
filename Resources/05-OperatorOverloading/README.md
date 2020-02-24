@@ -50,11 +50,10 @@ This is interpreted by the compiler as:
 - In other words, assignment is **right-associative**. 
 - The last assignment operation is evaluated first, and is propagated leftward through the series of assignments. 
 - Specifically:
-
-*   `e = 42` assigns `42` to `e`, then returns `e` as the result
-*   The value of `e` is then assigned to `d`, and then `d` is returned as the result
-*   The value of `d` is then assigned to `c`, and then `c` is returned as the result
-*   etc.
+  *   `e = 42` assigns `42` to `e`, then returns `e` as the result
+  *   The value of `e` is then assigned to `d`, and then `d` is returned as the result
+  *   The value of `d` is then assigned to `c`, and then `c` is returned as the result
+  *   etc.
 
 - Now, in order to support operator chaining, the assignment operator must return some value. 
 - The value that should be returned is a reference to the *left-hand side* of the assignment.
