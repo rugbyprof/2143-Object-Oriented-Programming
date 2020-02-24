@@ -26,9 +26,6 @@ public:
      */
     MyClass(string id,int a, int b, int c) : id{id}, a{a}, b{b}, c{c} {}
 
-    /**
-     * Public Methods
-     */
     friend ostream& operator<<(ostream&, const MyClass&);
     MyClass& operator=(const MyClass &);
     const MyClass operator+(const MyClass &) const;

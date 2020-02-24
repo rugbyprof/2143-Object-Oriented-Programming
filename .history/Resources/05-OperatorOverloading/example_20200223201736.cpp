@@ -15,20 +15,8 @@ public:
         a = b = c = 0;
     }
 
-    /**
-     * Constructor
-     * 
-     * Params:
-     *      string  id  : name of instance (for display purposes)
-     *      int     a   : so we have an val to overload operators with
-     *      int     b   : same
-     *      int     c   : same
-     */
     MyClass(string id,int a, int b, int c) : id{id}, a{a}, b{b}, c{c} {}
 
-    /**
-     * Public Methods
-     */
     friend ostream& operator<<(ostream&, const MyClass&);
     MyClass& operator=(const MyClass &);
     const MyClass operator+(const MyClass &) const;
@@ -36,9 +24,7 @@ public:
     bool operator==(const MyClass &) const;
 };
 
-/**
- * []
- */
+
 MyClass& MyClass::operator=(const MyClass &rhs){
     if (this == &rhs){      // Same object?
         cout<<"oops: self assignment ..."<<endl;
