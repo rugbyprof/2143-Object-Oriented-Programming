@@ -88,11 +88,10 @@ So, for the hypothetical MyClass assignment operator, you would do something lik
 - Since `a = b` is treated as `a.operator=(b)`, you can see why it makes sense to return the object that the function is called on; object a *$1* the left-hand side.
 - But, the member function needs to return a reference to the object, not a pointer to the object. 
 - So, it returns `*this`, which returns what this points at (i.e. the object), not the pointer itself. 
+- <sup>(In C++, instances are turned into references, and vice versa, pretty much automatically, so even though `*this` is an instance, C++ implicitly converts it into a reference to the instance.)</sup>
 
->(In C++, instances are turned into references, and vice versa, pretty much automatically, so even though `*this` is an instance, C++ implicitly converts it into a reference to the instance.)
-
-- Now, one more **very important** point about the assignment operator:
-  - **YOU MUST CHECK FOR SELF-ASSIGNMENT!**
+Now, one more **very important** point about the assignment operator:
+> **YOU MUST CHECK FOR SELF-ASSIGNMENT!**
 
 This is especially important when your class does its own memory allocation. Here is why: The typical sequence of operations within an assignment operator is usually something like this:
 
@@ -257,7 +256,8 @@ This is so that people can't write strange statements like this:
 
 - This statement would basically do nothing, but if the + operator returns a non-const value, it ***will*** compile! 
 - So, we want to return a `const instance`, so that such madness will not even be allowed to compile.
-- To summarize, the guidelines for the binary arithmetic operators are:
+
+To summarize, the guidelines for the binary arithmetic operators are:
   1.  Implement the compound assignment operators from scratch, and then define the binary arithmetic operators in terms of the corresponding compound assignment operators.
   2.  Return a const instance, to prevent worthless and confusing assignment operations that shouldn't be allowed.
 
