@@ -1,6 +1,7 @@
 ## OOP - Basic Concepts
 
 # NOT DONE
+Use pdf in same folder....
 
 Object Oriented Programming, OOP, is the must influential paradigm of ourtime. This handout summarizes the most basic style, elements, and vocabulary ofOOP that are common to all OOP languages. OOP languages can have weirdfeatures, but the basic ideas of OOP are pretty straightforward.
 

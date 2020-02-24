@@ -3,7 +3,7 @@
 C++ Operator Overloading Guidelines
 -----------------------------------
 
-One of the nice features of C++ is that you can give special meanings to operators, when they are used with user-defined classes. This is called _operator overloading_. You can implement C++ operator overloads by providing special member-functions on your classes that follow a particular naming convention. For example, to overload the + operator for your class, you would provide a member-function named operator+ on your class.
+One of the nice features of C++ is that you can give special meanings to operators, when they are used with user-defined classes. This is called *operator overloading*. You can implement C++ operator overloads by providing special member-functions on your classes that follow a particular naming convention. For example, to overload the + operator for your class, you would provide a member-function named operator+ on your class.
 
 The following set of operators is commonly overloaded for user-defined classes:
 
@@ -51,14 +51,14 @@ This is interpreted by the compiler as:
 
 In other words, assignment is **right-associative**. The last assignment operation is evaluated first, and is propagated leftward through the series of assignments. Specifically:
 
-*   `e = 42` assigns `42` to `e`, then returns e as the result
+*   `e = 42` assigns `42` to `e`, then returns `e` as the result
 *   The value of `e` is then assigned to `d`, and then `d` is returned as the result
 *   The value of `d` is then assigned to `c`, and then `c` is returned as the result
 *   etc.
 
-Now, in order to support operator chaining, the assignment operator must return some value. The value that should be returned is a reference to the _left-hand side_ of the assignment.
+Now, in order to support operator chaining, the assignment operator must return some value. The value that should be returned is a reference to the *left-hand side* of the assignment.
 
-Notice that the returned reference is _not_ declared const. This can be a bit confusing, because it allows you to write crazy stuff like this:
+Notice that the returned reference is *not* declared const. This can be a bit confusing, because it allows you to write crazy stuff like this:
 
 ```cpp
   MyClass a, b, c;
@@ -66,7 +66,7 @@ Notice that the returned reference is _not_ declared const. This can be a bit co
   (a = b) = c;  // What??
 ```
 
-At first glance, you might want to prevent situations like this, by having `operator=` return a `const` reference. However, _statements like this will work with primitive types._ And, even worse, some tools actually rely on this behavior. Therefore, it is important to return a **non-const** reference from your `operator=`. The rule of thumb is, **"If it's good enough for ints, it's good enough for user-defined data-types."**
+At first glance, you might want to prevent situations like this, by having `operator=` return a `const` reference. However, *statements like this will work with primitive types.* And, even worse, some tools actually rely on this behavior. Therefore, it is important to return a **non-const** reference from your `operator=`. The rule of thumb is, **"If it's good enough for ints, it's good enough for user-defined data-types."**
 
 So, for the hypothetical MyClass assignment operator, you would do something like this:
 
@@ -80,9 +80,9 @@ So, for the hypothetical MyClass assignment operator, you would do something lik
   }
 ```
 
-Remember, this is a pointer to the object that the member function is being called on. Since `a = b` is treated as `a.operator=(b)`, you can see why it makes sense to return the object that the function is called on; object a _is_ the left-hand side.
+Remember, this is a pointer to the object that the member function is being called on. Since `a = b` is treated as `a.operator=(b)`, you can see why it makes sense to return the object that the function is called on; object a *$1* the left-hand side.
 
-But, the member function needs to return a reference to the object, not a pointer to the object. So, it returns `*this`, which returns what this points at (i.e. the object), not the pointer itself. (In C++, instances are turned into references, and vice versa, pretty much automatically, so even though *this is an instance, C++ implicitly converts it into a reference to the instance.)
+But, the member function needs to return a reference to the object, not a pointer to the object. So, it returns `*this`, which returns what this points at (i.e. the object), not the pointer itself. (In C++, instances are turned into references, and vice versa, pretty much automatically, so even though `*this` is an instance, C++ implicitly converts it into a reference to the instance.)
 
 Now, one more **very important** point about the assignment operator:
 
@@ -107,7 +107,7 @@ Now, what happens when you do something like this:
   mc = mc;     // BLAMMO.
 ```
 
-You can hopefully see that this would wreak havoc on your program. Because mc is on the left-hand side _and_ on the right-hand side, the first thing that happens is that mc releases any memory it holds internally. But, this is where the values were going to be copied from, since mc is also on the right-hand side! So, you can see that this completely messes up the rest of the assignment operator's internals.
+You can hopefully see that this would wreak havoc on your program. Because `mc` is on the left-hand side *$1* on the right-hand side, the first thing that happens is that `mc` releases any memory it holds internally. But, this is where the values were going to be copied from, since `mc` is also on the right-hand side! So, you can see that this completely messes up the rest of the assignment operator's internals.
 
 The easy way to avoid this is to **CHECK FOR SELF-ASSIGNMENT.** There are many ways to answer the question, "Are these two instances the same?" But, for our purposes, just compare the two objects' addresses. If they are the same, then don't do assignment. If they are different, then do the assignment.
 
@@ -117,7 +117,7 @@ So, the correct and safe version of the MyClass assignment operator would be thi
   MyClass& MyClass::operator=(const MyClass &rhs) {
     // Check for self-assignment!
     if (this == &rhs)      // Same object?
-      return \*this;        // Yes, so skip assignment, and just return \*this.
+      return *this;        // Yes, so skip assignment, and just return \*this.
 
     ... // Deallocate, allocate new space, copy values...
 
@@ -148,7 +148,7 @@ In summary, the guidelines for the assignment operator are:
 
 ### Compound Assignment Operators += -= *=
 
-I discuss these before the arithmetic operators for a very specific reason, but we will get to that in a moment. The important point is that these are _destructive_ operators, because they update or replace the values on the left-hand side of the assignment. So, you write:
+I discuss these before the arithmetic operators for a very specific reason, but we will get to that in a moment. The important point is that these are ***destructive*** operators, because they update or replace the values on the left-hand side of the assignment. So, you write:
 
 ```cpp
   MyClass a, b;
@@ -156,9 +156,9 @@ I discuss these before the arithmetic operators for a very specific reason, but 
   a += b;    // Same as a.operator+=(b)
 ```
 
-In this case, the values within a are _modified_ by the `+= `operator.
+In this case, the values within a are ***modified*** by the `+= `operator.
 
-How those values are modified isn't very important - obviously, what MyClass represents will dictate what these operators mean.
+How those values are modified depends on the inner workings of the class, which will also dictate what those operators mean. 
 
 The member function signature for such an operator should be like this:
 
@@ -168,9 +168,9 @@ The member function signature for such an operator should be like this:
   }
 ```
 
-We have already covered the reason why rhs is a const-reference. And, the implementation of such an operation should also be straightforward.
+We have already covered the reason why `rhs` is a `const` reference. And, the implementation of such an operation should also be straightforward.
 
-But, you will notice that the operator returns a MyClass-reference, and a non-const one at that. This is so you can do things like this:
+But, you will notice that the operator returns a MyClass-reference, and a `non-const` one at that. This is so you can do things like this:
 
 ```cpp
   MyClass mc;
@@ -180,7 +180,7 @@ But, you will notice that the operator returns a MyClass-reference, and a non-co
 
 Don't ask me why somebody would want to do this, but just like the normal assignment operator, this is allowed by the primitive data types. Our user-defined datatypes should match the same general characteristics of the primitive data types when it comes to operators, to make sure that everything works as expected.
 
-This is very straightforward to do. Just write your compound assignment operator implementation, and return *this at the end, just like for the regular assignment operator. So, you would end up with something like this:
+This is very straightforward to do. Just write your compound assignment operator implementation, and return `*this` at the end, just like for the regular assignment operator. So, you would end up with something like this:
 
 ```cpp
   MyClass & MyClass::operator+=(const MyClass &rhs) {
@@ -190,23 +190,21 @@ This is very straightforward to do. Just write your compound assignment operator
   }
 ```
 
-As one last note, _in general_ you should beware of self-assignment with compound assignment operators as well. Fortunately, none of the C++ track's labs require you to worry about this, but you should always give it some thought when you are working on your own classes.
+As one last note, ***in general*** you should beware of self-assignment with compound assignment operators as well. We would never do this ... but you should always check to be safe.
 
-### Binary Arithmetic Operators \+ \- *
+### Binary Arithmetic Operators + - *
 
-The binary arithmetic operators are interesting because they don't modify either operand - they actually return a new value from the two arguments. You might think this is going to be an annoying bit of extra work, but here is the secret:
+The binary arithmetic operators are interesting because they don't modify either operand - they actually return a new value from the two arguments. You might think this is going to be an annoying bit of extra work, but here is a tip:
 
 **Define your binary arithmetic operators using your compound assignment operators.**
 
-There, I just saved you a bunch of time on your homeworks.
-
-So, you have implemented your += operator, and now you want to implement the + operator. The function signature should be like this:
+So, if you have implemented your `+= operator`, and then you want to implement the `+ operator`. The function signature could look like this:
 
 ```cpp
   // Add this instance's value to other, and return a new instance
   // with the result.
   const MyClass MyClass::operator+(const MyClass &other) const {
-    MyClass result = \*this;     // Make a copy of myself.  Same as MyClass result(\*this);
+    MyClass result = *this;     // Make a copy of myself.  Same as MyClass result(\*this);
     result += other;            // Use += to add other to the copy.
     return result;              // All done!
   }
@@ -214,7 +212,7 @@ So, you have implemented your += operator, and now you want to implement the + o
 
 Simple!
 
-Actually, this explicitly spells out all of the steps, and if you want, you _can_ combine them all into a single statement, like so:
+Actually, this explicitly spells out all of the steps, and if you want, you *can* combine them all into a single statement, like so:
 
 ```cpp
   // Add this instance's value to other, and return a new instance
@@ -224,11 +222,11 @@ Actually, this explicitly spells out all of the steps, and if you want, you _can
   }
 ```
 
-This creates an unnamed instance of MyClass, which is a _copy_ of *this. Then, the += operator is called on the temporary value, and then returns it.
+This creates an unnamed instance of MyClass, which is a ***copy*** of `*this`. Then, the `+= operator` is called on the temporary value, and then returns it.
 
 If that last statement doesn't make sense to you yet, then stick with the other way, which spells out all of the steps. But, if you understand exactly what is going on, then you can use that approach.
 
-You will notice that the + operator returns a const instance, _not_ a const reference. This is so that people can't write strange statements like this:
+You will notice that the `+ operator` returns a `const instance`, ***not*** a `const reference`. This is so that people can't write strange statements like this:
 
 ```cpp
   MyClass a, b, c;
@@ -236,7 +234,7 @@ You will notice that the + operator returns a const instance, _not_ a const refe
   (a + b) = c;   // Wuh...?
 ```
 
-This statement would basically do nothing, but if the + operator returns a non-const value, it _will_ compile! So, we want to return a const instance, so that such madness will not even be allowed to compile.
+This statement would basically do nothing, but if the + operator returns a non-const value, it ***will*** compile! So, we want to return a `const instance`, so that such madness will not even be allowed to compile.
 
 To summarize, the guidelines for the binary arithmetic operators are:
 
@@ -265,7 +263,4 @@ The important point here is that the != operator can also be defined in terms of
 
 That way you get to reuse the hard work you did on implementing your == operator. Also, your code is far less likely to exhibit inconsistencies between == and !=, since one is implemented in terms of the other.
 
-* * *
-
-_Updated Oct 23, 2007_  
-Copyright (c) 2005-2007, California Institute of Technology.
+<sub>source: http://courses.cms.caltech.edu/cs11/material/cpp/donnie/cpp-ops.html</sub>
