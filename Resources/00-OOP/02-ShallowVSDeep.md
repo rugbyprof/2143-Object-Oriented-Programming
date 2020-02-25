@@ -22,4 +22,6 @@ A class that requires deep copies generally needs:
 - A **[copy constructor](../../Resources/00-OOP/03-CopyConstructor.md)** to make a copy of the dynamically allocated memory. 
 - An **[overloaded assignment](../../Resources/00-OOP/04-OverloadAssign.md)** operator to make a copy of the dynamically allocated memory.
 
+See [Code Example](example_code.cpp)
+
 <sub>Source: http://www.fredosaurus.com/</sub>
