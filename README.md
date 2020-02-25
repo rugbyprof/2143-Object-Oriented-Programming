@@ -35,11 +35,11 @@
 
 | Categories                       | Portion of Course | Letter Grade | Grade Range |
 | :------------------------------- | :---------------: | :----------: | :---------: |
-| Exams (3)<sup>**1**</sup>        | 30%               | A            | 89-100      |
-| Programs (5-8)<sup>**2**</sup>   | 15%               | B            | 79-88       |
-| Homework/Quizzes<sup>**3**</sup> | 25%               | C            | 69-78       |
-| Final<sup>**1,4**</sup>          | 20%               | D            | 59-68       |
-| Github                           | 10%               | F            | below 59    |
+| Exams (3)<sup>**1**</sup>        | 35%               | A            | 89-100      |
+| Assignments & Programs (5-8)<sup>**2**</sup>   | 35%               | B            | 79-88       |
+| Final<sup>**1,4**</sup>          | 20%               | C            | 69-78       |
+| Github                           | 10%               | D            | 59-68       |
+|                                  |                | F            | below 59    |
 
 
 >**1**. Lowest exam grade can be replaced by Final Exam grade if deemed appropriate by instructor. This is for students who attend class and participate.
