@@ -84,7 +84,7 @@ So, for the hypothetical MyClass assignment operator, you would do something lik
 ```
 
 - Remember, this is a pointer to the object that the member function is being called on. 
-- Since `a = b` is treated as `a.operator=(b)`, you can see why it makes sense to return the object that the function is called on; object a *$1* the left-hand side.
+- Since `a = b` is treated as `a.operator=(b)`, you can see why it makes sense to return the object that the function is called on; object a ***IS*** the left-hand side.
 - But, the member function needs to return a reference to the object, not a pointer to the object. 
 - So, it returns `*this`, which returns what this points at (i.e. the object), not the pointer itself. 
 - <sup>(In C++, instances are turned into references, and vice versa, pretty much automatically, so even though `*this` is an instance, C++ implicitly converts it into a reference to the instance.)</sup>
@@ -112,7 +112,7 @@ Now, what happens when you do something like this:
 ```
 
 - You can hopefully see that this would wreak havoc on your program. 
-- Because `mc` is on the left-hand side *$1* on the right-hand side, the first thing that happens is that `mc` releases any memory it holds internally. 
+- Because `mc` is on the left-hand side ***and*** on the right-hand side, the first thing that happens is that `mc` releases any memory it holds internally. 
 - But, this is where the values were going to be copied from, since `mc` is also on the right-hand side! 
 - So, you can see that this completely messes up the rest of the assignment operator's internals.
 
