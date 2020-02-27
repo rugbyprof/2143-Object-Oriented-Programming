@@ -1,22 +1,27 @@
 ## Comments
 
-Comments are important! You think they are not, but they really are. In the real world, your comments will allow another programmer to read and understand your code much faster. Un-commented code could (and does) take much much longer to digest. I read my own programs from just a few months ago and wonder ... what was I thinking?!? 
+Comments are important\! You think they are not, but they really are. In the real world, your
+comments will allow another programmer to read and understand your code much faster. Un-commented
+code could (and does) take much much longer to digest. I read my own programs from just a few months
+ago and wonder … what was I thinking?\!?
 
-In the case of academia, they are still important. Your comments help me (or the grader) figure out if your program works as expected, or what you were trying to do if things aren't working properly.
+In the case of academia, they are still important. Your comments help me (or the grader) figure out
+if your program works as expected, or what you were trying to do if things aren’t working properly.
 
-- RULE 1: Every program will have comments. 
-- RULE 2: If I didn't mention it in class or write it on the assignment, refer to RULE 1. 
-- RULE 3: I'm allowed to make cheesy, but effective jokes. 
+  - RULE 1: Every program will have comments.
+  - RULE 2: If I didn’t mention it in class or write it on the assignment, refer to RULE 1.
+  - RULE 3: I’m allowed to make cheesy, but effective jokes.
 
-### Example Program Comment Block 
+### Example Program Comment Block
 
-Every program will have a comment block nearly IDENTICAL in structure to the one below. Do NOT remove the slashes. It makes a very distinct BOX like effect. Keep it as is and only replace the pertinant information.
-This is the comment that will go into your main driver program. It is also the top page when turning in a 
-printed program (unless we create a banner page).
+Every program will have a comment block nearly IDENTICAL in structure to the one below. Do NOT
+remove the slashes. It makes a very distinct BOX like effect. Keep it as is and only replace the
+pertinant information. This is the comment that will go into your main driver program. It is also
+the top page when turning in a printed program (unless we create a banner page).
 
-#### Acceptable 
+#### Acceptable
 
-```cpp
+``` cpp
 ///////////////////////////////////////////////////////////////////////////////
 // 
 //
@@ -26,7 +31,7 @@ printed program (unless we create a banner page).
 
 #### OR
 
-```cpp
+``` cpp
 /*****************************************************************************
 *
 * 
@@ -36,7 +41,7 @@ printed program (unless we create a banner page).
 
 #### Program Comment Template:
 
-```cpp
+``` cpp
 
 ///////////////////////////////////////////////////////////////////////////////
 //                   
@@ -59,7 +64,7 @@ printed program (unless we create a banner page).
 
 #### Program Comment Example:
 
-```cpp
+``` cpp
 ///////////////////////////////////////////////////////////////////////////////
 //                   
 // Author:           Terry Griffin
@@ -93,7 +98,7 @@ printed program (unless we create a banner page).
 
 #### Class Comment Template:
 
-```cpp
+``` cpp
 /**
  * Class Name
  * 
@@ -117,9 +122,10 @@ printed program (unless we create a banner page).
  *      
  */
 ```
+
 #### Class Comment Example:
 
-```cpp
+``` cpp
 /**
  * Huffman
  * 
@@ -158,7 +164,7 @@ printed program (unless we create a banner page).
 
 ### Function Comment
 
-```cpp
+``` cpp
 
     /**
      * Public/Private/Protected : function_name
@@ -179,7 +185,7 @@ printed program (unless we create a banner page).
 
 #### Function Comment Example:
 
-```cpp
+``` cpp
 
     /**
      * Public : LoadList
@@ -198,20 +204,26 @@ printed program (unless we create a banner page).
 
 #### Comments in General
 
-- Variable declarations should have a comment after them:
+  - Variable declarations should have a comment after them:
 
-```cpp
+<!-- end list -->
+
+``` cpp
     T **Array;          // Pointer to allocate dynamic array
     int Next;           // Next available location
     int MaxSize;        // Max size since were using array
     int HeapSize;       // Actual number of items in the array.
     bool isMax;         // true = max heap false = mi
-
 ```
 
-- Code should be commented enough to describe action in general:
-- The following is taken from a "heap" class. Knowing in general how a heap works, and by having access to the other code in the file, the comments below are enough to give the reviewer an idea of what this function is doing. 
-```cpp
+  - Code should be commented enough to describe action in general:
+  - The following is taken from a “heap” class. Knowing in general how a heap works, and by having
+    access to the other code in the file, the comments below are enough to give the reviewer an idea
+    of what this function is doing.
+
+<!-- end list -->
+
+``` cpp
     /**
      * Function PickChild:
      *      Return index of child to swap with or -1 to not swap.
@@ -253,16 +265,19 @@ printed program (unless we create a banner page).
 ### Style of Comments
 
 **Good:**
-```c++
+
+``` cpp
   int num1, num2, num3;     // user entered numbers
-  double average;			// calculated average of the numbers
-  int score1,				// score on exam 1
-      score2;				// score on exam 2
+  double average;           // calculated average of the numbers
+  int score1,               // score on exam 1
+      score2;               // score on exam 2
 ```
+
 **Bad:**
-```c++
+
+``` cpp
   int num1, num2, num3;          // user entered numbers
   double average;    // calculated average of the numbers
   int score1,    // score on exam 1
-      score2;			    // score on exam 2
+      score2;               // score on exam 2
 ```
