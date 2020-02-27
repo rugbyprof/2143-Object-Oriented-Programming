@@ -1,5 +1,7 @@
 ### Why not just call the assignment operator from copy constructor?
 
+http://courses.washington.edu/css342/zander/css332/
+
 A common mistake is to call the assignment operator from the copy constructor. Take the Array class for example. Inside the copy you might think it's simple to write:
 ```cpp
 Array::Array(const Array &init) {
