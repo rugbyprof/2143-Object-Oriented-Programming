@@ -37,7 +37,7 @@
 
 Since I didn't put anything more substantial for inheritance vs compostion in the resources folder, here is a simple example. 
 
-A polygon `Has-A` ordered sequence of points (conmposition).
+A polygon `Has-A` ordered sequence of points (composition).
 
 ```cpp
 struct Polygon {
