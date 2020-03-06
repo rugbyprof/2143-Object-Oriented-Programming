@@ -1,0 +1,2047 @@
+---
+description: 'A Computer Science portal for geeks. It contains well
+  written, well thought and well explained computer science and
+  programming articles, quizzes and practice/competitive
+  programming/company interview Questions.'
+generator: WordPress 4.9.8
+lang: 'en-US'
+msapplication-TileImage: 'https://www.geeksforgeeks.org/wp-content/uploads/gfg\_200X200.png'
+theme-color: '\#0f9d58'
+title: 'Difference between Inheritance and Polymorphism - GeeksforGeeks'
+viewport: 'width=device-width, initial-scale=1, maximum-scale=1'
+---
+
+::: {.header--search}
+::: {.header--container}
+::: {.header--sidebar}
+::: {.header--practice__logo}
+[GeeksforGeeks](/)
+:::
+:::
+
+::: {.header--search__div}
+::: {style="width:80%;position: absolute;"}
+:::
+
+::: {.header--icon_close}
+x
+:::
+:::
+
+::: {#myModal .modal .modal-fixed-footer .modal-fixed .suggestArticleModal}
+::: {.modal-content .suggestArticleContent}
+[ × ]{.close .closeModal}
+
+##### Suggest a Topic
+
+::: {.row .rowMain}
+::: {.col .s12}
+::: {.card .darken-1}
+::: {.card-content}
+::: {.row}
+::: {.input-field .col .s12 .getInput}
+:::
+:::
+
+::: {.row}
+::: {.input-field .col .s12 .getInput}
+:::
+:::
+
+::: {.row}
+Select a Category
+
+::: {.input-field .col .s12 .getInput}
+Advanced Computer Subject Advanced Data Structure Algorithms Algorithms
+Quiz Analysis AngularJS Aptitude Arrays Articles Articles Backtracking
+Binary Search Tree Bit Magic Bootstrap Branch and Bound C C Programs C
+Quiz C\# C\# Programs C++ C++ Programs C++ Quiz CAT Combinatorial
+Competitive Programming Compiler Design Compiler Design Computer
+Networks Computer Networks Quiz Computer Organization & Architecture
+Computer Organization and Architecture Computer Subject CS -- Placements
+CSS Data Structures Data Structures DBMS DBMS Quiz Design Pattern DI --
+Placements Difference Between Digital Electronics & Logic Design Divide
+and Conquer Dynamic Programming Engineering Mathematics Engineering
+Mathematics Questions English -- Placements Experienced Game Theory GATE
+GATE CS GBlog Geek on the Top GeeksforGeeks Initiatives GeeksQuiz
+Geometric GFacts Git Go Language Graph GRE GRE Quiz Greedy Hadoop Hash
+Heap HTML Internship Interview Experiences ISRO Java Java Programs Java
+Quiz JavaScript JQuery JS++ Julia Kotlin Linked List Linux-Unix Machine
+Learning Mathematical Matrix MCQ Misc Node.js Operating Systems
+Operating Systems Questions Pattern Searching Perl PHP PHP Programs
+Placements Program Output Programming Language Project Puzzles Python
+Python Programs Python-Quizzes QA -- Placement Quizzes QA -- Placements
+Queue Quizzes Randomized Reasoning -- Placements Recursion Ruby Scala
+School Programming Searching Software Engineering Sorting SQL Stack
+Strings Technical Scripter TechTips test\_cat\_june Theory of
+Computation Theory of Computation & Automata Tree UGC-NET Web
+Technologies Web technologies Questions
+:::
+:::
+
+::: {.row}
+::: {.input-field .col .s12 .getInput}
+::: {#loginCaptchaSuggest .g-recaptcha sitekey="6LexF0sUAAAAADiQjz9BMiSrqplrItl-tWYDSfWa" style="display:inline-block"}
+:::
+:::
+:::
+
+::: {.card-action .card-action_suggest}
+Submit
+:::
+:::
+:::
+:::
+:::
+:::
+:::
+:::
+:::
+
+::: {.header--navbar}
+::: {.header--container}
+::: {#header--menu__icon}
+*menu*
+:::
+
+```{=html}
+<!-- -->
+```
+-   [Skip to content](#content "Skip to content"){.assistive-text}
+    ::: {.menu-header-container}
+    -   [[Tutorials](#)]{#menu-item-351946}
+        -   [[Algorithms](https://www.geeksforgeeks.org/category/algorithm/)]{#menu-item-351947}
+            -   [[Analysis of
+                Algorithms](https://www.geeksforgeeks.org/category/algorithm/analysis/)]{#menu-item-351948}
+                -   [[Asymptotic
+                    Analysis](https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/)]{#menu-item-351949}
+                -   [[Worst, Average and Best
+                    Cases](https://www.geeksforgeeks.org/analysis-of-algorithms-set-2-asymptotic-analysis/)]{#menu-item-351950}
+                -   [[Asymptotic
+                    Notations](https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/)]{#menu-item-351951}
+                -   [[Little o and little omega
+                    notations](https://www.geeksforgeeks.org/analysis-of-algorithems-little-o-and-little-omega-notations/)]{#menu-item-351952}
+                -   [[Lower and Upper Bound
+                    Theory](https://www.geeksforgeeks.org/lower-and-upper-bound-theory/)]{#menu-item-351953}
+                -   [[Analysis of
+                    Loops](https://www.geeksforgeeks.org/analysis-of-algorithms-set-4-analysis-of-loops/)]{#menu-item-351954}
+                -   [[Solving
+                    Recurrences](https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/)]{#menu-item-351955}
+                -   [[Amortized
+                    Analysis](https://www.geeksforgeeks.org/analysis-algorithm-set-5-amortized-analysis-introduction/)]{#menu-item-351956}
+                -   [[What does 'Space Complexity'
+                    mean?](https://www.geeksforgeeks.org/g-fact-86/)]{#menu-item-351957}
+                -   [[Pseudo-polynomial
+                    Algorithms](https://www.geeksforgeeks.org/pseudo-polynomial-in-algorithms/)]{#menu-item-351958}
+                -   [[Polynomial Time Approximation
+                    Scheme](https://www.geeksforgeeks.org/polynomial-time-approximation-scheme/)]{#menu-item-351959}
+                -   [[A Time Complexity
+                    Question](https://www.geeksforgeeks.org/a-time-complexity-question/)]{#menu-item-351960}
+            -   [[Searching
+                Algorithms](https://www.geeksforgeeks.org/searching-algorithms/)]{#menu-item-362857}
+            -   [[Sorting
+                Algorithms](https://www.geeksforgeeks.org/sorting-algorithms/)]{#menu-item-362976}
+            -   [[Graph
+                Algorithms](https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)]{#menu-item-362977}
+            -   [[Pattern
+                Searching](https://www.geeksforgeeks.org/algorithms-gq/pattern-searching/)]{#menu-item-362978}
+            -   [[Geometric
+                Algorithms](https://www.geeksforgeeks.org/geometric-algorithms/)]{#menu-item-362979}
+            -   [[Mathematical](https://www.geeksforgeeks.org/mathematical-algorithms/)]{#menu-item-362980}
+            -   [[Randomized
+                Algorithms](https://www.geeksforgeeks.org/randomized-algorithms/)]{#menu-item-362984}
+            -   [[Greedy
+                Algorithms](https://www.geeksforgeeks.org/greedy-algorithms/)]{#menu-item-362985}
+            -   [[Dynamic
+                Programming](https://www.geeksforgeeks.org/dynamic-programming/)]{#menu-item-362986}
+            -   [[Divide and
+                Conquer](https://www.geeksforgeeks.org/divide-and-conquer/)]{#menu-item-362987}
+            -   [[Backtracking](https://www.geeksforgeeks.org/backtracking-algorithms/)]{#menu-item-362988}
+            -   [[Branch and
+                Bound](https://www.geeksforgeeks.org/branch-and-bound-algorithm/)]{#menu-item-362991}
+            -   [[All
+                Algorithms](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)]{#menu-item-363278}
+        -   [[Data
+            Structures](https://www.geeksforgeeks.org/category/data-structures/)]{#menu-item-351977}
+            -   [[Arrays](https://www.geeksforgeeks.org/array-data-structure/)]{#menu-item-362993}
+            -   [[Linked
+                List](https://www.geeksforgeeks.org/data-structures/linked-list/)]{#menu-item-362994}
+            -   [[Stack](https://www.geeksforgeeks.org/stack-data-structure/)]{#menu-item-362995}
+            -   [[Queue](https://www.geeksforgeeks.org/queue-data-structure/)]{#menu-item-362996}
+            -   [[Binary
+                Tree](https://www.geeksforgeeks.org/binary-tree-data-structure/)]{#menu-item-351983}
+            -   [[Binary Search
+                Tree](https://www.geeksforgeeks.org/binary-search-tree-data-structure/)]{#menu-item-362992}
+            -   [[Heap](http://www.geeksforgeeks.org/heap-data-structure/)]{#menu-item-351985}
+            -   [[Hashing](http://www.geeksforgeeks.org/hashing-data-structure/)]{#menu-item-351988}
+            -   [[Graph](http://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)]{#menu-item-351989}
+            -   [[Advanced Data
+                Structure](http://www.geeksforgeeks.org/advanced-data-structures/)]{#menu-item-351990}
+            -   [[Matrix](http://www.geeksforgeeks.org/matrix/)]{#menu-item-351993}
+            -   [[Strings](http://www.geeksforgeeks.org/string-data-structure/)]{#menu-item-351994}
+            -   [[All Data
+                Structures](https://www.geeksforgeeks.org/data-structures/)]{#menu-item-363280}
+        -   [[Languages](http://www.geeksforgeeks.org/category/program-output/)]{#menu-item-351997}
+            -   [[C](https://www.geeksforgeeks.org/c-programming-language/)]{#menu-item-352009}
+            -   [[C++](https://www.geeksforgeeks.org/c-plus-plus/)]{#menu-item-352010}
+            -   [[Java](https://www.geeksforgeeks.org/java/)]{#menu-item-352011}
+            -   [[Python](https://www.geeksforgeeks.org/python-programming-language/)]{#menu-item-352015}
+            -   [[C\#](https://www.geeksforgeeks.org/csharp-programming-language/)]{#menu-item-352017}
+            -   [[Javascript](https://www.geeksforgeeks.org/javascript-tutorial/)]{#menu-item-352021}
+            -   [[JQuery](https://www.geeksforgeeks.org/jquery-tutorials/)]{#menu-item-352023}
+            -   [[SQL](https://www.geeksforgeeks.org/sql-tutorial/)]{#menu-item-352024}
+            -   [[PHP](https://www.geeksforgeeks.org/php/)]{#menu-item-352019}
+            -   [[Scala](https://www.geeksforgeeks.org/scala-programming-language/)]{#menu-item-352016}
+            -   [[Perl](https://www.geeksforgeeks.org/perl-programming-language/)]{#menu-item-352018}
+            -   [[Go
+                Language](https://www.geeksforgeeks.org/golang/)]{#menu-item-352020}
+            -   [[HTML](https://www.geeksforgeeks.org/html-tutorials/)]{#menu-item-352027}
+            -   [[CSS](https://www.geeksforgeeks.org/css-tutorials/)]{#menu-item-352028}
+            -   [[Kotlin](https://www.geeksforgeeks.org/kotlin-programming-language/)]{#menu-item-352029}
+        -   [[Interview
+            Corner](http://www.geeksforgeeks.org/about/interview-corner/)]{#menu-item-352030}
+            -   [[Company
+                Preparation](https://www.geeksforgeeks.org/company-preparation/)]{#menu-item-352031}
+            -   [[Top
+                Topics](https://www.geeksforgeeks.org/interview-preparation-for-software-developer/)]{#menu-item-352034}
+            -   [[Practice Company
+                Questions](https://practice.geeksforgeeks.org/company-tags)]{#menu-item-352035}
+            -   [[Interview
+                Experiences](http://www.geeksforgeeks.org/about/interview-corner/)]{#menu-item-352036}
+            -   [[Experienced
+                Interviews](https://www.geeksforgeeks.org/experienced-interview-experiences-company-wise/)]{#menu-item-352037}
+            -   [[Internship
+                Interviews](https://www.geeksforgeeks.org/internship-interview-experiences-company-wise/)]{#menu-item-352038}
+            -   [[Competitive
+                Programming](http://www.geeksforgeeks.org/category/competitive-programming/)]{#menu-item-352039}
+            -   [[Design
+                Patterns](http://www.geeksforgeeks.org/software-design-patterns/)]{#menu-item-352040}
+            -   [[Multiple Choice
+                Quizzes](https://www.geeksforgeeks.org/quiz-corner-gq/)]{#menu-item-352044}
+        -   [[GATE](https://www.geeksforgeeks.org/gate-cs-notes-gq/)]{#menu-item-352073}
+            -   [[GATE CS Notes
+                2020](https://www.geeksforgeeks.org/gate-cs-notes-gq/)]{#menu-item-352076}
+            -   [[Last Minute
+                Notes](https://www.geeksforgeeks.org/lmns-gq/)]{#menu-item-352079}
+            -   [[GATE CS Solved
+                Papers](https://www.geeksforgeeks.org/gate-corner-2-gq/)]{#menu-item-352080}
+            -   [[GATE CS Orignal Papers and Official
+                Keys](https://www.geeksforgeeks.org/original-gate-previous-year-question-papers-cse-and-it-gq/)]{#menu-item-352081}
+            -   [[GATE 2020
+                Dates](https://www.geeksforgeeks.org/gate-cs-2020-important-official-dates/)]{#menu-item-352082}
+            -   [[GATE CS 2020
+                Syllabus](https://www.geeksforgeeks.org/gate-cs-2020-syllabus/)]{#menu-item-352083}
+            -   [[Important Topics for GATE
+                CS](https://www.geeksforgeeks.org/important-topics-prepare-gate-2019-computer-science-paper/)]{#menu-item-352084}
+            -   [[Sudo GATE
+                2020](https://practice.geeksforgeeks.org/courses/Sudo-GATE-2020)]{#menu-item-352085}
+        -   [[ISRO
+            CS](https://www.geeksforgeeks.org/isro-cs-preparation/)]{#menu-item-352098}
+            -   [[ISRO CS Solved
+                Papers](https://www.geeksforgeeks.org/isro-cs-preparation/)]{#menu-item-352101}
+            -   [[ISRO CS Original Papers and Official
+                Keys](https://www.geeksforgeeks.org/isro-original-papers-official-keys/)]{#menu-item-352102}
+            -   [[ISRO CS Syllabus for Scientist/Engineer
+                Exam](https://www.geeksforgeeks.org/isro-cse-syllabus-scientistengineer-exam-2018/)]{#menu-item-352103}
+        -   [[UGC NET
+            CS](https://www.geeksforgeeks.org/ugc-net-cs-preparation/)]{#menu-item-352104}
+            -   [[UGC NET CS Notes Paper
+                II](https://www.geeksforgeeks.org/ugc-net-cs-notes-according-to-syllabus-of-paper-ii/)]{#menu-item-352105}
+            -   [[UGC NET CS Notes Paper
+                III](https://www.geeksforgeeks.org/ugc-net-cs-notes-according-to-syllabus-of-paper-iii-core-group/)]{#menu-item-352106}
+            -   [[UGC NET CS Solved
+                Papers](https://www.geeksforgeeks.org/ugc-net-cs-preparation/)]{#menu-item-352107}
+        -   [[CS
+            Subjects](https://www.geeksforgeeks.org/articles-on-computer-science-subjects-gq/)]{#menu-item-352108}
+            -   [[Mathematics](https://www.geeksforgeeks.org/engineering-mathematics-tutorials/)]{#menu-item-352111}
+                -   [[First Order
+                    Logic](https://www.geeksforgeeks.org/engineering-mathematics-tutorials/#logic)]{#menu-item-352112}
+                -   [[Combinatorics](https://www.geeksforgeeks.org/engineering-mathematics-tutorials/#count)]{#menu-item-352113}
+                -   [[Set
+                    Theory](https://www.geeksforgeeks.org/engineering-mathematics-tutorials/#sets)]{#menu-item-352114}
+                -   [[Graph
+                    Theory](https://www.geeksforgeeks.org/engineering-mathematics-tutorials/#graph)]{#menu-item-352115}
+                -   [[Linear
+                    Algebra](https://www.geeksforgeeks.org/engineering-mathematics-tutorials/#alg)]{#menu-item-352116}
+                -   [[Probability](https://www.geeksforgeeks.org/engineering-mathematics-tutorials/#prob)]{#menu-item-352117}
+                -   [[Calculus](https://www.geeksforgeeks.org/engineering-mathematics-tutorials/#cal)]{#menu-item-352118}
+            -   [[Operating
+                Systems](https://www.geeksforgeeks.org/operating-systems/)]{#menu-item-352119}
+                -   [[Processes, threads, CPU
+                    scheduling](https://www.geeksforgeeks.org/operating-systems/#threads)]{#menu-item-352120}
+                -   [[Process
+                    Synchronization](https://www.geeksforgeeks.org/operating-systems/#syn)]{#menu-item-352121}
+                -   [[Deadlock](https://www.geeksforgeeks.org/operating-systems/#deadlock)]{#menu-item-352122}
+                -   [[Memory
+                    Management](https://www.geeksforgeeks.org/operating-systems/#mmgmt)]{#menu-item-352123}
+                -   [[File and Disk
+                    Management](https://www.geeksforgeeks.org/operating-systems/#disk)]{#menu-item-352124}
+            -   [[DBMS](https://www.geeksforgeeks.org/dbms/)]{#menu-item-352130}
+                -   [[Entity Relationship
+                    Model](https://www.geeksforgeeks.org/dbms/#ermodel)]{#menu-item-352132}
+                -   [[Relational
+                    Model](https://www.geeksforgeeks.org/dbms/#rm)]{#menu-item-352135}
+                -   [[Normalisation](https://www.geeksforgeeks.org/dbms/#nor)]{#menu-item-352138}
+                -   [[SQL](https://www.geeksforgeeks.org/dbms/#sqlt)]{#menu-item-352139}
+                -   [[Transactions and concurrency
+                    control](https://www.geeksforgeeks.org/dbms/#tcc)]{#menu-item-352140}
+            -   [[Computer
+                Networks](https://www.geeksforgeeks.org/computer-network-tutorials/)]{#menu-item-352142}
+                -   [[Basics](https://www.geeksforgeeks.org/computer-network-tutorials/#basics)]{#menu-item-352143}
+                -   [[Data Link
+                    Layer](https://www.geeksforgeeks.org/computer-network-tutorials/#dll)]{#menu-item-352144}
+                -   [[Network
+                    layer](https://www.geeksforgeeks.org/computer-network-tutorials/#nl)]{#menu-item-352145}
+                -   [[Transport
+                    layer](https://www.geeksforgeeks.org/computer-network-tutorials/#tl)]{#menu-item-352146}
+                -   [[Application
+                    layer](https://www.geeksforgeeks.org/computer-network-tutorials/#al)]{#menu-item-352147}
+                -   [[Network Security and
+                    Cryptography](https://www.geeksforgeeks.org/computer-network-tutorials/#nsc)]{#menu-item-352148}
+            -   [[Computer Organization and
+                Architecture](https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/)]{#menu-item-352149}
+                -   [[Basics](https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/#bci)]{#menu-item-352152}
+                -   [[ALU, data‐path and control
+                    unit](https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/#micro)]{#menu-item-352184}
+                -   [[Pipelining](https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/#pipelng)]{#menu-item-352185}
+                -   [[Memory
+                    Organisation](https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/#mo)]{#menu-item-352187}
+                -   [[Input and Output
+                    Systems](https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/#io)]{#menu-item-352188}
+            -   [[Theory of
+                Computation](https://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/)]{#menu-item-352191}
+                -   [[Regular Languages and Finite
+                    Automata](https://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/#rl)]{#menu-item-352192}
+                -   [[Context Free Grammar and Context Free
+                    Languages](https://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/#cfl)]{#menu-item-352193}
+                -   [[Turing
+                    Machine](https://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/#tm)]{#menu-item-352196}
+            -   [[Compiler
+                Design](https://www.geeksforgeeks.org/compiler-design-tutorials/)]{#menu-item-352201}
+                -   [[Introduction](https://www.geeksforgeeks.org/compiler-design-tutorials/#int)]{#menu-item-352202}
+                -   [[Lexical
+                    Analysis](https://www.geeksforgeeks.org/compiler-design-tutorials/#la)]{#menu-item-352205}
+                -   [[Syntax
+                    Analysis](https://www.geeksforgeeks.org/compiler-design-tutorials/#sa)]{#menu-item-352206}
+                -   [[Syntax Directed
+                    Translation](https://www.geeksforgeeks.org/compiler-design-tutorials/#sdt)]{#menu-item-352207}
+                -   [[Runtime
+                    Environments](https://www.geeksforgeeks.org/compiler-design-tutorials/#re)]{#menu-item-352208}
+                -   [[Code Generation and
+                    Optimization](https://www.geeksforgeeks.org/compiler-design-tutorials/#cgo)]{#menu-item-352209}
+            -   [[Digital
+                Logic](https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/)]{#menu-item-352212}
+                -   [[Boolean Algebra and Logic
+                    Gates](https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/#blg)]{#menu-item-352213}
+                -   [[Combinational Logic
+                    Circuits](https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/#clc)]{#menu-item-352214}
+                -   [[Flip-Flops and Sequential
+                    Circuits](https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/#ff)]{#menu-item-352217}
+            -   [[Software
+                Engineering](https://www.geeksforgeeks.org/software-engineering/)]{#menu-item-352218}
+                -   [[Introduction](https://www.geeksforgeeks.org/software-engineering/#int)]{#menu-item-352220}
+                -   [[Software Development Models &
+                    Architecture](https://www.geeksforgeeks.org/software-engineering/#sdlc)]{#menu-item-352221}
+                -   [[Software Project
+                    Management](https://www.geeksforgeeks.org/software-engineering/#spm)]{#menu-item-352224}
+                -   [[Software
+                    Requirements](https://www.geeksforgeeks.org/software-engineering/#sr)]{#menu-item-352226}
+                -   [[Software Testing and
+                    Debugging](https://www.geeksforgeeks.org/software-engineering/#std)]{#menu-item-352227}
+        -   [[Web
+            Technologies](https://www.geeksforgeeks.org/category/web-technologies/)]{#menu-item-363529}
+            -   [[HTML](http://geeksforgeeks.org/html-tutorials/)]{#menu-item-363536}
+            -   [[CSS](https://www.geeksforgeeks.org/css-tutorials/)]{#menu-item-363537}
+            -   [[JavaScript](https://www.geeksforgeeks.org/javascript-tutorial/)]{#menu-item-363533}
+            -   [[PHP](https://www.geeksforgeeks.org/php/)]{#menu-item-363532}
+            -   [[JQuery](https://www.geeksforgeeks.org/jquery-tutorials/)]{#menu-item-363535}
+    -   [[Students](http://www.geeksforgeeks.org/student-corner/)]{#menu-item-352252}
+        -   [[Get
+            Hired](https://practice.geeksforgeeks.org/jobs/)]{#menu-item-366170}
+        -   [[Campus Ambassador
+            Program](http://www.geeksforgeeks.org/campus-ambassador-program-by-geeksforgeeks/)]{#menu-item-352255}
+        -   [[Project](https://www.geeksforgeeks.org/computer-science-projects/)]{#menu-item-352258}
+        -   [[Geek of the
+            Month](http://www.geeksforgeeks.org/geek-of-the-month/)]{#menu-item-352260}
+        -   [[Campus Geek of the
+            Month](https://www.geeksforgeeks.org/campus-geek-of-the-month/)]{#menu-item-352267}
+        -   [[Placement
+            Course](https://www.geeksforgeeks.org/placements-gq/)]{#menu-item-352273}
+        -   [[Competitive
+            Programming](http://www.geeksforgeeks.org/category/competitive-programming/)]{#menu-item-352275}
+        -   [[Testimonials](https://www.geeksforgeeks.org/testimonials/)]{#menu-item-352276}
+        -   [[Geek on the
+            Top](https://www.geeksforgeeks.org/category/geek-on-the-top/)]{#menu-item-352277}
+        -   [[Careers](https://www.geeksforgeeks.org/careers/)]{#menu-item-352279}
+        -   [[Internship](https://www.geeksforgeeks.org/internship/)]{#menu-item-352280}
+    :::
+
+-   [Courses](https://practice.geeksforgeeks.org/courses/?ref=gfg_header){.header--nav__link}
+
+-   ::: {#menu-item-135}
+    <div>
+
+    [Home](https://www.geeksforgeeks.org/){.side-home}
+
+    </div>
+    :::
+
+-   [[All
+    Algorithms](http://www.geeksforgeeks.org/fundamentals-of-algorithms/)]{#menu-item-146911}
+
+-   [[Analysis of
+    Algorithms](http://www.geeksforgeeks.org/fundamentals-of-algorithms/#AnalysisofAlgorithms)]{#menu-item-135030}
+
+-   [[Searching
+    Algorithms](http://www.geeksforgeeks.org/searching-algorithms/)]{#menu-item-147774}
+
+-   [[Sorting
+    Algorithms](http://www.geeksforgeeks.org/sorting-algorithms/)]{#menu-item-147773}
+
+-   [[Graph
+    Algorithms](http://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)]{#menu-item-135041}
+
+-   [[Bit
+    Algorithms](http://www.geeksforgeeks.org/bitwise-algorithms/)]{#menu-item-135040}
+
+-   [[Pattern
+    Searching](http://www.geeksforgeeks.org/fundamentals-of-algorithms/#PatternSearching)]{#menu-item-135034}
+
+-   [[Geometric
+    Algorithms](http://www.geeksforgeeks.org/geometric-algorithms/)]{#menu-item-135038}
+
+-   [[Mathematical
+    Algorithms](http://www.geeksforgeeks.org/mathematical-algorithms/)]{#menu-item-135039}
+
+-   [[Randomized
+    Algorithms](http://www.geeksforgeeks.org/randomized-algorithms/)]{#menu-item-135042}
+
+-   [[Game
+    Theory](http://www.geeksforgeeks.org/category/algorithm/game-theory/)]{#menu-item-156520}
+
+-   [[Greedy
+    Algorithms](http://www.geeksforgeeks.org/greedy-algorithms/)]{#menu-item-135032}
+
+-   [[Dynamic
+    Programming](http://www.geeksforgeeks.org/dynamic-programming/)]{#menu-item-135033}
+
+-   [[Divide and
+    Conquer](http://www.geeksforgeeks.org/divide-and-conquer/)]{#menu-item-135037}
+
+-   [[Backtracking](http://www.geeksforgeeks.org/backtracking-algorithms/)]{#menu-item-135036}
+
+-   [[Branch &
+    Bound](http://www.geeksforgeeks.org/fundamentals-of-algorithms/#BranchandBound)]{#menu-item-137933}
+
+-   [[All Data
+    Structures](http://www.geeksforgeeks.org/data-structures/)]{#menu-item-135056}
+
+-   [[Array](http://www.geeksforgeeks.org/array-data-structure/)]{#menu-item-135054}
+
+-   [[LinkedList](http://www.geeksforgeeks.org/data-structures/linked-list/)]{#menu-item-135045}
+
+-   [[Stack](http://www.geeksforgeeks.org/stack-data-structure/)]{#menu-item-135046}
+
+-   [[Queue](http://www.geeksforgeeks.org/queue-data-structure/)]{#menu-item-135047}
+
+-   [[Binary
+    Tree](http://www.geeksforgeeks.org/binary-tree-data-structure/)]{#menu-item-135048}
+
+-   [[Binary Search
+    Tree](http://www.geeksforgeeks.org/binary-search-tree-data-structure/)]{#menu-item-135049}
+
+-   [[Heap](http://www.geeksforgeeks.org/heap-data-structure/)]{#menu-item-135050}
+
+-   [[Hashing](http://www.geeksforgeeks.org/hashing-data-structure/)]{#menu-item-135051}
+
+-   [[Graph](http://www.geeksforgeeks.org/graph-data-structure-and-algorithms/)]{#menu-item-135052}
+
+-   [[Advanced Data
+    Structure](http://www.geeksforgeeks.org/advanced-data-structures/)]{#menu-item-135053}
+
+-   [[Matrix](http://www.geeksforgeeks.org/matrix/)]{#menu-item-135055}
+
+-   [[Strings](http://www.geeksforgeeks.org/string-data-structure/)]{#menu-item-147716}
+
+-   [[C](https://www.geeksforgeeks.org/c-programming-language/)]{#menu-item-135006}
+
+-   [[C++](https://www.geeksforgeeks.org/c-plus-plus/)]{#menu-item-135007}
+
+-   [[Java](https://www.geeksforgeeks.org/java/)]{#menu-item-135012}
+
+-   [[Python](https://www.geeksforgeeks.org/python-programming-language/)]{#menu-item-137004}
+
+-   [[SQL](http://www.geeksforgeeks.org/sql-tutorial/)]{#menu-item-135016}
+
+-   [[PHP](https://www.geeksforgeeks.org/php/)]{#menu-item-182096}
+
+-   [[Javascript](https://www.geeksforgeeks.org/javascript-tutorial/)]{#menu-item-188679}
+
+-   [[Program
+    Output](https://www.geeksforgeeks.org/category/program-output/ "http://www.geeksforgeeks.org/category/program-output/")]{#menu-item-140854}
+
+-   [[Company
+    Prep](https://www.geeksforgeeks.org/company-preparation/)]{#menu-item-141326}
+
+-   [[Top
+    Topics](http://www.geeksforgeeks.org/interview-preparation-for-software-developer/)]{#menu-item-137171}
+
+-   [[Practice Company
+    Questions](https://practice.geeksforgeeks.org/company-tags)]{#menu-item-137172}
+
+-   [[Interview
+    Experiences](http://www.geeksforgeeks.org/about/interview-corner/)]{#menu-item-137173}
+
+-   [[Experienced
+    Interviews](http://www.geeksforgeeks.org/category/interview-experiences/experienced-interview-experiences/)]{#menu-item-137174}
+
+-   [[Internship
+    Interviews](http://www.geeksforgeeks.org/category/interview-experiences/internship-interview-experiences/)]{#menu-item-137175}
+
+-   [[Competitive
+    Programming](http://www.geeksforgeeks.org/category/competitive-programming/)]{#menu-item-137176}
+
+-   [[Design
+    Patterns](http://www.geeksforgeeks.org/software-design-patterns/)]{#menu-item-147581}
+
+-   [[Multiple Choice
+    Quizzes](http://geeksquiz.com/quiz-corner/)]{#menu-item-137186}
+
+-   [[Campus Ambassador
+    Program](http://www.geeksforgeeks.org/campus-ambassador-program-by-geeksforgeeks/)]{#menu-item-137183}
+
+-   [[Geek of the
+    Month](http://www.geeksforgeeks.org/geek-of-the-month/)]{#menu-item-137179}
+
+-   [[Placement
+    Course](http://geeksquiz.com/placements/)]{#menu-item-137570}
+
+-   [[Project](https://www.geeksforgeeks.org/category/project/)]{#menu-item-136004}
+
+-   [[Competitive
+    Programming](http://www.geeksforgeeks.org/category/competitive-programming/)]{#menu-item-137180}
+
+-   [[Testimonials](http://www.geeksforgeeks.org/testimonials/)]{#menu-item-137181}
+
+-   [[Geek on the
+    Top](http://www.geeksforgeeks.org/category/geek-on-the-top/)]{#menu-item-138863}
+
+-   [[Careers](http://www.geeksforgeeks.org/careers/)]{#menu-item-141974}
+
+-   [[Internship](http://www.geeksforgeeks.org/internship/)]{#menu-item-137378}
+
+-   [[School
+    Programming](http://www.geeksforgeeks.org/school-programming/)]{#menu-item-147457}
+
+-   [[GATE CS
+    Corner](http://www.geeksforgeeks.org/gate-corner-2-gq/)]{#menu-item-146713}
+
+-   [[GATE
+    Notes](http://www.geeksforgeeks.org/gate-cs-notes-gq/)]{#menu-item-146714}
+
+-   [[Last Minute
+    Notes](http://www.geeksforgeeks.org/lmns-gq/)]{#menu-item-146715}
+
+-   [[Official
+    Papers](http://www.geeksforgeeks.org/original-gate-previous-year-question-papers-cse-and-it-gq/)]{#menu-item-146716}
+
+-   [[Gate 2018 Important Dates and
+    Links](http://www.geeksforgeeks.org/gate-cs-2018-important-dates/)]{#menu-item-146717}
+
+-   [[Operating
+    Systems](http://www.geeksforgeeks.org/operating-systems/)]{#menu-item-146729}
+
+-   [[DBMS](http://www.geeksforgeeks.org/dbms/)]{#menu-item-146724}
+
+-   [[Computer
+    Networks](http://www.geeksforgeeks.org/computer-network-tutorials/)]{#menu-item-146721}
+
+-   [[Compiler
+    Design](http://www.geeksforgeeks.org/compiler-design-tutorials/)]{#menu-item-146720}
+
+-   [[Web
+    Technology](http://www.geeksforgeeks.org/web-technology/)]{#menu-item-147831}
+
+-   [[Computer Organization &
+    Architecture](http://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/)]{#menu-item-146722}
+
+-   [[Digital
+    Electronics](http://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/)]{#menu-item-146726}
+
+-   [[Engg.
+    Mathematics](http://www.geeksforgeeks.org/engineering-mathematics-tutorials/)]{#menu-item-146727}
+
+-   [[Theory of
+    Computation](http://www.geeksforgeeks.org/theory-of-computation-automata-tutorials/)]{#menu-item-146730}
+
+-   [[Advanced
+    Topics](http://www.geeksforgeeks.org/advanced-computer-subjects-tutorials/)]{#menu-item-147512}
+
+-   [[What's
+    Difference?](http://www.geeksforgeeks.org/category/geeksquiz/articles-gq/difference-gq/)]{#menu-item-146725}
+
+-   [[C](http://www.geeksforgeeks.org/quiz-corner-gq/#C%20Programming%20Mock%20Tests)]{#menu-item-146743}
+
+-   [[C++](http://www.geeksforgeeks.org/quiz-corner-gq/#C++%20Programming%20Mock%20Tests)]{#menu-item-146745}
+
+-   [[Java](http://www.geeksforgeeks.org/quiz-corner-gq/#Java%20Programming%20Mock%20Tests)]{#menu-item-146746}
+
+-   [[Python](http://www.geeksforgeeks.org/quiz-corner-gq/#Python%20Programming%20Mock%20Tests)]{#menu-item-146747}
+
+-   [[Data
+    Structures](http://www.geeksforgeeks.org/quiz-corner-gq/#Data%20Structures%20Mock%20Tests)]{#menu-item-146731}
+
+-   [[Algorithms](http://www.geeksforgeeks.org/quiz-corner-gq/#Algorithms%20Mock%20Tests)]{#menu-item-146732}
+
+-   [[Operating
+    Systems](http://www.geeksforgeeks.org/quiz-corner-gq/#Operating%20Systems%20Mock%20Tests)]{#menu-item-146733}
+
+-   [[DBMS](http://www.geeksforgeeks.org/quiz-corner-gq/#DBMS%20Mock%20Tests)]{#menu-item-146734}
+
+-   [[Compiler
+    Design](http://www.geeksforgeeks.org/quiz-corner-gq/#Compiler%20Design%20Mock%20Tests)]{#menu-item-146735}
+
+-   [[Computer
+    Networks](http://www.geeksforgeeks.org/quiz-corner-gq/#Computer%20Networks%20Mock%20Tests)]{#menu-item-146736}
+
+-   [[Theory of
+    Computation](http://www.geeksforgeeks.org/quiz-corner-gq/#Theory%20of%20Computation%20Mock%20Tests)]{#menu-item-146737}
+
+-   [[Computer
+    Organization](http://www.geeksforgeeks.org/quiz-corner-gq/#Computer%20Organization%20and%20Architecture)]{#menu-item-146738}
+
+-   [[Software
+    Engineering](http://www.geeksforgeeks.org/software-engineering-gq/)]{#menu-item-146739}
+
+-   [[HTML &
+    XML](http://www.geeksforgeeks.org/html-and-xml-gq/)]{#menu-item-146740}
+
+-   [[Engg.
+    Mathematics](http://www.geeksforgeeks.org/quiz-corner-gq/#Engineering%20Mathematics)]{#menu-item-146741}
+
+-   [[Aptitude](http://www.geeksforgeeks.org/quiz-corner-gq/#Aptitude%20Mock%20Tests)]{#menu-item-146742}
+
+-   [[GBlog](https://www.geeksforgeeks.org/category/guestblogs/)]{#menu-item-135367}
+
+-   [[Puzzles](http://www.geeksforgeeks.org/puzzles/)]{#menu-item-141885}
+
+-   [[What's
+    New?](https://www.geeksforgeeks.org/geeks-classes-geeksforgeeks/)]{#menu-item-141816}
+
+```{=html}
+<!-- -->
+```
+
+[ ]{.responsive-custom-search}
+
+::: {.practiceButton .hireWithUs}
+[Hire with us!](https://www.geeksforgeeks.org/hire-with-us/)
+:::
+:::
+:::
+
+::: {.header--scrollTop__btn}
+[ ]{.glyphicon .glyphicon-chevron-up}
+:::
+
+::: {#sidr_overlay}
+:::
+
+::: {#sidr}
+:::
+
+::: {.clear}
+:::
+
+▲
+
+::: {#main .wrapper}
+::: {.leftSideBarParent}
+::: {.leftSideBar}
+-   [Pointers and References in
+    C++](https://www.geeksforgeeks.org/pointers-and-references-in-c/)
+-   [fill in C++ STL](https://www.geeksforgeeks.org/fill-in-cpp-stl/)
+-   [Deque vs Vector in C++
+    STL](https://www.geeksforgeeks.org/deque-vs-vector-in-c-stl/)
+-   [Strings in C++ and How to Create
+    them?](https://www.geeksforgeeks.org/strings-in-c-and-how-to-create-them/)
+-   [Conditional or Ternary Operator (?:) in
+    C/C++](https://www.geeksforgeeks.org/conditional-or-ternary-operator-in-c-c/)
+-   [C++ Programming
+    Basics](https://www.geeksforgeeks.org/c-programming-basics/)
+-   [C++ \| asm
+    declaration](https://www.geeksforgeeks.org/c-asm-declaration/)
+-   [Enum Classes in C++ and Their Advantage over Enum
+    DataType](https://www.geeksforgeeks.org/enum-classes-in-c-and-their-advantage-over-enum-datatype/)
+-   [C++ Program to print an Array using
+    Recursion](https://www.geeksforgeeks.org/c-program-to-print-an-array-using-recursion/)
+-   [Count of distinct remainders when N is divided by all the numbers
+    from the range \[1,
+    N\]](https://www.geeksforgeeks.org/count-of-distinct-remainders-when-n-is-divided-by-all-the-numbers-from-the-range-1-n/)
+-   [Difference Between Constructor and Destructor in
+    C++](https://www.geeksforgeeks.org/difference-between-constructor-and-destructor-in-c/)
+-   [How to erase an element from a vector using erase() and
+    reverse\_iterator?](https://www.geeksforgeeks.org/how-to-erase-an-element-from-a-vector-using-erase-and-reverse_iterator/)
+-   [How to implement our own Vector Class in
+    C++?](https://www.geeksforgeeks.org/how-to-implement-our-own-vector-class-in-c/)
+-   [Introduction to C++ Programming
+    Language](https://www.geeksforgeeks.org/introduction-to-c-programming-language/)
+-   [Difference between Abstraction and Encapsulation in
+    C++](https://www.geeksforgeeks.org/difference-between-abstraction-and-encapsulation-in-c/)
+-   [return statement in C/C++ with
+    Examples](https://www.geeksforgeeks.org/return-statement-in-c-cpp-with-examples/)
+-   [fill() function in C++ STL with
+    examples](https://www.geeksforgeeks.org/fill-function-in-c-stl-with-examples/)
+-   [Storage Classes in C++ with
+    Examples](https://www.geeksforgeeks.org/storage-classes-in-c-with-examples/)
+-   [fill\_n() function in C++ STL with
+    examples](https://www.geeksforgeeks.org/fill_n-function-in-c-stl-with-examples/)
+-   [forward\_list insert\_after() function in C++
+    STL](https://www.geeksforgeeks.org/forward_list-insert_after-function-in-c-stl/)
+-   [iomanip setbase() function in C++ with
+    Examples](https://www.geeksforgeeks.org/iomanip-setbase-function-in-c-with-examples/)
+-   [Difference between Single and Multiple Inheritance in
+    C++](https://www.geeksforgeeks.org/difference-between-single-and-multiple-inheritance-in-c/)
+-   [Manipulators in C++ with
+    Examples](https://www.geeksforgeeks.org/manipulators-in-c-with-examples/)
+-   [iomanip setpricision() function in C++ with
+    Examples](https://www.geeksforgeeks.org/iomanip-setpricision-function-in-c-with-examples/)
+-   [Web Programming in
+    C++](https://www.geeksforgeeks.org/web-programming-in-c/)
+-   [iomanip setfill() function in C++ with
+    Examples](https://www.geeksforgeeks.org/iomanip-setfill-function-in-c-with-examples/)
+-   [iomanip setiosflags() function in C++ with
+    Examples](https://www.geeksforgeeks.org/iomanip-setiosflags-function-in-c-with-examples/)
+-   [iomanip setw() function in C++ with
+    Examples](https://www.geeksforgeeks.org/iomanip-setw-function-in-c-with-examples/)
+-   [Difference between Private and Protected in C++ with
+    Example](https://www.geeksforgeeks.org/difference-between-private-and-protected-in-c-with-example/)
+
+::: {.promotional style="margin-top:15px;max-width:300px;"}
+::: {#AP_G4GR_7}
+:::
+:::
+:::
+:::
+
+::: {#primary .site-content}
+::: {#content role="main"}
+Difference between Inheritance and Polymorphism {#difference-between-inheritance-and-polymorphism .entry-title}
+===============================================
+
+::: {.entry-content}
+**[Inheritance](https://www.geeksforgeeks.org/inheritance-in-c/) :**\
+Inheritance is one in which a new class is created that inherits the
+properties of the already exist class. It supports the concept of code
+reusability and reduces the length of the code in object-oriented
+programming.
+
+Types of Inheritance are:
+
+1.  Single inheritance
+2.  Multi-level inheritance
+3.  Multiple inheritance
+4.  Hybrid inheritance
+5.  Hierarchical inheritance
+
+**Example of Inheritance:**\
+
+::: {.responsive-tabs}
+C++ {#c .tabtitle}
+---
+
+::: {.tabcontent}
+:::
+:::
+
+\
+
+::: {#AP_G4GR_5}
+:::
+
+\
+
+::: {.code-block}
+::: {.code-gutter}
+::: {.editor-buttons-container}
+::: {.editor-buttons}
+::: {.editor-buttons-div title="Run and Edit"}
+*filter\_none*
+:::
+:::
+:::
+:::
+:::
+:::
+:::
+:::
+:::
+
+::: {#run-and-edit-loader .ring-load}
+:::
+
+*edit*\
+*close*
+
+::: {#run-code-loader .ring-load}
+:::
+
+*play\_arrow*
+
+::: {#generate-url-loader .ring-load}
+:::
+
+*link*\
+*brightness\_4*\
+*code*
+
+::: {.code-container}
+::: {#highlighter_76957 .syntaxhighlighter .nogutter}
++-----------------------------------------------------------------------+
+| ::: {.container}                                                      |
+| ::: {.line .number1 .index0 .alt2}                                    |
+| `          #include "iostream"         `{.preprocessor}               |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number2 .index1 .alt1}                                    |
+| `          using         `{.keyword .bold}                            |
+| `          namespace         `{.keyword .bold}                        |
+| `          std;         `{.plain}                                     |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number3 .index2 .alt2}                                    |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number4 .index3 .alt1}                                    |
+| `          class         `{.keyword .bold}                            |
+| `          A         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number5 .index4 .alt2}                                    |
+| `          {         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number6 .index5 .alt1}                                    |
+| `         `{.undefined .spaces} `          int         `{.color1      |
+| .bold} `          a, b;         `{.plain}                             |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number7 .index6 .alt2}                                    |
+| `         `{.undefined .spaces} `          public         `{.keyword  |
+| .bold} `          :         `{.plain}                                 |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number8 .index7 .alt1}                                    |
+| `         `{.undefined .spaces} `          void         `{.keyword    |
+| .bold} `          add(         `{.plain}                              |
+| `          int         `{.color1 .bold}                               |
+| `          x,         `{.plain} `          int         `{.color1      |
+| .bold} `          y)         `{.plain}                                |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number9 .index8 .alt2}                                    |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number10 .index9 .alt1}                                   |
+| `         `{.undefined .spaces} `          a=x;b=y;         `{.plain} |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number11 .index10 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          cout<<(a+b)<<endl;         `{.plain}                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number12 .index11 .alt1}                                  |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number13 .index12 .alt2}                                  |
+| `          };         `{.plain}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number14 .index13 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number15 .index14 .alt2}                                  |
+| `          class         `{.keyword .bold}                            |
+| `          B :         `{.plain} `          public         `{.keyword |
+| .bold} `          A         `{.plain}                                 |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number16 .index15 .alt1}                                  |
+| `          {         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number17 .index16 .alt2}                                  |
+| `         `{.undefined .spaces} `          public         `{.keyword  |
+| .bold} `          :         `{.plain}                                 |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number18 .index17 .alt1}                                  |
+| `         `{.undefined .spaces} `          void         `{.keyword    |
+| .bold} `          print(         `{.plain}                            |
+| `          int         `{.color1 .bold}                               |
+| `          x,         `{.plain} `          int         `{.color1      |
+| .bold} `          y)         `{.plain}                                |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number19 .index18 .alt2}                                  |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number20 .index19 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          add(x, y);         `{.plain}                               |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number21 .index20 .alt2}                                  |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number22 .index21 .alt1}                                  |
+| `          };         `{.plain}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number23 .index22 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number24 .index23 .alt1}                                  |
+| `          int         `{.color1 .bold}                               |
+| `          main() {         `{.plain}                                 |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number25 .index24 .alt2}                                  |
+| `         `{.undefined .spaces} `          B b1;         `{.plain}    |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number26 .index25 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          b1.print(5, 6);         `{.plain}                          |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number27 .index26 .alt2}                                  |
+| `          }         `{.plain}                                        |
+| :::                                                                   |
+| :::                                                                   |
++-----------------------------------------------------------------------+
+:::
+:::
+
+::: {.code-editor-container}
+:::
+
+::: {.code-output-container}
+::: {.output-block}
+*chevron\_right*
+:::
+:::
+
+``` {.output-pre}
+```
+
+::: {.ide-link-div}
+*filter\_none*
+:::
+
+``` {#ide-url}
+```
+
+Java {#java .tabtitle}
+----
+
+::: {.tabcontent}
+::: {.code-block}
+::: {.code-gutter}
+::: {.editor-buttons-container}
+::: {.editor-buttons}
+::: {.editor-buttons-div title="Run and Edit"}
+*filter\_none*
+:::
+:::
+:::
+:::
+:::
+:::
+
+::: {#run-and-edit-loader .ring-load}
+:::
+
+*edit*\
+*close*
+
+::: {#run-code-loader .ring-load}
+:::
+
+*play\_arrow*
+
+::: {#generate-url-loader .ring-load}
+:::
+
+*link*\
+*brightness\_4*\
+*code*
+
+::: {.code-container}
+::: {#highlighter_636497 .syntaxhighlighter .nogutter}
++-----------------------------------------------------------------------+
+| ::: {.container}                                                      |
+| ::: {.line .number1 .index0 .alt2}                                    |
+| `          class         `{.keyword} `          A         `{.plain}   |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number2 .index1 .alt1}                                    |
+| `          {         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number3 .index2 .alt2}                                    |
+| `         `{.undefined .spaces} `          int         `{.keyword}    |
+| `          a, b;         `{.plain}                                    |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number4 .index3 .alt1}                                    |
+| `         `{.undefined .spaces} `          public         `{.keyword} |
+| `          void         `{.keyword} `          add(         `{.plain} |
+| `          int         `{.keyword} `          x,         `{.plain}    |
+| `          int         `{.keyword} `          y)         `{.plain}    |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number5 .index4 .alt2}                                    |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number6 .index5 .alt1}                                    |
+| `         `{.undefined .spaces}                                       |
+| `          a = x; b = y;         `{.plain}                            |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number7 .index6 .alt2}                                    |
+| `         `{.undefined .spaces}                                       |
+| `          System.out.println(         `{.plain}                      |
+| `          "addition of a + b is:"         `{.string}                 |
+| `          +         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number8 .index7 .alt1}                                    |
+| `         `{.undefined .spaces}                                       |
+| `          (a + b));         `{.plain}                                |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number9 .index8 .alt2}                                    |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number10 .index9 .alt1}                                   |
+| `          }         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number11 .index10 .alt2}                                  |
+| `          class         `{.keyword} `          B         `{.plain}   |
+| `          extends         `{.keyword} `          A         `{.plain} |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number12 .index11 .alt1}                                  |
+| `          {         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number13 .index12 .alt2}                                  |
+| `         `{.undefined .spaces} `          public         `{.keyword} |
+| `          void         `{.keyword} `          sum(         `{.plain} |
+| `          int         `{.keyword} `          x,         `{.plain}    |
+| `          int         `{.keyword} `          y)         `{.plain}    |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number14 .index13 .alt1}                                  |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number15 .index14 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          add(x, y);         `{.plain}                               |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number16 .index15 .alt1}                                  |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number17 .index16 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number18 .index17 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          // Driver Code         `{.comments}                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number19 .index18 .alt2}                                  |
+| `         `{.undefined .spaces} `          public         `{.keyword} |
+| `          static         `{.keyword}                                 |
+| `          void         `{.keyword}                                   |
+| `          main(String []args)         `{.plain}                      |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number20 .index19 .alt1}                                  |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number21 .index20 .alt2}                                  |
+| `         `{.undefined .spaces} `          B b1 =         `{.plain}   |
+| `          new         `{.keyword} `          B();         `{.plain}  |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number22 .index21 .alt1}                                  |
+| `         `{.undefined .spaces} `          b1.sum(         `{.plain}  |
+| `          5         `{.value} `          ,         `{.plain}         |
+| `          6         `{.value} `          );         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number23 .index22 .alt2}                                  |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number24 .index23 .alt1}                                  |
+| `          }         `{.plain}                                        |
+| :::                                                                   |
+| :::                                                                   |
++-----------------------------------------------------------------------+
+:::
+:::
+
+::: {.code-editor-container}
+:::
+
+::: {.code-output-container}
+::: {.output-block}
+*chevron\_right*
+:::
+:::
+
+``` {.output-pre}
+```
+
+::: {.ide-link-div}
+*filter\_none*
+:::
+
+``` {#ide-url}
+```
+
+\
+**Output:**
+
+    addition of a+b is:11 
+
+Here, class B is the derived class which inherit the property( **add
+method** ) of the base class A.
+
+**[Polymorphism](https://www.geeksforgeeks.org/polymorphism-in-c/) :**\
+Polymorphism is that in which we can perform a task in multiple forms or
+ways. It is applied to the functions or methods. Polymorphism allows the
+object to decide which form of the function to implement at compile-time
+as well as run-time.
+
+Types of Polymorphism are:
+
+1.  Compile-time polymorphism (Method overloading)
+2.  Run-time polymorphism (Method Overriding)
+
+**Example of Polymorphism:**\
+
+::: {.responsive-tabs}
+C++ {#c-1 .tabtitle}
+---
+
+::: {.tabcontent}
+:::
+:::
+
+::: {.code-block}
+::: {.code-gutter}
+::: {.editor-buttons-container}
+::: {.editor-buttons}
+::: {.editor-buttons-div title="Run and Edit"}
+*filter\_none*
+:::
+:::
+:::
+:::
+:::
+
+::: {#run-and-edit-loader .ring-load}
+:::
+
+*edit*\
+*close*
+
+::: {#run-code-loader .ring-load}
+:::
+
+*play\_arrow*
+
+::: {#generate-url-loader .ring-load}
+:::
+
+*link*\
+*brightness\_4*\
+*code*
+
+::: {.code-container}
+::: {#highlighter_122633 .syntaxhighlighter .nogutter}
++-----------------------------------------------------------------------+
+| ::: {.container}                                                      |
+| ::: {.line .number1 .index0 .alt2}                                    |
+| `          #include "iostream"         `{.preprocessor}               |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number2 .index1 .alt1}                                    |
+| `          using         `{.keyword .bold}                            |
+| `          namespace         `{.keyword .bold}                        |
+| `          std;         `{.plain}                                     |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number3 .index2 .alt2}                                    |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number4 .index3 .alt1}                                    |
+| `          class         `{.keyword .bold}                            |
+| `          A         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number5 .index4 .alt2}                                    |
+| `          {         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number6 .index5 .alt1}                                    |
+| `         `{.undefined .spaces} `          int         `{.color1      |
+| .bold} `          a, b, c;         `{.plain}                          |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number7 .index6 .alt2}                                    |
+| `         `{.undefined .spaces} `          public         `{.keyword  |
+| .bold} `          :         `{.plain}                                 |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number8 .index7 .alt1}                                    |
+| `         `{.undefined .spaces} `          void         `{.keyword    |
+| .bold} `          add(         `{.plain}                              |
+| `          int         `{.color1 .bold}                               |
+| `          x,         `{.plain} `          int         `{.color1      |
+| .bold} `          y)         `{.plain}                                |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number9 .index8 .alt2}                                    |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number10 .index9 .alt1}                                   |
+| `         `{.undefined .spaces} `          a=x;b=y;         `{.plain} |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number11 .index10 .alt2}                                  |
+| `         `{.undefined .spaces} `          cout<<         `{.plain}   |
+| `          "addition of a+b is:"         `{.string}                   |
+| `          <<(a+b)<<endl;         `{.plain}                           |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number12 .index11 .alt1}                                  |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number13 .index12 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number14 .index13 .alt1}                                  |
+| `         `{.undefined .spaces} `          void         `{.keyword    |
+| .bold} `          add(         `{.plain}                              |
+| `          int         `{.color1 .bold}                               |
+| `          x,         `{.plain} `          int         `{.color1      |
+| .bold} `          y,         `{.plain}                                |
+| `          int         `{.color1 .bold}                               |
+| `          z)         `{.plain}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number15 .index14 .alt2}                                  |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number16 .index15 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          a=x;b=y;c=z;         `{.plain}                             |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number17 .index16 .alt2}                                  |
+| `         `{.undefined .spaces} `          cout<<         `{.plain}   |
+| `          "addition of a+b+c is:"         `{.string}                 |
+| `          <<(a+b+c)<<endl;         `{.plain}                         |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number18 .index17 .alt1}                                  |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number19 .index18 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number20 .index19 .alt1}                                  |
+| `         `{.undefined .spaces} `          void         `{.keyword    |
+| .bold} `          print()         `{.plain}                           |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number21 .index20 .alt2}                                  |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number22 .index21 .alt1}                                  |
+| `         `{.undefined .spaces} `          cout<<         `{.plain}   |
+| `          "Class A's method is running"         `{.string}           |
+| `          <<endl;         `{.plain}                                  |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number23 .index22 .alt2}                                  |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number24 .index23 .alt1}                                  |
+| `          };         `{.plain}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number25 .index24 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number26 .index25 .alt1}                                  |
+| `          class         `{.keyword .bold}                            |
+| `          B :         `{.plain} `          public         `{.keyword |
+| .bold} `          A         `{.plain}                                 |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number27 .index26 .alt2}                                  |
+| `          {         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number28 .index27 .alt1}                                  |
+| `         `{.undefined .spaces} `          public         `{.keyword  |
+| .bold} `          :         `{.plain}                                 |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number29 .index28 .alt2}                                  |
+| `         `{.undefined .spaces} `          void         `{.keyword    |
+| .bold} `          print()         `{.plain}                           |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number30 .index29 .alt1}                                  |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number31 .index30 .alt2}                                  |
+| `         `{.undefined .spaces} `          cout<<         `{.plain}   |
+| `          "Class B's method is running"         `{.string}           |
+| `          <<endl;         `{.plain}                                  |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number32 .index31 .alt1}                                  |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number33 .index32 .alt2}                                  |
+| `          };         `{.plain}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number34 .index33 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number35 .index34 .alt2}                                  |
+| `          int         `{.color1 .bold}                               |
+| `          main() {         `{.plain}                                 |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number36 .index35 .alt1}                                  |
+| `         `{.undefined .spaces} `          A a1;         `{.plain}    |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number37 .index36 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number38 .index37 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| `                                                                     |
+| //method overloading (Compile-time polymorphism)         `{.comments} |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number39 .index38 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          a1.add(6, 5);         `{.plain}                            |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number40 .index39 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number41 .index40 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| `                                                                     |
+| //method overloading (Compile-time polymorphism)         `{.comments} |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number42 .index41 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          a1.add(1, 2, 3);         `{.plain}                         |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number43 .index42 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number44 .index43 .alt1}                                  |
+| `         `{.undefined .spaces} `          B b1;         `{.plain}    |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number45 .index44 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number46 .index45 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| `                                                                     |
+|      //Method overriding (Run-time polymorphism)         `{.comments} |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number47 .index46 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          b1.print();         `{.plain}                              |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number48 .index47 .alt1}                                  |
+| `          }         `{.plain}                                        |
+| :::                                                                   |
+| :::                                                                   |
++-----------------------------------------------------------------------+
+:::
+:::
+
+::: {.code-editor-container}
+:::
+
+::: {.code-output-container}
+::: {.output-block}
+*chevron\_right*
+:::
+:::
+
+``` {.output-pre}
+```
+
+::: {.ide-link-div}
+*filter\_none*
+:::
+
+``` {#ide-url}
+```
+
+Java {#java-1 .tabtitle}
+----
+
+::: {.tabcontent}
+::: {.code-block}
+::: {.code-gutter}
+::: {.editor-buttons-container}
+::: {.editor-buttons}
+::: {.editor-buttons-div title="Run and Edit"}
+*filter\_none*
+:::
+:::
+:::
+:::
+:::
+:::
+
+::: {#run-and-edit-loader .ring-load}
+:::
+
+*edit*\
+*close*
+
+::: {#run-code-loader .ring-load}
+:::
+
+*play\_arrow*
+
+::: {#generate-url-loader .ring-load}
+:::
+
+*link*\
+*brightness\_4*\
+*code*
+
+::: {.code-container}
+::: {#highlighter_337830 .syntaxhighlighter .nogutter}
++-----------------------------------------------------------------------+
+| ::: {.container}                                                      |
+| ::: {.line .number1 .index0 .alt2}                                    |
+| `          class         `{.keyword} `          A         `{.plain}   |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number2 .index1 .alt1}                                    |
+| `          {         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number3 .index2 .alt2}                                    |
+| `         `{.undefined .spaces} `          int         `{.keyword}    |
+| `          a, b;         `{.plain}                                    |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number4 .index3 .alt1}                                    |
+| `         `{.undefined .spaces} `          public         `{.keyword} |
+| `          void         `{.keyword} `          add(         `{.plain} |
+| `          int         `{.keyword} `          x,         `{.plain}    |
+| `          int         `{.keyword} `          y)         `{.plain}    |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number5 .index4 .alt2}                                    |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number6 .index5 .alt1}                                    |
+| `         `{.undefined .spaces}                                       |
+| `          a = x; b = y;         `{.plain}                            |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number7 .index6 .alt2}                                    |
+| `         `{.undefined .spaces}                                       |
+| `          System.out.println(         `{.plain}                      |
+| `          "addition of a + b is:"         `{.string}                 |
+| `          +         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number8 .index7 .alt1}                                    |
+| `         `{.undefined .spaces}                                       |
+| `          (a + b));         `{.plain}                                |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number9 .index8 .alt2}                                    |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number10 .index9 .alt1}                                   |
+| `          }         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number11 .index10 .alt2}                                  |
+| `          class         `{.keyword} `          B         `{.plain}   |
+| `          extends         `{.keyword} `          A         `{.plain} |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number12 .index11 .alt1}                                  |
+| `          {         `{.plain}                                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number13 .index12 .alt2}                                  |
+| `         `{.undefined .spaces} `          public         `{.keyword} |
+| `          void         `{.keyword} `          sum(         `{.plain} |
+| `          int         `{.keyword} `          x,         `{.plain}    |
+| `          int         `{.keyword} `          y)         `{.plain}    |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number14 .index13 .alt1}                                  |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number15 .index14 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          add(x, y);         `{.plain}                               |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number16 .index15 .alt1}                                  |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number17 .index16 .alt2}                                  |
+| `         `{.undefined .spaces}                                       |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number18 .index17 .alt1}                                  |
+| `         `{.undefined .spaces}                                       |
+| `          // Driver Code         `{.comments}                        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number19 .index18 .alt2}                                  |
+| `         `{.undefined .spaces} `          public         `{.keyword} |
+| `          static         `{.keyword}                                 |
+| `          void         `{.keyword}                                   |
+| `          main(String []args)         `{.plain}                      |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number20 .index19 .alt1}                                  |
+| `         `{.undefined .spaces} `          {         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number21 .index20 .alt2}                                  |
+| `         `{.undefined .spaces} `          B b1 =         `{.plain}   |
+| `          new         `{.keyword} `          B();         `{.plain}  |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number22 .index21 .alt1}                                  |
+| `         `{.undefined .spaces} `          b1.sum(         `{.plain}  |
+| `          5         `{.value} `          ,         `{.plain}         |
+| `          6         `{.value} `          );         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number23 .index22 .alt2}                                  |
+| `         `{.undefined .spaces} `          }         `{.plain}        |
+| :::                                                                   |
+|                                                                       |
+| ::: {.line .number24 .index23 .alt1}                                  |
+| `          }         `{.plain}                                        |
+| :::                                                                   |
+| :::                                                                   |
++-----------------------------------------------------------------------+
+:::
+:::
+
+::: {.code-editor-container}
+:::
+
+::: {.code-output-container}
+::: {.output-block}
+*chevron\_right*
+:::
+:::
+
+``` {.output-pre}
+```
+
+::: {.ide-link-div}
+*filter\_none*
+:::
+
+``` {#ide-url}
+```
+
+**Output:**
+
+    addition of a+b is:11
+    addition of a+b+c is:6
+    Class B's method is running 
+
+**Difference between Inheritance and Polymorphism:**
+
+  S.NO   Inheritance                                                                                                                                  Polymorphism
+  ------ -------------------------------------------------------------------------------------------------------------------------------------------- --------------------------------------------------------------------------------------------------------------------------------------------------
+  1\.    Inheritance is one in which a new class is created (derived class) that inherits the features from the already existing class(Base class).   Whereas polymorphism is that which can be defined in multiple forms.
+  2\.    It is basically applied to classes.                                                                                                          Whereas it is basically applied to functions or methods.
+  3\.    Inheritance supports the concept of reusability and reduces code length in object-oriented programming.                                      Polymorphism allows the object to decide which form of the function to implement at compile-time (overloading) as well as run-time (overriding).
+  4\.    Inheritance can be single, hybrid, multiple, hierarchical and multilevel inheritance.                                                        Whereas it can be compiled-time polymorphism (overload) as well as run-time polymorphism (overriding).
+  5\.    It is used in pattern designing.                                                                                                             While it is also used in pattern designing.
+
+\
+\
+
+::: {#AP_G4GR_6}
+:::
+
+\
+
+::: {#personalNoteDiv .clear .hideIt}
+::: {.personalNoteHeader .clear}
+[ My Personal Notes ]{.noteHeaderText} [ *arrow\_drop\_up*
+]{.hideNotesDivIcon}
+:::
+
+::: {.collapsableDivPersonalNotes}
+::: {.saveNoteDiv}
+[ ]{.processSaveNote}
+
+Save
+:::
+:::
+:::
+
+::: {.recommendedPostsDiv}
+Recommended Posts: {#recommended-posts style="font-size:20px; color: #838383"}
+------------------
+
+-   [Difference between Single and Multiple Inheritance in
+    C++](https://www.geeksforgeeks.org/difference-between-single-and-multiple-inheritance-in-c/)
+-   [Difference between Priority Inversion and Priority
+    Inheritance](https://www.geeksforgeeks.org/difference-between-priority-inversion-and-priority-inheritance/)
+-   [Polymorphism in
+    C++](https://www.geeksforgeeks.org/polymorphism-in-c/)
+-   [Virtual Functions and Runtime Polymorphism in C++ \| Set 1
+    (Introduction)](https://www.geeksforgeeks.org/virtual-functions-and-runtime-polymorphism-in-c-set-1-introduction/)
+-   [Inheritance in
+    C++](https://www.geeksforgeeks.org/inheritance-in-c/)
+-   [Multiple Inheritance in
+    C++](https://www.geeksforgeeks.org/multiple-inheritance-in-c/)
+-   [Inheritance and
+    friendship](https://www.geeksforgeeks.org/g-fact-34/)
+-   [Does overloading work with
+    Inheritance?](https://www.geeksforgeeks.org/does-overloading-work-with-inheritance/)
+-   [Difference between LED and
+    LCD](https://www.geeksforgeeks.org/difference-between-led-and-lcd/)
+-   [Difference between ++\*p, \*p++ and
+    \*++p](https://www.geeksforgeeks.org/difference-between-p-p-and-p/)
+-   [Difference between USB 2.0 and USB
+    3.0](https://www.geeksforgeeks.org/difference-between-usb-2-0-and-usb-3-0/)
+-   [Difference between Tor and
+    VPN](https://www.geeksforgeeks.org/difference-between-tor-and-vpn/)
+-   [What is the difference between GUI and
+    CUI?](https://www.geeksforgeeks.org/what-is-the-difference-between-gui-and-cui/)
+-   [Difference between TDM and
+    FDM](https://www.geeksforgeeks.org/difference-between-tdm-and-fdm/)
+-   [Difference between C and
+    C++](https://www.geeksforgeeks.org/difference-between-c-and-c/)
+:::
+
+------------------------------------------------------------------------
+
+::: {.author_info_box}
+![](https://media.geeksforgeeks.org/auth/avatar.png){.avatar_image}
+
+::: {.author_details}
+::: {.author_handle}
+[**MKS075**](https://auth.geeksforgeeks.org/user/MKS075/articles)
+:::
+
+::: {.author_bio}
+Check out this Author\'s [contributed
+articles](https://auth.geeksforgeeks.org/user/MKS075/articles){.351194}
+.
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+<div>
+
+If you like GeeksforGeeks and would like to contribute, you can also
+write an article using
+[contribute.geeksforgeeks.org](https://contribute.geeksforgeeks.org/) or
+mail your article to contribute\@geeksforgeeks.org. See your article
+appearing on the GeeksforGeeks main page and help other Geeks.
+
+Please Improve this article if you find anything incorrect by clicking
+on the \"Improve Article\" button below.
+
+\
+
+</div>
+
+::: {#improvedBy}
+\
+**Improved By :**
+[sapnasingh4991](https://auth.geeksforgeeks.org/user/sapnasingh4991/)
+:::
+
+\
+
+**Article Tags :**
+
+::: {.practiceButton}
+[C++](https://www.geeksforgeeks.org/category/programming-language/cpp/)
+:::
+
+::: {.practiceButton}
+[Difference
+Between](https://www.geeksforgeeks.org/category/difference-between/)
+:::
+
+::: {.practiceButton}
+[cpp-class](https://www.geeksforgeeks.org/tag/cpp-class/)
+:::
+
+::: {.no-p-tag style="text-align:left;"}
+**Practice Tags :**
+
+::: {.practiceButton}
+[CPP](https://practice.geeksforgeeks.org/topics/CPP)
+:::
+:::
+
+\
+
+::: {#improveArticle style="float: right;cursor: pointer;"}
+:::
+
+::: {.plugins .upvoteArticle}
+<div>
+
+*thumb\_up*\
+[ 3 ]{.upvoteText}
+
+</div>
+
+::: {.plugins style="text-align:right;"}
+::: {#markPlugin pid="351194" ptitle="Difference between Inheritance and Polymorphism"}
+\
+\
+
+::: {.lists}
+To-do Done
+:::
+:::
+
+::: {#ratePlugin .difficultyRating pid="351194" ptitle="Difference between Inheritance and Polymorphism"}
+::: {.techno .dropdown}
+[ 0 ]{#rating_box .avg-rating .level-0}\
+\
+[ No votes yet. ]{#vote_count}
+
+::: {.markRating .dropdown-content}
+:::
+
+[ ]{.process}
+:::
+:::
+:::
+
+::: {.plugins .userActionButtons}
+::: {#feedbackButtonDiv pid="351194" ptitle="Difference between Inheritance and Polymorphism" style="display:inline-block"}
+:::
+
+::: {#addNoteButtonDiv pid="351194" ptitle="Difference between Inheritance and Polymorphism" style="display:inline-block"}
+:::
+
+::: {#improveArticleButtonDiv pid="351194" ptitle="Difference between Inheritance and Polymorphism" style="display:inline-block"}
+:::
+:::
+
+::: {.common-bottom}
+Please write to us at contribute\@geeksforgeeks.org to report any issue
+with the above content.
+:::
+:::
+
+::: {.assistive-text}
+Post navigation
+:::
+
+[ ]{.nav-previous}
+
+::: {.col-md-12 .prev}
+Previous
+:::
+
+*first\_page* [Difference between Single and Multiple Inheritance in
+C++](https://www.geeksforgeeks.org/difference-between-single-and-multiple-inheritance-in-c/)
+[ ]{.nav-next}
+
+::: {.col-md-12 .next}
+Next
+:::
+
+*last\_page* [Difference between Private and Protected in C++ with
+Example](https://www.geeksforgeeks.org/difference-between-private-and-protected-in-c-with-example/)
+
+::: {#author name="Mithlesh Upadhyay"}
+:::
+
+\
+
+\
+
+::: {#ide_link}
+Writing code in comment? Please use
+[ide.geeksforgeeks.org](https://ide.geeksforgeeks.org/) , generate link
+and share the link here.
+:::
+
+\
+
+::: {style="display:flex"}
+Load Comments
+:::
+
+::: {#disqus_thread}
+:::
+
+::: {#secondary .widget-area role="complementary"}
+::: {.textwidget}
+::: {#AP_G4GR_1}
+:::
+:::
+
+::: {.widget .widget_text}
+[![auto](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200302170247/GFG-Right-Top-CDRT.png){width="auto"
+height="auto"}](https://practice.geeksforgeeks.org/contest/coderita?utm_source=geeksforgeeks&utm_medium=popup&utm_campaign=GFG_Main_CDRT)
+:::
+
+::: {.textwidget}
+::: {#AP_G4GR_2}
+:::
+:::
+
+::: {.rightSideBarParent}
+::: {.leftSideBar .rightSideBar}
+::: {.rightbar_lefthead}
+:::
+
+::: {.rightbar_head}
+Most popular articles
+:::
+
+::: {.rightbar_righthead}
+:::
+
+-   [Must Do Coding Questions for Companies like Amazon, Microsoft,
+    Adobe,
+    \...](https://www.geeksforgeeks.org/must-do-coding-questions-for-companies-like-amazon-microsoft-adobe/)
+-   [7 Steps for Mastering the Intro Email to a Prospective
+    Employer](https://www.geeksforgeeks.org/7-steps-for-mastering-the-intro-email-to-a-prospective-employer/)
+-   [Expand the string according to the given
+    conditions](https://www.geeksforgeeks.org/expand-the-string-according-to-the-given-conditions/)
+-   [Minimum steps to make the product of the array equal to
+    1](https://www.geeksforgeeks.org/minimum-steps-to-make-the-product-of-the-array-equal-to-1/)
+-   [Compare two strings considering only alphanumeric
+    characters](https://www.geeksforgeeks.org/compare-two-strings-considering-only-alphanumeric-characters/)
+:::
+:::
+
+\
+
+::: {.textwidget}
+::: {#AP_G4GR_3}
+:::
+:::
+
+::: {.rightSideBarParent}
+::: {.leftSideBar .rightSideBar}
+::: {.rightbar_lefthead}
+:::
+
+::: {.rightbar_head}
+Most visited in Difference Between
+:::
+
+::: {.rightbar_righthead}
+:::
+
+-   [Difference between General tree and Binary
+    tree](https://www.geeksforgeeks.org/difference-between-general-tree-and-binary-tree/)
+-   [Difference between Browsing and
+    Surfing](https://www.geeksforgeeks.org/difference-between-browsing-and-surfing/)
+-   [ML \| Classification vs
+    Clustering](https://www.geeksforgeeks.org/ml-classification-vs-clustering/)
+-   [Difference Between Security and
+    Protection](https://www.geeksforgeeks.org/difference-between-security-and-protection/)
+-   [Difference between Agile Model and
+    V-Model](https://www.geeksforgeeks.org/difference-between-agile-model-and-v-model/)
+:::
+:::
+
+\
+
+::: {.textwidget}
+::: {#AP_G4GR_4}
+:::
+:::
+:::
+
+::: {#gfg-side-sticky-tab}
+::: {.gfg-textwidget}
+::: {.sticky-container}
+::: {.slideout}
+::: {.inner}
+::: {.inner-item style="font-size: 20px; margin-top: 20%;"}
+[[ ✍ ]{.hand-write-icon}\
+Write a
+Testimonial](https://auth.geeksforgeeks.org/testimonial/?ref=gfg)
+:::
+:::
+:::
+
+::: {.gfg-callout}
+⇣
+:::
+:::
+:::
+:::
+
+::: {#container-g4g-footer}
+::: {#footer}
+::: {.logo}
+-   [![GeeksforGeeks](https://media.geeksforgeeks.org/common/GeeksforGeeksLogoFooterSmall.png)](https://www.geeksforgeeks.org/)
+
+```{=html}
+<!-- -->
+```
+-   5th Floor, A-118,
+-   Sector-136, Noida, Uttar Pradesh - 201305
+-   feedback\@geeksforgeeks.org
+:::
+
+::: {.footer-column}
+-   **COMPANY**
+-   [About Us](https://www.geeksforgeeks.org/about/)
+-   [Careers](https://www.geeksforgeeks.org/careers/)
+-   [Privacy Policy](https://www.geeksforgeeks.org/privacy-policy/)
+-   [Contact Us](https://www.geeksforgeeks.org/about/contact-us/)
+:::
+
+::: {.footer-column}
+-   **LEARN**
+-   [Algorithms](https://www.geeksforgeeks.org/fundamentals-of-algorithms/)
+-   [Data Structures](https://www.geeksforgeeks.org/data-structures/)
+-   [Languages](https://www.geeksforgeeks.org/category/program-output/)
+-   [CS
+    Subjects](https://www.geeksforgeeks.org/articles-on-computer-science-subjects-gq/)
+-   [Video Tutorials](https://www.youtube.com/geeksforgeeksvideos/)
+:::
+
+::: {.footer-column}
+-   **PRACTICE**
+-   [Courses](https://practice.geeksforgeeks.org/courses/)
+-   [Company-wise](https://practice.geeksforgeeks.org/company-tags/)
+-   [Topic-wise](https://practice.geeksforgeeks.org/topic-tags/)
+-   [How to begin?](https://practice.geeksforgeeks.org/faq.php)
+:::
+
+::: {.footer-column}
+-   **CONTRIBUTE**
+-   [Write an Article](https://www.geeksforgeeks.org/contribute/)
+-   [Write Interview
+    Experience](https://www.geeksforgeeks.org/write-interview-experience/)
+-   [Internships](https://www.geeksforgeeks.org/internship/)
+-   [Videos](https://www.geeksforgeeks.org/how-to-contribute-videos-to-geeksforgeeks/)
+:::
+:::
+
+::: {.footer-bottom-div .footer-bottom-social}
+-   [](https://www.facebook.com/geeksforgeeks.org/){.social-link}
+    ::: {.social-img-div}
+    :::
+
+    [](https://www.instagram.com/geeks_for_geeks/){.social-link}
+    ::: {.social-img-div}
+    :::
+
+    [](https://in.linkedin.com/company/geeksforgeeks){.social-link}
+    ::: {.social-img-div}
+    :::
+
+    [](https://twitter.com/geeksforgeeks){.social-link}
+    ::: {.social-img-div}
+    :::
+
+    [](https://www.youtube.com/geeksforgeeksvideos){.social-link}
+    ::: {.social-img-div}
+    :::
+
+    [](https://play.google.com/store/apps/details?id=free.programming.programming&hl=en){.social-link}
+    ::: {.social-img-div}
+    :::
+:::
+
+::: {.footer-bottom-div}
+\@geeksforgeeks, [Some rights
+reserved](https://www.geeksforgeeks.org/copyright-information/)
+:::
+:::

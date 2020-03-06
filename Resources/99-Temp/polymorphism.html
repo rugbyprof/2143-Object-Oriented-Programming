@@ -1,0 +1,269 @@
+<article id="post-125240" class="post-125240 post type-post status-publish format-standard hentry category-cpp category-school-programming tag-cpp-functions tag-cpp-inheritance tag-cpp-virtual" style="height: auto !important;"><div id="userActionsIcon" class="tooltip clear" onclick="scrollToUserActionsDiv()"><i class="material-icons" style="opacity: 1; width: auto;">perm_identity</i><span class="tooltiptext">User Actions</span></div>
+    <header class="entry-header">
+            <h1 class="entry-title">Virtual Functions and Runtime Polymorphism in C++ | Set 1 (Introduction)</h1>
+    
+            </header><!-- .entry-header -->
+
+    <div class="entry-content" style="height: auto !important;">
+<div hidead="auto"></div>
+<p>Consider the following simple program as an example of <a href="https://www.geeksforgeeks.org/polymorphism-in-c/">runtime polymorphism</a>. The main thing to note about the program is that the derived class’s function is called using a base class pointer.</p>
+<p>The idea is that <a href="https://www.geeksforgeeks.org/virtual-function-cpp/">virtual functions</a> are called according to the type of the object instance pointed to or referenced, not according to the type of the pointer or reference.</p>
+<p>In other words, virtual functions are resolved late, at runtime.</p>
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+                        <i id="copy-code-button" title="Copy Code" class="material-icons code-sidebar-button copy-code-button" style="opacity: 1; width: auto;">filter_none</i><p></p>
+<div id="run-and-edit-loader" class="ring-load"></div>
+<p>                                    <i id="run-and-edit-button" title="Edit Code" lang="c" class="material-icons code-sidebar-button" style="opacity: 1; width: auto;">edit</i><br>
+                        <i id="close-code-editor-button" title="Close Editor" class="material-icons code-sidebar-button close-code-editor-button" style="opacity: 1; width: auto;">close</i></p>
+<div id="run-code-loader" class="ring-load"></div>
+<p>                                    <i id="run-code-button" lang="c" title="Run Code and See Output" class="material-icons code-sidebar-button" style="opacity: 1; width: auto;">play_arrow</i></p>
+<div id="generate-url-loader" class="ring-load"></div>
+<p>                                    <i id="generate-url-and-run-button" title="Run Code and Generate IDE URL" lang="c" class="material-icons code-sidebar-button generate-url-and-run-button" style="opacity: 1; width: auto;">link</i><br>
+                        <i title="Light Mode" class="material-icons code-sidebar-button light-editor-button" style="opacity: 1; width: auto;">brightness_5</i><br>
+                        <i id="edit-on-ide-button" title="Edit on IDE" lang="c" class="material-icons code-sidebar-button edit-on-ide-button" style="opacity: 1; width: auto;">code</i>
+                    </p></div>
+<p></p></div>
+<p></p></div>
+<p></p></div>
+<div class="code-container">
+<div id="highlighter_833103" class="syntaxhighlighter nogutter   night">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="preprocessor">#include &lt;iostream&gt; </code></div>
+<div class="line number2 index1 alt1"><code class="keyword bold">using</code> <code class="keyword bold">namespace</code> <code class="plain">std; </code></div>
+<div class="line number3 index2 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="keyword bold">class</code> <code class="plain">Base { </code></div>
+<div class="line number5 index4 alt2"><code class="keyword bold">public</code><code class="plain">: </code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">virtual</code> <code class="keyword bold">void</code> <code class="plain">show() </code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ </code></div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">cout &lt;&lt; </code><code class="string">" In Base \n"</code><code class="plain">; </code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number10 index9 alt1"><code class="plain">}; </code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="keyword bold">class</code> <code class="plain">Derived : </code><code class="keyword bold">public</code> <code class="plain">Base { </code></div>
+<div class="line number13 index12 alt2"><code class="keyword bold">public</code><code class="plain">: </code></div>
+<div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">void</code> <code class="plain">show() </code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ </code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">cout &lt;&lt; </code><code class="string">"In Derived \n"</code><code class="plain">; </code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number18 index17 alt1"><code class="plain">}; </code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number20 index19 alt1"><code class="color1 bold">int</code> <code class="plain">main(</code><code class="keyword bold">void</code><code class="plain">) </code></div>
+<div class="line number21 index20 alt2"><code class="plain">{ </code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">Base* bp = </code><code class="keyword bold">new</code> <code class="plain">Derived; </code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// RUN-TIME POLYMORPHISM </code></div>
+<div class="line number25 index24 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">bp-&gt;show(); </code></div>
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number27 index26 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0; </code></div>
+<div class="line number28 index27 alt1"><code class="plain">} </code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<div class="code-editor-container"></div>
+<p></p></div>
+<div class="code-output-container">
+<div class="output-block">
+            <i id="output-icon" title="Output" class="material-icons code-sidebar-button output-icon" style="opacity: 1; width: auto;">chevron_right</i><p></p>
+<pre class="output-pre"></pre>
+<p></p></div>
+<div class="ide-link-div">
+            <i id="copy-url-button" title="Copy Generated Ide URL" class="material-icons code-sidebar-button copy-url-button" style="opacity: 1; width: auto;">filter_none</i><p></p>
+<pre id="ide-url"></pre>
+<p></p></div>
+<p></p></div>
+<p>Output: </p>
+<pre>In Derived</pre>
+<br>
+<script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- post_top_responsive -->
+<ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-client="ca-pub-9465609616171866" data-ad-slot="4501693235" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><iframe width="1200" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 1200px; height: 280px; overflow: visible;"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+
+<p><strong>What is the use?</strong><br>
+Virtual functions allow us to create a list of base class pointers and call methods of any of the derived classes without even knowing kind of derived class object. </p>
+<p><strong>For example:</strong> Consider an employee management software for an organization. </p>
+<p>Let the code has a simple base class <em>Employee </em>, the class contains virtual functions like <em>raiseSalary()</em>, <em>transfer()</em>, <em>promote()</em>, etc.  Different types of employees like <em>Manager</em>, <em>Engineer</em>, etc. may have their own implementations of the virtual functions present in base class <em>Employee</em>. </p>
+<p>In our complete software, we just need to pass a list of employees everywhere and call appropriate functions without even knowing the type of employee. For example, we can easily raise the salary of all employees by iterating through the list of employees. Every type of employee may have its own logic in its class, but we don’t need to worry about them because if  <em>raiseSalary()</em> is present for a specific employee type, only that function would be called.</p>
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+                        <i id="copy-code-button" title="Copy Code" class="material-icons code-sidebar-button copy-code-button" style="opacity: 1; width: auto;">filter_none</i><p></p>
+<div id="run-and-edit-loader" class="ring-load"></div>
+<p>                                    <i id="run-and-edit-button" title="Edit Code" lang="cpp" class="material-icons code-sidebar-button" style="opacity: 1; width: auto;">edit</i><br>
+                        <i id="close-code-editor-button" title="Close Editor" class="material-icons code-sidebar-button close-code-editor-button" style="opacity: 1; width: auto;">close</i></p>
+<div id="run-code-loader" class="ring-load"></div>
+<p>                                    <i id="run-code-button" lang="cpp" title="Run Code and See Output" class="material-icons code-sidebar-button" style="opacity: 1; width: auto;">play_arrow</i></p>
+<div id="generate-url-loader" class="ring-load"></div>
+<p>                                    <i id="generate-url-and-run-button" title="Run Code and Generate IDE URL" lang="cpp" class="material-icons code-sidebar-button generate-url-and-run-button" style="opacity: 1; width: auto;">link</i><br>
+                        <i title="Light Mode" class="material-icons code-sidebar-button light-editor-button" style="opacity: 1; width: auto;">brightness_5</i><br>
+                        <i id="edit-on-ide-button" title="Edit on IDE" lang="cpp" class="material-icons code-sidebar-button edit-on-ide-button" style="opacity: 1; width: auto;">code</i>
+                    </p></div>
+<p></p></div>
+<p></p></div>
+<p></p></div>
+<div class="code-container">
+<div id="highlighter_174452" class="syntaxhighlighter nogutter   night">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="keyword bold">class</code> <code class="plain">Employee { </code></div>
+<div class="line number2 index1 alt1"><code class="keyword bold">public</code><code class="plain">: </code></div>
+<div class="line number3 index2 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">virtual</code> <code class="keyword bold">void</code> <code class="plain">raiseSalary() </code></div>
+<div class="line number4 index3 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ </code></div>
+<div class="line number5 index4 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">/* common raise salary code */</code></div>
+<div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">virtual</code> <code class="keyword bold">void</code> <code class="plain">promote() </code></div>
+<div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ </code></div>
+<div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">/* common promote code */</code></div>
+<div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number12 index11 alt1"><code class="plain">}; </code></div>
+<div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="keyword bold">class</code> <code class="plain">Manager : </code><code class="keyword bold">public</code> <code class="plain">Employee { </code></div>
+<div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">virtual</code> <code class="keyword bold">void</code> <code class="plain">raiseSalary() </code></div>
+<div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ </code></div>
+<div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">/* Manager specific raise salary code, may contain </code></div>
+<div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">increment of manager specific incentives*/</code></div>
+<div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">virtual</code> <code class="keyword bold">void</code> <code class="plain">promote() </code></div>
+<div class="line number22 index21 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">{ </code></div>
+<div class="line number23 index22 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">/* Manager specific promote */</code></div>
+<div class="line number24 index23 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></div>
+<div class="line number25 index24 alt2"><code class="plain">}; </code></div>
+<div class="line number26 index25 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number27 index26 alt2"><code class="comments">// Similarly, there may be other types of employees </code></div>
+<div class="line number28 index27 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number29 index28 alt2"><code class="comments">// We need a very simple function </code></div>
+<div class="line number30 index29 alt1"><code class="comments">// to increment the salary of all employees </code></div>
+<div class="line number31 index30 alt2"><code class="comments">// Note that emp[] is an array of pointers </code></div>
+<div class="line number32 index31 alt1"><code class="comments">// and actual pointed objects can </code></div>
+<div class="line number33 index32 alt2"><code class="comments">// be any type of employees. </code></div>
+<div class="line number34 index33 alt1"><code class="comments">// This function should ideally </code></div>
+<div class="line number35 index34 alt2"><code class="comments">// be in a class like Organization, </code></div>
+<div class="line number36 index35 alt1"><code class="comments">// we have made it global to keep things simple </code></div>
+<div class="line number37 index36 alt2"><code class="keyword bold">void</code> <code class="plain">globalRaiseSalary(Employee* emp[], </code><code class="color1 bold">int</code> <code class="plain">n) </code></div>
+<div class="line number38 index37 alt1"><code class="plain">{ </code></div>
+<div class="line number39 index38 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code> <code class="plain">(</code><code class="color1 bold">int</code> <code class="plain">i = 0; i &lt; n; i++) </code></div>
+<div class="line number40 index39 alt1"><code class="undefined spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number41 index40 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// Polymorphic Call: Calls raiseSalary() </code></div>
+<div class="line number42 index41 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// according to the actual object, not </code></div>
+<div class="line number43 index42 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="comments">// according to the type of pointer </code></div>
+<div class="line number44 index43 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">emp[i]-&gt;raiseSalary(); </code></div>
+<div class="line number45 index44 alt2"><code class="plain">} </code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<div class="code-editor-container"></div>
+<p></p></div>
+<div class="code-output-container">
+<div class="output-block">
+            <i id="output-icon" title="Output" class="material-icons code-sidebar-button output-icon" style="opacity: 1; width: auto;">chevron_right</i><p></p>
+<pre class="output-pre"></pre>
+<p></p></div>
+<div class="ide-link-div">
+            <i id="copy-url-button" title="Copy Generated Ide URL" class="material-icons code-sidebar-button copy-url-button" style="opacity: 1; width: auto;">filter_none</i><p></p>
+<pre id="ide-url"></pre>
+<p></p></div>
+<p></p></div>
+<p>Like <em>globalRaiseSalary()</em>, there can be many other operations that can be performed on a list of employees without even knowing the type of the object instance.<br>
+Virtual functions are so useful that later languages like <a href="https://www.geeksforgeeks.org/g-fact-43/">Java keep all methods as virtual by default</a>.</p>
+<p><strong>How does the compiler perform runtime resolution?</strong></p>
+<p>The compiler maintains two things to serve this purpose:</p>
+<ol>
+<li><a href="http://en.wikipedia.org/wiki/Virtual_method_table" target="_blank"><strong><em>vtable:</em></strong></a> A table of function pointers, maintained per class.
+</li>
+<li><a href="http://en.wikipedia.org/wiki/Virtual_method_table#Implementation" target="_blank"><strong><em>vptr: </em> </strong></a>A pointer to vtable, maintained per object instance (see <a href="http://geeksquiz.com/c-virtual-functions-question-12/" target="_blank">this</a> for an example).</li>
+</ol>
+<p><a href="https://media.geeksforgeeks.org/wp-content/uploads/VirtualFunction.png"><img src="https://media.geeksforgeeks.org/wp-content/uploads/VirtualFunction.png" width="674" height="353" class="aligncenter size-large"></a></p>
+<p>Compiler adds additional code at two places to maintain and use <em>vptr</em>.</p>
+<p><strong>1)</strong> Code in every constructor. This code sets the vptr of the object being created. This code sets <em>vptr</em> to point to the <em>vtable</em> of the class.<br>
+<strong>2)</strong> Code with polymorphic function call (e.g. <em>bp-&gt;show()</em> in above code). Wherever a polymorphic call is made, the compiler inserts code to first look for <em>vptr </em> using base class pointer or reference (In the above example, since pointed or referred object is of derived type, vptr of derived class is accessed). Once <em>vptr </em>is fetched, <em>vtable </em>of derived class can be accessed.  Using <em>vtable</em>, address of derived derived class function <em>show()</em> is accessed and called. </p>
+<p><strong>Is this a standard way for implementation of run-time polymorphism in C++?</strong><br>
+The C++ standards do not mandate exactly how runtime polymorphism must be implemented, but compilers generally use minor variations on the same basic model.</p>
+<p><a href="http://quiz.geeksforgeeks.org/c-plus-plus/virtual-functions/" target="_blank">Quiz on Virtual Functions</a>.</p>
+<p><strong>References:</strong><br>
+<a href="http://en.wikipedia.org/wiki/Virtual_method_table" target="_blank">http://en.wikipedia.org/wiki/Virtual_method_table</a><br>
+<a href="http://en.wikipedia.org/wiki/Virtual_function" target="_blank">http://en.wikipedia.org/wiki/Virtual_function</a><br>
+<a href="http://www.drbio.cornell.edu/pl47/programming/TICPP-2nd-ed-Vol-one-html/Frames.html">http://www.drbio.cornell.edu/pl47/programming/TICPP-2nd-ed-Vol-one-html/Frames.html</a></p>
+<p>Please write comments if you find anything incorrect, or you want to share more information about the topic discussed above</p>
+<br><script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display: block; text-align: center; height: 200px;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-9465609616171866" data-ad-slot="2737637308" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:200px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><ins id="aswift_3_anchor" style="display:block;border:none;height:200px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><iframe width="1200" height="200" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0px;width:1200px;height:200px;"></iframe></ins></ins></ins>
+<script>
+   (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>
+<div id="personalNoteDiv" class="clear hideIt">
+<div class="personalNoteHeader clear">
+<span class="noteHeaderText">My Personal Notes</span>
+<span class="hideNotesDivIcon"><i class="material-icons personalNotesIcon" style="opacity: 1; width: auto;">arrow_drop_up</i></span>
+</div>
+<div class="collapsableDivPersonalNotes">
+<textarea maxlength="5000" id="enteredPersonalNote" class="personalNoteStyle" placeholder="Add your personal notes here! (max 5000 chars)"></textarea>
+<div class="saveNoteDiv">
+<span class="processSaveNote"></span>
+<button class="savePersonalNoteButton" onclick="saveUserPersonalNote()">Save</button>
+</div>
+</div>
+</div><div class="recommendedPostsDiv"><h2 style="font-size:20px; color: #838383">Recommended Posts:</h2><ul><li><a href="https://www.geeksforgeeks.org/dynamic-method-dispatch-runtime-polymorphism-java/">Dynamic Method Dispatch or Runtime Polymorphism in Java</a></li><li><a href="https://www.geeksforgeeks.org/can-virtual-functions-be-private-in-c/">Can virtual functions be private in C++?</a></li><li><a href="https://www.geeksforgeeks.org/inline-virtual-function/">Can virtual functions be inlined?</a></li><li><a href="https://www.geeksforgeeks.org/g-fact-29/">Can static functions be virtual in C++?</a></li><li><a href="https://www.geeksforgeeks.org/g-fact-36/">Virtual functions in derived classes</a></li><li><a href="https://www.geeksforgeeks.org/pure-virtual-functions-and-abstract-classes/">Pure Virtual Functions and Abstract Classes in C++</a></li><li><a href="https://www.geeksforgeeks.org/array-python-set-1-introduction-functions/">Array in Python | Set 1 (Introduction and Functions)</a></li><li><a href="https://www.geeksforgeeks.org/forward-list-c-set-1-introduction-important-functions/">Forward List in C++ | Set 1 (Introduction and Important Functions)</a></li><li><a href="https://www.geeksforgeeks.org/happens-virtual-function-called-inside-non-virtual-function/">What happens when a virtual function is called inside a non-virtual function in C++</a></li><li><a href="https://www.geeksforgeeks.org/difference-between-virtual-function-and-pure-virtual-function-in-c/">Difference between Virtual function and Pure virtual function in C++</a></li><li><a href="https://www.geeksforgeeks.org/mathematical-functions-python-set-2-logarithmic-power-functions/">Mathematical Functions in Python | Set 2 (Logarithmic and Power Functions)</a></li><li><a href="https://www.geeksforgeeks.org/polymorphism-in-c/">Polymorphism in C++</a></li><li><a href="https://www.geeksforgeeks.org/mathematical-functions-python-set-1-numeric-functions/">Mathematical Functions in Python | Set 1 (Numeric Functions)</a></li><li><a href="https://www.geeksforgeeks.org/difference-between-inheritance-and-polymorphism/">Difference between Inheritance and Polymorphism</a></li><li><a href="https://www.geeksforgeeks.org/virtual-function-cpp/">Virtual Function in C++</a></li></ul></div><div id="improvedBy"><br><b>Improved By : </b> <a href="https://auth.geeksforgeeks.org/user/brain56/">brain56</a></div><br><script>jQuery('#showMoreImprove').click(function(){ jQuery(this).hide(); jQuery('#improvedByMore').css('display', 'inline'); });</script>
+        
+<footer class="entry-meta">
+<span><b>Article Tags : </b><div class="practiceButton"><a href="https://www.geeksforgeeks.org/category/programming-language/cpp/" rel="category tag">C++</a></div><div class="practiceButton"><a href="https://www.geeksforgeeks.org/category/school-programming/" rel="category tag">School Programming</a></div></span><span><div class="practiceButton"><a href="https://www.geeksforgeeks.org/tag/cpp-functions/" rel="tag">CPP-Functions</a></div><div class="practiceButton"><a href="https://www.geeksforgeeks.org/tag/cpp-inheritance/" rel="tag">cpp-inheritance</a></div><div class="practiceButton"><a href="https://www.geeksforgeeks.org/tag/cpp-virtual/" rel="tag">cpp-virtual</a></div></span>
+   <div class="no-p-tag" style="text-align:left;"><b style="color: #757575;">Practice Tags : </b><div class="practiceButton"><a href="https://practice.geeksforgeeks.org/topics/CPP">CPP</a></div></div><br><div id="improveArticle" style="float: right;cursor: pointer;"></div>        <div class="plugins upvoteArticle">
+<div>
+<i class="material-icons upvoteIcon login-modal-btn" title="Upvote" style="opacity: 1; width: auto;">thumb_up</i><br> 
+    <span class="upvoteText">30</span></div>
+    <div class="plugins" style="text-align:right;">
+<div pid="125240" ptitle="Virtual Functions and Runtime Polymorphism in C++ | Set 1 (Introduction)" id="markPlugin"><br>
+<br>
+<div class="lists">
+<input id="todo" type="checkbox" class="mark filled-in login-modal-btn">
+<label class="checkbox" for="todo">To-do</label>
+<input id="done" type="checkbox" class="mark filled-in login-modal-btn">
+<label class="checkbox" for="done">Done</label>
+</div></div>
+<div class="difficultyRating" pid="125240" ptitle="Virtual Functions and Runtime Polymorphism in C++ | Set 1 (Introduction)" id="ratePlugin">
+<div class="techno dropdown">
+<span id="rating_box" class="avg-rating level-3">3.3</span>
+<br>
+<br>
+ 
+     <span id="vote_count">Based on <b>108</b> vote(s)</span>
+        <div class="markRating dropdown-content">
+<input rating="1" type="button" class="box basic login-modal-btn" value="Basic">
+<input rating="2" type="button" class="box easy login-modal-btn" value="Easy">
+<input rating="3" type="button" class="box medium login-modal-btn" value="Medium">
+<input rating="4" type="button" class="box hard login-modal-btn" value="Hard">
+<input rating="5" type="button" class="box expert login-modal-btn" value="Expert">
+</div>
+<span class="process"></span>
+</div></div>
+</div>
+<div class="plugins userActionButtons">
+<div pid="125240" ptitle="Virtual Functions and Runtime Polymorphism in C++ | Set 1 (Introduction)" id="feedbackButtonDiv" style="display:inline-block"><button class="feedbackButton modal-trigger" onclick="showFeedbackModal()" data-target="modalWindow" data-backdrop="static" data-keyboard="false">Feedback/ Suggest Improvement</button><button class="feedbackButton login-modal-btn">Add Notes</button><button class="feedbackButton login-modal-btn">Improve Article</button></div>
+<div pid="125240" ptitle="Virtual Functions and Runtime Polymorphism in C++ | Set 1 (Introduction)" id="addNoteButtonDiv" style="display:inline-block"></div>
+<div pid="125240" ptitle="Virtual Functions and Runtime Polymorphism in C++ | Set 1 (Introduction)" id="improveArticleButtonDiv" style="display:inline-block"></div>
+</div>
+<div class="common-bottom">Please write to us at contribute@geeksforgeeks.org to report any issue with the above content.</div>          	
+        </div></footer><!-- .entry-meta -->
+</div></article>

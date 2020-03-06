@@ -1,0 +1,846 @@
+parts {'scheme': '', 'baseurl': '', 'urlpath': 'inheritance.html'}
+{'url': 'inheritance.html', 'scheme': '', 'urlpath': 'inheritance.html', 'outfile': 'inheritance.text', 'cols': 100, 'baseurl': '', 'imgurl': None, 'imgpath': '/', 'datadir': 'media', 'testrun': False}
+Updated 0 items...
+<bound method Tag.prettify of <article class="post-147294 post type-post status-publish format-standard hentry category-cpp category-school-programming" id="post-147294"><div class="tooltip clear" id="userActionsIcon" onclick="scrollToUserActionsDiv()"><i class="material-icons" style="opacity: 1; width: auto;">perm_identity</i><span class="tooltiptext">User Actions</span></div>
+<header class="entry-header">
+<h1 class="entry-title">Inheritance in C++</h1>
+</header><!-- .entry-header -->
+<div class="entry-content">
+<div hidead="auto"></div>
+<p>The capability of a class to derive properties and characteristics from another class is called <strong>Inheritance</strong>. Inheritance is one of the most important feature of Object Oriented Programming.<br/>
+<strong>Sub Class:</strong> The class that inherits properties from another class is called Sub class or Derived Class.<br/>
+<strong>Super Class:</strong>The class whose properties are inherited by sub class is called Base Class or Super class. </p>
+<p><strong>The article is divided into following subtopics:</strong></p>
+<ol>
+<li><a href="#Why and when to use inheritance?">Why and when to use inheritance?</a></li>
+<li><a href="#Modes of Inheritance">Modes of Inheritance</a></li>
+<li><a href="#Types of Inheritance">Types of Inheritance</a></li>
+</ol>
+<p align="center"><strong><a name="Why and when to use inheritance?"></a>Why and when to use inheritance?</strong></p>
+<p>Consider a group of vehicles. You need to create classes for Bus, Car and Truck. The methods fuelAmount(), capacity(), applyBrakes() will be same for all of the three classes. If we create these classes avoiding inheritance then we have to write all of these functions in each of the three classes as shown in below figure:<br/>
+<a href="https://media.geeksforgeeks.org/wp-content/uploads/inheritance.png"><img alt="inheritance" class="aligncenter size-full wp-image-182513" height="267" src="https://media.geeksforgeeks.org/wp-content/uploads/inheritance.png" width="879"/></a></p>
+<br/><div id="AP_G4GR_5"><div class="_ap_apex_ad" data-refresh-time="1583432395332" data-render-time="1583432204435" data-section="c9541d0b-2b1f-47f8-8b8b-63e4e11f2de9" data-section-id="" data-timeout="2302" data-xpath="#AP_G4GR_5" id="c9541d0b-2b1f-47f8-8b8b-63e4e11f2de9" style="display: block; clear: both; text-align: center; margin: 10px auto;"><div data-google-query-id="CNSD-Jr5g-gCFU9rwQodFWUKIA" id="ADP_40792_728X280_c9541d0b-2b1f-47f8-8b8b-63e4e11f2de9" style="margin: 0 auto">
+<div id="google_ads_iframe_/103512698/21930050872_0__container__" style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"><iframe data-google-container-id="a" data-is-safeframe="true" data-load-complete="true" frameborder="0" height="250" id="google_ads_iframe_/103512698/21930050872_0" marginheight="0" marginwidth="0" name="" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" scrolling="no" src="https://tpc.googlesyndication.com/safeframe/1-0-37/html/container.html" style="border: 0px; vertical-align: bottom;" title="3rd party ad content" width="300"></iframe></div></div></div></div><br/>
+<p>You can clearly see that above process results in duplication of same code 3 times. This increases the chances of error and data redundancy. To avoid this type of situation, inheritance is used. If we create a class Vehicle and write these three functions in it and inherit the rest of the classes from the vehicle class, then we can simply avoid the duplication of data and increase re-usability. Look at the below diagram in which the three classes are inherited from vehicle class:<a href="https://media.geeksforgeeks.org/wp-content/uploads/inheritance2.png"><img alt="inheritance2" class="aligncenter size-full wp-image-182515" height="409" src="https://media.geeksforgeeks.org/wp-content/uploads/inheritance2.png" width="942"/></a><br/>
+Using inheritance, we have to write the functions only one time instead of three times as we have inherited rest of the three classes from base class(Vehicle).</p>
+<p><strong>Implementing inheritance in C++</strong>: For creating a sub-class which is inherited from the base class we have to follow the below syntax.<br/>
+<strong>Syntax</strong>:</p>
+<pre>class subclass_name : access_mode base_class_name
+{
+//body of subclass
+};
+</pre>
+<p>Here, <strong>subclass_name </strong>is the name of the sub class, <strong>access_mode </strong>is the mode in which you want to inherit this sub class for example: public, private etc. and <strong>base_class_name </strong>is the name of the base class from which you want to inherit the sub class.<br/>
+<strong>Note</strong>: A derived class doesn’t inherit <em><strong>access</strong></em> to private data members. However, it does inherit a full parent object, which contains any private members which that class declares.</p>
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<i class="material-icons code-sidebar-button copy-code-button" id="copy-code-button" style="opacity: 1; width: auto;" title="Copy Code">filter_none</i><p></p>
+<div class="ring-load" id="run-and-edit-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-and-edit-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit Code">edit</i><br/>
+<i class="material-icons code-sidebar-button close-code-editor-button" id="close-code-editor-button" style="opacity: 1; width: auto;" title="Close Editor">close</i></p>
+<div class="ring-load" id="run-code-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-code-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and See Output">play_arrow</i></p>
+<div class="ring-load" id="generate-url-loader"></div>
+<p> <i class="material-icons code-sidebar-button generate-url-and-run-button" id="generate-url-and-run-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and Generate IDE URL">link</i><br/>
+<i class="material-icons code-sidebar-button light-editor-button" style="opacity: 1; width: auto;" title="Light Mode">brightness_5</i><br/>
+<i class="material-icons code-sidebar-button edit-on-ide-button" id="edit-on-ide-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit on IDE">code</i>
+</p></div>
+<p></p></div>
+<p></p></div>
+<p></p></div>
+ // C++ program to demonstrate implementation 
+// of Inheritance 
+  
+#include &lt;bits/stdc++.h&gt; 
+using
+namespace
+std; 
+ 
+//Base class 
+class
+Parent 
+{ 
+    
+public
+: 
+      
+int
+id_p; 
+}; 
+  
+// Sub class inheriting from Base Class(Parent) 
+class
+Child : 
+public
+Parent 
+{ 
+    
+public
+: 
+      
+int
+id_c; 
+}; 
+ 
+//main function 
+int
+main()  
+   
+{ 
+      
+        
+Child obj1; 
+          
+        
+// An object of class child has all data members 
+        
+// and member functions of class parent 
+        
+obj1.id_c = 7; 
+        
+obj1.id_p = 91; 
+        
+cout &lt;&lt; 
+"Child id is "
+&lt;&lt;  obj1.id_c &lt;&lt; endl; 
+        
+cout &lt;&lt; 
+"Parent id is "
+&lt;&lt;  obj1.id_p &lt;&lt; endl; 
+         
+        
+return
+0; 
+   
+}  
+ 
+<div class="code-editor-container"></div>
+<p></p></div>
+<div class="code-output-container">
+<div class="output-block">
+<i class="material-icons code-sidebar-button output-icon" id="output-icon" style="opacity: 1; width: auto;" title="Output">chevron_right</i><p></p>
+<pre class="output-pre"></pre>
+<p></p></div>
+<div class="ide-link-div">
+<i class="material-icons code-sidebar-button copy-url-button" id="copy-url-button" style="opacity: 1; width: auto;" title="Copy Generated Ide URL">filter_none</i><p></p>
+<pre id="ide-url"></pre>
+<p></p></div>
+<p></p></div>
+<p>Output:</p>
+<pre>Child id is 7
+Parent id is 91
+</pre>
+<p>In the above program the ‘Child’ class is publicly inherited from the ‘Parent’ class so the public data members of the class ‘Parent’ will also be inherited by the class ‘Child’.</p>
+<p align="center"><strong><a name="Modes of Inheritance"></a>Modes of Inheritance</strong></p>
+<ol>
+<li>
+<strong>Public mode</strong>: If we derive a sub class from a public base class. Then the public member of the base class will become public in the derived class and protected members of the base class will become protected in derived class.
+</li>
+<li>
+<strong>Protected mode</strong>: If we derive a sub class from a Protected base class. Then both public member and protected members of the base class will become protected in derived class.
+</li>
+<li>
+<strong>Private mode</strong>: If we derive a sub class from a Private base class. Then both public member and protected members of the base class will become Private in derived class.
+</li>
+</ol>
+<p><strong>Note : </strong>The private members in the base class cannot be directly accessed in the derived class, while protected members can be directly accessed. For example, Classes B, C and D all contain the variables x, y and z in below example. It is just question of access. </p>
+<div class="noIdeBtnDiv">
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<i class="material-icons code-sidebar-button copy-code-button" id="copy-code-button" style="opacity: 1; width: auto;" title="Copy Code">filter_none</i><p></p>
+<div class="ring-load" id="run-and-edit-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-and-edit-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit Code">edit</i><br/>
+<i class="material-icons code-sidebar-button close-code-editor-button" id="close-code-editor-button" style="opacity: 1; width: auto;" title="Close Editor">close</i></p>
+<div class="ring-load" id="run-code-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-code-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and See Output">play_arrow</i></p>
+<div class="ring-load" id="generate-url-loader"></div>
+<p> <i class="material-icons code-sidebar-button generate-url-and-run-button" id="generate-url-and-run-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and Generate IDE URL">link</i><br/>
+<i class="material-icons code-sidebar-button light-editor-button" style="opacity: 1; width: auto;" title="Light Mode">brightness_5</i><br/>
+<i class="material-icons code-sidebar-button edit-on-ide-button" id="edit-on-ide-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit on IDE">code</i>
+</p></div>
+<p></p></div>
+<p></p></div>
+<p></p></div>
+ // C++ Implementation to show that a derived class 
+// doesn’t inherit access to private data members.  
+// However, it does inherit a full parent object 
+class
+A  
+{ 
+public
+: 
+    
+int
+x; 
+protected
+: 
+    
+int
+y; 
+private
+: 
+    
+int
+z; 
+}; 
+ 
+class
+B : 
+public
+A 
+{ 
+    
+// x is public 
+    
+// y is protected 
+    
+// z is not accessible from B 
+}; 
+ 
+class
+C : 
+protected
+A 
+{ 
+    
+// x is protected 
+    
+// y is protected 
+    
+// z is not accessible from C 
+}; 
+ 
+class
+D : 
+private
+A    
+// 'private' is default for classes 
+{ 
+    
+// x is private 
+    
+// y is private 
+    
+// z is not accessible from D 
+}; 
+ 
+<div class="code-editor-container"></div>
+<p></p></div>
+<div class="code-output-container">
+<div class="output-block">
+<i class="material-icons code-sidebar-button output-icon" id="output-icon" style="opacity: 1; width: auto;" title="Output">chevron_right</i><p></p>
+<pre class="output-pre"></pre>
+<p></p></div>
+<div class="ide-link-div">
+<i class="material-icons code-sidebar-button copy-url-button" id="copy-url-button" style="opacity: 1; width: auto;" title="Copy Generated Ide URL">filter_none</i><p></p>
+<pre id="ide-url"></pre>
+<p></p></div>
+<p></p></div>
+<p></p></div>
+<p>The below table summarizes the above three modes and shows the access specifier of the members of base class in the sub class when derived in public, protected and private modes:<br/>
+<img alt="" class="aligncenter size-full wp-image-201375" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/table-class.png"/></p>
+<p align="center"><strong><a name="Types of Inheritance"></a>Types of Inheritance in C++</strong></p>
+<ol>
+<li>
+<strong>Single Inheritance</strong>: In single inheritance, a class is allowed to inherit from only one class. i.e. one sub class is inherited by one base class only.<img alt="" class="aligncenter size-full wp-image-183989" height="198" src="https://media.geeksforgeeks.org/wp-content/uploads/single-inheritance.png" width="314"/><br/>
+<strong>Syntax</strong>:<p></p>
+<pre>class subclass_name : access_mode base_class
+{
+//body of subclass
+};
+</pre>
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<i class="material-icons code-sidebar-button copy-code-button" id="copy-code-button" style="opacity: 1; width: auto;" title="Copy Code">filter_none</i><p></p>
+<div class="ring-load" id="run-and-edit-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-and-edit-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit Code">edit</i><br/>
+<i class="material-icons code-sidebar-button close-code-editor-button" id="close-code-editor-button" style="opacity: 1; width: auto;" title="Close Editor">close</i></p>
+<div class="ring-load" id="run-code-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-code-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and See Output">play_arrow</i></p>
+<div class="ring-load" id="generate-url-loader"></div>
+<p> <i class="material-icons code-sidebar-button generate-url-and-run-button" id="generate-url-and-run-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and Generate IDE URL">link</i><br/>
+<i class="material-icons code-sidebar-button light-editor-button" style="opacity: 1; width: auto;" title="Light Mode">brightness_5</i><br/>
+<i class="material-icons code-sidebar-button edit-on-ide-button" id="edit-on-ide-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit on IDE">code</i>
+</p></div>
+<p></p></div>
+<p></p></div>
+<p></p></div>
+ // C++ program to explain  
+// Single inheritance 
+#include &lt;iostream&gt; 
+using
+namespace
+std; 
+ 
+// base class 
+class
+Vehicle { 
+  
+public
+: 
+    
+Vehicle() 
+    
+{ 
+      
+cout &lt;&lt; 
+"This is a Vehicle"
+&lt;&lt; endl; 
+    
+} 
+}; 
+ 
+// sub class derived from two base classes 
+class
+Car: 
+public
+Vehicle{ 
+ 
+}; 
+ 
+// main function 
+int
+main() 
+{    
+    
+// creating object of sub class will 
+    
+// invoke the constructor of base classes 
+    
+Car obj; 
+    
+return
+0; 
+} 
+ 
+<div class="code-editor-container"></div>
+<p></p></div>
+<div class="code-output-container">
+<div class="output-block">
+<i class="material-icons code-sidebar-button output-icon" id="output-icon" style="opacity: 1; width: auto;" title="Output">chevron_right</i><p></p>
+<pre class="output-pre"></pre>
+<p></p></div>
+<div class="ide-link-div">
+<i class="material-icons code-sidebar-button copy-url-button" id="copy-url-button" style="opacity: 1; width: auto;" title="Copy Generated Ide URL">filter_none</i><p></p>
+<pre id="ide-url"></pre>
+<p></p></div>
+<p></p></div>
+<p>Output:</p>
+<pre>This is a vehicle
+</pre>
+</li>
+<li>
+<strong>Multiple Inheritance:</strong> Multiple Inheritance is a feature of C++ where a class can inherit from more than one classes. i.e one <strong>sub class</strong> is inherited from more than one <strong>base classes</strong>.<img alt="" class="aligncenter size-full wp-image-183992" height="195" src="https://media.geeksforgeeks.org/wp-content/uploads/multiple-inheritance.png" width="807"/><br/>
+<strong>Syntax</strong>:<p></p>
+<pre>class subclass_name : access_mode base_class1, access_mode base_class2, ....
+{
+//body of subclass
+};
+</pre>
+<p>Here, the number of base classes will be separated by a comma (‘, ‘) and access mode for every base class must be specified.</p>
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<i class="material-icons code-sidebar-button copy-code-button" id="copy-code-button" style="opacity: 1; width: auto;" title="Copy Code">filter_none</i><p></p>
+<div class="ring-load" id="run-and-edit-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-and-edit-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit Code">edit</i><br/>
+<i class="material-icons code-sidebar-button close-code-editor-button" id="close-code-editor-button" style="opacity: 1; width: auto;" title="Close Editor">close</i></p>
+<div class="ring-load" id="run-code-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-code-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and See Output">play_arrow</i></p>
+<div class="ring-load" id="generate-url-loader"></div>
+<p> <i class="material-icons code-sidebar-button generate-url-and-run-button" id="generate-url-and-run-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and Generate IDE URL">link</i><br/>
+<i class="material-icons code-sidebar-button light-editor-button" style="opacity: 1; width: auto;" title="Light Mode">brightness_5</i><br/>
+<i class="material-icons code-sidebar-button edit-on-ide-button" id="edit-on-ide-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit on IDE">code</i>
+</p></div>
+<p></p></div>
+<p></p></div>
+<p></p></div>
+ // C++ program to explain  
+// multiple inheritance 
+#include &lt;iostream&gt; 
+using
+namespace
+std; 
+ 
+// first base class 
+class
+Vehicle { 
+  
+public
+: 
+    
+Vehicle() 
+    
+{ 
+      
+cout &lt;&lt; 
+"This is a Vehicle"
+&lt;&lt; endl; 
+    
+} 
+}; 
+ 
+// second base class 
+class
+FourWheeler { 
+  
+public
+: 
+    
+FourWheeler() 
+    
+{ 
+      
+cout &lt;&lt; 
+"This is a 4 wheeler Vehicle"
+&lt;&lt; endl; 
+    
+} 
+}; 
+ 
+// sub class derived from two base classes 
+class
+Car: 
+public
+Vehicle, 
+public
+FourWheeler { 
+ 
+}; 
+ 
+// main function 
+int
+main() 
+{    
+    
+// creating object of sub class will 
+    
+// invoke the constructor of base classes 
+    
+Car obj; 
+    
+return
+0; 
+} 
+ 
+<div class="code-editor-container"></div>
+<p></p></div>
+<div class="code-output-container">
+<div class="output-block">
+<i class="material-icons code-sidebar-button output-icon" id="output-icon" style="opacity: 1; width: auto;" title="Output">chevron_right</i><p></p>
+<pre class="output-pre"></pre>
+<p></p></div>
+<div class="ide-link-div">
+<i class="material-icons code-sidebar-button copy-url-button" id="copy-url-button" style="opacity: 1; width: auto;" title="Copy Generated Ide URL">filter_none</i><p></p>
+<pre id="ide-url"></pre>
+<p></p></div>
+<p></p></div>
+<p>Output:</p>
+<pre>This is a Vehicle
+This is a 4 wheeler Vehicle
+</pre>
+<p>Please visit <a href="https://www.geeksforgeeks.org/multiple-inheritance-in-c/" style="color: #008000">this</a> link to learn multiple inheritance in details.
+</p></li>
+<br/><div id="AP_G4GR_5"></div><br/>
+<li>
+<strong>Multilevel Inheritance</strong>: In this type of inheritance, a derived class is created from another derived class. <img alt="" class="aligncenter size-full wp-image-183996" height="361" src="https://media.geeksforgeeks.org/wp-content/uploads/multilevel-inheritance.png" width="484"/><p></p>
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<i class="material-icons code-sidebar-button copy-code-button" id="copy-code-button" style="opacity: 1; width: auto;" title="Copy Code">filter_none</i><p></p>
+<div class="ring-load" id="run-and-edit-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-and-edit-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit Code">edit</i><br/>
+<i class="material-icons code-sidebar-button close-code-editor-button" id="close-code-editor-button" style="opacity: 1; width: auto;" title="Close Editor">close</i></p>
+<div class="ring-load" id="run-code-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-code-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and See Output">play_arrow</i></p>
+<div class="ring-load" id="generate-url-loader"></div>
+<p> <i class="material-icons code-sidebar-button generate-url-and-run-button" id="generate-url-and-run-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and Generate IDE URL">link</i><br/>
+<i class="material-icons code-sidebar-button light-editor-button" style="opacity: 1; width: auto;" title="Light Mode">brightness_5</i><br/>
+<i class="material-icons code-sidebar-button edit-on-ide-button" id="edit-on-ide-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit on IDE">code</i>
+</p></div>
+<p></p></div>
+<p></p></div>
+<p></p></div>
+ // C++ program to implement  
+// Multilevel Inheritance 
+#include &lt;iostream&gt; 
+using
+namespace
+std; 
+ 
+// base class 
+class
+Vehicle  
+{ 
+  
+public
+: 
+    
+Vehicle() 
+    
+{ 
+      
+cout &lt;&lt; 
+"This is a Vehicle"
+&lt;&lt; endl; 
+    
+} 
+}; 
+class
+fourWheeler: 
+public
+Vehicle 
+{  
+public
+: 
+    
+fourWheeler() 
+    
+{ 
+      
+cout&lt;&lt;
+"Objects with 4 wheels are vehicles"
+&lt;&lt;endl; 
+    
+} 
+}; 
+// sub class derived from two base classes 
+class
+Car: 
+public
+fourWheeler{ 
+   
+public
+: 
+     
+car() 
+     
+{ 
+       
+cout&lt;&lt;
+"Car has 4 Wheels"
+&lt;&lt;endl; 
+     
+} 
+}; 
+ 
+// main function 
+int
+main() 
+{    
+    
+//creating object of sub class will 
+    
+//invoke the constructor of base classes 
+    
+Car obj; 
+    
+return
+0; 
+} 
+ 
+<div class="code-editor-container"></div>
+<p></p></div>
+<div class="code-output-container">
+<div class="output-block">
+<i class="material-icons code-sidebar-button output-icon" id="output-icon" style="opacity: 1; width: auto;" title="Output">chevron_right</i><p></p>
+<pre class="output-pre"></pre>
+<p></p></div>
+<div class="ide-link-div">
+<i class="material-icons code-sidebar-button copy-url-button" id="copy-url-button" style="opacity: 1; width: auto;" title="Copy Generated Ide URL">filter_none</i><p></p>
+<pre id="ide-url"></pre>
+<p></p></div>
+<p></p></div>
+<p>output:</p>
+<pre>This is a Vehicle
+Objects with 4 wheels are vehicles
+Car has 4 Wheels
+</pre>
+</li>
+<li>
+<strong>Hierarchical Inheritance</strong>: In this type of inheritance, more than one sub class is inherited from a single base class. i.e. more than one derived class is created from a single base class.<img alt="" class="aligncenter size-full wp-image-183998" height="356" src="https://media.geeksforgeeks.org/wp-content/uploads/hierarchical-inheritance.png" width="840"/><p></p>
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<i class="material-icons code-sidebar-button copy-code-button" id="copy-code-button" style="opacity: 1; width: auto;" title="Copy Code">filter_none</i><p></p>
+<div class="ring-load" id="run-and-edit-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-and-edit-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit Code">edit</i><br/>
+<i class="material-icons code-sidebar-button close-code-editor-button" id="close-code-editor-button" style="opacity: 1; width: auto;" title="Close Editor">close</i></p>
+<div class="ring-load" id="run-code-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-code-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and See Output">play_arrow</i></p>
+<div class="ring-load" id="generate-url-loader"></div>
+<p> <i class="material-icons code-sidebar-button generate-url-and-run-button" id="generate-url-and-run-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and Generate IDE URL">link</i><br/>
+<i class="material-icons code-sidebar-button light-editor-button" style="opacity: 1; width: auto;" title="Light Mode">brightness_5</i><br/>
+<i class="material-icons code-sidebar-button edit-on-ide-button" id="edit-on-ide-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit on IDE">code</i>
+</p></div>
+<p></p></div>
+<p></p></div>
+<p></p></div>
+ // C++ program to implement  
+// Hierarchical Inheritance 
+#include &lt;iostream&gt; 
+using
+namespace
+std; 
+ 
+// base class 
+class
+Vehicle  
+{ 
+  
+public
+: 
+    
+Vehicle() 
+    
+{ 
+      
+cout &lt;&lt; 
+"This is a Vehicle"
+&lt;&lt; endl; 
+    
+} 
+}; 
+ 
+ 
+// first sub class  
+class
+Car: 
+public
+Vehicle 
+{ 
+ 
+}; 
+ 
+// second sub class 
+class
+Bus: 
+public
+Vehicle 
+{ 
+     
+}; 
+ 
+// main function 
+int
+main() 
+{    
+    
+// creating object of sub class will 
+    
+// invoke the constructor of base class 
+    
+Car obj1; 
+    
+Bus obj2; 
+    
+return
+0; 
+} 
+ 
+<div class="code-editor-container"></div>
+<p></p></div>
+<div class="code-output-container">
+<div class="output-block">
+<i class="material-icons code-sidebar-button output-icon" id="output-icon" style="opacity: 1; width: auto;" title="Output">chevron_right</i><p></p>
+<pre class="output-pre"></pre>
+<p></p></div>
+<div class="ide-link-div">
+<i class="material-icons code-sidebar-button copy-url-button" id="copy-url-button" style="opacity: 1; width: auto;" title="Copy Generated Ide URL">filter_none</i><p></p>
+<pre id="ide-url"></pre>
+<p></p></div>
+<p></p></div>
+<p>Output:</p>
+<pre>This is a Vehicle
+This is a Vehicle
+</pre>
+</li>
+<li>
+<strong>Hybrid (Virtual) Inheritance</strong>: Hybrid Inheritance is implemented by combining more than one type of inheritance. For example: Combining Hierarchical inheritance and Multiple Inheritance.<br/>
+Below image shows the combination of hierarchical and multiple inheritance:<img alt="" class="aligncenter size-full wp-image-184003" height="355" src="https://media.geeksforgeeks.org/wp-content/uploads/Hybrid-Inheritance.png" width="702"/><p></p>
+<div class="code-block">
+<div class="code-gutter">
+<div class="editor-buttons-container">
+<div class="editor-buttons">
+<div class="editor-buttons-div" title="Run and Edit">
+<i class="material-icons code-sidebar-button copy-code-button" id="copy-code-button" style="opacity: 1; width: auto;" title="Copy Code">filter_none</i><p></p>
+<div class="ring-load" id="run-and-edit-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-and-edit-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit Code">edit</i><br/>
+<i class="material-icons code-sidebar-button close-code-editor-button" id="close-code-editor-button" style="opacity: 1; width: auto;" title="Close Editor">close</i></p>
+<div class="ring-load" id="run-code-loader"></div>
+<p> <i class="material-icons code-sidebar-button" id="run-code-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and See Output">play_arrow</i></p>
+<div class="ring-load" id="generate-url-loader"></div>
+<p> <i class="material-icons code-sidebar-button generate-url-and-run-button" id="generate-url-and-run-button" lang="cpp" style="opacity: 1; width: auto;" title="Run Code and Generate IDE URL">link</i><br/>
+<i class="material-icons code-sidebar-button light-editor-button" style="opacity: 1; width: auto;" title="Light Mode">brightness_5</i><br/>
+<i class="material-icons code-sidebar-button edit-on-ide-button" id="edit-on-ide-button" lang="cpp" style="opacity: 1; width: auto;" title="Edit on IDE">code</i>
+</p></div>
+<p></p></div>
+<p></p></div>
+<p></p></div>
+ // C++ program for Hybrid Inheritance 
+ 
+#include &lt;iostream&gt; 
+using
+namespace
+std; 
+ 
+// base class  
+class
+Vehicle  
+{ 
+  
+public
+: 
+    
+Vehicle() 
+    
+{ 
+      
+cout &lt;&lt; 
+"This is a Vehicle"
+&lt;&lt; endl; 
+    
+} 
+}; 
+ 
+//base class 
+class
+Fare 
+{ 
+    
+public
+: 
+    
+Fare() 
+    
+{ 
+        
+cout&lt;&lt;
+"Fare of Vehicle\n"
+; 
+    
+} 
+}; 
+ 
+// first sub class  
+class
+Car: 
+public
+Vehicle 
+{ 
+ 
+}; 
+ 
+// second sub class 
+class
+Bus: 
+public
+Vehicle, 
+public
+Fare 
+{ 
+     
+}; 
+ 
+// main function 
+int
+main() 
+{    
+    
+// creating object of sub class will 
+    
+// invoke the constructor of base class 
+    
+Bus obj2; 
+    
+return
+0; 
+} 
+ 
+<div class="code-editor-container"></div>
+<p></p></div>
+<div class="code-output-container">
+<div class="output-block">
+<i class="material-icons code-sidebar-button output-icon" id="output-icon" style="opacity: 1; width: auto;" title="Output">chevron_right</i><p></p>
+<pre class="output-pre"></pre>
+<p></p></div>
+<div class="ide-link-div">
+<i class="material-icons code-sidebar-button copy-url-button" id="copy-url-button" style="opacity: 1; width: auto;" title="Copy Generated Ide URL">filter_none</i><p></p>
+<pre id="ide-url"></pre>
+<p></p></div>
+<p></p></div>
+<p>Output:</p>
+<pre>This is a Vehicle
+Fare of Vehicle
+</pre>
+</li>
+</ol>
+<p>This article is contributed by <a href="https://www.facebook.com/harsh.agarwal.16752" style="color: #008000"><strong>Harsh Agarwal</strong></a>. If you like GeeksforGeeks and would like to contribute, you can also write an article using <a href="http://www.contribute.geeksforgeeks.org">contribute.geeksforgeeks.org</a> or mail your article to contribute@geeksforgeeks.org. See your article appearing on the GeeksforGeeks main page and help other Geeks.</p>
+<br/><br/><div id="AP_G4GR_6"><div class="_ap_apex_ad" data-render-time="1583432204438" data-section="76621e0b-1fac-4840-ba08-8ec48d007bc6" data-section-id="" data-xpath="#AP_G4GR_6:eq(0)" id="76621e0b-1fac-4840-ba08-8ec48d007bc6" style="display: block; clear: both; text-align: center; margin: 10px auto;"><div data-google-query-id="CLjD97_4g-gCFU90wQodVhgC-Q" id="ADP_40792_728X280_76621e0b-1fac-4840-ba08-8ec48d007bc6" style="margin: 0 auto">
+<div id="google_ads_iframe_/103512698/21930050695_0__container__" style="border: 0pt none; display: inline-block; width: 728px; height: 280px;"><iframe data-google-container-id="6" data-is-safeframe="true" data-load-complete="true" frameborder="0" height="280" id="google_ads_iframe_/103512698/21930050695_0" marginheight="0" marginwidth="0" name="" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" scrolling="no" src="https://tpc.googlesyndication.com/safeframe/1-0-37/html/container.html" style="border: 0px; vertical-align: bottom;" title="3rd party ad content" width="728"></iframe></div></div></div></div><br/><div class="clear hideIt" id="personalNoteDiv">
+<div class="personalNoteHeader clear">
+<span class="noteHeaderText">My Personal Notes</span>
+<span class="hideNotesDivIcon"><i class="material-icons personalNotesIcon" style="opacity: 1; width: auto;">arrow_drop_up</i></span>
+</div>
+<div class="collapsableDivPersonalNotes">
+<textarea class="personalNoteStyle" id="enteredPersonalNote" maxlength="5000" placeholder="Add your personal notes here! (max 5000 chars)"></textarea>
+<div class="saveNoteDiv">
+<span class="processSaveNote"></span>
+<button class="savePersonalNoteButton" onclick="saveUserPersonalNote()">Save</button>
+</div>
+</div>
+</div><div class="recommendedPostsDiv"><h2 style="font-size:20px; color: #838383">Recommended Posts:</h2><ul><li><a href="https://www.geeksforgeeks.org/inheritance-in-python/">Inheritance in Python</a></li><li><a href="https://www.geeksforgeeks.org/multiple-inheritance-in-c/">Multiple Inheritance in C++</a></li><li><a href="https://www.geeksforgeeks.org/inheritance-in-java/">Inheritance in Java</a></li><li><a href="https://www.geeksforgeeks.org/g-fact-34/">Inheritance and friendship</a></li><li><a href="https://www.geeksforgeeks.org/g-fact-67/">Inheritance and constructors in Java</a></li><li><a href="https://www.geeksforgeeks.org/difference-between-inheritance-and-polymorphism/">Difference between Inheritance and Polymorphism</a></li><li><a href="https://www.geeksforgeeks.org/does-overloading-work-with-inheritance/">Does overloading work with Inheritance?</a></li><li><a href="https://www.geeksforgeeks.org/java-and-multiple-inheritance/">Java and Multiple Inheritance</a></li><li><a href="https://www.geeksforgeeks.org/difference-between-single-and-multiple-inheritance-in-c/">Difference between Single and Multiple Inheritance in C++</a></li><li><a href="https://www.geeksforgeeks.org/oop-in-python-set-3-inheritance-examples-of-object-issubclass-and-super/">OOP in Python | Set 3 (Inheritance, examples of object, issubclass and super)</a></li><li><a href="https://www.geeksforgeeks.org/sum-of-non-diagonal-parts-of-a-square-matrix/">Sum of non-diagonal parts of a square Matrix</a></li><li><a href="https://www.geeksforgeeks.org/check-if-x-and-y-can-be-made-zero-by-using-given-operation-any-number-of-times/">Check if X and Y can be made zero by using given operation any number of times</a></li><li><a href="https://www.geeksforgeeks.org/largest-even-and-odd-n-digit-numbers-in-hexadecimal-number-system/">Largest Even and Odd N-digit numbers in Hexadecimal Number System</a></li><li><a href="https://www.geeksforgeeks.org/visibility-modes-in-c-with-examples/">Visibility Modes in C++ with Examples</a></li></ul></div><div id="improvedBy"><br/><b>Improved By : </b> <a href="https://auth.geeksforgeeks.org/user/vasu_arora/">vasu_arora</a></div><br/><script>jQuery('#showMoreImprove').click(function(){ jQuery(this).hide(); jQuery('#improvedByMore').css('display', 'inline'); });</script>
+<footer class="entry-meta">
+<span><b>Article Tags : </b><div class="practiceButton"><a href="https://www.geeksforgeeks.org/category/programming-language/cpp/" rel="category tag">C++</a></div><div class="practiceButton"><a href="https://www.geeksforgeeks.org/category/school-programming/" rel="category tag">School Programming</a></div></span><span></span>
+<div class="no-p-tag" style="text-align:left;"><b style="color: #757575;">Practice Tags : </b><div class="practiceButton"><a href="https://practice.geeksforgeeks.org/topics/CPP">CPP</a></div></div><br/><div id="improveArticle" style="float: right;cursor: pointer;"></div> <div class="plugins upvoteArticle">
+<div>
+<i class="material-icons upvoteIcon login-modal-btn" style="opacity: 1; width: auto;" title="Upvote">thumb_up</i><br/>
+<span class="upvoteText">85</span></div>
+<div class="plugins" style="text-align:right;">
+<div id="markPlugin" pid="147294" ptitle="Inheritance in C++"><br/>
+<br/>
+<div class="lists">
+<input class="mark filled-in login-modal-btn" id="todo" type="checkbox"/>
+<label class="checkbox" for="todo">To-do</label>
+<input class="mark filled-in login-modal-btn" id="done" type="checkbox"/>
+<label class="checkbox" for="done">Done</label>
+</div></div>
+<div class="difficultyRating" id="ratePlugin" pid="147294" ptitle="Inheritance in C++">
+<div class="techno dropdown">
+<span class="avg-rating level-2" id="rating_box">2.2</span>
+<br/>
+<br/>
+<span id="vote_count">Based on <b>99</b> vote(s)</span>
+<div class="markRating dropdown-content">
+<input class="box basic login-modal-btn" rating="1" type="button" value="Basic"/>
+<input class="box easy login-modal-btn" rating="2" type="button" value="Easy"/>
+<input class="box medium login-modal-btn" rating="3" type="button" value="Medium"/>
+<input class="box hard login-modal-btn" rating="4" type="button" value="Hard"/>
+<input class="box expert login-modal-btn" rating="5" type="button" value="Expert"/>
+</div>
+<span class="process"></span>
+</div></div>
+</div>
+<div class="plugins userActionButtons">
+<div id="feedbackButtonDiv" pid="147294" ptitle="Inheritance in C++" style="display:inline-block"><button class="feedbackButton modal-trigger" data-backdrop="static" data-keyboard="false" data-target="modalWindow" onclick="showFeedbackModal()">Feedback/ Suggest Improvement</button><button class="feedbackButton login-modal-btn">Add Notes</button><button class="feedbackButton login-modal-btn">Improve Article</button></div>
+<div id="addNoteButtonDiv" pid="147294" ptitle="Inheritance in C++" style="display:inline-block"></div>
+<div id="improveArticleButtonDiv" pid="147294" ptitle="Inheritance in C++" style="display:inline-block"></div>
+</div>
+<div class="common-bottom">Please write to us at contribute@geeksforgeeks.org to report any issue with the above content.</div>
+</div></footer><!-- .entry-meta -->
+</div></article>>

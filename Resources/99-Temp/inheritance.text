@@ -1,0 +1,1054 @@
+::: {#userActionsIcon .tooltip .clear onclick="scrollToUserActionsDiv()"}
+*perm\_identity* [ User Actions ]{.tooltiptext}
+:::
+
+Inheritance in C++ {#inheritance-in-c .entry-title}
+==================
+
+::: {.entry-content}
+::: {hidead="auto"}
+:::
+
+The capability of a class to derive properties and characteristics from
+another class is called **Inheritance** . Inheritance is one of the most
+important feature of Object Oriented Programming.\
+**Sub Class:** The class that inherits properties from another class is
+called Sub class or Derived Class.\
+**Super Class:** The class whose properties are inherited by sub class
+is called Base Class or Super class.
+
+**The article is divided into following subtopics:**
+
+1.  [Why and when to use
+    inheritance?](#Why%20and%20when%20to%20use%20inheritance?)
+2.  [Modes of Inheritance](#Modes%20of%20Inheritance)
+3.  [Types of Inheritance](#Types%20of%20Inheritance)
+
+**[]{#Why and when to use inheritance?} Why and when to use
+inheritance?**
+
+Consider a group of vehicles. You need to create classes for Bus, Car
+and Truck. The methods fuelAmount(), capacity(), applyBrakes() will be
+same for all of the three classes. If we create these classes avoiding
+inheritance then we have to write all of these functions in each of the
+three classes as shown in below figure:\
+[![inheritance](https://media.geeksforgeeks.org/wp-content/uploads/inheritance.png){.aligncenter
+.size-full .wp-image-182513 width="879"
+height="267"}](https://media.geeksforgeeks.org/wp-content/uploads/inheritance.png)
+
+\
+
+::: {#AP_G4GR_5}
+::: {#c9541d0b-2b1f-47f8-8b8b-63e4e11f2de9 ._ap_apex_ad refresh-time="1583432395332" render-time="1583432204435" section="c9541d0b-2b1f-47f8-8b8b-63e4e11f2de9" section-id="" timeout="2302" xpath="#AP_G4GR_5" style="display: block; clear: both; text-align: center; margin: 10px auto;"}
+::: {#ADP_40792_728X280_c9541d0b-2b1f-47f8-8b8b-63e4e11f2de9 google-query-id="CNSD-Jr5g-gCFU9rwQodFWUKIA" style="margin: 0 auto"}
+::: {#google_ads_iframe_/103512698/21930050872_0__container__ style="border: 0pt none; display: inline-block; width: 300px; height: 250px;"}
+:::
+:::
+:::
+:::
+
+\
+
+You can clearly see that above process results in duplication of same
+code 3 times. This increases the chances of error and data redundancy.
+To avoid this type of situation, inheritance is used. If we create a
+class Vehicle and write these three functions in it and inherit the rest
+of the classes from the vehicle class, then we can simply avoid the
+duplication of data and increase re-usability. Look at the below diagram
+in which the three classes are inherited from vehicle class:
+[![inheritance2](https://media.geeksforgeeks.org/wp-content/uploads/inheritance2.png){.aligncenter
+.size-full .wp-image-182515 width="942"
+height="409"}](https://media.geeksforgeeks.org/wp-content/uploads/inheritance2.png)\
+Using inheritance, we have to write the functions only one time instead
+of three times as we have inherited rest of the three classes from base
+class(Vehicle).
+
+**Implementing inheritance in C++** : For creating a sub-class which is
+inherited from the base class we have to follow the below syntax.\
+**Syntax** :
+
+    class subclass_name : access_mode base_class_name
+    {
+    //body of subclass
+    };
+
+Here, **subclass\_name** is the name of the sub class, **access\_mode**
+is the mode in which you want to inherit this sub class for example:
+public, private etc. and **base\_class\_name** is the name of the base
+class from which you want to inherit the sub class.\
+**Note** : A derived class doesn't inherit ***access*** to private data
+members. However, it does inherit a full parent object, which contains
+any private members which that class declares.
+
+::: {.code-block}
+::: {.code-gutter}
+::: {.editor-buttons-container}
+::: {.editor-buttons}
+::: {.editor-buttons-div title="Run and Edit"}
+*filter\_none*
+
+::: {#run-and-edit-loader .ring-load}
+:::
+
+*edit*\
+*close*
+
+::: {#run-code-loader .ring-load}
+:::
+
+*play\_arrow*
+
+::: {#generate-url-loader .ring-load}
+:::
+
+*link*\
+*brightness\_5*\
+*code*
+:::
+:::
+:::
+:::
+
+    ```cpp
+    // C++ program to demonstrate implementation
+    // of Inheritance
+
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    //Base class
+    class
+        Parent {
+
+    public
+        :
+        int
+            id_p;
+    };
+
+    // Sub class inheriting from Base Class(Parent)
+    class
+        Child : public Parent {
+
+    public
+        :
+        int
+            id_c;
+    };
+
+    //main function
+    int main()
+
+    {
+
+        Child obj1;
+
+        // An object of class child has all data members
+
+        // and member functions of class parent
+
+        obj1.id_c = 7;
+
+        obj1.id_p = 91;
+
+        cout << "Child id is "
+             <<  obj1.id_c << endl;
+
+        cout << "Parent id is "
+             <<  obj1.id_p << endl;
+
+        return 0;
+    }
+
+    ```
+
+::: {.code-editor-container}
+:::
+:::
+
+::: {.code-output-container}
+::: {.output-block}
+*chevron\_right*
+
+``` {.output-pre}
+```
+:::
+
+::: {.ide-link-div}
+*filter\_none*
+
+``` {#ide-url}
+```
+:::
+:::
+
+Output:
+
+    Child id is 7
+    Parent id is 91
+
+In the above program the 'Child' class is publicly inherited from the
+'Parent' class so the public data members of the class 'Parent' will
+also be inherited by the class 'Child'.
+
+**[]{#Modes of Inheritance} Modes of Inheritance**
+
+1.  **Public mode** : If we derive a sub class from a public base class.
+    Then the public member of the base class will become public in the
+    derived class and protected members of the base class will become
+    protected in derived class.
+2.  **Protected mode** : If we derive a sub class from a Protected base
+    class. Then both public member and protected members of the base
+    class will become protected in derived class.
+3.  **Private mode** : If we derive a sub class from a Private base
+    class. Then both public member and protected members of the base
+    class will become Private in derived class.
+
+**Note :** The private members in the base class cannot be directly
+accessed in the derived class, while protected members can be directly
+accessed. For example, Classes B, C and D all contain the variables x, y
+and z in below example. It is just question of access.
+
+::: {.noIdeBtnDiv}
+::: {.code-block}
+::: {.code-gutter}
+::: {.editor-buttons-container}
+::: {.editor-buttons}
+::: {.editor-buttons-div title="Run and Edit"}
+*filter\_none*
+
+::: {#run-and-edit-loader .ring-load}
+:::
+
+*edit*\
+*close*
+
+::: {#run-code-loader .ring-load}
+:::
+
+*play\_arrow*
+
+::: {#generate-url-loader .ring-load}
+:::
+
+*link*\
+*brightness\_5*\
+*code*
+:::
+:::
+:::
+:::
+
+    ```cpp
+    // C++ Implementation to show that a derived class
+    // doesn’t inherit access to private data members.
+    // However, it does inherit a full parent object
+    class
+        A {
+    public
+        :
+        int
+            x;
+
+    protected
+        :
+        int
+            y;
+
+    private
+        :
+        int
+            z;
+    };
+
+    class
+        B : public A {
+
+        // x is public
+
+        // y is protected
+
+        // z is not accessible from B
+    };
+
+    class
+        C : protected A {
+
+        // x is protected
+
+        // y is protected
+
+        // z is not accessible from C
+    };
+
+    class
+        D : private A
+    // 'private' is default for classes
+    {
+
+        // x is private
+
+        // y is private
+
+        // z is not accessible from D
+    };
+
+    ```
+
+::: {.code-editor-container}
+:::
+:::
+
+::: {.code-output-container}
+::: {.output-block}
+*chevron\_right*
+
+``` {.output-pre}
+```
+:::
+
+::: {.ide-link-div}
+*filter\_none*
+
+``` {#ide-url}
+```
+:::
+:::
+:::
+
+The below table summarizes the above three modes and shows the access
+specifier of the members of base class in the sub class when derived in
+public, protected and private modes:\
+![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/table-class.png){.aligncenter
+.size-full .wp-image-201375}
+
+**[]{#Types of Inheritance} Types of Inheritance in C++**
+
+1.  **Single Inheritance** : In single inheritance, a class is allowed
+    to inherit from only one class. i.e. one sub class is inherited by
+    one base class only.
+    ![](https://media.geeksforgeeks.org/wp-content/uploads/single-inheritance.png){.aligncenter
+    .size-full .wp-image-183989 width="314" height="198"}\
+    **Syntax** :
+
+        class subclass_name : access_mode base_class
+        {
+        //body of subclass
+        };
+
+    ::: {.code-block}
+    ::: {.code-gutter}
+    ::: {.editor-buttons-container}
+    ::: {.editor-buttons}
+    ::: {.editor-buttons-div title="Run and Edit"}
+    *filter\_none*
+    ::: {#run-and-edit-loader .ring-load}
+    :::
+
+    *edit*\
+    *close*
+
+    ::: {#run-code-loader .ring-load}
+    :::
+
+    *play\_arrow*
+
+    ::: {#generate-url-loader .ring-load}
+    :::
+
+    *link*\
+    *brightness\_5*\
+    *code*
+    :::
+    :::
+    :::
+    :::
+
+        ```cpp
+        // C++ program to explain
+        // Single inheritance
+        #include <iostream>
+        using namespace std;
+
+        // base class
+        class
+            Vehicle {
+
+        public
+            :
+            Vehicle()
+
+            {
+
+                cout << "This is a Vehicle"
+                     << endl;
+            }
+        };
+
+        // sub class derived from two base classes
+        class
+            Car : public Vehicle {
+        };
+
+        // main function
+        int main() {
+
+            // creating object of sub class will
+
+            // invoke the constructor of base classes
+
+            Car obj;
+
+            return 0;
+        }
+
+        ```
+
+    ::: {.code-editor-container}
+    :::
+    :::
+
+    ::: {.code-output-container}
+    ::: {.output-block}
+    *chevron\_right*
+    ``` {.output-pre}
+    ```
+    :::
+
+    ::: {.ide-link-div}
+    *filter\_none*
+    ``` {#ide-url}
+    ```
+    :::
+    :::
+
+    Output:
+
+        This is a vehicle
+
+2.  **Multiple Inheritance:** Multiple Inheritance is a feature of C++
+    where a class can inherit from more than one classes. i.e one **sub
+    class** is inherited from more than one **base classes** .
+    ![](https://media.geeksforgeeks.org/wp-content/uploads/multiple-inheritance.png){.aligncenter
+    .size-full .wp-image-183992 width="807" height="195"}\
+    **Syntax** :
+
+        class subclass_name : access_mode base_class1, access_mode base_class2, ....
+        {
+        //body of subclass
+        };
+
+    Here, the number of base classes will be separated by a comma (', ')
+    and access mode for every base class must be specified.
+
+    ::: {.code-block}
+    ::: {.code-gutter}
+    ::: {.editor-buttons-container}
+    ::: {.editor-buttons}
+    ::: {.editor-buttons-div title="Run and Edit"}
+    *filter\_none*
+    ::: {#run-and-edit-loader .ring-load}
+    :::
+
+    *edit*\
+    *close*
+
+    ::: {#run-code-loader .ring-load}
+    :::
+
+    *play\_arrow*
+
+    ::: {#generate-url-loader .ring-load}
+    :::
+
+    *link*\
+    *brightness\_5*\
+    *code*
+    :::
+    :::
+    :::
+    :::
+
+        ```cpp
+        // C++ program to explain
+        // multiple inheritance
+        #include <iostream>
+        using namespace std;
+
+        // first base class
+        class
+            Vehicle {
+
+        public
+            :
+            Vehicle()
+
+            {
+
+                cout << "This is a Vehicle"
+                     << endl;
+            }
+        };
+
+        // second base class
+        class
+            FourWheeler {
+
+        public
+            :
+            FourWheeler()
+
+            {
+
+                cout << "This is a 4 wheeler Vehicle"
+                     << endl;
+            }
+        };
+
+        // sub class derived from two base classes
+        class
+            Car : public Vehicle,
+                  public FourWheeler {
+        };
+
+        // main function
+        int main() {
+
+            // creating object of sub class will
+
+            // invoke the constructor of base classes
+
+            Car obj;
+
+            return 0;
+        }
+
+        ```
+
+    ::: {.code-editor-container}
+    :::
+    :::
+
+    ::: {.code-output-container}
+    ::: {.output-block}
+    *chevron\_right*
+    ``` {.output-pre}
+    ```
+    :::
+
+    ::: {.ide-link-div}
+    *filter\_none*
+    ``` {#ide-url}
+    ```
+    :::
+    :::
+
+    Output:
+
+        This is a Vehicle
+        This is a 4 wheeler Vehicle
+
+    Please visit
+    [this](https://www.geeksforgeeks.org/multiple-inheritance-in-c/)
+    link to learn multiple inheritance in details.
+
+3.  **Multilevel Inheritance** : In this type of inheritance, a derived
+    class is created from another derived class.
+    ![](https://media.geeksforgeeks.org/wp-content/uploads/multilevel-inheritance.png){.aligncenter
+    .size-full .wp-image-183996 width="484" height="361"}
+
+    ::: {.code-block}
+    ::: {.code-gutter}
+    ::: {.editor-buttons-container}
+    ::: {.editor-buttons}
+    ::: {.editor-buttons-div title="Run and Edit"}
+    *filter\_none*
+    ::: {#run-and-edit-loader .ring-load}
+    :::
+
+    *edit*\
+    *close*
+
+    ::: {#run-code-loader .ring-load}
+    :::
+
+    *play\_arrow*
+
+    ::: {#generate-url-loader .ring-load}
+    :::
+
+    *link*\
+    *brightness\_5*\
+    *code*
+    :::
+    :::
+    :::
+    :::
+
+        ```cpp
+        // C++ program to implement
+        // Multilevel Inheritance
+        #include <iostream>
+        using namespace std;
+
+        // base class
+        class
+            Vehicle {
+
+        public
+            :
+            Vehicle()
+
+            {
+
+                cout << "This is a Vehicle"
+                     << endl;
+            }
+        };
+        class
+            fourWheeler : public Vehicle {
+        public
+            :
+            fourWheeler()
+
+            {
+
+                cout << "Objects with 4 wheels are vehicles"
+                     << endl;
+            }
+        };
+        // sub class derived from two base classes
+        class
+            Car : public fourWheeler {
+
+        public
+            :
+            car()
+
+            {
+
+                cout << "Car has 4 Wheels"
+                     << endl;
+            }
+        };
+
+        // main function
+        int main() {
+
+            //creating object of sub class will
+
+            //invoke the constructor of base classes
+
+            Car obj;
+
+            return 0;
+        }
+
+        ```
+
+    ::: {.code-editor-container}
+    :::
+    :::
+
+    ::: {.code-output-container}
+    ::: {.output-block}
+    *chevron\_right*
+    ``` {.output-pre}
+    ```
+    :::
+
+    ::: {.ide-link-div}
+    *filter\_none*
+    ``` {#ide-url}
+    ```
+    :::
+    :::
+
+    output:
+
+        This is a Vehicle
+        Objects with 4 wheels are vehicles
+        Car has 4 Wheels
+
+4.  **Hierarchical Inheritance** : In this type of inheritance, more
+    than one sub class is inherited from a single base class. i.e. more
+    than one derived class is created from a single base class.
+    ![](https://media.geeksforgeeks.org/wp-content/uploads/hierarchical-inheritance.png){.aligncenter
+    .size-full .wp-image-183998 width="840" height="356"}
+
+    ::: {.code-block}
+    ::: {.code-gutter}
+    ::: {.editor-buttons-container}
+    ::: {.editor-buttons}
+    ::: {.editor-buttons-div title="Run and Edit"}
+    *filter\_none*
+    ::: {#run-and-edit-loader .ring-load}
+    :::
+
+    *edit*\
+    *close*
+
+    ::: {#run-code-loader .ring-load}
+    :::
+
+    *play\_arrow*
+
+    ::: {#generate-url-loader .ring-load}
+    :::
+
+    *link*\
+    *brightness\_5*\
+    *code*
+    :::
+    :::
+    :::
+    :::
+
+        ```cpp
+        // C++ program to implement
+        // Hierarchical Inheritance
+        #include <iostream>
+        using namespace std;
+
+        // base class
+        class
+            Vehicle {
+
+        public
+            :
+            Vehicle()
+
+            {
+
+                cout << "This is a Vehicle"
+                     << endl;
+            }
+        };
+
+        // first sub class
+        class
+            Car : public Vehicle {
+        };
+
+        // second sub class
+        class
+            Bus : public Vehicle {
+        };
+
+        // main function
+        int main() {
+
+            // creating object of sub class will
+
+            // invoke the constructor of base class
+
+            Car obj1;
+
+            Bus obj2;
+
+            return 0;
+        }
+
+        ```
+
+    ::: {.code-editor-container}
+    :::
+    :::
+
+    ::: {.code-output-container}
+    ::: {.output-block}
+    *chevron\_right*
+    ``` {.output-pre}
+    ```
+    :::
+
+    ::: {.ide-link-div}
+    *filter\_none*
+    ``` {#ide-url}
+    ```
+    :::
+    :::
+
+    Output:
+
+        This is a Vehicle
+        This is a Vehicle
+
+5.  **Hybrid (Virtual) Inheritance** : Hybrid Inheritance is implemented
+    by combining more than one type of inheritance. For example:
+    Combining Hierarchical inheritance and Multiple Inheritance.\
+    Below image shows the combination of hierarchical and multiple
+    inheritance:
+    ![](https://media.geeksforgeeks.org/wp-content/uploads/Hybrid-Inheritance.png){.aligncenter
+    .size-full .wp-image-184003 width="702" height="355"}
+
+    ::: {.code-block}
+    ::: {.code-gutter}
+    ::: {.editor-buttons-container}
+    ::: {.editor-buttons}
+    ::: {.editor-buttons-div title="Run and Edit"}
+    *filter\_none*
+    ::: {#run-and-edit-loader .ring-load}
+    :::
+
+    *edit*\
+    *close*
+
+    ::: {#run-code-loader .ring-load}
+    :::
+
+    *play\_arrow*
+
+    ::: {#generate-url-loader .ring-load}
+    :::
+
+    *link*\
+    *brightness\_5*\
+    *code*
+    :::
+    :::
+    :::
+    :::
+
+        ```cpp
+        // C++ program for Hybrid Inheritance
+
+        #include <iostream>
+        using namespace std;
+
+        // base class
+        class
+            Vehicle {
+
+        public
+            :
+            Vehicle()
+
+            {
+
+                cout << "This is a Vehicle"
+                     << endl;
+            }
+        };
+
+        //base class
+        class
+            Fare {
+
+        public
+            :
+            Fare()
+
+            {
+
+                cout << "Fare of Vehicle\n";
+            }
+        };
+
+        // first sub class
+        class
+            Car : public Vehicle {
+        };
+
+        // second sub class
+        class
+            Bus : public Vehicle,
+                  public Fare {
+        };
+
+        // main function
+        int main() {
+
+            // creating object of sub class will
+
+            // invoke the constructor of base class
+
+            Bus obj2;
+
+            return 0;
+        }
+
+        ```
+
+    ::: {.code-editor-container}
+    :::
+    :::
+
+    ::: {.code-output-container}
+    ::: {.output-block}
+    *chevron\_right*
+    ``` {.output-pre}
+    ```
+    :::
+
+    ::: {.ide-link-div}
+    *filter\_none*
+    ``` {#ide-url}
+    ```
+    :::
+    :::
+
+    Output:
+
+        This is a Vehicle
+        Fare of Vehicle
+
+This article is contributed by [**Harsh
+Agarwal**](https://www.facebook.com/harsh.agarwal.16752) . If you like
+GeeksforGeeks and would like to contribute, you can also write an
+article using
+[contribute.geeksforgeeks.org](http://www.contribute.geeksforgeeks.org)
+or mail your article to contribute\@geeksforgeeks.org. See your article
+appearing on the GeeksforGeeks main page and help other Geeks.
+
+\
+\
+
+::: {#AP_G4GR_6}
+::: {#76621e0b-1fac-4840-ba08-8ec48d007bc6 ._ap_apex_ad render-time="1583432204438" section="76621e0b-1fac-4840-ba08-8ec48d007bc6" section-id="" xpath="#AP_G4GR_6:eq(0)" style="display: block; clear: both; text-align: center; margin: 10px auto;"}
+::: {#ADP_40792_728X280_76621e0b-1fac-4840-ba08-8ec48d007bc6 google-query-id="CLjD97_4g-gCFU90wQodVhgC-Q" style="margin: 0 auto"}
+::: {#google_ads_iframe_/103512698/21930050695_0__container__ style="border: 0pt none; display: inline-block; width: 728px; height: 280px;"}
+:::
+:::
+:::
+:::
+
+\
+
+::: {#personalNoteDiv .clear .hideIt}
+::: {.personalNoteHeader .clear}
+[ My Personal Notes ]{.noteHeaderText} [ *arrow\_drop\_up*
+]{.hideNotesDivIcon}
+:::
+
+::: {.collapsableDivPersonalNotes}
+::: {.saveNoteDiv}
+[ ]{.processSaveNote}
+
+Save
+:::
+:::
+:::
+
+::: {.recommendedPostsDiv}
+Recommended Posts: {#recommended-posts style="font-size:20px; color: #838383"}
+------------------
+
+-   [Inheritance in
+    Python](https://www.geeksforgeeks.org/inheritance-in-python/)
+-   [Multiple Inheritance in
+    C++](https://www.geeksforgeeks.org/multiple-inheritance-in-c/)
+-   [Inheritance in
+    Java](https://www.geeksforgeeks.org/inheritance-in-java/)
+-   [Inheritance and
+    friendship](https://www.geeksforgeeks.org/g-fact-34/)
+-   [Inheritance and constructors in
+    Java](https://www.geeksforgeeks.org/g-fact-67/)
+-   [Difference between Inheritance and
+    Polymorphism](https://www.geeksforgeeks.org/difference-between-inheritance-and-polymorphism/)
+-   [Does overloading work with
+    Inheritance?](https://www.geeksforgeeks.org/does-overloading-work-with-inheritance/)
+-   [Java and Multiple
+    Inheritance](https://www.geeksforgeeks.org/java-and-multiple-inheritance/)
+-   [Difference between Single and Multiple Inheritance in
+    C++](https://www.geeksforgeeks.org/difference-between-single-and-multiple-inheritance-in-c/)
+-   [OOP in Python \| Set 3 (Inheritance, examples of object, issubclass
+    and
+    super)](https://www.geeksforgeeks.org/oop-in-python-set-3-inheritance-examples-of-object-issubclass-and-super/)
+-   [Sum of non-diagonal parts of a square
+    Matrix](https://www.geeksforgeeks.org/sum-of-non-diagonal-parts-of-a-square-matrix/)
+-   [Check if X and Y can be made zero by using given operation any
+    number of
+    times](https://www.geeksforgeeks.org/check-if-x-and-y-can-be-made-zero-by-using-given-operation-any-number-of-times/)
+-   [Largest Even and Odd N-digit numbers in Hexadecimal Number
+    System](https://www.geeksforgeeks.org/largest-even-and-odd-n-digit-numbers-in-hexadecimal-number-system/)
+-   [Visibility Modes in C++ with
+    Examples](https://www.geeksforgeeks.org/visibility-modes-in-c-with-examples/)
+:::
+
+::: {#improvedBy}
+\
+**Improved By :**
+[vasu\_arora](https://auth.geeksforgeeks.org/user/vasu_arora/)
+:::
+
+\
+
+**Article Tags :**
+
+::: {.practiceButton}
+[C++](https://www.geeksforgeeks.org/category/programming-language/cpp/)
+:::
+
+::: {.practiceButton}
+[School
+Programming](https://www.geeksforgeeks.org/category/school-programming/)
+:::
+
+::: {.no-p-tag style="text-align:left;"}
+**Practice Tags :**
+
+::: {.practiceButton}
+[CPP](https://practice.geeksforgeeks.org/topics/CPP)
+:::
+:::
+
+\
+
+::: {#improveArticle style="float: right;cursor: pointer;"}
+:::
+
+::: {.plugins .upvoteArticle}
+<div>
+
+*thumb\_up*\
+[ 85 ]{.upvoteText}
+
+</div>
+
+::: {.plugins style="text-align:right;"}
+::: {#markPlugin pid="147294" ptitle="Inheritance in C++"}
+\
+\
+
+::: {.lists}
+To-do Done
+:::
+:::
+
+::: {#ratePlugin .difficultyRating pid="147294" ptitle="Inheritance in C++"}
+::: {.techno .dropdown}
+[ 2.2 ]{#rating_box .avg-rating .level-2}\
+\
+[ Based on **99** vote(s) ]{#vote_count}
+
+::: {.markRating .dropdown-content}
+:::
+
+[ ]{.process}
+:::
+:::
+:::
+
+::: {.plugins .userActionButtons}
+::: {#feedbackButtonDiv pid="147294" ptitle="Inheritance in C++" style="display:inline-block"}
+Feedback/ Suggest Improvement
+
+Add Notes
+
+Improve Article
+:::
+
+::: {#addNoteButtonDiv pid="147294" ptitle="Inheritance in C++" style="display:inline-block"}
+:::
+
+::: {#improveArticleButtonDiv pid="147294" ptitle="Inheritance in C++" style="display:inline-block"}
+:::
+:::
+
+::: {.common-bottom}
+Please write to us at contribute\@geeksforgeeks.org to report any issue
+with the above content.
+:::
+:::
+:::
