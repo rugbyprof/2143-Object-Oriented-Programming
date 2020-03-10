@@ -1,6 +1,8 @@
 ## Overloading  - Pokemon Class
 #### Due:  03-13-2020 (Friday @ 12:30 p.m.) 
 
+# Ignore For Now
+
 ## Overview
 
 So, I wanted to do something that wasn't "fractions" or "shapes" (points, lines, polygons) or anything that is super typical of an OOP class. So I thought we would design a class for a PokeMon. Ok. Have you stopped laughing yet? Check out all the data I have [here](../../Resources/99-Data/README.md) 
