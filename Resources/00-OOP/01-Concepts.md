@@ -64,7 +64,7 @@ to the appropriate function.
 which child classes may redefine. When this virtual member function is called for an object of the
 parent class, the execution dynamically chooses the appropriate function to call - the parent
 function if the object really is the parent type, or the child function if the object really is the
-child type. This explanation is too brief to be usesful without an example, but that will have to be
+child type. This explanation is too brief to be useful without an example, but that will have to be
 written latter.
 
 <sub>Source: http://www.fredosaurus.com/</sub>

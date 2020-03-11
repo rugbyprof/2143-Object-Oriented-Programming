@@ -157,7 +157,7 @@ public:
      * Overloaded ostream (<<)
      * 
      */
-    friend ostream &operator<<(ostream &os, const ClassA &rhs) {
+    friend ostream &operator<<(ostream &os, const ClassA rhs) {
         string stuff = "\nID: " + rhs.id + " ";
         stuff += "A: " + to_string(rhs.a) + " B: " + to_string(rhs.b) + " C: " + to_string(rhs.c) + "\n";
         stuff += "Container: ";

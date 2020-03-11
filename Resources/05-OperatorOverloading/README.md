@@ -220,7 +220,7 @@ The function signature could look like this:
 ```cpp
   // Add this instance's value to other, and return a new instance
   // with the result.
-  const MyClass MyClass::operator+(const MyClass &other) const {
+  MyClass MyClass::operator+(const MyClass &other) const {
     MyClass result = *this;     // Make a copy of myself.  Same as MyClass result(\*this);
     result += other;            // Use += to add other to the copy.
     return result;              // All done!
@@ -234,7 +234,7 @@ Actually, this explicitly spells out all of the steps, and if you want, you ***c
 ```cpp
   // Add this instance's value to other, and return a new instance
   // with the result.
-  const MyClass MyClass::operator+(const MyClass &other) const {
+  MyClass MyClass::operator+(const MyClass &other) const {
     return MyClass(*this) += other;
   }
 ```
