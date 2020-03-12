@@ -1,0 +1,5280 @@
+[
+    {
+        "id": 1,
+        "name": "Bulbasaur",
+        "base": {
+            "HP": 45,
+            "Attack": 49,
+            "Defense": 49,
+            "Sp. Attack": 65,
+            "Sp. Defense": 65,
+            "Speed": 45
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Ivysaur",
+        "base": {
+            "HP": 60,
+            "Attack": 62,
+            "Defense": 63,
+            "Sp. Attack": 80,
+            "Sp. Defense": 80,
+            "Speed": 60
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Venusaur",
+        "base": {
+            "HP": 80,
+            "Attack": 82,
+            "Defense": 83,
+            "Sp. Attack": 100,
+            "Sp. Defense": 100,
+            "Speed": 80
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Weedle",
+        "base": {
+            "HP": 40,
+            "Attack": 35,
+            "Defense": 30,
+            "Sp. Attack": 20,
+            "Sp. Defense": 20,
+            "Speed": 50
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Kakuna",
+        "base": {
+            "HP": 45,
+            "Attack": 25,
+            "Defense": 50,
+            "Sp. Attack": 25,
+            "Sp. Defense": 25,
+            "Speed": 35
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Beedrill",
+        "base": {
+            "HP": 65,
+            "Attack": 90,
+            "Defense": 40,
+            "Sp. Attack": 45,
+            "Sp. Defense": 80,
+            "Speed": 75
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Pidgey",
+        "base": {
+            "HP": 40,
+            "Attack": 45,
+            "Defense": 40,
+            "Sp. Attack": 35,
+            "Sp. Defense": 35,
+            "Speed": 56
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Pidgeotto",
+        "base": {
+            "HP": 63,
+            "Attack": 60,
+            "Defense": 55,
+            "Sp. Attack": 50,
+            "Sp. Defense": 50,
+            "Speed": 71
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Pidgeot",
+        "base": {
+            "HP": 83,
+            "Attack": 80,
+            "Defense": 75,
+            "Sp. Attack": 70,
+            "Sp. Defense": 70,
+            "Speed": 101
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Rattata",
+        "base": {
+            "HP": 30,
+            "Attack": 56,
+            "Defense": 35,
+            "Sp. Attack": 25,
+            "Sp. Defense": 35,
+            "Speed": 72
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Raticate",
+        "base": {
+            "HP": 55,
+            "Attack": 81,
+            "Defense": 60,
+            "Sp. Attack": 50,
+            "Sp. Defense": 70,
+            "Speed": 97
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Spearow",
+        "base": {
+            "HP": 40,
+            "Attack": 60,
+            "Defense": 30,
+            "Sp. Attack": 31,
+            "Sp. Defense": 31,
+            "Speed": 70
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Fearow",
+        "base": {
+            "HP": 65,
+            "Attack": 90,
+            "Defense": 65,
+            "Sp. Attack": 61,
+            "Sp. Defense": 61,
+            "Speed": 100
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Ekans",
+        "base": {
+            "HP": 35,
+            "Attack": 60,
+            "Defense": 44,
+            "Sp. Attack": 40,
+            "Sp. Defense": 54,
+            "Speed": 55
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Arbok",
+        "base": {
+            "HP": 60,
+            "Attack": 95,
+            "Defense": 69,
+            "Sp. Attack": 65,
+            "Sp. Defense": 79,
+            "Speed": 80
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Sandshrew",
+        "base": {
+            "HP": 50,
+            "Attack": 75,
+            "Defense": 85,
+            "Sp. Attack": 20,
+            "Sp. Defense": 30,
+            "Speed": 40
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Sandslash",
+        "base": {
+            "HP": 75,
+            "Attack": 100,
+            "Defense": 110,
+            "Sp. Attack": 45,
+            "Sp. Defense": 55,
+            "Speed": 65
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Nidoran\u2640",
+        "base": {
+            "HP": 55,
+            "Attack": 47,
+            "Defense": 52,
+            "Sp. Attack": 40,
+            "Sp. Defense": 40,
+            "Speed": 41
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Nidorina",
+        "base": {
+            "HP": 70,
+            "Attack": 62,
+            "Defense": 67,
+            "Sp. Attack": 55,
+            "Sp. Defense": 55,
+            "Speed": 56
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "Nidoqueen",
+        "base": {
+            "HP": 90,
+            "Attack": 92,
+            "Defense": 87,
+            "Sp. Attack": 75,
+            "Sp. Defense": 85,
+            "Speed": 76
+        },
+        "type": [
+            "Poison",
+            "Ground"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "Nidoqueen",
+        "base": {
+            "HP": 90,
+            "Attack": 92,
+            "Defense": 87,
+            "Sp. Attack": 75,
+            "Sp. Defense": 85,
+            "Speed": 76
+        },
+        "type": [
+            "Poison",
+            "Ground"
+        ]
+    },
+    {
+        "id": 32,
+        "name": "Nidoran\u2642",
+        "base": {
+            "HP": 46,
+            "Attack": 57,
+            "Defense": 40,
+            "Sp. Attack": 40,
+            "Sp. Defense": 40,
+            "Speed": 50
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 33,
+        "name": "Nidorino",
+        "base": {
+            "HP": 61,
+            "Attack": 72,
+            "Defense": 57,
+            "Sp. Attack": 55,
+            "Sp. Defense": 55,
+            "Speed": 65
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Nidoking",
+        "base": {
+            "HP": 81,
+            "Attack": 102,
+            "Defense": 77,
+            "Sp. Attack": 85,
+            "Sp. Defense": 75,
+            "Speed": 85
+        },
+        "type": [
+            "Poison",
+            "Ground"
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Nidoking",
+        "base": {
+            "HP": 81,
+            "Attack": 102,
+            "Defense": 77,
+            "Sp. Attack": 85,
+            "Sp. Defense": 75,
+            "Speed": 85
+        },
+        "type": [
+            "Poison",
+            "Ground"
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Jigglypuff",
+        "base": {
+            "HP": 115,
+            "Attack": 45,
+            "Defense": 20,
+            "Sp. Attack": 45,
+            "Sp. Defense": 25,
+            "Speed": 20
+        },
+        "type": [
+            "Normal",
+            "Fairy"
+        ]
+    },
+    {
+        "id": 40,
+        "name": "Wigglytuff",
+        "base": {
+            "HP": 140,
+            "Attack": 70,
+            "Defense": 45,
+            "Sp. Attack": 85,
+            "Sp. Defense": 50,
+            "Speed": 45
+        },
+        "type": [
+            "Normal",
+            "Fairy"
+        ]
+    },
+    {
+        "id": 41,
+        "name": "Zubat",
+        "base": {
+            "HP": 40,
+            "Attack": 45,
+            "Defense": 35,
+            "Sp. Attack": 30,
+            "Sp. Defense": 40,
+            "Speed": 55
+        },
+        "type": [
+            "Poison",
+            "Flying"
+        ]
+    },
+    {
+        "id": 42,
+        "name": "Golbat",
+        "base": {
+            "HP": 75,
+            "Attack": 80,
+            "Defense": 70,
+            "Sp. Attack": 65,
+            "Sp. Defense": 75,
+            "Speed": 90
+        },
+        "type": [
+            "Poison",
+            "Flying"
+        ]
+    },
+    {
+        "id": 43,
+        "name": "Oddish",
+        "base": {
+            "HP": 45,
+            "Attack": 50,
+            "Defense": 55,
+            "Sp. Attack": 75,
+            "Sp. Defense": 65,
+            "Speed": 30
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 44,
+        "name": "Gloom",
+        "base": {
+            "HP": 60,
+            "Attack": 65,
+            "Defense": 70,
+            "Sp. Attack": 85,
+            "Sp. Defense": 75,
+            "Speed": 40
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 45,
+        "name": "Vileplume",
+        "base": {
+            "HP": 75,
+            "Attack": 80,
+            "Defense": 85,
+            "Sp. Attack": 110,
+            "Sp. Defense": 90,
+            "Speed": 50
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 48,
+        "name": "Venonat",
+        "base": {
+            "HP": 60,
+            "Attack": 55,
+            "Defense": 50,
+            "Sp. Attack": 40,
+            "Sp. Defense": 55,
+            "Speed": 45
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 49,
+        "name": "Venomoth",
+        "base": {
+            "HP": 70,
+            "Attack": 65,
+            "Defense": 60,
+            "Sp. Attack": 90,
+            "Sp. Defense": 75,
+            "Speed": 90
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 50,
+        "name": "Diglett",
+        "base": {
+            "HP": 10,
+            "Attack": 55,
+            "Defense": 25,
+            "Sp. Attack": 35,
+            "Sp. Defense": 45,
+            "Speed": 95
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 51,
+        "name": "Dugtrio",
+        "base": {
+            "HP": 35,
+            "Attack": 100,
+            "Defense": 50,
+            "Sp. Attack": 50,
+            "Sp. Defense": 70,
+            "Speed": 120
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 52,
+        "name": "Meowth",
+        "base": {
+            "HP": 40,
+            "Attack": 45,
+            "Defense": 35,
+            "Sp. Attack": 40,
+            "Sp. Defense": 40,
+            "Speed": 90
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 53,
+        "name": "Persian",
+        "base": {
+            "HP": 65,
+            "Attack": 70,
+            "Defense": 60,
+            "Sp. Attack": 65,
+            "Sp. Defense": 65,
+            "Speed": 115
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 56,
+        "name": "Mankey",
+        "base": {
+            "HP": 40,
+            "Attack": 80,
+            "Defense": 35,
+            "Sp. Attack": 35,
+            "Sp. Defense": 45,
+            "Speed": 70
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 57,
+        "name": "Primeape",
+        "base": {
+            "HP": 65,
+            "Attack": 105,
+            "Defense": 60,
+            "Sp. Attack": 60,
+            "Sp. Defense": 70,
+            "Speed": 95
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 62,
+        "name": "Poliwrath",
+        "base": {
+            "HP": 90,
+            "Attack": 95,
+            "Defense": 95,
+            "Sp. Attack": 70,
+            "Sp. Defense": 90,
+            "Speed": 70
+        },
+        "type": [
+            "Water",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 66,
+        "name": "Machop",
+        "base": {
+            "HP": 70,
+            "Attack": 80,
+            "Defense": 50,
+            "Sp. Attack": 35,
+            "Sp. Defense": 35,
+            "Speed": 35
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 67,
+        "name": "Machoke",
+        "base": {
+            "HP": 80,
+            "Attack": 100,
+            "Defense": 70,
+            "Sp. Attack": 50,
+            "Sp. Defense": 60,
+            "Speed": 45
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 68,
+        "name": "Machamp",
+        "base": {
+            "HP": 90,
+            "Attack": 130,
+            "Defense": 80,
+            "Sp. Attack": 65,
+            "Sp. Defense": 85,
+            "Speed": 55
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 69,
+        "name": "Bellsprout",
+        "base": {
+            "HP": 50,
+            "Attack": 75,
+            "Defense": 35,
+            "Sp. Attack": 70,
+            "Sp. Defense": 30,
+            "Speed": 40
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 70,
+        "name": "Weepinbell",
+        "base": {
+            "HP": 65,
+            "Attack": 90,
+            "Defense": 50,
+            "Sp. Attack": 85,
+            "Sp. Defense": 45,
+            "Speed": 55
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 71,
+        "name": "Victreebel",
+        "base": {
+            "HP": 80,
+            "Attack": 105,
+            "Defense": 65,
+            "Sp. Attack": 100,
+            "Sp. Defense": 70,
+            "Speed": 70
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 72,
+        "name": "Tentacool",
+        "base": {
+            "HP": 40,
+            "Attack": 40,
+            "Defense": 35,
+            "Sp. Attack": 50,
+            "Sp. Defense": 100,
+            "Speed": 70
+        },
+        "type": [
+            "Water",
+            "Poison"
+        ]
+    },
+    {
+        "id": 73,
+        "name": "Tentacruel",
+        "base": {
+            "HP": 80,
+            "Attack": 70,
+            "Defense": 65,
+            "Sp. Attack": 80,
+            "Sp. Defense": 120,
+            "Speed": 100
+        },
+        "type": [
+            "Water",
+            "Poison"
+        ]
+    },
+    {
+        "id": 74,
+        "name": "Geodude",
+        "base": {
+            "HP": 40,
+            "Attack": 80,
+            "Defense": 100,
+            "Sp. Attack": 30,
+            "Sp. Defense": 30,
+            "Speed": 20
+        },
+        "type": [
+            "Rock",
+            "Ground"
+        ]
+    },
+    {
+        "id": 75,
+        "name": "Graveler",
+        "base": {
+            "HP": 55,
+            "Attack": 95,
+            "Defense": 115,
+            "Sp. Attack": 45,
+            "Sp. Defense": 45,
+            "Speed": 35
+        },
+        "type": [
+            "Rock",
+            "Ground"
+        ]
+    },
+    {
+        "id": 76,
+        "name": "Golem",
+        "base": {
+            "HP": 80,
+            "Attack": 120,
+            "Defense": 130,
+            "Sp. Attack": 55,
+            "Sp. Defense": 65,
+            "Speed": 45
+        },
+        "type": [
+            "Rock",
+            "Ground"
+        ]
+    },
+    {
+        "id": 83,
+        "name": "Farfetch'd",
+        "base": {
+            "HP": 52,
+            "Attack": 90,
+            "Defense": 55,
+            "Sp. Attack": 58,
+            "Sp. Defense": 62,
+            "Speed": 60
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 84,
+        "name": "Doduo",
+        "base": {
+            "HP": 35,
+            "Attack": 85,
+            "Defense": 45,
+            "Sp. Attack": 35,
+            "Sp. Defense": 35,
+            "Speed": 75
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 85,
+        "name": "Dodrio",
+        "base": {
+            "HP": 60,
+            "Attack": 110,
+            "Defense": 70,
+            "Sp. Attack": 60,
+            "Sp. Defense": 60,
+            "Speed": 110
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 88,
+        "name": "Grimer",
+        "base": {
+            "HP": 80,
+            "Attack": 80,
+            "Defense": 50,
+            "Sp. Attack": 40,
+            "Sp. Defense": 50,
+            "Speed": 25
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 89,
+        "name": "Muk",
+        "base": {
+            "HP": 105,
+            "Attack": 105,
+            "Defense": 75,
+            "Sp. Attack": 65,
+            "Sp. Defense": 100,
+            "Speed": 50
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 92,
+        "name": "Gastly",
+        "base": {
+            "HP": 30,
+            "Attack": 35,
+            "Defense": 30,
+            "Sp. Attack": 100,
+            "Sp. Defense": 35,
+            "Speed": 80
+        },
+        "type": [
+            "Ghost",
+            "Poison"
+        ]
+    },
+    {
+        "id": 93,
+        "name": "Haunter",
+        "base": {
+            "HP": 45,
+            "Attack": 50,
+            "Defense": 45,
+            "Sp. Attack": 115,
+            "Sp. Defense": 55,
+            "Speed": 95
+        },
+        "type": [
+            "Ghost",
+            "Poison"
+        ]
+    },
+    {
+        "id": 94,
+        "name": "Gengar",
+        "base": {
+            "HP": 60,
+            "Attack": 65,
+            "Defense": 60,
+            "Sp. Attack": 130,
+            "Sp. Defense": 75,
+            "Speed": 110
+        },
+        "type": [
+            "Ghost",
+            "Poison"
+        ]
+    },
+    {
+        "id": 95,
+        "name": "Onix",
+        "base": {
+            "HP": 35,
+            "Attack": 45,
+            "Defense": 160,
+            "Sp. Attack": 30,
+            "Sp. Defense": 45,
+            "Speed": 70
+        },
+        "type": [
+            "Rock",
+            "Ground"
+        ]
+    },
+    {
+        "id": 104,
+        "name": "Cubone",
+        "base": {
+            "HP": 50,
+            "Attack": 50,
+            "Defense": 95,
+            "Sp. Attack": 40,
+            "Sp. Defense": 50,
+            "Speed": 35
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 105,
+        "name": "Marowak",
+        "base": {
+            "HP": 60,
+            "Attack": 80,
+            "Defense": 110,
+            "Sp. Attack": 50,
+            "Sp. Defense": 80,
+            "Speed": 45
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 106,
+        "name": "Hitmonlee",
+        "base": {
+            "HP": 50,
+            "Attack": 120,
+            "Defense": 53,
+            "Sp. Attack": 35,
+            "Sp. Defense": 110,
+            "Speed": 87
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 107,
+        "name": "Hitmonchan",
+        "base": {
+            "HP": 50,
+            "Attack": 105,
+            "Defense": 79,
+            "Sp. Attack": 35,
+            "Sp. Defense": 110,
+            "Speed": 76
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 108,
+        "name": "Lickitung",
+        "base": {
+            "HP": 90,
+            "Attack": 55,
+            "Defense": 75,
+            "Sp. Attack": 60,
+            "Sp. Defense": 75,
+            "Speed": 30
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 109,
+        "name": "Koffing",
+        "base": {
+            "HP": 40,
+            "Attack": 65,
+            "Defense": 95,
+            "Sp. Attack": 60,
+            "Sp. Defense": 45,
+            "Speed": 35
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 110,
+        "name": "Weezing",
+        "base": {
+            "HP": 65,
+            "Attack": 90,
+            "Defense": 120,
+            "Sp. Attack": 85,
+            "Sp. Defense": 70,
+            "Speed": 60
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 111,
+        "name": "Rhyhorn",
+        "base": {
+            "HP": 80,
+            "Attack": 85,
+            "Defense": 95,
+            "Sp. Attack": 30,
+            "Sp. Defense": 30,
+            "Speed": 25
+        },
+        "type": [
+            "Ground",
+            "Rock"
+        ]
+    },
+    {
+        "id": 112,
+        "name": "Rhydon",
+        "base": {
+            "HP": 105,
+            "Attack": 130,
+            "Defense": 120,
+            "Sp. Attack": 45,
+            "Sp. Defense": 45,
+            "Speed": 40
+        },
+        "type": [
+            "Ground",
+            "Rock"
+        ]
+    },
+    {
+        "id": 113,
+        "name": "Chansey",
+        "base": {
+            "HP": 250,
+            "Attack": 5,
+            "Defense": 5,
+            "Sp. Attack": 35,
+            "Sp. Defense": 105,
+            "Speed": 50
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 115,
+        "name": "Kangaskhan",
+        "base": {
+            "HP": 105,
+            "Attack": 95,
+            "Defense": 80,
+            "Sp. Attack": 40,
+            "Sp. Defense": 80,
+            "Speed": 90
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 128,
+        "name": "Tauros",
+        "base": {
+            "HP": 75,
+            "Attack": 100,
+            "Defense": 95,
+            "Sp. Attack": 40,
+            "Sp. Defense": 70,
+            "Speed": 110
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 132,
+        "name": "Ditto",
+        "base": {
+            "HP": 48,
+            "Attack": 48,
+            "Defense": 48,
+            "Sp. Attack": 48,
+            "Sp. Defense": 48,
+            "Speed": 48
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 133,
+        "name": "Eevee",
+        "base": {
+            "HP": 55,
+            "Attack": 55,
+            "Defense": 50,
+            "Sp. Attack": 45,
+            "Sp. Defense": 65,
+            "Speed": 55
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 137,
+        "name": "Porygon",
+        "base": {
+            "HP": 65,
+            "Attack": 60,
+            "Defense": 70,
+            "Sp. Attack": 85,
+            "Sp. Defense": 75,
+            "Speed": 40
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 143,
+        "name": "Snorlax",
+        "base": {
+            "HP": 160,
+            "Attack": 110,
+            "Defense": 65,
+            "Sp. Attack": 65,
+            "Sp. Defense": 110,
+            "Speed": 30
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 147,
+        "name": "Dratini",
+        "base": {
+            "HP": 41,
+            "Attack": 64,
+            "Defense": 45,
+            "Sp. Attack": 50,
+            "Sp. Defense": 50,
+            "Speed": 50
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 148,
+        "name": "Dragonair",
+        "base": {
+            "HP": 61,
+            "Attack": 84,
+            "Defense": 65,
+            "Sp. Attack": 70,
+            "Sp. Defense": 70,
+            "Speed": 70
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 149,
+        "name": "Dragonite",
+        "base": {
+            "HP": 91,
+            "Attack": 134,
+            "Defense": 95,
+            "Sp. Attack": 100,
+            "Sp. Defense": 100,
+            "Speed": 80
+        },
+        "type": [
+            "Dragon",
+            "Flying"
+        ]
+    },
+    {
+        "id": 161,
+        "name": "Sentret",
+        "base": {
+            "HP": 35,
+            "Attack": 46,
+            "Defense": 34,
+            "Sp. Attack": 35,
+            "Sp. Defense": 45,
+            "Speed": 20
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 162,
+        "name": "Furret",
+        "base": {
+            "HP": 85,
+            "Attack": 76,
+            "Defense": 64,
+            "Sp. Attack": 45,
+            "Sp. Defense": 55,
+            "Speed": 90
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 163,
+        "name": "Hoothoot",
+        "base": {
+            "HP": 60,
+            "Attack": 30,
+            "Defense": 30,
+            "Sp. Attack": 36,
+            "Sp. Defense": 56,
+            "Speed": 50
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 164,
+        "name": "Noctowl",
+        "base": {
+            "HP": 100,
+            "Attack": 50,
+            "Defense": 50,
+            "Sp. Attack": 86,
+            "Sp. Defense": 96,
+            "Speed": 70
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 167,
+        "name": "Spinarak",
+        "base": {
+            "HP": 40,
+            "Attack": 60,
+            "Defense": 40,
+            "Sp. Attack": 40,
+            "Sp. Defense": 40,
+            "Speed": 30
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 168,
+        "name": "Ariados",
+        "base": {
+            "HP": 70,
+            "Attack": 90,
+            "Defense": 70,
+            "Sp. Attack": 60,
+            "Sp. Defense": 70,
+            "Speed": 40
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 169,
+        "name": "Crobat",
+        "base": {
+            "HP": 85,
+            "Attack": 90,
+            "Defense": 80,
+            "Sp. Attack": 70,
+            "Sp. Defense": 80,
+            "Speed": 130
+        },
+        "type": [
+            "Poison",
+            "Flying"
+        ]
+    },
+    {
+        "id": 174,
+        "name": "Igglybuff",
+        "base": {
+            "HP": 90,
+            "Attack": 30,
+            "Defense": 15,
+            "Sp. Attack": 40,
+            "Sp. Defense": 20,
+            "Speed": 15
+        },
+        "type": [
+            "Normal",
+            "Fairy"
+        ]
+    },
+    {
+        "id": 190,
+        "name": "Aipom",
+        "base": {
+            "HP": 55,
+            "Attack": 70,
+            "Defense": 55,
+            "Sp. Attack": 40,
+            "Sp. Defense": 55,
+            "Speed": 85
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 194,
+        "name": "Wooper",
+        "base": {
+            "HP": 55,
+            "Attack": 45,
+            "Defense": 45,
+            "Sp. Attack": 25,
+            "Sp. Defense": 25,
+            "Speed": 15
+        },
+        "type": [
+            "Water",
+            "Ground"
+        ]
+    },
+    {
+        "id": 195,
+        "name": "Quagsire",
+        "base": {
+            "HP": 95,
+            "Attack": 85,
+            "Defense": 85,
+            "Sp. Attack": 65,
+            "Sp. Defense": 65,
+            "Speed": 35
+        },
+        "type": [
+            "Water",
+            "Ground"
+        ]
+    },
+    {
+        "id": 203,
+        "name": "Girafarig",
+        "base": {
+            "HP": 70,
+            "Attack": 80,
+            "Defense": 65,
+            "Sp. Attack": 90,
+            "Sp. Defense": 65,
+            "Speed": 85
+        },
+        "type": [
+            "Normal",
+            "Psychic"
+        ]
+    },
+    {
+        "id": 206,
+        "name": "Dunsparce",
+        "base": {
+            "HP": 100,
+            "Attack": 70,
+            "Defense": 70,
+            "Sp. Attack": 65,
+            "Sp. Defense": 65,
+            "Speed": 45
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 207,
+        "name": "Gligar",
+        "base": {
+            "HP": 65,
+            "Attack": 75,
+            "Defense": 105,
+            "Sp. Attack": 35,
+            "Sp. Defense": 65,
+            "Speed": 85
+        },
+        "type": [
+            "Ground",
+            "Flying"
+        ]
+    },
+    {
+        "id": 208,
+        "name": "Steelix",
+        "base": {
+            "HP": 75,
+            "Attack": 85,
+            "Defense": 200,
+            "Sp. Attack": 55,
+            "Sp. Defense": 65,
+            "Speed": 30
+        },
+        "type": [
+            "Steel",
+            "Ground"
+        ]
+    },
+    {
+        "id": 211,
+        "name": "Qwilfish",
+        "base": {
+            "HP": 65,
+            "Attack": 95,
+            "Defense": 85,
+            "Sp. Attack": 55,
+            "Sp. Defense": 55,
+            "Speed": 85
+        },
+        "type": [
+            "Water",
+            "Poison"
+        ]
+    },
+    {
+        "id": 214,
+        "name": "Heracross",
+        "base": {
+            "HP": 80,
+            "Attack": 125,
+            "Defense": 75,
+            "Sp. Attack": 40,
+            "Sp. Defense": 95,
+            "Speed": 85
+        },
+        "type": [
+            "Bug",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 216,
+        "name": "Teddiursa",
+        "base": {
+            "HP": 60,
+            "Attack": 80,
+            "Defense": 50,
+            "Sp. Attack": 50,
+            "Sp. Defense": 50,
+            "Speed": 40
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 217,
+        "name": "Ursaring",
+        "base": {
+            "HP": 90,
+            "Attack": 130,
+            "Defense": 75,
+            "Sp. Attack": 75,
+            "Sp. Defense": 75,
+            "Speed": 55
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 220,
+        "name": "Swinub",
+        "base": {
+            "HP": 50,
+            "Attack": 50,
+            "Defense": 40,
+            "Sp. Attack": 30,
+            "Sp. Defense": 30,
+            "Speed": 50
+        },
+        "type": [
+            "Ice",
+            "Ground"
+        ]
+    },
+    {
+        "id": 221,
+        "name": "Piloswine",
+        "base": {
+            "HP": 100,
+            "Attack": 100,
+            "Defense": 80,
+            "Sp. Attack": 60,
+            "Sp. Defense": 60,
+            "Speed": 50
+        },
+        "type": [
+            "Ice",
+            "Ground"
+        ]
+    },
+    {
+        "id": 230,
+        "name": "Kingdra",
+        "base": {
+            "HP": 75,
+            "Attack": 95,
+            "Defense": 95,
+            "Sp. Attack": 95,
+            "Sp. Defense": 95,
+            "Speed": 85
+        },
+        "type": [
+            "Water",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 231,
+        "name": "Phanpy",
+        "base": {
+            "HP": 90,
+            "Attack": 60,
+            "Defense": 60,
+            "Sp. Attack": 40,
+            "Sp. Defense": 40,
+            "Speed": 40
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 232,
+        "name": "Donphan",
+        "base": {
+            "HP": 90,
+            "Attack": 120,
+            "Defense": 120,
+            "Sp. Attack": 60,
+            "Sp. Defense": 60,
+            "Speed": 50
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 233,
+        "name": "Porygon2",
+        "base": {
+            "HP": 85,
+            "Attack": 80,
+            "Defense": 90,
+            "Sp. Attack": 105,
+            "Sp. Defense": 95,
+            "Speed": 60
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 234,
+        "name": "Stantler",
+        "base": {
+            "HP": 73,
+            "Attack": 95,
+            "Defense": 62,
+            "Sp. Attack": 85,
+            "Sp. Defense": 65,
+            "Speed": 85
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 235,
+        "name": "Smeargle",
+        "base": {
+            "HP": 55,
+            "Attack": 20,
+            "Defense": 35,
+            "Sp. Attack": 20,
+            "Sp. Defense": 45,
+            "Speed": 75
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 236,
+        "name": "Tyrogue",
+        "base": {
+            "HP": 35,
+            "Attack": 35,
+            "Defense": 35,
+            "Sp. Attack": 35,
+            "Sp. Defense": 35,
+            "Speed": 35
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 237,
+        "name": "Hitmontop",
+        "base": {
+            "HP": 50,
+            "Attack": 95,
+            "Defense": 95,
+            "Sp. Attack": 35,
+            "Sp. Defense": 110,
+            "Speed": 70
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 241,
+        "name": "Miltank",
+        "base": {
+            "HP": 95,
+            "Attack": 80,
+            "Defense": 105,
+            "Sp. Attack": 40,
+            "Sp. Defense": 70,
+            "Speed": 100
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 242,
+        "name": "Blissey",
+        "base": {
+            "HP": 255,
+            "Attack": 10,
+            "Defense": 10,
+            "Sp. Attack": 75,
+            "Sp. Defense": 135,
+            "Speed": 55
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 246,
+        "name": "Larvitar",
+        "base": {
+            "HP": 50,
+            "Attack": 64,
+            "Defense": 50,
+            "Sp. Attack": 45,
+            "Sp. Defense": 50,
+            "Speed": 41
+        },
+        "type": [
+            "Rock",
+            "Ground"
+        ]
+    },
+    {
+        "id": 247,
+        "name": "Pupitar",
+        "base": {
+            "HP": 70,
+            "Attack": 84,
+            "Defense": 70,
+            "Sp. Attack": 65,
+            "Sp. Defense": 70,
+            "Speed": 51
+        },
+        "type": [
+            "Rock",
+            "Ground"
+        ]
+    },
+    {
+        "id": 256,
+        "name": "Combusken",
+        "base": {
+            "HP": 60,
+            "Attack": 85,
+            "Defense": 60,
+            "Sp. Attack": 85,
+            "Sp. Defense": 60,
+            "Speed": 55
+        },
+        "type": [
+            "Fire",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 257,
+        "name": "Blaziken",
+        "base": {
+            "HP": 80,
+            "Attack": 120,
+            "Defense": 70,
+            "Sp. Attack": 110,
+            "Sp. Defense": 70,
+            "Speed": 80
+        },
+        "type": [
+            "Fire",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 259,
+        "name": "Marshtomp",
+        "base": {
+            "HP": 70,
+            "Attack": 85,
+            "Defense": 70,
+            "Sp. Attack": 60,
+            "Sp. Defense": 70,
+            "Speed": 50
+        },
+        "type": [
+            "Water",
+            "Ground"
+        ]
+    },
+    {
+        "id": 260,
+        "name": "Swampert",
+        "base": {
+            "HP": 100,
+            "Attack": 110,
+            "Defense": 90,
+            "Sp. Attack": 85,
+            "Sp. Defense": 90,
+            "Speed": 60
+        },
+        "type": [
+            "Water",
+            "Ground"
+        ]
+    },
+    {
+        "id": 263,
+        "name": "Zigzagoon",
+        "base": {
+            "HP": 38,
+            "Attack": 30,
+            "Defense": 41,
+            "Sp. Attack": 30,
+            "Sp. Defense": 41,
+            "Speed": 60
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 264,
+        "name": "Linoone",
+        "base": {
+            "HP": 78,
+            "Attack": 70,
+            "Defense": 61,
+            "Sp. Attack": 50,
+            "Sp. Defense": 61,
+            "Speed": 100
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 269,
+        "name": "Dustox",
+        "base": {
+            "HP": 60,
+            "Attack": 50,
+            "Defense": 70,
+            "Sp. Attack": 50,
+            "Sp. Defense": 90,
+            "Speed": 65
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 276,
+        "name": "Taillow",
+        "base": {
+            "HP": 40,
+            "Attack": 55,
+            "Defense": 30,
+            "Sp. Attack": 30,
+            "Sp. Defense": 30,
+            "Speed": 85
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 277,
+        "name": "Swellow",
+        "base": {
+            "HP": 60,
+            "Attack": 85,
+            "Defense": 60,
+            "Sp. Attack": 75,
+            "Sp. Defense": 50,
+            "Speed": 125
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 286,
+        "name": "Breloom",
+        "base": {
+            "HP": 60,
+            "Attack": 130,
+            "Defense": 80,
+            "Sp. Attack": 60,
+            "Sp. Defense": 60,
+            "Speed": 70
+        },
+        "type": [
+            "Grass",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 287,
+        "name": "Slakoth",
+        "base": {
+            "HP": 60,
+            "Attack": 60,
+            "Defense": 60,
+            "Sp. Attack": 35,
+            "Sp. Defense": 35,
+            "Speed": 30
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 288,
+        "name": "Vigoroth",
+        "base": {
+            "HP": 80,
+            "Attack": 80,
+            "Defense": 80,
+            "Sp. Attack": 55,
+            "Sp. Defense": 55,
+            "Speed": 90
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 289,
+        "name": "Slaking",
+        "base": {
+            "HP": 150,
+            "Attack": 160,
+            "Defense": 100,
+            "Sp. Attack": 95,
+            "Sp. Defense": 65,
+            "Speed": 100
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 290,
+        "name": "Nincada",
+        "base": {
+            "HP": 31,
+            "Attack": 45,
+            "Defense": 90,
+            "Sp. Attack": 30,
+            "Sp. Defense": 30,
+            "Speed": 40
+        },
+        "type": [
+            "Bug",
+            "Ground"
+        ]
+    },
+    {
+        "id": 293,
+        "name": "Whismur",
+        "base": {
+            "HP": 64,
+            "Attack": 51,
+            "Defense": 23,
+            "Sp. Attack": 51,
+            "Sp. Defense": 23,
+            "Speed": 28
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 294,
+        "name": "Loudred",
+        "base": {
+            "HP": 84,
+            "Attack": 71,
+            "Defense": 43,
+            "Sp. Attack": 71,
+            "Sp. Defense": 43,
+            "Speed": 48
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 295,
+        "name": "Exploud",
+        "base": {
+            "HP": 104,
+            "Attack": 91,
+            "Defense": 63,
+            "Sp. Attack": 91,
+            "Sp. Defense": 73,
+            "Speed": 68
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 296,
+        "name": "Makuhita",
+        "base": {
+            "HP": 72,
+            "Attack": 60,
+            "Defense": 30,
+            "Sp. Attack": 20,
+            "Sp. Defense": 30,
+            "Speed": 25
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 297,
+        "name": "Hariyama",
+        "base": {
+            "HP": 144,
+            "Attack": 120,
+            "Defense": 60,
+            "Sp. Attack": 40,
+            "Sp. Defense": 60,
+            "Speed": 50
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 298,
+        "name": "Azurill",
+        "base": {
+            "HP": 50,
+            "Attack": 20,
+            "Defense": 40,
+            "Sp. Attack": 20,
+            "Sp. Defense": 40,
+            "Speed": 20
+        },
+        "type": [
+            "Normal",
+            "Fairy"
+        ]
+    },
+    {
+        "id": 300,
+        "name": "Skitty",
+        "base": {
+            "HP": 50,
+            "Attack": 45,
+            "Defense": 45,
+            "Sp. Attack": 35,
+            "Sp. Defense": 35,
+            "Speed": 50
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 301,
+        "name": "Delcatty",
+        "base": {
+            "HP": 70,
+            "Attack": 65,
+            "Defense": 65,
+            "Sp. Attack": 55,
+            "Sp. Defense": 55,
+            "Speed": 90
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 307,
+        "name": "Meditite",
+        "base": {
+            "HP": 30,
+            "Attack": 40,
+            "Defense": 55,
+            "Sp. Attack": 40,
+            "Sp. Defense": 55,
+            "Speed": 60
+        },
+        "type": [
+            "Fighting",
+            "Psychic"
+        ]
+    },
+    {
+        "id": 308,
+        "name": "Medicham",
+        "base": {
+            "HP": 60,
+            "Attack": 60,
+            "Defense": 75,
+            "Sp. Attack": 60,
+            "Sp. Defense": 75,
+            "Speed": 80
+        },
+        "type": [
+            "Fighting",
+            "Psychic"
+        ]
+    },
+    {
+        "id": 315,
+        "name": "Roselia",
+        "base": {
+            "HP": 50,
+            "Attack": 60,
+            "Defense": 45,
+            "Sp. Attack": 100,
+            "Sp. Defense": 80,
+            "Speed": 65
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 316,
+        "name": "Gulpin",
+        "base": {
+            "HP": 70,
+            "Attack": 43,
+            "Defense": 53,
+            "Sp. Attack": 43,
+            "Sp. Defense": 53,
+            "Speed": 40
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 317,
+        "name": "Swalot",
+        "base": {
+            "HP": 100,
+            "Attack": 73,
+            "Defense": 83,
+            "Sp. Attack": 73,
+            "Sp. Defense": 83,
+            "Speed": 55
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 322,
+        "name": "Numel",
+        "base": {
+            "HP": 60,
+            "Attack": 60,
+            "Defense": 40,
+            "Sp. Attack": 65,
+            "Sp. Defense": 45,
+            "Speed": 35
+        },
+        "type": [
+            "Fire",
+            "Ground"
+        ]
+    },
+    {
+        "id": 323,
+        "name": "Camerupt",
+        "base": {
+            "HP": 70,
+            "Attack": 100,
+            "Defense": 70,
+            "Sp. Attack": 105,
+            "Sp. Defense": 75,
+            "Speed": 40
+        },
+        "type": [
+            "Fire",
+            "Ground"
+        ]
+    },
+    {
+        "id": 327,
+        "name": "Spinda",
+        "base": {
+            "HP": 60,
+            "Attack": 60,
+            "Defense": 60,
+            "Sp. Attack": 60,
+            "Sp. Defense": 60,
+            "Speed": 60
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 328,
+        "name": "Trapinch",
+        "base": {
+            "HP": 45,
+            "Attack": 100,
+            "Defense": 45,
+            "Sp. Attack": 45,
+            "Sp. Defense": 45,
+            "Speed": 10
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 329,
+        "name": "Vibrava",
+        "base": {
+            "HP": 50,
+            "Attack": 70,
+            "Defense": 50,
+            "Sp. Attack": 50,
+            "Sp. Defense": 50,
+            "Speed": 70
+        },
+        "type": [
+            "Ground",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 329,
+        "name": "Vibrava",
+        "base": {
+            "HP": 50,
+            "Attack": 70,
+            "Defense": 50,
+            "Sp. Attack": 50,
+            "Sp. Defense": 50,
+            "Speed": 70
+        },
+        "type": [
+            "Ground",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 330,
+        "name": "Flygon",
+        "base": {
+            "HP": 80,
+            "Attack": 100,
+            "Defense": 80,
+            "Sp. Attack": 80,
+            "Sp. Defense": 80,
+            "Speed": 100
+        },
+        "type": [
+            "Ground",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 330,
+        "name": "Flygon",
+        "base": {
+            "HP": 80,
+            "Attack": 100,
+            "Defense": 80,
+            "Sp. Attack": 80,
+            "Sp. Defense": 80,
+            "Speed": 100
+        },
+        "type": [
+            "Ground",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 333,
+        "name": "Swablu",
+        "base": {
+            "HP": 45,
+            "Attack": 40,
+            "Defense": 60,
+            "Sp. Attack": 40,
+            "Sp. Defense": 75,
+            "Speed": 50
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 334,
+        "name": "Altaria",
+        "base": {
+            "HP": 75,
+            "Attack": 70,
+            "Defense": 90,
+            "Sp. Attack": 70,
+            "Sp. Defense": 105,
+            "Speed": 80
+        },
+        "type": [
+            "Dragon",
+            "Flying"
+        ]
+    },
+    {
+        "id": 335,
+        "name": "Zangoose",
+        "base": {
+            "HP": 73,
+            "Attack": 115,
+            "Defense": 60,
+            "Sp. Attack": 60,
+            "Sp. Defense": 60,
+            "Speed": 90
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 336,
+        "name": "Seviper",
+        "base": {
+            "HP": 73,
+            "Attack": 100,
+            "Defense": 60,
+            "Sp. Attack": 100,
+            "Sp. Defense": 60,
+            "Speed": 65
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 339,
+        "name": "Barboach",
+        "base": {
+            "HP": 50,
+            "Attack": 48,
+            "Defense": 43,
+            "Sp. Attack": 46,
+            "Sp. Defense": 41,
+            "Speed": 60
+        },
+        "type": [
+            "Water",
+            "Ground"
+        ]
+    },
+    {
+        "id": 340,
+        "name": "Whiscash",
+        "base": {
+            "HP": 110,
+            "Attack": 78,
+            "Defense": 73,
+            "Sp. Attack": 76,
+            "Sp. Defense": 71,
+            "Speed": 60
+        },
+        "type": [
+            "Water",
+            "Ground"
+        ]
+    },
+    {
+        "id": 343,
+        "name": "Baltoy",
+        "base": {
+            "HP": 40,
+            "Attack": 40,
+            "Defense": 55,
+            "Sp. Attack": 40,
+            "Sp. Defense": 70,
+            "Speed": 55
+        },
+        "type": [
+            "Ground",
+            "Psychic"
+        ]
+    },
+    {
+        "id": 344,
+        "name": "Claydol",
+        "base": {
+            "HP": 60,
+            "Attack": 70,
+            "Defense": 105,
+            "Sp. Attack": 70,
+            "Sp. Defense": 120,
+            "Speed": 75
+        },
+        "type": [
+            "Ground",
+            "Psychic"
+        ]
+    },
+    {
+        "id": 351,
+        "name": "Castform",
+        "base": {
+            "HP": 70,
+            "Attack": 70,
+            "Defense": 70,
+            "Sp. Attack": 70,
+            "Sp. Defense": 70,
+            "Speed": 70
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 352,
+        "name": "Kecleon",
+        "base": {
+            "HP": 60,
+            "Attack": 90,
+            "Defense": 70,
+            "Sp. Attack": 60,
+            "Sp. Defense": 120,
+            "Speed": 40
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 371,
+        "name": "Bagon",
+        "base": {
+            "HP": 45,
+            "Attack": 75,
+            "Defense": 60,
+            "Sp. Attack": 40,
+            "Sp. Defense": 30,
+            "Speed": 50
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 372,
+        "name": "Shelgon",
+        "base": {
+            "HP": 65,
+            "Attack": 95,
+            "Defense": 100,
+            "Sp. Attack": 60,
+            "Sp. Defense": 50,
+            "Speed": 50
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 373,
+        "name": "Salamence",
+        "base": {
+            "HP": 95,
+            "Attack": 135,
+            "Defense": 80,
+            "Sp. Attack": 110,
+            "Sp. Defense": 80,
+            "Speed": 100
+        },
+        "type": [
+            "Dragon",
+            "Flying"
+        ]
+    },
+    {
+        "id": 380,
+        "name": "Latias",
+        "base": {
+            "HP": 80,
+            "Attack": 80,
+            "Defense": 90,
+            "Sp. Attack": 110,
+            "Sp. Defense": 130,
+            "Speed": 110
+        },
+        "type": [
+            "Dragon",
+            "Psychic"
+        ]
+    },
+    {
+        "id": 381,
+        "name": "Latios",
+        "base": {
+            "HP": 80,
+            "Attack": 90,
+            "Defense": 80,
+            "Sp. Attack": 130,
+            "Sp. Defense": 110,
+            "Speed": 110
+        },
+        "type": [
+            "Dragon",
+            "Psychic"
+        ]
+    },
+    {
+        "id": 383,
+        "name": "Groudon",
+        "base": {
+            "HP": 100,
+            "Attack": 150,
+            "Defense": 140,
+            "Sp. Attack": 100,
+            "Sp. Defense": 90,
+            "Speed": 90
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 384,
+        "name": "Rayquaza",
+        "base": {
+            "HP": 105,
+            "Attack": 150,
+            "Defense": 90,
+            "Sp. Attack": 150,
+            "Sp. Defense": 90,
+            "Speed": 95
+        },
+        "type": [
+            "Dragon",
+            "Flying"
+        ]
+    },
+    {
+        "id": 389,
+        "name": "Torterra",
+        "base": {
+            "HP": 95,
+            "Attack": 109,
+            "Defense": 105,
+            "Sp. Attack": 75,
+            "Sp. Defense": 85,
+            "Speed": 56
+        },
+        "type": [
+            "Grass",
+            "Ground"
+        ]
+    },
+    {
+        "id": 391,
+        "name": "Monferno",
+        "base": {
+            "HP": 64,
+            "Attack": 78,
+            "Defense": 52,
+            "Sp. Attack": 78,
+            "Sp. Defense": 52,
+            "Speed": 81
+        },
+        "type": [
+            "Fire",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 392,
+        "name": "Infernape",
+        "base": {
+            "HP": 76,
+            "Attack": 104,
+            "Defense": 71,
+            "Sp. Attack": 104,
+            "Sp. Defense": 71,
+            "Speed": 108
+        },
+        "type": [
+            "Fire",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 396,
+        "name": "Starly",
+        "base": {
+            "HP": 40,
+            "Attack": 55,
+            "Defense": 30,
+            "Sp. Attack": 30,
+            "Sp. Defense": 30,
+            "Speed": 60
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 397,
+        "name": "Staravia",
+        "base": {
+            "HP": 55,
+            "Attack": 75,
+            "Defense": 50,
+            "Sp. Attack": 40,
+            "Sp. Defense": 40,
+            "Speed": 80
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 398,
+        "name": "Staraptor",
+        "base": {
+            "HP": 85,
+            "Attack": 120,
+            "Defense": 70,
+            "Sp. Attack": 50,
+            "Sp. Defense": 60,
+            "Speed": 100
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 399,
+        "name": "Bidoof",
+        "base": {
+            "HP": 59,
+            "Attack": 45,
+            "Defense": 40,
+            "Sp. Attack": 35,
+            "Sp. Defense": 40,
+            "Speed": 31
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 400,
+        "name": "Bibarel",
+        "base": {
+            "HP": 79,
+            "Attack": 85,
+            "Defense": 60,
+            "Sp. Attack": 55,
+            "Sp. Defense": 60,
+            "Speed": 71
+        },
+        "type": [
+            "Normal",
+            "Water"
+        ]
+    },
+    {
+        "id": 406,
+        "name": "Budew",
+        "base": {
+            "HP": 40,
+            "Attack": 30,
+            "Defense": 35,
+            "Sp. Attack": 50,
+            "Sp. Defense": 70,
+            "Speed": 55
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 407,
+        "name": "Roserade",
+        "base": {
+            "HP": 60,
+            "Attack": 70,
+            "Defense": 65,
+            "Sp. Attack": 125,
+            "Sp. Defense": 105,
+            "Speed": 90
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 423,
+        "name": "Gastrodon",
+        "base": {
+            "HP": 111,
+            "Attack": 83,
+            "Defense": 68,
+            "Sp. Attack": 92,
+            "Sp. Defense": 82,
+            "Speed": 39
+        },
+        "type": [
+            "Water",
+            "Ground"
+        ]
+    },
+    {
+        "id": 424,
+        "name": "Ambipom",
+        "base": {
+            "HP": 75,
+            "Attack": 100,
+            "Defense": 66,
+            "Sp. Attack": 60,
+            "Sp. Defense": 66,
+            "Speed": 115
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 427,
+        "name": "Buneary",
+        "base": {
+            "HP": 55,
+            "Attack": 66,
+            "Defense": 44,
+            "Sp. Attack": 44,
+            "Sp. Defense": 56,
+            "Speed": 85
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 428,
+        "name": "Lopunny",
+        "base": {
+            "HP": 65,
+            "Attack": 76,
+            "Defense": 84,
+            "Sp. Attack": 54,
+            "Sp. Defense": 96,
+            "Speed": 105
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 431,
+        "name": "Glameow",
+        "base": {
+            "HP": 49,
+            "Attack": 55,
+            "Defense": 42,
+            "Sp. Attack": 42,
+            "Sp. Defense": 37,
+            "Speed": 85
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 432,
+        "name": "Purugly",
+        "base": {
+            "HP": 71,
+            "Attack": 82,
+            "Defense": 64,
+            "Sp. Attack": 64,
+            "Sp. Defense": 59,
+            "Speed": 112
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 434,
+        "name": "Stunky",
+        "base": {
+            "HP": 63,
+            "Attack": 63,
+            "Defense": 47,
+            "Sp. Attack": 41,
+            "Sp. Defense": 41,
+            "Speed": 74
+        },
+        "type": [
+            "Poison",
+            "Dark"
+        ]
+    },
+    {
+        "id": 435,
+        "name": "Skuntank",
+        "base": {
+            "HP": 103,
+            "Attack": 93,
+            "Defense": 67,
+            "Sp. Attack": 71,
+            "Sp. Defense": 61,
+            "Speed": 84
+        },
+        "type": [
+            "Poison",
+            "Dark"
+        ]
+    },
+    {
+        "id": 440,
+        "name": "Happiny",
+        "base": {
+            "HP": 100,
+            "Attack": 5,
+            "Defense": 5,
+            "Sp. Attack": 15,
+            "Sp. Defense": 65,
+            "Speed": 30
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 441,
+        "name": "Chatot",
+        "base": {
+            "HP": 76,
+            "Attack": 65,
+            "Defense": 45,
+            "Sp. Attack": 92,
+            "Sp. Defense": 42,
+            "Speed": 91
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 443,
+        "name": "Gible",
+        "base": {
+            "HP": 58,
+            "Attack": 70,
+            "Defense": 45,
+            "Sp. Attack": 40,
+            "Sp. Defense": 45,
+            "Speed": 42
+        },
+        "type": [
+            "Dragon",
+            "Ground"
+        ]
+    },
+    {
+        "id": 443,
+        "name": "Gible",
+        "base": {
+            "HP": 58,
+            "Attack": 70,
+            "Defense": 45,
+            "Sp. Attack": 40,
+            "Sp. Defense": 45,
+            "Speed": 42
+        },
+        "type": [
+            "Dragon",
+            "Ground"
+        ]
+    },
+    {
+        "id": 444,
+        "name": "Gabite",
+        "base": {
+            "HP": 68,
+            "Attack": 90,
+            "Defense": 65,
+            "Sp. Attack": 50,
+            "Sp. Defense": 55,
+            "Speed": 82
+        },
+        "type": [
+            "Dragon",
+            "Ground"
+        ]
+    },
+    {
+        "id": 444,
+        "name": "Gabite",
+        "base": {
+            "HP": 68,
+            "Attack": 90,
+            "Defense": 65,
+            "Sp. Attack": 50,
+            "Sp. Defense": 55,
+            "Speed": 82
+        },
+        "type": [
+            "Dragon",
+            "Ground"
+        ]
+    },
+    {
+        "id": 445,
+        "name": "Garchomp",
+        "base": {
+            "HP": 108,
+            "Attack": 130,
+            "Defense": 95,
+            "Sp. Attack": 80,
+            "Sp. Defense": 85,
+            "Speed": 102
+        },
+        "type": [
+            "Dragon",
+            "Ground"
+        ]
+    },
+    {
+        "id": 445,
+        "name": "Garchomp",
+        "base": {
+            "HP": 108,
+            "Attack": 130,
+            "Defense": 95,
+            "Sp. Attack": 80,
+            "Sp. Defense": 85,
+            "Speed": 102
+        },
+        "type": [
+            "Dragon",
+            "Ground"
+        ]
+    },
+    {
+        "id": 446,
+        "name": "Munchlax",
+        "base": {
+            "HP": 135,
+            "Attack": 85,
+            "Defense": 40,
+            "Sp. Attack": 40,
+            "Sp. Defense": 85,
+            "Speed": 5
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 447,
+        "name": "Riolu",
+        "base": {
+            "HP": 40,
+            "Attack": 70,
+            "Defense": 40,
+            "Sp. Attack": 35,
+            "Sp. Defense": 40,
+            "Speed": 60
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 448,
+        "name": "Lucario",
+        "base": {
+            "HP": 70,
+            "Attack": 110,
+            "Defense": 70,
+            "Sp. Attack": 115,
+            "Sp. Defense": 70,
+            "Speed": 90
+        },
+        "type": [
+            "Fighting",
+            "Steel"
+        ]
+    },
+    {
+        "id": 449,
+        "name": "Hippopotas",
+        "base": {
+            "HP": 68,
+            "Attack": 72,
+            "Defense": 78,
+            "Sp. Attack": 38,
+            "Sp. Defense": 42,
+            "Speed": 32
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 450,
+        "name": "Hippowdon",
+        "base": {
+            "HP": 108,
+            "Attack": 112,
+            "Defense": 118,
+            "Sp. Attack": 68,
+            "Sp. Defense": 72,
+            "Speed": 47
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 451,
+        "name": "Skorupi",
+        "base": {
+            "HP": 40,
+            "Attack": 50,
+            "Defense": 90,
+            "Sp. Attack": 30,
+            "Sp. Defense": 55,
+            "Speed": 65
+        },
+        "type": [
+            "Poison",
+            "Bug"
+        ]
+    },
+    {
+        "id": 452,
+        "name": "Drapion",
+        "base": {
+            "HP": 70,
+            "Attack": 90,
+            "Defense": 110,
+            "Sp. Attack": 60,
+            "Sp. Defense": 75,
+            "Speed": 95
+        },
+        "type": [
+            "Poison",
+            "Dark"
+        ]
+    },
+    {
+        "id": 453,
+        "name": "Croagunk",
+        "base": {
+            "HP": 48,
+            "Attack": 61,
+            "Defense": 40,
+            "Sp. Attack": 61,
+            "Sp. Defense": 40,
+            "Speed": 50
+        },
+        "type": [
+            "Poison",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 453,
+        "name": "Croagunk",
+        "base": {
+            "HP": 48,
+            "Attack": 61,
+            "Defense": 40,
+            "Sp. Attack": 61,
+            "Sp. Defense": 40,
+            "Speed": 50
+        },
+        "type": [
+            "Poison",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 454,
+        "name": "Toxicroak",
+        "base": {
+            "HP": 83,
+            "Attack": 106,
+            "Defense": 65,
+            "Sp. Attack": 86,
+            "Sp. Defense": 65,
+            "Speed": 85
+        },
+        "type": [
+            "Poison",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 454,
+        "name": "Toxicroak",
+        "base": {
+            "HP": 83,
+            "Attack": 106,
+            "Defense": 65,
+            "Sp. Attack": 86,
+            "Sp. Defense": 65,
+            "Speed": 85
+        },
+        "type": [
+            "Poison",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 463,
+        "name": "Lickilicky",
+        "base": {
+            "HP": 110,
+            "Attack": 85,
+            "Defense": 95,
+            "Sp. Attack": 80,
+            "Sp. Defense": 95,
+            "Speed": 50
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 464,
+        "name": "Rhyperior",
+        "base": {
+            "HP": 115,
+            "Attack": 140,
+            "Defense": 130,
+            "Sp. Attack": 55,
+            "Sp. Defense": 55,
+            "Speed": 40
+        },
+        "type": [
+            "Ground",
+            "Rock"
+        ]
+    },
+    {
+        "id": 472,
+        "name": "Gliscor",
+        "base": {
+            "HP": 75,
+            "Attack": 95,
+            "Defense": 125,
+            "Sp. Attack": 45,
+            "Sp. Defense": 75,
+            "Speed": 95
+        },
+        "type": [
+            "Ground",
+            "Flying"
+        ]
+    },
+    {
+        "id": 473,
+        "name": "Mamoswine",
+        "base": {
+            "HP": 110,
+            "Attack": 130,
+            "Defense": 80,
+            "Sp. Attack": 70,
+            "Sp. Defense": 60,
+            "Speed": 80
+        },
+        "type": [
+            "Ice",
+            "Ground"
+        ]
+    },
+    {
+        "id": 474,
+        "name": "Porygon-Z",
+        "base": {
+            "HP": 85,
+            "Attack": 80,
+            "Defense": 70,
+            "Sp. Attack": 135,
+            "Sp. Defense": 75,
+            "Speed": 90
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 475,
+        "name": "Gallade",
+        "base": {
+            "HP": 68,
+            "Attack": 125,
+            "Defense": 65,
+            "Sp. Attack": 65,
+            "Sp. Defense": 115,
+            "Speed": 80
+        },
+        "type": [
+            "Psychic",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 483,
+        "name": "Dialga",
+        "base": {
+            "HP": 100,
+            "Attack": 120,
+            "Defense": 120,
+            "Sp. Attack": 150,
+            "Sp. Defense": 100,
+            "Speed": 90
+        },
+        "type": [
+            "Steel",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 484,
+        "name": "Palkia",
+        "base": {
+            "HP": 90,
+            "Attack": 120,
+            "Defense": 100,
+            "Sp. Attack": 150,
+            "Sp. Defense": 120,
+            "Speed": 100
+        },
+        "type": [
+            "Water",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 486,
+        "name": "Regigigas",
+        "base": {
+            "HP": 110,
+            "Attack": 160,
+            "Defense": 110,
+            "Sp. Attack": 80,
+            "Sp. Defense": 110,
+            "Speed": 100
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 487,
+        "name": "Giratina",
+        "base": {
+            "HP": 150,
+            "Attack": 100,
+            "Defense": 120,
+            "Sp. Attack": 100,
+            "Sp. Defense": 120,
+            "Speed": 90
+        },
+        "type": [
+            "Ghost",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 493,
+        "name": "Arceus",
+        "base": {
+            "HP": 120,
+            "Attack": 120,
+            "Defense": 120,
+            "Sp. Attack": 120,
+            "Sp. Defense": 120,
+            "Speed": 120
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 499,
+        "name": "Pignite",
+        "base": {
+            "HP": 90,
+            "Attack": 93,
+            "Defense": 55,
+            "Sp. Attack": 70,
+            "Sp. Defense": 55,
+            "Speed": 55
+        },
+        "type": [
+            "Fire",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 500,
+        "name": "Emboar",
+        "base": {
+            "HP": 110,
+            "Attack": 123,
+            "Defense": 65,
+            "Sp. Attack": 100,
+            "Sp. Defense": 65,
+            "Speed": 65
+        },
+        "type": [
+            "Fire",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 504,
+        "name": "Patrat",
+        "base": {
+            "HP": 45,
+            "Attack": 55,
+            "Defense": 39,
+            "Sp. Attack": 35,
+            "Sp. Defense": 39,
+            "Speed": 42
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 505,
+        "name": "Watchog",
+        "base": {
+            "HP": 60,
+            "Attack": 85,
+            "Defense": 69,
+            "Sp. Attack": 60,
+            "Sp. Defense": 69,
+            "Speed": 77
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 506,
+        "name": "Lillipup",
+        "base": {
+            "HP": 45,
+            "Attack": 60,
+            "Defense": 45,
+            "Sp. Attack": 25,
+            "Sp. Defense": 45,
+            "Speed": 55
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 507,
+        "name": "Herdier",
+        "base": {
+            "HP": 65,
+            "Attack": 80,
+            "Defense": 65,
+            "Sp. Attack": 35,
+            "Sp. Defense": 65,
+            "Speed": 60
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 508,
+        "name": "Stoutland",
+        "base": {
+            "HP": 85,
+            "Attack": 110,
+            "Defense": 90,
+            "Sp. Attack": 45,
+            "Sp. Defense": 90,
+            "Speed": 80
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 519,
+        "name": "Pidove",
+        "base": {
+            "HP": 50,
+            "Attack": 55,
+            "Defense": 50,
+            "Sp. Attack": 36,
+            "Sp. Defense": 30,
+            "Speed": 43
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 520,
+        "name": "Tranquill",
+        "base": {
+            "HP": 62,
+            "Attack": 77,
+            "Defense": 62,
+            "Sp. Attack": 50,
+            "Sp. Defense": 42,
+            "Speed": 65
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 521,
+        "name": "Unfezant",
+        "base": {
+            "HP": 80,
+            "Attack": 115,
+            "Defense": 80,
+            "Sp. Attack": 65,
+            "Sp. Defense": 55,
+            "Speed": 93
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 529,
+        "name": "Drilbur",
+        "base": {
+            "HP": 60,
+            "Attack": 85,
+            "Defense": 40,
+            "Sp. Attack": 30,
+            "Sp. Defense": 45,
+            "Speed": 68
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 530,
+        "name": "Excadrill",
+        "base": {
+            "HP": 110,
+            "Attack": 135,
+            "Defense": 60,
+            "Sp. Attack": 50,
+            "Sp. Defense": 65,
+            "Speed": 88
+        },
+        "type": [
+            "Ground",
+            "Steel"
+        ]
+    },
+    {
+        "id": 531,
+        "name": "Audino",
+        "base": {
+            "HP": 103,
+            "Attack": 60,
+            "Defense": 86,
+            "Sp. Attack": 60,
+            "Sp. Defense": 86,
+            "Speed": 50
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 532,
+        "name": "Timburr",
+        "base": {
+            "HP": 75,
+            "Attack": 80,
+            "Defense": 55,
+            "Sp. Attack": 25,
+            "Sp. Defense": 35,
+            "Speed": 35
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 533,
+        "name": "Gurdurr",
+        "base": {
+            "HP": 85,
+            "Attack": 105,
+            "Defense": 85,
+            "Sp. Attack": 40,
+            "Sp. Defense": 50,
+            "Speed": 40
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 534,
+        "name": "Conkeldurr",
+        "base": {
+            "HP": 105,
+            "Attack": 140,
+            "Defense": 95,
+            "Sp. Attack": 55,
+            "Sp. Defense": 65,
+            "Speed": 45
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 536,
+        "name": "Palpitoad",
+        "base": {
+            "HP": 75,
+            "Attack": 65,
+            "Defense": 55,
+            "Sp. Attack": 65,
+            "Sp. Defense": 55,
+            "Speed": 69
+        },
+        "type": [
+            "Water",
+            "Ground"
+        ]
+    },
+    {
+        "id": 537,
+        "name": "Seismitoad",
+        "base": {
+            "HP": 105,
+            "Attack": 95,
+            "Defense": 75,
+            "Sp. Attack": 85,
+            "Sp. Defense": 75,
+            "Speed": 74
+        },
+        "type": [
+            "Water",
+            "Ground"
+        ]
+    },
+    {
+        "id": 538,
+        "name": "Throh",
+        "base": {
+            "HP": 120,
+            "Attack": 100,
+            "Defense": 85,
+            "Sp. Attack": 30,
+            "Sp. Defense": 85,
+            "Speed": 45
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 539,
+        "name": "Sawk",
+        "base": {
+            "HP": 75,
+            "Attack": 125,
+            "Defense": 75,
+            "Sp. Attack": 30,
+            "Sp. Defense": 75,
+            "Speed": 85
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 543,
+        "name": "Venipede",
+        "base": {
+            "HP": 30,
+            "Attack": 45,
+            "Defense": 59,
+            "Sp. Attack": 30,
+            "Sp. Defense": 39,
+            "Speed": 57
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 544,
+        "name": "Whirlipede",
+        "base": {
+            "HP": 40,
+            "Attack": 55,
+            "Defense": 99,
+            "Sp. Attack": 40,
+            "Sp. Defense": 79,
+            "Speed": 47
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 545,
+        "name": "Scolipede",
+        "base": {
+            "HP": 60,
+            "Attack": 100,
+            "Defense": 89,
+            "Sp. Attack": 55,
+            "Sp. Defense": 69,
+            "Speed": 112
+        },
+        "type": [
+            "Bug",
+            "Poison"
+        ]
+    },
+    {
+        "id": 551,
+        "name": "Sandile",
+        "base": {
+            "HP": 50,
+            "Attack": 72,
+            "Defense": 35,
+            "Sp. Attack": 35,
+            "Sp. Defense": 35,
+            "Speed": 65
+        },
+        "type": [
+            "Ground",
+            "Dark"
+        ]
+    },
+    {
+        "id": 552,
+        "name": "Krokorok",
+        "base": {
+            "HP": 60,
+            "Attack": 82,
+            "Defense": 45,
+            "Sp. Attack": 45,
+            "Sp. Defense": 45,
+            "Speed": 74
+        },
+        "type": [
+            "Ground",
+            "Dark"
+        ]
+    },
+    {
+        "id": 553,
+        "name": "Krookodile",
+        "base": {
+            "HP": 95,
+            "Attack": 117,
+            "Defense": 80,
+            "Sp. Attack": 65,
+            "Sp. Defense": 70,
+            "Speed": 92
+        },
+        "type": [
+            "Ground",
+            "Dark"
+        ]
+    },
+    {
+        "id": 559,
+        "name": "Scraggy",
+        "base": {
+            "HP": 50,
+            "Attack": 75,
+            "Defense": 70,
+            "Sp. Attack": 35,
+            "Sp. Defense": 70,
+            "Speed": 48
+        },
+        "type": [
+            "Dark",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 560,
+        "name": "Scrafty",
+        "base": {
+            "HP": 65,
+            "Attack": 90,
+            "Defense": 115,
+            "Sp. Attack": 45,
+            "Sp. Defense": 115,
+            "Speed": 58
+        },
+        "type": [
+            "Dark",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 568,
+        "name": "Trubbish",
+        "base": {
+            "HP": 50,
+            "Attack": 50,
+            "Defense": 62,
+            "Sp. Attack": 40,
+            "Sp. Defense": 62,
+            "Speed": 65
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 569,
+        "name": "Garbodor",
+        "base": {
+            "HP": 80,
+            "Attack": 95,
+            "Defense": 82,
+            "Sp. Attack": 60,
+            "Sp. Defense": 82,
+            "Speed": 75
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 572,
+        "name": "Minccino",
+        "base": {
+            "HP": 55,
+            "Attack": 50,
+            "Defense": 40,
+            "Sp. Attack": 40,
+            "Sp. Defense": 40,
+            "Speed": 75
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 573,
+        "name": "Cinccino",
+        "base": {
+            "HP": 75,
+            "Attack": 95,
+            "Defense": 60,
+            "Sp. Attack": 65,
+            "Sp. Defense": 60,
+            "Speed": 115
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 585,
+        "name": "Deerling",
+        "base": {
+            "HP": 60,
+            "Attack": 60,
+            "Defense": 50,
+            "Sp. Attack": 40,
+            "Sp. Defense": 50,
+            "Speed": 75
+        },
+        "type": [
+            "Normal",
+            "Grass"
+        ]
+    },
+    {
+        "id": 586,
+        "name": "Sawsbuck",
+        "base": {
+            "HP": 80,
+            "Attack": 100,
+            "Defense": 70,
+            "Sp. Attack": 60,
+            "Sp. Defense": 70,
+            "Speed": 95
+        },
+        "type": [
+            "Normal",
+            "Grass"
+        ]
+    },
+    {
+        "id": 590,
+        "name": "Foongus",
+        "base": {
+            "HP": 69,
+            "Attack": 55,
+            "Defense": 45,
+            "Sp. Attack": 55,
+            "Sp. Defense": 55,
+            "Speed": 15
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 591,
+        "name": "Amoonguss",
+        "base": {
+            "HP": 114,
+            "Attack": 85,
+            "Defense": 70,
+            "Sp. Attack": 85,
+            "Sp. Defense": 80,
+            "Speed": 30
+        },
+        "type": [
+            "Grass",
+            "Poison"
+        ]
+    },
+    {
+        "id": 610,
+        "name": "Axew",
+        "base": {
+            "HP": 46,
+            "Attack": 87,
+            "Defense": 60,
+            "Sp. Attack": 30,
+            "Sp. Defense": 40,
+            "Speed": 57
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 611,
+        "name": "Fraxure",
+        "base": {
+            "HP": 66,
+            "Attack": 117,
+            "Defense": 70,
+            "Sp. Attack": 40,
+            "Sp. Defense": 50,
+            "Speed": 67
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 612,
+        "name": "Haxorus",
+        "base": {
+            "HP": 76,
+            "Attack": 147,
+            "Defense": 90,
+            "Sp. Attack": 60,
+            "Sp. Defense": 70,
+            "Speed": 97
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 618,
+        "name": "Stunfisk",
+        "base": {
+            "HP": 109,
+            "Attack": 66,
+            "Defense": 84,
+            "Sp. Attack": 81,
+            "Sp. Defense": 99,
+            "Speed": 32
+        },
+        "type": [
+            "Ground",
+            "Electric"
+        ]
+    },
+    {
+        "id": 619,
+        "name": "Mienfoo",
+        "base": {
+            "HP": 45,
+            "Attack": 85,
+            "Defense": 50,
+            "Sp. Attack": 55,
+            "Sp. Defense": 50,
+            "Speed": 65
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 620,
+        "name": "Mienshao",
+        "base": {
+            "HP": 65,
+            "Attack": 125,
+            "Defense": 60,
+            "Sp. Attack": 95,
+            "Sp. Defense": 60,
+            "Speed": 105
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 621,
+        "name": "Druddigon",
+        "base": {
+            "HP": 77,
+            "Attack": 120,
+            "Defense": 90,
+            "Sp. Attack": 60,
+            "Sp. Defense": 90,
+            "Speed": 48
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 622,
+        "name": "Golett",
+        "base": {
+            "HP": 59,
+            "Attack": 74,
+            "Defense": 50,
+            "Sp. Attack": 35,
+            "Sp. Defense": 50,
+            "Speed": 35
+        },
+        "type": [
+            "Ground",
+            "Ghost"
+        ]
+    },
+    {
+        "id": 623,
+        "name": "Golurk",
+        "base": {
+            "HP": 89,
+            "Attack": 124,
+            "Defense": 80,
+            "Sp. Attack": 55,
+            "Sp. Defense": 80,
+            "Speed": 55
+        },
+        "type": [
+            "Ground",
+            "Ghost"
+        ]
+    },
+    {
+        "id": 626,
+        "name": "Bouffalant",
+        "base": {
+            "HP": 95,
+            "Attack": 110,
+            "Defense": 95,
+            "Sp. Attack": 40,
+            "Sp. Defense": 95,
+            "Speed": 55
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 627,
+        "name": "Rufflet",
+        "base": {
+            "HP": 70,
+            "Attack": 83,
+            "Defense": 50,
+            "Sp. Attack": 37,
+            "Sp. Defense": 50,
+            "Speed": 60
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 628,
+        "name": "Braviary",
+        "base": {
+            "HP": 100,
+            "Attack": 123,
+            "Defense": 75,
+            "Sp. Attack": 57,
+            "Sp. Defense": 75,
+            "Speed": 80
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 633,
+        "name": "Deino",
+        "base": {
+            "HP": 52,
+            "Attack": 65,
+            "Defense": 50,
+            "Sp. Attack": 45,
+            "Sp. Defense": 50,
+            "Speed": 38
+        },
+        "type": [
+            "Dark",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 634,
+        "name": "Zweilous",
+        "base": {
+            "HP": 72,
+            "Attack": 85,
+            "Defense": 70,
+            "Sp. Attack": 65,
+            "Sp. Defense": 70,
+            "Speed": 58
+        },
+        "type": [
+            "Dark",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 635,
+        "name": "Hydreigon",
+        "base": {
+            "HP": 92,
+            "Attack": 105,
+            "Defense": 90,
+            "Sp. Attack": 125,
+            "Sp. Defense": 90,
+            "Speed": 98
+        },
+        "type": [
+            "Dark",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 638,
+        "name": "Cobalion",
+        "base": {
+            "HP": 91,
+            "Attack": 90,
+            "Defense": 129,
+            "Sp. Attack": 90,
+            "Sp. Defense": 72,
+            "Speed": 108
+        },
+        "type": [
+            "Steel",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 639,
+        "name": "Terrakion",
+        "base": {
+            "HP": 91,
+            "Attack": 129,
+            "Defense": 90,
+            "Sp. Attack": 72,
+            "Sp. Defense": 90,
+            "Speed": 108
+        },
+        "type": [
+            "Rock",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 640,
+        "name": "Virizion",
+        "base": {
+            "HP": 91,
+            "Attack": 90,
+            "Defense": 72,
+            "Sp. Attack": 90,
+            "Sp. Defense": 129,
+            "Speed": 108
+        },
+        "type": [
+            "Grass",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 643,
+        "name": "Reshiram",
+        "base": {
+            "HP": 100,
+            "Attack": 120,
+            "Defense": 100,
+            "Sp. Attack": 150,
+            "Sp. Defense": 120,
+            "Speed": 90
+        },
+        "type": [
+            "Dragon",
+            "Fire"
+        ]
+    },
+    {
+        "id": 644,
+        "name": "Zekrom",
+        "base": {
+            "HP": 100,
+            "Attack": 150,
+            "Defense": 120,
+            "Sp. Attack": 120,
+            "Sp. Defense": 100,
+            "Speed": 90
+        },
+        "type": [
+            "Dragon",
+            "Electric"
+        ]
+    },
+    {
+        "id": 645,
+        "name": "Landorus",
+        "base": {
+            "HP": 89,
+            "Attack": 125,
+            "Defense": 90,
+            "Sp. Attack": 115,
+            "Sp. Defense": 80,
+            "Speed": 101
+        },
+        "type": [
+            "Ground",
+            "Flying"
+        ]
+    },
+    {
+        "id": 646,
+        "name": "Kyurem",
+        "base": {
+            "HP": 125,
+            "Attack": 130,
+            "Defense": 90,
+            "Sp. Attack": 130,
+            "Sp. Defense": 90,
+            "Speed": 95
+        },
+        "type": [
+            "Dragon",
+            "Ice"
+        ]
+    },
+    {
+        "id": 647,
+        "name": "Keldeo",
+        "base": {
+            "HP": 91,
+            "Attack": 72,
+            "Defense": 90,
+            "Sp. Attack": 129,
+            "Sp. Defense": 90,
+            "Speed": 108
+        },
+        "type": [
+            "Water",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 648,
+        "name": "Meloetta",
+        "base": {
+            "HP": 100,
+            "Attack": 77,
+            "Defense": 77,
+            "Sp. Attack": 128,
+            "Sp. Defense": 128,
+            "Speed": 90
+        },
+        "type": [
+            "Normal",
+            "Psychic"
+        ]
+    },
+    {
+        "id": 652,
+        "name": "Chesnaught",
+        "base": {
+            "HP": 88,
+            "Attack": 107,
+            "Defense": 122,
+            "Sp. Attack": 74,
+            "Sp. Defense": 75,
+            "Speed": 64
+        },
+        "type": [
+            "Grass",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 659,
+        "name": "Bunnelby",
+        "base": {
+            "HP": 38,
+            "Attack": 36,
+            "Defense": 38,
+            "Sp. Attack": 32,
+            "Sp. Defense": 36,
+            "Speed": 57
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 660,
+        "name": "Diggersby",
+        "base": {
+            "HP": 85,
+            "Attack": 56,
+            "Defense": 77,
+            "Sp. Attack": 50,
+            "Sp. Defense": 77,
+            "Speed": 78
+        },
+        "type": [
+            "Normal",
+            "Ground"
+        ]
+    },
+    {
+        "id": 660,
+        "name": "Diggersby",
+        "base": {
+            "HP": 85,
+            "Attack": 56,
+            "Defense": 77,
+            "Sp. Attack": 50,
+            "Sp. Defense": 77,
+            "Speed": 78
+        },
+        "type": [
+            "Normal",
+            "Ground"
+        ]
+    },
+    {
+        "id": 661,
+        "name": "Fletchling",
+        "base": {
+            "HP": 45,
+            "Attack": 50,
+            "Defense": 43,
+            "Sp. Attack": 40,
+            "Sp. Defense": 38,
+            "Speed": 62
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 667,
+        "name": "Litleo",
+        "base": {
+            "HP": 62,
+            "Attack": 50,
+            "Defense": 58,
+            "Sp. Attack": 73,
+            "Sp. Defense": 54,
+            "Speed": 72
+        },
+        "type": [
+            "Fire",
+            "Normal"
+        ]
+    },
+    {
+        "id": 668,
+        "name": "Pyroar",
+        "base": {
+            "HP": 86,
+            "Attack": 68,
+            "Defense": 72,
+            "Sp. Attack": 109,
+            "Sp. Defense": 66,
+            "Speed": 106
+        },
+        "type": [
+            "Fire",
+            "Normal"
+        ]
+    },
+    {
+        "id": 674,
+        "name": "Pancham",
+        "base": {
+            "HP": 67,
+            "Attack": 82,
+            "Defense": 62,
+            "Sp. Attack": 46,
+            "Sp. Defense": 48,
+            "Speed": 43
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 675,
+        "name": "Pangoro",
+        "base": {
+            "HP": 95,
+            "Attack": 124,
+            "Defense": 78,
+            "Sp. Attack": 69,
+            "Sp. Defense": 71,
+            "Speed": 58
+        },
+        "type": [
+            "Fighting",
+            "Dark"
+        ]
+    },
+    {
+        "id": 676,
+        "name": "Furfrou",
+        "base": {
+            "HP": 75,
+            "Attack": 80,
+            "Defense": 60,
+            "Sp. Attack": 65,
+            "Sp. Defense": 90,
+            "Speed": 102
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 690,
+        "name": "Skrelp",
+        "base": {
+            "HP": 50,
+            "Attack": 60,
+            "Defense": 60,
+            "Sp. Attack": 60,
+            "Sp. Defense": 60,
+            "Speed": 30
+        },
+        "type": [
+            "Poison",
+            "Water"
+        ]
+    },
+    {
+        "id": 691,
+        "name": "Dragalge",
+        "base": {
+            "HP": 65,
+            "Attack": 75,
+            "Defense": 90,
+            "Sp. Attack": 97,
+            "Sp. Defense": 123,
+            "Speed": 44
+        },
+        "type": [
+            "Poison",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 691,
+        "name": "Dragalge",
+        "base": {
+            "HP": 65,
+            "Attack": 75,
+            "Defense": 90,
+            "Sp. Attack": 97,
+            "Sp. Defense": 123,
+            "Speed": 44
+        },
+        "type": [
+            "Poison",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 694,
+        "name": "Helioptile",
+        "base": {
+            "HP": 44,
+            "Attack": 38,
+            "Defense": 33,
+            "Sp. Attack": 61,
+            "Sp. Defense": 43,
+            "Speed": 70
+        },
+        "type": [
+            "Electric",
+            "Normal"
+        ]
+    },
+    {
+        "id": 695,
+        "name": "Heliolisk",
+        "base": {
+            "HP": 62,
+            "Attack": 55,
+            "Defense": 52,
+            "Sp. Attack": 109,
+            "Sp. Defense": 94,
+            "Speed": 109
+        },
+        "type": [
+            "Electric",
+            "Normal"
+        ]
+    },
+    {
+        "id": 696,
+        "name": "Tyrunt",
+        "base": {
+            "HP": 58,
+            "Attack": 89,
+            "Defense": 77,
+            "Sp. Attack": 45,
+            "Sp. Defense": 45,
+            "Speed": 48
+        },
+        "type": [
+            "Rock",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 697,
+        "name": "Tyrantrum",
+        "base": {
+            "HP": 82,
+            "Attack": 121,
+            "Defense": 119,
+            "Sp. Attack": 69,
+            "Sp. Defense": 59,
+            "Speed": 71
+        },
+        "type": [
+            "Rock",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 701,
+        "name": "Hawlucha",
+        "base": {
+            "HP": 78,
+            "Attack": 92,
+            "Defense": 75,
+            "Sp. Attack": 74,
+            "Sp. Defense": 63,
+            "Speed": 118
+        },
+        "type": [
+            "Fighting",
+            "Flying"
+        ]
+    },
+    {
+        "id": 704,
+        "name": "Goomy",
+        "base": {
+            "HP": 45,
+            "Attack": 50,
+            "Defense": 35,
+            "Sp. Attack": 55,
+            "Sp. Defense": 75,
+            "Speed": 40
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 705,
+        "name": "Sliggoo",
+        "base": {
+            "HP": 68,
+            "Attack": 75,
+            "Defense": 53,
+            "Sp. Attack": 83,
+            "Sp. Defense": 113,
+            "Speed": 60
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 706,
+        "name": "Goodra",
+        "base": {
+            "HP": 90,
+            "Attack": 100,
+            "Defense": 70,
+            "Sp. Attack": 110,
+            "Sp. Defense": 150,
+            "Speed": 80
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 714,
+        "name": "Noibat",
+        "base": {
+            "HP": 40,
+            "Attack": 30,
+            "Defense": 35,
+            "Sp. Attack": 45,
+            "Sp. Defense": 40,
+            "Speed": 55
+        },
+        "type": [
+            "Flying",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 715,
+        "name": "Noivern",
+        "base": {
+            "HP": 85,
+            "Attack": 70,
+            "Defense": 80,
+            "Sp. Attack": 97,
+            "Sp. Defense": 80,
+            "Speed": 123
+        },
+        "type": [
+            "Flying",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 718,
+        "name": "Zygarde",
+        "base": {
+            "HP": 108,
+            "Attack": 100,
+            "Defense": 121,
+            "Sp. Attack": 81,
+            "Sp. Defense": 95,
+            "Speed": 95
+        },
+        "type": [
+            "Dragon",
+            "Ground"
+        ]
+    },
+    {
+        "id": 718,
+        "name": "Zygarde",
+        "base": {
+            "HP": 108,
+            "Attack": 100,
+            "Defense": 121,
+            "Sp. Attack": 81,
+            "Sp. Defense": 95,
+            "Speed": 95
+        },
+        "type": [
+            "Dragon",
+            "Ground"
+        ]
+    },
+    {
+        "id": 731,
+        "name": "Pikipek",
+        "base": {
+            "HP": 35,
+            "Attack": 75,
+            "Defense": 30,
+            "Sp. Attack": 30,
+            "Sp. Defense": 30,
+            "Speed": 65
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 732,
+        "name": "Trumbeak",
+        "base": {
+            "HP": 55,
+            "Attack": 85,
+            "Defense": 50,
+            "Sp. Attack": 40,
+            "Sp. Defense": 50,
+            "Speed": 75
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 733,
+        "name": "Toucannon",
+        "base": {
+            "HP": 80,
+            "Attack": 120,
+            "Defense": 75,
+            "Sp. Attack": 75,
+            "Sp. Defense": 75,
+            "Speed": 60
+        },
+        "type": [
+            "Normal",
+            "Flying"
+        ]
+    },
+    {
+        "id": 734,
+        "name": "Yungoos",
+        "base": {
+            "HP": 48,
+            "Attack": 70,
+            "Defense": 30,
+            "Sp. Attack": 30,
+            "Sp. Defense": 30,
+            "Speed": 45
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 735,
+        "name": "Gumshoos",
+        "base": {
+            "HP": 88,
+            "Attack": 110,
+            "Defense": 60,
+            "Sp. Attack": 55,
+            "Sp. Defense": 60,
+            "Speed": 45
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 739,
+        "name": "Crabrawler",
+        "base": {
+            "HP": 47,
+            "Attack": 82,
+            "Defense": 57,
+            "Sp. Attack": 42,
+            "Sp. Defense": 47,
+            "Speed": 63
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 740,
+        "name": "Crabominable",
+        "base": {
+            "HP": 97,
+            "Attack": 132,
+            "Defense": 77,
+            "Sp. Attack": 62,
+            "Sp. Defense": 67,
+            "Speed": 43
+        },
+        "type": [
+            "Fighting",
+            "Ice"
+        ]
+    },
+    {
+        "id": 747,
+        "name": "Mareanie",
+        "base": {
+            "HP": 50,
+            "Attack": 53,
+            "Defense": 62,
+            "Sp. Attack": 43,
+            "Sp. Defense": 52,
+            "Speed": 45
+        },
+        "type": [
+            "Poison",
+            "Water"
+        ]
+    },
+    {
+        "id": 748,
+        "name": "Toxapex",
+        "base": {
+            "HP": 50,
+            "Attack": 63,
+            "Defense": 152,
+            "Sp. Attack": 53,
+            "Sp. Defense": 142,
+            "Speed": 35
+        },
+        "type": [
+            "Poison",
+            "Water"
+        ]
+    },
+    {
+        "id": 749,
+        "name": "Mudbray",
+        "base": {
+            "HP": 70,
+            "Attack": 100,
+            "Defense": 70,
+            "Sp. Attack": 45,
+            "Sp. Defense": 55,
+            "Speed": 45
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 750,
+        "name": "Mudsdale",
+        "base": {
+            "HP": 100,
+            "Attack": 125,
+            "Defense": 100,
+            "Sp. Attack": 55,
+            "Sp. Defense": 85,
+            "Speed": 35
+        },
+        "type": [
+            "Ground"
+        ]
+    },
+    {
+        "id": 757,
+        "name": "Salandit",
+        "base": {
+            "HP": 48,
+            "Attack": 44,
+            "Defense": 40,
+            "Sp. Attack": 71,
+            "Sp. Defense": 40,
+            "Speed": 77
+        },
+        "type": [
+            "Poison",
+            "Fire"
+        ]
+    },
+    {
+        "id": 758,
+        "name": "Salazzle",
+        "base": {
+            "HP": 68,
+            "Attack": 64,
+            "Defense": 60,
+            "Sp. Attack": 111,
+            "Sp. Defense": 60,
+            "Speed": 117
+        },
+        "type": [
+            "Poison",
+            "Fire"
+        ]
+    },
+    {
+        "id": 759,
+        "name": "Stufful",
+        "base": {
+            "HP": 70,
+            "Attack": 75,
+            "Defense": 50,
+            "Sp. Attack": 45,
+            "Sp. Defense": 50,
+            "Speed": 50
+        },
+        "type": [
+            "Normal",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 759,
+        "name": "Stufful",
+        "base": {
+            "HP": 70,
+            "Attack": 75,
+            "Defense": 50,
+            "Sp. Attack": 45,
+            "Sp. Defense": 50,
+            "Speed": 50
+        },
+        "type": [
+            "Normal",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 760,
+        "name": "Bewear",
+        "base": {
+            "HP": 120,
+            "Attack": 125,
+            "Defense": 80,
+            "Sp. Attack": 55,
+            "Sp. Defense": 60,
+            "Speed": 60
+        },
+        "type": [
+            "Normal",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 760,
+        "name": "Bewear",
+        "base": {
+            "HP": 120,
+            "Attack": 125,
+            "Defense": 80,
+            "Sp. Attack": 55,
+            "Sp. Defense": 60,
+            "Speed": 60
+        },
+        "type": [
+            "Normal",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 765,
+        "name": "Oranguru",
+        "base": {
+            "HP": 90,
+            "Attack": 60,
+            "Defense": 80,
+            "Sp. Attack": 90,
+            "Sp. Defense": 110,
+            "Speed": 60
+        },
+        "type": [
+            "Normal",
+            "Psychic"
+        ]
+    },
+    {
+        "id": 766,
+        "name": "Passimian",
+        "base": {
+            "HP": 100,
+            "Attack": 120,
+            "Defense": 90,
+            "Sp. Attack": 40,
+            "Sp. Defense": 60,
+            "Speed": 80
+        },
+        "type": [
+            "Fighting"
+        ]
+    },
+    {
+        "id": 769,
+        "name": "Sandygast",
+        "base": {
+            "HP": 55,
+            "Attack": 55,
+            "Defense": 80,
+            "Sp. Attack": 70,
+            "Sp. Defense": 45,
+            "Speed": 15
+        },
+        "type": [
+            "Ghost",
+            "Ground"
+        ]
+    },
+    {
+        "id": 770,
+        "name": "Palossand",
+        "base": {
+            "HP": 85,
+            "Attack": 75,
+            "Defense": 110,
+            "Sp. Attack": 100,
+            "Sp. Defense": 75,
+            "Speed": 35
+        },
+        "type": [
+            "Ghost",
+            "Ground"
+        ]
+    },
+    {
+        "id": 772,
+        "name": "Type: Null",
+        "base": {
+            "HP": 95,
+            "Attack": 95,
+            "Defense": 95,
+            "Sp. Attack": 95,
+            "Sp. Defense": 95,
+            "Speed": 59
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 773,
+        "name": "Silvally",
+        "base": {
+            "HP": 95,
+            "Attack": 95,
+            "Defense": 95,
+            "Sp. Attack": 95,
+            "Sp. Defense": 95,
+            "Speed": 95
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 775,
+        "name": "Komala",
+        "base": {
+            "HP": 65,
+            "Attack": 115,
+            "Defense": 65,
+            "Sp. Attack": 75,
+            "Sp. Defense": 95,
+            "Speed": 65
+        },
+        "type": [
+            "Normal"
+        ]
+    },
+    {
+        "id": 776,
+        "name": "Turtonator",
+        "base": {
+            "HP": 60,
+            "Attack": 78,
+            "Defense": 135,
+            "Sp. Attack": 91,
+            "Sp. Defense": 85,
+            "Speed": 36
+        },
+        "type": [
+            "Fire",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 780,
+        "name": "Drampa",
+        "base": {
+            "HP": 78,
+            "Attack": 60,
+            "Defense": 85,
+            "Sp. Attack": 135,
+            "Sp. Defense": 91,
+            "Speed": 36
+        },
+        "type": [
+            "Normal",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 780,
+        "name": "Drampa",
+        "base": {
+            "HP": 78,
+            "Attack": 60,
+            "Defense": 85,
+            "Sp. Attack": 135,
+            "Sp. Defense": 91,
+            "Speed": 36
+        },
+        "type": [
+            "Normal",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 782,
+        "name": "Jangmo-o",
+        "base": {
+            "HP": 45,
+            "Attack": 55,
+            "Defense": 65,
+            "Sp. Attack": 45,
+            "Sp. Defense": 45,
+            "Speed": 45
+        },
+        "type": [
+            "Dragon"
+        ]
+    },
+    {
+        "id": 783,
+        "name": "Hakamo-o",
+        "base": {
+            "HP": 55,
+            "Attack": 75,
+            "Defense": 90,
+            "Sp. Attack": 65,
+            "Sp. Defense": 70,
+            "Speed": 65
+        },
+        "type": [
+            "Dragon",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 783,
+        "name": "Hakamo-o",
+        "base": {
+            "HP": 55,
+            "Attack": 75,
+            "Defense": 90,
+            "Sp. Attack": 65,
+            "Sp. Defense": 70,
+            "Speed": 65
+        },
+        "type": [
+            "Dragon",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 784,
+        "name": "Kommo-o",
+        "base": {
+            "HP": 75,
+            "Attack": 110,
+            "Defense": 125,
+            "Sp. Attack": 100,
+            "Sp. Defense": 105,
+            "Speed": 85
+        },
+        "type": [
+            "Dragon",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 784,
+        "name": "Kommo-o",
+        "base": {
+            "HP": 75,
+            "Attack": 110,
+            "Defense": 125,
+            "Sp. Attack": 100,
+            "Sp. Defense": 105,
+            "Speed": 85
+        },
+        "type": [
+            "Dragon",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 793,
+        "name": "Nihilego",
+        "base": {
+            "HP": 109,
+            "Attack": 53,
+            "Defense": 47,
+            "Sp. Attack": 127,
+            "Sp. Defense": 131,
+            "Speed": 103
+        },
+        "type": [
+            "Rock",
+            "Poison"
+        ]
+    },
+    {
+        "id": 794,
+        "name": "Buzzwole",
+        "base": {
+            "HP": 107,
+            "Attack": 139,
+            "Defense": 139,
+            "Sp. Attack": 53,
+            "Sp. Defense": 53,
+            "Speed": 79
+        },
+        "type": [
+            "Bug",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 795,
+        "name": "Pheromosa",
+        "base": {
+            "HP": 71,
+            "Attack": 137,
+            "Defense": 37,
+            "Sp. Attack": 137,
+            "Sp. Defense": 37,
+            "Speed": 151
+        },
+        "type": [
+            "Bug",
+            "Fighting"
+        ]
+    },
+    {
+        "id": 799,
+        "name": "Guzzlord",
+        "base": {
+            "HP": 223,
+            "Attack": 101,
+            "Defense": 53,
+            "Sp. Attack": 97,
+            "Sp. Defense": 53,
+            "Speed": 43
+        },
+        "type": [
+            "Dark",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 802,
+        "name": "Marshadow",
+        "base": {
+            "HP": 90,
+            "Attack": 125,
+            "Defense": 80,
+            "Sp. Attack": 90,
+            "Sp. Defense": 90,
+            "Speed": 125
+        },
+        "type": [
+            "Fighting",
+            "Ghost"
+        ]
+    },
+    {
+        "id": 803,
+        "name": "Poipole",
+        "base": {
+            "HP": 67,
+            "Attack": 73,
+            "Defense": 67,
+            "Sp. Attack": 73,
+            "Sp. Defense": 67,
+            "Speed": 73
+        },
+        "type": [
+            "Poison"
+        ]
+    },
+    {
+        "id": 804,
+        "name": "Naganadel",
+        "base": {
+            "HP": 73,
+            "Attack": 73,
+            "Defense": 73,
+            "Sp. Attack": 127,
+            "Sp. Defense": 73,
+            "Speed": 121
+        },
+        "type": [
+            "Poison",
+            "Dragon"
+        ]
+    },
+    {
+        "id": 804,
+        "name": "Naganadel",
+        "base": {
+            "HP": 73,
+            "Attack": 73,
+            "Defense": 73,
+            "Sp. Attack": 127,
+            "Sp. Defense": 73,
+            "Speed": 121
+        },
+        "type": [
+            "Poison",
+            "Dragon"
+        ]
+    }
+]
