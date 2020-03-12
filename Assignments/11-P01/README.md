@@ -79,7 +79,7 @@ Using your new `GameCard` class, create a `WarGame` class that uses all of the f
 
 **Second Deal**
 ```
- Cards: 26    Cards: 27
+ Cards: 25    Cards: 27
 ┌──────────┐┌──────────┐
 │{3}       ││{8}       │
 │          ││          │
