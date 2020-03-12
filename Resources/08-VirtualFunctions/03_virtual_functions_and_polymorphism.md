@@ -45,7 +45,7 @@ int main(void) {
 
 Output:
 ```
-    In Derived
+In Derived
 ```
   
 **What is the use?**  
