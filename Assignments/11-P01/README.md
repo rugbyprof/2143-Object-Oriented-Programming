@@ -1,5 +1,5 @@
 ## Playing Cards - Game of WAR!
-#### Due:  03-24-2020 (Teusday @ 12:30 p.m.)
+#### Due:  03-26-2020 (Thursday @ 12:30 p.m.)
 
 ## Game of War!
 
