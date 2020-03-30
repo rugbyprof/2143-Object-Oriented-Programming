@@ -9,7 +9,13 @@ You are tasked with going to the [SFML](https://www.sfml-dev.org/) site and impl
 
 <img src="https://www.sfml-dev.org/tutorials/2.5/images/start-cb-app.png">
 
+### SFML
+
+The [SFML](https://www.sfml-dev.org/) site has everything you need 
+
 If you want to try using VSCode as your compiler (as long as you got MingGW installed from earlier this semester) you can try the following commands from your terminal. Meaning if you can use `g++` from a command line to compile your programs, then this should work.
+
+I have a stand alone example [here](../../Resources/09-SFML/main.cpp) that (I'm hoping) can be compiled with a gitbash terminal using the two commands below. If not, just use the SFML site to get it working on your particular system.
 
 Example: 
 - We want to compile `main.cpp`
@@ -23,3 +29,5 @@ This command will create a file called `main.o` which is our object/executable f
 ```sh
     g++ main.o -o runme -L"./sfml/lib" -lsfml-graphics -lsfml-window -lsfml-system -lsfml-network
 ```
+
+
