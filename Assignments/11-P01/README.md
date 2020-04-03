@@ -110,7 +110,7 @@ Using your new `GameCard` class, create a `WarGame` class that uses all of the f
 - Your game driver should be in `main.cpp`.
 - Include any `.h` or `.cpp` or `.hpp` files you used.
 - Make sure you [COMMENT](../../Resources/01-Comments/README.md) your code!
-- Bring a printed copy of your code to class on Teusday after spring break.
+- Bring a printed copy of your code to class on Thursday after spring break.
 - Don't forget your [BANNER](../../Resources/02-Banner/README.md) (cover page).
 
 ```

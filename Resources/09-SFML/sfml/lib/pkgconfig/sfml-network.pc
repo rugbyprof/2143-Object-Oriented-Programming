@@ -1,0 +1,12 @@
+prefix=/usr/local/Cellar/sfml/2.5.1
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: SFML-network
+Description: The Simple and Fast Multimedia Library, network module.
+URL: http://www.sfml-dev.org
+Version: 2.5.1
+Requires: sfml-system
+Libs: -L${libdir} -lsfml-network
+Cflags: -I${includedir}

@@ -12,6 +12,8 @@
  | [09-H05](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H05) | [ Playing Cards ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H05) | [ Not Just Poker](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H05) | [03-13-2020 (Friday @ 12:30 p.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H05) |
  | [10-H06](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/10-H06) | [ Overloading  ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/10-H06) | [ Pokemon Class](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/10-H06) | [03-13-2020 (Friday @ 12:30 p.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/10-H06) |
  | [11-P01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-P01) | [ Playing Cards ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-P01) | [ Game of WAR!](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-P01) | [03-26-2020 (Thursday @ 12:30 p.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-P01) |
+ | [12-P02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/12-P02) | [ Program 2 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/12-P02) | [ Installing SFML Graphics Lib](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/12-P02) | [03-31-2020 (Tuesday @ 12:30 p.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/12-P02) |
+ | [13-P03](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/13-P03) | [ Program 3 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/13-P03) | [ Modeling Covid19 Part 1](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/13-P03) | [04-03-2020 (Friday @ 12:30 p.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/13-P03) |
 
     
 ## File Legend
@@ -24,4 +26,8 @@
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
     
+<<<<<<< HEAD
 <sup>Last Updated: 2020-04-03 (Fri @ 00:22)</sup>
+=======
+<sup>Last Updated: 2020-03-31 (Tue @ 20:31)</sup>
+>>>>>>> 91bf72b2228baaf5dc86ee2349dc54f3ba6d1f64
