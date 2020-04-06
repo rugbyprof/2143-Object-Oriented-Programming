@@ -11,7 +11,7 @@ import random
 """
 
 class GameBall(object):
-    def __init__(self, pace=1, size=10, width=500, height=500):
+    def __init__(self, pace=1, size=10, width=500, height=500,buffer=10):
         """ Constructor
             This method creates a ball with params that are pre-picked for now to
             keep it simple. 
@@ -26,10 +26,25 @@ class GameBall(object):
         self.red = 0            # All balls init to black (for now)
         self.green = 0
         self.blue = 0
+        self.buffer = buffer    # A buffer (gutter) or padding from
+                                # window edge
 
         # xy coords are randomly picked based on game window size
         self.x = int(random.random() * self.width )     # random x and y (for now)
         self.y = int(random.random() * self.height )    # random x and y (for now)
+
+        # make sure ball spawns away from edge of window
+        if self.x < self.buffer:
+            self.x += self.buffer
+        
+        if self.x > self.width - self.buffer:
+            self.x -= self.buffer
+
+        if self.y < self.buffer:
+            self.y += self.buffer
+        
+        if self.y > self.height - self.buffer:
+            self.y -= self.buffer
 
         # list (array) of directions (forward,backward) :) 
         direction = [1,-1]
@@ -78,6 +93,7 @@ class GameBall(object):
 
 #############################################################################################
 
+
 pygame.init()
 
 width = 500         # width of overall screen
@@ -85,6 +101,7 @@ height = 500        # same but height
 running = True      # Run until the user asks to quit
 max_balls = 10
 max_pace = 15
+min_pace = 5
 
 
 # Set up the drawing window
@@ -101,7 +118,7 @@ for i in range(max_balls):
     # 1) use the [-1] to get the "last" item in the list
     # 2) access the "pace" for that ball using the "dot" operator
 
-    balls[-1].pace = int(random.random() * max_pace) # give each ball different speed
+    balls[-1].pace = int(random.random() * (max_pace-min_pace)) + min_pace # give each ball different speed
 
 while running:
 
