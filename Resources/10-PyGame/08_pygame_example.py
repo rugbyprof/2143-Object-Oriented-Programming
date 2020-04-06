@@ -5,9 +5,14 @@ import random
 import sys
 import math
 
-""" Example 07 - Still moving ball(s) (using a ball class). 
+""" Example 08 - Still moving ball(s) (using a ball class). 
     - This example shows simple "collision" detection and changes
-      the color of two balls to be the same if they "touch" or collide
+      the direction of each ball. Since the balls have the same mass
+      we can simple "swap" their velocities to make them "bounce" off
+      each other.
+
+      We are not taking into account mass, or angle of impact, or 
+      differing velocites because this isn't a game class :)
 
 """
 
@@ -104,6 +109,14 @@ class GameBall(object):
         # If we find that the position of 2 balls is within the size of each ball, then they have collided.
         # We then change color, and should probable change direction of the as well, but thats next!
         if abs(abs(self.x) - abs(other.x)) <= self.size and abs(abs(self.y) - abs(other.y)) <= self.size:
+
+                tempdx = self.dx
+                tempdy = self.dy
+                
+                self.dx = other.dx
+                self.dy = other.dy
+                other.dx = tempdx
+                other.dy = tempdy
                 
                 # create a list of random colors
                 colors = [int(random.random()*255),int(random.random()*255),int(random.random()*255)]
