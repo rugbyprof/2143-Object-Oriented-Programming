@@ -62,7 +62,7 @@ The above dependant variables are what we want to ultimately keep track of but l
 There is an example outbreak visualization that the 3Blue1Brown video mentioned and can be found here https://meltingasphalt.com/interactive/outbreak/. Below are the values used to influence the simulation on the page (one of them at the bottom):
 
 | Variable                   | Description | Value |
-| :------------------------- |             | :---: |
+| :------------------------- |:--------             | :---: |
 | Hospital capacity          |  | 5%   |
 | Input fatality rate        |  | 3%   |
 | Self-quarantine rate       |  | 25%  |
