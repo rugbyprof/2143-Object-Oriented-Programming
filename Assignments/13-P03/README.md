@@ -77,13 +77,13 @@ We wont use all these parameters to model our simulation, but we could if we wan
 
 ### Thoughts
 
-There are a lot of terms and variables discussed. Try and take a step back and think simple and logical. Write on paper how a person could be represented as a class. Then think about what a person does. Look at all the terms we discussed to help you create your classes (like travel radius). How in heck will we represent travel? If we travel we have a position .... If we have a position, where am I being positioned?!? Am I in a list? A grid? 
+There are a lot of terms and variables discussed. Try and take a step back and think simple and logical. Write on paper how a person could be represented as a class. Then think about what a person does. Look at all the terms we discussed to help you create your classes (like travel radius). How in heck will we represent travel? If we travel, then we have a position .... If we have a position, then where am I being positioned?!? Am I in a list? A grid? 
 
-If I was doing research, we call that going down the rabbit hole, meaning you look up a definition that leads to another definition, and another , another ... You get the point.
+If I was doing research, we call that going down the rabbit hole, meaning you look up a definition that leads to another definition, and another , and another ... You get the point.
 
-But its OK in doing your design. Think about what values need remembered to where object where live.
+But its OK in doing your design. Think about what values need remembered. What logical item they belong to. And where and/or how those items need to be stored. 
 
->**NOTE:** I don't want to influence your assessment by telling you how many classes you should have, or give you hints about pitfalls. But I will say that each class should represent something that can stand on its own. I will say you should not have 1 class. We haven't done this in class from a raw problem statement and frankly I'm nervous. Put a lot of thought into it! I'm ok with collaboration, just don't have everyone turn in the same design.
+>**NOTE:** I don't want to influence your assessment by telling you how many classes you should have, or give you hints about pitfalls. But I will say that each class should represent something that can stand on its own. I will also say you should not have just a single class. We haven't discussed this in class from a raw problem statement and frankly I'm nervous. I want you to put a lot of thought into it! I'm ok with collaboration, just don't have everyone turn in the same design.
 
 Good Luck!
 
