@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
+"""
+This just spawns a bunch of "people" (pac man ghosts) and
+has them float around the screen. 
 
+Most config values are controlled by global vals at top of file.
+
+This also has a person class, mostly to show a basic python class,
+as well as give basic example with pygame integration. We can do
+better and we will later.
+"""
 import pygame
 import sys
 import random
@@ -7,20 +16,8 @@ import random
 # Global Values 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
-SPRITE_SIZE = 15
-SPRITE_BASE_SPEED = 2
-
-# SIR MODEL 
-SUSCEPTIBLE_PROB = .80
-INFECTED_PROB = .10
-RECOVERED_PROB = .10
-
-# Image Constants
-SUSCEPTIBLE_IMAGE = './images/pac_white_30x30.png'
-CONTAGIOUSL_IMAGE = './images/pac_yellow_30x30.png'
-INFECTED_IMAGE = './images/pac_red_30x30.png'
-RECOVERING_IMAGE = './images/pac_yellow_30x30.png'
-RECOVERED_IMAGE = './images/pac_yellow_30x30.png'
+SPRITE_SIZE = 30
+SPRITE_SPEED = 2
 
 # direction lists (or arrays if you like)
 # -1 = move left  or up
@@ -28,52 +25,20 @@ RECOVERED_IMAGE = './images/pac_yellow_30x30.png'
 XDirection = [-1,1]
 YDirection = [-1,1]
 
-# Status List
-SIR = []
-
-# Adjust Percentages for each phase
-S = ["S"] * int(SUSCEPTIBLE_PROB * 100) # repeat "S" for probability num times
-I = ["I"] * int(INFECTED_PROB * 100)    # repeat "I" for probability num times
-R = ["R"] * int(RECOVERED_PROB * 100)   # repeat "R" for probability num times
-
-# Append each into single list of 100 items where each probability adds
-# up to 100 items (ex: S=80 occurences, I=10 occurences, and R=10 occurences)
-SIR = S + I + R
-
-# Shuffle the array so we choose items randomly from it.
-random.shuffle(SIR)
 
 class Person(pygame.sprite.Sprite):
     """Person : Inherits from pygame Sprite
     """
-    def __init__(self, pos, SIR="S",im_size=15):
+    def __init__(self, pos, width, height):
         super().__init__()
-
-        self.im_size = im_size
-
-        if SIR == "S":
-            self.image = pygame.image.load(SUSCEPTIBLE_IMAGE)  # use susceptible image for sprite
-        elif SIR == "I":
-            self.image = pygame.image.load(INFECTED_IMAGE)  # use infected image for sprite
-        else:
-            self.image = pygame.image.load(RECOVERED_IMAGE)  # use recovered image for sprite
-
-        # scale the image based on class input
-        self.image = pygame.transform.scale(self.image, (self.im_size, self.im_size))
-
-        # set up base variables for sprite class
-        self.size = SPRITE_SIZE                             # size of sprite :) 
-        self.width = SCREEN_WIDTH                           # game board width
-        self.height = SCREEN_HEIGHT                         # game board height
+        self.size = SPRITE_SIZE             # size of sprite :) 
+        self.width = width                  # game board width
+        self.height = height                # game board height
+        self.image = pygame.image.load('./images/pacman-30x30.png')  # use image for sprite
         self.rect = self.image.get_rect(center=pos)         # kinda the "sprite" container
-        
-        self.dx = 0                                         # x direction 
-        self.dy = 0                                         # y direction
-        self.sir = SIR                                      # Which phase from model? S / I / R
-
-        # give each person a little different speed
-        self.speed = 1 + int(random.random() * SPRITE_BASE_SPEED)              
-
+        self.speed = SPRITE_SPEED           # pixel moves per game loop
+        self.dx = 0                         # x direction 
+        self.dy = 0                         # y direction
 
     def dir_x(self,x):
         """Set the x direction for the person (east/west). Invoke using the move method.
@@ -88,7 +53,7 @@ class Person(pygame.sprite.Sprite):
     def move (self,dx=None,dy=None):
         """Invoke to move a person in any cardinal direction by re-setting dx and/or dy.
         """
-        self.stop_leaving_world()
+        self.check_off_game_board()
 
         if dx != None:
             self.dx = dx
@@ -100,7 +65,7 @@ class Person(pygame.sprite.Sprite):
             
         self.rect.y += (self.dy * self.speed)
     
-    def stop_leaving_world(self):
+    def check_off_game_board(self):
         """ This method checks if a sprites x,y coordinates are off the game board.
             If they are below 0, we make them 1 and if they are greater than the 
             width or the height, we make them (width/height - sprite.size).
@@ -112,16 +77,19 @@ class Person(pygame.sprite.Sprite):
             self.rect.y = 1
         elif self.rect.y >= self.height - self.size:       # if y off screen bottom reverse direction
             self.dy *= -1
-            self.rect.y = self.height - self.size
+            self.rect.y = self.height-30
 
         if self.rect.x <= 0:                               # if x off screen left reverse direction
             self.dx *= -1
             self.rect.x = 1
         elif self.rect.x >= self.width - self.size:        # if x off screen right reverse direction
             self.dx *= -1
-            self.rect.x = self.width - self.size
+            self.rect.x = self.width-30
 
 def main():
+    # If you run program with a number after the file name like:
+    #       python3 01_sim_start.py 50
+    # then you will get 50 people in your sim
     if len(sys.argv)  > 1:
         try:
             num_people = sys.argv[1] + 1
@@ -145,16 +113,16 @@ def main():
     population = pygame.sprite.Group()
 
     # Set up 20 "people" and place them at random locations on the screen
-    for i in range(num_people):
+    for _ in range(num_people):
         # pick a random position
-        posx = int(random.random()*SCREEN_WIDTH - int(SPRITE_SIZE/2))
-        posy = int(random.random()*SCREEN_HEIGHT - int(SPRITE_SIZE/2))
+        posx = int(random.random()*590) + 15
+        posy = int(random.random()*420) + 15
 
         # create a position tuple
         pos = (posx,posy)
 
         # create a person
-        p = Person(pos,SIR[i],SPRITE_SIZE)
+        p = Person(pos,640,480)
 
         # shuffle the direction arrays
         random.shuffle(XDirection)

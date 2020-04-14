@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+Physics engine example. DONT USE FOR COVID PROJECT
+"""
 import sys, random
 import pygame
 from pygame.locals import *
