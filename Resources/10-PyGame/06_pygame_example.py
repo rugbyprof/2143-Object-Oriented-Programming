@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 # Import and initialize the pygame library
 import pygame

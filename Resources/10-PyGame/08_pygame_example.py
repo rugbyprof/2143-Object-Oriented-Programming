@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 # Import and initialize the pygame library
 import pygame
@@ -11,13 +12,19 @@ import math
       we can simple "swap" their velocities to make them "bounce" off
       each other.
 
+      It's not perfect (and were still not using PyGames built in methods
+      even though I should be). 
+
+      Balls going in similar directions, don't react or change direction
+      correctly. I'm using "very" basic collsion detection here.
+
       We are not taking into account mass, or angle of impact, or 
       differing velocites because this isn't a game class :)
 
 """
 
 class GameBall(object):
-    def __init__(self, id,pace=1, size=10, width=500, height=500,buffer=10):
+    def __init__(self, id,pace=1, size=20, width=500, height=500,buffer=10):
         """ Constructor
             This method creates a ball with params that are pre-picked for now to
             keep it simple. 
@@ -28,8 +35,8 @@ class GameBall(object):
         self.height = height    # height of game window
 
         # Pre picked values for our ball to keep the class simple
-        self.pace = 1           # pace = pixels per game loop
-        self.size = 10          # size = size of ball
+        self.pace = pace           # pace = pixels per game loop
+        self.size = size          # size = size of ball
         self.red = 0            # All balls init to black (for now)
         self.green = 0
         self.blue = 0
@@ -108,15 +115,16 @@ class GameBall(object):
         
         # If we find that the position of 2 balls is within the size of each ball, then they have collided.
         # We then change color, and should probable change direction of the as well, but thats next!
-        if abs(abs(self.x) - abs(other.x)) <= self.size and abs(abs(self.y) - abs(other.y)) <= self.size:
+        if abs(abs(self.x) - abs(other.x)) <= self.size and abs(abs(self.y) - abs(other.y)) <= int(self.size*2):
 
-                tempdx = self.dx
-                tempdy = self.dy
-                
-                self.dx = other.dx
-                self.dy = other.dy
-                other.dx = tempdx
-                other.dy = tempdy
+                tempdx = self.dx        # hold x direction of self 
+                tempdy = self.dy        # hold y direction of self
+
+                self.dx = other.dx      # take others x direction
+                self.dy = other.dy      # take others y direction
+
+                other.dx = tempdx       # other gets self's x direction
+                other.dy = tempdy       # other gets self's y direction
                 
                 # create a list of random colors
                 colors = [int(random.random()*255),int(random.random()*255),int(random.random()*255)]
@@ -137,7 +145,7 @@ class GameBall(object):
 
 if __name__=='__main__':
 
-    max_balls = 5
+    max_balls = 8
     if len(sys.argv) > 1:
         max_balls = int(sys.argv[1])
 

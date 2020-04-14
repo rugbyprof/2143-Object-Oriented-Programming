@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 # Import and initialize the pygame library
 import pygame
@@ -8,6 +9,9 @@ import math
 """ Example 07 - Still moving ball(s) (using a ball class). 
     - This example shows simple "collision" detection and changes
       the color of two balls to be the same if they "touch" or collide
+    - NOTE: I am using pure arithmetic (simple math) to determine 
+      collisions. PyGame has built in collision with sprites (which I
+      will discuss later).
 
 """
 

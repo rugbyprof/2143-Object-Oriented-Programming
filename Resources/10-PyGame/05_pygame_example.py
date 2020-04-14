@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 # Import and initialize the pygame library
 import pygame
@@ -89,6 +90,10 @@ max_balls = 10
 screen = pygame.display.set_mode([width, height])
 
 b = GameBall() # create a new instance of the GameBall class
+
+# data members in python classes are not private!
+# I can change it by using the dot operator
+b.pace = 5
 
 while running:
 

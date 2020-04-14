@@ -62,16 +62,16 @@ The above dependant variables are what we want to ultimately keep track of but l
 There is an example outbreak visualization that the 3Blue1Brown video mentioned and can be found here https://meltingasphalt.com/interactive/outbreak/. Below are the values used to influence the simulation on the page (one of them at the bottom):
 
 | Variable                   | Description | Value |
-| :------------------------- |:--------             | :---: |
-| Hospital capacity          |  | 5%   |
-| Input fatality rate        |  | 3%   |
-| Self-quarantine rate       |  | 25%  |
-| Self-quarantine strictness |  | 25%  |
-| Encounters per day         |  | 10   |
-| Travel radius              |   | 5   |
-| Transmission rate          |  | 0.4  |
-| Days in incubation         |   | 7   |
-| Days with symptoms         |   | 8   |
+| :------------------------- | :---------- | :---: |
+| Hospital capacity          |             |  5%   |
+| Input fatality rate        |             |  3%   |
+| Self-quarantine rate       |             |  25%  |
+| Self-quarantine strictness |             |  25%  |
+| Encounters per day         |             |  10   |
+| Travel radius              |             |   5   |
+| Transmission rate          |             |  0.4  |
+| Days in incubation         |             |   7   |
+| Days with symptoms         |             |   8   |
 
 We wont use all these parameters to model our simulation, but we could if we wanted to. I would go to the website and play around with the input values trying to flatten the curve like Grant did on his 3Blue1Brown video.
 
@@ -94,8 +94,3 @@ Good Luck!
 - Create a folder called `P03` in your assignments folder.
 - Place all images and relevant materials into this folder. 
 - Put it on github.
-
-
-
-
-
