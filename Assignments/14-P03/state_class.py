@@ -10,8 +10,6 @@
 import pygame
 import random
 
-
-
 pygame.init()
 
 width = 500         # width of overall screen
@@ -26,7 +24,11 @@ modded = 1         # print ball when this val divides even
 pace = 15            # pixels to move ball each game loop
 ob_size = 10
 
+class Config:
+    pass
 
+class State(object):
+    pass
 
 def moveBall(x, y, dx, dy, ob_size, pace=3):
     """
@@ -69,6 +71,12 @@ blue = random.randint(0, 255)
 x = int(width * random.random())    # faster than random.randint(low,high)
 y = int(width * random.random())    # faster than random.randint(low,high)
 
+image = pygame.image.load("./images/pac_yellow_30x30.png") 
+
+image = pygame.transform.scale(image, (25, 25))
+
+
+# game loop
 while running:
 
     # Did the user click the window close button?

@@ -1,7 +1,7 @@
 ## Program 3 - Modeling Covid19 Part 2
-#### Due: 04-16-2020 (Thursday @ 12:30 p.m.)
+#### Due: 05-01-2020 (Friday @ 5:00 p.m.)
 
-### Overview
+## Overview
 
 I've posted a few python / pygame example code listings that progressively take you through ... well not a ton of gaming code, but enough to do what we need to get started with our covid19 simulation. This isn't strictly a visualization, but it will make it more interesting if we visualize our infected vs susceptible and recovered. 
 
@@ -55,7 +55,13 @@ The SIR model:
 
 
 
+## Project
 
+Project explanation coming
+
+### Deliverables
+
+Deliverables coming
 
 
 
