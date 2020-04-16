@@ -6,7 +6,7 @@ import random
 import sys
 
 """
-Pygame hello world: Print a circle in middle of screen.
+LECTURE material from 15 april at 12pm
 
 dictionary {} key value pairs
 list [] collection of anything
