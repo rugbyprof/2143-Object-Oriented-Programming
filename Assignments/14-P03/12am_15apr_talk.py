@@ -107,8 +107,8 @@ class Person(pygame.sprite.Sprite):
 
     def collide(self,other):
 
-        if not other.state == "infected":
-            return
+        # if not other.state == "infected":
+        #     return
 
         x1, y1 = self.rect.center
         x2, y2 = other.rect.center
