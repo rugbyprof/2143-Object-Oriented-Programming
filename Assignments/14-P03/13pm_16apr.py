@@ -6,6 +6,10 @@ import random
 import math
 from config import Config
 
+Config.width = 300
+Config.height = 300
+Config.pid = 1
+
 """
 
 Stuff we lectured about 16 April at 1:00 pm
@@ -41,11 +45,14 @@ class Person(pygame.sprite.Sprite):
                  color,
                  width=15,
                  height=15,
-                 speed=7):
+                 speed=7,inx=None,iny=None):
         """ Constructor. Pass in the color of the block,
         and its size. """
         # Call the parent class (Sprite) constructor
         super().__init__()
+
+        self.id = Config.pid
+        Config.pid +=1
 
         self.state = "susceptible"
 
@@ -62,8 +69,9 @@ class Person(pygame.sprite.Sprite):
         self.dx = random.choice([-1, 1])
         self.dy = random.choice([-1, 1])
 
+        speeds = range(1,6)
         # pixels per game loop
-        self.speed = speed
+        #self.speed = random.choice([1,7])
         self.speed = speed
 
         self.color = color
@@ -80,9 +88,19 @@ class Person(pygame.sprite.Sprite):
         # Update the position of this object by setting the values
         # of rect.x and rect.y
 
-        # creates a random location between bounds of screen size
-        x = int(random.random() * self.screen_width)
-        y = int(random.random() * self.screen_height)
+        if inx is None:
+            # creates a random location between bounds of screen size
+            x = int(random.random() * self.screen_width)
+        else:
+            x = inx
+
+        if iny is None:
+            # creates a random location between bounds of screen size
+            y = int(random.random() * self.screen_height)
+        else:
+            y = iny
+
+
 
         self.rect = self.image.get_rect(center=(x, y))
 
@@ -101,11 +119,11 @@ class Person(pygame.sprite.Sprite):
            If not, we reverse direction.
         """
         # if our x goes less than zero or more than width negate dx.
-        if self.rect.x >= self.screen_width or self.rect.x <= 0:
+        if self.rect.x >= self.screen_width-self.width or self.rect.x <= 0:
             self.dx *= -1
 
         #
-        if self.rect.y >= self.screen_height or self.rect.y <= 0:
+        if self.rect.y >= self.screen_height-self.width or self.rect.y <= 0:
             self.dy *= -1
 
     def determineSides(self, other):
@@ -126,15 +144,24 @@ class Person(pygame.sprite.Sprite):
         return d
     
     def changeDirection(self,other):
+
         sides = self.determineSides(other)
+
+        print(f"{self.color} {sides}")
         if "right" in sides:
-            self.dx *= -1
+            self.dx = -1
+            #self.rect.x -= 5
         if "left" in sides:
-            self.dx *= -1
+            self.dx = 1
+            #self.rect.x += 5
         if "top" in sides:
-            self.dy *= -1
+            self.dy = -1
+            #self.rect.y -= 5
         if "bottom" in sides:
-            self.dy *= -1
+            #self.rect.y += 5
+            self.dy = 1
+
+        
 
     def collide(self, other,social_distance=20):
         """collide : check to see of we hit another sprite
@@ -150,12 +177,13 @@ class Person(pygame.sprite.Sprite):
 
         # distance
         d = math.sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2))
-
+        
         if d < social_distance:
             self.changeDirection(other)
+            print(f"d:{d} collision:{self.width*1.2}")
 
         # if distance is less than some threshold , then do something
-        if d < self.width:
+        if d < self.width*1.2:
             self.image = pygame.image.load(Config.sprite_images["red"])
             self.image = pygame.transform.scale(self.image,
                                                 (self.width, self.height))
@@ -178,7 +206,7 @@ if __name__=='__main__':
     speeds = [x for x in range(1,3)]
 
     # loop N times
-    for i in range(100):
+    for i in range(3):
         # add a "person" to our list of people
         # create an "instance" of our class
         people.append(Person(Config.width, Config.height, random.choice(colors),15,15,1)) #random.choice(speeds)
@@ -192,12 +220,23 @@ if __name__=='__main__':
     # Run until the user asks to quit
     running = True
 
+    
     while running:
 
         # Did the user click the window close button?
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+
+            # handle MOUSEBUTTONUP
+            if event.type == pygame.MOUSEBUTTONUP:
+                pos = pygame.mouse.get_pos()
+                people.append(Person(Config.width, Config.height, random.choice(colors),15,15,1,pos[0],pos[1])) #random.choice(speeds)
+
+                # Add last person to our sprites list
+                # list[-1] give you the last item
+                sprites_list.add(people[-1]) 
+
 
         # Fill the background with blackish
         screen.fill((30, 30, 30))
@@ -212,7 +251,7 @@ if __name__=='__main__':
             # and check for collision (could be better)
             for sp in people:
                 if not p == sp:  #and sp.state == 'infected':
-                    p.collide(sp,40)
+                    p.collide(sp,30)
 
         # Flip the display
         pygame.display.flip()

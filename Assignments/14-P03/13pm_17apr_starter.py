@@ -1,0 +1,8 @@
+# Variables
+
+'''
+Block comment
+'''
+
+"""
+"""
