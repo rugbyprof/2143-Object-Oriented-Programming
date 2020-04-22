@@ -57,7 +57,7 @@ The SIR model:
 
 ## Project
 
-Project explanation coming
+The project is to take the SIR model and visualize an outbreak with a population of people. I didn't put any specifics in at the beginning since we were really doing python and I wanted 
 
 ### Deliverables
 
