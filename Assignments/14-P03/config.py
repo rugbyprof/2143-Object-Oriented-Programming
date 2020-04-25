@@ -1,4 +1,5 @@
 class Config:
+    #no constructor
     width = 1024
     height = 768
     sprite_images = {
@@ -10,6 +11,10 @@ class Config:
         "orange" : "./images/pac_orange_30x30.png",
         "green" : "./images/pac_green_30x30.png"
     }
+    social_distancing = False
+    infection_radius = 10
+    infection_rate = .20
+
 
 if __name__=='__main__':
     print("I'm testing config!")

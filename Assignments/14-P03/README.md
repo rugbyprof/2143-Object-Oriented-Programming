@@ -55,9 +55,15 @@ The SIR model:
 
 
 
+## Discussion
+
+This project is to take the **SIR** model and visualize a Covid19 outbreak with a population of people (or any flu basically). We did not discuss specifics in the beginning since we were really getting up to speed with python. Also, I wanted everyone to approach the problem in their own way. We looked at a [3 Blue One Brown video](https://www.youtube.com/watch?v=gxAaO2rsdIs&t=460s) modeling disease outbreak, and this will be our major influence for our last program. Not his visualizations, but the major influences to the outbreak that he discusses. Your program will do visualizations, but your grade will be determined on how you organize and design each of your classes.
+
+Don't forget about the [Dry Principle](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) when creating your classes. Each class should be responsible for one logical component of your simulation. I gave some examples at the top of this document, but there are many viable solutions.
+
 ## Project
 
-The project is to take the SIR model and visualize an outbreak with a population of people. I didn't put any specifics in at the beginning since we were really doing python and I wanted 
+
 
 ### Deliverables
 

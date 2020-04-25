@@ -32,7 +32,7 @@ while running:
     # we slow down the change rate by creating a counter  
     # and modding by some value (1000 in this case)
     # otherwise it will change too fast
-    if count % 5 == 0:
+    if count % 100 == 0:
         red = random.randint(0, 255)
         green = random.randint(0, 255)
         blue = random.randint(0, 255)
