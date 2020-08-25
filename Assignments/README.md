@@ -1,8 +1,8 @@
 ## Assignments
 | Folder | Assignment | Description | Due|
  | ------------|------------|------------|------------|
- | [A01](https://github.com/rugbyprof/5443-Spatial-Data-Structures/tree/master/Assignments/A01) | [ Assignment 1 ](https://github.com/rugbyprof/5443-Spatial-Data-Structures/tree/master/Assignments/A01) | [ Establishing 2 Way Communication](https://github.com/rugbyprof/5443-Spatial-Data-Structures/tree/master/Assignments/A01) | [08-26-2020 (Wednesday @ 4:30 p.m.)](https://github.com/rugbyprof/5443-Spatial-Data-Structures/tree/master/Assignments/A01) |
- | [A02](https://github.com/rugbyprof/5443-Spatial-Data-Structures/tree/master/Assignments/A02) | [ Assignment 2 ](https://github.com/rugbyprof/5443-Spatial-Data-Structures/tree/master/Assignments/A02) | [ 1 Way Communication (you to me)](https://github.com/rugbyprof/5443-Spatial-Data-Structures/tree/master/Assignments/A02) | [08-26-2020 (Wednesday @ 4:30 p.m.)](https://github.com/rugbyprof/5443-Spatial-Data-Structures/tree/master/Assignments/A02) |
+ | [A01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/A01) | [ Assignment 1 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/A01) | [ Establishing 2 Way Communication](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/A01) | [08-27-2020 (Thursday @ 9:30 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/A01) |
+ | [A02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/A02) | [ Assignment 2 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/A02) | [ 1 Way Communication (you to me)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/A02) | [08-27-2020 (Wednesday @ 9:30 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/A02) |
 
     
 ## File Legend
@@ -15,4 +15,4 @@
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
     
-<sup>Last Updated: 2020-08-24 (Mon @ 15:51)</sup>
+<sup>Last Updated: 2020-08-25 (Tue @ 09:25)</sup>
