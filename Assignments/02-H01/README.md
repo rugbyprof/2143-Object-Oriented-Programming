@@ -1,4 +1,4 @@
-## Assignment 3 - Commenting C++ Code 
+## Homework 1 - Commenting C++ Code 
 #### Due: 09-01-2020 (Tuesday @ 9:30 a.m.)
 
 ### Overview
