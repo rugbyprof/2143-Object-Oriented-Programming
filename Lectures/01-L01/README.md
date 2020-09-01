@@ -9,5 +9,6 @@
 
 ### Helper Homework
 
-- 1) Try adding a `constructor` to help initialize fname, lname, and age to the `person` struct.
-- 2) To make it more useful, add a default constructor that will initialize fname and lname to empty strings and age to 0 then an overloaded constructor that lets the user pass in each value.
+- Try this on [struct_example_1.cpp](struct_example_1.cpp):
+  - Try adding a `constructor` to help initialize fname, lname, and age to the `person` struct.
+  - To make it more useful, add a **default constructor** that will initialize fname and lname to empty strings and age to 0 then an **overloaded constructor** that lets the user pass in each value.
