@@ -2,6 +2,7 @@
 | Folder | Lecture | Description|
  | ------------|------------|------------|
  | [01-L01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-L01) | [ Lecture L01 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-L01) | [ Review of Linked lists](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-L01) | [01-L01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-L01) | [|      | Name                                         | Description                                            |](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-L01) | [01-L01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-L01) | [ Helper Homework](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-L01) | [N/A](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-L01) |
+ | [02-L02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-L02) | [ Lecture L02 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-L02) | [ Review of Array Based Stacks](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-L02) | [02-L02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-L02) | [|      | Name                                           | Description                                            |](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-L02) | [N/A](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-L02) |
 
     
 ## File Legend
@@ -14,4 +15,4 @@
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
     
-<sup>Last Updated: 2020-08-31 (Mon @ 21:40)</sup>
+<sup>Last Updated: 2020-09-03 (Thu @ 07:43)</sup>
