@@ -1,5 +1,5 @@
 ## Porgram 1 - Stack Upgrade
-#### Due: 09-10-2020 (Thursday @ 9:30 a.m.)
+#### Due: 09-15-2020 (Thursday @ 9:30 a.m.)
 
 
 ### Overview
@@ -28,12 +28,67 @@ This is a pretty simple assignment in which you need to fix the existing `Stack`
 
 ### Input File
 
-Still working on it.
+- The input file will have between `1 - N` commands where `N` will be no bigger than `100000`. 
+- The file is formatted like:
+
+```txt
+push x
+pop
+```
+- Where **pushes** have a value to push 
+- And **pops** do not
+
+## Output
+
+### Screen Output
+
+- You should print your name and assignment data as the first part of your output:
+```txt
+Name: Latesha Smith
+Program: P01
+Date: 15 Sep 2020
+
+```
+
+- Every time your stack resizes you should print out the action and the stack size.
+- For example `+` sign implies growing and `-` implies shrinking:
+  
+```txt
++ : 10 -> 20
++ : 20 -> 40
++ : 40 -> 80
+- : 80 -> 40
+.
+.
+.
+etc.
+```
+
+### File Output
+
+- Create an output file that contains the following:
+  - Stack starting size
+  - Largest stack size
+  - Ending stack size
+
+```txt
+Name: Latesha Smith
+Program: P01
+Date: 15 Sep 2020
+
+Start size: 10
+Max size: 655360
+Ending size: 10240
+```
+
 
 ### Deliverables
 
-- Rename the original file from H02 to `main.cpp`
+- Rename the original file from [L03](../../Lectures/03-L03/resize_array.cpp) to `main.cpp`
 - Create a folder in your `Assignments` folder called `p01`.
 - Place your commented `main.cpp` file into this `p01` folder.
-- Place the input you used to test your program in there as well. 
-- Create a banner with P01 as part of the title (see [HERE](../../Resources/03-Banner/README.md))
+- Place all input files and output files created and or used in this folder as well 
+- Create a banner with **P01** as part of the title (see [HERE](../../Resources/03-Banner/README.md))
+- Bring a print out of your **code** and and **output file** to class.
+- Banner is stapled with your code so its the top and only visible page. Basically a cover sheet.
+- Put your code on the front desk at the beginning of class. If it's not there it's late.
