@@ -91,4 +91,11 @@ Ending size: 10240
 - Create a banner with **P01** as part of the title (see [HERE](../../Resources/03-Banner/README.md))
 - Bring a print out of your **code** and and **output file** to class.
 - Banner is stapled with your code so its the top and only visible page. Basically a cover sheet.
-- Put your code on the front desk at the beginning of class. If it's not there it's late.
+- Put your code on the front desk at the beginning of class. Example below:
+  
+```txt
+Banner
+Code
+Output File
+```
+- If your papers are not there at the beginning of class they are late. Sorry.
