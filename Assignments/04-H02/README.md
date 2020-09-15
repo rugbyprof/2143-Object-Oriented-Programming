@@ -34,6 +34,7 @@
 
 The following Markdown:
 
+```
 ## H02
 
 - Name: Francis Popperpot
@@ -56,6 +57,10 @@ The following Markdown:
 > This is your method definition.....
 
 #### ETC...
+```
+Creates the following output: 
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/ho2_output_2020.png" width="600">
 
 
 
