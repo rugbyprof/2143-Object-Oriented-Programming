@@ -88,7 +88,7 @@ struct logic_error : public exception {
 
 ### Overloading
 
-  - Read this doc carefully: [Overloading](../../Resources/05-OperatorOverloading/README.md)\!
+  - Read this doc carefully: [Overloading](../../Resources/04-OperatorOverloading/README.md)\!
     Questions dealing with overloading will come from here.
   - Some (not all) examples:
       - Given a struct or class, overload ostream to print out each private data member.
