@@ -21,7 +21,7 @@ a protective wrapper that stops random access of code defined outside that wrapp
 
 Here, are the main reasons why abstraction is needed for Object-Oriented Programming:
 
-  - Helps you to simplify the representation of the domain models.
+  - Helps you to simplify the representation of the [domain models](https://en.wikipedia.org/wiki/Domain_model).
   - Abstraction hides the irrelevant details found in the code.
   - Abstraction helps you to partition the program into many independent concepts.
   - Offers the greatest flexibility when using ADT(Abstract Data Type) objects in different
