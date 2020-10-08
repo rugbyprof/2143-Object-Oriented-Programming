@@ -1,5 +1,4 @@
-C++ Operator Overloading Guidelines
------------------------------------
+## C++ Operator Overloading - Guidelines
 
 One of the nice features of C++ is that you can give special meanings to operators, when they are used with user-defined classes. This is called *operator overloading*. You can implement C++ operator overloads by providing special member-functions on your classes that follow a particular naming convention. For example, to overload the + operator for your class, you would provide a member-function named operator+ on your class.
 
