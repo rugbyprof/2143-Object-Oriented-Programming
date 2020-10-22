@@ -120,11 +120,13 @@ Lets look at a generic layout of a set of classes:
 
 ```cpp
 class Bank{
+
   double amount;
+  public:
   Bank(){
     amount = 1000;
   }
-public:
+
   // or deposit
   void won(double x){ 
     amount += x;
