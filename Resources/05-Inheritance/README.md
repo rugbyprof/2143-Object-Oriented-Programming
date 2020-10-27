@@ -318,8 +318,12 @@ Son (int a) : Mother (a)  // constructor specified: call this specific construct
 - For example, if the program had a specific class to print on screen called Output, and we wanted our classes Rectangle and Triangle to also inherit its members in addition to those of Polygon we could write:
 
 ```cpp
-class Rectangle: public Polygon, public Output;
-class Triangle: public Polygon, public Output; 
+class Rectangle: public Polygon, public Output{
+  /*    */
+}
+class Triangle: public Polygon, public Output{
+  /*    */
+}
 ```
 
 Here is the complete example:

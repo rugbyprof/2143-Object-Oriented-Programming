@@ -43,9 +43,6 @@ using namespace std;
  *      I also thougth this was clunky so I ditched it. 
  */
 
-
-
-
 // Actual solution. Not perfect, but better
 
 // We needed this in class just for reference
@@ -157,8 +154,8 @@ string randomSuit() {
  *      friend Ostream   - override the cout class so we can jump between coords!
  */
 struct GotoXY {
-    int x;      // col
-    int y;      // row
+    int x; // col
+    int y; // row
 
     GotoXY(int x, int y) : x{x}, y{y} {}
     friend ostream &operator<<(std::ostream &gout, const GotoXY &printxy);
@@ -179,7 +176,7 @@ ostream &operator<<(std::ostream &out, const GotoXY &printxy) {
  * terminal is in "rows" and "cols".
  */
 struct winsize w;
-struct WindowSize{
+struct WindowSize {
     int rows;
     int cols;
 
@@ -187,55 +184,100 @@ struct WindowSize{
      * Uses some built in libraries to get a terminal window size.
      *      stdio.h, sys/ioctl.h, unistd.h 
      */
-    WindowSize(){
+    WindowSize() {
         // magic happens here
         ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 
-        // place values in more readable 
+        // place values in more readable
         // vars here ...
         rows = w.ws_row;
         cols = w.ws_col;
     }
-    
+
     /**
      * Guess
      */
-    int termWidth(){
+    int termWidth() {
         return cols;
     }
 
     /**
      * Guess
      */
-    int termHeight(){
+    int termHeight() {
         return rows;
     }
 
     /**
      * Random int between 0 and width of terminal window
      */
-    int randCol(){
+    int randCol() {
         return rand() % cols;
     }
 
     /**
      * Random int between 0 and height of terminal window
      */
-    int randRow(){
+    int randRow() {
         return rand() % rows;
     }
 };
 
+struct Point {
+    int x;
+    int y;
+    Point() {
+        x = 0;
+        y = 0;
+    }
+    Point(int x, int y) : x{x}, y{y} {}
+};
+
+struct Spiral {
+    WindowSize *W;
+    int cr;    // current row
+    int cc;    // current col
+    int cmaxc; // current max col
+    int cmaxr; // current max row
+    int xd;    // x direction
+    int yd;    // y direction
+    Spiral(Point P, WindowSize *W) {
+        cr = P.y;
+        cc = P.x;
+        cmaxr = W->termHeight();
+        cmaxc = W->termWidth();
+        xd = yd = 1;
+    }
+    Point Next() {
+        Point p(cc,cr);
+        if (cc < cmaxc) {
+            cc += xd;
+            p.x = cc;
+        }
+
+        if (cc == cmaxc && cr < cmaxr) {
+            cr += yd;
+            p.y = cr;
+        }
+
+        return p;
+    }
+};
 
 int main() {
     srand(time(0));
-    WindowSize W;
-    
-    for (int i = 0; i < 100000000; i++) {
-        int x = W.randCol();
-        int y = W.randRow();
+    WindowSize *W = new WindowSize;
+    Spiral S(Point(0, 0), W);
+
+    for (int i = 0; i < 1000000; i++) {
+        int x = W->randCol();
+        int y = W->randRow();
         cout << GotoXY(x, y);
         cout << Color(randomColor(), Default) << randomSuit();
     }
+
     return 0;
 }
+
+
+	
