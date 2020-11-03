@@ -9,7 +9,8 @@
  | [05-T01](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-T01) | [ Test 1 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-T01) | [ OOP Concepts](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-T01) | [10-01-2020 (Thursday @ 9:30 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/05-T01) |
  | [06-T02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-T02) | [ Test 2 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-T02) | [ OOP Concepts](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-T02) | [10-01-2020 (Thursday @ 9:30 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-T02) |
  | [07-P02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-P02) | [ Program 02 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-P02) | [ Blackjack Part 1 Overview](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-P02) | [10-29-2020 (Thursday @ 9:30 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-P02) |
- | [08-P02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02) | [](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02) | [08-P02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02) | [ Sample Run](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02) | [N/A](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02) |
+ | [08-P02](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02) | [ Program 02 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02) | [ Blackjack Part 2](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02) | [TBD](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02) |
+ | [09-H03](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H03) | [ Homework 03 ](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H03) | [ Fix the Crappy Swap](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H03) | [11-05-2020 (Thursday @ 9:30 a.m.)](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-H03) |
  
     
 ## File Legend
@@ -22,4 +23,4 @@
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
     
-<sup>Last Updated: 2020-10-29 (Thu @ 07:22)</sup>
+<sup>Last Updated: 2020-11-03 (Tue @ 11:54)</sup>
