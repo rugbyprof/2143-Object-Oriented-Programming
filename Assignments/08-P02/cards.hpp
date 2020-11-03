@@ -55,7 +55,7 @@ struct AsciiCardLoader{
                 }
             }
         }
-        cout<<counter<<endl;
+        //cout<<endl<<counter<<endl;
     }
 
     void printCard(int i){

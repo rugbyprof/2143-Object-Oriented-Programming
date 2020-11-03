@@ -167,7 +167,6 @@ struct GotoXY {
  */
 ostream &operator<<(std::ostream &out, const GotoXY &printxy) {
     out << "\033[" << printxy.y << ";" << printxy.x << "H";
-    ;
     return out;
 }
 
@@ -264,18 +263,44 @@ struct Spiral {
     }
 };
 
+
+const string suits[4] = {"♠", "♥", "♦", "♣"};
+
+string ColorString(string fg,string bg){
+    return "\033[0;"+fg+";"+bg+"m";
+}
+
+void ColorCard(int x, int y,string fg,string bg, string suit,string val){
+    string c;
+    cout<< "\033[" << y << ";" << x << "H";
+    cout<< ColorString(fg,bg)+"┌────┐"+ColorString(fg,"49")+"\n";
+    cout<< "\033[" << y+1 << ";" << x << "H";
+    cout<< ColorString(fg,bg)+"│"+suit+"   │"+ColorString(fg,"49")+"\n";
+    cout<< "\033[" << y+2 << ";" << x << "H";
+    cout<< ColorString(fg,bg)+"│ "+val+"  │"+ColorString(fg,"49")+"\n";
+    cout<< "\033[" << y+3 << ";" << x << "H";
+    cout<< ColorString(fg,bg)+"│   "+suit+"│"+ColorString(fg,"49")+"\n";
+    cout<< "\033[" << y+4 << ";" << x << "H";
+    cout<< ColorString(fg,bg)+"└────┘"+ColorString(fg,"49")+"\n";
+}
+
+
+
+
 int main() {
     srand(time(0));
     WindowSize *W = new WindowSize;
-    Spiral S(Point(0, 0), W);
+    // Spiral S(Point(0, 0), W);
 
-    for (int i = 0; i < 1000000; i++) {
-        int x = W->randCol();
-        int y = W->randRow();
-        cout << GotoXY(x, y);
-        cout << Color(randomColor(), Default) << randomSuit();
-    }
+    // for (int i = 0; i < 1000000; i++) {
+    //     int x = W->randCol();
+    //     int y = W->randRow();
+    //     cout << GotoXY(x, y);
+    //     cout << Color(randomColor(), Default) << randomSuit();
+    // }
 
+  
+    ColorCard(0,10,"34","45",suits[2],"9");
     return 0;
 }
 

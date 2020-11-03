@@ -3,14 +3,17 @@
 
 using namespace std;
 
+
 int main(){
 
     Deck D;
-    AsciiCardLoader A;
+    Card *T;
 
-    //D.Print(5);
+    D.Print();
 
-    A.printCard(0);
+    T = D.Draw();
+
+    cout<<T->Repr()<<endl;
 
     return 0;
 }
