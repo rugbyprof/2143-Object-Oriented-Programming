@@ -1,4 +1,6 @@
-#
+## Program 02 - Blackjack Part 2 
+#### Due: TBD
+
 
 - Implement the deck as a dynamic array inside the Deck class.  Create a constructor for the Deck class that accepts the number of 52-card decks to load. Cards are drawn from the high end of the array.
 - The deck must be sufficiently shuffled at the beginning of the game.
@@ -7,7 +9,7 @@
 - Input must be 'H' (hit), 'S' (stand), 'D' (double down; see above), '?' (show deck), or 'Q' (quit).
 - The player starts with $1000.  The initial bet placed before each hand is always $100.
 - Do not clear the screen after each hand.  Just let it scroll.
-- At a minimum, you should have two files for the Deck class, two files for the Blackjack class, and project2.cpp.  A generalized Deck will also have two files for a Card class.  Note that none of the logic for the Blackjack game itself should reside in project2.cpp.
+- At a minimum, you should have one file for the Card, Deck, and Hand classes, one file for the Blackjack class, and a main.cpp.  A generalized Deck will also have two files for a Card class.  Note that none of the logic for the Blackjack game itself should reside in project2.cpp.
 
 
 
