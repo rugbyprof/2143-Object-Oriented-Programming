@@ -6,6 +6,8 @@
 
 Take the code in this folder and fix the swap method. Yes, we should use the built in vector swap, but we didn't. The issue is the indexes. Trace the code and fix ***i*** and ***j*** so that the resulting "hand" prints in ascending order from left to right.
 
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/blackjack_swap.png" width="300">
+
 ### Deliverables
 
 - Create a folder in your `Assignments` folder called `H03`.
