@@ -128,13 +128,11 @@ int main() {
 
 In the above example the operator ‘+’ is overloaded. The operator ‘+’ is an addition operator and can add two numbers(integers or floating point) but here the operator is made to perform addition of two imaginary or complex numbers. To learn operator overloading in details visit [this](https://www.geeksforgeeks.org/operator-overloading-c/) link.
 
-### 1) Runtime polymorphism]
+### 1) Runtime polymorphism
 
 This type of polymorphism is achieved by Function Overriding.
 
 - **Function overriding**: on the other hand occurs when a derived class has a definition for one of the member functions of the base class. That base function is said to be **overridden** .
-
-
 
 ```cpp
 // C++ program for function overriding

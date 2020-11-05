@@ -213,10 +213,9 @@ int main(void) {
 x = 4, y = 5
 ```
 
-**Comparison with Java**  
-In Java, a class can be made abstract by using abstract keyword. Similarly a function can be made pure virtual or abstract by using abstract keyword. See   [Abstract Classes in Java](https://www.geeksforgeeks.org/abstract-classes-in-java/) for more details.
 
-**Interface vs Abstract Classes:**  
+**Interface vs Abstract Classes:**
+  
 An interface does not have implementation of any of its methods, it can be considered as a collection of method declarations. In C++, an interface can be simulated by making all methods as pure virtual. In Java, there is a separate keyword for interface.
 
 <sub>source: https://www.geeksforgeeks.org/pure-virtual-functions-and-abstract-classes/</sub>
