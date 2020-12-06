@@ -18,8 +18,6 @@
 - Do not clear the screen after each hand.  Just let it scroll.
 - At a minimum, you should have one file for the Card, Deck, and Hand classes, one file for the Blackjack class, and a main.cpp.  A generalized Deck will also have two files for a Card class.  Note that none of the logic for the Blackjack game itself should reside in project2.cpp.
 
-
-
 It is good programming practice to use a constructor for the Blackjack class to set the initial bank roll, number of decks, etc.
 
 ### Sample Run
@@ -90,7 +88,7 @@ H : Hit | S : Stand
 
 Sum: 20
 
-
 H : Hit | S : Stand
 ```
 **Player Stands**
+
