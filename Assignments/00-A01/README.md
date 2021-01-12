@@ -45,6 +45,8 @@ So, **NO email!** Unless I specifically ask. Slack is your communication conduit
 
 Now that we have our communication client set up, we probably need to start getting the actual programming environment ready! We will be doing many things from the command line this semester. Windows is not known for it's command line prowess, so we need to give it some assistance.
 
+
+- Invite to Griffin's Slack Channel <a href="https://join.slack.com/t/griffin-courses/shared_invite/zt-cw6fonr5-_CTN1kbgP3UaL9kRAzUICw" target="_blank">**HERE**</a>
 ### Discord
 ---
 
@@ -53,7 +55,7 @@ Now that we have our communication client set up, we probably need to start gett
 Discord specializes in text, image, video and audio communication between users in a chat channel. We will be using it as a place for us to communicate with voice chat and screen sharing. Discord can run in a browser, however that version does not work well at all for screen sharing. So I recommend you download the actual version and install it on your computer. Also, below I have provided a link to invite you to my server.
 
 - Download discord <a href="https://discord.com/new/download" target="_blank">**HERE**</a>
-- Invite to Griffin's server <a href="https://discord.gg/4Un4Ya" target="_blank">**HERE**</a>
+- Invite to Griffin's server <a href="https://discord.gg/WZ2AjzNmNz" target="_blank">**HERE**</a>
 
 
 |                                                                                                     |                                                                                       |
