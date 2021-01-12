@@ -4,6 +4,7 @@
 |-----|-----|-----|-----|-----|
 | None | None | None | None | None |
 
+Items without a due date or if the due date is ~~lined through~~, consider it not assigned.
 ### File Legend
 
 | Folder Name | Description |
@@ -13,4 +14,4 @@
 |xx-**P**xx | This is a ***Program***. Where it must be compiled, run error free, commented, and correct. |
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
-<sup>Last Updated: 2021-01-12 (Tue @ 09:08)</sup>
+<sup>Last Updated: 2021-01-12 (Tue @ 13:31)</sup>
