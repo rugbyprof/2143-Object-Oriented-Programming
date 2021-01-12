@@ -1,5 +1,5 @@
 ## Assignment 1 - Establishing 2 Way Communication
-#### Due: 08-27-2020 (Thursday @ 9:30 a.m.)
+#### Due: 01-13-2020 (Thursday @ 9:30 a.m.)
 
 ## Getting Setup
 
@@ -69,7 +69,7 @@ Discord specializes in text, image, video and audio communication between users 
 
 #### Update the Class Roster:
 
-- Here is a link to our class roster on google docs: ![](https://docs.google.com/spreadsheets/d/1gjKKgoW3O5DBNkbXMAleqO67SkNbdkOt4fNdQ6VvjKo/edit?usp=sharing) [Class Roster](https://docs.google.com/spreadsheets/d/1Q0QD0v32rpJ0zwMRR-UJjtOZQlpboPUAgwVsQplnJOE/edit?usp=sharing)
+- Here is a link to our class roster on google docs: ![](https://docs.google.com/spreadsheets/d/1gjKKgoW3O5DBNkbXMAleqO67SkNbdkOt4fNdQ6VvjKo/edit?usp=sharing) [Class Roster](https://docs.google.com/spreadsheets/d/1ze4P6yJUVEn5Y1wZLXW2LwMjW1EbyMlC1t6ldwFu_0A/edit?usp=sharing)
 
 - Update the roster by adding your information to it.
 

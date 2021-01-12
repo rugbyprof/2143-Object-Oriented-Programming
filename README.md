@@ -1,19 +1,19 @@
 # 2143-Object Oriented Programming
 
 ### Roster
-![](https://d3vv6lp55qjaqc.cloudfront.net/items/220B0V0H3c041K2p251Z/google-sheets-16.png?X-CloudApp-Visitor-Id=1094421) [Class Roster](https://docs.google.com/spreadsheets/d/1Q0QD0v32rpJ0zwMRR-UJjtOZQlpboPUAgwVsQplnJOE/edit?usp=sharing)
+![](https://d3vv6lp55qjaqc.cloudfront.net/items/220B0V0H3c041K2p251Z/google-sheets-16.png?X-CloudApp-Visitor-Id=1094421) [Class Roster](https://docs.google.com/spreadsheets/d/1ze4P6yJUVEn5Y1wZLXW2LwMjW1EbyMlC1t6ldwFu_0A/edit?usp=sharing)
 
 
 ### General Course Info
 - __Days:__ TTh 9:30 a.m. - 10:50 a.m. 
-- __Location:__ BO 320
-- [__Semester:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf)Mon Aug 24<sup>th</sup> - Fri Dec 4<sup>th</sup>
+- __Location:__ BO 209
+- [__Semester:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf) Monday January 11<sup>th</sup> - Friday April 23<sup>rd</sup>
 - [__Holidays:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf)
-  - __Labor Day__ Mon Sep 7<sup>th</sup>
-  - __Thanks Giving:__ Wed Nov 25<sup>th</sup> - Fri Nov 27<sup>th</sup> 
-- [__Last Day for “W”:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf) Fri Dec 4<sup>th</sup>
-- [__Last Day of Class:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf) Fri Dec 4<sup>th</sup>
-- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/spring20finals.pdf) Monday Dec 8<sup>th</sup>, 8:00 a.m. - 10:00 a.m.
+  - __Martin Luther King Jr. Day__ Monday January 18<sup>th</sup>
+  - __"Holiday Break" (lol):__ Wednesday March 31<sup>st</sup> - Monday April 5<sup>th</sup> 
+- [__Last Day for “W”:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf)  Friday April 23<sup>rd</sup>
+- [__Last Day of Class:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf) Friday April 23<sup>rd</sup>
+- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/spring20finals.pdf) Tuesday April 27<sup>th</sup> from 8:00 am - 10:00am
 
 ## Course Topics
 
@@ -24,43 +24,62 @@
 - Polymorphism
 - Overloading
 - Abstract Classes
-- Inheritence and Substitution
+- Inheritance and Substitution
 - Introduction to UML
 - UML Relationships 
 - Subclasses and Subtypes
 - Static and Dynamic Behavior
 
+## Calendar
+
+Coming Soon
+
 ## Grading
 
-| Categories                                                   | Portion of Course | Letter Grade | Grade Range |
-| :----------------------------------------------------------- | :---------------: | :----------: | :---------: |
-| Exams (3)<sup>**1**</sup>                                    |        45%        |      A       |   89-100    |
-| Programs (3-5)<sup>**2**</sup><sup>**3**</sup> & Assignments |        25%        |      B       |    79-88    |
-| Final<sup>**4**</sup>                                        |        20%        |      C       |    69-78    |
-| Github Portfolio                                             |        10%        |      D       |    59-68    |
-|                                                              |                   |      F       |  below 59   |
+| Categories                                         | Portion of Course | Letter Grade | Grade Range |
+| :------------------------------------------------- | :---------------: | :----------: | :---------: |
+| Exams (3)<sup>**1**</sup>                          |        45%        |      A       |   89-100    |
+| Programs (3-5)<sup>**2**,**3**</sup> & Assignments |        25%        |      B       |    79-88    |
+| Final<sup>**4**</sup>                              |        20%        |      C       |    69-78    |
+| Github Portfolio                                   |        10%        |      D       |    59-68    |
+|                                                    |                   |      F       |  below 59   |
 
 
 >**1**. Lowest exam grade can be replaced by Final Exam grade if deemed appropriate by instructor. This is for students who attend class and participate.
 >
->**2**. To earn an "A" in the course, every program must be: **1)** turned in **2)** must compile / run and **3)** must at least minimally fulfill the requirements of the assignment. This does not mean each program must receive an "A" as a grade. It simply means that "A" level work in a programming course means all programs should be completed and working. It is possible to get "C"'s and even "D"'s on multiple programs and still earn an "A" in the course, although not probable :) 
+>**2**. To earn an **A** in the course, every program must be: **1)** turned in **2)** must compile / run and **3)** must at least minimally fulfill the requirements of the assignment. This does not mean that all your programs must receive an "A" to earn an "A" in the course. It simply means that "A" level work in a `programming` course means `all programs` should be submitted, and working. 
 >
->**3**. The dynamic nature of the way I teach courses could result in a seperate category for Assignments. No two classes are the same and some classes need many smaller "homework" type assignments as opposed to a series of larger "programs". HOWEVER! Nothing will be changed without input and agreement from the students in the class. The only time I will make changes to the grading policy is when **1)** I feel it is in the best interest of the class and **2)** the class agrees by majority vote. 
+>**3**. The dynamic nature of the way I teach courses could result in a change in the grading categories. No two classes are the same and some classes need many smaller "homeworks" with a couple of programs and some classes need more "programs" with a couple of homeworks. HOWEVER! Nothing will be changed without input and agreement from the students in the class. The only time I will make changes to the grading policy is when **1)** I feel it is in the best interest of the class (helpful to your grade) and **2)** the class agrees by majority vote.
 >
->**4**. Plane ticket prices, events like weddings, or trips out of the country are not valid excuses for missing the final exam time. I will not make accommodations for anything other than an issue vetted by the dean of students. 
+>**4**. Plane ticket prices, weddings, trips out of the country, etc. are not valid excuses for missing the scheduled final exam time. I will not make accommodations for an early final exam other than an issue vetted by the dean of students. 
 
 
-## Miscellaneous
+## Cheating / Plagiarism
 
-- All students need a [Github](http://github.com) account
-- All programs need to be turned in to pass the course
-- General Assignment Rules:
-    - Due dates and times are as listed on assignment and can change with prior notice to class.
-    - Formatting of programs is important, and will be graded accordingly. 
-    - You name is required on ALL documents uploaded or turned in. Handwritten name is not acceptable.
-    - All files / programs created by you will end up in your assignments folder within your Github repository. 
+- Most plagiarizing, when it comes to programming, happens for two reasons:
+  - 1) You don't have a clue how to solve the problem, so you get a friend or the internet to help.
+  - 2) You didn't start early enough, and you're desperate to get something working the night before it's due, so you get a friend or the internet to help. 
+- Both are easy to fix. 
+  - 1) Come ask me to explain. I promise you're not the only one who is confused. 
+  - 2) Start early. Then when you get stuck, you can ask for help the right way!
+
+- Please read this article as it pertains to our field of computer science: [How To Code Without Plagiarizing](https://www.itbriefcase.net/how-to-code-without-plagiarizing)
+- Also, this might help: plagiarize and get an "F".  
+  - https://msutexas.edu/student-life/conduct/
+  - https://cs.msutexas.edu/documents/CMPS_Cheating_Policy.pdf
+- Ultimately it's not cool. It's an insult to those that actually do the work. 
+- Lastly: Let me reiterate that I'm available for help ... **a lot**. No excuses. I've helped students at 1am via Slack. I'm online consistently afternoons and most nights, just shoot me a message.   
+
+## Major Points
+
+- All students need a [Github](http://github.com) account.
+- All course communication will be done via Slack or Discord.
+- All programs need to be turned in to pass the course.
+- Programs containing syntax errors are unacceptable and will be returned without grading (your programs must work).
+- Your name is required on ALL documents uploaded or turned in. Handwriting on any document is not acceptable (unless specified).
+- All files / programs created by you will end up in your assignments folder within your Github repository. 
 - Attending class is one of the primary keys to doing well in this class. Students may be dropped for excessive absences. There is no distinction made between excused and unexcused.
 - Make-up exams are not given. If I see fit, then I will replace a missed exam with your final exam test grade (but this is optional to instructor based on circumstances, attendance, participation, etc.).
-- Programs containing syntax errors are unacceptable and will be returned without grading (your programs must work).
-- Periodically homework assignments will be taken up and graded. It is the student's responsibility to keep up with assignments and to ask questions over the assigned work, even if absent. All homework assignments are due at the specified time that may or may not be in conjunction with a class day. All assignments / homeworks will be uploaded via Github.
+- Cheating or plagiarism on any assignment will not be tolerated.
+
 
