@@ -2,8 +2,8 @@
 
 | Folder | Title | Description | Due |
 |-----|-----|-----|-----|
-| <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01">00-A01</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01"> Assignment 1 </a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01"> Establishing 2 Way Communication</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01"> 01-13-2020 (Thursday @ 9:30 a.m.)</a> |
-| <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02">01-A02</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02"> Assignment 2 </a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02"> 1 Way Communication (you to me)</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02"> 01-13-2020 (Thursday @ 9:30 a.m.)</a> |
+| <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01">00-A01</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01"> Assignment 1 </a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01"> Establishing 2 Way Communication</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01"> 01-15-2020 (Friday @ 9:30 a.m.)</a> |
+| <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02">01-A02</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02"> Assignment 2 </a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02"> 1 Way Communication (you to me)</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02"> 01-15-2020 (Friday @ 9:30 a.m.)</a> |
 
 Items without a due date or if the due date is ~~lined through~~, consider it not assigned.
 ### File Legend
@@ -15,4 +15,4 @@ Items without a due date or if the due date is ~~lined through~~, consider it no
 |xx-**P**xx | This is a ***Program***. Where it must be compiled, run error free, commented, and correct. |
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
-<sup>Last Updated: 2021-01-12 (Tue @ 13:31)</sup>
+<sup>Last Updated: 2021-01-12 (Tue @ 20:12)</sup>

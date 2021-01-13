@@ -1,5 +1,5 @@
 ## Assignment 1 - Establishing 2 Way Communication
-#### Due: 01-13-2020 (Thursday @ 9:30 a.m.)
+#### Due: 01-15-2020 (Friday @ 9:30 a.m.)
 
 ## Getting Setup
 

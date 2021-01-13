@@ -1,5 +1,5 @@
 ## Assignment 2 - 1 Way Communication (you to me)
-#### Due: 01-13-2020 (Thursday @ 9:30 a.m.)
+#### Due: 01-15-2020 (Friday @ 9:30 a.m.)
 
 The 1 way communication is you communicating with me and others with the descriptions and instructions you push to your Github repo. This file provides the instructions that will help you format each assignments README file so they are consistent and informative. I discuss README's below.  Remember this file as a reference for turning in all of your assignments.
 
