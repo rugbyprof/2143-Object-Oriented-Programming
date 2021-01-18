@@ -1,11 +1,10 @@
 ## Resources
-
-| Folder | Title | Description | Due | Filename |
-|-----|-----|-----|-----|-----|
-| None | None | None | None | None |
-
-Items without a due date or if the due date is ~~lined through~~, consider it not assigned.
-### File Legend
+| Folder | Resource | Description|
+ | ------------|------------|------------|
+ | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Example Program Comment Block](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Acceptable](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ OR](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Program Comment Template:](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Program Comment Example:](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Class Comment](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Class Comment Template:](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Class Comment Example:](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Function Comment](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Function Comment Example:](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Comments in General](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [01-Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [ Style of Comments](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) | [N/A](https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments) |
+ 
+    
+## File Legend
 
 | Folder Name | Description |
 |:-----------|:-------------|
@@ -14,4 +13,5 @@ Items without a due date or if the due date is ~~lined through~~, consider it no
 |xx-**P**xx | This is a ***Program***. Where it must be compiled, run error free, commented, and correct. |
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
-<sup>Last Updated: 2021-01-12 (Tue @ 20:12)</sup>
+    
+<sup>Last Updated: 2021-01-18 (Mon @ 17:50)</sup>
