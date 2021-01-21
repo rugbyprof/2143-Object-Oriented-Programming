@@ -44,19 +44,37 @@ struct Point3D{
     }
 };
 
+/**
+ * Ostream cout
+ * 
+ * Params:
+ *      ostream&        - reference to cout
+ *      const Point3D&  - point to be printed
+ */
 ostream& operator<<(ostream &os,const Point3D& rhs){
     return os << "["<<rhs.x<<","<<rhs.y<<","<<rhs.z<<"]";
 }
 
+/**
+ * Ostream cout
+ * 
+ * Params:
+ *      ostream&        - reference to cout
+ *      const Point3D*  - pointer to point to be printed
+ */
 ostream& operator<<(ostream &os, const Point3D* rhs){
     return os << "["<<rhs->x<<","<<rhs->y<<","<<rhs->z<<"]";
 }
 
+/**
+ * 
+ * I'm not commenting this whole thing...
+ */
 template <class T>
 class TStack{
 private:
     //data members
-    T **Array;     // our container
+    T **Array;      // our container
     int Top;        // inmdex of top value
     int Size;       // size of the array
 
@@ -74,24 +92,24 @@ public:
     TStack(){
         cout<<"Initializing Stack"<<endl;
         Size = 10;
-        Array = new T*[Size];        // init array to 10
-        Top = -1;                     // init top of stack
+        Array = new T*[Size];           // init array to 10
+        Top = -1;                       // init top of stack
     }
 
     // overloaded constructor
     TStack(int size){
         cout<<"Initializing Stack"<<endl;
         Size = size;
-        Array = new T*[Size];        // init array to size
-        Top = -1;                     // init top of stack
+        Array = new T*[Size];           // init array to size
+        Top = -1;                       // init top of stack
     }
 
     // push int onto the stack
     void Push(T* value){
-        if(!Full()){                // can't push onto full array!
-            Top++;                  // increment top first 
-            Array[Top] = value;     // place value in empty slot above
-                                    //    previous value
+        if(!Full()){                    // can't push onto full array!
+            Top++;                      // increment top first 
+            Array[Top] = value;         // place value in empty slot above
+                                        //    previous value
         }else{
             // One problem with arrays, the get full!
             cout<<"Error: Stack Full!!"<<endl;
@@ -101,10 +119,10 @@ public:
     // remove item from our stack
     T* Pop(){
         
-        if(!Empty()){               // cannot remove from empty stack!
-            T *temp = Array[Top];  // make copy of value at top
-            Top--;                  // move index down one slot
-            return temp;            // return our copied value
+        if(!Empty()){                   // cannot remove from empty stack!
+            T *temp = Array[Top];       // make copy of value at top
+            Top--;                      // move index down one slot
+            return temp;                // return our copied value
         }
         // No error message needed since we can return a nice
         // testable value!
@@ -116,8 +134,8 @@ public:
         
         // standard for loop. arrays love for loops
         for(int i=0;i<=Top;i++){
-            cout<<Array[i]<<" ";    // write out element at
-                                    // location i
+            cout<<Array[i]<<" ";        // write out element at
+                                        // location i
         }
         cout<<endl;
     }
@@ -128,10 +146,11 @@ public:
         delete [] Array;
     }
 
-    //friend ostream& operator<<(ostream& banana, const TStack& rhs);
+    //friend ostream& operator<<(ostream& banana, const TStack<T>& rhs);
 };
 
-// ostream& operator<<(ostream& banana, const TStack<int>& rhs){
+// template<typename T>
+// ostream& operator<<(ostream& banana, const TStack<T>& rhs){
 //     for(int i=0;i<rhs.Top;i++){
 //         banana << rhs.Array[i] << endl;
 //     }
@@ -165,7 +184,7 @@ int main() {
         S1.Push(new Point3D(rand()%100,rand()%100,rand()%100));
     }
 
-    // print our stack
+    // print our stack using method
     S1.Print();
 
     while(S1.Pop()){
