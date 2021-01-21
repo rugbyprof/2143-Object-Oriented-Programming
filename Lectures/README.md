@@ -3,6 +3,7 @@
 | Folder | Title | Description | Due |
 |-----|-----|-----|-----|
 | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-Review">01-Review</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-Review"> Lecture 01 </a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-Review"> Review of Lists Arrays Stack Queues</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-Review">N/A</a> |
+| <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-Review">02-Review</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-Review"> Lecture 02 </a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-Review"> Review of Circular Array Based Queue</a> | <a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-Review">N/A</a> |
 
 Items without a due date or if the due date is ~~lined through~~, consider it not assigned.
 ### File Legend
@@ -14,4 +15,4 @@ Items without a due date or if the due date is ~~lined through~~, consider it no
 |xx-**P**xx | This is a ***Program***. Where it must be compiled, run error free, commented, and correct. |
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
-<sup>Last Updated: 2021-01-20 (Wed @ 18:06)</sup>
+<sup>Last Updated: 2021-01-20 (Wed @ 23:24)</sup>
