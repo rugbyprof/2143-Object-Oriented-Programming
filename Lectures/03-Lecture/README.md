@@ -1,4 +1,4 @@
-## Lecture 02 - Templates and Ostream
+## Lecture 03 - Templates and Ostream
 
 #### Jan 21st 
 

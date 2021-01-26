@@ -1,4 +1,4 @@
-## Lecture 02 - Copy Constructors and Overload + and = 
+## Lecture 04 - Copy Constructors and Overload + and = 
 
 #### Jan 26th
 
