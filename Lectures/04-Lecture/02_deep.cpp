@@ -31,7 +31,7 @@ public:
      * Copy constructor
      * 
      * We have to copy values over explicitly when dealing with pointers
-     * othersize, the "pointers" end up pointing at the same memory locations,
+     * otherwise, the "pointers" end up pointing at the same memory locations,
      * and when we make changes, it effects BOTH copies!
      * 
      * Shallow copy 
