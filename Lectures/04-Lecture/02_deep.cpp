@@ -27,9 +27,28 @@ public:
         }
     }
 
-    // Copy constructor
+    /**
+     * Copy constructor
+     * 
+     * We have to copy values over explicitly when dealing with pointers
+     * othersize, the "pointers" end up pointing at the same memory locations,
+     * and when we make changes, it effects BOTH copies!
+     * 
+     * Shallow copy 
+     * Obj1.A => [5][6][7][8][9][4]
+     *          ^
+     *        /
+     * Obj2.A 
+     * 
+     * Deep copy
+     * Obj1.A => [5][6][7][8][9][4]
+     *     
+     *   
+     * 0bj2.A => [5][6][7][8][9][4]
+     * 
+     */
     Nums(const Nums &other) {
-        size = 10;
+        size = other.size;
         A = new int[size];
         for (int i = 0; i < size; i++) {
             A[i] = other.A[i];
