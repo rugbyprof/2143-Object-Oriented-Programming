@@ -61,7 +61,7 @@ This is the "hello world" of SFML game programming.
 
 
 ### Files
-- [test.cpp](test.cpp)
+- [test.cpp](test.cpp) 
 - [screenshot.png](screenshot.png)
 ```
 - Make a banner:
@@ -75,7 +75,7 @@ YOURNAME
 
 - Print out:
   - The Banner
-  - `main.cpp`
+  - `test.cpp`
   - screenshot
 - And bring to class on Tuesday the 2<sup>nd</sup> of February.
 - Remember it still needs to be on Github by the previous Friday at Noon.
