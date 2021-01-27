@@ -40,6 +40,13 @@ it running, try the single directory.
 | Directory Only Install SFML with Mingw32 on Windows | https://www.youtube.com/watch?v=Ljhpsdz8Ouo |
 
 
+### What Am I Doing??
+
+- Goal is to get the green ball to print in its own window.
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/green_dot_2143.png" width="250">
+
+- Thats it. If you get it to run, you're in business.
 
 ### What to turn in:
 
@@ -54,7 +61,7 @@ This is the "hello world" of SFML game programming.
 
 
 ### Files
-- [main.cpp](main.cpp)
+- [test.cpp](test.cpp)
 - [screenshot.png](screenshot.png)
 ```
 - Make a banner:
