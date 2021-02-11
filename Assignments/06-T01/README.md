@@ -33,10 +33,10 @@
 - Be able to write a complete class definition (**no implementation**)
 - For example: 
   - Write a class that represents a point in 2D space.
-  - Your point does not need to hold floating point numbers 
-  - It should have a default constructor, and an overloaded constructor
-  - You should be able to `Move` a point by adding some values to the x and y 
-  - You should be able to `Jump` the point by resetting the x and y values
+  - Your point does not need to hold floating point numbers.
+  - It should have a default constructor, and an overloaded constructor.
+  - You should be able to `Move` a point by adding some values to the x and y. 
+  - You should be able to `Jump` the point by resetting the x and y values.
 
 ```cpp
 class Point{
@@ -62,7 +62,9 @@ Point::Move(int _x,int _y){
 
 ### Course Notes
 
+Read the following sections:
 - Introduction
+- Classes and Objects
 - C++ Operator Overloading
 - Using Friend Functions
 - Inheritance

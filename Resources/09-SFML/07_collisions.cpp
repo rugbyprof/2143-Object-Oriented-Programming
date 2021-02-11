@@ -1,7 +1,8 @@
+#include <math.h>
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
-#include <math.h>
 
 //https://en.sfml-dev.org/forums/index.php?topic=12278.0
 class Ball : public sf::Drawable {
@@ -104,20 +105,19 @@ public:
         float tbottom = thisrec.top - thisrec.height;
         float tright = thisrec.left - thisrec.width;
 
-        float diff_top = abs(ttop-obottom);
-        float diff_bot = abs(tbottom-otop);
-        float diff_left = abs(tleft-oright);
-        float diff_right = abs(tright-oleft);
+        float diff_top = abs(ttop - obottom);
+        float diff_bot = abs(tbottom - otop);
+        float diff_left = abs(tleft - oright);
+        float diff_right = abs(tright - oleft);
 
-        std::cout<<diff_top<<","<<diff_bot<<","<<diff_left<<","<<diff_right<<std::endl;
+        std::cout << diff_top << "," << diff_bot << "," << diff_left << "," << diff_right << std::endl;
 
-        if(diff_top < 1 || diff_bot < 1){
+        if (diff_top < 1 || diff_bot < 1) {
             dy *= -1;
         }
-        if(diff_left < 1 || diff_right < 1){
+        if (diff_left < 1 || diff_right < 1) {
             dy *= -1;
         }
-
     }
 
 private:
@@ -148,12 +148,11 @@ private:
     }
 };
 
-std::ostream& operator<<(std::ostream &os, sf::FloatRect rhs) {
+std::ostream &operator<<(std::ostream &os, sf::FloatRect rhs) {
     float bottom = rhs.top - rhs.height;
     float right = rhs.left - rhs.width;
 
-    os << "{top: "<<rhs.top << ", bottom:" << bottom << 
-    ", left: "<<rhs.left << ", right: " << right<< "}";
+    os << "{top: " << rhs.top << ", bottom:" << bottom << ", left: " << rhs.left << ", right: " << right << "}";
     return os;
 }
 
@@ -194,7 +193,8 @@ int main() {
                     Barray[i]->changeDirection(rec2);
                     //Barray[j]->changeDirection(rec1);
                     std::cout << rec1 << std::endl;
-                    std::cout << rec2 << std::endl<<std::endl;
+                    std::cout << rec2 << std::endl
+                              << std::endl;
                 }
             }
         }
