@@ -55,6 +55,16 @@ public:
         }
     }
 
+    /**
+     * SetVal - Sets a value in array  
+     * 
+     * Params:
+     *      int i - where to set value
+     *      int v - what value is
+     * 
+     * Returns:
+     *      none (or void)
+     */
     void SetVal(int i, int v) {
         A[i] = v;
     }
