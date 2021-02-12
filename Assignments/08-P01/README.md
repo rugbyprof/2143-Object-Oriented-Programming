@@ -1,6 +1,5 @@
-## Program 01 - SFML Cleanup
+## Program 01 - Game: Game
 #### Due: 2-23-2021 (Tuesday @ 9:30 a.m.)
-
 
 ### Overview:
 
@@ -17,7 +16,6 @@ Using the code snippets for help [here](../../Resources/09-SFML/README.md), and 
     - However for this "game" player starts at middle left of screen. 
   - Moves up and down (1 direction only for now) using up and down arrows (additional keys can be set to do same thing).
     - A player can however possibly move other directions as well (in later installments).
-
 
 #### Debris
   - Is a rectangle shape
@@ -42,8 +40,4 @@ Using the code snippets for help [here](../../Resources/09-SFML/README.md), and 
   - Size is configurable.
 
 
-
-
-  
-
-
+## NOT DONE
