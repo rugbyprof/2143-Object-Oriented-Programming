@@ -51,7 +51,7 @@ Lets look at some of the requirements for our game, and then think about designi
   - Has a Speed
   - Has a Location (could change) 
   - Can move in any direction using keys
-  - Has a score
+  - ~~Has a score~~
   - Can collide with other "objects"
 
 #### Debris
