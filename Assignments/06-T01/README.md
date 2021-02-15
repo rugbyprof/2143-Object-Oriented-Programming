@@ -87,9 +87,19 @@ struct logic_error : public exception {
 };
 ```
 
-### Overloading
+### Example Questions
 
-  - Some (not all) examples:
-      - Given a struct or class, overload ostream to print out each private data member.
-      - Given a struct or class, overload a specified set of operators in order to compare or assign
-        one item to another.
+- Given a struct or class, overload ostream to print out each private data member.
+
+- Given a struct or class, overload a specified set of operators in order to compare or assign
+  one item to another.
+
+- Read about "self assignment" and what you need to do to handle it.
+
+- There are 3 major concepts when we think about OOP. What are they, and be able to discuss them. 
+
+-**Abstraction vs Encapsulation**:
+  - Abstraction: 
+    - Abstraction is one of the key concepts of object-oriented programming (OOP) languages. Its main goal is to handle complexity by hiding unnecessary details from the user. That enables the user to implement more complex logic on top of the provided abstraction without understanding or even thinking about all the hidden complexity.
+  - Encapsulation:
+    - Encapsulation is one of the fundamental concepts in object-oriented programming (OOP). It describes the idea of bundling  data and methods that work on that data within one unit. This concept is also often used to hide the internal representation, or state, of an object from the outside. This is called information hiding. The general idea of this mechanism is simple. If you have an attribute that is not visible from the outside of an object, and bundle it with methods that provide read or write access to it, then you can hide specific information and control access to the internal state of the object.
