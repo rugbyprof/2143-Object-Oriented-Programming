@@ -3,7 +3,7 @@
 
 ### Overview
 
-When designing classes with the OOP mindset, you should follow a few principles to keep you out of trouble. I will list a few to help you when designing your poker game. 
+When designing classes with the OOP mindset, you should follow a few principles to keep you out of trouble. I will list a few to help you when designing your SFML game. 
 
 #### Dry (Don't Repeat Yourself)
 
