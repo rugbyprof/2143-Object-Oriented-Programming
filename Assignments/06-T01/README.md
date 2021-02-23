@@ -96,6 +96,12 @@ struct logic_error : public exception {
 
 - Read about "self assignment" and what you need to do to handle it.
 
+- Deep Copy vs Shallow Copy
+  - https://www.geeksforgeeks.org/shallow-copy-and-deep-copy-in-c/
+
+- Whats the difference between copy constructor and an overloaded assignment operator?
+  - https://www.geeksforgeeks.org/copy-constructor-in-cpp/
+
 - There are 3 major concepts when we think about OOP. What are they, and be able to discuss them. 
 
 -**Abstraction vs Encapsulation**:
