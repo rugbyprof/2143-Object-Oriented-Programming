@@ -7,7 +7,6 @@
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/03-Lecture">03-Lecture</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/03-Lecture"> Lecture 03 </a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/03-Lecture"> Templates and Ostream</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/03-Lecture">N/A</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/03-Lecture">False</a>*** |
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/04-Lecture">04-Lecture</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/04-Lecture"> Lecture 04 </a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/04-Lecture"> Copy Constructors and Overload + and =</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/04-Lecture">N/A</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/04-Lecture">False</a>*** |
 
-Items without a due date or if the due date is ~~lined through~~, consider it not assigned.
 ### File Legend
 
 | Folder Name | Description |
@@ -17,4 +16,4 @@ Items without a due date or if the due date is ~~lined through~~, consider it no
 |xx-**P**xx | This is a ***Program***. Where it must be compiled, run error free, commented, and correct. |
 |xx-**T**xx | This is a ***Test***. Usually when on github, it will start out as a study guide, then get accompanied with a solution after the exam. |
 
-<sup>Last Updated: 2021-03-01 (Mon @ 00:53)</sup>
+<sup>Last Updated: 2021-03-01 (Mon @ 00:55)</sup>
