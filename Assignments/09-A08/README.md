@@ -1,5 +1,5 @@
 ## Assignment 8 - CopyConstructor
-#### Due: TBD
+#### Due: 03-11-2021 (Thursday @ 9:30 a.m.)
 
 ### Overview 
 

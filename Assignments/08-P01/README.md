@@ -1,5 +1,5 @@
 ## Program 01 - Game: Game
-#### Due: 03-04-2021 (Tuesday @ 9:30 a.m.)
+#### Due: 03-04-2021 (Thursday @ 9:30 a.m.)
 
 ### Overview:
 
