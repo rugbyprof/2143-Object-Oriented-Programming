@@ -7,6 +7,11 @@ Follow instructions for this first program without adding functionality or perso
 
 Using the code snippets for help [here](../../Resources/09-SFML/README.md), and the [SFML documention](https://www.sfml-dev.org/learn.php) write a program (game) that does the following:
 
+### Configurable
+  - Configurable means that there is an ability to "change" or "customize" an item. 
+  - In the context of this program, I want you to have an **overloaded constructor** that allows an object to be "configured" or "customized". 
+  - In the context of the next program(s) you will implement the use of a configuration file, and command line parameters. I will explain both in class.
+
 #### Player
   - Is a circle shape 
     - But could be another shape or sprite (later).
@@ -29,15 +34,39 @@ Using the code snippets for help [here](../../Resources/09-SFML/README.md), and 
   - The frequency and speed should slowly increase over time. Enough that after ONE minute of play, it should be impossible 
   
 #### Scoring
-  - When a `Player` comes collides with `Debris` score is negatively effected.
+  - When a `Player` collides with a `Debris` item the score is negatively effected.
   - When a piece of `Debris` leaves game screen (on the left), score is positively effected.
+  - We will add more logic to the game next time.
 
 #### Text Output:
-  - Score gets displayed somewhere on the screen.
+  - Score gets displayed somewhere on the screen (one of the corners).
   - Font is configurable.
   - Location is configurable.
   - Color is configurable.
   - Size is configurable.
 
 
-## NOT DONE
+
+### Deliverables
+
+- Create a folder in your assignments folder called `P01`
+- In that folder create a file called README.md
+- Help with markdown: https://guides.github.com/features/mastering-markdown/
+- Look at [this](../../Resources/02-Readmees/README.md) to help with your `README.md` file
+- Create a banner for your program **(see [HERE](../../Resources/03-Banner/README.md))**.
+
+```
+2143 
+P01
+Name
+```
+
+- Print out your source code. Make sure it's **[commented](../../Resources/01-Comments/README.md)**.
+- Take a screen shot of your program and place it behind the source code.
+- Put your assignment on the front desk at the beginning of class.
+- Staple everything in this order:
+  - **1)** Banner (on top)
+  - **2)** Source code (middle)
+  - **3)** Screen Shot (bottom)
+  
+
