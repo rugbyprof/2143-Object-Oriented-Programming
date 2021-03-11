@@ -2,14 +2,13 @@
 
 using namespace std;
 
-
 class CircularArrayQue {
 private:
     int *Container;
-    int Front;
-    int Rear;
-    int QueSize; // items in the queue
-    int CurrentSize;
+    int  Front;
+    int  Rear;
+    int  QueSize;  // items in the queue
+    int  CurrentSize;
     void init(int size = 0) {
         Front = Rear = CurrentSize = 0;
         QueSize = size;
@@ -49,7 +48,6 @@ public:
 };
 
 ostream &operator<<(ostream &os, const CircularArrayQue &other) {
-
     for (int i = other.Front; i < other.CurrentSize; i = (i + 1) % other.QueSize) {
         os << other.Container[i] << " ";
     }

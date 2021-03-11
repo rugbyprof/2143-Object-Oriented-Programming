@@ -14,32 +14,31 @@ using namespace std;
  *      int argc    - number of params on command line (including program name)
  *      char** argv - cstring array of actual params
  */
-int main(int argc,char** argv) {
+int main(int argc, char** argv) {
+    cout << "There are " << argc << " arguments..." << endl;
 
-    cout<<"There are "<<argc<<" arguments..."<<endl;
-
-    for(int i=0;i<argc;i++){
-        cout<<"    Argument "<<i<<": "<<argv[i]<<endl;
+    for (int i = 0; i < argc; i++) {
+        cout << "    Argument " << i << ": " << argv[i] << endl;
     }
-    
+
     // Program name is first param in argv, so we need at least
     // 3 to assume two more were passed in for row and
     // column sizes.
-    if(argc < 3){
-        cout<<"Error: need rows and columns!"<<endl;
+    if (argc < 3) {
+        cout << "Error: need rows and columns!" << endl;
         exit(1);
     }
-    
-    // convert params to integer 
+
+    // convert params to integer
     int r = atoi(argv[1]);
     int c = atoi(argv[2]);
 
     // We need a pointer to a pointer to dynamically
     // allocate a 2d array
-    int **array;
+    int** array;
 
-    // Dynamically allocate the number of rows 
-    // needed that hold pointers to the cols 
+    // Dynamically allocate the number of rows
+    // needed that hold pointers to the cols
     array = new int*[r];
 
     // Assume r = 10 and c = 5
@@ -53,7 +52,7 @@ int main(int argc,char** argv) {
     // ...
     // [9]=>
 
-    for(int i=0;i<r;i++){
+    for (int i = 0; i < r; i++) {
         array[i] = new int[c];
     }
 
@@ -82,6 +81,6 @@ int main(int argc,char** argv) {
     // [4]=> [ ][ ][9][ ][ ]
     // ...      ...
     // [9]=> [5][ ][ ][ ][ ]
-    
+
     return 0;
 }
