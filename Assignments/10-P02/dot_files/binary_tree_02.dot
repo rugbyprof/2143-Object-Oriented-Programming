@@ -1,0 +1,42 @@
+digraph G {
+    node [shape=record];
+
+    // define all the nodes to be records that
+    // have 3 parts. left, middle (with data) and right.
+    node1 [label = "<l> | <m> 1 | <r>"];
+    node2 [label = "<l> | <m> 2 | <r>"];
+    node3 [label = "<l> | <m> 3 | <r>"];
+    node4 [label = "<l> | <m> 4 | <r>"];
+    node5 [label = "<l> | <m> 5 | <r>"];
+    node6 [label = "<l> | <m> 6 | <r>"];
+    node7 [label = "<l> | <m> 7 | <r>"];
+    node8 [label = "<l> | <m> 8 | <r>"];
+    node9 [label = "<l> | <m> 9 | <r>"];
+    node10 [label = "<l> | <m> 10 | <r>"];
+    node11 [label = "<l> | <m> 11 | <r>"];
+    node12 [label = "<l> | <m> 12 | <r>"];
+    node13 [label = "<l> | <m> 13 | <r>"];
+    node14 [label = "<l> | <m> 14 | <r>"];
+    node15 [label = "<l> | <m> 15 | <r>"];
+
+    // point nodes to each other using their id's
+    // and tell the edges where to start from
+    // and to to.
+    // :l left section
+    // :m middle section
+    // :r right section
+    node8:l  -> node4:m
+    node8:r  -> node12:m
+    node4:l  -> node2:m
+    node4:r  -> node6:m
+    node12:l -> node10:m 
+    node12:r -> node14:m
+    node2:l  -> node1:m
+    node2:r  -> node3:m
+    node6:l  -> node5:m
+    node6:r  -> node7:m
+    node10:l -> node9:m
+    node10:r -> node11:m
+    node14:l -> node13:m
+    node14:r -> node15:m
+}
