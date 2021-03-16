@@ -1,0 +1,6 @@
+digraph {
+
+    node [shape=record, fontcolor=black, fontsize=14, width=4.75, fixedsize=true];
+    values [label="<f0> 66 | <f1>16 | <f2> 32 | <f3> 45 | <f4> 77 | <f5> 66"];
+
+}
