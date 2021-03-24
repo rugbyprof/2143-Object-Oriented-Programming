@@ -27,6 +27,15 @@ public:
         }
     }
 
+    // Parameterized Constructor that takes another array!
+    Nums(int *Other,int s) {
+        size = s;
+        A = new int[size];
+        for (int i = 0; i < size; i++) {
+            A[i] = Other[i];
+        }
+    }
+
     /**
      * Copy constructor
      * 
@@ -115,30 +124,26 @@ public:
 
 int main() {
 
-    Nums N1(5);
-    Nums N2(5);
-    Nums N3(5);
+    int A[] = {1,2,3,4,5};          // for use in a bit ()
+    int B[] = {6,7,8,9,10,11,12};   // for use in a bit
+    Nums N1(5);                     // init with random nums
+    Nums N2(A,5);
+    Nums N3(B,7);
+    Nums N4 = N1;
+    Nums N5 = N1 + N2 + N3 + N4;
 
     N1.Print();
     N2.Print();
     N3.Print();
+    N4.Print();
+    N5.Print();
 
-    N3 = N2 + N1;
+    N3 = N2 + N3;
 
     cout << endl;
 
-    N1.Print();
-    N2.Print();
     N3.Print();
 
-    // N1.SetVal(0,99);
 
-    // N1.Print();
-    // N2.Print();
-
-    // N2.SetVal(1,1000);
-
-    // N1.Print();
-    // N2.Print();
 
 }

@@ -3,6 +3,22 @@
 
 using namespace std;
 
+/**
+ * A simple class to show the use of a static class level
+ * data member. This means that EVERY instance of the class
+ * will have the same copy of "boxCount" and can update it
+ * or access it.
+ * 
+ * The peculiar thing about static data members is that they 
+ * need to be initialized outside of of the class before any
+ * instance is created. But is it really "peculiar"? 
+ * 
+ * If we initialize "boxCount" in the constructor of every
+ * class ... then we re-set the value every time we create 
+ * an object. So ... It needs initialized somewhere outside of
+ * all the instances so it doesn't get blown away every time we
+ * create a new "box". 
+ */
 class Box {
 public:
     static int boxCount;
@@ -11,8 +27,12 @@ public:
         length = 0;
         breadth = 0;
         height = 0;
+
         // Increase every time object is created
         boxCount++;
+
+        // if we said boxCount=1 it would set it to one
+        // every time we created a new instance of a box
     }
     // Constructor definition
     Box(double l, double b, double h) {
@@ -32,6 +52,10 @@ public:
         cout << boxCount << endl;
     }
 
+    /**
+     * @brief Set the value of boxCount (not a good idea)
+     * @param x 
+     */
     void setCount(int x) {
         boxCount = x;
     }
@@ -46,19 +70,19 @@ protected:
     double height;   // Height of a box
 };
 
-class subBox : public Box {
+class colorBox : public Box {
 public:
     string color;
-    subBox() {
-        cout << "subbox default constructor called" << endl;
+    colorBox() {
+        cout << "colorBox default constructor called" << endl;
         color = "none";
     }
-    subBox(string c, double l, double b, double h) : Box(l, b, h) {
-        cout << "subbox overloaded constructor called" << endl;
+    colorBox(string c, double l, double b, double h) : Box(l, b, h) {
+        cout << "colorBox overloaded constructor called" << endl;
         color = c;
         // length = l;
         // breadth = b;
-        height = 9;
+        // height = h;
     }
 };
 
@@ -75,8 +99,8 @@ int main(void) {
     // Print total number of objects.
     cout << "Total objects: " << Box::boxCount << endl;
 
-    subBox Bs1;
-    subBox Bs2("red", 4, 5, 6);
+    colorBox Bs1;
+    colorBox Bs2("red", 4, 5, 6);
 
     Bs2.printme();
 

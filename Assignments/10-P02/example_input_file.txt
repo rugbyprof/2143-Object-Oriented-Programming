@@ -1,0 +1,1246 @@
+digraph
+243
+AF Afghanistan
+AX Aland-Islands
+AL Albania
+DZ Algeria
+AS American-Samoa
+AD AndorrA
+AO Angola
+AI Anguilla
+AQ Antarctica
+AG Antigua-and-Barbuda
+AR Argentina
+AM Armenia
+AW Aruba
+AU Australia
+AT Austria
+AZ Azerbaijan
+BS Bahamas
+BH Bahrain
+BD Bangladesh
+BB Barbados
+BY Belarus
+BE Belgium
+BZ Belize
+BJ Benin
+BM Bermuda
+BT Bhutan
+BO Bolivia
+BA Bosnia-and-Herzegovina
+BW Botswana
+BV Bouvet-Island
+BR Brazil
+IO British-Indian-Ocean-Territory
+BN Brunei-Darussalam
+BG Bulgaria
+BF Burkina-Faso
+BI Burundi
+KH Cambodia
+CM Cameroon
+CA Canada
+CV Cape-Verde
+KY Cayman-Islands
+CF Central-African-Republic
+TD Chad
+CL Chile
+CN China
+CX Christmas-Island
+CC Cocos-Islands
+CO Colombia
+KM Comoros
+CG Congo
+CD Congo
+CK Cook-Islands
+CR Costa-Rica
+CI Cote-DIvoire
+HR Croatia
+CU Cuba
+CY Cyprus
+CZ Czech-Republic
+DK Denmark
+DJ Djibouti
+DM Dominica
+DO Dominican-Republic
+EC Ecuador
+EG Egypt
+SV El-Salvador
+GQ Equatorial-Guinea
+ER Eritrea
+EE Estonia
+ET Ethiopia
+FK Falkland-Islands
+FO Faroe-Islands
+FJ Fiji
+FI Finland
+FR France
+GF French-Guiana
+PF French-Polynesia
+TF French-Southern-Territories
+GA Gabon
+GM Gambia
+GE Georgia
+DE Germany
+GH Ghana
+GI Gibraltar
+GR Greece
+GL Greenland
+GD Grenada
+GP Guadeloupe
+GU Guam
+GT Guatemala
+GG Guernsey
+GN Guinea
+GW Guinea-Bissau
+GY Guyana
+HT Haiti
+HM Heard-Island-and-Mcdonald-Islands
+VA Vatican-City
+HN Honduras
+HK Hong-Kong
+HU Hungary
+IS Iceland
+IN India
+ID Indonesia
+IR Iran
+IQ Iraq
+IE Ireland
+IM Isle-of-Man
+IL Israel
+IT Italy
+JM Jamaica
+JP Japan
+JE Jersey
+JO Jordan
+KZ Kazakhstan
+KE Kenya
+KI Kiribati
+KP North-Korea
+KR South-Korea
+KW Kuwait
+KG Kyrgyzstan
+LA Democratic-Republic-Lao
+LV Latvia
+LB Lebanon
+LS Lesotho
+LR Liberia
+LY Libyan-Arab-Jamahiriya
+LI Liechtenstein
+LT Lithuania
+LU Luxembourg
+MO Macao
+MK Macedonia
+MG Madagascar
+MW Malawi
+MY Malaysia
+MV Maldives
+ML Mali
+MT Malta
+MH Marshall-Islands
+MQ Martinique
+MR Mauritania
+MU Mauritius
+YT Mayotte
+MX Mexico
+FM Federated-States-of-Micronesia
+MD Republic-of-Moldova
+MC Monaco
+MN Mongolia
+MS Montserrat
+MA Morocco
+MZ Mozambique
+MM Myanmar
+NA Namibia
+NR Nauru
+NP Nepal
+NL Netherlands
+AN Netherlands-Antilles
+NC New-Caledonia
+NZ New-Zealand
+NI Nicaragua
+NE Niger
+NG Nigeria
+NU Niue
+NF Norfolk-Island
+MP Northern-Mariana-Islands
+NO Norway
+OM Oman
+PK Pakistan
+PW Palau
+PS Palestinian-Territory
+PA Panama
+PG Papua-New-Guinea
+PY Paraguay
+PE Peru
+PH Philippines
+PN Pitcairn
+PL Poland
+PT Portugal
+PR Puerto-Rico
+QA Qatar
+RE Reunion
+RO Romania
+RU Russian-Federation
+RW RWANDA
+SH Saint-Helena
+KN Saint-Kitts-and-Nevis
+LC Saint-Lucia
+PM Saint-Pierre-and-Miquelon
+VC Saint-Vincent-and-the-Grenadines
+WS Samoa
+SM San-Marino
+ST Sao-Tome-and-Principe
+SA Saudi-Arabia
+SN Senegal
+CS Serbia-and-Montenegro
+SC Seychelles
+SL Sierra-Leone
+SG Singapore
+SK Slovakia
+SI Slovenia
+SB Solomon-Islands
+SO Somalia
+ZA South-Africa
+GS South-Georgia-and-the-South-Sandwich-Islands
+ES Spain
+LK Sri-Lanka
+SD Sudan
+SR Suriname
+SJ Svalbard-and-Jan-Mayen
+SZ Swaziland
+SE Sweden
+CH Switzerland
+SY Syrian-Arab-Republic
+TW Taiwan
+TJ Tajikistan
+TZ United-Republic-of-Tanzania
+TH Thailand
+TL Timor-Leste
+TG Togo
+TK Tokelau
+TO Tonga
+TT Trinidad-and-Tobago
+TN Tunisia
+TR Turkey
+TM Turkmenistan
+TC Turks-and-Caicos-Islands
+TV Tuvalu
+UG Uganda
+UA Ukraine
+AE United-Arab-Emirates
+GB United-Kingdom
+US United-States
+UM United-States-Minor-Outlying-Islands
+UY Uruguay
+UZ Uzbekistan
+VU Vanuatu
+VE Venezuela
+VN Viet-Nam
+VG British-Virgin-Islands
+VI US-Virgin-Islands
+WF Wallis-and-Futuna
+EH Western-Sahara
+YE Yemen
+ZM Zambia
+ZW Zimbabwe
+1000
+MN   SZ   482
+BB   MA   259
+IQ   NA   986
+LA   GR   192
+TZ   KW   200
+PY   KI   418
+MG   KI   169
+KP   BG   541
+FO   ZA   715
+TR   NC   182
+BE   TV   281
+GM   BD   333
+ES   AG   965
+MY   IM   262
+IN   AL   792
+TJ   RU   471
+PE   KY   919
+WS   LV   393
+SK   HU   992
+CZ   GG   680
+AX   LA   815
+BD   VI   965
+LY   BF   955
+JM   HT   431
+GQ   CM   979
+PA   GS   667
+JM   UZ   171
+HR   NC   238
+NR   VG   975
+PA   BE   256
+PG   MW   980
+CZ   YE   545
+BG   BY   168
+AL   GM   918
+BR   AL   419
+ML   UA   521
+SK   BB   436
+YE   LS   330
+ER   CI   150
+WF   PG   222
+MC   PM   311
+GR   HT   951
+NO   AO   618
+SD   KE   720
+BA   NA   798
+AL   GU   708
+OM   CS   326
+HM   NF   563
+MA   CN   231
+VU   MN   481
+FJ   IL   347
+VC   ES   258
+TH   ET   472
+BE   MH   177
+AU   YT   924
+LB   KM   337
+LC   CK   471
+KZ   MZ   910
+CI   YE   925
+IQ   SR   403
+MX   UA   897
+GR   DM   268
+ST   CZ   302
+WS   VE   359
+BY   NE   728
+GQ   NA   463
+TJ   LT   830
+ML   MG   752
+TT   BB   872
+PY   CU   224
+ER   SM   503
+NG   AW   354
+NI   NE   646
+GM   DZ   176
+DJ   BE   346
+TH   TO   962
+MH   PA   724
+BV   CX   604
+FI   GI   950
+MY   ZW   485
+HN   EG   268
+SA   LB   344
+FM   FI   705
+PG   AM   786
+PG   AL   183
+AF   KW   713
+WF   UG   369
+GI   MV   238
+SR   LT   257
+GI   HN   537
+SM   CL   985
+YT   AM   413
+BT   BS   162
+WF   AZ   235
+MH   PT   957
+SJ   NF   298
+RE   SN   576
+CF   AD   226
+KN   BT   302
+AM   TK   836
+BR   DM   299
+TW   PT   940
+AZ   AX   815
+AO   JM   603
+SB   TG   358
+MU   ES   720
+TK   TV   537
+AN   LI   254
+BM   GY   776
+AU   UG   775
+NP   KZ   321
+GI   US   937
+IL   AT   114
+AS   GU   925
+BH   GP   856
+SZ   DE   593
+SH   GM   164
+MH   PL   361
+GH   NE   946
+AU   FK   195
+MK   DE   339
+ZW   CZ   733
+LK   AT   395
+BM   PY   616
+AU   NC   955
+MV   FJ   959
+NU   BA   942
+MZ   MR   303
+KM   SZ   981
+MW   CS   746
+DE   VN   964
+KZ   KN   107
+BZ   BY   285
+FR   SM   802
+LS   NZ   621
+MX   SH   259
+CU   MN   688
+AS   IR   896
+NE   VC   697
+BE   GF   946
+TW   BY   131
+BS   SG   275
+EG   BR   210
+GL   LY   793
+LC   NL   765
+KP   TZ   457
+RO   KR   407
+WS   DM   688
+SV   SR   266
+BJ   ZA   334
+GL   VC   115
+NA   BW   494
+BF   LS   107
+BN   AI   805
+MU   TH   789
+LS   LR   347
+JM   EH   124
+BR   MS   896
+BG   PG   858
+IS   TD   593
+SA   NF   284
+MW   GW   377
+AM   CX   709
+DO   KG   916
+ZM   CS   571
+SJ   JE   369
+TM   TW   448
+DK   FM   805
+BZ   PT   951
+IM   MU   789
+ER   GP   827
+KZ   PA   874
+AS   MC   643
+CN   AO   118
+SA   LV   221
+VI   SL   253
+HU   PW   953
+PM   DZ   942
+ID   GA   586
+RE   VN   275
+PY   SB   177
+AT   IT   920
+AD   KN   589
+BE   GP   282
+SD   NC   639
+PH   KH   965
+SG   TT   692
+AG   UA   421
+GA   PM   637
+IM   GS   779
+KH   FO   835
+BB   TK   199
+CC   YE   835
+NF   VG   507
+IE   YT   510
+MU   NA   327
+AF   IR   585
+SE   GW   782
+VU   AS   309
+IR   MZ   274
+QA   ZM   305
+AQ   FM   595
+KE   PW   700
+JE   AE   831
+GW   TW   320
+SR   BM   242
+KM   US   400
+UZ   PL   162
+NO   KM   280
+AE   WS   474
+LV   PS   533
+BH   MY   201
+IO   LC   327
+MS   PR   492
+AZ   HK   619
+PR   BD   710
+NR   AT   268
+UM   NP   657
+CS   MX   384
+KY   GE   170
+KN   HU   325
+CZ   MP   334
+MT   LT   737
+VC   GQ   896
+AI   JE   811
+GT   SH   376
+IQ   BY   613
+HK   SR   173
+EG   FR   954
+BJ   NO   857
+DK   CG   665
+RW   MZ   197
+TZ   SN   597
+PW   MN   550
+AE   BI   421
+LB   BH   975
+SI   TT   845
+KW   TN   290
+KY   CC   981
+SC   ZW   131
+SN   AI   918
+CA   BA   510
+VG   MW   646
+MN   GY   370
+LY   LK   645
+KR   CH   300
+PW   DJ   947
+KE   JE   265
+BA   ZM   615
+NU   SM   364
+JM   GN   784
+MK   LT   254
+CG   YT   619
+SV   KE   940
+KR   ML   154
+PR   NE   842
+TV   NI   848
+GL   AI   732
+SZ   HM   741
+DK   RW   956
+ML   MG   565
+IQ   TW   986
+LA   MD   584
+CN   BI   357
+SH   CA   518
+CU   CK   756
+PY   DE   481
+CU   AN   835
+GI   VA   713
+MP   KN   106
+AD   OM   662
+KY   PL   269
+CD   MQ   724
+RO   IM   747
+ES   MH   556
+SA   BN   159
+MV   FO   675
+SJ   EE   698
+SH   BE   804
+TC   AN   806
+HN   IE   711
+HN   MV   612
+PL   DK   525
+GA   PL   743
+BO   AQ   915
+LK   GD   930
+LT   ST   672
+WF   BJ   231
+MR   AZ   270
+TW   RU   864
+SD   BD   666
+GF   RW   760
+NR   PF   249
+IE   PF   438
+MZ   KI   251
+SB   BR   348
+BD   AF   423
+LS   IR   278
+AL   CL   522
+TC   YE   827
+BB   CM   277
+PN   NE   205
+MD   UM   321
+GB   OM   487
+CD   NO   311
+RU   AI   650
+HT   AX   966
+BE   QA   544
+RO   EE   632
+IE   AX   798
+SY   YE   505
+BD   PS   490
+TR   SC   767
+NP   BR   726
+TL   NA   826
+UZ   LY   515
+SE   PS   133
+PE   GT   644
+AR   KM   617
+PS   JE   468
+HN   CC   112
+MZ   LR   719
+SI   ZM   529
+MY   PW   473
+SL   MV   517
+FJ   VE   622
+SR   MQ   124
+CF   AZ   211
+GT   EE   172
+BG   CF   800
+PA   MT   718
+UA   IM   649
+PW   MT   673
+NE   CS   788
+EH   TZ   443
+MR   SJ   806
+BR   AQ   325
+RE   HN   452
+KN   TF   944
+PH   VN   622
+TN   BH   906
+PK   SR   293
+IQ   CZ   139
+CA   BW   380
+SR   BM   632
+TV   NR   641
+SA   DZ   714
+IQ   AR   315
+NL   NU   689
+MN   KW   188
+DJ   MC   223
+PL   BE   807
+CO   CA   519
+LV   AM   151
+KG   TD   255
+KY   FR   965
+SK   GR   533
+AW   BT   457
+RW   VU   753
+AS   AE   932
+CX   EE   568
+DM   HU   483
+KG   GS   116
+BH   NC   929
+FO   LI   216
+GH   JO   511
+LA   MU   219
+MM   UZ   647
+BG   PN   103
+KH   PG   138
+CN   LY   656
+NE   MS   627
+WF   BI   367
+RW   KW   746
+BR   AD   468
+MM   BA   854
+BT   NE   327
+MN   VU   776
+KI   CG   492
+BV   BE   900
+CY   JE   541
+BG   LV   605
+DK   GE   965
+TH   IT   172
+LB   ZW   428
+BY   GA   263
+KM   NF   342
+BZ   SG   114
+DJ   LK   981
+ID   BV   821
+DO   NI   221
+TT   RO   120
+JO   SY   673
+GB   PK   209
+CY   NC   310
+KG   CS   115
+DJ   FK   226
+SH   CM   702
+PF   SV   794
+VI   VA   253
+IL   EE   963
+HK   HU   746
+BG   PL   728
+NI   PF   345
+CF   NP   629
+NP   WS   761
+AO   AN   972
+SR   KE   873
+SB   RW   326
+PM   EG   817
+FK   NF   608
+GB   TT   214
+YE   UM   538
+AZ   PR   854
+NU   CI   159
+IS   JM   886
+UM   PM   287
+PL   SO   838
+BF   LV   304
+GY   LK   278
+MT   KY   479
+VA   JM   365
+ES   UZ   597
+VC   PL   545
+TW   MU   717
+NZ   US   528
+BY   VA   463
+TZ   NG   412
+TC   CO   294
+PA   OM   599
+IN   ML   165
+NA   HN   715
+SB   DE   188
+TJ   SZ   315
+TZ   FJ   341
+IO   VG   304
+AE   TV   791
+TK   DE   511
+IO   RO   414
+CL   MO   823
+CD   BR   382
+AW   MP   421
+NF   NU   933
+DM   GB   420
+LR   FJ   439
+JE   AW   450
+MM   KZ   612
+IQ   PY   764
+TC   KM   398
+MX   CS   434
+TH   CI   181
+LI   ET   690
+AG   ET   335
+IS   TW   453
+SD   CM   988
+KI   SJ   925
+AF   CU   608
+IE   LI   509
+SI   MS   337
+DE   GB   725
+HU   ZM   471
+FM   PN   401
+CY   HM   229
+AQ   UM   110
+RO   LK   745
+QA   ZW   418
+ST   SV   982
+GN   TW   359
+AN   LR   329
+DZ   RW   378
+OM   SJ   442
+LB   CZ   494
+IM   TL   745
+SC   KR   693
+RW   BI   615
+VI   RU   266
+TO   IS   793
+CO   LV   488
+PF   TL   875
+BE   JE   538
+IN   MQ   444
+KW   AZ   420
+BG   JE   467
+SG   KP   621
+WS   LS   334
+CS   MW   358
+CG   LS   187
+LU   GQ   909
+BD   SN   698
+GW   NL   699
+CG   YT   923
+NZ   BW   898
+SY   TK   968
+CA   HK   223
+KY   EC   574
+PR   RU   122
+BG   IT   200
+ML   BR   570
+RO   BF   343
+LY   TV   388
+PF   BE   305
+UG   GN   714
+MG   GE   652
+VC   SZ   804
+RU   PW   345
+KZ   TN   931
+BW   SM   948
+SH   DM   589
+BE   CG   464
+PA   NL   303
+CL   MC   761
+AW   MZ   991
+RE   DK   469
+SL   PL   399
+PN   CN   492
+KI   TW   549
+SD   EG   333
+AM   SD   840
+EG   DJ   270
+GM   BH   999
+RU   AE   997
+YE   PR   554
+NL   NL   747
+GB   SI   398
+TG   WS   847
+ID   NG   658
+IN   TL   342
+NA   BY   290
+GQ   IM   381
+PF   SI   694
+US   IL   984
+CS   CM   909
+SL   KN   538
+CO   BS   365
+HU   DK   145
+WS   SR   235
+NF   KZ   618
+MA   NU   106
+ZA   NI   793
+BR   PL   675
+OM   FI   855
+CR   PL   797
+SZ   BS   435
+CI   TR   904
+KI   DE   474
+KY   TD   878
+KZ   IE   841
+KG   NR   962
+JM   YE   314
+SC   AT   611
+TR   TW   396
+CM   IN   470
+HN   LS   676
+GT   US   405
+KH   PA   502
+UY   PK   688
+AW   MC   200
+ID   BE   904
+BM   GN   514
+BN   LR   139
+AL   GN   341
+PF   TF   781
+LR   AM   453
+TJ   VN   533
+PS   BI   673
+TL   AD   200
+CI   IE   961
+CF   HU   947
+IE   GN   685
+TF   SZ   602
+HK   RU   116
+HM   CO   114
+GF   MK   444
+GL   CV   383
+LB   AW   421
+MQ   WS   545
+GW   MC   366
+TG   SA   717
+TN   GD   479
+SH   DO   282
+AL   AW   761
+EH   CD   175
+BG   GT   829
+TG   WS   973
+AD   PM   656
+DJ   SO   331
+BV   SM   137
+CI   HU   716
+FI   MS   165
+GI   TR   497
+RU   AT   929
+MV   SA   320
+ES   KI   116
+BR   ML   831
+EG   GP   548
+BY   HN   601
+BI   TO   611
+GW   AM   825
+TL   SA   137
+TG   VU   949
+EH   SH   238
+KH   LA   411
+CO   NG   559
+CI   BS   732
+NU   AI   665
+EE   CA   354
+VG   LC   101
+LA   AQ   785
+TW   TV   729
+NL   CX   811
+CX   UY   779
+ID   PT   236
+CV   AO   641
+NE   BJ   641
+SV   PG   664
+PG   LK   124
+SY   NZ   367
+CR   VE   863
+VI   GH   143
+YT   KM   172
+HN   PM   952
+TT   VC   153
+HT   BT   354
+PA   PF   382
+JP   SA   390
+AN   GI   198
+AI   EG   577
+CG   AD   999
+GR   AW   923
+FR   MO   951
+ER   CM   547
+AX   VE   902
+MM   LI   898
+BJ   CF   979
+SR   NL   560
+KG   VI   620
+EG   MR   116
+TO   ES   449
+IN   CD   441
+ZW   SM   338
+ML   PG   945
+ML   CN   362
+PR   WS   723
+CF   JM   269
+DE   SY   925
+VC   KG   597
+SA   CV   624
+MK   FM   360
+GP   MC   541
+PL   HN   685
+AE   VE   525
+TG   LR   928
+MA   FJ   618
+MO   LA   789
+SO   BM   661
+JE   FI   750
+PR   NP   118
+NR   TN   246
+GH   BY   833
+RE   CR   103
+ID   AN   533
+TJ   TJ   109
+GF   VN   217
+IS   MX   511
+GL   GM   640
+AM   ML   439
+AT   DK   152
+DE   BJ   507
+IS   HT   893
+GB   TM   689
+GD   GR   982
+LS   NE   405
+CC   GB   301
+NE   FR   298
+BR   SC   707
+HM   AS   631
+VE   PK   840
+JP   MD   779
+DZ   NU   707
+TR   NG   710
+GY   GF   738
+LA   SD   323
+GP   US   688
+BR   SY   555
+GF   BF   349
+GH   PY   184
+SR   SA   298
+BE   NG   534
+MN   SI   859
+NG   MX   445
+UG   FR   909
+WS   PE   869
+RW   NO   456
+MA   MA   368
+HN   BD   804
+BI   LR   286
+YT   UA   872
+KW   MQ   345
+GE   CS   870
+VC   GF   962
+MU   BD   274
+PT   JM   740
+TH   BS   752
+NE   GI   548
+JM   UG   814
+BN   AZ   682
+WF   SK   434
+SV   CX   218
+GG   KR   387
+PL   VC   260
+BM   SA   704
+UM   GL   222
+PE   NA   516
+GN   WF   861
+AD   DJ   819
+NZ   PL   756
+ZM   CV   972
+SI   MY   177
+PA   AN   799
+TT   TC   237
+PE   CS   568
+US   MG   430
+NR   RW   266
+SD   GN   795
+PM   IL   824
+NI   GN   979
+MK   LA   611
+CF   FJ   342
+PW   KE   733
+MU   KH   452
+SH   PK   785
+MH   NP   923
+SB   CC   707
+BA   SC   366
+CO   RO   721
+MP   MH   199
+PY   BO   903
+BM   IS   844
+PF   FK   393
+GI   NP   548
+TH   BH   405
+WS   AD   537
+CC   FO   525
+ZA   FR   322
+EH   BZ   103
+AG   GU   125
+YT   AQ   451
+GE   LC   755
+ST   NF   249
+GH   BF   471
+SA   CA   358
+CD   SB   167
+KM   BE   499
+IT   MW   292
+YE   FK   994
+GE   PG   806
+KR   DK   466
+MM   HT   848
+CZ   SG   139
+ZM   JP   164
+TG   CO   778
+SB   ZW   982
+MR   AW   780
+SO   KM   643
+LY   NU   452
+KI   VU   744
+BO   KP   408
+MN   KN   978
+BB   KN   805
+SH   BB   984
+GI   KP   348
+TW   TN   392
+AL   LV   425
+GP   MH   462
+KG   CL   725
+SJ   MT   190
+IQ   VA   188
+TV   BY   919
+AU   MQ   468
+BF   TJ   894
+BT   GW   856
+CM   NA   944
+QA   IR   855
+PF   BO   326
+HM   HN   957
+EC   SO   282
+BB   SY   574
+CH   GP   850
+IT   CM   516
+NZ   SA   178
+PM   AQ   772
+VU   FO   639
+TR   RU   656
+AX   TC   424
+JP   LU   862
+CD   CV   339
+KE   SH   127
+SY   LY   305
+GP   MZ   358
+HR   UG   278
+BV   AD   478
+MO   SL   386
+HR   NE   859
+DO   AE   473
+NE   PL   881
+SH   VG   164
+BB   GS   179
+NR   CS   119
+GA   LR   296
+NL   VG   335
+LC   PR   207
+NE   MR   699
+SN   FR   559
+TV   ZM   516
+AM   CN   418
+VA   UM   404
+CX   GU   871
+CA   BF   989
+NP   SL   497
+CK   IT   836
+IT   KR   915
+TN   CD   942
+TF   AO   428
+AR   TM   435
+KN   LV   903
+ER   SH   687
+DJ   BF   171
+BW   LS   750
+TZ   TW   650
+PM   ST   950
+CX   HU   463
+JE   IO   757
+GL   CX   110
+CH   UM   409
+KH   TC   318
+AU   MR   197
+ER   GU   393
+GS   GU   507
+ES   MU   892
+GN   GG   551
+GQ   ET   679
+HU   GF   175
+GU   IS   339
+NZ   NR   796
+AZ   CH   660
+MS   RU   583
+MA   HU   461
+IS   FJ   342
+SH   ST   286
+SB   TC   766
+LB   CG   944
+MN   AG   868
+VG   NP   267
+FO   KG   252
+AM   CD   528
+VA   BO   171
+ET   MZ   600
+MR   MH   253
+CK   SO   367
+TV   NC   373
+IM   MT   625
+SJ   EG   582
+GB   NE   616
+BR   CO   975
+BD   PY   391
+PH   AD   663
+KM   GU   285
+DE   MH   998
+HM   UA   500
+MN   SG   629
+AF   IT   308
+BV   BY   784
+PR   LU   442
+LY   AM   930
+HN   VE   823
+BE   HT   449
+RU   MS   377
+SJ   MK   894
+AW   BY   498
+PY   UA   612
+MK   GS   686
+IR   ET   250
+UZ   AF   890
+AU   LV   592
+CK   BY   883
+TW   ST   177
+NC   AZ   460
+IS   MC   188
+MY   BG   473
+PH   LT   679
+TL   MU   870
+VC   MM   768
+MW   BZ   735
+UA   DE   328
+UZ   TH   435
+DK   LS   358
+SZ   CF   164
+AW   BV   545
+MX   OM   179
+UG   PE   978
+CH   VI   162
+CV   CK   145
+SM   BI   460
+CA   GN   921
+GQ   LK   278
+RW   GW   241
+KY   ZM   747
+SD   CA   872
+RE   GA   809
+CK   PG   746
+TC   KR   121
+TW   PR   964
+DK   PT   360
+UZ   PS   170
+BI   GR   296
+CY   BM   936
+TT   MC   703
+IR   VN   150
+CR   GF   195
+AZ   KG   176
+MD   TR   597
+MU   PN   996
+CK   UY   636
+SJ   SN   947
+SJ   GY   617
+VN   CL   343
+CH   OM   179
+ZM   NE   615
+JO   IT   141
+PH   SB   565
+HT   HU   552
+AN   CK   221
+ZM   AX   947
+GM   MW   989
+YT   TR   611
+UZ   MW   896
+NZ   SI   538
+TK   SE   970
+MV   QA   396
+LT   AU   453
+CF   DZ   654
+CX   MR   340
+CV   MQ   184
+JP   BA   243
+NL   TZ   781
+MA   DJ   189
+CN   AG   688
+LY   VN   546
+CS   PK   308
+TF   GL   376
+IM   SM   698
+CV   ST   542
+MD   GL   799
+JE   EE   529
+CG   BG   147
+ML   PA   384
+ET   PY   835
+TD   ET   151
+TF   SB   284
+DO   LR   581
+GY   NU   702
+QA   CM   112
+VC   SE   822
+LR   KN   520
+PT   KG   826
+TM   UY   432
+VE   HU   813
+NO   TT   468
+WS   GB   489
+MT   CL   965
+CM   PT   951
+UY   GF   413
+PE   CX   408
+MT   CS   584
+HU   CZ   793
+WF   AU   342
+IM   BN   335
+CL   MT   633
+CN   KR   921
+LC   BR   774
+SC   GR   834
+LR   MV   638
+KE   JM   505
+BG   TF   568
+IR   EC   969
+TT   US   625
+AN   BI   440
+NO   BN   317
+KG   TF   815
+FM   IE   738
+FI   CY   527
+US   MN   959
+PR   GY   682
+SC   IN   654
+LA   PS   774
+MW   HU   990
+AL   WF   498
+GH   KR   1000
+ML   UG   911
+CX   RU   552

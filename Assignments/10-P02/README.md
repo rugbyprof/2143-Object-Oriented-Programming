@@ -57,3 +57,34 @@ Write a c++ class or classes to implement a graphviz language "wrapper" or "faca
 #### Not So Plain Binary Tree 
 
 <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/gz_binary_tree_w_records.png" width="400">
+
+### Input File
+
+The input file will be formatted like the following:
+
+- First line
+  - graph = undirected graph
+  - digraph = directed graph
+- Second line = number of nodes: N
+- Lines 2 -> N 
+  - node id then node label
+- After the nodes will be an integer with number of edges: E
+- Lines N+1 -> N+E
+  - StartNode EndNode
+
+Example:
+```txt
+digraph
+3
+A Angola
+B Bolivia
+C Congo
+5
+A B
+A C
+B C 
+B A
+C B
+```
+
+Big example [HERE](example_input_file.txt)
