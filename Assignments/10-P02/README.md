@@ -70,7 +70,7 @@ The input file will be formatted like the following:
   - node id then node label
 - After the nodes will be an integer with number of edges: E
 - Lines N+1 -> N+E
-  - StartNode EndNode
+  - StartNode EndNode EdgeLabel
 
 Example:
 ```txt
@@ -80,11 +80,11 @@ A Angola
 B Bolivia
 C Congo
 5
-A B
-A C
-B C 
-B A
-C B
+A B 34
+A C 746
+B C 87
+B A sd
+C B Hello
 ```
 
 Big example [HERE](example_input_file.txt)
