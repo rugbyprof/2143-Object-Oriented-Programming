@@ -42,9 +42,9 @@ There are more than just these, but these stuck out when I was preparing my tuto
   - http://www.graphviz.org/doc/info/attrs.html
   - https://graphviz.org/Gallery/directed/crazy.html
 
-### Requirements
+### Possible Uses
 
-Write a c++ class or classes to implement a graphviz language "wrapper" or "facade". This means we will be implementing a (tiny) subset of the graphviz language capability so we can visualize some of the typical data structures that we have learned up to now (from 1063 and or 3013). If you haven't 3013, then let me tell you what you should be thinking about: 
+Your c++ class or classes could be used as a GraphViz language "wrapper" or "facade". This means we could implement a (tiny) subset of the GraphViz language capability so we can visualize some of the typical data structures that we have learned up to now (from 1063 and or 3013). If you haven't had 3013, these are the structures I am talking about: 
 
 #### Linked List
 
@@ -58,33 +58,63 @@ Write a c++ class or classes to implement a graphviz language "wrapper" or "faca
 
 <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/gz_binary_tree_w_records.png" width="400">
 
-### Input File
+### Requirements
 
-The input file will be formatted like the following:
+Instead of using your class as part of another data structure implementation, I will create some input file rules so you can generate your "dot" code from an input file instead of merging it into some other class (like a linked list or tree). You are required to implement at least the following "Basic Input File Rules". to get a "B" on your program. I will come up with a slightly more advanced version below that will put you in the "A" grade range. 
 
-- First line
-  - graph = undirected graph
-  - digraph = directed graph
-- Second line = number of nodes: N
-- Lines 2 -> N 
-  - node id then node label
-- After the nodes will be an integer with number of edges: E
-- Lines N+1 -> N+E
-  - StartNode EndNode EdgeLabel
+### Basic Input File Rules
 
-Example:
+- Line one tells you if it is a directed or undirected graph [digraph,graph]
+- The second line will tell you how many nodes will be in the graph.
+- The next N, lines will contain node information. 
+- Nodes will be listed one per line with the following information separated by a comma:
+  - node_id
+  - node_label
+- After the nodes are listed, the following line will contain the number of edges E, that are in the graph.
+- Edges will be listed one per line with the following information separated by a comma:
+  - start_node_id 
+  - end_node_id 
+  - edge_label
+
+A helper c++ file to process lines with commas is [HERE](read_file.cpp)
+
+Basic Example:
 ```txt
 digraph
-3
-A Angola
-B Bolivia
-C Congo
+4
+ao, Angola
+bo, Bolivia
+cm, Camaroon
+ae, United Arab Emirates
 5
-A B 34
-A C 746
-B C 87
-B A sd
-C B Hello
+ao, bo, 3909 miles
+ao, cm, 771 miles
+bo, cm, 5838 miles
+bo, ae 8577 miles
+cm, ae 2866 miles
 ```
 
-Big example [HERE](example_input_file.txt)
+#### Would Produce:
+
+```dot
+digraph{
+  ao [label="Angola"]
+  bo [label="Bolivia"]
+  cm [label="Camaroon"]
+  ae [label="United Arab Emirates"]
+  ao -> bo [label="3909 miles"]
+  ao -> cm [label="771 miles"]
+  bo -> cm [label="5838 miles"]
+  bo -> ae [label="8577 miles"]
+  cm -> ae [label="2866 miles"]
+}
+```
+
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/example_output1.png" width="150">
+
+
+Big example input file [HERE](example_input_file.txt)
+
+### Complex Input File Rules
+
+Not going to enforce this. But your code better be able to handle more than just labels!!
