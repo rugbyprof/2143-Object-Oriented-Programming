@@ -1,58 +1,77 @@
-## Assignment 3 - Basic Project Organization
-#### Due: 01-26-2021 (Tuesday @ 9:30 a.m.)
+## Assignment 3 - Banner Page
+#### Due: 09-01-2021 (Wednesday @ 12:00 p.m.)
 
 ### Overview
 
-This assignment is to emphasize the importance of organizing a programming project above and beyond the "code" itself. If someone cannot decipher your code, they rely on comments. If someone cannot run your code, they rely on instructions. If someone wants to use something you wrote in their own project (non academically!) they will rely on good comments, a good description of the project, and good instructions on how to use your project. From my standpoint, I need these things to grade projects with minimal issues. All of this will make more sense as the semester goes on, and you see how we utilize command line parameters and external libraries in our projects.
+- We need a way to print out our program banner cover pages to put on assignments. I found a VSCode Extension called  `Banner Comments +` that will let us do it right in the editor. 
 
- You will NOT be allowed to attend class after the due date until this is done. This means if your repo does not exist, and this assignment is not in your repo, then I will ask you to leave class. Why you say? Because if you cannot comment a program, create a readme, and upload it to Github then the chances of you succeeding in this class are next to none. 
+- Install `Banner Comments +` by clicking on the extensions icon on the left:
+  
+- Open VSCode Extenstions:
+<p><img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/vscode_extension_sp_2020.png" height="300"></p>
 
-### Comment A Program
+- Search then install the Banner Comments+ extension:
+<p><img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/vscode_banner2_ext_sp_2020.png" height="300"></p>
 
-- Using the [main.cpp](./main.cpp) file in this folder, 
-- Apply the proper comments using the guidelines from here: [comments](../../Resources/01-Comments/README.md).
-- Create a `README.md` file. Normally it should be in accordance with [this](../../Resources/02-Readmees/README.md) guide. But you can do something more like this (cut and past if you like, and change your name).
+- After it's installed, set the default font by pressing `shift + ctrl + p` 
+- Then type `banner` which gives you all the banner commands.
+- Then choose set default font.
+<p><img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/vscode_banner_set_font_sp_2020.png" height="300"></p>
 
+- Set the default font as any of the `big money` fonts
+- We can change it, if someone finds a better one.
+<p><img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/vscode_banner_choose_font_sp_2020.png" height="300"></p>
+
+
+- Then in any file you can type some text, **highlight it**.
+- Type `shift + ctrl + p` 
+- Choose `BannerComments: Apply` 
+- It will change (for example ) the text below into a banner!
+
+INTO: 
+
+```txt
+ 
+   /$$$$$$   /$$$$$$  /$$   /$$                                    
+  /$$__  $$ /$$$_  $$| $$  | $$                                    
+ | $$  \ $$| $$$$\ $$| $$  | $$                                    
+ | $$$$$$$$| $$ $$ $$| $$$$$$$$                                    
+ | $$__  $$| $$\ $$$$|_____  $$                                    
+ | $$  | $$| $$ \ $$$      | $$                                    
+ | $$  | $$|  $$$$$$/      | $$                                    
+ |__/  |__/ \______/       |__/                                    
+                                                                   
+                                                                   
+   /$$$$$$    /$$ /$$   /$$  /$$$$$$                               
+  /$$__  $$ /$$$$| $$  | $$ /$$__  $$                              
+ |__/  \ $$|_  $$| $$  | $$|__/  \ $$                              
+   /$$$$$$/  | $$| $$$$$$$$   /$$$$$/                              
+  /$$____/   | $$|_____  $$  |___  $$                              
+ | $$        | $$      | $$ /$$  \ $$                              
+ | $$$$$$$$ /$$$$$$    | $$|  $$$$$$/                              
+ |________/|______/    |__/ \______/                               
+
+                                                                   
+   /$$$$$$  /$$$$$$$  /$$$$$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$ /$$   /$$
+  /$$__  $$| $$__  $$|_  $$_/| $$_____/| $$_____/|_  $$_/| $$$ | $$
+ | $$  \__/| $$  \ $$  | $$  | $$      | $$        | $$  | $$$$| $$
+ | $$ /$$$$| $$$$$$$/  | $$  | $$$$$   | $$$$$     | $$  | $$ $$ $$
+ | $$|_  $$| $$__  $$  | $$  | $$__/   | $$__/     | $$  | $$  $$$$
+ | $$  \ $$| $$  \ $$  | $$  | $$      | $$        | $$  | $$\  $$$
+ |  $$$$$$/| $$  | $$ /$$$$$$| $$      | $$       /$$$$$$| $$ \  $$
+  \______/ |__/  |__/|______/|__/      |__/      |______/|__/  \__/
+                                                                   
+                                                          
 ```
-## A03 - Commenting Code
-### Your Name
-### Description:
-
-This program implements a list data structure that links together nodes of integers. It does more stuff, but we don't need to write that here.
-
-### Files
-
-|   #   | File     | Description                      |
-| :---: | -------- | -------------------------------- |
-|   1   | main.cpp | Main driver of my list program . |
 
 
-### Instructions
+- Create your own header:
 
-- This program does not require any non standard libraries
-
-### Example Command
-
-- None for now.
-
+```txt
+A03
+2143
+YOURLASTMNAME
 ```
 
-### Upload Your Commented Program
-
-- Create a folder in your `Assignments` folder called `A03` 
-- Place your commented `main.cpp` file into this `A03` folder.
-
-
-### Your Assignments Folder
-
-- Every time you upload a new assignment to your Github repo, it should be in a folder with the name given to it by the assignment. 
-- Each folder should begin with its assignment number. This will keep the folders in order after creation and upload.
-- Your folder will also have a `README.md` file in its root. This `README.md` will contain a table that is basically a "directory" for every assignment in the assignments folder. Below is an example (link will not work since the Assignments folder is not in my repo):
-
-| Number | Folder       | Description                                                 |
-| :----: | ------------ | ----------------------------------------------------------- |
-|   01   | [A03](./A03) | Assignment to ensure proper commenting and README creation. |
-
-
-- Upload your assignment to Github BEFORE the due date. 
-- You will bring this assignment to class with the next assignment. So read on ... 
+- Print it out and turn it in beginning of class Tuesday with your commented code!
+- You should upload it to github as well in a folder: `A03` that would also be in your assignments folder.

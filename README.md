@@ -1,20 +1,21 @@
 # 2143-Object Oriented Programming
+## Fall 2021
 
 ### Roster
-![](https://d3vv6lp55qjaqc.cloudfront.net/items/220B0V0H3c041K2p251Z/google-sheets-16.png?X-CloudApp-Visitor-Id=1094421) [Class Roster](https://docs.google.com/spreadsheets/d/1ze4P6yJUVEn5Y1wZLXW2LwMjW1EbyMlC1t6ldwFu_0A/edit?usp=sharing)
+![](https://d3vv6lp55qjaqc.cloudfront.net/items/220B0V0H3c041K2p251Z/google-sheets-16.png?X-CloudApp-Visitor-Id=1094421) [Class Roster](https://docs.google.com/spreadsheets/d/1OA3RWgLe3chLhlOgxpSc_PwmEzln9AU-EoN83HeuKcc/edit?usp=sharing)
 
 
 
 ### General Course Info
-- __Days:__ TTh 9:30 a.m. - 10:50 a.m. 
-- __Location:__ BO 209
-- [__Semester:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf) Monday January 11<sup>th</sup> - Friday April 23<sup>rd</sup>
-- [__Holidays:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf)
-  - __Martin Luther King Jr. Day__ Monday January 18<sup>th</sup>
-  - __"Holiday Break" (lol):__ Wednesday March 31<sup>st</sup> - Monday April 5<sup>th</sup> 
-- [__Last Day for “W”:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf)  Friday April 23<sup>rd</sup>
-- [__Last Day of Class:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf) Friday April 23<sup>rd</sup>
-- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/spring20finals.pdf) Tuesday April 27<sup>th</sup> from 8:00 am - 10:00am
+- __Days:__ MWF 12:00 p.m. - 1:20 p.m. 
+- __Location:__ BO 304
+- [__Semester:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf) Monday August 23<sup>rd</sup> - Friday December 3<sup>rd</sup>
+- [__Holidays:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2122.pdf)
+  - __Labor Day__ Monday September 6<sup>th</sup>
+  - __Thanksgiving__ Wednesday November 23<sup>rd</sup> - Sunday November 28<sup>th</sup> 
+- [__Last Day for “W”:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2122.pdf)  Friday October 25<sup>th</sup>
+- [__Last Day of Class:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2122.pdf) Friday December 3<sup>rd</sup>
+- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/fall21finals.pdf) Wednesday December 8<sup>th</sup> from 3:30 pm - 5:30 pm
 
 ## Course Topics
 
