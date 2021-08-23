@@ -67,7 +67,7 @@ The following Markdown:
 ```
 Creates the following output: 
 
-<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/ho2_output_2020.png" width="600">
+<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/a05_fall_2021.png" width="600">
 
 - Make a banner:
 
