@@ -1,5 +1,5 @@
 ## Install SFML - Graphics Library for Cool Programs
-#### Due: 01-29-2021 (Friday @ 12:00 p.m.)
+#### Due: TBD
 
 - Upload your screen shot and the SFML "Hello World" by this time.
 - Bring your deliverables to class the next Tuesday.

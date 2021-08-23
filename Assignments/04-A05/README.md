@@ -69,11 +69,11 @@ Creates the following output:
 
 <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/a05_fall_2021.png" width="600">
 
-- Make a banner:
+- Make a banner to add to your `A05` folder:
 
 ```
 2143
 A05
 YOURNAME
 ```
-
+- Make sure it all ends up on github in your assignments folder.
