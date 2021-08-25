@@ -2,7 +2,8 @@
 ## Fall 2021
 
 ### Roster
-![](https://d3vv6lp55qjaqc.cloudfront.net/items/220B0V0H3c041K2p251Z/google-sheets-16.png?X-CloudApp-Visitor-Id=1094421) [Class Roster](https://docs.google.com/spreadsheets/d/1OA3RWgLe3chLhlOgxpSc_PwmEzln9AU-EoN83HeuKcc/edit?usp=sharing)
+<a href="https://docs.google.com/spreadsheets/d/1OA3RWgLe3chLhlOgxpSc_PwmEzln9AU-EoN83HeuKcc/edit?usp=sharing"><img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" width="30">Class Roster</a>
+
 
 
 
