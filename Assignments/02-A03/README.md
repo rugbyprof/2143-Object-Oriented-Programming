@@ -28,18 +28,27 @@
 - Choose `BannerComments: Apply` 
 - It will change (for example ) the text below into a banner!
 
+TURN:
+
+```
+A03
+2143
+GRIFFIN
+```
+
 INTO: 
 
 ```txt
  
-   /$$$$$$   /$$$$$$  /$$   /$$                                    
-  /$$__  $$ /$$$_  $$| $$  | $$                                    
- | $$  \ $$| $$$$\ $$| $$  | $$                                    
- | $$$$$$$$| $$ $$ $$| $$$$$$$$                                    
- | $$__  $$| $$\ $$$$|_____  $$                                    
- | $$  | $$| $$ \ $$$      | $$                                    
- | $$  | $$|  $$$$$$/      | $$                                    
- |__/  |__/ \______/       |__/                                    
+   /$$$$$$   /$$$$$$   /$$$$$$                                     
+  /$$__  $$ /$$$_  $$ /$$__  $$                                    
+ | $$  \ $$| $$$$\ $$|__/  \ $$                                    
+ | $$$$$$$$| $$ $$ $$   /$$$$$/                                    
+ | $$__  $$| $$\ $$$$  |___  $$                                    
+ | $$  | $$| $$ \ $$$ /$$  \ $$                                    
+ | $$  | $$|  $$$$$$/|  $$$$$$/                                    
+ |__/  |__/ \______/  \______/                                     
+                                                                   
                                                                    
                                                                    
    /$$$$$$    /$$ /$$   /$$  /$$$$$$                               
@@ -50,7 +59,8 @@ INTO:
  | $$        | $$      | $$ /$$  \ $$                              
  | $$$$$$$$ /$$$$$$    | $$|  $$$$$$/                              
  |________/|______/    |__/ \______/                               
-
+                                                                   
+                                                                   
                                                                    
    /$$$$$$  /$$$$$$$  /$$$$$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$ /$$   /$$
   /$$__  $$| $$__  $$|_  $$_/| $$_____/| $$_____/|_  $$_/| $$$ | $$
@@ -70,8 +80,9 @@ INTO:
 ```txt
 A03
 2143
-YOURLASTMNAME
+YOURLASTNAME
 ```
 
+- Side note: The banner comments doesn't work in markdown files (like this one). It expects source code files like `cpp`,  `h` , or `py` files.
 - Print it out and turn it in beginning of class Tuesday with your commented code!
 - You should upload it to github as well in a folder: `A03` that would also be in your assignments folder.
