@@ -75,7 +75,7 @@ INTO:
 ```
 
 
-- Create your own header:
+- Create your own banner:
 
 ```txt
 A03
@@ -84,5 +84,7 @@ YOURLASTNAME
 ```
 
 - Side note: The banner comments doesn't work in markdown files (like this one). It expects source code files like `cpp`,  `h` , or `py` files.
-- Print it out and turn it in beginning of class Tuesday with your commented code!
+- ~~Print it out and turn it in beginning of class Wednesday with your commented code!~~
+  - Just bring it with your commented code on Friday.
+  - But make sure you still upload as insructed next.
 - You should upload it to github as well in a folder: `A03` that would also be in your assignments folder.
