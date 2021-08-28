@@ -1,5 +1,14 @@
 ## Vectors
 
+Introduction to methods and some newer C++ syntax. Ok, not NEW syntax but not ubiquitous either. 
+
+Example files here:
+
+* [vectors 01](vectors_01.cpp)
+* [vectors 02](vectors_02.cpp)
+* [vectors 03](vectors_03.cpp)
+
+And a list of methods below
 
 ### Size Methods
 
