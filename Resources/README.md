@@ -1,6 +1,6 @@
 ## Resources
 
-| Folder | Title | Description | Due | Time Left |
+| Folder | Title | Description | Due | Days Left |
 |:------|:------|:------|:------|:-----:|
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments">01-Comments</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/01-Comments">N/A</a>*** |  |
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/02-Readmees">02-Readmees</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/02-Readmees"> README </a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/02-Readmees"> How You Should Format Them</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/02-Readmees"> None</a>*** |  |
@@ -11,4 +11,4 @@
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/09-SFML">09-SFML</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/09-SFML">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/09-SFML">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/09-SFML">N/A</a>*** |  |
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/10-Python">10-Python</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/10-Python"> Python </a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/10-Python"> Various Resources</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/10-Python">N/A</a>*** |  |
 
-<sup>Last Updated: 2021-08-28 (Sat @ 01:11)</sup>
+<sup>Last Updated: 2021-08-28 (Sat @ 01:12)</sup>
