@@ -8,4 +8,4 @@
 | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02">01-A02</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02"> Assignment 2 </a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02"> Code Repository</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/01-A02"> 08-27-2021 (Friday @ 12:00 p.m.)</a>~ | ---- |
 | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01">00-A01</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01"> Assignment 1 </a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01"> Establishing Comms</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/00-A01"> 08-26-2021 (Thursday @ 12:00 p.m.)</a>~ | ---- |
 
-<sup>Last Updated: 2021-08-28 (Sat @ 01:24)</sup>
+<sup>Last Updated: 2021-08-28 (Sat @ 01:25)</sup>
