@@ -3,7 +3,7 @@
 
 ## Overview
 
-Using code from [repl.it](https://replit.com/@rugbyprof/StackQueueDay2-3#main.cpp) create a more robust `MyVector` class that includes much more functionality and usability by adding additional methods to add, remove, and maintain sorted data. As well as overloaded constructors to build vectors from different data sources.
+Using code from [repl.it](https://replit.com/@rugbyprof/StackQueueDay2-3#main.cpp) create a more robust `MyVector` class that will include more functionality. You will achieve this by writing additional methods to add values, remove values, and maintain sorted values if needed. This class also needs the ability to be initialized with different data sources (files, other vectors, and arrays).
 
 Right now the example code is a mish-mash of disconnected code snippets collected as we review last semester. There is a basic linked list class that has half the functionality of a stack. There are methods to print files, and load files into arrays. The class even has an overloaded constructor that loads an array into the linked list. But we need to clean up this code and turn it into a usable class that you or anyone would want to use. To do this we need to define exactly what we want our class to do. I will list out the requirements for you to fulfill below. Right now we will assume that we store integers, but we will rectify this in the upcoming programs when we overload operators and add type templates to our class. 
 
