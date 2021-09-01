@@ -9,7 +9,7 @@ Bring banner with [A04](../03-A04/README.md), but still create A03 folder and RE
 
 - Install `Banner Comments +` by clicking on the extensions icon on the left:
   
-- Open VSCode Extenstions:
+- Open VSCode Extensions:
 <p><img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/vscode_extension_sp_2020.png" height="300"></p>
 
 - Search then install the Banner Comments+ extension:
@@ -88,5 +88,5 @@ YOURLASTNAME
 - Side note: The banner comments doesn't work in markdown files (like this one). It expects source code files like `cpp`,  `h` , or `py` files.
 - ~~Print it out and turn it in beginning of class Wednesday with your commented code!~~
   - Just bring it with your commented code on Friday.
-  - But make sure you still upload as insructed next.
+  - But make sure you still upload as instructed next.
 - You should upload it to github as well in a folder: `A03` that would also be in your assignments folder.
