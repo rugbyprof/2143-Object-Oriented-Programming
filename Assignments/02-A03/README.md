@@ -1,5 +1,7 @@
 ## Assignment 3 - Banner Page
-#### Due: 09-01-2021 (Wednesday @ 12:00 p.m.)
+#### Due: 09-03-2021 (Friday @ 12:00 p.m.)
+
+Bring banner with [A04](../03-A04/README.md), but still create A03 folder and README and list it in your assignments folder.
 
 ### Overview
 
