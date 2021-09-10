@@ -7,6 +7,10 @@
 
 
 
+|                 ZOOM Link                 |
+| :---------------------------------------: |
+| https://msutexas-edu.zoom.us/j/9403974439 |
+
 ### General Course Info
 - __Days:__ MWF 12:00 p.m. - 1:20 p.m. 
 - __Location:__ BO 304
