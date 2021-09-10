@@ -5,8 +5,6 @@
 <a href="https://docs.google.com/spreadsheets/d/1OA3RWgLe3chLhlOgxpSc_PwmEzln9AU-EoN83HeuKcc/edit?usp=sharing"><img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" width="30">Class Roster</a>
 
 
-
-
 |                 ZOOM Link                 |
 | :---------------------------------------: |
 | https://msutexas-edu.zoom.us/j/9403974439 |
@@ -46,11 +44,13 @@ Coming Soon
 | Categories                                         | Portion of Course | Letter Grade | Grade Range |
 | :------------------------------------------------- | :---------------: | :----------: | :---------: |
 | Exams (3)<sup>**1**</sup>                          |        45%        |      A       |   89-100    |
-| Programs (3-5)<sup>**2**,**3**</sup> & Assignments |        25%        |      B       |    79-88    |
+| Programs (3-5)<sup>**2**,**3**</sup> & Assignments |        20%        |      B       |    79-88    |
 | Final<sup>**4**</sup>                              |        20%        |      C       |    69-78    |
 | Github Portfolio                                   |        10%        |      D       |    59-68    |
-|                                                    |                   |      F       |  below 59   |
+| Participation<sup>See Below Table</sup>            |        5%         |      F       |  below 59   |
+|                                                    |                   |              |             |
 
+>Participation: Obviously this has to do with going to class, asking questions, and generally being a physical part of class. But even more importantly it has to do with interacting with our class on Slack. Responding to queries on Slack either with text response or an emoticon reaction to a post. Asking me questions with direct message is a huge help, as I can turn that into (what the military calls) an "overhead correction". Most questions help bring to my attention things that need clarification for everyone. I will be gauging everyone's participation and the best guarantee is on slack as that creates a digital record.
 
 >**1**. Lowest exam grade can be replaced by Final Exam grade if deemed appropriate by instructor. This is for students who attend class and participate.
 >
