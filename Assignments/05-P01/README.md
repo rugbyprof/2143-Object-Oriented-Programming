@@ -16,7 +16,7 @@ Right now the example code is a mish-mash of disconnected code snippets collecte
   - From a file 
     - `V1 = new MyVector(string FileName)` : *read until eof loading each value into list* 
   - From another instance of same type (this is known as a Copy Constructor and we discuss soon)
-    - `V2 = new MyVector(MyVector V1)` : *traverse* `other.list` *adding each value to* `this.list`
+    - ~~`V2 = new MyVector(MyVector V1)` : *traverse* `other.list` *adding each value to* `this.list`~~
 - Adding items to your class instance:
   - To the front
     - `V.pushFront(int val)` : *adds single value to front of* `this.list`
@@ -27,7 +27,7 @@ Right now the example code is a mish-mash of disconnected code snippets collecte
   - At a specified location (if it exists)
     - `V.pushAt(int loc,int val)`
   - In ascending or descending order (order set by constructor or setter)
-    - `V.inOrderPush(int val)` : *adds single value to proper location in order to maintain order (ascending or descending)*
+    - ~~`V.inOrderPush(int val)` : *adds single value to proper location in order to maintain order (ascending or descending)*~~
     - There are some problems with this method. Ask me in class.
 - Removing items from a class instance:
   - From the front
