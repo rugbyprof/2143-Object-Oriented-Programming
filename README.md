@@ -5,9 +5,8 @@
 <a href="https://docs.google.com/spreadsheets/d/1OA3RWgLe3chLhlOgxpSc_PwmEzln9AU-EoN83HeuKcc/edit?usp=sharing"><img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" width="30">Class Roster</a>
 
 
-|                 ZOOM Link                 |
-| :---------------------------------------: |
-| https://msutexas-edu.zoom.us/j/9403974439 |
+### ZOOM Link              
+https://msutexas-edu.zoom.us/j/9403974439 
 
 ### General Course Info
 - __Days:__ MWF 12:00 p.m. - 1:20 p.m. 
