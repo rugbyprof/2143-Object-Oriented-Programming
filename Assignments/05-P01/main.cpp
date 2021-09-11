@@ -1,7 +1,24 @@
-
+/*****************************************************************************
+*                    
+*  Author:           Griffin
+*  Title:            Singly linked list vector implementation
+*  Course:           2143
+*  Semester:         Fall 2021
+* 
+*  Description:
+*        Uses a singly linked list as the backend for an STL like "vector" 
+*        class definition.
+* 
+*  Usage:
+*        Use it like a linked list now. More like a vector next program
+* 
+*  Files: TBD
+*****************************************************************************/
 #include <fstream>
 #include <iostream>
 #include <string>
+
+#define INF 1000000000  // infinity
 
 using namespace std;
 
@@ -24,12 +41,44 @@ private:
     int             size;
     static ofstream fout;
     string          fileName;
+    bool            sorted;
+
+    /**
+     * @brief Private version of inOrder push. 
+     * 
+     * @param x 
+     */
+    void _inorderPush(int x) {
+        Node* tempPtr = new Node(x);  // allocate new node
+        Node* prev = head;            // get previous and next pointers
+        Node* curr = head;
+
+        while (curr->data > x) {  // loop to find proper location
+            prev = curr;
+            curr = curr->next;
+        }
+
+        tempPtr->next = prev->next;  // add new node in its proper position
+        prev->next = tempPtr;
+
+        size++;  // add to size :)
+    }
 
 public:
+    /**
+     * @brief Default constructor 
+     * 
+     */
     MyVector() {
         init();
     }
 
+    /**
+     * @brief Overloaded Constructor 
+     * 
+     * @param int   *A - pointer to array 
+     * @param int   aSize - size of array
+     */
     MyVector(int A[], int aSize) {
         init();
 
@@ -38,6 +87,14 @@ public:
         }
     }
 
+    /**
+     * @brief Overloaded Constructor 
+     * 
+     * @param string FileName - file to open and read
+     * 
+     * Assumes infile will contain numbers only delimited by spaces or 
+     * new lines.
+     */
     MyVector(string FileName) {
         init();
 
@@ -51,6 +108,11 @@ public:
         }
     }
 
+    /**
+     * @brief Copy Constructor 
+     * 
+     * @param MyVector &other 
+     */
     MyVector(const MyVector& other) {
         init();
 
@@ -62,58 +124,62 @@ public:
         }
     }
 
+    /**
+     * @brief - Initialize the data members so we don't
+     *      have duplicate lines in each constructor.
+     * 
+     */
     void init() {
         head = tail = NULL;
         fileName = "";
         size = 0;
+        sorted = 0;
     }
 
-    void setFileName(string fname) {
-        fileName = fname;
+    /**
+     * @brief Public version of inOrder push.
+     * 
+     * @param x 
+     */
+    void inorderPush(int x) {
+        if (!sorted) {
+            sortList();
+        }
+
+        if (!head) {
+            pushFront(x);  // call push front for empty list (or pushRear would work)
+        } else if (x < head->data) {
+            pushFront(x);  // call push front if x is less than head
+        } else if (x > tail->data) {
+            pushRear(x);  // call push rear if x > tail
+        } else {
+            _inorderPush(x);  // call private version of push in order
+        }
     }
 
-    void print(bool printFile = 0) {
-        if (printFile) {
-            if (!fout.is_open()) {
-                fout.open(fileName, std::ofstream::out | std::ofstream::trunc);
-            }
-        }
-
-        bool flag = (printFile && fout.is_open());
-
-        cout << "[";
-        if (flag) {
-            fout << "[";
-        }
-
-        Node* temp = head;
-
-        while (temp) {
-            cout << temp->data;
-
-            if (flag) {
-                fout << temp->data;
-                ;
-            }
-
-            if (temp->next) {
-                cout << ",";
-                if (flag) {
-                    fout << ",";
+    /**
+     * @brief Sort the current values in the linked list.
+     * 
+     * @returns None
+     */
+    void sortList() {
+        Node* newFront = head;
+        while (newFront->next) {
+            Node* smallest = newFront;
+            Node* current = newFront;
+            int   minimum = INF;
+            while (current) {
+                if (current->data < minimum) {
+                    smallest = current;
+                    minimum = current->data;
                 }
+                current = current->next;
             }
-
-            temp = temp->next;
+            smallest->data = newFront->data;
+            newFront->data = minimum;
+            newFront = newFront->next;
         }
-        cout << "]";
-        if (flag) {
-            fout << "]";
-        }
-        cout << endl;
-        if (flag) {
-            fout << endl;
-        }
-        
+        sorted = true;
     }
 
     /**
@@ -128,8 +194,7 @@ public:
         // point to new value
         if (!head) {
             head = tail = tempPtr;
-
-        // otherwise adjust head pointer
+            // otherwise adjust head pointer
         } else {
             tempPtr->next = head;
             head = tempPtr;
@@ -149,8 +214,8 @@ public:
      * @return None
      */
     void pushFront(const MyVector& other) {
-        Node* otherPtr = other.head;         // get copy of other lists head
-        int*  tempData = new int[other.size];// allocate memory to hold values
+        Node* otherPtr = other.head;           // get copy of other lists head
+        int*  tempData = new int[other.size];  // allocate memory to hold values
 
         // load other list into array
         int i = 0;
@@ -169,23 +234,52 @@ public:
 
     /**
      * @brief -  Add 'other' list's values to end of 'this' list.
-     * @depends - Uses `pushRear(int)`
+     * @note - Uses `pushRear(int)`
      * @param MyVector& other 
      * @return None
      */
     void pushRear(const MyVector& other) {
-        Node* otherPtr = other.head;         // get copy of other lists head
+        Node* otherPtr = other.head;  // get copy of other lists head
 
-        while (otherPtr) {      // traverse and add
+        while (otherPtr) {  // traverse and add
             pushRear(otherPtr->data);
             otherPtr = otherPtr->next;
         }
     }
 
     /**
+     * @brief Push value onto list at soecified position, if it exists.
+     * 
+     * @param int i - location index 
+     * @param inr x - value to add 
+     * @return bool - true add successful / false add failed 
+     */
+    bool pushAt(int i, int x) {
+        if (i >= size) {
+            return false;
+        }
+
+        Node* tempPtr = new Node(x);  // allocate new node
+        Node* prev = head;            // get previous and next pointers
+        Node* curr = head;
+
+        while (i > 0) {  // loop to find proper location
+            prev = curr;
+            curr = curr->next;
+            i--;
+        }
+
+        tempPtr->next = prev->next;  // add new node in its proper position
+        prev->next = tempPtr;
+
+        size++;  // add to size :)
+        return true;
+    }
+
+    /**
      * @brief - Add value to rear of list
      * 
-     * @param x 
+     * @param int x - value to be added 
      * @return None
      */
     void pushRear(int x) {
@@ -217,34 +311,47 @@ public:
         return os;
     }
 
+    /**
+     * @brief Destroy the My Vector object
+     * 
+     */
     ~MyVector() {
+        Node* curr = head;
+        Node* prev = head;
+
+        while (curr) {
+            prev = curr;
+            curr = curr->next;
+            //cout << "deleting: " << prev->data << endl;
+            delete prev;
+        }
     }
 };
 
 ofstream MyVector::fout;
 
 int main() {
-    MyVector V1("input1.dat");
-    V1.setFileName("googly1.out");
+    MyVector V1;
+    MyVector V2("input.dat");
 
-    MyVector V2("input2.dat");
-    V2.setFileName("googly2.out");
-    //MyVector V2(V1);
-    MyVector V3("input2.dat");
-    V3.setFileName("googly3.out");
+    V2.sortList();
 
-    V2.pushFront(100);
-    V2.pushFront(200);
-    V2.pushFront(300);
-    V2.pushFront(400);
+    V1.pushFront(56);
+    V1.pushFront(42);
+    V1.pushFront(30);
+    V1.pushFront(48);
 
-    V2.pushFront(V1);
-
+    V1.sortList();
     cout << V1 << endl;
-    cout << V2 << endl;
-    cout << V3 << endl;  
 
-    V1.print(true);
-    V2.print(true);
-    V3.print(true);
+    V1.pushAt(3, 88);
+    cout << V1 << endl;
+    V1.sortList();
+    cout << V1 << endl;
+
+    V2.pushRear(V1);
+    cout << V2 << endl;
+
+    V2.sortList();
+    cout << V2 << endl;
 }
