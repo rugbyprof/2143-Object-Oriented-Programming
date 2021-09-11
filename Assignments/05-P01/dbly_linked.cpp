@@ -8,6 +8,10 @@
 *  Description:
 *        Uses a singly linked list as the backend for an STL like "vector" 
 *        class definition.
+*   
+*  NO ERROR DETECTION USED. SO RETURNING 'TRUE' FOR A SUCCESFUL PUSH ONTO LIST
+*  IS NOT FULLY ACCURATE AS WE ARE NOT INCLUDING ANY "TRY" "CATCH" BLOCKS TO CAPTURE
+*  ERRORS CORRECTLY. WE WILL COVER THESE LATER.
 * 
 *  Usage:
 *        Use it like a linked list now. More like a vector next program
@@ -22,15 +26,53 @@
 
 using namespace std;
 
+// Node
+//             +--------+      +--------+      +--------+      +--------+
+//   Head ---> |        | ---> |        | ---> |        | ---> |        | ---> NULL
+//   NULL <--- |        | <--- |        | <--- |        | <--- |        |
+//             +--------+      +--------+      +--------+      +--------+
+
 // Node for our linked list
 struct Node {
     int data;
 
     Node* next;
+    Node* prev;
 
     Node(int x) {
         data = x;
-        next = NULL;
+        prev = next = NULL;
+    }
+
+    /**
+     * @brief Construct a new Node object and connect it to its neighbors 
+     *        directly in the constructor.
+     * 
+     * @param int x - data value 
+     * @param Node*& p - previous node reference   
+     * @param Node*& n - next node reference  
+     */
+    Node(int x, Node*& p, Node*& n) {
+        data = x;
+        
+        // `p` was passed by address, so changes to `p` are
+        // remembered! So, we point `p` to `this` ( `this` = the new node we are in right now ).
+        if(p){
+            p->next = this;
+        }
+        // Same for `n` as was for `p`.
+        if(n){
+            n->prev = this;
+        }
+        
+        // Now point `this` nodes previous and next to the nodes we passed in.
+        
+        prev = p;
+        next = n;
+
+        // Below is the same as above but we explicitly use the `this` keyword.
+        // this->prev = p;
+        // this->next = n;
     }
 };
 
@@ -49,22 +91,36 @@ private:
      * @param x 
      */
     void _inorderPush(int x) {
-        Node* tempPtr = new Node(x);  // allocate new node
-        Node* prev = head;            // get previous and next pointers
-        Node* curr = head;
+         
+        Node* current = head;
 
-        while (curr->data > x) {  // loop to find proper location
-            prev = curr;
-            curr = curr->next;
+        while (current->data > x) {  // loop to find proper location
+            current = current->next;
         }
 
-        tempPtr->next = prev->next;  // add new node in its proper position
-        prev->next = tempPtr;
+        Node* newNode = new Node(x,current->prev,current); 
+
+        // current->prev->next = newNode;
+        // newNode->prev = current->prev;
+        // newNode->next = current;
+        // current->prev = newNode;
 
         size++;  // add to size :)
     }
 
 public:
+    /**
+     * @brief - Initialize the data members so we don't
+     *      have duplicate lines in each constructor.
+     * 
+     */
+    void init() {
+        head = tail = NULL;
+        fileName = "";
+        size = 0;
+        sorted = 0;
+    }
+
     /**
      * @brief Default constructor 
      * 
@@ -125,18 +181,6 @@ public:
     }
 
     /**
-     * @brief - Initialize the data members so we don't
-     *      have duplicate lines in each constructor.
-     * 
-     */
-    void init() {
-        head = tail = NULL;
-        fileName = "";
-        size = 0;
-        sorted = 0;
-    }
-
-    /**
      * @brief Public version of inOrder push.
      * 
      * @param x 
@@ -145,7 +189,6 @@ public:
         if (!sorted) {
             sortList();
         }
-
         if (!head) {
             pushFront(x);  // call push front for empty list (or pushRear would work)
         } else if (x < head->data) {
@@ -158,7 +201,8 @@ public:
     }
 
     /**
-     * @brief Sort the current values in the linked list.
+     * @brief Sort the current values in the linked list. This doesn't require any changing
+     * because its a doubly linked list as we are swapping DATA not actual nodes.
      * 
      * @returns None
      */
@@ -186,20 +230,23 @@ public:
      * @brief Add value to front of list.
      * 
      * @param x 
+     * @return bool - true = successful push
      */
-    void pushFront(int x) {
-        Node* tempPtr = new Node(x);
+    bool pushFront(int x) {
+        Node* newNode = new Node(x);
 
         // empty list make head and tail
         // point to new value
         if (!head) {
-            head = tail = tempPtr;
+            head = tail = newNode;
             // otherwise adjust head pointer
         } else {
-            tempPtr->next = head;
-            head = tempPtr;
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
         }
         size++;
+        return true;
     }
 
     /**
@@ -248,6 +295,26 @@ public:
     }
 
     /**
+     * @brief - Add value to rear of list
+     * 
+     * @param int x - value to be added 
+     * @return bool - successful push = 1 
+     */
+    bool pushRear(int x) {
+        Node* newNode = new Node(x);
+
+        if (!head) {
+            head = tail = newNode;
+        } else {
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+        size++;  // add to size of list
+        return true;
+    }
+
+    /**
      * @brief Push value onto list at soecified position, if it exists.
      * 
      * @param int i - location index 
@@ -255,44 +322,43 @@ public:
      * @return bool - true add successful / false add failed 
      */
     bool pushAt(int i, int x) {
-        if (i >= size) {
-            return false;
+        // IF index is at the end of the list
+        // OR beyond the end, do a push rear,
+        if (i >= size - 1) {
+            return pushRear(x);
         }
 
-        Node* tempPtr = new Node(x);  // allocate new node
-        Node* prev = head;            // get previous and next pointers
-        Node* curr = head;
+        if (i == 0) {
+            return pushFront(x);
+        }
+
+        // Index is not front or rear so ... find proper
+        //
+
+        Node* newNode = new Node(x);  // allocate new node
+        Node* current = head;
 
         while (i > 0) {  // loop to find proper location
-            prev = curr;
-            curr = curr->next;
+            current = current->next;
             i--;
         }
 
-        tempPtr->next = prev->next;  // add new node in its proper position
-        prev->next = tempPtr;
+        // newNode is getting placed in front of current
+
+        // update temp's previous pointer to point to node before current
+        // update temp's next to point to current (making current come after newNode)
+        newNode->prev = current->prev;
+        newNode->next = current;
+
+        // update node before current to now point to newNode
+        // and update current to point back to newNode
+        current->prev->next = newNode;
+        current->prev = newNode;
+
+        // current->next is already pointing to proper node so we leave it.
 
         size++;  // add to size :)
         return true;
-    }
-
-    /**
-     * @brief - Add value to rear of list
-     * 
-     * @param int x - value to be added 
-     * @return None
-     */
-    void pushRear(int x) {
-        Node* tempPtr = new Node(x);
-
-        if (!head) {
-            head = tail = tempPtr;
-
-        } else {
-            tail->next = tempPtr;
-            tail = tempPtr;
-        }
-        size++;  // add to size of list
     }
 
     friend ostream& operator<<(ostream& os, const MyVector& rhs) {
@@ -307,7 +373,7 @@ public:
             }
             temp = temp->next;  // move to next Node
         }
-        os << endl;
+
         return os;
     }
 
@@ -316,12 +382,12 @@ public:
      * 
      */
     ~MyVector() {
-        Node* curr = head;
+        Node* current = head;
         Node* prev = head;
 
-        while (curr) {
-            prev = curr;
-            curr = curr->next;
+        while (current) {
+            prev = current;
+            current = current->next;
             //cout << "deleting: " << prev->data << endl;
             delete prev;
         }
@@ -333,20 +399,19 @@ ofstream MyVector::fout;
 int main() {
     MyVector V1;
     MyVector V2("input.dat");
-
+    cout << V2 << endl;
     V2.sortList();
+    cout << V2 << endl;
 
     V1.pushFront(56);
     V1.pushFront(42);
     V1.pushFront(30);
     V1.pushFront(48);
-
-    V1.sortList();
+    V1.pushAt(0, 1);
+    V1.pushAt(10, 10);
     cout << V1 << endl;
 
-    V1.pushAt(3, 88);
-    cout << V1 << endl;
-    V1.sortList();
+    V1.pushAt(2, 88);
     cout << V1 << endl;
 
     V2.pushRear(V1);
