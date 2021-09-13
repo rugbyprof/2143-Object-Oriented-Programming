@@ -10,7 +10,7 @@
 *        class definition.
 * 
 *  Usage:
-*        Use it like a linked list now. More like a vector next program
+*        Usually command line examples go here.
 * 
 *  Files: TBD
 *****************************************************************************/
