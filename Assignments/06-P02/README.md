@@ -1,22 +1,21 @@
 ## Program 2 - MyVector Class 2
 #### Due: 09-22-2021 (Wednesday @ 12:00 p.m.)
 
-# Not Done !!
-
 ## Overview
 
-Using code from [repl.it](https://replit.com/@rugbyprof/StackQueueDay2-3#main.cpp) create a more robust `MyVector` class that includes some added functionality.
+Using code from [Program 1](../05-P01/singly_linked.cpp) create a more robust `MyVector` class that includes some added functionality with the overloading of some C++ operators. The operations performed by using a particular operator will be defined by us with a brief discussion on what we should do. We do not have to abide by convention, we can define each operator to do anything we want.
 
 
 ## Requirements
 - Overload `[]` so that your `MyVector` can be treated as an array. 
-- Overload `<<` (ostream) so that if your vector were used in a `cout` statement it would print the entire vector without a newline.
-- Overload `+` (addition) so that if your vector were used in an arithmetic operation, it would add two vectors together. 
-- Overload `-` (substraction) so that if your vector were used in an arithmetic operation, it would subtract two vectors. 
-- Overload `*` (multiplication) so that if your vector were used in an arithmetic operation, it would multiply two vectors. 
-- Overload `/` (division) so that if your vector were used in an arithmetic operation, it would divide two vectors. 
-- Overload `==` (equality) so that if your vector were used in an arithmetic operation, it would test for equality. 
-- Overload `=` (assignment) so that you can assign another vector and take on its values.
+- Overload `<<` (ostream) so that printing to std out is easy. 
+- Overload `<<` (ofstream) so that printing to outfile is easy. 
+- Overload `+` (addition)  
+- Overload `-` (substraction)  
+- Overload `*` (multiplication)  
+- Overload `/` (division)  
+- Overload `==` (equality) 
+- Overload `=` (assignment) 
 - Overlad `push_back` to accept an array of values which will be appended to the existing vector.
 
 
@@ -29,42 +28,34 @@ Given:
 Vector<int> v1;
 Vector<int> v2;
 
-v1.push_back(8);
-// v1 contains: [8]
+// USAGE TO COME AFTER DISCUSSION
+```
 
-v2.push_back(10);
-v2.push_back(20);
-v2.push_back(30);
-// v2 contains: [10,20,30]
+### Deliverables
 
-// Declare some int array
-int A[] = {1,2,3,4,5}
-
-
-v1.push_back(A,5);
-// v1 contains: [8,1,2,3,4,5]
-
-v1 = v1 + v2;
-// v1 contains: [18,21,32,3,4,5]
-
-cout<<v1<<endl;
-// would print: [18,21,32,3,4,5] to standard out.
-
-cout<<v1[2]<<endl;
-// would print: 32 to standard out.
-
-
-v2 = v2 * 3;
-// v2 contains: [30,60,90]
-
-v2 = v2 * v1;
-// v2 contains: [540,1260,2880]
-
-v2[2] = 100;
-// v2 contains: [540,1260,100]
-
-// What about strings??
+- Create a folder in your assignments folder called `P02`
+- In that folder create a file called README.md
+- Help with markdown: https://guides.github.com/features/mastering-markdown/
+- Look at [this](../../Resources/02-Readmees/README.md) to help with your `README.md` file
+- Create a banner for your program **(see [HERE](../../Resources/03-Banner/README.md))**.
+  - Make sure your banner is readable and does NOT have blank lines betweenon every other row.
 
 ```
+2143 
+P02
+Name
+```
+
+- Print out your source code. Make sure it's **[commented](../../Resources/01-Comments/README.md)**.
+- Print out your output file.
+- Put your assignment on the lecture podium at the beginning of class.
+- Staple everything in this order:
+  - **1)** Banner (on top)
+  - **2)** Source code (middle)
+  - **3)** Output (bottom)
+- Any hand writing on your assignment is reduction in 1 letter grade.
+- Failure to follow instructions is a reduction in 1 letter grade.
+- Unreadable banner is a reduction in 1 letter grade.
+
 
 
