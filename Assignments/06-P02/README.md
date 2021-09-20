@@ -5,9 +5,7 @@
 
 Using code from [Program 1](../05-P01/singly_linked.cpp) create a more robust `MyVector` class that includes some added functionality with the overloading of some C++ operators. The operations performed by using a particular operator will be defined by us with a brief discussion on what we should do. We do not have to abide by convention, we can define each operator to do anything we want.
 
-
 ## Requirements
-
 
 - Overload `<<` (ostream) so that printing to std out is easy. 
 - Overload `<<` (ofstream) so that printing to outfile is easy. 
@@ -86,7 +84,6 @@ cout << v2 == v1 << endl;
 
 
 ### Deliverables
-
 - Create a folder in your assignments folder called `P02`
 - In that folder create a file called README.md
 - Help with markdown: https://guides.github.com/features/mastering-markdown/
