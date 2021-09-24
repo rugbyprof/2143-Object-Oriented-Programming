@@ -1,9 +1,7 @@
-## Test 1 - Topics To Be Listed
+## Test 1 - Basic Stuff
 #### Due: 09-24-2021 (Friday @ 12:00 p.m.)
 
 ## Study Guide
-
-
 
 #### Class Syntax
 
