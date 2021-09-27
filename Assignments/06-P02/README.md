@@ -29,8 +29,8 @@ Given:
 int a1[] = { 1, 2, 3, 4, 5 };
 int a2[] = { 10, 20, 30 };
 
-MyVector v1(a1);
-MyVector v2(a2);
+MyVector v1(a1,5);
+MyVector v2(a2,3);
 
 ofstream fout;
 ofile.open("output.txt");
