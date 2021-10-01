@@ -1,4 +1,4 @@
-## Program 3 - MSUniverse Dynamic Fighting
+## Program 3 - BolNiverse Fight Club
 #### Due: 10-11-2021 (Monday @ 12:00 p.m.)
 
 # NOT DONE
