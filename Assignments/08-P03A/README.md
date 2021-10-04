@@ -1,91 +1,204 @@
-## Program 3 - BolNiverse Fight Club
+## Program 3A - Rock Paper Scissors Lizard Spock
 #### Due: 10-11-2021 (Monday @ 12:00 p.m.)
 
-# NOT DONE
 
 ### Overview
 
-You need to design a program with multiple classes that represents a set of characters to fight in the BolNiverse. This arena is not as one would normally envision. It is ... well its just a hallway. But it connects known space to the deep unknown.  It has one possible entrance for those brave enough to take a stand against the `freeParkers` faction. The entrance on our side of the BolNiverse is secretly known as "the loading dock!". In fact, the area between the outer containment door and inner door is known as "TheLounge". Its a highly coveted hot spot worth defending against the `freeParkers`.  You know ... its got snacks and couches and stuff. It's also larger on the inside as it is on the outside, kind of like the Tardis in Dr. Who. The bottom line is it's worth defending! The freeParkers control the only other entrance to the BolNiverse, and constantly attack then inner door trying to get into "TheLounge".
+This is the first part of at least two others for a total of 3. The ultimate goal is to have two characters battle with one or both sides having the ability to choose which character to battle. This will let us implement some `runtime polymorphism` in the final component. However we need to start a little smaller. Since I could not think of a simple way for two characters to battle, we are going to use a version of Rock Paper Scissors Lizard Spock! 
 
-Let me set the stage for you: You are the leader of the BolNiverse defense forces, and your budget sucks. You have to use strategy to fight the `freeParkers` (those cheep asses). You have `1 to N` team members (characters) to help you defend the "TheLounge". Each character is "based" on the same `base character` design. You will have a limited set of parameters that you can use to "tailor" each character beyond the base design, turning them into a specific character type. We will keep it old school with basic character types and races:
+### Background + Helper Code
 
-| Character Classes     | Races            |
-| :------------------ | :--------------- |
-| Archer,             | Dwarf            |
-| Warrior,            | Elf              |
-| Wizard,             | Human            |
-| Nerdist<sup>2</sup> | Geek<sup>3</sup> |
+Included in this folder are two files:
 
+- [rockPaper.cpp](rockPaper.cpp)
+- [emojis.h](emojis.h) (source: https://github.com/99x/emojicpp)
 
-I don't have all the parameters to make up each character class right now, but we will definitely use a basic `health` value that terminates a character when a minimum threshold is reached. Each character has specified  `weapon(s)` or `spell(s)` for offensive `attacks`. These will be multiplied by `skill` (or similar) to determine `hitpoints` or damage. We should probably add some kind of `defense` mechanism as well, like a shield or spell to keep it simple. We need each character to have enough uniqueness to be effective against some, but not all opponents. And what does that mean anyway? Wait! Are we writing a game? We aren't writing a game ... ok maybe we are?!? 
+The [rockPaper.cpp](rockPaper.cpp) file contains a few different things, including a couple of ways to implement dice rolling, and also how to print out emojis to the console.
 
->Reality check. Go look here: https://www.superherodb.com/powers/ There are 462 superpowers, all with detailed definitions and ultimately millions (or billions) of possibilities in the creation of a character. We aren't going the `super power` route, but it makes the point.  If we get too ambitious, we will fail miserably. We need to come up with **extremely simple battle rules** to make this project have any hope of success. 
-
-### Crux Of the Project
-
-Your program will run continuously swapping characters in and out of the hallway to face off with whatever `freeParker` is trying to get into the "TheLounge". This really means you will place your best character (based on the matchup with the opponents current character) at the front of our line (aka queue). She will then take turns attacking and defending against the enemy character (aka the character in front of the other queue). Causing an opponent to go below their health threshold (usually 0) by inflicting damage will ensure that character leaves the simulation (in a body bag KTF!<sup>1</sup>). First side to eliminate the other faction, wins.
-
-### Getting Started
-
-You will firstly create a class that randomly generates differing values at differing extremes, based on a set of input params, in order to "build" your characters.  Random in our case is really **pseudo** random. In fact it's even worse than pseudo random, it's a "controlled" `random`. You will be in full control of how values are generated for each character / race / trait. We will decide as a class what the limits are for each character and trait, and then write methods that ensure a fair and balanced character. We want to ensure that extreme minimums and extreme maximums will only occur occasionally, but also mix it up enough to make sure each character actually has strengths and weaknesses, and not just all middle of the road values. We will probably write the majority of this random value generator together in class.
+```
+Rock: 🗻
+Paper: 📃
+Scissors: 🔪
+Lizard: 🐸
+Spock: 🖖
+```
+Below is an example of some constants being defined as unicode characters and then a class that has static methods and data members to help provide some functionality in printing out the  specific emojis for each of the five types. I made it all static to show how we can use static methods without declaring an instance of the `Hands` class. If I want to print out the emoji for the `lizard` I simply use `Hands::Rock()` 
 
 ```cpp
+#define ROCK2 u8"\U0001F5FB"
+#define PAPER2 u8"\U0001F4C3"
+#define SCISSORS2 u8"\U0001F52A"
+#define LIZARD2 u8"\U0001F438"
+#define SPOCK2 u8"\U0001F596"
 
-class Weapon{
-    string name;
-    double skillLevel;
-    double powerLevel;
-    double attack();        // generates attack value based on 
-};
+struct Hands {
+    const string rock = ROCK2;
+    const string paper = PAPER2;
+    const string scissors = SCISSORS2;
+    const string lizard = LIZARD2;
+    const string spock = SPOCK2;
 
-struct Character{
-    string classification;       // type is a reserved word
-    string race;
-    vector<weapon> weapons;
-    double health;
+    static map< string, string > Emojis;  // stl map
+    //         name  , emoji
 
-}
+    static map< string, string > Names;  // stl map
+    //         emoji  , name
 
+    static string RandHand() {
+        auto it = Emojis.begin();  // iterator to front of map
 
+        std::advance(it, rand() % Emojis.size());  // advance some random amnt
+                                                   //   of steps
 
-class CharacterGen{
-    string randRace();                      // randomly returns a race
-    string randClass();                      // randomly returns a classification
-    string weapon(string classification);   // randomly assign a weapon based on character type
-                                            // it could be a spell if the character is a wizard
+        string random_hand = it->second;  // grab emoji from map
+
+        return random_hand;  // return rand emoji
+    }
+
+    static string Rock() {
+        return Emojis["rock"];
+    }
+    static string Paper() {
+        return Emojis["paper"];
+    }
+    static string Scissors() {
+        return Emojis["scissors"];
+    }
+    static string Lizard() {
+        return Emojis["lizard"];
+    }
+    static string Spock() {
+        return Emojis["spock"];
+    }
 };
 ```
 
-### Runtime Polymorphism Battle Strategy
+This class also shows an example of using `STL::Maps`, which we can talk about more in class. In fact, the [emojis.h](emojis.h) file is really one big STL::Map with `string` names as the `key` to find each unicode value that prints out the corresponding emoji. The colon before and after each key (value on the left) is just a naming convention since some editors use that convention to identify emojis. In slack type `:th` and it will start giving you emoji choices that start with those letters.
 
-We saw in our Wednesday training briefing that we can use a single pointer of type `base character` to take control of any `child` or `sub` character that is a descendant of `base` (inherits from). To ensure each child character has all necessary skills, many of the methods in our base class will not only be `virtual`, but `abstract` as well! Remember, a virtual base method can be overridden during runtime by a sub class. Taking it one step further, we make one or more of our base methods `abstract` ensuring (forcing) each subclass to implement each abstract method for fear of `compilation death`. Let's take a look at a very simple character base class before we get into the specifics of "battle" (and I have time to think about what that really means).
+Example:
 
 ```cpp
-class BaseCharacter{
-    string name;
-    string race;        // Does a character inherit from race? Or are they composed of a race?
-    string gender;      // Same for gender. Does race or gender offer any special properties that
-                        //      could be inherited by a character?
-    double health;      
-    double stamina;
-    double skill;
-    //string weapon;    // Not sure if this belongs here or not. Do ALL characters carry a weapon?
-    //double mana;      // This is a specialty for wizards! So, it doesn't belong here.
-
-public:
-    // constructors
-
-    // pure virtual methods
-    virtual double attack() = 0;
-    virtual double defend() = 0;
-}
+    static std::map<std::string, std::string> EMOJIS = {
+        {":admission_tickets:" , u8"\U0001F39F"},
+        {":aerial_tramway:" , u8"\U0001F6A1"},
+        {":airplane:" , u8"\U00002708"}
+        ...
+    };
 ```
 
-Any unique methods defined in a sub class (based on character type) will be available to be summoned (depending on character type (and maybe race)). More importantly, there are methods in the base class that must be overridden in each child class! As long as we use pure virtual methods in the base character definition, we can ensure similar behavior in all of our `specialized` characters using their unique skills to assist the generic `attack` or `defend` methods which all characters must possess.
+### RPSLS
+
+What does any of this previous stuff have to do with RockPaperScissors.... ?!? I wanted you to have lots of new code to learn from (for one reason), and the other is that I need to implement most of the program to look for downfalls as well as good ways to solve components of the program. 
+
+What I need from you is a way to determine a winner (if possible) when a character has been assigned two unique "emojis" from the RPSLS game. For example here are the emojis for this game:
+
+|   Name   | Emoji |
+| :------: | :---: |
+|   Rock   |   🗻   |
+|  Paper   |   📃   |
+| Scissors |   🔪   |
+|  Lizard  |   🐸   |
+|  Spock   |   🖖   |
 
 
+Each player (character) will get assigned two of them:
 
-<sub>**[1]** If "kill" is offensive, please replace the double ll's with double ss's!</sub>
-<sub>**[2]** Nerdist is a new powerful type that has every possible trait to some extent.</sub>
-<sub>**[3]** Geek is also a powerful race that inherently boosts all attributes by some factor</sub>
 
+|   #   | Player 1 | Player 2 |
+| :---: | :------: | :------: |
+|   1   |    📃     |    🔪     |
+|   2   |    🐸     |    🗻     |
+
+
+Using the following rules can we determine a winner?
+
+| Text Rule                   | Visual Version  |
+| :-------------------------- | :-------------- |
+| Scissors cuts Paper         | 🔪 cuts 📃        |
+| Paper covers Rock           | 📃 covers 🗻      |
+| Rock crushes Lizard         | 🗻 crushes 🐸     |
+| Lizard poisons Spock        | 🐸  poisons 🖖    |
+| Spock smashes Scissors      | 🖖 smashes 🔪     |
+| Scissors decapitates Lizard | 🔪 decapitates 🐸 |
+| Lizard eats Paper           | 🐸  eats 📃       |
+| Paper disproves Spock       | 📃 disproves 🖖   |
+| Spock vaporizes Rock        | 🖖 vaporizes 🗻   |
+| Rock crushes Scissors       | 🗻 crushes 🔪     |
+
+- If the emojis are assigned at random, can we guarantee a winner?
+- If we cannot, how do we implement a tie breaker?
+
+### Requirements
+
+- I want you to determine what needs to be implemented to solve this problem. 
+  - Do we one or more classes? 
+  - Do we only need a function? 
+- Assume (for now) that a player (character) has this basic simple structure. You don't need to add anything to the player for this assignment:
+
+``` cpp
+struct Player{
+    string weapon1;
+    string weapon2;
+    // other possible stuff
+
+    /**
+     * Constructor guarantees a player has two different "weapons"
+     */
+    Player(){
+        weapon1 = Hands::RandHand();
+        weapon2 = Hands::RandHand();
+
+        while(weapon2==weapon1){
+            weapon2 = Hands::RandHand();
+        }
+    }
+    // other possible methods
+};
+```
+
+- Write some construct (class, function, struct ...) that would allow you to do the following:
+
+```cpp
+Player p1; // gets two random weapons when constructed
+Player p2; // same
+
+// Hmmm. Look familiar?
+if(p1 > p2){
+    cout<<"Player 1's 🐸 beat Player 2's 🖖!"<<endl;
+}else if(p2 > p1){
+    cout<<"Player 2's 🔪 beat Player 1's 🐸!"<<endl;
+}else{
+    cout<<"It's a tie!"<<endl;
+    // print all 4 weapons here...
+}
+
+```
+- I'm not sure what would result in a tie right now. We only assign 2 weapons per player, so a battle includes 4 possibly distinct weapons leaving a possible 5th out. Or it could include 2 distinct weapons if both players have the same two. Ultimately, we don't want a tie, and my intuition says we should be good. In fact, the only time we may need the second weapon is if the first weapon is the same.
+
+- Make sure you run through at least 25+ instances either resetting each players weapons, or creating two new players every time and visually display the results of a "battle". 
+
+### Deliverables
+
+- Create a folder in your assignments folder called `P03A`
+- In that folder create a file called README.md
+- Help with markdown: https://guides.github.com/features/mastering-markdown/
+- Look at [this](../../Resources/02-Readmees/README.md) to help with your `README.md` file
+- Create a banner for your program **(see [HERE](../../Resources/03-Banner/README.md))**.
+  - Make sure your banner is readable and does NOT have blank lines between every other row.
+
+```
+2143 
+P03A
+Name
+```
+
+- Print out your source code. Make sure it's **[commented](../../Resources/01-Comments/README.md)**.
+- Print out your output file.
+- Put your assignment on the lecture podium at the beginning of class.
+- Staple everything in this order:
+  - **1)** Banner (on top)
+  - **2)** Source code (middle)
+  - **3)** Output (bottom)
+- Any hand writing on your assignment is reduction in 1 letter grade.
+- Failure to follow instructions is a reduction in 1 letter grade.
+- Unreadable banner is a reduction in 1 letter grade.

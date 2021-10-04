@@ -1,7 +1,5 @@
 ## Program 3 - BolNiverse Fight Club
-#### Due: 10-11-2021 (Monday @ 12:00 p.m.)
-
-# NOT DONE
+#### Due: Multiple
 
 ### Overview
 
@@ -9,7 +7,7 @@ You need to design a program with multiple classes that represents a set of char
 
 Let me set the stage for you: You are the leader of the BolNiverse defense forces, and your budget sucks. You have to use strategy to fight the `freeParkers` (those cheep asses). You have `1 to N` team members (characters) to help you defend the "TheLounge". Each character is "based" on the same `base character` design. You will have a limited set of parameters that you can use to "tailor" each character beyond the base design, turning them into a specific character type. We will keep it old school with basic character types and races:
 
-| Character Classes     | Races            |
+| Character Classes    | Races           |
 | :------------------ | :--------------- |
 | Archer,             | Dwarf            |
 | Warrior,            | Elf              |
@@ -45,7 +43,6 @@ struct Character{
     double health;
 
 }
-
 
 
 class CharacterGen{
