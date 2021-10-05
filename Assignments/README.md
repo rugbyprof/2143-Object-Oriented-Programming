@@ -13,6 +13,6 @@
 | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-P02">06-P02</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-P02"> Program 2 </a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-P02"> MyVector Class 2</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/06-P02"> 09-24-2021 (Friday @ 12:00 p.m.)</a>~ | ---- |
 | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-T01">07-T01</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-T01"> Test 1 </a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-T01"> Basic Stuff</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/07-T01"> 09-24-2021 (Friday @ 12:00 p.m.)</a>~ | ---- |
 
-<sup>Last Updated: 2021-10-04 (Mon @ 09:21)</sup> 
+<sup>Last Updated: 2021-10-04 (Mon @ 22:51)</sup> 
 
 <sup>***Days Left is only accurate if the `Last Updated` date is the same as todays date. Otherwise, use the due date!***</sup> 
