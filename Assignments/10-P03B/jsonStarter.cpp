@@ -22,7 +22,7 @@ int main(int argc, char** argv){
     std::string FileName;
     int size;
 
-    FileName = "gameobj.json";
+    FileName = "gameData.json";
 
     std::ifstream input(FileName);
     input >> obj;
@@ -38,12 +38,7 @@ int main(int argc, char** argv){
 
     std::cout<<obj["spock"]["beats"][0]<<std::endl;
 
-
     if (obj.contains("lizard")) {
         std::cout<<obj["lizard"]<<std::endl;
     }
-}
-
-
-
 }

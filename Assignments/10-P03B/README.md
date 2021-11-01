@@ -1,39 +1,86 @@
 ## Program 3B - BolNiverse Fight Club
-#### Due: 10-20-2021 (Wednesday @ 12:00 p.m.)
+#### Due: 11-12-2021 (Friday @ 12:00 p.m.)
 
 
 ### Overview
+This assignment is being rolled back from our initial take on the BolNiverse Fight Club. In this version I will simplify things, but still require the use of dynamic runtime polymorphism. An input file will choose who "battles". The input file will challenge a particular type of character, you must use that type of character to "battle". Whichever side goes to zero hit points first loses and that character is removed from the game. There are a few other odd rules that I will list here:
 
-This assignment is about designing your **BolNiverse Fight Club** program. Yes we got sidetracked into Rock Paper Scissors Lizard Spock, and AsciiCat in Python, but we can't give up. I want you to design your Bolniverse Fight Club using the **U**nified **M**odeling **L**anguage. Below are a couple of resources for you to use. The first link is a youtube video that is pushing [LucidChart](https://www.lucidchart.com/pages/) but it really is the best 10 minute overview of UML. The other link is more of a resource or reference.
+- Attacking force can be any size from a few to thousands.
+- Defending force can have 1 of each character type for every 100 attackers.
+- Attacking force can heal only during battle.
+- Defending force can heal at any time.
+- Any character that reaches zero hit points expires and is removed from the game. 
+- Defending force can swap out characters of the same type in the middle of any battle when it is their turn to attack. This will be used in place of an attack.
 
-### UML
+You will still have a base character that gets extended by different variations. Each variation will have slightly different abilities that will be explained more a little later. The attacking characters will have the following:
+
+- `Hit Points` (life points) : How many points until expiration
+- `Attack Strength` : Points damage against who they are fighting. Values similar to the following:
+  - d10 = roll a 10 sided die and use that value
+  - 2d8 = roll 2 8 sided die and add them together
+  - b3d10 = best of 3 10 sided die rolls
+  - 2d6+x = 2 6 sided die rolls + some constant value
+- `Recovery speed` : regains x number of hit points per round
+
+All the attackers will be read from an input file into a queue of some sort. When an attacker has lost all of its hit points, it is removed from the queue. The game ends when either the attacker queue is empty, or the BolniVerse fighters queue is empty.
+  
+<!-- ### UML
 - [UML Video on YouTube](https://www.youtube.com/embed/UI6lqHOVHic)
-- [UML Resource](../../Resources/04-UML/README.md)
+- [UML Resource](../../Resources/04-UML/README.md) -->
+
+### Input File
+
+The input file will contain one attacker per line with the same data as described above, but also with the type of class they are attacking. 
+
+challengeClass hitPoints AttackStrength recoverySpeed
+
+```
+warrior 13 d10 1
+wizard 11 2d6 2
+...
+```
 
 
 ### Classes
 
-- Person / Player / Character
-  - Warrior: Has combat abilities no magic.
-  - Wizard: User lots of magical abilities, but physically weak.
-  - Cleric: Specializing in healing and supportive magical abilities.
-  - Rogue: Nimble combatant focused on stealth, special attacks.
-  - Ranger: A ranged weapons specialist.
+- Base Character
+  - Warrior: 
+    - Uses a sword as a weapon
+  - Wizard: 
+    - Uses magic as a weapon
+  - Archer:
+    - Uses a bow as a weapon
+  - Elf: 
+    - Uses magic + a sword as their weapons
+  - DragonBorn:
+    - Uses magic + fire as a weapon
 - Weapon
-  - Sword
-  - Bow
-  - Mace
-  - Dagger
-- Shield
-  - physical
-  - magical
+  - Sword d10
+  - Bow d8
+  - Magic 2d6
+  - Fire 2d6
+- ~~Shield~~
+  - ~~physical~~
+  - ~~magical~~
 - Dice
   - sides
 
 
 ### Requirements
 
+Write a program that creates the appropriate number of characters based on the input file, and proceeds to manage battles between attackers and defenders choosing the appropriate character to fight based on the above rules. You will use run time polymorphism to switch between attacking characters and defending characters. This means you should only have two pointers to manage battles. Attackers, defenders, and expired will be in separate queues based on status. When the attacking or defending queues become empty, the battle is over and the side with characters remaining wins.
 
+You should printout running commentary to stdout describing in a minimal fashion what is happening in your battle. For example:
+
+```
+Attacker challenges warrior
+Attacker: 12hp Warrior 15hp
+Warrior strikes and takes 5 hp
+Attacker: 7hp Warrior 15hp
+Attacker strikes and misses
+Attacker: 7hp Warrior 15hp
+...
+```
 
 
 ### Deliverables
