@@ -21,6 +21,8 @@ Wait you say! Where are the stats for each attacker? Lets talk about character g
 
 ## Class Dice
 
+Example Die class [HERE](dice.hpp)
+
 |D4 | D6 | D8 | D10 | D12 | D20 |
 |:----:|:----:|:----:|:----:|:----:|:----:|
 |<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/4sided.png" width="50"> |<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/6sided.png" width="50"> |<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/8sided.png" width="50"> |<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/10sided.png" width="50"> | <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/12sided.png" width="50"> | <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/20sided.png" width="50"> |
@@ -51,7 +53,7 @@ Each weapon or character or anything that has stats, will have 1 or more of thes
   - Multiple dice increases odds of decent roll
   - Constant x places a minimum on the outcome
 
-Example Die class [HERE](dice.hpp)
+
 
 It has two classes `Die` and `Dice`. Dice uses 1-N instances of the Die class in order to simulate the rolling of multiple dice. You will need to modify the `Dice` class to allow someone to specify the type, the number, and possibly adding a constant so you can simulate a roll as described above. 
 
@@ -67,6 +69,8 @@ Each character will be generated as a descendant of `BaseFighter`. Base fighter 
 However a fighter also needs a weapon. So before we can complete a fighter base class, we need to create a weapon class.
 
 ### Class Weapon
+
+Example Weapon class [HERE](weapon.hpp)
 
 A weapon has stats of its own. These stats will be generated using a config file (discussed later or in class), but for now when assigning a weapon to a character, it needs to have its own base attack value and it shouldn't be exactly the same for every weapon of the same type. So below I am creating ranges of base attack values to give to each weapon type. I am pulling these out of thin air, so we may change these (as a class) over the next week or so.
 
@@ -87,6 +91,8 @@ A weapon has stats of its own. These stats will be generated using a config file
 
 
 ### BaseFighter subClasses
+
+Example Fighter class [HERE](fighter.hpp)
 
 - Base Character
   - Warrior: 
@@ -131,12 +137,14 @@ Write a program that creates the appropriate number of characters based on the i
 You should printout running commentary to stdout describing in a minimal fashion what is happening in your battle. For example:
 
 ```
-Attacker challenges warrior
-Attacker: 12hp Warrior 15hp
-Warrior strikes and takes 5 hp
-Attacker: 7hp Warrior 15hp
-Attacker strikes and misses
-Attacker: 7hp Warrior 15hp
+warrior 
+wizard 
+wizard
+archer
+warrior
+dragonborn
+elf 
+elf
 ...
 ```
 
