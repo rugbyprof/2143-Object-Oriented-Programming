@@ -107,6 +107,59 @@ The key takeaways from here are "hide" and "expose". So even though both concept
 I guess Encapsulation and Abstraction are not to dissimilar from pornography. In a famous court case, one individual stated (and I'm paraphrasing) that "*I may not know how to define pornography, but I sure know it when he see it!*"[<sup>[1]("https://en.wikipedia.org/wiki/I_know_it_when_I_see_it)</sup>]. I'm going to go with that definition for both of these concepts.
 
 
+----------
+
+Given the following class:
+
+```cpp
+
+class Account{
+private:
+    double account_balance;
+protected:
+    int account_number;
+    string name;
+public:
+    Account(string n){
+        name = n;
+        account_balance=0;
+        account_number=rand();
+    }
+};
+```
+
+Write 1 or more classes that can access both the `account_number` AND the `account_balance` if possible. If not explain why and make any fixes necessary to `Account`.
+
+---------
+
+What is the output of the following code?
+
+```cpp
+class Animals {
+public:
+    virtual void sound() {
+        cout << "This is parent class" << endl;
+    }
+};
+
+class Dogs : public Animals {
+public:
+    void sound() {
+        cout << "Dogs bark" << endl;
+    }
+};
+
+int main() {
+    Animals *a;
+    Dogs     d;
+    a = &d;
+    a->sound();
+    return 0;
+}
+```
+
+What can you do to make it print the other statement without changing main? What kind of polymorphism is this? Is this overloading or overriding?
+
 
 ### Coding
 
