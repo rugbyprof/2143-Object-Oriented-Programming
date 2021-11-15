@@ -62,7 +62,7 @@ seen OOP projects fail because they become too complex to maintain.
 
 > Object oriented programs are offered as alternatives to correct ones…
 >
-> — **Edsger W. Dijkstra, pioneer of computer science**
+> — **Edger W. Dijkstra, pioneer of computer science**
 
 
 <img alt="Photo by Sebastian Herrmann on Unsplash" src="./images/1*MTb-Xx5D0H6LUJu_cQ9fMQ.jpeg" width="400">
