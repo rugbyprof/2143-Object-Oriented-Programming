@@ -148,7 +148,7 @@ elf
 ...
 ```
 
-But you should only turn in a summary of what happened!
+**Don't print out all of the  "running commentary" to be turned in. But you should only turn in a summary of what happened!**
 
 
 ### Deliverables
