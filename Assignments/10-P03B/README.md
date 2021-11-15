@@ -1,5 +1,5 @@
 ## Program 3B - BolNiverse Fight Club
-#### Due: 11-12-2021 (Friday @ 12:00 p.m.)
+#### Due: 11-15-2021 (Friday @ 12:00 p.m.)
 
 
 ## Overview
@@ -147,6 +147,8 @@ elf
 elf
 ...
 ```
+
+But you should only turn in a summary of what happened!
 
 
 ### Deliverables
