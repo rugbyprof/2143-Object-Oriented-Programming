@@ -160,7 +160,89 @@ int main() {
 
 What can you do to make it print the other statement without changing main? What kind of polymorphism is this? Is this overloading or overriding?
 
+-------
 
-### Coding
+What is the output of the following code:
 
-Write 
+```cpp
+struct A{
+  A(){
+    cout<<"Running A's constructor"<<endl;
+  }
+  void print(){
+    cout<<"A's print"<<endl;
+  }
+  void print(string val){
+    cout<<"A's overloaded print: "<<val<<endl;
+  }
+
+};
+
+struct B: public A{
+  B(){
+    cout<<"Running B's constructor"<<endl;
+  }
+  void print(){
+    cout<<"B's print"<<endl;
+  }
+  void print(string val){
+    cout<<"B's overloaded print: "<<val<<endl;
+  }
+};
+
+struct C: public B{
+  C(){
+    cout<<"Running C's constructor"<<endl;
+  }
+};
+```
+
+C c;
+c.print()
+
+-------
+
+- Write a simple example in C++ using class names A, B, and C showing:
+  - Simple Inheritance
+  - MultiLevel Inheritance
+  - Multiple Inheritance
+  - Hierarchical Inheritance
+
+For each class just add a constructor like the code example above. No methods needed.
+
+--------
+
+- What is the diamond problem?
+- We have not explicitly written code in class discussing the problem, but here is a good article showing the problem and solution: https://www.makeuseof.com/what-is-diamond-problem-in-cpp/
+
+-------
+
+#### Define
+
+* Abstract Base Class
+* Abstraction
+* Class
+* Class-Variable
+* Composition
+* Destructor
+* Diamond Problem
+* Encapsulation
+* Friends
+* Inheritance
+* Instance-Variable (aka member-variable)
+* Interface
+* Member-Variable (aka instance-variable)
+* Method
+* Multiple-Inheritance
+* Object
+* Overloading
+* Overriding
+* Polymorphism
+* Private
+* Protected
+* Public
+* Pure Virtual
+* Static Member
+* Static Method
+* Virtual
+
