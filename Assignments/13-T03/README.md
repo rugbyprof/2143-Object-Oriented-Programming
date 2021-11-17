@@ -7,7 +7,7 @@
 
 - Remember Overloading vs Overriding?
 - When does one happen vs the other?
-- Write examples in Python and C++ showing both.
+- Write examples in **Python and C++** showing both.
 
 -----------
 
@@ -202,7 +202,7 @@ c.print()
 
 -------
 
-- Write a simple example in C++ using class names A, B, and C showing:
+- Write a simple example in **C++ AND Python** using class names A, B, and C showing:
   - Simple Inheritance
   - MultiLevel Inheritance
   - Multiple Inheritance
@@ -212,6 +212,7 @@ For each class just add a constructor like the code example above. No methods ne
 
 --------
 
+- **C++ Only**
 - What is the diamond problem?
 - We have not explicitly written code in class discussing the problem, but here is a good article showing the problem and solution: https://www.makeuseof.com/what-is-diamond-problem-in-cpp/
 

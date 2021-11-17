@@ -17,6 +17,6 @@
 | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/10-P03B">10-P03B</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/10-P03B"> Program 3B </a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/10-P03B"> BolNiverse Fight Club</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/10-P03B"> 11-15-2021 (Friday @ 12:00 p.m.)</a>~ | ---- |
 | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-T02">11-T02</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-T02"> Test 2 </a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-T02"> Basic Concepts</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-T02"> 10-22-2021 (Friday @ 12:00 p.m.)</a>~ | ---- |
 
-<sup>Last Updated: 2021-11-17 (Wed @ 11:03)</sup> 
+<sup>Last Updated: 2021-11-17 (Wed @ 11:09)</sup> 
 
 <sup>***Days Left is only accurate if the `Last Updated` date is the same as todays date. Otherwise, use the due date!***</sup> 
