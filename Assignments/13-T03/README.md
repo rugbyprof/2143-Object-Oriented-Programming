@@ -1,8 +1,6 @@
 ## Test 3 - Beginning Python and Intermediate C++ Concepts
 #### Due: 11-22-2021 (Monday @ 12:00 p.m.)
 
-#NOT DONE
-
 ## Study Guide
 
 - Remember Overloading vs Overriding?
@@ -213,7 +211,7 @@ For each class just add a constructor like the code example above. No methods ne
 
 --------
 
-- **C++ Only**
+- **C++ Only** (It exists in Python or any language with multiple inheritance) but limit your reading to C++ examples)
 - What is the diamond problem?
 - We have not explicitly written code in class discussing the problem, but here is a good article showing the problem and solution: https://www.makeuseof.com/what-is-diamond-problem-in-cpp/
 - Possible question types:
