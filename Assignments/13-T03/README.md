@@ -196,9 +196,10 @@ struct C: public B{
   }
 };
 ```
-
+```
 C c;
 c.print()
+```
 
 -------
 
