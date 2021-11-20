@@ -215,10 +215,15 @@ For each class just add a constructor like the code example above. No methods ne
 - **C++ Only**
 - What is the diamond problem?
 - We have not explicitly written code in class discussing the problem, but here is a good article showing the problem and solution: https://www.makeuseof.com/what-is-diamond-problem-in-cpp/
+- Possible question types:
+  - Given a set of classes choose what the output will be.
+  - Given a set of classes where should I add certain keywords to fix an issue.
 
 -------
 
 #### Define
+
+You won't necessarily have to write a definition for each one, but you will have to know what each one means. Hmmmm so what's the difference? I will most likely have some kind of matching question, or multiple choice question with various choices to make.
 
 * Abstract Base Class
 * Abstraction
@@ -229,11 +234,13 @@ For each class just add a constructor like the code example above. No methods ne
 * Diamond Problem
 * Encapsulation
 * Friends
+* Hierarchical Inheritance
 * Inheritance
 * Instance-Variable (aka member-variable)
 * Interface
 * Member-Variable (aka instance-variable)
 * Method
+* Multilevel-Inheritance
 * Multiple-Inheritance
 * Object
 * Overloading
