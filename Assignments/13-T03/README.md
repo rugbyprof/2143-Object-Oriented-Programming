@@ -3,24 +3,88 @@
 
 ## Study Guide
 
-- Remember Overloading vs Overriding?
+------
+- What's the purpose behind inheritance?
+- Is it always the answer? Or does composition and/or aggregation have something to say about that?
+- How does inheritance (or composition) help eliminate duplicate code?
+- How does inheritance (or composition) make your code more stable or reliable? 
+
+-------
+
+- Write a simple example in **C++ AND Python** using class names like A, B, and C ... showing:
+  - Simple Inheritance
+  - MultiLevel Inheritance
+  - Multiple Inheritance
+  - Hierarchical Inheritance
+  
+- I'll answer `Simple Inheritance` to get you started
+
+#### C++
+#### Simple Inheritance
+This code is worthless except for showing syntax. 
+```c++
+class A{
+public:
+  A(){
+    cout<<"construct A"<<endl;
+  }
+};
+
+class B: public A{
+public:
+    B(){
+      cout<<"construct B"<<endl;
+    }
+};
+```
+
+#### Python
+```python
+class A(object):
+  def __init__(self):
+    print("construct A")
+    
+class B(A):
+  def __init__(self):
+    print("construct B")
+```
+For each class just add a constructor like the code example above. No methods needed.
+
+Now do the rest of the inheritance examples.
+
+----------
+
+#### In C++ only
+
+- In the snippet below, add a `print` method to `A` that says: "printing in A is super".
+- Now **overload** and **override** that method without regard to runtime polymorphism (pointers will never be used) ... 
+```c++
+class A{
+public:
+  A(){
+    cout<<"construct A"<<endl;
+  }
+};
+
+class B: public A{
+public:
+    B(){
+      cout<<"construct B"<<endl;
+    }
+};
+```
+
+- If I now told you pointers would be used when accessing your classes. What changes would you need to make and why?
+
+-------
+
+- Are  method  overloading  and  method  overriding  called  compile-time  and  run-time polymorphism respectively? 
+- Can you override a method and it not be considered run time polymorphism?
 - When does one happen vs the other?
-- Write examples in **Python and C++** showing both.
-
------------
-
-- Why  are  method  overloading  and  method  overriding  called  compile-time  and  run-time polymorphism respectively?
-- Write code to illustrate both concepts.
 - Does Python have run-time polymorphism? Explain why or why not.
-- See [override.cpp](override.cpp) for some help.
-
 
 ------------
 
-- How does inheritance help eliminate duplicate code?
-- To explain write some c++ and python code that shows multiple inheritance.
- 
--------------
 
 -  How does encapsulation provide security? We talked about hiding or protecting the "implementation" in class, but what does that really mean? Let me show you with code.
 
@@ -88,6 +152,9 @@ class BankClient: public Account{
     }
 };
 ```
+
+- This example shows how that even inheriting from a parent class, that we can lock down (secure) values by keeping them private. 
+- If we kept `balance` private, suggest how we may still access `balance` in a sub class, but keep it safe.
 
 -----------
 
@@ -200,16 +267,6 @@ c.print()
 ```
 
 -------
-
-- Write a simple example in **C++ AND Python** using class names A, B, and C showing:
-  - Simple Inheritance
-  - MultiLevel Inheritance
-  - Multiple Inheritance
-  - Hierarchical Inheritance
-
-For each class just add a constructor like the code example above. No methods needed.
-
---------
 
 - **C++ Only** (It exists in Python or any language with multiple inheritance) but limit your reading to C++ examples)
 - What is the diamond problem?
