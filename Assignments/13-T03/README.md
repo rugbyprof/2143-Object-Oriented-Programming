@@ -289,7 +289,7 @@ You won't necessarily have to write a definition for each one, but you will have
 * Destructor
 * Diamond Problem
 * Encapsulation
-* Friends
+* Friend
 * Hierarchical Inheritance
 * Inheritance
 * Instance-Variable (aka member-variable)
