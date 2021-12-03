@@ -579,7 +579,7 @@ c.print()
 
 #### Define
 
-You won't necessarily have to write a definition for each one, but you will have to know what each one means. Hmmmm so what's the difference? I will most likely have some kind of matching question, or multiple choice question with various choices to make.
+~~You won't necessarily have to write a definition for each one~~, but you will have to know what each one means. 
 
 * Abstract Base Class
 * Abstraction
