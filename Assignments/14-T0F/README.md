@@ -16,8 +16,6 @@
 - The length of a line (or distance between two points can be calculated using the following formula:
 <img src="https://d3vv6lp55qjaqc.cloudfront.net/items/1p0u211H0n3P3V0c0G26/Image%202018-10-22%20at%208.27.08%20AM.png" width="175">
 
-![]("https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg")
-
 - Remember that:
 	- Square root is `sqrt(some number)`
 	- Exponentiation is `pow(2,3)` or 2<sup>3</sup>.
