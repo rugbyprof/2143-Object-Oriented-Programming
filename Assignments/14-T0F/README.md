@@ -1,3 +1,9 @@
+## Test 3 - Beginning Python and Intermediate C++ Concepts
+#### Due: 12-08-2021 (Wednesday @ 3:30 p.m.)
+
+## Study Guide
+
+
 ## Applying OOP Concepts
 
 - A polygon is a 2D shape made up of 3 or more sides. 
