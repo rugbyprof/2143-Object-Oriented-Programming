@@ -1,4 +1,4 @@
-## Test 3 - Beginning Python and Intermediate C++ Concepts
+## Final Exam - OOP Concepts using C++
 #### Due: 12-08-2021 (Wednesday @ 3:30 p.m.)
 
 ## Study Guide
