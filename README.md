@@ -58,7 +58,8 @@ Coming Soon
 >**3**. The dynamic nature of the way I teach courses could result in a change in the grading categories. No two classes are the same and some classes need many smaller "homeworks" with a couple of programs and some classes need more "programs" with a couple of homeworks. HOWEVER! Nothing will be changed without input and agreement from the students in the class. The only time I will make changes to the grading policy is when **1)** I feel it is in the best interest of the class (helpful to your grade) and **2)** the class agrees by majority vote.
 >
 >**4**. Plane ticket prices, weddings, trips out of the country, etc. are not valid excuses for missing the scheduled final exam time. I will not make accommodations for an early final exam other than an issue vetted by the dean of students. 
-
+>
+>**5**. Late work will be accepted on a case by case basis. Late penalty is 15 points (out of 100) for initial lateness and 1 half a letter grade (5 points) for every class period until the total reduced is 50 (half credit). Extremely late work is totally at the instructors discretion on whether it will be accepted or not.
 
 ## Cheating / Plagiarism
 

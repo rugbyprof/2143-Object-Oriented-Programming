@@ -17,6 +17,9 @@ public:
 	void fun_4(int x) { cout << "derived-4\n"; } 
 }; 
 
+
+
+
 int main() { 
     base *p; 
     derived obj1; 
@@ -33,3 +36,30 @@ int main() {
     // base p2;
     // p1 = &p2;
 }
+
+class A{
+public:
+  A(){
+    cout<<"construct A"<<endl;
+  }
+  void print(){
+      cout<<"hello world"<<endl;
+  }
+
+  void print(string you){
+      cout<<"hello "<<you<<endl;
+  }
+};
+
+class B: public A{
+    void print(){
+        cout<<"hello worlds"<<endl;
+    }
+};
+
+
+A *a = new A;
+
+a = new B; 
+
+
