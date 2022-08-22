@@ -2,22 +2,29 @@
 ## Fall 2021
 
 ### Roster
-<a href="https://docs.google.com/spreadsheets/d/1OA3RWgLe3chLhlOgxpSc_PwmEzln9AU-EoN83HeuKcc/edit?usp=sharing"><img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" width="30">Class Roster</a>
+<a href="https://docs.google.com/spreadsheets/d/12dUUQj2-3riXf7xAVFyMtyYhcLfQaVsr1nF8UrzOrcM/edit?usp=sharing"><img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" width="30">Class Roster</a>
+
+### Assumed
+
+- This course assumes you can program at level after completing CMPS 1063
+  - basic data structures
+  - basic oop concepts 
+- I also assume you can install software and use different development platforms with a little help. 
 
 
 ### ZOOM Link              
 https://msutexas-edu.zoom.us/j/9403974439 
 
 ### General Course Info
-- __Days:__ MWF 12:00 p.m. - 1:20 p.m. 
-- __Location:__ BO 304
-- [__Semester:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2021.pdf) Monday August 23<sup>rd</sup> - Friday December 3<sup>rd</sup>
-- [__Holidays:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2122.pdf)
-  - __Labor Day__ Monday September 6<sup>th</sup>
-  - __Thanksgiving__ Wednesday November 23<sup>rd</sup> - Sunday November 28<sup>th</sup> 
-- [__Last Day for “W”:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2122.pdf)  Friday October 25<sup>th</sup>
-- [__Last Day of Class:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2122.pdf) Friday December 3<sup>rd</sup>
-- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/fall21finals.pdf) Wednesday December 8<sup>th</sup> from 3:30 pm - 5:30 pm
+- __Days:__ MWF 11:00 a.m. - 11:50 a.m. 
+- __Location:__ BO 320
+- [__Semester:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2223.pdf) Monday August 22<sup>nd</sup> - Friday December 2<sup>nd</sup>
+- [__Holidays:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2223.pdf)
+  - __Labor Day__ Monday September 5<sup>th</sup>
+  - __Thanksgiving__ Wednesday November 23<sup>rd</sup> - Sunday November 27<sup>th</sup> 
+- [__Last Day for “W”:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2223.pdf)  Friday October 24<sup>th</sup>
+- [__Last Day of Class:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2223.pdf) Friday December 2<sup>nd</sup>
+- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/fall21finals.pdf) Monday December 5<sup>th</sup> from 10:30 am - 12:30 pm
 
 ## Course Topics
 
