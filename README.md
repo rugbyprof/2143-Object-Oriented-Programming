@@ -1,5 +1,5 @@
 # 2143-Object Oriented Programming
-## Fall 2021
+## Fall 2022
 
 ### Roster
 <a href="https://docs.google.com/spreadsheets/d/12dUUQj2-3riXf7xAVFyMtyYhcLfQaVsr1nF8UrzOrcM/edit?usp=sharing"><img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" width="30">Class Roster</a>
@@ -8,8 +8,7 @@
 
 - This course assumes you can program at level after completing CMPS 1063
   - basic data structures
-  - basic oop concepts 
-- I also assume you can install software and use different development platforms with a little help. 
+  - basic concept of classes and methods
 
 
 ### ZOOM Link              
@@ -28,18 +27,18 @@ https://msutexas-edu.zoom.us/j/9403974439
 
 ## Course Topics
 
-- Abstraction
-- OOP Design
-- Classes & Methods
-- Encapsulation
-- Polymorphism
-- Overloading
-- Abstract Classes
-- Inheritance and Substitution
-- Introduction to UML
-- UML Relationships 
-- Subclasses and Subtypes
-- Static and Dynamic Behavior
+- [ ] Abstraction
+- [ ] OOP Design
+- [ ] Classes & Methods
+- [ ] Encapsulation
+- [ ] Polymorphism
+- [ ] Overloading
+- [ ] Abstract Classes
+- [ ] Inheritance and Substitution
+- [ ] Introduction to UML
+- [ ] UML Relationships 
+- [ ] Subclasses and Subtypes
+- [ ] Static and Dynamic Behavior
 
 ## Calendar
 
@@ -68,7 +67,7 @@ Coming Soon
 >
 >**5**. Late work will be accepted on a case by case basis. Late penalty is 15 points (out of 100) for initial lateness and 1 half a letter grade (5 points) for every class period until the total reduced is 50 (half credit). Extremely late work is totally at the instructors discretion on whether it will be accepted or not.
 
-## Cheating / Plagiarism
+## My View on Cheating / Plagiarism
 
 - Most plagiarizing, when it comes to programming, happens for two reasons:
   - 1) You don't have a clue how to solve the problem, so you get a friend or the internet to help.
@@ -83,6 +82,24 @@ Coming Soon
   - https://cs.msutexas.edu/documents/CMPS_Cheating_Policy.pdf
 - Ultimately it's not cool. It's an insult to those that actually do the work. 
 - Lastly: Let me reiterate that I'm available for help ... **a lot**. No excuses. I've helped students at 1am via Slack. I'm online consistently afternoons and most nights, just shoot me a message.   
+
+
+## Official Policy on Academic Honesty
+
+The Department of Computer Science had adopted the following policy related to cheating (academic misconduct). The policy will be applied to all instances of cheating on assignments and exams as determined by the instructor of the course. (See below for link to MSU definitions.)
+- 1st instance of cheating in a course: The student will be assigned a non-replaceable grade of zero for the assignment, project or exam. If the resulting grade does not result in a letter grade reduction, the student will receive a one letter grade reduction in course.
+- 2nd instance of cheating in a course: The student will receive a grade of F in course & immediately be removed from course.
+- All instances of cheating will be reported to the Department Chair and, in the case of graduate students, to the Department Graduate Coordinator.
+  
+## Official Policy on Testing Process
+
+The Department of Computer Science has adopted the following policy related to testing.
+- All bags, purses, electronics (turned off), books, etc. will be placed in the front of the room during exams, or in an area designated by the instructor.
+- Unless otherwise announced by the instructor, nothing is allowed on the desk but pen/pencil/eraser and test papers. 
+- No student is allowed to leave the room during an exam and return.
+ 
+>See Also:   MSU Student Handbook: Appendix E: [Academic Misconduct Policy & Procedures](https://msutexas.edu/student-life/_assets/files/handbook.pdf).
+
 
 ## Major Points
 
