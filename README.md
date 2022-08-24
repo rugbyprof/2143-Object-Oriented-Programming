@@ -23,7 +23,7 @@ https://msutexas-edu.zoom.us/j/9403974439
   - __Thanksgiving__ Wednesday November 23<sup>rd</sup> - Sunday November 27<sup>th</sup> 
 - [__Last Day for “W”:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2223.pdf)  Friday October 24<sup>th</sup>
 - [__Last Day of Class:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2223.pdf) Friday December 2<sup>nd</sup>
-- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/fall21finals.pdf) Monday December 5<sup>th</sup> from 10:30 am - 12:30 pm
+- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/fall22finals.pdf) Monday December 5<sup>th</sup> from 10:30 am - 12:30 pm
 
 ## Course Topics
 

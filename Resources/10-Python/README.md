@@ -1,3 +1,0 @@
-## Python - Various Resources
-
-

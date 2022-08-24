@@ -1,7 +1,6 @@
 ## Assignment 1 - Establishing Comms
-#### Due: 08-26-2021 (Thursday @ 12:00 p.m.) 
+#### Due: 08-26-2022 (Friday @ 11:00 p.m.) 
 
-No, the due date is NOT on a MWF. Thats ok!
 
 ## Getting Setup
 
@@ -57,7 +56,7 @@ Now that we have our communication client set up, we probably need to start gett
 
 #### Update the Class Roster:
 
-- Here is a link to our class roster on google docs: <a href="https://docs.google.com/spreadsheets/d/1OA3RWgLe3chLhlOgxpSc_PwmEzln9AU-EoN83HeuKcc/edit?usp=sharing"><img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" width="30">Class Roster</a>
+- Here is a link to our class roster on google docs: <a href="https://docs.google.com/spreadsheets/d/12dUUQj2-3riXf7xAVFyMtyYhcLfQaVsr1nF8UrzOrcM/edit#gid=1094049050"><img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" width="30">Class Roster</a>
 
 - Update the roster by adding your information to it.
 

@@ -1,5 +1,5 @@
 ## Assignment 2 - Code Repository
-#### Due: 08-27-2021 (Friday @ 12:00 p.m.)
+#### Due: 08-29-2022 (Monday @ 11:00 p.m.)
 
 The 1 way communication is you communicating with me and others with the descriptions and instructions you push to your Github repo. This file provides the instructions that will help you format each assignments README file so they are consistent and informative. I discuss README's below.  Remember this file as a reference for turning in all of your assignments.
 
