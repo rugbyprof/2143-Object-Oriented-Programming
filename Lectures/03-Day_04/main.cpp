@@ -3,7 +3,11 @@
 using namespace std;
 
 /**
- * class Vector
+ *
+ *__   _____ ___ _____ ___  ___    ___ _      _   ___ ___
+ *\ \ / / __/ __|_   _/ _ \| _ \  / __| |    /_\ / __/ __|
+ * \ V /| _| (__  | || (_) |   / | (__| |__ / _ \\__ \__ \
+ *  \_/ |___\___| |_| \___/|_|_\  \___|____/_/ \_\___/___/
  *
  * @methods:
  *     // I would normally give brief descript of each method, but I'm not going to now.
