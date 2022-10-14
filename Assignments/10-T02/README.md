@@ -1,5 +1,5 @@
 ## Test 2 - Basic Concepts
-#### Due: 10-22-2021 (Friday @ 12:00 p.m.)
+#### Due: 10-21-2022 (Friday @ 11:00 a.m.)
 
 ## Study Guide
 
