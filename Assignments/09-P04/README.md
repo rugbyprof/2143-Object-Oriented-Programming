@@ -1,5 +1,5 @@
 ## Program 4 - Rock Paper Scissors Lizard Spock
-#### Due: 10-31-2022 (Friday @ 11:00 a.m.)
+#### Due: 11-07-2022 (Friday @ 11:00 a.m.)
 
 
 ### Overview

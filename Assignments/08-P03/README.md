@@ -1,5 +1,5 @@
 ## Program 3 - Blackjack
-#### Due: 10-21-2022 (Friday @ 11:00 a.m.)
+#### Due: 10-28-2022 (Friday @ 11:00 a.m.)
 
 
 ### Overview
