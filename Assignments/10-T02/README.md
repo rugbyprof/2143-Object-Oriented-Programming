@@ -51,24 +51,28 @@
 - https://www.programiz.com/cpp-programming/pure-virtual-funtion
 
 ### Abstract Classes
+
 (Overlap with virtual and pure virtual above)
 - What is an abstract class?
+- What is a concrete class?
+  - https://www.sanfoundry.com/cpp-program-differentiate-concrete-class-abstract-class/
 - How can we make a class abstract?
 - How many objects can be created from an abstract class?
 - https://www.tutorialspoint.com/cplusplus/cpp_interfaces.htm
 - https://isocpp.org/wiki/faq/abcs
+
+### Other Stuff
 
 - Default protection of a class is?
 - Default protection of a struct is?
 
 - What can access private data members or member functions of a class?
 
-- What type type of data member can be shared by all instances of its class?
+- What type of data member can be shared by all instances of its class?
 
 - Be able to compare and contrast:
   - class definition vs class implementation
   - class vs object (aka instance)
-
 
 - Constructors and Destructors
   - Example: 
@@ -78,8 +82,8 @@
 
 - List three reasons why it is useful to be able to inherit characteristics from parent classes
 
+### Some Resources
 
--
 
 - https://www.programiz.com/cpp-programming/function-template
 - https://www.programiz.com/cpp-programming/polymorphism
@@ -91,4 +95,5 @@
 - https://www.programiz.com/cpp-programming/pure-virtual-funtion
 - https://www.programiz.com/cpp-programming/multilevel-multiple-inheritance
 - https://www.programiz.com/cpp-programming/friend-function-class
+
 
