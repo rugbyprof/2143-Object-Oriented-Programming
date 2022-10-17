@@ -20,7 +20,7 @@
 - Parent Class vs Child Class
 - Multilevel vs Hierarchical vs Multiple Inheritance
 - Relationships: 
-  - Is-A, Has-A, Kind-Of, 
+  - Is-A, Has-A 
   - Inherit vs Composition 
 
 ### Friend Function
@@ -34,17 +34,17 @@
 
 ### Polymorphism
  - Compile Time Polymorphism or Static Polymorphism 
- - (aka early binding or Static binding)
-  - Function overloading
-  - Operator overloading 
+   - (aka early binding or Static binding)
+   - Function overloading
+   - Operator overloading 
 - Runtime Polymorphism or  Dynamic Polymorphism 
-  - (aka late binding or dynamic binding)
-  - Function overriding
-  - Virtual Functions 
+   - (aka late binding or dynamic binding)
+   - Function overriding
+   - Virtual Functions 
 - Questions:
-  - What is a virtual function? Is it necessary?
-  - What is a pure virtual function?
-  - The destructor of base class should always be virtual. Why is that?
+   - What is a virtual function? Is it necessary?
+   - What is a pure virtual function?
+   - The destructor of base class should always be virtual. Why is that?
 - https://www.programiz.com/cpp-programming/polymorphism
 - https://www.programiz.com/cpp-programming/function-overriding
 - https://www.programiz.com/cpp-programming/virtual-functions
