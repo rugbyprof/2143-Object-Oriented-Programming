@@ -25,7 +25,7 @@ Example Die class [HERE](dice.hpp)
 
 |D4 | D6 | D8 | D10 | D12 | D20 |
 |:----:|:----:|:----:|:----:|:----:|:----:|
-|<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/4sided.png" width="50"> |<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/6sided.png" width="50"> |<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/8sided.png" width="50"> |<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/10sided.png" width="50"> | <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/12sided.png" width="50"> | <img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/20sided.png" width="50"> |
+|<img src="./images/4sided.png" width="50"> |<img src="./images/6sided.png" width="50"> |<img src="./images/8sided.png" width="50"> |<img src="./images/10sided.png" width="50"> | <img src="./images/12sided.png" width="50"> | <img src="./images/20sided.png" width="50"> |
 |4 sides | 6 sides | 8 sides | 10 sides | 12 sides | 20 sides |
 |Values 1-4 | Values 1-6 |Values 1-8| Values 1-10| Values 1-12| Values 1-20|
 
