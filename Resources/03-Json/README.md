@@ -80,7 +80,7 @@
 
 ```cpp
     for(int i=0;i<super["powers"].size();i++)
-        cout<<super["powers"][0]<<endl;
+        cout<<super["powers"][i]<<endl;
 ```
 
 ---- 
