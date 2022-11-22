@@ -1,4 +1,5 @@
 ## Test 3 Study Guide
+#### Due: 11-30-2022 (Wednesday @ 11:00 a.m.)
 
 1. First exam was more code and short answer. Scores were not great.
 2. Second exam was more objective questions (MC), but right from the study guide. Scores were good.
