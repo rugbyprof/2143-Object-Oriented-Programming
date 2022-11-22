@@ -89,4 +89,4 @@
 * Given a set of classes, with minimal data, re-write the classes using appropriate choices for inheritance or composition [^1].
 
 
-[^1]: <sup>(Remember: examples, examples, examples).</sup>
+[^1]: Examples, Examples, Examples!!
