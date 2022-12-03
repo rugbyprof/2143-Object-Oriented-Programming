@@ -15,6 +15,6 @@
 | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-T02">11-T02</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-T02"> Test 2 </a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-T02"> Basic Concepts</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-T02"> 10-21-2022 (Friday @ 11:00 a.m.)</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/11-T02">2022-10-21 00:00:00</a>~ | ---- |
 | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/12-T03">12-T03</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/12-T03">None</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/12-T03">None</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/12-T03"> 11-30-2022 (Wednesday @ 11:00 a.m.)</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/12-T03">2022-11-30 00:00:00</a>~ | ---- |
 
-<sup>Last Updated: 2022-12-02 (Fri @ 10:01)</sup> 
+<sup>Last Updated: 2022-12-02 (Fri @ 23:12)</sup> 
 
 <sup>***Days Left is only accurate if the `Last Updated` date is the same as todays date. Otherwise, use the due date!***</sup> 
