@@ -1,5 +1,5 @@
 ## Program 1 - Vector Class
-#### Due: 09-16-2022 (Friday @ 11:00 p.m.)
+#### Due: TBD
 
 ## Overview
 

@@ -1,5 +1,5 @@
 ## Assignment 4 - Basic Project Organization
-#### Due: 09-02-2022 (Friday @ 11:00 a.m.)
+#### Due: 01-26-2022 (Thursday @ 2:00 p.m.)
 
 ## Part 1 : [Banner](banner.md)
 
