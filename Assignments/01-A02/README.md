@@ -5,7 +5,7 @@ The 1 way communication is you communicating with me and others with the descrip
 
 ## Github
 
-<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/github_2020.png" width="150">
+<img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/github_2020.png" width="150">
 
 If you have had me before, and this seems **TL;DR** make sure you:
 
@@ -74,14 +74,14 @@ If you're not familiar with `markdown` you can go [here](https://guides.Github.c
 #### Email: albert.einstein@yahoo.com
 #### Website: https://en.wikipedia.org/wiki/Albert_Einstein
 #### Image:
-![Albert Einstein](https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein.png)
+![Albert Einstein](https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/einstein.png)
 #### Avatar:
-![Avatar](https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein_avatar.png)
+![Avatar](https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/einstein_avatar.png)
 ```
 
 ***will result in*** (avatar not included in example)
 
-<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein_out.png" width="300">
+<img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/einstein_out.png" width="300">
 
 ## Organizing Your Repo
 
@@ -100,14 +100,14 @@ If you're not familiar with `markdown` you can go [here](https://guides.Github.c
 - Your table will initially look very sad and empty like below:
 
 
-<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/assignments_table_1_4443_2020.png" width="300">
+<img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/assignments_table_1_4443_2020.png" width="300">
 
 ---
 
 But then it will improve as you add rows to the table which link to each project:
 
 
-<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/assignments_table_2_4443_2020.png" width="300">
+<img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/assignments_table_2_4443_2020.png" width="300">
 
 ---
 
@@ -234,6 +234,6 @@ biltong filet mignon. Shoulder chislic ground round pork burgdoggen hamburger.
 
 The above markdown will produce a README that looks like:
 
-<img src="https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/assignmet_readme_example_2020.png" width="600">
+<img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/assignmet_readme_example_2020.png" width="600">
 
 
