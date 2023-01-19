@@ -1,5 +1,5 @@
 ## UML - Unified Modeling Language
-#### Due: None
+#### Due: NA
 
 ### What are UML Diagrams?
 UML Diagrams stands for Unified Modeling Language. It is a standard which is mainly used for creating object-oriented, meaningful documentation models for any software system present in the real world. It provides us a way to develop rich models that describe the working of any software/hardware systems.
