@@ -41,14 +41,14 @@ This program implements a list data structure that links together nodes of integ
 
 ### Upload Your Commented Program
 
-- Create a folder in your `Assignments` folder called `A04` 
+- Create a folder in your `Assignments` folder called `A03` 
 - Create a banner:
 ```
 2143
-A04
+A03
 YOURNAME
 ```
-- Place your commented `main.cpp` file into this `A04` folder.
+- Place your commented `main.cpp` file into this `A03` folder.
 
 
 ### Your Assignments Folder
