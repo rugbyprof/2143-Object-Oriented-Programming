@@ -1,1 +1,1 @@
-## Placeholder Readme - No Description
+## Lecture 02 - List Based Queue
