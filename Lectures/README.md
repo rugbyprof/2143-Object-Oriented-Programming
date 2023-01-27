@@ -1,9 +1,11 @@
 ## Lectures
 
-| Folder | Title | Description | Due | Filename |
-|-----|-----|-----|-----|-----|
-| None | None | None | None | None |
+| Folder | Title | Description | Due | dueDate |  |
+|:------|:------|:------|:------|:-----:|-----|
+| ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-Array_Based_Stack">01-Array_Based_Stack</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-Array_Based_Stack">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-Array_Based_Stack">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-Array_Based_Stack">N/A</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/01-Array_Based_Stack">None</a>*** |  |
+| ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-List_Based_Queue">02-List_Based_Queue</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-List_Based_Queue"> Placeholder Readme </a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-List_Based_Queue"> No Description</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-List_Based_Queue">N/A</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/02-List_Based_Queue">None</a>*** |  |
+| ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/03-Game_Of_Life">03-Game_Of_Life</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/03-Game_Of_Life"> Placeholder Readme </a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/03-Game_Of_Life"> No Description</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/03-Game_Of_Life">N/A</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/03-Game_Of_Life">None</a>*** |  |
 
-<sup>Last Updated: 2023-01-19 (Thu @ 13:08)</sup> 
+<sup>Last Updated: 2023-01-26 (Thu @ 21:11)</sup> 
 
 <sup>***Days Left is only accurate if the `Last Updated` date is the same as todays date. Otherwise, use the due date!***</sup> 
