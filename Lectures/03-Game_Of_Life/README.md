@@ -1,1 +1,1 @@
-## Placeholder Readme - No Description
+## Lecture 03 - Game of Life
