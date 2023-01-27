@@ -1,3 +1,23 @@
+/*****************************************************************************
+ *
+ *  Author:           2143 Class
+ *  Email:            none
+ *  Label:            Lecture 02
+ *  Title:            List Based Queue
+ *  Course:           2143
+ *  Semester:         Spring 2023
+ *
+ *  Description:
+ *        List based implementation of a queue data structure written in class
+ *        by all of us.
+ *
+ *  Usage:
+ *        None (ask me in class)
+ *
+ *  Files:
+ *        main.cpp
+ *****************************************************************************/
+
 #include <iostream>
 
 using namespace std;

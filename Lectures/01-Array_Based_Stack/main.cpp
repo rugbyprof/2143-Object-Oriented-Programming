@@ -1,4 +1,22 @@
-// ARRAY BASED STACK
+/*****************************************************************************
+ *
+ *  Author:           2143 Class
+ *  Email:            none
+ *  Label:            Lecture 01
+ *  Title:            Array Based Stack
+ *  Course:           2143
+ *  Semester:         Spring 2023
+ *
+ *  Description:
+ *        Array based implementation of a stack data structure written in class
+ *        by all of us.
+ *
+ *  Usage:
+ *        None (ask me in class)
+ *
+ *  Files:
+ *        main.cpp
+ *****************************************************************************/
 
 #include <iostream>
 
