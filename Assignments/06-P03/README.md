@@ -1,12 +1,13 @@
 ## Program 3 - Graphviz Class
 #### Due: 03-02-2023 (Thursday @ 2:00 p.m.)
 
+
 ## Overview
 
 Write a class that will generate graphviz "dot" syntax so you can visualize the output of your data structures. Graphviz stands for "graph visualization" and provides a smart way to visualize linked data structures. For example the following code:
 
 
-```DOT
+```dot
 digraph foo {
         rankdir=LR;
         node [shape=record]
@@ -20,28 +21,38 @@ digraph foo {
 
 Creates the following output: 
 
-![](LL1.png)
+![](./images/LL1.png)
+
+The example above is very simple which can make Graphviz really easy to use and learn. Having said that, Graphviz can get very very complex as well. If we were to attempt to implement all the features available, we would probably invest multiple semesters to get it done.  So we are only going to implement a small portion of the featqures that Graphviz offers. The example below is more on par with the features we want to utilize.
 
 ```dot
 digraph linkedlist {
         rankdir=LR;
-        node [shape=record,color=green];
-        1 [label="{ <data> 12 | <next>  }", width=1.2]
+        node [shape=record,color=purple];
+        1 [label="{ <data> 12 | <next>  }"]
         2 [label="{ <data> 99 | <next>  }"];
         3 [label="{ <data> 37 | <next>  }"];
         null [shape=circle,color=white];
-        1:next:3 -> 2:data [arrowhead=vee, arrowtail=dot, color=blue, dir=both, tailclip=false];
-        2:next:3 -> 3:data [arrowhead=vee, arrowtail=dot, color=blue, dir=both, tailclip=false];
-        3:next:3 -> null  [arrowhead=vee, arrowtail=dot, color=blue, dir=both, tailclip=false];
+        1:next:3 -> 2:data [arrowhead=vee, arrowtail=dot, color=orange, dir=both, tailclip=false];
+        2:next:3 -> 3:data [arrowhead=vee, arrowtail=dot, color=orange, dir=both, tailclip=false];
+        3:next:3 -> null  [arrowhead=vee, arrowtail=dot, color=orange, dir=both, tailclip=false];
 }
 ```
 
 Creates the following output: 
 
-![](LL2.png)
+![](./images/LL2.png)
+
+### Graphviz Online
+
+How do we generate the images in this document? Take the code examples from above and paste them into the online graphviz editor here: [GraphvizOnline](https://dreampuf.github.io/GraphvizOnline/)
+
+Documentation for Graphviz is here: [Docs](https://graphviz.org/doc/info/lang.html)
 
 
 ## Requirements
+
+- one
 
 
 ## Tests
@@ -108,4 +119,16 @@ Name
   - **3)** Output (bottom)
 - Any hand writing on your assignment is reduction in 1 letter grade.
 - Failure to follow instructions is a reduction in 1 letter grade.
+
+
+## Helper Files
+
+|   #   | Name                                               | Description                           |
+| :---: | :------------------------------------------------- | :------------------------------------ |
+|   1   | [bst.cpp](cpp_code/bst.cpp)                        | Binary search tree cpp code           |
+|   2   | [linked.cpp](cpp_code/bst.cpp)                     | Linked list cpp code                  |
+|   3   | [bst.dot](dot_Files/bst.dot)                       | Binary search tree graphviz example   |
+|   4   | [bst2.dot](dot_Files/bst2.dot)                     | Binary search tree graphviz example 2 |
+|   5   | [red_black_tree.dot](dot_Files/red_black_tree.dot) | Red black tree graphviz example       |
+
 
