@@ -1,5 +1,5 @@
 ## Program 1 - Vector Class
-#### Due: TBD
+#### Due: 02-07-2023 (Tuesday @ 2:00 p.m.)
 
 ## Overview
 
