@@ -3,7 +3,7 @@
 
 ## Overview
 
-Getting help from [Lecture 04](../../Lectures/04-Day_05-06/main.cpp)  create a linked list based `Vector` class that will include the functionality listed below. You will achieve this by writing additional methods to add values, remove values, and maintain sorted values if needed. This class also needs the ability to be initialized with different data sources (files, other vectors, and arrays).
+Getting help from [Lecture 04](../../Lectures/05-Vector_Starter/main.cpp)  create a linked list based `Vector` class that will include the functionality listed below. You will achieve this by writing additional methods to add values, remove values, and maintain sorted values if needed. This class also needs the ability to be initialized with different data sources (files, other vectors, and arrays).
 
 I'll give some basic linked list code to help, 
 
