@@ -4,7 +4,7 @@
 
 ## Overview
 
-Write a class that will generate graphviz "dot" syntax so you can visualize the output of your data structures. Graphviz stands for "graph visualization" and provides a smart way to visualize linked data structures. For example the following code:
+Write a class that will generate graphviz "dot" syntax so you can visualize the output of your data structures. Graphviz is used for "graph visualization" and provides a simple way to visualize linked data structures. For example the following code:
 
 
 ```dot
@@ -45,14 +45,27 @@ Creates the following output:
 
 ### Graphviz Online
 
-How do we generate the images in this document? Take the code examples from above and paste them into the online graphviz editor here: [GraphvizOnline](https://dreampuf.github.io/GraphvizOnline/)
+How do we generate the images in this document? Take the code examples from above and paste them into the online Graphviz editor here: [GraphvizOnline](https://dreampuf.github.io/GraphvizOnline/)
 
 Documentation for Graphviz is here: [Docs](https://graphviz.org/doc/info/lang.html)
+Some good examples can be found here: [Examples](https://graphs.grevian.org/example)
+More complex examples [here](https://graphviz.org/gallery/)
 
 
 ## Requirements
 
-- one
+Your Graphviz class should be able to:
+
+- Add nodes
+- Add edges between nodes
+  
+The styles you need to implement are:
+
+- Colored nodes
+- Colored edges
+- Edge direction includes: None, One, Both
+- Node shapes: should include "record" plus at least 3 more from [here](http://www.graphviz.org/doc/info/shapes.html) 
+- Edge shapes: choose at least 4 from [here](http://www.graphviz.org/doc/info/arrows.html)
 
 
 ## Tests
@@ -73,10 +86,10 @@ digraph foo {
         a [label="{ <data> 12 | <ref>  }", width=1.2]
         b [label="{ <data> 99 | <ref>  }"];
         c [label="{ <data> 37 | <ref>  }"];
-        null [shape=circle];
-        a:ref:c -> b:data [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false, arrowsize=1.2];
-        b:ref:c -> c:data [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
-        c:ref:c -> null      [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+        null [shape=plain];
+        a:ref:n -> b:data [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false, arrowsize=1.2];
+        b:ref:n -> c:data [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
+        c:ref:n -> null   [arrowhead=vee, arrowtail=dot, dir=both, tailclip=false];
 }
 
 etc...
