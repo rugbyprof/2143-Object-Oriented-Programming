@@ -1,5 +1,5 @@
 ## Program 2 - MyVector Class 2
-#### Due: 02-16-2023 (Thursday @ 2:00 p.m.)
+#### Due: 02-21-2023 (Tuesday @ 2:00 p.m.)
 
 ## Overview
 
