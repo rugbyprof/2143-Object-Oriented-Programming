@@ -4,7 +4,7 @@
 
 ## Op Ed
 
-So I am super intrigued about Chat Gpt, so much that I pay for access as a priority member. I love it because I can ask it questions, with a certain amount of expectation with the answer I intuitively expect to receive, but get something slightly different! For me, this is a great learning tool. Because it shows me different approaches to solutions. Some are mildly different to expectations, some greatly different, and some (sadly) don't even compile (even though logically they are close).
+So I am super intrigued about Chat Gpt, so much that I pay for access as a priority member. I love it because I can ask it a question, my intuition gives me a certain amount of expectation, but I typically get something slightly different than expected. For me, this is a great learning tool. It shows me different approaches to solutions. Some are mildly different to expectations, some greatly different, and some (sadly) don't compile. Those answers are logically close, but need some tweeking.
 
 Chat GPT is a crutch, pure and simple. And I'm a prime example .... sadly. However, I have the advantage of already having solidified a base of knowledge in the CS world. That doesn't mean I stop learning, because in our field it's a never ending story! So, Chat GPT might make me a little lazy, or it might actually speed up some of my lesson plans?!? What it won't do is reverse my knowledge base, meaning it can't take away what I know, in fact it helps me learn small nuances in approaches to problems. And this is a good thing.
 
