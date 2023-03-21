@@ -20,7 +20,7 @@ Having said all those things above ... here's one night with Chat GPT. And don't
 
 ### Question 1
 
-Could you write an example c++ class that implements "rock paper scissors"?
+Could you please write an example c++ class that implements "rock paper scissors"?
 
 #### Comments: I wouldn't have used an enumerated type, but its a good solution so I like it.
 
@@ -213,7 +213,7 @@ Absolutely switching gears, and trying to get Chat GPT to generate character dat
 
 ### Question 3
 
-Could you provide an example json file that would allow me to prime a dungeons and dragons character generation tool? The json file should include the most traditional D&D characters along with their minimum and maximum base stats for the most common characteristics. Also include a list of typical weapons with stats and spells with stats used by each character.
+Could you possibly provide an example json file that would allow me to prime a dungeons and dragons character generation tool? The json file should include the most traditional D&D characters along with their minimum and maximum base stats for the most common characteristics. Also include a list of typical weapons with stats and spells with stats used by each character.
 
 ### Answer 3
 
