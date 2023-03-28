@@ -939,3 +939,63 @@ In this example, we have two derived classes, `HumanFighter` and `DwarfRogue`, t
   ]
 }
 ```
+
+Could you provide me with an example python program that utilizes the `Rich` library, and displays two progress bars each representing a dungeons and dragons characters health. The idea is that two d&d characters will attack each other in turn based on their own stats, and the progress bars will show health for each player.
+
+Certainly, here's an example program that uses the Rich library to display two progress bars representing the health of two D&D characters:
+
+```python
+from rich.progress import Progress
+from random import randint
+
+class DnDCharacter:
+    def __init__(self, name, max_health):
+        self.name = name
+        self.max_health = max_health
+        self.current_health = max_health
+        self.attack = randint(1, 20)
+        self.defense = randint(1, 20)
+
+    def take_damage(self, damage):
+        self.current_health -= damage
+
+    def is_alive(self):
+        return self.current_health > 0
+
+    def attack_enemy(self, enemy):
+        if self.attack > enemy.defense:
+            damage = randint(1, 10)
+            enemy.take_damage(damage)
+            return f"{self.name} hits {enemy.name} for {damage} damage!"
+        else:
+            return f"{self.name} misses {enemy.name}!"
+
+# create two D&D characters
+player1 = DnDCharacter("Grog", 50)
+player2 = DnDCharacter("Vex", 50)
+
+# create a progress bar for each player's health
+progress = Progress("[progress.description]{task.description}", transient=True)
+player1_health = progress.add_task("[green]Grog Health", total=player1.max_health)
+player2_health = progress.add_task("[blue]Vex Health", total=player2.max_health)
+
+# simulate the battle until one player is defeated
+while player1.is_alive() and player2.is_alive():
+    # player 1 attacks player 2
+    message = player1.attack_enemy(player2)
+    print(message)
+    # update player 2's health bar
+    progress.update(player2_health, completed=player2.max_health - player2.current_health)
+    # player 2 attacks player 1
+    message = player2.attack_enemy(player1)
+    print(message)
+    # update player 1's health bar
+    progress.update(player1_health, completed=player1.max_health - player1.current_health)
+
+# print the winner of the battle
+if player1.is_alive():
+    print(f"{player1.name} wins!")
+else:
+    print(f"{player2.name} wins!")
+
+```
