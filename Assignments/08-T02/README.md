@@ -22,6 +22,7 @@ Some [examples](examples.md) for lots of these topics I placed [HERE](examples.m
 ### Inheritance
 
 - https://www.programiz.com/cpp-programming/inheritance
+- Super Class vs Sub Class
 - Base Class vs Derived Class
 - Parent Class vs Child Class
 - Multilevel vs Hierarchical vs Multiple Inheritance
