@@ -179,10 +179,14 @@ private:
 
 ```
               Character
-                /   \
-               /     \
-              /       \
-             Mage   Sorcerer
+                /   
+               /     
+              /       
+             Mage 
+             |
+             |
+             |
+             Sorcerer
 ```
 
 In this example, Sorcerer inherits from Mage, which in turn inherits from Character. The Sorcerer class has access to the same interface as Mage, but also has a private member variable for spell*slots* that is unique to sorcerers.
