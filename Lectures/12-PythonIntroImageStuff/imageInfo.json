@@ -1958,7 +1958,7 @@
                 "h": 119,
                 "rotation": 0,
                 "font": "impact",
-                "font_color": "#fffff f",
+                "font_color": "#ffffff",
                 "outline_color": "#000000",
                 "force_caps": true,
                 "text_align": "center",
@@ -2022,7 +2022,7 @@
                 "font_max_size": 50
             },
             {
-                "type": "t ext",
+                "type": "text",
                 "x": 6.530612244897959,
                 "y": 352.6530612244898,
                 "w": 297.7959183673469,
@@ -2044,7 +2044,7 @@
     "45": {
         "id": 259237855,
         "uid": 0,
-        "name": "Laughing  Leo",
+        "name": "Laughing Leo",
         "w": 470,
         "h": 470,
         "file_type": "png",
@@ -2057,7 +2057,7 @@
     "46": {
         "id": 135678846,
         "uid": 0,
-        "name": "Who Killed  Hannibal",
+        "name": "Who Killed Hannibal",
         "w": 1280,
         "h": 1440,
         "file_type": "jpg",
@@ -2229,12 +2229,12 @@
     "52": {
         "id": 6235864,
         "uid": 0,
-        "name": "Finding  Neverland",
+        "name": "Finding Neverland",
         "w": 423,
         "h": 600,
         "file_type": "jpg",
         "url_name": "Finding-Neverland",
-        "altNames": "Johnny Depp And Little Kid  Crying",
+        "altNames": "Johnny Depp And Little Kid Crying",
         "safe_for_work": "yes",
         "default_settings": [
             {
@@ -2287,7 +2287,7 @@
         "h": 414,
         "file_type": "jpg",
         "url_name": "Futurama-Fry",
-        "altNames": "Not sure  if X or Y, Skeptical  Fry",
+        "altNames": "Not sure  if X or Y, Skeptical Fry",
         "safe_for_work": "yes",
         "default_settings": "",
         "has_transparency": 0
@@ -2300,7 +2300,7 @@
         "h": 979,
         "file_type": "jpg",
         "url_name": "Hard-To-Swallow-Pills",
-        "altNames": "hard pills to  swallow",
+        "altNames": "hard pills to swallow",
         "safe_for_work": "yes",
         "default_settings": [
             {
@@ -2335,12 +2335,12 @@
     "55": {
         "id": 196652226,
         "uid": 0,
-        "name": "Spongebob Ight  Imma Head Out",
+        "name": "Spongebob Ight Imma Head Out",
         "w": 822,
         "h": 960,
         "file_type": "jpg",
         "url_name": "Spongebob-Ight-Imma-Head-Out",
-        "altNames": "Ight Imma Head  Out, aight imma head out, spongebob aight, alright I'm out, spongebob getting out of  chair",
+        "altNames": "Ight Imma Head Out, aight imma head out, spongebob aight, alright I'm out, spongebob getting out of  chair",
         "safe_for_work": "yes",
         "default_settings": [
             {

@@ -74,6 +74,8 @@ In this example, `Sword` is a `subclass` of `Weapon`, but is not related to `Cha
 
 ## Is-A, Has-A, Kind-Of
 
+The kind of relationship between two classes determines if you should use `inheritance` or `composition` when relating the two classes.
+
 ### Is-A relationship:
 
 This relationship represents inheritance, where a subclass "is a" specialized version of its superclass. For example, a "Warrior" class might inherit from a more generic "Character" class, since a warrior is a kind of character.
@@ -146,7 +148,7 @@ private:
 
 In this example, `Sorcerer` is a `subclass` of `MagicUser`, and has access to the same interface for casting spells. However, the `Sorcerer` class has an additional private member variable for `spell_slots_`, which represents a resource that is unique to sorcerers.
 
-## Multilevel vs Hierarchical vs Multiple Inheritance
+## Types of Inheritance
 
 ### Multilevel:
 
@@ -178,15 +180,15 @@ private:
 ```
 
 ```
-              Character
-                /   
-               /     
-              /       
-             Mage 
-             |
-             |
-             |
-             Sorcerer
+    Character
+        |
+        |
+        |
+       Mage
+        |
+        |
+        |
+    Sorcerer
 ```
 
 In this example, Sorcerer inherits from Mage, which in turn inherits from Character. The Sorcerer class has access to the same interface as Mage, but also has a private member variable for spell*slots* that is unique to sorcerers.
@@ -223,7 +225,8 @@ public:
           Weapon
             / \
            /   \
-        Sword  Bow
+          /     \
+        Sword   Bow
 
 ```
 
@@ -260,13 +263,13 @@ public:
 ```
 
 ```
-            Character    Weapon
-               |           |
-               |          /
-                \        /
-                 \     /
-                  \  /
-                 Fighter
+            Character      Weapon
+               |             |
+                \           /
+                 \        /
+                  \     /
+                   \  /
+                  Fighter
 
 
 ```
