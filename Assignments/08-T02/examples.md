@@ -119,7 +119,7 @@ public:
     void remove_character(Character* character);
 
 private:
-    std::vector<Character*> members_;
+    vector<Character*> members_;
 };
 ```
 
@@ -393,14 +393,14 @@ Here's an example to illustrate this:
 class Base {
 public:
     ~Base() {
-        std::cout << "Base destructor called" << std::endl;
+        cout << "Base destructor called" << endl;
     }
 };
 
 class Derived : public Base {
 public:
     ~Derived() {
-        std::cout << "Derived destructor called" << std::endl;
+        cout << "Derived destructor called" << endl;
     }
 };
 
@@ -422,9 +422,80 @@ To avoid this issue, the `Base` `destructor` should be declared as `virtual`, li
 class Base {
 public:
     virtual ~Base() {
-        std::cout << "Base destructor called" << std::endl;
+        cout << "Base destructor called" << endl;
     }
 };
 ```
 
 By declaring the Base destructor as virtual, the Derived destructor will be called when a Derived object is destroyed through a pointer to Base.
+
+Chat GPT stuff
+
+```cpp
+
+class Weapon {
+public:
+    virtual string GetDamageType() const = 0;
+    virtual int GetDamage() const = 0;
+};
+
+class FireWeapon : public Weapon {
+public:
+    string GetDamageType() override { return "fire"; }
+};
+
+class IceWeapon : public Weapon {
+public:
+    string GetDamageType() override { return "ice"; }
+};
+
+class Character {
+public:
+    Character(const string& name) : name_(name) {}
+
+    virtual void Attack() const = 0;
+
+    const string& GetName() const { return name_; }
+
+protected:
+    string name_;
+};
+
+class Fighter : public Character {
+public:
+    Fighter(const string& name, Weapon* weapon)
+        : Character(name), weapon_(weapon) {}
+
+    void Attack() const override {
+        cout << "Fighter " << GetName() << " attacks with a " << weapon_->GetDamageType() << " weapon for " << weapon_->GetDamage() << " damage!" << endl;
+    }
+
+protected:
+    Weapon* weapon_;
+};
+
+class Mage : public Character {
+public:
+    Mage(const string& name, Weapon* weapon)
+        : Character(name), weapon_(weapon) {}
+
+    void Attack() const override {
+        cout << "Mage " << GetName() << " attacks with a " << weapon_->GetDamageType() << " spell for " << weapon_->GetDamage() << " damage!" << endl;
+    }
+
+protected:
+    Weapon* weapon_;
+};
+
+class BattleMage : public Fighter, public Mage {
+public:
+    BattleMage(const string& name, Weapon* weapon)
+        : Fighter(name, weapon), Mage(name, weapon) {}
+
+    void Attack() const override {
+        cout << "Battle mage " << GetName() << " attacks with both a weapon and a spell!" << endl;
+        Fighter::Attack();
+        Mage::Attack();
+    }
+};
+```

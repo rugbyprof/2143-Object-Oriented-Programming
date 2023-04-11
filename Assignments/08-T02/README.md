@@ -88,7 +88,7 @@ Some [examples](examples.md) for lots of these topics I placed [HERE](examples.m
     - Which can take parameters and which cannot?
     - When are each of them run?
 
-### Why Iheritance?
+### Why Inheritance?
 
 - List three reasons why it is useful to be able to inherit characteristics from parent classes
   - Code reuse: Inheritance allows code to be reused across multiple classes. By defining common functionality in a parent class,derived classes can inherit that functionality without having to implement it again.
@@ -107,3 +107,5 @@ Some [examples](examples.md) for lots of these topics I placed [HERE](examples.m
 - https://www.programiz.com/cpp-programming/pure-virtual-funtion
 - https://www.programiz.com/cpp-programming/multilevel-multiple-inheritance
 - https://www.programiz.com/cpp-programming/friend-function-class
+
+The course I need the questions for is Object Oriented Programming. I would like to generate some questions that will ask a student to finish or add the necessary code to an existing C++ code sample. The theme for most of my questions dealing with inheritance happens to be dungeons and dragons since character classes fit with the inheritence model. So to get started, could we simply generate a single abstract base character class that has some standard data members, and at least three pure virtual functions assuming a sub class would implement them.
