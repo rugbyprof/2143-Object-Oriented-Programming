@@ -47,21 +47,38 @@ private:
     bool constant;
 
 public:
+    /**
+     * Make an instance of a 6 sided die.
+     */
     Dice() {
         init(1, 6);
     }
+    /**
+     * Make `n` instances of some `s` sided dice.
+     */
     Dice(int n, int s) {
         init(n, s);
     }
+    /**
+     * d = "4.d.12" // creates four twelve sided dice
+     * d = "5.d.20" // creates five twenty sided dice
+     *
+     */
     Dice(string d) {
+        // split the string on the periods
         vector<string> parts = tokenize(d, '.');
 
+        // turn the first and third parts into integers
         int n = stoi(parts[0]);
         int s = stoi(parts[2]);
 
+        // call init with our number and size of dice
         init(n, s);
     }
 
+    /**
+     * Called be each constructor. Helps reduce duplicate code.
+     */
     void init(int n, int s) {
         while (n--) {
             dice.push_back(Die(s));
@@ -85,7 +102,7 @@ public:
     }
 
     /**
-     * @brief Roll the dice and return the maximum dice value
+     * @brief Roll multiple dice and return the maximum dice value
      *
      * @param None
      * @return int : max value of all die being rolled
