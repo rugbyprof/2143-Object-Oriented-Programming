@@ -54,7 +54,7 @@ public:
         init(n, s);
     }
     Dice(string d) {
-        vector<string> parts = tokenize(d, ".");
+        vector<string> parts = tokenize(d, '.');
 
         int n = stoi(parts[0]);
         int s = stoi(parts[2]);

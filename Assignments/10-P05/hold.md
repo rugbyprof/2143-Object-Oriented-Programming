@@ -1,0 +1,27 @@
+Barbarian: Barbarians typically use weapons that are easy to wield and deal high damage, such as greataxes, greatswords, and mauls. They deal slashing or bludgeoning damage, depending on the weapon they're using, and they can add extra dice to their damage when they use their rage ability. The damage die for a typical barbarian weapon is usually 1d8 or 1d12, but it can be higher for magical weapons, and the damage die for their rage ability can range from 1d6 to 4d6 or more, depending on the barbarian's level.
+
+Bard: Bards are versatile characters who can use a variety of weapons and spells to support their allies and damage their enemies. They typically use weapons like longswords, rapiers, and shortbows, dealing slashing or piercing damage. Bards can also cast spells that deal a variety of damage types, including fire, cold, lightning, acid, and force. The damage die for a typical bard weapon is usually 1d6 or 1d8, and the damage die for their spells can range from 1d6 to 10d6 or more, depending on the spell's level and the bard's proficiency.
+
+Cleric: Clerics are holy warriors who use their faith to cast spells and smite their enemies. They can use a variety of weapons, including maces, warhammers, and flails, dealing bludgeoning damage. Clerics can also channel divine energy to heal their allies or damage their foes, dealing radiant or necrotic damage. The damage die for a typical cleric weapon is usually 1d6 or 1d8, but it can be higher for magical weapons, and the damage die for their spells can range from 1d6 to 10d6 or more, depending on the spell's level and the cleric's proficiency.
+
+Druid: Druids are spellcasters who draw their power from nature and can shapeshift into animals. They don't typically use weapons, but they can cast spells that deal a variety of damage types, including fire, cold, lightning, acid, poison, and force. The damage dice for druid spells can range from 1d6 to 10d6 or more, depending on the spell's level and the druid's proficiency.
+
+Fighter: Fighters are versatile warriors who can use a wide variety of weapons and armor. Their weapon choices can vary depending on their fighting style, but common options include longswords, greatswords, warhammers, battleaxes, and polearms. Fighters typically deal slashing, piercing, or bludgeoning damage, depending on the type of weapon they're using. The damage die for these weapons can range from 1d6 to 2d8 or more, depending on the weapon and the fighter's level.
+
+Monk: Monks are martial artists who rely on their fists and feet to deal damage. They typically use no weapons or simple weapons like shortswords, dealing bludgeoning damage. Monks can also use their ki to empower their attacks and deal extra damage. The damage die for a typical monk weapon is usually 1d6, and the damage die for their ki abilities can range from 1d6 to 10d6 or more, depending on the monk's level.
+
+Paladin: Paladins are holy warriors who use their faith to smite their enemies and protect their allies. They can use a variety of weapons, including longswords, warhammers, and flails, dealing slashing or
+
+terry.griffin@msutexas.edu
+please continue
+bludgeoning damage. Paladins can also channel their divine energy to deal radiant damage or heal their allies. The damage die for a typical paladin weapon is usually 1d8 or 1d10, but it can be higher for magical weapons, and the damage die for their divine smite ability can range from 2d8 to 5d8 or more, depending on the paladin's level.
+
+Ranger: Rangers are skilled hunters who use their knowledge of the wilderness and their mastery of weapons to track and eliminate their prey. They typically use weapons like longbows, short swords, and daggers, dealing piercing or slashing damage. Rangers can also cast spells that deal a variety of damage types, including fire, cold, lightning, and force. The damage die for a typical ranger weapon is usually 1d6 or 1d8, and the damage die for their spells can range from 1d6 to 10d6 or more, depending on the spell's level and the ranger's proficiency.
+
+Rogue: Rogues are agile and stealthy characters who specialize in dealing sneak attacks to their enemies. They typically use light weapons like daggers, shortswords, or rapiers, dealing piercing or slashing damage. Rogues can add extra dice to their damage when they land a sneak attack. The damage die for a typical rogue weapon is usually 1d6 or 1d8, but it can be higher for magical weapons.
+
+Sorcerer: Sorcerers are spellcasters who are born with innate magical abilities. They can cast spells that deal a variety of damage types, including fire, cold, lightning, acid, poison, and force. The damage die for sorcerer spells can range from 1d6 to 10d6 or more, depending on the spell's level and the sorcerer's proficiency.
+
+Warlock: Warlocks are spellcasters who make a pact with a powerful otherworldly being to gain magical abilities. They can cast spells that deal a variety of damage types, including fire, cold, lightning, acid, and force. The damage die for warlock spells can range from 1d6 to 10d6 or more, depending on the spell's level and the warlock's proficiency.
+
+Wizard: Wizards are spellcasters who rely on their magical abilities to deal damage to their enemies. They don't typically use weapons, but they can cast spells that deal a variety of damage types, including fire, cold, lightning, acid, poison, and force. The damage dice for wizard spells can range from 1d6 to 10d6 or more, depending on the spell's level and the wizard's proficiency.
