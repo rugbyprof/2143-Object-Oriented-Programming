@@ -4,7 +4,7 @@
 
 YES ... I KNOW THE DUE DATE IS MONDAY! Shut it<sup>1</sup>
 
-![](../graphics/polyhedral_dice.jpg)
+![](../graphics/polyhedral_dice.png)
 
 ### Helper Files
 
