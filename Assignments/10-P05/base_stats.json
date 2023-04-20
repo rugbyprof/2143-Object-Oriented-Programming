@@ -1,0 +1,98 @@
+{
+    "Barbarian": {
+      "Strength": [15, 20],
+      "Dexterity": [10, 16],
+      "Constitution": [14, 20],
+      "Intelligence": [6, 12],
+      "Wisdom": [10, 16],
+      "Charisma": [6, 12]
+    },
+    "Bard": {
+      "Strength": [8, 14],
+      "Dexterity": [12, 18],
+      "Constitution": [8, 14],
+      "Intelligence": [10, 16],
+      "Wisdom": [10, 16],
+      "Charisma": [14, 20]
+    },
+    "Cleric": {
+      "Strength": [8, 14],
+      "Dexterity": [8, 14],
+      "Constitution": [10, 16],
+      "Intelligence": [8, 14],
+      "Wisdom": [14, 20],
+      "Charisma": [8, 14]
+    },
+    "Druid": {
+      "Strength": [8, 14],
+      "Dexterity": [10, 16],
+      "Constitution": [10, 16],
+      "Intelligence": [6, 12],
+      "Wisdom": [14, 20],
+      "Charisma": [8, 14]
+    },
+    "Fighter": {
+      "Strength": [15, 20],
+      "Dexterity": [10, 16],
+      "Constitution": [14, 20],
+      "Intelligence": [6, 12],
+      "Wisdom": [8, 14],
+      "Charisma": [6, 12]
+    },
+    "Monk": {
+      "Strength": [8, 14],
+      "Dexterity": [15, 20],
+      "Constitution": [10, 16],
+      "Intelligence": [6, 12],
+      "Wisdom": [14, 20],
+      "Charisma": [6, 12]
+    },
+    "Paladin": {
+      "Strength": [15, 20],
+      "Dexterity": [8, 14],
+      "Constitution": [14, 20],
+      "Intelligence": [8, 14],
+      "Wisdom": [10, 16],
+      "Charisma": [10, 16]
+    },
+    "Ranger": {
+      "Strength": [8, 14],
+      "Dexterity": [15, 20],
+      "Constitution": [10, 16],
+      "Intelligence": [8, 14],
+      "Wisdom": [14, 20],
+      "Charisma": [8, 14]
+    },
+    "Rogue": {
+      "Strength": [8, 14],
+      "Dexterity": [15, 20],
+      "Constitution": [8, 14],
+      "Intelligence": [10, 16],
+      "Wisdom": [8, 14],
+      "Charisma": [10, 16]
+    },
+    "Sorcerer": {
+      "Strength": [6, 12],
+      "Dexterity": [8, 14],
+      "Constitution": [6, 12],
+      "Intelligence": [8, 14],
+      "Wisdom": [8, 14],
+      "Charisma": [15, 20]
+    },
+    "Warlock": {
+        "Strength": [8, 14],
+        "Dexterity": [8, 14],
+        "Constitution": [8, 14],
+        "Intelligence": [10, 16],
+        "Wisdom": [10, 16],
+        "Charisma": [14, 20]
+    },
+    "Wizard": {
+        "Strength": [6, 12],
+        "Dexterity": [8, 14],
+        "Constitution": [6, 12],
+        "Intelligence": [15, 20],
+        "Wisdom": [8, 14],
+        "Charisma": [8, 14]
+    }
+}

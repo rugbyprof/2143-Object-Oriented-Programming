@@ -1,6 +1,31 @@
 # D&D Game - Don't Get Excited ... This is Hard!
 
-## Character Classes
+## Basic Characters
+
+For each basic character, you should represent the following attributes:
+
+| Attribute    | Description                                               | Min | Max |
+| :----------- | :-------------------------------------------------------- | :-: | :-: |
+| Strength     | measure of physical power and melee combat effectiveness. |  3  | 18  |
+| Dexterity    | measure of agility and ranged combat effectiveness.       |  3  | 18  |
+| Constitution | measure of health and resilience.                         |  3  | 18  |
+| Intelligence | measure of knowledge and spell-casting ability.           |  3  | 18  |
+| Wisdom       | measure of intuition and perception.                      |  3  | 18  |
+| Charisma     | measure of personality and leadership.                    |  3  | 18  |
+
+A basic character should also have 1 or more attributes that can be either be turned on or off, or set to some value which will either increase basic powers like a boost, or reduce powers like if they were blinded. Not sure what to call them. So we can discuss in class.
+
+### Generating Characters
+
+The standard method for generating attribute values for a new character is to roll `four six-sided dice` (`4d6`) and sum the three highest rolls, discarding the lowest roll. This is done six times, once for each attribute (`Strength`, `Dexterity`, `Constitution`, `Intelligence`, `Wisdom`, and `Charisma`), resulting in a set of six values that are used to determine the character's abilities.
+
+The average value for a single `4d6` roll is `12.244`, and the average value for the sum of the three highest rolls is `12.244 * 3 = 36.732`. This means that the average starting value for a randomly generated attribute using the standard method is around `10-11` (which is the sum of the three highest rolls divided by 3).
+
+However, it's important to note that these are just averages and the actual values can vary widely based on luck and chance. It's also common for Dungeon Masters to allow for alternative methods of generating attribute values, such as point-buy systems or fixed values, to provide more control and balance over character creation.
+
+### Character Classes
+
+Here are the characters that we will generate. They will extend a basic character class and are pretty basic:
 
 ```json
 (character_emojis = {
@@ -19,19 +44,6 @@
 })
 ```
 
-"Barbarian",
-"Bard",
-"Cleric",
-"Druid",
-"Fighter",
-"Monk",
-"Paladin",
-"Ranger",
-"Rogue",
-"Sorcerer",
-"Warlock",
-"Wizard"
-
 1. **Barbarian**: A primal warrior who relies on physical strength and raw fury to overpower their foes.
 2. **Bard**: A performer with magical abilities who uses music and storytelling to inspire allies and hinder enemies.
 3. **Cleric**: A divine spellcaster who channels the power of their deity to heal allies, smite enemies, and perform miracles.
@@ -47,7 +59,7 @@
 
 ### Combined Character Classes
 
-1. **Spellblade**: A mix of fighter and sorcerer that combines melee combat abilities with spellcasting.
+1. **Spellblade**: A mix of fighter and sorcerer that combines melee combat abilities with spell-casting.
 2. **Shadowdancer**: A mix of rogue and bard that blends stealth and deception with performance and magic.
 3. **Shapeshifter**: A mix of druid and monk that focuses on the ability to transform into animals and uses martial arts in combat.
 4. **Holy Avenger**: A mix of paladin and ranger that combines divine magic and martial prowess with a focus on hunting evil creatures.
@@ -55,35 +67,21 @@
 6. **Battle Mage**: A mix of wizard and fighter that combines magical knowledge and combat skill with a focus on manipulating the battlefield to gain advantage.
 7. **Fury Fist**: Warriors who have combined the brutal strength of the barbarian with the disciplined combat techniques of the monk.
 
-#### Chat GPT Question
+## Special Attacks
 
-Earlier you helped me create some interested combinations of basic characters above (see list below):
+**Spellblade**: The `Spellblade` is a fighter who has learned to infuse their weapons with arcane energy, allowing them to deal extra damage with each strike. They can also cast spells that enhance their weapons or protect themselves from harm. One possible unique attack for the `Spellblade` is `Arcane Strike`, which allows them to add `2d6` force damage to their weapon attacks for a limited time. Another possible unique attack is `Chaos Bolt`, which is a spell that deals `4d8` damage of a `random type (acid, cold, fire, lightning, poison, or thunder)` to a single target.
 
-1. `Spellblade`: (fighter and sorcerer)
-2. `Shadowdancer`: (rogue and bard)
-3. `Shapeshifter`: (druid and monk)
-4. `Holy Avenger`: (paladin and ranger)
-5. `Eldritch Assassin`: (warlock and rogue)
-6. `Battle Mage`: (wizard and fighter)
-7. `Fury Fist`: (Warriors Barbarian and Monk)
+**Shadowdancer**: The `Shadowdancer` is a rogue who has learned to harness the power of shadow to move stealthily and strike their enemies from unexpected angles. They can also cast spells that manipulate light and darkness to obscure their movements or hinder their foes. One possible unique attack for the `Shadowdancer` is `Shadow Strike`, which allows them to deal extra damage with their sneak attacks while also teleporting behind their target. Another possible unique attack is `Blinding Shadow`, which is a spell that `blinds all creatures in a 20-foot radius for 1 minute`.
 
-Could you use your creative side to assign these seven characters elevated skills / unique attacks and therefore the use of larger die's to inflict damage?
+**Shapeshifter**: The Shapeshifter is a druid who has learned to combine their druidic magic with their martial arts training, allowing them to shift into animal forms and strike their enemies with deadly force. They can also cast spells that enhance their physical abilities or control the elements. One possible unique attack for the Shapeshifter is `Savage Bite`, which allows them to `deal extra damage with their natural attacks` while in animal form. Another possible unique attack is `Whirlwind Strike`, which is a spell that allows them to make a `flurry of melee attacks against all enemies within 10 feet`.
 
----
+**Holy Avenger**: The Holy Avenger is a paladin who has teamed up with a ranger to become a powerful force for good. They use their divine and martial powers to protect the innocent and vanquish evil wherever it may be found. They can also cast spells that heal their allies or deal extra damage to undead or fiends. One possible unique attack for the Holy Avenger is `Divine Smite`, which allows them to `deal extra radiant damage with their weapon attacks`. Another possible unique attack is `Hunter's Mark`, which is a spell that allows them to `deal extra damage to a single target for a limited time`.
 
-**Spellblade**: The Spellblade is a fighter who has learned to infuse their weapons with arcane energy, allowing them to deal extra damage with each strike. They can also cast spells that enhance their weapons or protect themselves from harm. One possible unique attack for the Spellblade is "Arcane Strike," which allows them to add 2d6 force damage to their weapon attacks for a limited time. Another possible unique attack is "Chaos Bolt," which is a spell that deals 4d8 damage of a random type (acid, cold, fire, lightning, poison, or thunder) to a single target.
+**Eldritch Assassin**: The Eldritch Assassin is a rogue who has made a pact with a warlock to gain access to powerful eldritch magic. They can use their spells to augment their stealth and mobility, as well as to inflict curses on their enemies. One possible unique attack for the Eldritch Assassin is `Shadow Blade`, which allows them to create a `blade of solidified darkness that deals extra damage` and can be thrown at a target. Another possible unique attack is `Hex`, which is a spell `that inflicts a curse on a target`, reducing their abilities and making them vulnerable to extra damage.
 
-**Shadowdancer**: The Shadowdancer is a rogue who has learned to harness the power of shadow to move stealthily and strike their enemies from unexpected angles. They can also cast spells that manipulate light and darkness to obscure their movements or hinder their foes. One possible unique attack for the Shadowdancer is "Shadow Strike," which allows them to deal extra damage with their sneak attacks while also teleporting behind their target. Another possible unique attack is "Blinding Shadow," which is a spell that blinds all creatures in a 20-foot radius for 1 minute.
+**Battle Mage**: The Battle Mage is a wizard who has trained in martial combat to become a formidable warrior-mage. They can use their spells to enhance their physical abilities or deal devastating damage to their foes. One possible unique attack for the Battle Mage is `Elemental Strike`, which allows them to imbue their weapon with elemental energy to `deal extra damage of that type`. Another possible unique attack is `Meteor Swarm`, which is a spell that rains down fiery meteors on a 40-foot radius, `dealing massive damage to all creatures in the area`.
 
-**Shapeshifter**: The Shapeshifter is a druid who has learned to combine their druidic magic with their martial arts training, allowing them to shift into animal forms and strike their enemies with deadly force. They can also cast spells that enhance their physical abilities or control the elements. One possible unique attack for the Shapeshifter is "Savage Bite," which allows them to deal extra damage with their natural attacks while in animal form. Another possible unique attack is "Whirlwind Strike," which is a spell that allows them to make a flurry of melee attacks against all enemies within 10 feet.
-
-**Holy Avenger**: The Holy Avenger is a paladin who has teamed up with a ranger to become a powerful force for good. They use their divine and martial powers to protect the innocent and vanquish evil wherever it may be found. They can also cast spells that heal their allies or deal extra damage to undead or fiends. One possible unique attack for the Holy Avenger is "Divine Smite," which allows them to deal extra radiant damage with their weapon attacks. Another possible unique attack is "Hunter's Mark," which is a spell that allows them to deal extra damage to a single target for a limited time.
-
-**Eldritch Assassin**: The `Eldritch Assassin` is a `rogue` who has made a pact with a `warlock` to gain access to powerful eldritch magic. They can use their spells to augment their stealth and mobility, as well as to inflict curses on their enemies. One possible unique attack for the `Eldritch Assassin` is "**Shadow Blade**," which allows them to create a blade of solidified darkness that deals extra damage and can be thrown at a target. Another possible unique attack is "`Hex`," which is a spell that inflicts a curse on a target, reducing their abilities and making them vulnerable to extra damage.
-
-**Battle Mage**: The Battle Mage is a wizard who has trained in martial combat to become a formidable warrior-mage. They can use their spells to enhance their physical abilities or deal devastating damage to their foes. One possible unique attack for the Battle Mage is "Elemental Strike," which allows them to imbue their weapon with elemental energy to deal extra damage of that type. Another possible unique attack is "Meteor Swarm," which is a spell that rains down fiery meteors on a 40-foot radius, dealing massive damage to all creatures in the area.
-
-**Fury Fist**: The Fury Fist is a barbarian and monk combination that focuses on unarmed combat and tapping into their rage to deal devastating damage. They can also use their ki to enhance their attacks and movements. One possible unique attack for Fury Fist is "Fury of the Elements," which allows them to channel the power of the elements into their fists, dealing extra damage of a random type (acid, cold, fire, lightning, or thunder) with each strike. Another possible unique attack is "Raging Thunderclap," which is a spell that creates a deafening thunderclap around the Fury Fist, dealing thunder damage and stunning all creatures within 10 feet.
+**Fury Fist**: The Fury Fist is a barbarian and monk combination that focuses on unarmed combat and tapping into their rage to deal devastating damage. They can also use their ki to enhance their attacks and movements. One possible unique attack for Fury Fist is `Fury of the Elements`, which allows them to channel the power of the elements into their fists, `dealing extra damage of a random type (acid, cold, fire, lightning, or thunder)` with each strike. Another possible unique attack is `Raging Thunderclap`, which is a spell that creates a deafening thunderclap around the Fury Fist, `dealing thunder damage and stunning all creatures within 10 feet`.
 
 Here are the associated damage types and die rolls for each of the unique attacks:
 
@@ -102,46 +100,11 @@ Here are the associated damage types and die rolls for each of the unique attack
 **Fury of the Elements**: Random type (acid, cold, fire, lightning, or thunder) damage, extra damage based on character level and proficiency bonus
 **Raging Thunderclap**: Thunder damage, stuns all creatures within 10 feet for 1 round.
 
-### Character stats
-
-For each basic character, you should represent the following attributes:
-
-| Attribute    | Description                                               | Min | Max |
-| :----------- | :-------------------------------------------------------- | :-: | :-: |
-| Strength     | measure of physical power and melee combat effectiveness. |  3  | 18  |
-| Dexterity    | measure of agility and ranged combat effectiveness.       |  3  | 18  |
-| Constitution | measure of health and resilience.                         |  3  | 18  |
-| Intelligence | measure of knowledge and spell-casting ability.           |  3  | 18  |
-| Wisdom       | measure of intuition and perception.                      |  3  | 18  |
-| Charisma     | measure of personality and leadership.                    |  3  | 18  |
-
-## Generating Characters
-
-The standard method for generating attribute values for a new character is to roll `four six-sided dice` (`4d6`) and sum the three highest rolls, discarding the lowest roll. This is done six times, once for each attribute (`Strength`, `Dexterity`, `Constitution`, `Intelligence`, `Wisdom`, and `Charisma`), resulting in a set of six values that are used to determine the character's abilities.
-
-The average value for a single `4d6` roll is `12.244`, and the average value for the sum of the three highest rolls is `12.244 * 3 = 36.732`. This means that the average starting value for a randomly generated attribute using the standard method is around `10-11` (which is the sum of the three highest rolls divided by 3).
-
-However, it's important to note that these are just averages and the actual values can vary widely based on luck and chance. It's also common for Dungeon Masters to allow for alternative methods of generating attribute values, such as point-buy systems or fixed values, to provide more control and balance over character creation.
-
 ## Attacking Monsters
 
-In Dungeons and Dragons, characters damage monsters by rolling dice to determine the amount of damage dealt by their attacks. The specific die used depends on the character's weapon or attack, as well as any bonuses or modifiers that apply. Here are some examples of typical characters in Dungeons and Dragons and how they damage monsters:
+In Dungeons and Dragons, characters damage monsters by rolling dice to determine the amount of damage dealt by their attacks. The specific die used depends on the character's weapon or attack, as well as any bonuses or modifiers that apply.
 
-- **Warriors**: Fighters typically use melee weapons like swords, axes, and hammers. When they hit a monster with their weapon, they roll a die to determine the amount of damage dealt. The specific die depends on the weapon's damage type and size. For example, a `longsword` might deal `1d8` slashing damage, while a `greataxe` might deal `1d12` slashing damage. Fighters may also have abilities or feats that allow them to add bonuses to their damage rolls.
-
-- **Wizard**: Wizards typically use spells to damage monsters. Each spell has its own damage type and die roll, which is determined by the spell's level and the wizard's abilities. For example, the Magic Missile spell deals `1d4+1` force damage per missile, while the Fireball spell deals `8d6` fire damage to all targets in its area of effect.
-
-- **Rogue**: Rogues typically use weapons like daggers and short swords, and may also use ranged weapons like `shortbows` or hand crossbows. When they hit a monster with their weapon, they roll a die to determine the amount of damage dealt. The specific die depends on the weapon's damage type and size, but is typically smaller than a fighter's die. For example, a short sword might deal `1d6` piercing damage. Rogues also have abilities like Sneak Attack, which allows them to deal extra damage if they hit a target with advantage or if another ally is within 5 feet of the target.
-
-- **Cleric**: Clerics typically use spells to damage monsters, but may also use melee weapons like `maces` or `warhammers`. Each spell has its own damage type and die roll, which is determined by the spell's level and the cleric's abilities. For example, the Inflict Wounds spell deals `3d10` necrotic damage, while the Sacred Flame spell deals `1d8` radiant damage.
-
-- **Paladin**: Paladins typically use melee weapons like swords or maces, and may also use ranged weapons like crossbows. When they hit a monster with their weapon, they roll a die to determine the amount of damage dealt. The specific die depends on the weapon's damage type and size. For example, a `longSword` might deal `1d8` slashing damage. Paladins also have abilities like `Divine Smite`, which allows them to deal extra radiant damage if they expend a spell slot.
-
-- **Druid**: Druids typically use spells to damage monsters, but may also use melee weapons like staffs or scimitars. Each spell has its own damage type and die roll, which is determined by the spell's level and the druid's abilities. For example, the Flame Blade spell deals `3d6` fire damage, while the `Thorn Whip` spell deals `1d6` piercing damage.
-
-## Let us discuss the basic characters that are employed in D&D. I'm just using chat GPT's output to guide us through the top list of generic characters and their stats.
-
-## Warrior
+There should probably be an attack class which represents a specific attack, and its associated damages.
 
 ### Attacks (weapons really)
 

@@ -17,11 +17,9 @@ YES ... I KNOW THE DUE DATE IS MONDAY! Shut it...[^1].
 
 The opening salvo we will be taking in the solving of the D&D battle royale program (and learning Python) is to convert the above two files into Python. Since `D&D` characters need to roll for many different things, we need to have a dice class handy. Could it be a simple function? Sure. But this dice class will do so much more! Most of it is implemented, but some is up to you.
 
-The dice_tester file is just what it sounds like: a usage example for the dice class. In python you can combine both files into one with any issue. Look below:
+The dice_tester file is just what it sounds like: a usage example for the dice class. In python you can combine both files into one without any issues. We have discussed the `__name__=='__main__'` concept alreay, but this program will put it to actual use. For those who have forgotten: The if `__name__=='__main__'` is a common concept used in Python programming to ensure that certain parts of a Python module are only executed when the module is run directly as the main program, and not when it is imported by another module.
 
-#### Easy testing syntax
-
-I will discuss more in class.
+**Filename:** dice.py
 
 ```python
 
@@ -29,9 +27,34 @@ class Die:
     # implement everything here
     pass
 
-if __name__ == '__main__':
-    # test your class here in the same file!
+class Dice:
     pass
+
+if __name__ == '__main__':
+    """This code gets executed if you run this file directly: python dice.py
+       It does not get executed if you import this file
+       So do lots of testing below!
+    """
+    D1 = Dice('5.d.20')
+    D2 = Dice('4.d.8')
+
+```
+
+**Filename:** main.py
+
+All the tests in `dice.py` do not get run when you import the class(s)
+into another file. However, the local `__main__` block will run if you call
+this file like: `python main.py`
+
+```python
+from dice import Die
+from dice import Dice
+
+if __name__ == '__main__':
+
+    d6 = Die(6)
+    d4_8 = Dice('4.d.8')
+
 
 ```
 
@@ -39,9 +62,9 @@ if __name__ == '__main__':
 
 - Implement the `Die` and `Dice` classes in Python, using the c++ code as a template.
 - Implement the `max` and `avg` roll methods that are not implemented as of yet.
-- Place your implementation in a file called: `Dice.py`
+- Place both of your class implementations in a file called: `Dice.py`
 - Use the `__str__` method as a replacement for overloading ostream for both the `Die` and `Dice` classes.
-- Use the `__name__ == '__main__'`: syntax and write tests to ensure both your classes work inside the `Dice.py` file.
+- Use the `__name__ == '__main__'`: syntax and write tests to ensure both of your classes work inside the `Dice.py` file.
 - Create a `main.py` file and import your classes, to also ensure they work :)
 
 #### main.py
