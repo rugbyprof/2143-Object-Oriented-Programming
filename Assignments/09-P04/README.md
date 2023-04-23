@@ -50,30 +50,73 @@ this file like: `python main.py`
 from dice import Die
 from dice import Dice
 
+
+
+def dieTester(die, runs=10, testType="sum"):
+    """Example function to test a die or dice.
+    """
+    if isinstance(die, Die):
+    print(f"Testing {die.sides} sided die for {runs} rolls:")
+    print("    [ ", end="")
+    for i in range(runs):
+        print(die.roll(), end=" ")
+    print("]")
+    else:
+    print(f"Rolling {len(die.dice)} {die.sides} sided die {runs} times to get the {testType} value:")
+    print("    [ ", end="")
+    for i in range(runs):
+        if testType == "avg":
+        print(die.avg(), end=" ")
+        elif testType == "min":
+        print(die.min(), end=" ")
+        elif testType == "max":
+        print(die.max(), end=" ")
+        else:
+        print(die.sum(), end=" ")
+    print("]")
+
+
 if __name__ == '__main__':
 
-    d6 = Die(6)
-    d4_8 = Dice('4.d.8')
+  d1 = Die()
+  d2 = Die(20)
+  d3 = Dice(10, 5)
+  d4 = Dice("8.d.20")
 
+  dieTester(d1, 10)
+  dieTester(d2, 20)
+  dieTester(d3, 10, "max")
+  dieTester(d3, 10, "min")
+  dieTester(d3, 10, "avg")
+  dieTester(d4, 20, "max")
+```
 
+Example output:
+
+```
+Testing 6 sided die for 10 rolls:
+    [ 1 5 2 5 5 1 1 2 6 6 ]
+Testing 20 sided die for 20 rolls:
+    [ 17 14 2 16 10 1 6 12 19 7 17 17 1 15 15 5 20 6 16 14 ]
+Rolling 5 10 sided die 10 times to get the max value:
+    [ 8 7 9 10 10 10 9 9 8 9 ]
+Rolling 5 10 sided die 10 times to get the min value:
+    [ 5 1 4 5 5 1 4 1 2 4 ]
+Rolling 5 10 sided die 10 times to get the avg value:
+    [ 6.6 5.0 6.2 5.2 3.6 6.0 7.8 4.8 5.0 3.4 ]
+Rolling 8 20 sided die 20 times to get the max value:
+    [ 18 19 19 15 16 20 20 20 19 18 20 19 20 16 18 17 20 19 19 14 ]
 ```
 
 ### Requirements
 
 - Implement the `Die` and `Dice` classes in Python, using the c++ code as a template.
-- Implement the `max` and `avg` roll methods that are not implemented as of yet.
+- The standard roll is just to `sum` up all dice and return that value.
+- Implement the `min`, `max` and `avg` roll methods that are not implemented as of yet.
 - Place both of your class implementations in a file called: `Dice.py`
 - Use the `__str__` method as a replacement for overloading ostream for both the `Die` and `Dice` classes.
-- Use the `__name__ == '__main__'`: syntax and write tests to ensure both of your classes work inside the `Dice.py` file.
+- Use the `if __name__ == '__main__':`: syntax and write tests to ensure both of your classes work inside the `Dice.py` file.
 - Create a `main.py` file and import your classes, to also ensure they work :)
-
-#### main.py
-
-```python
-from dice import Dice
-
-# run the same tests or different ones...
-```
 
 ### Deliverables
 
@@ -83,10 +126,12 @@ from dice import Dice
 - Look at [this](../../Resources/02-Readmees/README.md) to help with your `README.md` file
 - Create a banner for your program **(see [HERE](../../Resources/03-Banner/README.md))**.
 
-```
+````
+
 2143
 P04
 Name
+
 ```
 
 - Include your python file(s) inside the `P04` folder: `Dice.py` and `main.py`
@@ -94,3 +139,5 @@ Name
 ---
 
 [^1]: But shut it in a really nice way :)
+```
+````
