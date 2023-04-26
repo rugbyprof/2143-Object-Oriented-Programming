@@ -1,5 +1,6 @@
-# D&D Game - Don't Get Excited ... This is Hard!
+## Program 5 - D&D Game
 #### Due Date : None
+
 ## Basic Characters
 
 For each basic character, you should represent the following basic attributes:

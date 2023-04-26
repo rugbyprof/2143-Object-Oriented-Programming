@@ -1,6 +1,6 @@
-## Assignment 7 - Designing your Game
+## Assignment 5 - Designing your Game
 
-#### Due: 04-28-2023 (Friday @ 2:00 p.m.)
+#### Due: 05-04-2023 (Thursday @ 2:00 p.m.)
 
 UML is a general-purpose, modeling language designed to provide a standard way to visualize the design of a system. In the context of OOP, UML can be particularly helpful for several reasons:
 
@@ -259,8 +259,8 @@ Would result in:
 
 **This assignment has a LOT of verbiage up above talking about many things beyond what I'm expecting from you. I simply want you to create a class diagram with the relationships between all the classes. No requirements, use cases, sequences, etc..**
 
-- Create a folder called `A06` in your `Assignments` folder.
-- Add a `README.md` file in your `A06` folder with all of your class designs listed in an orderly fashion.
+- Create a folder called `A05` in your `Assignments` folder.
+- Add a `README.md` file in your `A05` folder with all of your class designs listed in an orderly fashion.
 - Your document should be written in markdown.
 - Don't forget to include your Name and essentials at the top of the document.
 - No hand written anything will be graded.
@@ -271,7 +271,7 @@ Would result in:
 
 
 ```
-A06
+A05
 2143
 LASTNAME
 ```
