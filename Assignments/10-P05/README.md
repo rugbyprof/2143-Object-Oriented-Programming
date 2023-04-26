@@ -1,8 +1,8 @@
 # D&D Game - Don't Get Excited ... This is Hard!
-
+#### Due Date : None
 ## Basic Characters
 
-For each basic character, you should represent the following attributes:
+For each basic character, you should represent the following basic attributes:
 
 | Attribute    | Description                                               | Min | Max |
 | :----------- | :-------------------------------------------------------- | :-: | :-: |
@@ -13,13 +13,13 @@ For each basic character, you should represent the following attributes:
 | Wisdom       | measure of intuition and perception.                      |  3  | 18  |
 | Charisma     | measure of personality and leadership.                    |  3  | 18  |
 
-A basic character should also have 1 or more attributes that can be either be turned on or off, or set to some value which will either increase basic powers like a boost, or reduce powers like if they were blinded. Not sure what to call them. So we can discuss in class.
+This
 
 ### Generating Characters
 
-The standard method for generating attribute values for a new character is to roll `four six-sided dice` (`4d6`) and sum the three highest rolls, discarding the lowest roll. This is done six times, once for each attribute (`Strength`, `Dexterity`, `Constitution`, `Intelligence`, `Wisdom`, and `Charisma`), resulting in a set of six values that are used to determine the character's abilities.
+The standard method for generating attribute values for a new character is to roll `four six-sided dice` (`4.d.6`) and sum the three highest rolls, discarding the lowest roll. This is done six times, once for each attribute (`Strength`, `Dexterity`, `Constitution`, `Intelligence`, `Wisdom`, and `Charisma`), resulting in a set of six values that are used to determine the character's abilities.
 
-The average value for a single `4d6` roll is `12.244`, and the average value for the sum of the three highest rolls is `12.244 * 3 = 36.732`. This means that the average starting value for a randomly generated attribute using the standard method is around `10-11` (which is the sum of the three highest rolls divided by 3).
+The average value for a single `4.d.6` roll is `12.244`, and the average value for the sum of the three highest rolls is `12.244 * 3 = 36.732`. This means that the average starting value for a randomly generated attribute using the standard method is around `10-11` (which is the sum of the three highest rolls divided by 3).
 
 However, it's important to note that these are just averages and the actual values can vary widely based on luck and chance. It's also common for Dungeon Masters to allow for alternative methods of generating attribute values, such as point-buy systems or fixed values, to provide more control and balance over character creation.
 
@@ -130,8 +130,6 @@ Each of these steps are applied to every character:
 2. Discard the lowest roll for each attribute.
 3. Add up the remaining three dice rolls to get the attribute score.
 4. Repeat steps 1-3 until all six attributes have been generated.
-
-
 
 ## Random Character Generation
 

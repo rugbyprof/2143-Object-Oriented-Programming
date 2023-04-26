@@ -1,0 +1,9 @@
+wget https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/uml_vid_250.png --no-check-certificate
+wget https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.person.png --no-check-certificate
+wget https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.step1.png --no-check-certificate
+wget https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.step2.png --no-check-certificate
+wget https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.person.png --no-check-certificate
+wget https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.street.png --no-check-certificate
+wget https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.student.png --no-check-certificate
+wget https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.professor.png --no-check-certificate
+wget https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/draw.io.wholething.png --no-check-certificate

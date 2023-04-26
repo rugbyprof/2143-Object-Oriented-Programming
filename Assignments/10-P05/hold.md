@@ -11,6 +11,8 @@
 "Warlock",
 "Wizard"
 
+If I were designing a game similar to D&D that uses these characters: ["Barbarian","Bard", "Cleric","Druid","Fighter","Monk","Paladin","Ranger","Rogue","Sorcerer","Warlock","Wizard"] along with these basic stats: [Strength,Dexterity, Constitution, Intelligence, Wisdom, Charisma] what would I need to do to begin a UML design?
+
 I am attempting to create base character stats for a dungeons and dragons style game. Using these characters: ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"] with these base stat categories: ["Strength","Dexterity","Constitution" ,"Intelligence","Wisdom" ,"Charisma"] and assuming typical dungeons and dragons ranges of values, could you generate a json object that lists out minimum and maximum values for each character type?
 
 Barbarian: Barbarians typically use weapons that are easy to wield and deal high damage, such as greataxes, greatswords, and mauls. They deal slashing or bludgeoning damage, depending on the weapon they're using, and they can add extra dice to their damage when they use their rage ability. The damage die for a typical barbarian weapon is usually 1d8 or 1d12, but it can be higher for magical weapons, and the damage die for their rage ability can range from 1d6 to 4d6 or more, depending on the barbarian's level.
@@ -54,7 +56,6 @@ Wizard: Wizards are spellcasters who rely on their magical abilities to deal dam
 - **Druid**: Druids typically use spells to damage monsters, but may also use melee weapons like staffs or scimitars. Each spell has its own damage type and die roll, which is determined by the spell's level and the druid's abilities. For example, the Flame Blade spell deals `3d6` fire damage, while the `Thorn Whip` spell deals `1d6` piercing damage.
 
 ## Let us discuss the basic characters that are employed in D&D. I'm just using chat GPT's output to guide us through the top list of generic characters and their stats.
-
 
 ### Attacks (weapons really)
 
@@ -450,4 +451,42 @@ For a rogue, their primary attributes are Dexterity and Charisma, and they also 
     "Charisma": 12
   }
 }
+```
+
+```python
+class Item:
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
+
+class Consumable(Item):
+    def __init__(self, name, description, effect, quantity):
+        super().__init__(name, description)
+        self.effect = effect
+        self.quantity = quantity
+
+class Weapon(Item):
+    def __init__(self, name, description, damage, attack_type):
+        super().__init__(name, description)
+        self.damage = damage
+        self.attack_type = attack_type
+
+class Spell(Item):
+    def __init__(self, name, description, effect, spell_level, spell_type):
+        super().__init__(name, description)
+        self.effect = effect
+        self.spell_level = spell_level
+        self.spell_type = spell_type
+
+class Currency(Item):
+    def __init__(self, name, description, value):
+        super().__init__(name, description)
+        self.value = value
+
+class Collectible(Item):
+    def __init__(self, name, description, rarity, value):
+        super().__init__(name, description)
+        self.rarity = rarity
+        self.value = value
+
 ```

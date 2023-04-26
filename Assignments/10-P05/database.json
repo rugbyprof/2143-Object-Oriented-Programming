@@ -1,0 +1,964 @@
+{
+    "spells": [
+        {
+            "name": "Invisibility",
+            "level": 2,
+            "type": "Illusion",
+            "effect": "Makes target invisible",
+            "classes": [
+                "Bard",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Haste",
+            "level": 3,
+            "type": "Transmutation",
+            "effect": "Doubles target's speed and grants additional action",
+            "classes": [
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Slow",
+            "level": 3,
+            "type": "Transmutation",
+            "effect": "Reduces target's speed and actions",
+            "classes": [
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Hold Person",
+            "level": 2,
+            "type": "Enchantment",
+            "effect": "Paralyzes target humanoid",
+            "classes": [
+                "Bard",
+                "Cleric",
+                "Druid",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Fly",
+            "level": 3,
+            "type": "Transmutation",
+            "effect": "Grants target a flying speed",
+            "classes": [
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Suggestion",
+            "level": 2,
+            "type": "Enchantment",
+            "effect": "Target follows a reasonable suggestion",
+            "classes": [
+                "Bard",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Web",
+            "level": 2,
+            "type": "Conjuration",
+            "effect": "Creates difficult terrain and restrains creatures",
+            "classes": [
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Fear",
+            "level": 3,
+            "type": "Illusion",
+            "effect": "Causes creatures to flee in terror",
+            "classes": [
+                "Bard",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Lesser Restoration",
+            "level": 2,
+            "type": "Abjuration",
+            "effect": "Removes one condition from a creature",
+            "classes": [
+                "Bard",
+                "Cleric",
+                "Druid",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Dimension Door",
+            "level": 4,
+            "type": "Conjuration",
+            "effect": "Teleports caster and ally to a chosen location",
+            "classes": [
+                "Bard",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Polymorph",
+            "level": 4,
+            "type": "Transmutation",
+            "effect": "Transforms a creature into a different creature",
+            "classes": [
+                "Bard",
+                "Druid",
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Banishment",
+            "level": 4,
+            "type": "Abjuration",
+            "effect": "Banishes a creature to another plane of existence",
+            "classes": [
+                "Cleric",
+                "Paladin",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Bless",
+            "level": 1,
+            "type": "Enchantment",
+            "effect": "Grants target creatures a bonus to attack rolls and saving throws",
+            "classes": [
+                "Cleric",
+                "Paladin"
+            ]
+        },
+        {
+            "name": "Bane",
+            "level": 1,
+            "type": "Enchantment",
+            "effect": "Imposes a penalty on target creatures' attack rolls and saving throws",
+            "classes": [
+                "Bard",
+                "Cleric"
+            ]
+        },
+        {
+            "name": "Faerie Fire",
+            "level": 1,
+            "type": "Evocation",
+            "effect": "Outlines creatures and objects, making them easier to hit",
+            "classes": [
+                "Bard",
+                "Druid"
+            ]
+        },
+        {
+            "name": "Create Water",
+            "level": 1,
+            "type": "Transmutation",
+            "effect": "Creates water in a container or as rain",
+            "classes": [
+                "Cleric",
+                "Druid"
+            ]
+        },
+        {
+            "name": "Sleep",
+            "level": 1,
+            "type": "Enchantment",
+            "effect": "Puts target creatures to sleep",
+            "classes": [
+                "Bard",
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Charm Person",
+            "level": 1,
+            "type": "Enchantment",
+            "effect": "Makes target humanoid friendly towards caster",
+            "classes": [
+                "Bard",
+                "Druid",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Darkvision",
+            "level": 2,
+            "type": "Transmutation",
+            "effect": "Grants target creature the ability to see in darkness",
+            "classes": [
+                "Druid",
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Blur",
+            "level": 2,
+            "type": "Illusion",
+            "effect": "Makes the caster harder to hit by obscuring their image",
+            "classes": [
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Magic Missile",
+            "level": 1,
+            "damage": "1d4+1",
+            "type": "Force",
+            "classes": [
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Cure Wounds",
+            "level": 1,
+            "healing": "1d8 + spellcasting ability modifier",
+            "type": "Healing",
+            "classes": [
+                "Bard",
+                "Cleric",
+                "Druid",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Fireball",
+            "level": 3,
+            "damage": "8d6",
+            "type": "Fire",
+            "classes": [
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Lightning Bolt",
+            "level": 3,
+            "damage": "8d6",
+            "type": "Lightning",
+            "classes": [
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Healing Word",
+            "level": 1,
+            "healing": "1d4 + spellcasting ability modifier",
+            "type": "Healing",
+            "classes": [
+                "Bard",
+                "Cleric",
+                "Druid"
+            ]
+        },
+        {
+            "name": "Shield",
+            "level": 1,
+            "type": "Abjuration",
+            "effect": "Grants +5 bonus to AC until the start of your next turn",
+            "classes": [
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Eldritch Blast",
+            "level": 0,
+            "damage": "1d10",
+            "type": "Force",
+            "classes": [
+                "Warlock"
+            ]
+        },
+        {
+            "name": "Mage Armor",
+            "level": 1,
+            "type": "Abjuration",
+            "effect": "Sets base AC to 13 + Dexterity modifier",
+            "classes": [
+                "Sorcerer",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Dispel Magic",
+            "level": 3,
+            "type": "Abjuration",
+            "effect": "Ends spells of 3rd level or lower",
+            "classes": [
+                "Bard",
+                "Cleric",
+                "Druid",
+                "Paladin",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Counterspell",
+            "level": 3,
+            "type": "Abjuration",
+            "effect": "Interrupts the casting of a spell",
+            "classes": [
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        }
+    ],
+    "weapons": [
+        {
+            "name": "Dagger",
+            "damage": "1d4",
+            "category": "Simple",
+            "type": "Piercing",
+            "ranged": "Thrown",
+            "classes": [
+                "Bard",
+                "Cleric",
+                "Druid",
+                "Fighter",
+                "Monk",
+                "Paladin",
+                "Ranger",
+                "Rogue",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Club",
+            "damage": "1d4",
+            "category": "Simple",
+            "type": "Bludgeoning",
+            "ranged": "Melee",
+            "classes": [
+                "Cleric",
+                "Druid",
+                "Fighter",
+                "Monk",
+                "Rogue",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Greatclub",
+            "damage": "1d8",
+            "category": "Simple",
+            "type": "Bludgeoning",
+            "ranged": "Melee",
+            "classes": [
+                "Barbarian",
+                "Fighter"
+            ]
+        },
+        {
+            "name": "Handaxe",
+            "damage": "1d6",
+            "category": "Simple",
+            "type": "Slashing",
+            "ranged": "Thrown",
+            "classes": [
+                "Barbarian",
+                "Bard",
+                "Cleric",
+                "Fighter",
+                "Monk",
+                "Paladin",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Javelin",
+            "damage": "1d6",
+            "category": "Simple",
+            "type": "Piercing",
+            "ranged": "Thrown",
+            "classes": [
+                "Barbarian",
+                "Bard",
+                "Cleric",
+                "Druid",
+                "Fighter",
+                "Monk",
+                "Paladin",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Light Hammer",
+            "damage": "1d4",
+            "category": "Simple",
+            "type": "Bludgeoning",
+            "ranged": "Thrown",
+            "classes": [
+                "Cleric",
+                "Fighter",
+                "Paladin",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Mace",
+            "damage": "1d6",
+            "category": "Simple",
+            "type": "Bludgeoning",
+            "ranged": "Melee",
+            "classes": [
+                "Cleric",
+                "Druid",
+                "Fighter",
+                "Paladin",
+                "Rogue",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Quarterstaff",
+            "damage": "1d6",
+            "category": "Simple",
+            "type": "Bludgeoning",
+            "ranged": "Melee",
+            "classes": [
+                "Cleric",
+                "Druid",
+                "Fighter",
+                "Monk",
+                "Rogue",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        },
+        {
+            "name": "Sickle",
+            "damage": "1d4",
+            "category": "Simple",
+            "type": "Slashing",
+            "ranged": "Melee",
+            "classes": [
+                "Druid",
+                "Fighter",
+                "Monk",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Spear",
+            "damage": "1d6",
+            "category": "Simple",
+            "type": "Piercing",
+            "ranged": "Thrown",
+            "classes": [
+                "Bard",
+                "Cleric",
+                "Druid",
+                "Fighter",
+                "Monk",
+                "Paladin",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Battleaxe",
+            "damage": "1d8",
+            "category": "Martial",
+            "type": "Slashing",
+            "ranged": "Melee",
+            "classes": [
+                "Barbarian",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Flail",
+            "damage": "1d8",
+            "category": "Martial",
+            "type": "Bludgeoning",
+            "ranged": "Melee",
+            "classes": [
+                "Cleric",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Glaive",
+            "damage": "1d10",
+            "category": "Martial",
+            "type": "Slashing",
+            "ranged": "Melee",
+            "classes": [
+                "Barbarian",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Greataxe",
+            "damage": "1d12",
+            "category": "Martial",
+            "type": "Slashing",
+            "ranged": "Melee",
+            "classes": [
+                "Barbarian",
+                "Fighter",
+                "Paladin"
+            ]
+        },
+        {
+            "name": "Greatsword",
+            "damage": "2d6",
+            "category": "Martial",
+            "type": "Slashing",
+            "ranged": "Melee",
+            "classes": [
+                "Barbarian",
+                "Fighter",
+                "Paladin"
+            ]
+        },
+        {
+            "name": "Halberd",
+            "damage": "1d10",
+            "category": "Martial",
+            "type": "Slashing",
+            "ranged": "Melee",
+            "classes": [
+                "Barbarian",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Lance",
+            "damage": "1d12",
+            "category": "Martial",
+            "type": "Piercing",
+            "ranged": "Melee",
+            "classes": [
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Longsword",
+            "damage": "1d8",
+            "category": "Martial",
+            "type": "Slashing",
+            "ranged": "Melee",
+            "classes": [
+                "Barbarian",
+                "Bard",
+                "Cleric",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Maul",
+            "damage": "2d6",
+            "category": "Martial",
+            "type": "Bludgeoning",
+            "ranged": "Melee",
+            "classes": [
+                "Barbarian",
+                "Fighter",
+                "Paladin"
+            ]
+        },
+        {
+            "name": "Morningstar",
+            "damage": "1d8",
+            "category": "Martial",
+            "type": "Bludgeoning",
+            "ranged": "Melee",
+            "classes": [
+                "Cleric",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Pike",
+            "damage": "1d10",
+            "category": "Martial",
+            "type": "Piercing",
+            "ranged": "Melee",
+            "classes": [
+                "Barbarian",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Rapier",
+            "damage": "1d8",
+            "category": "Martial",
+            "type": "Piercing",
+            "ranged": "Melee",
+            "classes": [
+                "Bard",
+                "Fighter",
+                "Paladin",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Scimitar",
+            "damage": "1d6",
+            "category": "Martial",
+            "type": "Slashing",
+            "ranged": "Melee",
+            "classes": [
+                "Bard",
+                "Druid",
+                "Fighter",
+                "Paladin",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Shortsword",
+            "damage": "1d6",
+            "category": "Martial",
+            "type": "Piercing",
+            "ranged": "Melee",
+            "classes": [
+                "Bard",
+                "Fighter",
+                "Monk",
+                "Paladin",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Trident",
+            "damage": "1d6",
+            "category": "Martial",
+            "type": "Piercing",
+            "ranged": "Thrown",
+            "classes": [
+                "Barbarian",
+                "Cleric",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "War Pick",
+            "damage": "1d8",
+            "category": "Martial",
+            "type": "Piercing",
+            "ranged": "Melee",
+            "classes": [
+                "Barbarian",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Warhammer",
+            "damage": "1d8",
+            "category": "Martial",
+            "type": "Bludgeoning",
+            "ranged": "Melee",
+            "classes": [
+                "Cleric",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Whip",
+            "damage": "1d4",
+            "category": "Martial",
+            "type": "Slashing",
+            "ranged": "Melee",
+            "classes": [
+                "Bard",
+                "Fighter",
+                "Paladin",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Blowgun",
+            "damage": "1",
+            "category": "Martial",
+            "type": "Piercing",
+            "ranged": "Ranged",
+            "classes": [
+                "Fighter",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Hand Crossbow",
+            "damage": "1d6",
+            "category": "Martial",
+            "type": "Piercing",
+            "ranged": "Ranged",
+            "classes": [
+                "Bard",
+                "Fighter",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Heavy Crossbow",
+            "damage": "1d10",
+            "category": "Martial",
+            "type": "Piercing",
+            "ranged": "Ranged",
+            "classes": [
+                "Fighter",
+                "Paladin",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Longbow",
+            "damage": "1d8",
+            "category": "Martial",
+            "type": "Piercing",
+            "ranged": "Ranged",
+            "classes": [
+                "Bard",
+                "Fighter",
+                "Paladin",
+                "Ranger"
+            ]
+        },
+        {
+            "name": "Shortbow",
+            "damage": "1d6",
+            "category": "Simple",
+            "type": "Piercing",
+            "ranged": "Ranged",
+            "classes": [
+                "Bard",
+                "Druid",
+                "Fighter",
+                "Monk",
+                "Ranger",
+                "Rogue"
+            ]
+        },
+        {
+            "name": "Sling",
+            "damage": "1d4",
+            "category": "Simple",
+            "type": "Bludgeoning",
+            "ranged": "Ranged",
+            "classes": [
+                "Bard",
+                "Cleric",
+                "Druid",
+                "Fighter",
+                "Rogue",
+                "Sorcerer",
+                "Warlock",
+                "Wizard"
+            ]
+        }
+    ],
+    "potions": [
+        {
+            "name": "Potion of Healing",
+            "description": "A magical potion that restores hit points.",
+            "effect": "2d4+2 healing"
+        },
+        {
+            "name": "Potion of Greater Healing",
+            "description": "A more powerful potion that restores hit points.",
+            "effect": "4d4+4 healing"
+        },
+        {
+            "name": "Potion of Superior Healing",
+            "description": "An even more potent potion that restores hit points.",
+            "effect": "8d4+8 healing"
+        },
+        {
+            "name": "Potion of Supreme Healing",
+            "description": "The most powerful healing potion available.",
+            "effect": "10d4+20 healing"
+        },
+        {
+            "name": "Potion of Invisibility",
+            "description": "A potion that makes the drinker invisible.",
+            "effect": "grants invisibility for 1 hour"
+        },
+        {
+            "name": "Potion of Speed",
+            "description": "A potion that increases the drinker's speed.",
+            "effect": "grants Haste for 1 minute"
+        },
+        {
+            "name": "Potion of Fire Resistance",
+            "description": "A potion that provides resistance to fire damage.",
+            "effect": "grants fire resistance for 1 hour"
+        },
+        {
+            "name": "Potion of Cold Resistance",
+            "description": "A potion that provides resistance to cold damage.",
+            "effect": "grants cold resistance for 1 hour"
+        },
+        {
+            "name": "Potion of Acid Resistance",
+            "description": "A potion that provides resistance to acid damage.",
+            "effect": "grants acid resistance for 1 hour"
+        },
+        {
+            "name": "Potion of Lightning Resistance",
+            "description": "A potion that provides resistance to lightning damage.",
+            "effect": "grants lightning resistance for 1 hour"
+        },
+        {
+            "name": "Potion of Poison Resistance",
+            "description": "A potion that provides resistance to poison damage.",
+            "effect": "grants poison resistance for 1 hour"
+        },
+        {
+            "name": "Potion of Water Breathing",
+            "description": "A potion that allows the drinker to breathe underwater.",
+            "effect": "grants water breathing for 1 hour"
+        },
+        {
+            "name": "Potion of Climbing",
+            "description": "A potion that grants the drinker the ability to climb more easily.",
+            "effect": "grants climbing speed equal to walking speed for 1 hour"
+        },
+        {
+            "name": "Potion of Flying",
+            "description": "A potion that grants the drinker the power of flight.",
+            "effect": "grants a flying speed of 60 feet for 1 hour"
+        },
+        {
+            "name": "Potion of Heroism",
+            "description": "A potion that grants the drinker temporary bravery and vitality.",
+            "effect": "grants 10 temporary hit points and immunity to fear for 1 hour"
+        },
+        {
+            "name": "Potion of Longevity",
+            "description": "A potion that reduces the drinker's age.",
+            "effect": "reduces age by 1d6+6 years, to a minimum of 13 years"
+        },
+        {
+            "name": "Potion of Animal Friendship",
+            "description": "A potion that makes animals friendly toward the drinker.",
+            "effect": "animals within 30 feet must succeed on a Wisdom saving throw or be charmed for 24 hours"
+        },
+        {
+            "name": "Potion of Gaseous Form",
+            "description": "A potion that transforms the drinker into a cloud of mist.",
+            "effect": "grants the Gaseous Form spell effect for 1 hour"
+        },
+        {
+            "name": "Potion of Giant Strength",
+            "description": "A potion that grants the drinker the strength of a giant.",
+            "effect": "increases Strength score to match a specific type of giant for 1 hour"
+        },
+        {
+            "name": "Potion of Diminution",
+            "description": "A potion that shrinks the drinker to a smaller size.",
+            "effect": "grants the Reduce effect of the Enlarge/Reduce spell for 1d4 hours"
+        },
+        {
+            "name": "Potion of Growth",
+            "description": "A potion that enlarges the drinker to a larger size.",
+            "effect": "grants the Enlarge effect of the Enlarge/Reduce spell for 1d4 hours"
+        }
+    ],
+    "scrolls": [
+        {
+            "name": "Scroll of Fireball",
+            "description": "A scroll containing the Fireball spell.",
+            "effect": "casts Fireball spell when read"
+        },
+        {
+            "name": "Scroll of Lightning Bolt",
+            "description": "A scroll containing the Lightning Bolt spell.",
+            "effect": "casts Lightning Bolt spell when read"
+        },
+        {
+            "name": "Scroll of Cure Wounds",
+            "description": "A scroll containing the Cure Wounds spell.",
+            "effect": "casts Cure Wounds spell when read"
+        },
+        {
+            "name": "Scroll of Protection",
+            "description": "A scroll that provides a protective barrier when read.",
+            "effect": "creates a 10-foot-radius barrier that blocks specified creatures for 5 minutes"
+        },
+        {
+            "name": "Scroll of Silence",
+            "description": "A scroll containing the Silence spell.",
+            "effect": "casts Silence spell when read"
+        },
+        {
+            "name": "Scroll of Teleportation",
+            "description": "A scroll containing the Teleport spell.",
+            "effect": "casts Teleport spell when read"
+        }
+    ]
+}
