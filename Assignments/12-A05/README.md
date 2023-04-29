@@ -44,7 +44,7 @@ When designing classes with the OOP mindset, you should follow a few principles 
 |   Druid   |   Monk   | Paladin | Ranger |
 |   Rogue   | Sorcerer | Warlock | Wizard |
 
-It's answer: 
+It's answer:
 
 ---
 
@@ -60,7 +60,7 @@ It's answer:
 
 I think these could help create classes that used inheritance, especially the first or second options.
 
-## Starting UML 
+## Starting UML
 
 The previous section is to help your thoughts when dealing with character classes, however when you begin creating a UML design for a game similar to D&D you should start by identifying the `main components` of your system and their relationships. This means think much bigger and beyond characters. Here is a step-by-step process to help you get started.
 
@@ -118,7 +118,6 @@ Begin creating UML diagrams to visualize the structure and behavior of your syst
 
 #### Class Diagram
 
-
 Show the classes, their attributes and methods, and the relationships between them. **(This is the main one I am worried about for this assignment)**
 
 #### Sequence Diagram
@@ -128,7 +127,6 @@ Illustrate how different objects in your system interact with each other during 
 #### Use Case Diagram
 
 Depict the high-level interactions between users (players, game masters) and the system.
-
 
 ### Iterate and refine
 
@@ -180,7 +178,6 @@ Hmmmm.... A Character and Monster seem a lot alike! What can we do about that?!?
 - When a `Character` wins (loses) a battle their HitPoints (and other stats) are affected (positively or negatively).
 - A `GameMaster` must apply current situation to all `Characters` using pre-determined probabilities and random number generation.
 
-
 #### Text
 
 - Has a Font (can change)
@@ -203,9 +200,9 @@ One way is to use UML to visually model your classes using UML. This is where we
 
 You can use LucidChart to do your diagrams, or you can use [Diagrams.net](https://app.diagrams.net/) to make your diagrams. LucidChart is free to some extent, but it makes you create an account where [Diagrams.net](https://app.diagrams.net/) does not (I think you need a gmail address, which most of you have).
 
-<img src="images/draw.io.step1" width="250">
+<img src="images/draw.io.step1.png" width="250">
 
-<img src="images/draw.io.step2" width="250">
+<img src="images/draw.io.step2.png" width="250">
 
 ### Example Document
 
@@ -268,7 +265,6 @@ Would result in:
 - There is an extension called `Markdown PDF` that will convert markdown files to PDF's to assist in printing.
 - There are also extensions to print from Vscode. Just search for "Print" in extensions.
 - Don't forget your banner (cover page).
-
 
 ```
 A05
