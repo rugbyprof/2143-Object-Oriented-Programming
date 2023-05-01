@@ -23,7 +23,7 @@ https://msutexas-edu.zoom.us/j/9403974439
   - __Easter__ Wednesday April 5<sup>th</sup> - Friday April 7<sup>th</sup> 
 - [__Last Day for “W”:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2223.pdf)  Monday March 27<sup>th</sup>
 - [__Last Day of Class:__](https://msutexas.edu/registrar/_assets/files/pdfs/acadcal2223.pdf) Friday May 5<sup>th</sup>
-- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/spring23finals.pdf) Wednesday May 10<sup>th</sup> from 10:30 am - 12:30 pm
+- [__Final Exam:__](https://msutexas.edu/registrar/_assets/files/pdfs/spring23finals.pdf) Thursday May 11<sup>th</sup> from 1:00 am - 3:00 pm
 
 ## Course Topics
 
