@@ -33,7 +33,7 @@ progress=Progress(
 task = progress.add_task("[cyan]Downloading...", total=100)
 
 with Live(progress, refresh_per_second=10):
-    while not overall_progress.finished:
+    for value in range(100, -1, -1):
         sleep(0.1)
         for job in job_progress.tasks:
             if not job.finished:

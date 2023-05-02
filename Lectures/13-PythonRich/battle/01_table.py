@@ -101,11 +101,6 @@ class LiveData:
             f"{defender.name}",
         )
 
-        # for row in range(random.randint(2, 6)):
-        #     value = random.random() * 100
-        #     table.add_row(
-        #         f"{row}", f"{value:3.2f}", "[red]ERROR" if value < 50 else "[green]SUCCESS"
-        #     )
         return self.table
         
 
