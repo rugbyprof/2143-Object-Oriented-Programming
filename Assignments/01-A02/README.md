@@ -1,11 +1,14 @@
 ## Assignment 2 - Code Repository
-#### Due: 01-24-2023 (Tuesday @ 2:00 p.m.)
 
-The 1 way communication is you communicating with me and others with the descriptions and instructions you push to your Github repo. This file provides the instructions that will help you format each assignments README file so they are consistent and informative. I discuss README's below.  Remember this file as a reference for turning in all of your assignments.
+#### Due: 09-02-2024 (Monday @ classtime)
+
+> **(Yes I know it's a holiday)**
+
+The 1 way communication is you communicating with me and others with the descriptions and instructions you push to your Github repo. This file provides the instructions that will help you format each assignments README file so they are consistent and informative. I discuss README's below. Remember this file as a reference for turning in all of your assignments.
 
 ## Github
 
-<img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/github_2020.png" width="150">
+<img src="https://images2.imgbox.com/f6/ef/TN71JNV8_o.png" width="100">
 
 If you have had me before, and this seems **TL;DR** make sure you:
 
@@ -26,12 +29,12 @@ Don't let the following definitions scare you. We will use `git` and `Github` at
 
 However lets define it:
 
->`Git` is a distributed revision control and source code management (SCM) system with an emphasis on speed,data integrity,and support for distributed, non-linear workflows. Git was initially designed and developed by Linus Torvalds for Linux kernel development in 2005, and has since become the most widely adopted version control system for software development.<br><br>
-As with most other distributed revision control systems, and unlike most client–server systems, every Git working directory is a full-fledged repository with complete history and full version-tracking capabilities, independent of network access or a central server. Like the Linux kernel, Git is free software distributed under the terms of the GNU General Public License  [[1]](http://en.wikipedia.org/wiki/Git_(software)).
+> `Git` is a distributed revision control and source code management (SCM) system with an emphasis on speed,data integrity,and support for distributed, non-linear workflows. Git was initially designed and developed by Linus Torvalds for Linux kernel development in 2005, and has since become the most widely adopted version control system for software development.<br><br>
+> As with most other distributed revision control systems, and unlike most client–server systems, every Git working directory is a full-fledged repository with complete history and full version-tracking capabilities, independent of network access or a central server. Like the Linux kernel, Git is free software distributed under the terms of the GNU General Public License [[1]](http://en.wikipedia.org/wiki/Git_(software)).
 
 So, `Git` is **distributed revision control system** (version control). This is just a fancy way of letting us manage our code. In fact, I really only want to use git so you can `push` our code to a repository that I can access so I can download and run your code. `Github` is such a place.
 
->`Github` is a social site that allows programmers to share code with other programmers. It's also a great place to discover projects to work on, discover code to use in your own projects, and a great place to start a portfolio. Whereas `Git` is simply the revision control system that can be installed anywhere, and only used locally if that's the users choice.
+> `Github` is a social site that allows programmers to share code with other programmers. It's also a great place to discover projects to work on, discover code to use in your own projects, and a great place to start a portfolio. Whereas `Git` is simply the revision control system that can be installed anywhere, and only used locally if that's the users choice.
 
 Remember though: `Git != Github`, Git does version control, but has commands built in to `push` your code to a repository on another computer. This other computer that we will use is `Github`.
 
@@ -42,13 +45,14 @@ I use Github as a home-base for all assignments, lectures, and resources. It's b
 #### Create a Github account.
 
 - You shouldn't need this tutorial, but just in case:
-   - https://www.wikihow.com/Create-an-Account-on-Github
+
+  - https://www.wikihow.com/Create-an-Account-on-Github
 
 - When you create a Github account, you must choose a `username`.
 - This is very important to remember, because you will update the class roster with this username so I know where to find all your assignments.
 - Create a repository named:
-    - `2143-OOP-yourlastname` 
-    - replace the `yourlastname` with your last name to make it unique.
+  - `4883-Prog-Tech`
+  - If the it won't let you use the above repo name with the section, then add your name at the end to make it unique (like `4883-Prog-Tech-Gumby` ).
 - Check the box that says: "Add a README.md file"
 - The repo name is important! I have scripts that build a URL with your github username and the repo name above. If you don't follow naming conventions, it means your stuff will not be graded or counted late.
 
@@ -57,31 +61,43 @@ I use Github as a home-base for all assignments, lectures, and resources. It's b
 - A readme file is a file that gets displayed when you are viewing a folder on Github. So we place a README.md in the repo's folder so we can display information about the repo. Likewise, any README.md in a folder is used to display information about the folder it is in.
 - Edit the readme file on Github and place your contact information inside along with a picture of YOU. NOT an avatar. NOT a thumbnail. But an easily identifiable picture of you.
 - Your readme should include:
-    - Your first and last name
-    - Your email address
-    - Your website (if you have one)
-    - Your image
-    - Slack / Github avatar
-
+  - Your first and last name
+  - Your email address
+  - Your website (if you have one)
+  - Your image
+  - Slack / Github avatar
 
 ## Example README.md
 
 If you're not familiar with `markdown` you can go [here](https://guides.Github.com/features/mastering-markdown/) to get an idea of what it can do for you. It's basically a simple syntax that you can use to format files. Use the template below to get your `README` started:
 
+### Markdown Input
+
 ```md
 ## Albert Einstein
-#### Repo: 2143 Object Oriented Repo
+
+#### Repo: 4883 Programming Techniques
+
 #### Email: albert.einstein@yahoo.com
+
 #### Website: https://en.wikipedia.org/wiki/Albert_Einstein
+
 #### Image:
-![Albert Einstein](https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/einstein.png)
+
+<img src="https://images2.imgbox.com/b3/d5/09sLKh1N_o.png" width="200">
+
 #### Avatar:
-![Avatar](https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/einstein_avatar.png)
+
+<img src="https://images2.imgbox.com/ae/bd/tERTAGTL_o.png" width="75">
 ```
 
-***will result in*** (avatar not included in example)
+<!-- https://imgbox.com/mZjdjhIK
+https://imgbox.com/kXSbpB11
+https://imgbox.com/cbpg81dL -->
 
-<img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/einstein_out.png" width="300">
+|                           **Markdown Output**                           |
+| :---------------------------------------------------------------------: |
+| <img src="https://images2.imgbox.com/ff/76/5Wc9oOHg_o.png" width="500"> |
 
 ## Organizing Your Repo
 
@@ -89,25 +105,45 @@ If you're not familiar with `markdown` you can go [here](https://guides.Github.c
 - In the `Assignments` folder, create a `README.md` file that has the following in it:
 
 ```md
-##  Assignments Folder
+## Assignments
 
-|   #   | Folder Link | Assignment Description |
-| :---: | ----------- | ---------------------- |
-|       |             |                        |
+|  #  | Folder Link | Assignment Description |
+| :-: | ----------- | ---------------------- |
+|  0  | link 0      | description 0          |
 ```
 
 - This will be a table in the root of your folder that will eventually hold a link to each assignment uploaded to Github.
-- Your table will initially look very sad and empty like below:
+- Your table will initially look very worthless with this example filler data for a single row:
 
-
-<img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/assignments_table_1_4443_2020.png" width="300">
+|  #  | Folder Link | Assignment Description |
+| :-: | ----------- | ---------------------- |
+|  0  | link 0      | description 0          |
 
 ---
 
-But then it will improve as you add rows to the table which link to each project:
+But then it will improve as you add rows to the table which link to each of your projects. I will link to some of the resources in this repo as an example:
 
+#### Markdown
 
-<img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/assignments_table_2_4443_2020.png" width="300">
+```md
+|  #  | Folder Link                            | Assignment Description                               |
+| :-: | -------------------------------------- | ---------------------------------------------------- |
+|  1  | [A01](./FakeAssignments/A01/README.md) | [Show up to class ](./FakeAssignments/A01/README.md) |
+|  2  | [A02](./FakeAssignments/A02/README.md) | [Listen in class ](./FakeAssignments/A02/README.md)  |
+|  3  | [P01](./FakeAssignments/P01/README.md) | [Hello World ](./FakeAssignments/P01/README.md)      |
+|  1  | [P02](./FakeAssignments/P02/README.md) | [Hello Mars ](./FakeAssignments/P02/README.md)       |
+```
+
+---
+
+#### Resulting Table
+
+|  #  | Folder Link                            | Assignment Description                               |
+| :-: | -------------------------------------- | ---------------------------------------------------- |
+|  1  | [A01](./FakeAssignments/A01/README.md) | [Show up to class ](./FakeAssignments/A01/README.md) |
+|  2  | [A02](./FakeAssignments/A02/README.md) | [Listen in class ](./FakeAssignments/A02/README.md)  |
+|  3  | [P01](./FakeAssignments/P01/README.md) | [Hello World ](./FakeAssignments/P01/README.md)      |
+|  1  | [P02](./FakeAssignments/P02/README.md) | [Hello Mars ](./FakeAssignments/P02/README.md)       |
 
 ---
 
@@ -115,40 +151,41 @@ But then it will improve as you add rows to the table which link to each project
 - But this is the structure that I expect your `Assignments` folder to follow. Any files outside of the `Assignments` folder are not any of my concern and you can organize as you see fit.
 
 ### Example Repo Directory Structure
+
 ```
 .
-└── 2143-OOP-YourName               (main repo folder)
+└── 5143-Opsys-xxx               (main repo folder)
     ├── Assignments                 (assignments folder)
-    │   ├── A01                     (single assignment folder)
-    │   │   ├── README.md           (assignment readme)
-    │   │   ├── code_file_1.cpp     (assignment files)
-    │   │   ├── code_file_2.cpp
-    │   │   └── code_file_x.hpp
-    │   ├── A02
-    │   │   ├── README.md
-    │   │   ├── code_file_1.cpp
-    │   │   ├── code_file_2.h
-    │   │   └── code_file_x.cpp
-    │   ├── AXX
-    │   │   ├── README.md
-    │   │   ├── code_file_1.cpp
-    │   │   ├── code_file_2.hpp
-    │   │   └── code_file_x.cpp
-    │   ├── P01
-    │   │   ├── README.md
-    │   │   ├── code_file_1.cpp
-    │   │   ├── code_file_2.cpp
-    │   │   └── code_file_x.cpp
-    │   ├── P02
-    │   │   ├── README.md
-    │   │   ├── code_file_1.cpp
-    │   │   ├── code_file_2.cpp
-    │   │   └── code_file_x.cpp
-    │   ├── PXX
-    │   │   ├── README.md
-    │   │   ├── code_file_1.cpp
-    │   │   ├── code_file_2.cpp
-    │   │   └── code_file_x.cpp
+    │   ├── A01                     (single assignment folder)
+    │   │   ├── README.md           (assignment readme)
+    │   │   ├── code_file_1.cpp     (assignment files)
+    │   │   ├── code_file_2.cpp
+    │   │   └── code_file_x.hpp
+    │   ├── A02
+    │   │   ├── README.md
+    │   │   ├── code_file_1.cpp
+    │   │   ├── code_file_2.h
+    │   │   └── code_file_x.cpp
+    │   ├── AXX
+    │   │   ├── README.md
+    │   │   ├── code_file_1.cpp
+    │   │   ├── code_file_2.hpp
+    │   │   └── code_file_x.cpp
+    │   ├── P01
+    │   │   ├── README.md
+    │   │   ├── code_file_1.cpp
+    │   │   ├── code_file_2.cpp
+    │   │   └── code_file_x.cpp
+    │   ├── P02
+    │   │   ├── README.md
+    │   │   ├── code_file_1.cpp
+    │   │   ├── code_file_2.cpp
+    │   │   └── code_file_x.cpp
+    │   ├── PXX
+    │   │   ├── README.md
+    │   │   ├── code_file_1.cpp
+    │   │   ├── code_file_2.cpp
+    │   │   └── code_file_x.cpp
     |   └── README.md               (this is the assignments folder readme)
     └── README.md                   (this is your main repo readme)
 
@@ -162,7 +199,7 @@ Every single folder on your repo should contain a `README.md`. This is because w
 
 ## README's For Assignments
 
-More [HERE](../../Resources/02-Readmees/README.md)
+More [HERE](../../Resources/03-Readmees/README.md)
 
 We will use the README's that you will create in every assignment folder to do the following:
 
@@ -191,7 +228,6 @@ We will use the README's that you will create in every assignment folder to do t
     - Example: You called your data file **"data.txt"** and use: `open("data.txt")` I called my file **"data.dat"** and now your program crashes.
     - Solution: Read in the filename when the user runs your program, so you get the proper local name ( I will discuss in class argv or command line params)
 
-
 ## Example Assignment README
 
 ```
@@ -207,8 +243,8 @@ biltong filet mignon. Shoulder chislic ground round pork burgdoggen hamburger.
 
 ### Files
 
-|   #   | File            | Description                                        |
-| :---: | --------------- | -------------------------------------------------- |
+|   #   | File             | Description                                        |
+| :---: | ---------------- | -------------------------------------------------- |
 |   1   | Main.cpp         | Main driver of my project that launches game.      |
 |   2   | HelperClass.cpp  | Helper class that holds movement functions         |
 |   3   | TextureClass.cpp | Helper class that assists with textures and images |
@@ -235,5 +271,3 @@ biltong filet mignon. Shoulder chislic ground round pork burgdoggen hamburger.
 The above markdown will produce a README that looks like:
 
 <img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/assignmet_readme_example_2020.png" width="600">
-
-

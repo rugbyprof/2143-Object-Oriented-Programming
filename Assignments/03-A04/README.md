@@ -1,8 +1,8 @@
 ## Assignment 4 - Basic OOP terminology
-#### Due: 05-02-2023 (Tuesday @ 2:00 p.m.)
+
+#### Due: 12-06-2024 (Last Day of Class)
 
 I want you to start your own OOP primer that provides definitions and examples of all of the OOP concepts you see below (plus a few more I'm sure).
-
 
 ### Minimum List of Key Words and Concepts
 
@@ -29,18 +29,18 @@ I want you to start your own OOP primer that provides definitions and examples o
 ### What to turn in:
 
 - To get a maximum score of 80, you can do the following:
+
   - Create a folder in your assignments folder called `OOP_Primer`
   - In that folder create a file called `README.md`
   - Each definition will be a section in your document and should include images and especially code examples when appropriate.
   - Place your definitions in a file similar to [THIS](example.md)
   - Help can be found in the resources below.
 
-
 - To get a shot at full credit (100), you do the following:
   - Create a wiki for your `OOP primer`.
   - Each definition will be a page in your wiki to include images and especially code examples when appropriate.
   - Wikis are automatically a part of every repo and use the same markdown to create pages in them.
-  - They simply add the ability to add additional organizing features (headers, footers, sidebar menus,etc.) 
+  - They simply add the ability to add additional organizing features (headers, footers, sidebar menus,etc.)
   - You can even turn your a repo or wiki into a website using [Github Pages](https://pages.github.com/) (not necessary for assignment).
 
 ### Resources
