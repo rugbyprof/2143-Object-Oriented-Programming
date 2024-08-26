@@ -1,9 +1,0 @@
-digraph BST {
-    node [shape=record];
-    11 
-    7 [color="red"];
-    23 [color="purple"]
-    11 -> { 7,23 };
-    7 -> { 3,9 } [color="green"];
-    23 -> { 13, 51 } [color="red"];
-}
