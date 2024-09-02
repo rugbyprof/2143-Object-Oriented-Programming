@@ -1,6 +1,6 @@
 ## Assignment 1 - Establishing Comms
 
-#### Due: 08-30-2024 (Friday @ classtime)
+#### Due: 09-04-2024 (Wednesday @ ClassTime)
 
 ## Getting Setup
 
