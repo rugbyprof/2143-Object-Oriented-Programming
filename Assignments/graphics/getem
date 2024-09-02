@@ -1,7 +1,0 @@
-
-wget --no-check-certificate https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein.png
-wget --no-check-certificate https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein_avatar.png
-wget --no-check-certificate https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/einstein_out.png
-wget --no-check-certificate https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/assignments_table_1_4443_2020.png
-wget --no-check-certificate https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/assignments_table_2_4443_2020.png
-wget --no-check-certificate https://cs.msutexas.edu/~griffin/zcloud/zcloud-files/assignmet_readme_example_2020.png

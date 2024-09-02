@@ -1,6 +1,6 @@
 ## Assignment 2 - Code Repository
 
-#### Due: 09-02-2024 (Monday @ classtime)
+#### Due: 09-04-2024 (Wednesday @ ClassTime)
 
 > **(Yes I know it's a holiday)**
 
@@ -271,3 +271,25 @@ biltong filet mignon. Shoulder chislic ground round pork burgdoggen hamburger.
 The above markdown will produce a README that looks like:
 
 <img src="https://raw.githubusercontent.com/rugbyprof/5443-2D-Gaming/main/Assignments/graphics/assignmet_readme_example_2020.png" width="600">
+
+## Displaying an Image
+
+The simplest way to add an image to your `README.md` file is to place said image in the same place as the README.md file. If you do this, then you can simply link to it in one of two ways. Let's assume my image is called: `MugShot.png` then I can do the following:
+
+| **1.** `![Alt Txt](MugShot.png)` |
+| :------------------------------: |
+|     ![Alt Txt](MugShot.jpg)      |
+|        **Original Size**         |
+
+| **2.** `<img src=MugShot.jpg width=150>` |
+| :--------------------------------------: |
+|     <img src=MugShot.jpg width=150>      |
+|          **Width Set to 150px**          |
+
+These both work, with the second option giving you a little more control on sizing the image.
+
+The image below was uploaded to a free service called img box (https://imgbox.com/) which allows me to keep all my images in one place and not have to place them in my repository's. It's really just ones preference in how or where they keep their images.
+
+| **3.** `<img src="https://images2.imgbox.com/69/ed/bUCkBWpD_o.png" width=200>` |
+| :----------------------------------------------------------------------------: |
+|     <img src="https://images2.imgbox.com/69/ed/bUCkBWpD_o.png" width=200>      |
