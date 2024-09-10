@@ -65,3 +65,9 @@ Here are a few alternatives to Replit that meet your requirements:
 - Cost: Free plan with limitations; cheaper premium plans compared to Replit.
 
 [Visit CodeSandbox](https://codesandbox.io)
+
+
+I will be leading a group of students to generate a mobile app for a local amateur bike race. I will list the general requirements soon, but I also need help delegating work to the different groups as well as how to determine when someone might benefit switching groups. From a students standpoint, I don't feel its fair to work on a mobile app, and get stuck on all SQL query's (unless they choose to do so).
+
+I will have from 5 - 8 students working on all the different components (of which I don't know yet) to get the app to some release mode a year from this week. 
+
