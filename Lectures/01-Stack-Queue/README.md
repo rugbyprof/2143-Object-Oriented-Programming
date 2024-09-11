@@ -1,4 +1,4 @@
-## Overview of Array-Based Data Structures vs. List-Based Data Structures
+## Arrays Lists Stacks & Queues
 
 #### Due: NA
 

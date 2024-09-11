@@ -9,6 +9,6 @@
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/06-OOP_Articles">06-OOP_Articles</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/06-OOP_Articles"> OOP Articles</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/06-OOP_Articles"> Not Everyone Likes OOP</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/06-OOP_Articles">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/06-OOP_Articles"> NA</a>*** |  |
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/images">images</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/images"> Placeholder Readme </a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/images"> No Description</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/images">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Resources/images">N/A</a>*** |  |
 
-<sup>Last Updated: 2024-09-11 (Wed @ 05:21)</sup> 
+<sup>Last Updated: 2024-09-11 (Wed @ 05:23)</sup> 
 
 <sup>***Days Left is only accurate if the `Last Updated` date is the same as todays date. Otherwise, use the due date!***</sup> 
