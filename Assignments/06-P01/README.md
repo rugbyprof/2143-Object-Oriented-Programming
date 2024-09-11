@@ -1,4 +1,4 @@
-## Assignment 5 - Fraction Class
+## Program 1 - Fraction Class
 
 #### Due: 09-18-2024 (Wednesday)
 
