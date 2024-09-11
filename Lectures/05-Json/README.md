@@ -1,4 +1,4 @@
-## JSON - Javascript Object Notation
+## JSON & C++ - Javascript Object Notation used in C++
 
 #### Due: NA
 
