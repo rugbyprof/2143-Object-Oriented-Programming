@@ -1,4 +1,4 @@
-## Vectors - Intro and Overview
+## Vectors - Introduction and Overview
 
 #### Due: NA
 

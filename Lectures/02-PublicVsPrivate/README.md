@@ -1,4 +1,4 @@
-## Public vs Private Methods in Object-Oriented Programming
+## Public vs Private - Intro to Access Control in OOP
 
 #### Due: NA
 
