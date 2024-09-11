@@ -2,6 +2,8 @@
 
 #### Due: 09-16-2024 (Monday the 16<sup>th</sup>)
 
+# NOT DONE!!
+
 ### Overview
 
 This assignment was insterted into the queue of assignments and bubbled up to be before program 01 because of its necessary for this and future programs (and the future of our planet and all life on earth). Your ability to use the shell cannot be underestimated. I'm not saying that understanding shell commands and running programs using the shell will save your life, or make you rich, but I'm pretty sure that everyone who started mining bit coin didn't use some "Mining Bitcoin for Beginners Gui". Just sayin...
