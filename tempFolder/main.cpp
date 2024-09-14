@@ -17,15 +17,6 @@ int main(int argc, char *argv[]) {
         n2 = f2[0] - '0';
         d2 = f2[2] - '0';
         cout << n1 << " " << d1 << " " << n2 << " " << d2 << endl;
-        if (op == "+") {
-            cout << n1 * d2 + n2 * d1 << "/" << d1 * d2 << endl;
-        } else if (op == "-") {
-            cout << n1 * d2 - n2 * d1 << "/" << d1 * d2 << endl;
-        } else if (op == "*") {
-            cout << n1 * n2 << "/" << d1 * d2 << endl;
-        } else if (op == "/") {
-            cout << n1 * d2 << "/" << d1 * n2 << endl;
-        }
     }
     return 0;
 }
