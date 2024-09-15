@@ -12,28 +12,9 @@
 
 ## Question Types
 
-There will be mostly multiple choice, whith a couple of short answer questions to show me you can write code. Maybe some matching if we get to a place where we have a lot of concepts with definitions to match up. But for now, I like to give you small code snippets and see what information you can gather from those snippets. So read the examples below to get an idea of what you will see. This next section is all about class parts: constructors, data members, methods, and public / private sections.
+There will be mostly multiple choice, with a couple of short answer questions to show me you can write code. Maybe some matching if we get to a place where we have a lot of concepts with definitions to match up, but not on this test. For now, my go to question is to give you small code snippets and see what information you can gather from those snippets.
 
-## Basic Definitions
-
-- There are 3 major concepts when we think about OOP. Encapsulation, Inheritance, and Polymorphism
-- I will give you my laymen definition of each, but will need to add to my definition for the exam.
-- Encapsulation: The packaging of data and methods together in the same construct which allows us to hide some of the inner goings on from the world.
-- Inheritance: Defining a set of classes in a hierarchical manner so that as we move down the hierarchy the classes below can re-use the data and methods from the classes above. And by adding or changing things in a small way we can quickly change the behavior of a lower class without lots of effort or code.
-- Polymorphism: Changing the behavior of a class by overloading or overriding methods from a class higher in the hierarchy to change the behavior of that higher class. Basically this means we can alter the behavior or adapt the behavior of a data type based on the context in which its used.
-
-### Others
-
-- class
-- data member
-- public
-- private
-- friend
-- overload
-- constructor
-- destructor
-- deep copy
-- shallow copy
+I have a few examples in the next section walking you through the aforementioned question style. The topic of the next section is all about classes: constructors, data members, methods, and public / private sections.
 
 ## Class Snippets
 
@@ -370,3 +351,26 @@ bool operator==(const Book& rhs){
 - When do we need a specialized destructor?
 - What is the "rule of three"
 - Be able to explain Deep Copy vs Shallow Copy and when you should write a method to handle copying.
+
+---
+
+## Basic Definitions
+
+- There are 3 major concepts when we think about OOP. Encapsulation, Inheritance, and Polymorphism
+- I will give you my laymen definition of each, but will need to add to my definition for the exam.
+- Encapsulation: The packaging of data and methods together in the same construct which allows us to hide some of the inner goings on from the world.
+- Inheritance: Defining a set of classes in a hierarchical manner so that as we move down the hierarchy the classes below can re-use the data and methods from the classes above. And by adding or changing things in a small way we can quickly change the behavior of a lower class without lots of effort or code.
+- Polymorphism: Changing the behavior of a class by overloading or overriding methods from a class higher in the hierarchy to change the behavior of that higher class. Basically this means we can alter the behavior or adapt the behavior of a data type based on the context in which its used.
+
+### Others
+
+- class
+- data member
+- public
+- private
+- friend
+- overload
+- constructor
+- destructor
+- deep copy
+- shallow copy
