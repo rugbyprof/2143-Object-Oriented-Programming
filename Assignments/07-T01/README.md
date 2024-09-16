@@ -81,12 +81,12 @@ public:
     string getAuthor();
     string getISBN();
     string getTitle();
-    void getPrice(float);
-    void getPages(int);
-    void getYear(int);
-    void getAuthor(string);
-    void getISBN(string);
-    void getTitle(string);
+    void setPrice(float);
+    void setPages(int);
+    void setYear(int);
+    void setAuthor(string);
+    void setISBN(string);
+    void setTitle(string);
 };
 ```
 
@@ -236,8 +236,8 @@ private:
 public:
   Point();
   Point(int,int);
-  Move(int,int);
-  Jump(int,int);
+  void Move(int,int);
+  void Jump(int,int);
 };
 ```
 
@@ -249,15 +249,18 @@ public:
 You write your implementation as if you were defining the method outside of the class definition using the scope resolution operator to tie the method to the class.
 
 ```cpp
-Point::Move(int _x,int _y){
+void Point::Move(int _x,int _y){
   x += _x;
   y += _y;
 }
 
-Point::Jump(int _x,int _y){
+void Point::Jump(int _x,int _y){
   x = _x;
   y = _y;
 }
+
+// Just a different syntax:
+void Point::Move(int x,int y): x{x},y{y}{}
 ```
 
 ---
