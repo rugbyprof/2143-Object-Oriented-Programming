@@ -204,7 +204,7 @@ public:
     // Constructors
     // There were multiple constructor signatures in the usage, but implementing these two
     Movie();
-    Movie(string , string , int , int );
+    Movie(bool, bool, string , string , int , int, int);
 
     // Getters and Setters
     bool getFranchise();
