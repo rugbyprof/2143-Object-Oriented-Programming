@@ -259,8 +259,6 @@ void Point::Jump(int _x,int _y){
   y = _y;
 }
 
-// Just a different syntax:
-void Point::Move(int x,int y): x{x},y{y}{}
 ```
 
 ---
