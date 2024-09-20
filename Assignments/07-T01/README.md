@@ -326,6 +326,31 @@ The point that gave us the biggest headache was point P1, of which the values ca
 ### Copy constructor vs Overloaded Assignment Operator?
 
 - Given a struct or class, overload a specified set of operators in order to compare or assign one item to another.
+```cpp
+LinkedList{
+  Node* head;
+public:
+  LinkedList(){
+    head = NULL;
+  }
+  // Copy Constructor
+  LinkedList(const LinkedList &other){
+     this->head = NULL
+     Node* travel = other.head;
+     while(travel){
+         Push(travel->data);
+     }
+  }
+  // ...
+  void Push(int x){
+     // adds a node to the LL with x in it.
+  }
+  LinkedList operator=(const LinkedList &other){
+    // 
+  }
+};
+```
+
 
 - Example: Overload the `==` to compare two books. Think about what makes a book unique. You could compare all the values in each book, but that would be overkill when a books ISBN is unique to that book. So comparing isbn's could determine the same book. **Don't confuse this with comparing to see if it's the same object.**
 
