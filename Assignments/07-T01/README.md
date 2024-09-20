@@ -333,6 +333,9 @@ public:
   LinkedList(){
     head = NULL;
   }
+  LinkedList(vector<int> v){
+     // builds list from v
+  }
   // Copy Constructor
   LinkedList(const LinkedList &other){
      this->head = NULL
@@ -349,14 +352,25 @@ public:
       if(this == &other)
           return *this;
       // otherwise create  a new list like in the copy constructor and return it.
+      //return the new list;
   }   
   ~LinkedList(){
       // iterate over each node and delete it.
   }
 };
+
+int main(){
+
+LinkedList A(vector<int>({3,5,7,8,12}));
+LinkedList B = A; // this invokes the copy constructor because B is a NEW object!
+LinkedList D(A);  // same as line above.
+LinkedList C(vector<int>({3,8,7,8,77}));
+A = A; // this would return *this because they are the same;
+A = C; // this invokes the assignment operator because neither are new objects.
+}
 ```
 
-
+### Testing Objects for Equality
 - Example: Overload the `==` to compare two books. Think about what makes a book unique. You could compare all the values in each book, but that would be overkill when a books ISBN is unique to that book. So comparing isbn's could determine the same book. **Don't confuse this with comparing to see if it's the same object.**
 
 ```cpp
