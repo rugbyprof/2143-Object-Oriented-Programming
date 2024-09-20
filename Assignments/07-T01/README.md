@@ -345,8 +345,13 @@ public:
   void Push(int x){
      // adds a node to the LL with x in it.
   }
-  LinkedList operator=(const LinkedList &other){
-    // 
+  LinkedList &operator=(const LinkedList &other){
+      if(this == &other)
+          return *this;
+      // otherwise create  a new list like in the copy constructor and return it.
+  }   
+  ~LinkedList(){
+      // iterate over each node and delete it.
   }
 };
 ```
