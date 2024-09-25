@@ -4,11 +4,14 @@ Rock Paper Scissors Lizard Spock is a variation of the classic game of Rock Pape
 
 **The rules of the game are as follows:**
 
-Rock beats Scissors and Lizard
-Paper beats Rock and Spock
-Scissors beats Paper and Lizard
-Lizard beats Paper and Spock
-Spock beats Rock and Scissors
+| Player   | Beats1   | Beats2   |
+| :------- | :------- | :------- |
+| Rock     | Scissors | Lizard   |
+| Paper    | Rock     | Spock    |
+| Scissors | Paper    | Lizard   |
+| Lizard   | Paper    | Spock    |
+| Spock    | Rock     | Scissors |
+
 The game is played in rounds, with players keeping score of how many rounds they have won. In each round, both players make their selection at the same time, and their choices are compared to determine the winner of that round. If both players choose the same option, the round is a tie and is played again until a winner is determined.
 
 For example, if Player 1 chooses Rock and Player 2 chooses Scissors, then Player 1 wins the round because Rock beats Scissors. If both players choose Lizard, the round is a tie and is played again.
