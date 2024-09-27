@@ -116,7 +116,3 @@ Here are some basic usage examples to illustrate the concepts:
    ```cpp
    myMap.erase(2);  // Removes the key-value pair with key 2
    ```
-
----
-
-This document provides a concise reference to `std::map` methods and functionality. Use it as a guide for managing associative key-value data in your C++ projects.
