@@ -6,7 +6,7 @@ Here are some vocabulary words. Some you know, others I will be discussing.
 
 ## Vocabulary List:
 
-1. **Base Class**: The class from which other classes inherit. Other names include:  `Parent` or a `Super` class.
+1. **Base Class**: The class from which other classes inherit. Other names include: `Parent` or a `Super` class.
 2. **Derived Class**: A class that inherits properties and behaviors from another class. Other names include: `Child` or `Sub` class.
 3. **Overloading**: Providing multiple definitions for the same function name, distinguished by parameter types or numbers.
 4. **Overriding**: Redefining a function in a derived class that was already defined in the base class, typically using the same function signature.
