@@ -226,3 +226,5 @@ If a method in the base class is `const`, any derived class override must also b
 - **`const`** in conjunction with `override` guarantees that the overriding method behaves similarly to the base class method by ensuring it cannot modify the object. If the base class method is `const`, the derived method must also be `const` to successfully override it.
 
 These features provide stronger compile-time guarantees, helping to avoid subtle bugs related to inheritance and method overriding.
+
+

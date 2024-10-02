@@ -62,7 +62,7 @@ person.set_age(35)
 
 In this example, **encapsulation** ensures that `name` and `age` cannot be arbitrarily changed without passing through validation (such as the check that `name` is not empty and `age` is positive).
 
-## Polymorphism 
+## Polymorphism
 
 **Polymorphism** is another key principle of object-oriented programming (OOP). It allows objects of different types to be treated as objects of a common base type, typically through the use of **inheritance** and **method overriding**. This feature provides the ability to define a unified interface for different underlying forms (data types), enabling more flexible and reusable code.
 
@@ -133,7 +133,7 @@ int main() {
 
 This C++ example highlights **runtime polymorphism** using virtual functions and method overriding, a powerful mechanism for creating flexible and reusable code.
 
-## Polymorphism 
+## Polymorphism
 
 Yes, you're correct in distinguishing between **static** (or compile-time) polymorphism and **dynamic** (or runtime) polymorphism in C++. The **`virtual`** keyword is only necessary for **dynamic polymorphism**, which involves **pointers** or **references** to base class types. Without pointers or references, C++ uses **static polymorphism**, which is determined at compile time.
 
@@ -558,7 +558,7 @@ class Bat : public Mammal, public Bird {
 
 Here, `Bat` inherits from both `Mammal` and `Bird`, which in turn both inherit from `Animal`. This results in `Bat` having two copies of the `Animal::eat()` method, causing ambiguity when trying to access `eat()`.
 
-### **Solving the Diamond Problem with Virtual Inheritance**:
+### Solving the Diamond Problem with Virtual Inheritance:
 
 To solve this, **virtual inheritance** is used to ensure that only one copy of the `Animal` class is inherited by `Bat`.
 
@@ -583,6 +583,126 @@ class Bat : public Mammal, public Bird {
 ```
 
 In this case, the `Mammal` and `Bird` classes use **virtual inheritance**, ensuring that `Bat` only has a single copy of the `Animal` class, avoiding the ambiguity of the diamond problem.
+
+## Or Does It?
+
+The ambiguity issue is common in **virtual inheritance** scenarios and is related to how the C++ compiler resolves method calls in a diamond inheritance structure.
+
+Let's break this down.
+
+### The Diamond Problem:
+
+When you use **virtual inheritance** in a diamond structure, such as:
+
+```
+    Animal
+     /  \
+  Mammal Bird
+     \  /
+     Bat
+```
+
+- **`Mammal`** and **`Bird`** both inherit from **`Animal`** using **virtual inheritance**.
+- **`Bat`** inherits from both **`Mammal`** and **`Bird`**.
+
+Without virtual inheritance, `Bat` would end up with **two copies of `Animal`**, one through `Mammal` and one through `Bird`, causing duplication of base class members.
+
+Virtual inheritance prevents this by ensuring that only **one shared instance** of the `Animal` class exists across the inheritance hierarchy. However, when a method like `eat()` is inherited from `Animal` by both `Mammal` and `Bird`, the compiler gets confused about which path to use (either via `Mammal` or via `Bird`).
+
+### Why the Ambiguity?
+
+Although virtual inheritance ensures there is only **one `Animal` instance**, the C++ compiler still cannot automatically decide which "route" to take through the inheritance hierarchy. Specifically, if a method from the base class (`eat()` in this case) is called, the compiler doesn't know if you intend to call the method via `Mammal` or via `Bird`.
+
+### Resolving the Ambiguity:
+
+You must **disambiguate** the method call by explicitly specifying that the method should be called from `Animal`, and not through `Mammal` or `Bird`.
+
+### Correcting the Code:
+
+To resolve this issue, you can either explicitly call the `eat()` method from `Animal`, or you can override the `eat()` method in the `Bat` class to clarify which method should be called.
+
+#### Solution 1: Explicit Call to `Animal::eat()`:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    void eat() {
+        cout << "Animal is eating" << endl;
+    }
+};
+
+class Mammal : virtual public Animal {
+};
+
+class Bird : virtual public Animal {
+};
+
+class Bat : public Mammal, public Bird {
+public:
+    void eat() {  // Override the eat method in Bat
+        Animal::eat();  // Explicitly call Animal's eat method
+    }
+};
+
+int main() {
+    Bat bat;
+    bat.eat();  // Calls Animal::eat()
+    return 0;
+}
+```
+
+### Explanation:
+
+- **Explicit Call to `Animal::eat()`**: By explicitly calling `Animal::eat()`, we remove the ambiguity. The `Bat` class now clearly states that it intends to call the `eat()` method from `Animal`.
+- **Virtual inheritance** ensures there is only one instance of `Animal`, and this instance is used regardless of whether `eat()` is accessed through `Mammal` or `Bird`.
+
+#### Solution 2: Overriding `eat()` in `Bat`:
+
+Alternatively, you can override the `eat()` method in `Bat`:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    virtual void eat() {
+        cout << "Animal is eating" << endl;
+    }
+};
+
+class Mammal : virtual public Animal {
+};
+
+class Bird : virtual public Animal {
+};
+
+class Bat : public Mammal, public Bird {
+public:
+    void eat() override {  // Override in Bat
+        cout << "Bat is eating" << endl;
+    }
+};
+
+int main() {
+    Bat bat;
+    bat.eat();  // Calls Bat's overridden eat() method
+    return 0;
+}
+```
+
+### Explanation:
+
+- **Override in `Bat`**: By overriding the `eat()` method in `Bat`, we completely avoid the ambiguity. Now, when you call `eat()` on a `Bat` object, it will use `Bat`'s version of the method.
+
+### Summary:
+
+- Virtual inheritance prevents multiple instances of the base class (`Animal`).
+- Ambiguity occurs when the compiler cannot decide which path to take to call a base class method.
+- The solution is to either explicitly call the base class method (`Animal::eat()`), or override the method in the derived class (`Bat`) to provide a clear implementation.
 
 ### Summary of Inheritance Types:
 
