@@ -698,6 +698,10 @@ int main() {
 
 - **Override in `Bat`**: By overriding the `eat()` method in `Bat`, we completely avoid the ambiguity. Now, when you call `eat()` on a `Bat` object, it will use `Bat`'s version of the method.
 
+#### Solution 3:
+
+Just avoid the diamond problem. It's the best solution, but not always possible, hence the previous two solutions.
+
 ### Summary:
 
 - Virtual inheritance prevents multiple instances of the base class (`Animal`).
