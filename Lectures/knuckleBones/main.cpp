@@ -103,14 +103,15 @@ int main() {
     refresh();        // Ensure the message stays on screen
     curs_set(FALSE);  // Hide the cursor
 
-    int start_y = 5, start_x = 10;
+    int dy1 = 5, dx1 = 10;
     int refresh_count = 2000;  // Set how many times you want to refresh
 
     // Shuffle dice faces for a set amount of time
     for (int i = 0; i < refresh_count; ++i) {
         int dice_value = rand() % 6 + 1;  // Random number between 1 and 6
         // No need to clear the whole screen, just refresh the dice window
-        draw_dice(start_y, start_x, dice_value);
+        draw_dice(dy1, dx1, dice_value);
+        draw_dice(dy1, dx1 + 50, dice_value);
         usleep(100000);  // 100ms delay for visual effect
     }
 
