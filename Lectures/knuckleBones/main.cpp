@@ -104,20 +104,23 @@ int main() {
     curs_set(FALSE);  // Hide the cursor
 
     int dy1 = 5, dx1 = 10;
-    int refresh_count = 2000;  // Set how many times you want to refresh
+    int dy2 = 5, dx2 = 20;
+    int refresh_count = 50;  // Set how many times you want to refresh
 
     // Shuffle dice faces for a set amount of time
     for (int i = 0; i < refresh_count; ++i) {
         int dice_value = rand() % 6 + 1;  // Random number between 1 and 6
         // No need to clear the whole screen, just refresh the dice window
         draw_dice(dy1, dx1, dice_value);
-        draw_dice(dy1, dx1 + 50, dice_value);
+        dice_value = rand() % 6 + 1;
+        draw_dice(dy2, dx2, dice_value);
         usleep(100000);  // 100ms delay for visual effect
     }
 
     // Show final dice face
     int final_dice_value = rand() % 6 + 1;
-    draw_dice(start_y, start_x, final_dice_value);
+    draw_dice(dy1, dx1, final_dice_value);
+    draw_dice(dy1, dx1 + 10, final_dice_value);
 
     // Refresh to show changes
     refresh();
