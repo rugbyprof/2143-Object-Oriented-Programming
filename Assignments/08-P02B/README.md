@@ -1,4 +1,4 @@
-## Program 2 - Electric Boogaloo
+## Program 2 - Knuckle Bones
 
 ### TBD
 
