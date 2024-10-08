@@ -1,4 +1,4 @@
-## Program 2 - Knuckle Bones
+## Program 2B - Knuckle Bones
 
 ### TBD
 
