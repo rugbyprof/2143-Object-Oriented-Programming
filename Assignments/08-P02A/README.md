@@ -68,8 +68,6 @@ To install **ncurses** on Windows 11 using **Windows Subsystem for Linux (WSL)**
 
    - You should see the text `Hello, World!` displayed in your terminal, and it will wait for you to press any key to exit.
 
----
-
 ### Explanation:
 
 - **`initscr()`**: Initializes the ncurses mode.
@@ -78,6 +76,9 @@ To install **ncurses** on Windows 11 using **Windows Subsystem for Linux (WSL)**
 - **`getch()`**: Waits for the user to press a key.
 - **`endwin()`**: Ends the ncurses mode and restores normal terminal behavior.
 
----
+## Deliverables
 
-Once you have run this test successfully, you should have `ncurses` installed and ready to use for more advanced terminal applications!
+- Create a folder called `P02A` and add a `README.md` to it.
+- Place a screenshot of your ncurses code running inside the README file.
+- Remember what [readmees](../../Resources/02-Readmees/README.md) should look like.
+- Upload this folder to your `Assignments` folder in Github.

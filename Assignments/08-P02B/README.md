@@ -1,12 +1,8 @@
-## Program 2B - Knuckle Bones
+## Program 2B - Class Design
 
-### TBD
+#### Due: 10-11-2024 (Friday)
 
-## Overview
-
-The game KnuckleBones, as featured in **"Cult of the Lamb"**, is a simple dice game that is played between two players on a 3x3 grid. The goal is to place dice on the grid and score more points than your opponent by following a few key rules. Here's a brief breakdown of the rules:
-
-### Basic Rules of KnuckleBones:
+## Basic Rules of KnuckleBones:
 
 1. **Two Players**: The game is played between two players, each with their own 3x3 grid.
 2. **Dice Rolling**: Each turn, a player rolls a six-sided die.
@@ -18,106 +14,100 @@ The game KnuckleBones, as featured in **"Cult of the Lamb"**, is a simple dice g
 5. **Opponent's Dice Removal**: If a player places a die in a column that matches one of their opponent's dice in the same column, the opponent's matching die is **removed** from their grid.
 6. **End of Game**: The game ends when all 9 spaces in both players' grids are filled. The player with the **highest score** wins.
 
-### Assignment:
+## Assignment: Class Design for "Knucklebones" Game
 
-Implement an version of Knucklebones in which the Ncurses library is used to control the output to the console screen. Your output should use various colors, be organized, and utilize the screen as if it were a game window. Where by game window I mean all sides in a way that the console looks like a game visualizing everything necessary to visualize game play while implementing the rules of knucklebones.
+### Objective:
+Design a set of classes for a digital version of the game **Knucklebones**. The goal of this assignment is to organize your ideas and determine the relationships between different components of the game, such as players, dice, and the game itself. You will also decide when to use **composition** and **inheritance**, keeping in mind the "IS-A" rule we discussed in class.
 
-# NOT DONE
+This is the **initial design phase**, where you’ll think through the actions, data, and organization for each class, breaking them down into **bulleted lists**. There is no need to create formal UML diagrams at this stage.
 
-<!--
-### Design Steps
+### Steps:
 
-1. **Define the 3x3 Grid for Each Player**:
-   - Use a 2D array (3x3) for each player to represent the grid where dice will be placed.
-2. **Dice Rolling**:
-   - Simulate the rolling of a six-sided die using a random number generator.
-3. **Dice Placement**:
-   - Allow the player to select a column to place the die.
-   - Stack the dice in the column and apply the multiplication rule if the dice match.
-4. **Opponent's Dice Removal**:
-   - If the placed die matches the value of an opponent's die in the same column, remove the opponent's die from the grid.
-5. **Scoring**:
-   - Calculate each player's score based on the sum of the dice in each column, applying the multiplication rule for matching dice.
-6. **Game End**:
-   - The game ends when both grids are full, and the program should declare the winner based on the total score.
+1. **Class Organization**:
+   For each class, create a **bulleted list** that outlines:
+   - The **data** that each class will store (attributes).
+   - The **actions** or methods each class will have.
+   - Any **relationships** to other classes (e.g., one class might use another, or inherit from another).
 
-### Example of Basic Code Structure (Python):
+2. **Inheritance vs. Composition**:
+   In your design, explain where you would use **inheritance** and where you would use **composition**. 
+   - Inheritance: Use when a class **IS-A** type of another class.
+   - Composition: Use when a class **HAS-A** relationship with another class.
 
-Here’s a simplified outline to get you started:
+   Examples:
+   - **Inheritance**: Knucklebones **IS-A** Game.
+   - **Composition**: A Player **HAS-A** Dice or a Knucklebones game **HAS-A** Player.
 
-```python
-import random
+3. **Suggested Class Template**:
+   Here are some suggested classes to help guide your design. You are welcome to expand on this, combine classes, or add others as you see fit:
 
-def roll_die():
-    return random.randint(1, 6)
+   - **Dice Class**: 
+     - Data: `sides`, `current_value`
+     - Actions: `roll()`, `get_value()`
+     - Relationships: Dice will be used by the Player to roll during the game.
+   
+   - **Player Class**:
+     - Data: `name`, `score`, `dice_set`, `player_stats`
+     - Actions: `roll_dice()`, `get_score()`, `update_score()`
+     - Relationships: Each player has a set of dice and participates in the game.
+   
+   - **Game Class**:
+     - Data: `players`, `rules`, `current_round`
+     - Actions: `start_game()`, `end_game()`, `get_winner()`
+     - Relationships: The Game class controls the players and their actions.
 
-def print_grid(grid):
-    for row in grid:
-        print(row)
+   - **Knucklebones Class**:
+     - Data: `board`, `knucklebones_specific_rules`
+     - Actions: `start_round()`, `end_round()`, `calculate_winner()`
+     - Relationships: Inherits from Game, as Knucklebones **is a** game with specific rules and conditions.
 
-def place_die(grid, die, column):
-    for row in range(2, -1, -1):  # Place the die in the first available spot in the column
-        if grid[row][column] == 0:
-            grid[row][column] = die
-            break
+4. **Keywords and Feature List**:
+   Below are some **keywords** that we brainstormed in class. Categorize them into three labels: **necessary**, **possible**, or **wishful**, based on your design. Feel free to add more items that you think could be part of your Knucklebones game design:
 
-def calculate_score(grid):
-    score = 0
-    for col in range(3):
-        col_values = [grid[row][col] for row in range(3) if grid[row][col] != 0]
-        if len(col_values) > 1 and len(set(col_values)) == 1:  # Multiplication bonus
-            score += col_values[0] * len(col_values)
-        else:
-            score += sum(col_values)
-    return score
+   - chat
+   - coins
+   - first name
+   - high score
+   - last name
+   - leaderboard
+   - levels
+   - messaging
+   - player stats
+   - score
+   - streak
+   - team stats
+   - teams
+   - userid
+   - winner
 
-def knucklebones_game():
-    player1_grid = [[0 for _ in range(3)] for _ in range(3)]
-    player2_grid = [[0 for _ in range(3)] for _ in range(3)]
+   Add **any other features** you think would be valuable or interesting to include in your version of the game. Consider whether they are necessary for a basic version or features you might add if you had more time and resources.
 
-    current_player = 1
 
-    while True:
-        if current_player == 1:
-            die = roll_die()
-            print(f"Player 1 rolls: {die}")
-            col = int(input("Choose a column to place your die (0, 1, 2): "))
-            place_die(player1_grid, die, col)
-            current_player = 2
-        else:
-            die = roll_die()
-            print(f"Player 2 rolls: {die}")
-            col = int(input("Choose a column to place your die (0, 1, 2): "))
-            place_die(player2_grid, die, col)
-            current_player = 1
+### Example of Class Design Outline:
 
-        print("Player 1 Grid:")
-        print_grid(player1_grid)
-        print("Player 2 Grid:")
-        print_grid(player2_grid)
+**Player Class**:
+- **Data**:
+  - `name`
+  - `score`
+  - `dice_set`: Array of Dice objects
+  - `player_stats`
+  
+- **Actions**:
+  - `roll_dice()`: Roll the dice for the player.
+  - `get_score()`: Retrieve the current score.
+  - `update_score(points)`: Update the player’s score after each roll.
 
-        # Scoring logic and game end condition goes here (when all slots are filled)
-        if all(all(cell != 0 for cell in row) for row in player1_grid + player2_grid):
-            print("Game Over!")
-            p1_score = calculate_score(player1_grid)
-            p2_score = calculate_score(player2_grid)
-            print(f"Player 1 Score: {p1_score}")
-            print(f"Player 2 Score: {p2_score}")
-            if p1_score > p2_score:
-                print("Player 1 Wins!")
-            elif p1_score < p2_score:
-                print("Player 2 Wins!")
-            else:
-                print("It's a tie!")
-            break
+- **Relationships**:
+  - A Player **HAS-A** Dice (composition).
+  - A Player **IS-A** participant in the game.
 
-knucklebones_game()
-```
+### Submission:
+- Provide your **bulleted lists** for each class.
+- Label the keywords with **necessary**, **possible**, or **wishful**.
+- Explain where you are using **inheritance** and **composition** in your class design.
 
-### Additional Features for Advanced Students:
+## Deliverables
 
-- Add a graphical user interface (GUI) using a library like `Tkinter` or `pygame`.
-- Include AI to play against a computer opponent.
-- Implement a more complex scoring system or variation of the game’s rules.
-
-This game is simple but involves important concepts like **random number generation**, **arrays**, **conditional logic**, and **loops**, making it a great programming exercise. Let me know if you need further refinement for the assignment! -->
+- Create a folder called `P02B` and add a `README.md` to it.
+- Place your class design inside the readme. 
+- Upload this folder to your `Assignments` folder in Github.

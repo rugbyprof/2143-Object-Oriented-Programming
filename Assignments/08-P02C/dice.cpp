@@ -81,7 +81,7 @@ int main() {
 
     init_pair(1, COLOR_YELLOW, COLOR_BLACK);  // Text in red, background black
     init_pair(2, COLOR_BLUE, COLOR_BLACK);    // Text in blue, background black
-    init_pair(3, COLOR_GREEN, COLOR_YELLOW);  // Text in blue, background black
+    init_pair(3, COLOR_GREEN, COLOR_BLACK);  // Text in blue, background black
 
     // Enable Unicode support in ncurses
     if (!has_colors()) {

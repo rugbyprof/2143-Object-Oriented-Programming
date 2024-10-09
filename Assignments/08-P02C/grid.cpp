@@ -103,8 +103,7 @@ void draw_cell_bottom_line(WINDOW *win, int start_y, int start_x, int grid_width
  * @param cell_height The height of each cell
  *
  */
-void draw_cell_sides(WINDOW *win, int start_y, int start_x, int grid_width, int cell_width,
-                     int cell_height) {
+void draw_cell_sides(WINDOW *win, int start_y, int start_x, int grid_width, int cell_width, int cell_height) {
     for (int row = 0; row < cell_height; ++row) {
         // Move to the start of each row in the grid
         for (int col = 0; col <= grid_width; ++col) {
@@ -119,43 +118,82 @@ void draw_cell_sides(WINDOW *win, int start_y, int start_x, int grid_width, int 
  * height, and grid width. The grid is drawn starting at the specified
  * start_y and start_x coordinates.
  *
+ * @param start_y The starting y-coordinate of the grid
+ * @param start_x The starting x-coordinate of the grid
+ * @param cell_height The height of each cell
+ * @param cell_width The width of each cell
+ * @param grid_height The number of cells in the grid
+ * @param grid_width The number of cells in the grid
+ * @return void
  *
+ * draw_grid(1, 5, 1, 3, 3, 3);
  */
-void draw_grid(WINDOW *win, int start_y, int start_x, int cell_height, int cell_width,
-               int grid_height, int grid_width) {
-    int curr_y = start_y;
-    int curr_x = start_x;
-    draw_grid_top_line(win, curr_y, curr_x, grid_width, cell_width);
+void draw_grid(int start_y, int start_x, int cell_height, int cell_width, int grid_height, int grid_width) {
+    WINDOW *grid_win = newwin(cell_height * grid_height * 3, cell_width * grid_width * 3, start_y, start_x);
+
+    wattron(grid_win, COLOR_PAIR(1));  // Turn on color pair 2
+    box(grid_win, 0, 0);
+    wrefresh(grid_win);
+
+    refresh();
+    int curr_y = 1;
+    int curr_x = 1;
+    draw_grid_top_line(grid_win, 0, 0, grid_width, cell_width);
     for (int i = 0; i < grid_height; i++) {
         curr_y += 1;
-        draw_cell_sides(win, curr_y, start_x, grid_width, cell_width, cell_height);
+        draw_cell_sides(grid_win, curr_y, start_x, grid_width, cell_width, cell_height);
         curr_y += cell_height;
         if (i < grid_height - 1) {
-            draw_cell_bottom_line(win, curr_y, start_x, grid_width, cell_width);
+            draw_cell_bottom_line(grid_win, curr_y, start_x, grid_width, cell_width);
         }
     }
-    draw_grid_bottom_line(win, curr_y, start_x, grid_width, cell_width);
+    draw_grid_bottom_line(grid_win, curr_y, start_x, grid_width, cell_width);
 
     // Refresh the window to display the grid
-    wrefresh(win);
+    wrefresh(grid_win);
 }
 
 int main() {
-    initscr();    // Initialize ncurses mode
-    noecho();     // Don't echo input
-    cbreak();     // Disable line buffering
-    curs_set(0);  // Hide the cursor
+    // Set the locale to use Unicode
+    setlocale(LC_ALL, "");
 
-    // Create a window for the grid
-    WINDOW *win = newwin(30, 50, 1, 1);
+    initscr();
+    noecho();
+    cbreak();
 
-    // Draw a grid with cell height of 1, cell width of 3, and grid size of 5x5
-    draw_grid(win, 1, 1, 1, 3, 5, 5);
+    // Initialize colors
+    start_color();
 
-    draw_grid(win, 12, 1, 4, 3, 3, 10);
+    init_pair(1, COLOR_YELLOW, COLOR_BLACK);  // Text in red, background black
+    init_pair(2, COLOR_BLUE, COLOR_BLACK);    // Text in blue, background black
+    init_pair(3, COLOR_GREEN, COLOR_YELLOW);  // Text in blue, background black
 
-    getch();   // Wait for user input
-    endwin();  // End ncurses mode
+    // Enable Unicode support in ncurses
+    if (!has_colors()) {
+        endwin();
+        printf("Your terminal does not support colors\n");
+        return 1;
+    }
+
+    // Draw a border
+    box(stdscr, 0, 0);
+
+    // Move the cursor and print text
+    attron(COLOR_PAIR(3));            // Turn on color pair 1 (red text)
+    mvprintw(1, 1, "KnuckleBones!");  // Print colored text
+    attroff(COLOR_PAIR(3));           // Turn off the color
+
+    refresh();        // Ensure the message stays on screen
+    curs_set(FALSE);  // Hide the cursor
+
+    // Draw the grid @ (1, 5) with cell height 1, cell width 3, grid height 3, and grid width 3
+    draw_grid(1, 5, 1, 3, 3, 3);
+
+    // Refresh to show changes
+    refresh();
+
+    getch();  // Wait for key press before exiting
+    endwin();
 
     return 0;
 }
