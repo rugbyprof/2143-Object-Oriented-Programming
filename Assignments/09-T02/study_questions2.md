@@ -26,6 +26,7 @@ class Derived : public Base {
     }
 };
 
+\end{minted}
 ```
 
 ```cpp
@@ -48,7 +49,7 @@ class Derived : public Base {
                     %         cout << name << " is a Wizard!" << endl;
                     %     }
                     % };
-                    %
+                    % \end{minted}
 ```
 
 ```cpp
@@ -61,6 +62,7 @@ class Wizard: public Character
 {
     int spellStrength;
 };
+\end{minted}
 ```
 
 ```cpp
@@ -78,6 +80,7 @@ int main() {
     Derived derived1;
     derived1.print();
 }
+\end{minted}
 ```
 
 ```cpp
@@ -97,11 +100,13 @@ class Wizard : public Character {
         cout << name << " is a Wizard!" << endl;
     }
 };
+\end{minted}
 ```
 
 ```cpp
 \begin{minted}[linenos=false]{c++}
 int *ptr = new int(7);
+\end{minted}
 ```
 
 ```cpp
@@ -122,6 +127,7 @@ class Kid {
     }
     
 };
+\end{minted}
 ```
 
 ```cpp
@@ -146,6 +152,7 @@ class Kid {
     }
     
 };
+\end{minted}
 ```
 
 ```cpp
@@ -166,6 +173,7 @@ class Warrior : public Character {
         cout << name << " is a warrior!" << endl;
     }
 };
+\end{minted}
 ```
 
 ```cpp
@@ -199,6 +207,7 @@ int main{
     ptr->print(); // will correctly choose print method from Warrior
     return 0;
 }
+\end{minted}
 ```
 
 ```cpp
@@ -216,6 +225,7 @@ class Rogue {
         wizard.mana_ -= 10;
     }
 };
+\end{minted}
 ```
 
 ```cpp
@@ -246,6 +256,7 @@ int main() {
     Wizard W;
     R.StealMana(W);
 }
+\end{minted}
 ```
 
 ```cpp
@@ -268,6 +279,7 @@ class Wizard : public Character {
         cout << name << " is a Wizard!" << endl;
     }
 };
+\end{minted}
 ```
 
 ```cpp
@@ -280,6 +292,7 @@ class Wizard: public Character
 {
     int spellStrength;
 };
+\end{minted}
 ```
 
 ```cpp
@@ -297,6 +310,7 @@ int main() {
     Derived derived1;
     derived1.print();
 }
+\end{minted}
 ```
 
 ```cpp
@@ -316,6 +330,7 @@ class Wizard : public Character {
         cout << name << " is a Wizard!" << endl;
     }
 };
+\end{minted}
 ```
 
 ```cpp
@@ -336,6 +351,7 @@ class Kid {
     }
     
 };
+\end{minted}
 ```
 
 ```cpp
@@ -360,6 +376,7 @@ class Kid {
     }
     
 };
+\end{minted}
 ```
 
 ```cpp
@@ -384,6 +401,7 @@ class Warrior : public Character {
         cout << name << " is a warrior!" << endl;
     }
 };
+\end{minted}
 ```
 
 ```cpp
@@ -417,6 +435,7 @@ int main{
     ptr->print(); // will correctly choose print method from Warrior
     return 0;
 }
+\end{minted}
 ```
 
 ```cpp
@@ -439,6 +458,7 @@ class Wizard : public Character {
         cout << name << " is a Wizard!" << endl;
     }
 };
+\end{minted}
 ```
 
 ```cpp
@@ -451,6 +471,7 @@ class Engine
 {
     float CC;
 };
+\end{minted}
 ```
 
 ```cpp
@@ -468,6 +489,7 @@ int main() {
     Derived derived1;
     derived1.print();
 }
+\end{minted}
 ```
 
 ```cpp
@@ -487,6 +509,7 @@ class Wizard : public Character {
         cout << name << " is a Wizard!" << endl;
     }
 };
+\end{minted}
 ```
 
 ```cpp
@@ -507,6 +530,7 @@ class Kid {
     }
     
 };
+\end{minted}
 ```
 
 ```cpp
@@ -531,6 +555,7 @@ class Kid {
     }
     
 };
+\end{minted}
 ```
 
 ```cpp
@@ -560,6 +585,7 @@ int main{
     return 0;
 }
 
+\end{minted}
 ```
 
 ```cpp
@@ -583,6 +609,7 @@ int main() {
     a->sound();
     return 0;
 }
+\end{minted}
 ```
 
 ```cpp
@@ -635,6 +662,7 @@ pass
 class F(B):
 pass
 
+\end{minted}
 ```
 
 ```cpp
@@ -650,7 +678,7 @@ pass
         %         account_number=rand();
         %     }
         % };
-        %
+        % \end{minted}
 ```
 
 ```cpp
@@ -672,7 +700,7 @@ pass
         % class Customer: public Checking{
             
             % };
-            %
+            % \end{minted}
 ```
 
 ```cpp
@@ -695,6 +723,7 @@ struct WingedAnimal: Animal {
 struct Bat: Mammal, WingedAnimal {};
 
 Bat bat;
+\end{minted}
 ```
 
 ```cpp
@@ -716,6 +745,7 @@ struct WingedAnimal: virtual Animal {
 
 // A bat is still a winged mammal
 struct Bat: Mammal, WingedAnimal {};
+\end{minted}
 ```
 
 ## Extracted Questions:
