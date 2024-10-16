@@ -215,7 +215,7 @@ Any student who, because of a disability, may require special arrangements in or
 
 ### Policy on Concealed Handguns on Campus
 
-Senate Bill 11 passed by the 84th Texas Legislature allows licensed handgun holders to carry _concealed_ handguns on campus, effective August 1, 2016. Please note, open carry of handguns, whether licensed or not, and the carrying of all other firearms, whether open or concealed, are prohibited on campus. Areas excluded from concealed carry are appropriately marked, in accordance with state law. For more information regarding campus carry, please refer to the University’s webpage at[ MSU Campus Carry Policy ](https://msutexas.edu/campus-carry/rules-policies)*https://msutexas.edu/campus-carry/rules-policies### *. If you have questions or concerns, please contact MSU Chief of Police Steven Callarman at[ Steven.callarman@msutexas.edu.](mailto:steven.callarman@msutexas.edu)
+Senate Bill 11 passed by the 84th Texas Legislature allows licensed handgun holders to carry _concealed_ handguns on campus, effective August 1, 2016. Please note, open carry of handguns, whether licensed or not, and the carrying of all other firearms, whether open or concealed, are prohibited on campus. Areas excluded from concealed carry are appropriately marked, in accordance with state law. For more information regarding campus carry, please refer to the University’s webpage at[ MSU Campus Carry Policy ](https://msutexas.edu/campus-carry/rules-policies)*https://msutexas.edu/campus-carry/rules-policies*. If you have questions or concerns, please contact MSU Chief of Police Steven Callarman at[ Steven.callarman@msutexas.edu.](mailto:steven.callarman@msutexas.edu)
 
 ### Midterm Progress Report
 

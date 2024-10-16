@@ -36,3 +36,249 @@ Here are some vocabulary words. Some you know, others I will be discussing.
 28. **New**: A keyword used to dynamically allocate memory for an object or variable.
 29. **Delete**: A keyword used to deallocate dynamically allocated memory.
 30. **Friend Function**: A function that is not a member of a class but has access to its private and protected members.
+
+## More of the Same Words
+
+|  #  |                      |  #  |                          |  #  |                           |
+| :-: | :------------------- | :-: | :----------------------- | :-: | :------------------------ |
+|     | Static Method        |     | Inheritance              |     | Virtualizationism         |
+|     | Pure Virtual         |     | Polymorphism             |     | Object                    |
+|     | Class-Variable       |     | Multiple-Inheritance     |     | Private                   |
+|     | Protected            |     | Hierarchical-Inheritance |     | Method Overloading        |
+|     | Pure Polymorphism    |     | Friends                  |     | Interface                 |
+|     | Abstract Base Class  |     | Abstraction              |     | Instance-Variable         |
+|     | Member-Variable      |     | Multilevel-Inheritance   |     | Diamond Problem           |
+|     | Virtual              |     | Encapsulation            |     | Static Member             |
+|     | Public               |     | Class                    |     | Overriding                |
+|     | Destructor           |     | Method                   |     | Composition               |
+|     | Derived Class        |     | Static Polymorphism      |     | Compile-time Polymorphism |
+|     | Dynamic Polymorphism |     | Run-time Polymorphism    |     | Friend Class              |
+|     | Virtual Function     |     | Virtual Function         |     | Constructor               |
+|     | Concrete Class       |     | Abstract Class           |     | Operator Overloading      |
+|     | Access Modifiers     |     | Instantiation            |     | Destructor                |
+|     | Friend Function      |     |                          |     |                           |
+
+## Extracted Questions:
+
+- Write a single C++ statement that dynamically allocates a single int and initializes it to 99. `int* ptr = new int(99);`
+
+- Looking at a C++ code snippet identify function overloading and overriding in the code snippet?
+- Class **Wizard** is `___________________` the print method in **Character** (overloading / overriding)
+- The **Print** method is `___________________` in class **Character** (overloading / overriding)
+- Which of the following can be overloaded?
+
+- Which of the following is the only technical difference between structures and classes in C++?
+
+- How can we make a class abstract?
+- What is the purpose of an **abstract class** in C++?
+- How many objects can be created from an abstract class?
+
+- Like private members, protected members are inaccessible outside of the class. However, they can be accessed by `___________________` & `___________________`?
+- Which of the following is true about the friend keyword in C++?
+- Which of the following is a potential drawback of using the friend keyword?
+- Which of the following statement is correct with respect to the use of **friend** keyword inside a class?
+- Like private members, protected members are inaccessible outside of the class. However, they can be accessed by derived classes and friend classes/functions.?\\
+- Which of the following statement is correct with respect to the use of **friend** keyword inside a class?
+- The level of access known as `___________________` can only be circumvented by another entity by giving that entity the _Friend_ label.
+
+- Which of the following keywords is used to control access to a class member?
+- Like private members, protected members are inaccessible outside of the class. However, they can be accessed by?
+- Given a **class Widget**, which of the following choices could access _private data members_ or _private member functions_ of Widget.
+
+- Which of the following type of data member can be shared by _all instances_ of its class?
+
+- An object is a(n) `___________________` of a class that resides in `___________________` and has `___________________`.
+- A _constructor_ is executed when `___________________`?
+
+- What does the class definitions in the following code represent? (IS-A HAS-A)
+
+```cpp
+class Character
+{
+    string name;
+};
+class Wizard: public Character
+{
+    int spellStrength;
+};
+```
+
+- "The use of an object of one class in the definition of another class" means?
+- What concept means "determine at runtime" what method to invoke?
+- In the snippet below, if I wanted to make **Character** an abstract class, I would have to:
+
+```cpp
+class Character {
+protected:
+    string name;
+public:
+    void print() {
+        cout << name << endl;
+    }
+};
+
+class Wizard : public Character {
+public:
+    void print() {
+        cout << name << " is a Wizard!" << endl;
+    }
+};
+```
+
+- Which of the following can be an **object**:
+- A class that has all of its methods implemented, and can be instantiated is know as a(n): `_______________________`.
+- What is the one thing that is necessary for **Run Time polymorphism**?
+- Do we typically choose **Inheritance** over **Composition**? Why?
+- When a derived class inherits from more than one base-class directly, we call this?
+- The concept of determining which methods to invoke while a program is executing is known as: `_______________________`
+- The concept of determining which methods to invoke before a program is executing is known as: `_______________________`
+
+- Rewrite the snippet below so that the Kid can access his dad private stash of alcohol. The alcohol attribute must stay private.
+
+- Finish the Character class so that the print method in Character must be implemented in both sub-classes.
+
+- Add necessary code to snippet below, to ensure it works without error. You cannot change any code, you must add additional code. Simplest answer gets the most points.
+
+- Class **Wizard** is `___________________` the print method in **Character**
+- The **Print** method is `___________________` in class **Character**
+- How can we make a class abstract?
+
+- Which of the following keywords is used to control access to a class member?
+- Like private members, protected members are inaccessible outside of the class. However, they can be accessed by?
+- Which of the following can access _private data members_ or _private member functions_ of a class?
+- Which of the following type of data member can be shared by _all instances_ of its class?
+- Which of the following is also known as an instance of a class?
+- A _constructor_ is executed when `___________________`?
+- How many objects can be created from an abstract class?
+- What does the class definitions in the following code represent?
+- Which of the following can be overloaded?
+- Which of the following means "_The use of an object of one class in the definition of another class_"?
+- Which of the following is the only technical difference between structures and classes in C++?
+- Which of the following concepts means "determine at runtime" what method to invoke?
+- In the code snippet below, we have an example of:
+- In the snippet below, if I wanted to make **Character** an abstract class, I would have to:
+- Which of the following can be an **object**:
+- What is the one thing that is necessary for **run time polymorphism**?
+- We typically choose **Inheritance** over **Composition**?
+- When a derived class inherits from more than one superclass directly, we call it?
+- Rewrite the snippet below so that the Kid can access his dad private stash of alcohol. The alcohol attribute must stay private.
+- Rewrite the necessary component of the code snippet below, so that the print method in Character must be implemented in both sub-classes.
+
+- Class **Wizard** is `___________________` the print method in **Character**
+- The **Print** method is `___________________` in class **Character**
+- How can we make a class abstract?
+
+- Which of the following keywords is used to control access to a class member?
+- Like private members, protected members are inaccessible outside of the class. However, they can be accessed by?
+- Which of the following can access _private data members_ or _member functions_ of a class?
+- Which of the following type of data member can be shared by _all instances_ of its class?
+- Which of the following is also known as an instance of a class?
+- A _constructor_ is executed when `___________________`?
+- How many objects can be created from an abstract class?
+- What does the class definitions in the following code represent?
+- Which of the following can be overloaded?
+- Which of the following means "_The use of an object of one class in the definition of another class_"?
+- Which of the following is the only technical difference between structures and classes in C++?
+- Which of the following concepts means "determine at runtime" what method to invoke?
+- In the code snippet below, we have an example of:
+- In the snippet below, if I wanted to make Character an abstract class, I would have to:
+- An interface is a C++ class that:
+- Which of the following is a mechanism of static polymorphism?
+- Rewrite the snippet above so that the Kid can access his dad private stash of alcohol.
+- Rewrite the code snippet from question 17, so that it can properly use run time polymorphism.
+
+- Which of these is a base class: Vehicle or Minivan?\\
+
+59.
+
+```cpp
+class Animals {
+public:
+    virtual void sound() {
+        cout << "Playing generic animal sound..." << endl;
+    }
+};
+class Dogs : public Animals {
+public:
+    void sound() {
+        cout << "Dogs bark..." << endl;
+    }
+};
+int main() {
+    Animals *a;
+    Dogs     d;
+    a = &d;
+    a->sound();
+    return 0;
+}
+```
+
+- What is the output of the previous code snippet?
+- Depending on your previous answer, is there anything you could do to either make it work (if you thought it was broken) or make it print the "other" output without altering main?
+- The concept portrayed in the previous snippet is known as `____________________`?
+
+---
+
+_Encapsulation v Abstraction:_ Label each question with an _A_ for abstraction or _E_ for encapsulation.
+
+- Hides certain methods from users of the class by protecting them or making them private.
+- Hides whether an array or linked list is used.
+- Solves problem at implementation level.
+- Wraps code and data together.
+- Is focused mainly on what should be done.
+- Is focused on how it should be done.
+- Helps developers to design projects more easily.
+- Lets a developer use a class without worrying about how it's implemented.
+- Solves problem at design level.
+- Hides the irrelevant details found in the code.
+
+---
+
+- This is also known as a function, it just resides within a class.
+- This can be called even if no objects of the class exist.
+- There is only one copy of this which is shared by all objects of the class,
+- This is what you get when you have at least one pure virtual member function defined.
+- This can be done in a class or outside of a class. It happens when you share the same name, but not the same parameter list.
+- This happens when you share the same name, but are in different classes.
+- You define arithmetic operators for your own class. This is an example of: `___________________`.
+- You have a simple problem where you need to give elevated access to a class, but inheritance is not that answer. So you label this class as `___________________`
+- This is a term not necessarily from C++, but definitely exists in other OOP languages. Where C++'s version would require a single pure virtual function, other languages assume no data and no implementation at all.
+- This is basically a contract agreeing that at some point, you may redefine some method in a child class.
+- This thing resides in memory and has its own state.
+
+- What type of inheritance are you seeing in the graphic below?
+- An instance variable is the exact same thing as a `___________________` variable unless they are in an abstract base class.
+- In a somewhat oversimplified view of OOP, `___________________` deals with hiding things and `___________________` deals with exposing things.
+- An abstract method is just a regular method in many instances. When we set an abstract method equal to zero we turn it into a `___________________`
+
+By defining a base abstract method as pure public, you are guaranteeing that any `___________________` access level will not cause problems in a derived class. (does this make any sense?)
+
+---
+
+- Write a simple example in C++ (using class names like A, B, and C) showing:
+  - Simple Inheritance
+  - MultiLevel Inheritance
+  - Multiple Inheritance
+  - Hierarchical Inheritance
+
+---
+
+Explain and write an example in C++ describing the diamond problem and how to fix and/or avoid it.
+
+---
+
+Given the code below write a class called `Customer` that can access both the **account_number** AND the **account_balance** if possible. If not explain why and make any fixes necessary to `Account`.
+
+```cpp
+class Account{
+private:
+    double account_balance;
+protected:
+    int account_number;
+public:
+    Checking(string n){
+        account_balance=0;
+        account_number=rand();
+    }
+};
+```
