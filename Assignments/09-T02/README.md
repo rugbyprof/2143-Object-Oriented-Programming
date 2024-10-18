@@ -39,6 +39,8 @@ Here are some vocabulary words. Some you know, others I will be discussing.
 
 ## More of the Same Words
 
+These words (1-2 or which are wrong), like Virtualizationism, I may put on the exam as help for fill in the blank questions. The list on the actual exam would be smaller.
+
 |  #  |                      |  #  |                          |  #  |                           |
 | :-: | :------------------- | :-: | :----------------------- | :-: | :------------------------ |
 |     | Static Method        |     | Inheritance              |     | Virtualizationism         |
@@ -62,32 +64,62 @@ Here are some vocabulary words. Some you know, others I will be discussing.
 
 - Write a single C++ statement that dynamically allocates a single int and initializes it to 99. `int* ptr = new int(99);`
 
-- Looking at a C++ code snippet identify function overloading and overriding in the code snippet?
+- Looking at a C++ code snippet identify function overloading and overriding in the code snippet.
 - Class **Wizard** is `___________________` the print method in **Character** (overloading / overriding)
-- The **Print** method is `___________________` in class **Character** (overloading / overriding)
+- The **Print** method is `___________________` in class **Character** (overloading / overriding / nothing)
+
+```cpp
+
+class Character {
+    protected:
+    string name;
+    public:
+    void print() {
+        cout << name << endl;
+    }
+};
+
+class Wizard : public Character {
+    public:
+    void print() {
+        cout << name << " is a Wizard!" << endl;
+    }
+};
+
+```
+
 - Which of the following can be overloaded?
 
-- Which of the following is the only technical difference between structures and classes in C++?
+  - list the items in a class you see that could be overloaded
+
+- What is the only technical difference between structures and classes in C++?
 
 - How can we make a class abstract?
+
+  - Explain what needs to be done.
+
 - What is the purpose of an **abstract class** in C++?
-- How many objects can be created from an abstract class?
+
+- How many objects can be created from an abstract class? (no limit)
 
 - Like private members, protected members are inaccessible outside of the class. However, they can be accessed by `___________________` & `___________________`?
-- Which of the following is true about the friend keyword in C++?
-- Which of the following is a potential drawback of using the friend keyword?
-- Which of the following statement is correct with respect to the use of **friend** keyword inside a class?
-- Like private members, protected members are inaccessible outside of the class. However, they can be accessed by derived classes and friend classes/functions.?\\
-- Which of the following statement is correct with respect to the use of **friend** keyword inside a class?
-- The level of access known as `___________________` can only be circumvented by another entity by giving that entity the _Friend_ label.
 
-- Which of the following keywords is used to control access to a class member?
+- What does the friend keyword in C++ allow us to do and is it all good?
+
+- What is a potential drawback of using the friend keyword?
+
+- Like private members, protected members are inaccessible outside of the class. However, they can be accessed by `___________________`
+
+<!-- - The level of access known as `___________________` can only be circumvented by another entity by giving that entity the _Friend_ label. -->
+
+- Which keywords can be used control access to class members?
+
 - Like private members, protected members are inaccessible outside of the class. However, they can be accessed by?
-- Given a **class Widget**, which of the following choices could access _private data members_ or _private member functions_ of Widget.
 
-- Which of the following type of data member can be shared by _all instances_ of its class?
+- What type of data member can be shared by _all instances_ of its class?
 
 - An object is a(n) `___________________` of a class that resides in `___________________` and has `___________________`.
+
 - A _constructor_ is executed when `___________________`?
 
 - What does the class definitions in the following code represent? (IS-A HAS-A)
@@ -104,7 +136,9 @@ class Wizard: public Character
 ```
 
 - "The use of an object of one class in the definition of another class" means?
+
 - What concept means "determine at runtime" what method to invoke?
+
 - In the snippet below, if I wanted to make **Character** an abstract class, I would have to:
 
 ```cpp
@@ -125,72 +159,112 @@ public:
 };
 ```
 
-- Which of the following can be an **object**:
-- A class that has all of its methods implemented, and can be instantiated is know as a(n): `_______________________`.
+- What makes something an **object**? (as opposed to a class)
+- A class that has all of its methods implemented, and can be instantiated is know as a(n): `_______________________` class.
+
 - What is the one thing that is necessary for **Run Time polymorphism**?
+
 - Do we typically choose **Inheritance** over **Composition**? Why?
+
 - When a derived class inherits from more than one base-class directly, we call this?
+
 - The concept of determining which methods to invoke while a program is executing is known as: `_______________________`
-- The concept of determining which methods to invoke before a program is executing is known as: `_______________________`
 
 - Rewrite the snippet below so that the Kid can access his dad private stash of alcohol. The alcohol attribute must stay private.
 
-- Finish the Character class so that the print method in Character must be implemented in both sub-classes.
+```cpp
 
-- Add necessary code to snippet below, to ensure it works without error. You cannot change any code, you must add additional code. Simplest answer gets the most points.
+class Dad {
+    private:
+    string alcohol;
 
-- Class **Wizard** is `___________________` the print method in **Character**
-- The **Print** method is `___________________` in class **Character**
-- How can we make a class abstract?
+    protected:
+    public:
+};
 
-- Which of the following keywords is used to control access to a class member?
-- Like private members, protected members are inaccessible outside of the class. However, they can be accessed by?
-- Which of the following can access _private data members_ or _private member functions_ of a class?
-- Which of the following type of data member can be shared by _all instances_ of its class?
-- Which of the following is also known as an instance of a class?
-- A _constructor_ is executed when `___________________`?
-- How many objects can be created from an abstract class?
-- What does the class definitions in the following code represent?
-- Which of the following can be overloaded?
-- Which of the following means "_The use of an object of one class in the definition of another class_"?
-- Which of the following is the only technical difference between structures and classes in C++?
-- Which of the following concepts means "determine at runtime" what method to invoke?
-- In the code snippet below, we have an example of:
-- In the snippet below, if I wanted to make **Character** an abstract class, I would have to:
-- Which of the following can be an **object**:
-- What is the one thing that is necessary for **run time polymorphism**?
-- We typically choose **Inheritance** over **Composition**?
+class Kid {
+
+    protected:
+    public:
+    Kid() {
+    }
+
+};
+
+```
+
+- Rewrite the Character class so that the print method in Character must be implemented in both sub-classes.
+
+```cpp
+
+class Character {
+    protected:
+    int name;
+    public:
+    void print() {
+        cout << name << endl;
+    }
+};
+class Wizard : public Character {
+    public:
+    void print() {
+        cout << name << " is a Wizard!" << endl;
+    }
+};
+class Warrior : public Character {
+    public:
+    void print() {
+        cout << name << " is a warrior!" << endl;
+    }
+};
+
+```
+
+- When or how do we know a class has an instance?
+
+- What does it mean: "_The use of an object of one class in the definition of another class_"?
+
+- In the snippet below, if I wanted to make **Base** an abstract class, I would have to:
+
+````cpp
+
+class Base {
+    public:
+    void print() {cout << "Base Function" << endl;}
+};
+
+class Derived : public Base {
+    public:
+    void print() {}cout << "Derived Function" << endl;}
+};
+int main() {
+    Derived derived1;
+    derived1.print();
+}
+
+
+
+- When does a class become an **object**?
+
+
 - When a derived class inherits from more than one superclass directly, we call it?
-- Rewrite the snippet below so that the Kid can access his dad private stash of alcohol. The alcohol attribute must stay private.
-- Rewrite the necessary component of the code snippet below, so that the print method in Character must be implemented in both sub-classes.
 
-- Class **Wizard** is `___________________` the print method in **Character**
-- The **Print** method is `___________________` in class **Character**
-- How can we make a class abstract?
 
-- Which of the following keywords is used to control access to a class member?
-- Like private members, protected members are inaccessible outside of the class. However, they can be accessed by?
-- Which of the following can access _private data members_ or _member functions_ of a class?
-- Which of the following type of data member can be shared by _all instances_ of its class?
-- Which of the following is also known as an instance of a class?
-- A _constructor_ is executed when `___________________`?
-- How many objects can be created from an abstract class?
-- What does the class definitions in the following code represent?
-- Which of the following can be overloaded?
-- Which of the following means "_The use of an object of one class in the definition of another class_"?
-- Which of the following is the only technical difference between structures and classes in C++?
-- Which of the following concepts means "determine at runtime" what method to invoke?
-- In the code snippet below, we have an example of:
-- In the snippet below, if I wanted to make Character an abstract class, I would have to:
-- An interface is a C++ class that:
-- Which of the following is a mechanism of static polymorphism?
-- Rewrite the snippet above so that the Kid can access his dad private stash of alcohol.
-- Rewrite the code snippet from question 17, so that it can properly use run time polymorphism.
+- Write a base class so that certain methods must be implemented in sub-classes.
 
-- Which of these is a base class: Vehicle or Minivan?\\
+- What keyword must a method have to ensure that run time polymorphism can happen?
 
-59.
+- Know these words: class definition, instance, instantiated, object and state.
 
+- What is the difference between an abstract class and an interface?
+
+- What is static polymorphism?
+
+- Be able to identify a Base Class vs a Derived Class.
+
+- Know all the synonyms for Base and Derived
+
+- What is the output of the following code snippet?
 ```cpp
 class Animals {
 public:
@@ -211,10 +285,8 @@ int main() {
     a->sound();
     return 0;
 }
-```
+````
 
-- What is the output of the previous code snippet?
-- Depending on your previous answer, is there anything you could do to either make it work (if you thought it was broken) or make it print the "other" output without altering main?
 - The concept portrayed in the previous snippet is known as `____________________`?
 
 ---
@@ -245,13 +317,11 @@ _Encapsulation v Abstraction:_ Label each question with an _A_ for abstraction o
 - This is a term not necessarily from C++, but definitely exists in other OOP languages. Where C++'s version would require a single pure virtual function, other languages assume no data and no implementation at all.
 - This is basically a contract agreeing that at some point, you may redefine some method in a child class.
 - This thing resides in memory and has its own state.
-
-- What type of inheritance are you seeing in the graphic below?
 - An instance variable is the exact same thing as a `___________________` variable unless they are in an abstract base class.
 - In a somewhat oversimplified view of OOP, `___________________` deals with hiding things and `___________________` deals with exposing things.
 - An abstract method is just a regular method in many instances. When we set an abstract method equal to zero we turn it into a `___________________`
 
-By defining a base abstract method as pure public, you are guaranteeing that any `___________________` access level will not cause problems in a derived class. (does this make any sense?)
+(trick question) By defining a base abstract method as pure public, you are guaranteeing that any `___________________` access level will not cause problems in a derived class. (does this make any sense?)
 
 ---
 
