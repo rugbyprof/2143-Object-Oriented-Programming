@@ -22,6 +22,8 @@ The game KnuckleBones, as featured in **"Cult of the Lamb"**, is a simple dice g
 
 Implement an version of Knucklebones in which the Ncurses library is used to control the output to the console screen. Your output should use various colors, be organized, and utilize the screen as if it were a game window. Where by game window I mean all sides in a way that the console looks like a game visualizing everything necessary to visualize game play while implementing the rules of knucklebones.
 
+https://www.thegamer.com/cult-of-the-lamb-knucklebones-guide-dice-minigame-strategy-ratau-shrumy-klunko-bop-flinky/
+
 # NOT DONE
 
 <!--
