@@ -425,3 +425,104 @@ colclicked: 0
 colClicked: 0
 colclicked: 1
 colClicked: 1
+rows: 31
+cols: 116
+colclicked: 0
+colclicked: 1
+colclicked: 2
+colclicked: 0
+colclicked: 1
+colclicked: 2
+colclicked: 2
+rows: 31
+cols: 116
+colclicked: 1
+colclicked: 0
+colclicked: 2
+colclicked: 1
+colclicked: 2
+colclicked: 1
+colclicked: 2
+colclicked: 2
+rows: 31
+cols: 116
+colclicked: 1
+colclicked: 1
+colclicked: 1
+colclicked: 2
+colclicked: 2
+colclicked: 0
+colclicked: 0
+colclicked: 1
+colclicked: 2
+rows: 31
+cols: 116
+yx: [10, 40]
+Initializing grid: true
+height: [7, 13, 1, 3]
+colclicked: 1
+colClicked: 1
+colclicked: 1
+colClicked: 1
+colclicked: 2
+colClicked: 2
+colclicked: 0
+colClicked: 0
+colclicked: 2
+colClicked: 2
+colclicked: 0
+colClicked: 0
+colclicked: 0
+colClicked: 0
+colclicked: 1
+colClicked: 1
+colclicked: 2
+colClicked: 2
+colclicked: 2
+colClicked: 2
+rows: 31
+cols: 116
+yx: [10, 40]
+Initializing grid: true
+height: [7, 13, 1, 3]
+colclicked: 1
+colClicked: 1
+colclicked: 2
+colClicked: 2
+colclicked: 1
+colClicked: 1
+rows: 31
+cols: 116
+yx: [10, 40]
+Initializing grid: true
+height: [7, 13, 1, 3]
+colclicked: 0
+colClicked: 0
+colclicked: 2
+colClicked: 2
+colclicked: 1
+colClicked: 1
+colclicked: 2
+colClicked: 2
+colclicked: 2
+colClicked: 2
+rows: 31
+cols: 116
+yx: [10, 40]
+Initializing grid: true
+height: [7, 13, 1, 3]
+yx: [10, 65]
+Initializing grid: true
+height: [7, 13, 1, 3]
+colclicked: 2
+colClicked: 2
+colclicked: 2
+colClicked: 2
+colclicked: 1
+colClicked: 1
+colclicked: 1
+colClicked: 1
+colclicked: 1
+colClicked: 1
+colclicked: 0
+colClicked: 0

@@ -1,6 +1,7 @@
 #include <ncurses.h>
 
 #include "logger.cpp"
+#include <ctime>
 #include <fstream>
 #include <iostream>
 #include <map>
@@ -78,7 +79,9 @@ class Grid {
             for (int j = 0; j < 3; j++) {
                 int y = ((base_y + cell_height) * i) + 2;
                 int x = ((base_x + cell_width) * j) + 3;
-                mvwprintw(win, y, x, std::to_string(values[i][j]).c_str());
+                if (values[i][j] > 0) {
+                    mvwprintw(win, y, x, to_string(values[i][j]).c_str());
+                }
             }
         }
     }
@@ -117,7 +120,7 @@ class Grid {
 
     void addValue(int click_y, int click_x, int value) {
         int col = colClicked(click_y, click_x);
-        Logger::log("colClicked", std::to_string(col).c_str());
+        Logger::log("colClicked", to_string(col).c_str());
         int row          = availableRow(col);
         values[row][col] = value;
         refreshGrid();
@@ -140,14 +143,15 @@ class Grid {
 };
 
 int main() {
+    srand(time(0));
     initscr();  // Start ncurses mode
     int rows, cols;
 
     // Get terminal size
     getmaxyx(stdscr, rows, cols);
 
-    Logger::log("rows", std::to_string(rows).c_str());
-    Logger::log("cols", std::to_string(cols).c_str());
+    Logger::log("rows", to_string(rows).c_str());
+    Logger::log("cols", to_string(cols).c_str());
 
     noecho();     // Don't echo input
     cbreak();     // Disable line buffering
@@ -162,6 +166,7 @@ int main() {
     refresh();
 
     Grid grid(10, 40);
+    Grid grid2(10, 65);
 
     printw("Click anywhere (Press 'q' to quit)");
     refresh();
@@ -177,14 +182,20 @@ int main() {
                 if (event.bstate & BUTTON1_CLICKED) {
                     if (grid.clicked(event.y, event.x - 1)) {
                         int col = grid.colClicked(event.y, event.x - 1);
-                        Logger::log("colclicked", std::to_string(col).c_str());
+                        Logger::log("colclicked", to_string(col).c_str());
                         grid.addValue(event.y, event.x - 1, rand() % 6 + 1);  // Mark click location
+                    }
+                    if (grid2.clicked(event.y, event.x - 1)) {
+                        int col = grid2.colClicked(event.y, event.x - 1);
+                        Logger::log("colclicked", to_string(col).c_str());
+                        grid2.addValue(event.y, event.x - 1, rand() % 6 + 1);  // Mark click location
                     }
                     refresh();
                 }
             }
         }
         grid.refreshGrid();
+        grid2.refreshGrid();
     }
 
     // Wait for a key press before exiting

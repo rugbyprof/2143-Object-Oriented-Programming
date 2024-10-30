@@ -160,10 +160,12 @@ int main() {
                     if (windowClicked(event.y, event.x, win1)) {
                         int col = colClicked(event.y, event.x - 1, win1);
                         log("colclicked", std::to_string(col).c_str());
+                        Logger::printLastLine(stdscr);
                         mvprintw(event.y, event.x, std::to_string(col).c_str());  // Mark click location
                     } else if (windowClicked(event.y, event.x, win2)) {
                         int col = colClicked(event.y, event.x - 1, win2);
                         log("colclicked", std::to_string(col).c_str());
+                        Logger::printLastLine(stdscr);
                         mvprintw(event.y, event.x, std::to_string(col).c_str());  // Mark click location
                     }
                     refresh();
