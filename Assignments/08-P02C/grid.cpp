@@ -1,5 +1,6 @@
 #include <ncurses.h>
 
+#include "logger.cpp"
 #include <fstream>
 #include <iostream>
 #include <map>
@@ -58,6 +59,7 @@ int colClicked(int click_y, int click_x, const WindowType &win_info) {
     int sx     = win_info.start_x;
     int ex     = win_info.start_x + win_info.width;
     int thirds = win_info.width / 3;
+
     if (click_x < sx + thirds)
         return 0;
     else if (click_x < sx + 2 * thirds)
@@ -137,7 +139,7 @@ int main() {
     keypad(stdscr, TRUE);
     mousemask(ALL_MOUSE_EVENTS, NULL);
 
-    clear();
+    clear();  // clear screen to prevent scrolling
     refresh();
 
     WindowType win1 = playerMatrix(1, 60);
@@ -164,7 +166,6 @@ int main() {
                         log("colclicked", std::to_string(col).c_str());
                         mvprintw(event.y, event.x, std::to_string(col).c_str());  // Mark click location
                     }
-
                     refresh();
                 }
             }

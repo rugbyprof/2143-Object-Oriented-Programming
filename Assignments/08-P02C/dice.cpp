@@ -76,12 +76,15 @@ int main() {
     noecho();
     cbreak();
 
+    clear();
+    refresh();
+
     // Initialize colors
     start_color();
 
     init_pair(1, COLOR_YELLOW, COLOR_BLACK);  // Text in red, background black
     init_pair(2, COLOR_BLUE, COLOR_BLACK);    // Text in blue, background black
-    init_pair(3, COLOR_GREEN, COLOR_BLACK);  // Text in blue, background black
+    init_pair(3, COLOR_GREEN, COLOR_BLACK);   // Text in blue, background black
 
     // Enable Unicode support in ncurses
     if (!has_colors()) {
@@ -103,7 +106,7 @@ int main() {
 
     int dy1 = 5, dx1 = 10;
     int dy2 = 5, dx2 = 20;
-    int refresh_count = 50;  // Set how many times you want to refresh
+    int refresh_count = 10;  // Set how many times you want to refresh
 
     // Shuffle dice faces for a set amount of time
     for (int i = 0; i < refresh_count; ++i) {
@@ -117,8 +120,8 @@ int main() {
 
     // Show final dice face
     int final_dice_value = rand() % 6 + 1;
-    draw_dice(dy1, dx1, final_dice_value);
-    draw_dice(dy1, dx1 + 10, final_dice_value);
+    draw_dice(dy1, dx1, rand() % 6 + 1);
+    draw_dice(dy1, dx1 + 10, rand() % 6 + 1);
 
     // Refresh to show changes
     refresh();

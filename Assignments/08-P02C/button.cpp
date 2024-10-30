@@ -9,6 +9,8 @@ const int BUTTON_WIDTH  = 10;
 const int BUTTON_HEIGHT = 3;
 
 void draw_button(WINDOW *button_win, bool clicked) {
+    box(button_win, 0, 0);  // Draw border around button
+    wrefresh(button_win);
     // Set color pair based on clicked state
     if (clicked) {
         wbkgd(button_win, COLOR_PAIR(3));  // Black background, white text
@@ -31,6 +33,7 @@ int main() {
     initscr();
     cbreak();
     noecho();
+    curs_set(0);  // Hide the cursor
 
     clear();
     refresh();
@@ -48,7 +51,7 @@ int main() {
     WINDOW *button_win = newwin(BUTTON_HEIGHT, BUTTON_WIDTH, BUTTON_Y, BUTTON_X);
     draw_button(button_win, false);  // Draw initially unclicked button
 
-    box(button_win, 0, 0);  // Draw border around button
+    // box(stdscr, 0, 0);
 
     MEVENT event;
     bool clicked = false;
