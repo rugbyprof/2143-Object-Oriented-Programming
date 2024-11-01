@@ -673,3 +673,38 @@ clicked: [15, 57]
 Key pressed: 409
 Dice: Dice created
 value: 5
+height x width: [25, 117]
+You clicked at x,y:: [56, 9]
+You clicked at x,y:: [56, 13]
+You clicked at x,y:: [53, 6]
+You clicked at x,y:: [74, 17]
+You clicked at x,y:: [71, 8]
+height x width: [25, 117]
+You clicked at x,y:: [45, 6]
+Mouse clicked: [45, 6]
+Input string:: d
+You clicked at x,y:: [50, 9]
+Mouse clicked: [50, 9]
+Input string:: dw
+You clicked at x,y:: [50, 9]
+Mouse clicked: [50, 9]
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+Input string:: dwf
+Input string:: dwff
+Input string:: dwfff
+Input string:: dwffff
+Input string:: dwfffff
+Input string:: dwffffff
+Input string:: dwfffffff
+Input string:: dwffffffff
+Input string:: dwfffffffff

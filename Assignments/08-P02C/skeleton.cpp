@@ -1,6 +1,7 @@
 #include <ncurses.h>  // Ncurses library
 
-#include "logger.cpp"  // Logger utility
+#include "colors.hpp"
+#include "logger.hpp"  // Logger utility
 #include <fstream>     // File I/O
 #include <iostream>    // Input/Output
 #include <map>         // Map data structure
@@ -13,6 +14,7 @@ int main() {
     int height, width;
     int x, y;
     string str;
+    int color;
 
     initscr();  // Start ncurses mode
 
@@ -27,14 +29,21 @@ int main() {
 
     setlocale(LC_ALL, "");  // Enable Unicode support
 
-    keypad(stdscr, TRUE);
-    mousemask(ALL_MOUSE_EVENTS, NULL);
+    start_color();  // enable colors in ncurses
 
-    clear();  // clear screen to prevent scrolling
-    refresh();
+    colorful();  // my custom color class to create many colors
 
+    keypad(stdscr, TRUE);               // enable keypad for special keys
+    mousemask(ALL_MOUSE_EVENTS, NULL);  // enable mouse events
+
+    clear();    // clear screen to prevent scrolling
+    refresh();  // refresh / redraw screen
+
+    color = rand() % 32 + 1;
+    attron(COLOR_PAIR(color));  // set color pair 1
     printw("This is a basic skeleton for a ncurses program\n");
     refresh();
+    attroff(COLOR_PAIR(color));  // unset color pair 1
 
     while (true) {
         int ch = getch();
@@ -48,6 +57,7 @@ int main() {
                     y = event.y;
                     x = event.x;
                     Logger::log("You clicked at x,y:", vector<string>({to_string(x), to_string(y)}));
+                    Logger::log("Mouse clicked", vector<int>({event.x, event.y}));
                 }
             }
             // Handle backspace key
@@ -62,7 +72,10 @@ int main() {
         } else if (ch == '\n' || ch == KEY_ENTER) {
             Logger::log("You hit the enter key", "true");
         }
+        Colorly::randColor();
+        Colorly::colorOn();
         Logger::printLastLine(stdscr);
+        Colorly::colorOff();
         refresh();
     }
 

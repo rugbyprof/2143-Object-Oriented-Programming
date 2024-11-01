@@ -6,6 +6,9 @@
 #include <string>
 #include <utility>
 
+/**
+ * @brief Function to create many colors
+ */
 void colorful() {
     std::map<std::string, int> cnum = {{"BLACK", 0}, {"MAROON", 1},   {"GREEN", 2}, {"OLIVE", 3}, {"NAVY", 4},  {"PURPLE", 5},
                                        {"TEAL", 6},  {"SILVER", 7},   {"GREY", 8},  {"RED", 9},   {"LIME", 10}, {"YELLOW", 11},
@@ -66,3 +69,19 @@ void colorful() {
 
     init_pair(32, cnum["BLACK"], cnum["PURPLE"]);
 }
+
+class Colorly {
+   public:
+    Colorly() { color = rand() % 32 + 1; }
+    ~Colorly() { attroff(COLOR_PAIR(color)); }
+    static void setColor(int c) { color = c; }
+    static void randColor() { color = rand() % 32 + 1; }
+    static void colorOn() { attron(COLOR_PAIR(color)); }
+    static void colorOff() { attroff(COLOR_PAIR(color)); }
+
+   private:
+    static int color;
+};
+
+// Define the static member variables
+int Colorly::color = rand() % 32 + 1;
