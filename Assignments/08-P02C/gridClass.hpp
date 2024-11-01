@@ -2,13 +2,9 @@
 
 #include <ncurses.h>
 
-#include "logger.cpp"
+#include "logger.hpp"
 #include <ctime>
-#include <fstream>
-#include <iostream>
-#include <map>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -18,6 +14,8 @@ class Grid {
     int cell_width, cell_height;
     int width, height;
     int base_y, base_x;
+    int border_color = 1;
+    int number_color = 2;
     WINDOW *win;
     int values[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
 
@@ -42,6 +40,7 @@ class Grid {
     }
 
     void drawGrid() {
+        wattron(win, COLOR_PAIR(border_color));  // Turn on color pair 2
         mvwhline(win, ((base_y + cell_height) * 0) + 1, base_x + 1, ACS_HLINE, width - 2);
         mvwhline(win, ((base_y + cell_height) * 1) + 1, base_x + 1, ACS_HLINE, width - 2);
         mvwhline(win, ((base_y + cell_height) * 2) + 1, base_x + 1, ACS_HLINE, width - 2);
@@ -71,8 +70,10 @@ class Grid {
         mvwaddch(win, ((base_y + cell_height) * 1) + 1, ((base_x + cell_width) * 2) + 1, ACS_PLUS);  // ACS_PLUS
         mvwaddch(win, ((base_y + cell_height) * 2) + 1, ((base_x + cell_width) * 1) + 1, ACS_PLUS);  // ACS_PLUS
         mvwaddch(win, ((base_y + cell_height) * 2) + 1, ((base_x + cell_width) * 2) + 1, ACS_PLUS);  // ACS_PLUS
-
+        wattroff(win, COLOR_PAIR(border_color));
+        wattron(win, COLOR_PAIR(number_color));
         printValues();
+        wattroff(win, COLOR_PAIR(number_color));
         wrefresh(win);
     }
 
@@ -138,8 +139,8 @@ class Grid {
     }
 
     void refreshGrid() {
-        wrefresh(win);
-        printValues();
+        wclear(win);
+        drawGrid();
     }
     WINDOW *getWindow() { return win; }
 };

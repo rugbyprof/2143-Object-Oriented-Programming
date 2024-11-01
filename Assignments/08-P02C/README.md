@@ -4,6 +4,8 @@
 
 ## Overview
 
+https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/
+
 The game KnuckleBones, as featured in **"Cult of the Lamb"**, is a simple dice game that is played between two players on a 3x3 grid. The goal is to place dice on the grid and score more points than your opponent by following a few key rules. Here's a brief breakdown of the rules:
 
 ### Basic Rules of KnuckleBones:
@@ -23,6 +25,28 @@ The game KnuckleBones, as featured in **"Cult of the Lamb"**, is a simple dice g
 Implement an version of Knucklebones in which the Ncurses library is used to control the output to the console screen. Your output should use various colors, be organized, and utilize the screen as if it were a game window. Where by game window I mean all sides in a way that the console looks like a game visualizing everything necessary to visualize game play while implementing the rules of knucklebones.
 
 https://www.thegamer.com/cult-of-the-lamb-knucklebones-guide-dice-minigame-strategy-ratau-shrumy-klunko-bop-flinky/
+
+|  #  | Name                               | Description                                     |
+| :-: | :--------------------------------- | :---------------------------------------------- |
+|  1  | [button.cpp](button.cpp)           | Example program to run the button class.        |
+|  2  | [buttonClass.hpp](buttonClass.hpp) | The buttonClass header to include elsewhere.    |
+|  3  | [colors.cpp](colors.cpp)           | Example program to show the colors class.       |
+|  4  | [colors.hpp](colors.hpp)           | The colors header to include elsewhere.         |
+|  5  | [colors.md](colors.md)             | -----                                           |
+|  6  | [dice.cpp](dice.cpp)               | Example program to run the dice class.          |
+|  7  | [diceClass.hpp](diceClass.hpp)     | The diceClass header to include elsewhere.      |
+|  8  | [draw_grid.md](draw_grid.md)       | -----                                           |
+|  9  |                                    |                                                 |
+| 10  | [game.cpp](game.cpp)               | Game starter code.                              |
+| 11  | [grid.cpp](grid.cpp)               | Example grid program.                           |
+| 12  | [gridClass.cpp](gridClass.cpp)     | Example grid class.                             |
+| 13  | [gridClass.hpp](gridClass.hpp)     | Header for the grid class to include elsewhere. |
+| 14  | [hello_world.cpp](hello_world.cpp) | Bare bones ncurses example.                     |
+| 15  | [input](input)                     | [binary file](input)                            |
+| 16  | [input.cpp](input.cpp)             | Input class                                     |
+| 17  | [log.txt](log.txt)                 | Log file                                        |
+| 18  | [log2.txt](log2.txt)               | Log file                                        |
+| 19  | [logger.hpp](logger.hpp)           | Logger static class to help debugging           |
 
 # NOT DONE
 

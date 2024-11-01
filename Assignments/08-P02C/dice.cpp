@@ -63,7 +63,7 @@ void draw_dice(int start_y, int start_x, int number) {
             mvwprintw(dice_win, dot_pos["mr"].first, dot_pos["mr"].second, "●");
             break;
     }
-    wattroff(dice_win, COLOR_PAIR(2));  // Turn off the color
+    wattroff(dice_win, COLOR_PAIR(1));  // Turn off the color
     wrefresh(dice_win);
     delwin(dice_win);
 }

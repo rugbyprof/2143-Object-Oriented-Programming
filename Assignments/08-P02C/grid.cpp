@@ -1,6 +1,6 @@
 #include <ncurses.h>
 
-#include "logger.cpp"
+#include "logger.hpp"
 #include <fstream>
 #include <iostream>
 #include <map>

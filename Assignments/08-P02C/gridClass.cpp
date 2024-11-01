@@ -1,6 +1,6 @@
 #include <ncurses.h>
 
-#include "logger.cpp"
+#include "logger.hpp"
 #include <ctime>
 #include <fstream>
 #include <iostream>
@@ -16,18 +16,22 @@ class Grid {
     int cell_width, cell_height;
     int width, height;
     int base_y, base_x;
+    int last_click_y, last_click_x;
+    int last_col_clicked;
     WINDOW *win;
     int values[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
 
     void init() {
         Logger::log("Initializing grid", "true");
-        cell_height = 1;
-        cell_width  = 3;
-        height      = 3 * (cell_height + 1) + 1;
-        width       = 3 * (cell_width + 1) + 1;
-        win         = newwin(height + 2, width + 2, start_y, start_x);
-        base_y      = 1;
-        base_x      = 1;
+        cell_height  = 1;
+        cell_width   = 3;
+        height       = 3 * (cell_height + 1) + 1;
+        width        = 3 * (cell_width + 1) + 1;
+        win          = newwin(height + 2, width + 2, start_y, start_x);
+        base_y       = 1;
+        base_x       = 1;
+        last_click_y = last_click_x = -1;
+        last_col_clicked            = -1;
 
         Logger::log("height", vector<int>({height, width, cell_height, cell_width}));
         drawGrid();
@@ -94,7 +98,19 @@ class Grid {
      * @return (bool)           : True if the click event occurred within the window, False otherwise
      */
     bool clicked(int click_y, int click_x) {
-        return click_y >= start_y && click_y < start_y + height && click_x >= start_x && click_x < start_x + width;
+        if (click_y >= start_y && click_y < start_y + height && click_x >= start_x && click_x < start_x + width) {
+            last_click_y     = click_y;
+            last_click_x     = click_x;
+            last_col_clicked = colClicked(last_click_y, last_click_x);
+            return true;
+        } else {
+            click_y          = -1;
+            click_x          = -1;
+            last_click_y     = -1;
+            last_click_x     = -1;
+            last_col_clicked = -1;
+            return false;
+        }
     }
 
     /**
@@ -118,11 +134,10 @@ class Grid {
         return 0;
     }
 
-    void addValue(int click_y, int click_x, int value) {
-        int col = colClicked(click_y, click_x);
-        Logger::log("colClicked", to_string(col).c_str());
-        int row          = availableRow(col);
-        values[row][col] = value;
+    void addValue(int value) {
+        Logger::log("colClicked", to_string(last_col_clicked).c_str());
+        int row                       = availableRow(last_col_clicked);
+        values[row][last_col_clicked] = value;
         refreshGrid();
     }
 
@@ -178,17 +193,16 @@ int main() {
             break;
         else if (ch == KEY_MOUSE) {
             MEVENT event;
+
             if (getmouse(&event) == OK) {
                 if (event.bstate & BUTTON1_CLICKED) {
+                    Logger::log("clicked", vector<int>({event.y, event.x}));
+                    Logger::printLastLine(stdscr);
                     if (grid.clicked(event.y, event.x - 1)) {
-                        int col = grid.colClicked(event.y, event.x - 1);
-                        Logger::log("colclicked", to_string(col).c_str());
-                        grid.addValue(event.y, event.x - 1, rand() % 6 + 1);  // Mark click location
+                        grid.addValue(rand() % 6 + 1);  // Mark click location
                     }
                     if (grid2.clicked(event.y, event.x - 1)) {
-                        int col = grid2.colClicked(event.y, event.x - 1);
-                        Logger::log("colclicked", to_string(col).c_str());
-                        grid2.addValue(event.y, event.x - 1, rand() % 6 + 1);  // Mark click location
+                        grid2.addValue(rand() % 6 + 1);  // Mark click location
                     }
                     refresh();
                 }
