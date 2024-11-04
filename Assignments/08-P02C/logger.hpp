@@ -14,6 +14,8 @@ class Logger {
     static void setFilePath(const std::string& filename) { filePath = filename; }
 
     static void clearLogFile() {
+        if (!logging)
+            return;
         std::lock_guard<std::mutex> lock(fileMutex);  // Thread-safe access
         std::ofstream file(filePath, std::ios::trunc);
         if (file.is_open()) {
@@ -23,6 +25,8 @@ class Logger {
 
     // Log a single key-value pair (string, string)
     static void log(const std::string& key, const std::string& value) {
+        if (!logging)
+            return;
         std::lock_guard<std::mutex> lock(fileMutex);  // Thread-safe access
         std::ofstream file(filePath, std::ios::app);
         if (file.is_open()) {
@@ -32,6 +36,8 @@ class Logger {
 
     // Log multiple values under a single key (string, vector<string>)
     static void log(const std::string& key, const std::vector<std::string>& values) {
+        if (!logging)
+            return;
         std::lock_guard<std::mutex> lock(fileMutex);  // Thread-safe access
         std::ofstream file(filePath, std::ios::app);
         if (file.is_open()) {
@@ -46,6 +52,8 @@ class Logger {
     }
 
     static void log(const std::string& key, const std::vector<int>& values) {
+        if (!logging)
+            return;
         std::lock_guard<std::mutex> lock(fileMutex);  // Thread-safe access
         std::ofstream file(filePath, std::ios::app);
         if (file.is_open()) {
@@ -61,6 +69,8 @@ class Logger {
 
     // Log all key-value pairs in a map (map<string, string>)
     static void log(const std::map<std::string, std::string>& keyValuePairs) {
+        if (!logging)
+            return;
         std::lock_guard<std::mutex> lock(fileMutex);  // Thread-safe access
         std::ofstream file(filePath, std::ios::app);
         if (file.is_open()) {
@@ -71,6 +81,8 @@ class Logger {
     }
 
     static void printLastLine(WINDOW* win) {
+        if (!logging)
+            return;
         std::ifstream file(filePath, std::ios::in | std::ios::ate);  // Open at end of file
         std::string lastLine;
 
@@ -99,7 +111,9 @@ class Logger {
         } else {
             std::cerr << "Unable to open file: " << filePath << std::endl;
         }
-        mvwprintw(win, 0, 0, "                                                         ");
+        int h, w;  // height and width of window
+        getmaxyx(win, h, w);
+        mvwprintw(win, 0, 0, "%-*s", w, " ");  // blank out entire top line
         mvwprintw(win, 0, 0, lastLine.c_str());
         return;
     }
@@ -107,8 +121,10 @@ class Logger {
    private:
     static std::string filePath;
     static std::mutex fileMutex;  // Mutex to ensure thread-safe file writing
+    static bool logging;
 };
 
 // Define the static member variables
 std::string Logger::filePath = "log.txt";
 std::mutex Logger::fileMutex;
+bool Logger::logging = true;

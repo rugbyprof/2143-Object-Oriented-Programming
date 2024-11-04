@@ -708,3 +708,55 @@ Input string:: dwffffff
 Input string:: dwfffffff
 Input string:: dwffffffff
 Input string:: dwfffffffff
+ch: 409
+ch: 104
+ch: 101
+ch: 108
+ch: 108
+ch: 111
+ch: 10
+ch: 409
+ch: 104
+ch: 101
+ch: 108
+ch: 108
+ch: 111
+ch: 32
+ch: 119
+ch: 111
+ch: 114
+ch: 108
+ch: 100
+ch: 10
+ch: 409
+ch: 104
+ch: 409
+height x width: [25, 117]
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+You clicked at x,y:: [18, 13]
+Mouse clicked: [18, 13]
+You clicked at x,y:: [37, 10]
+Mouse clicked: [37, 10]
+height x width: [25, 117]
+You clicked at x,y:: [23, 4]
+Mouse clicked: [23, 4]
+Input string:: s
+Input string:: sd
+Input string:: sdf
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
+height x width: [25, 117]
+You clicked at x,y:: [34, 3]
+Mouse clicked: [34, 3]
+You clicked at x,y:: [35, 8]
+Mouse clicked: [35, 8]
+You clicked at x,y:: [35, 13]
+Mouse clicked: [35, 13]
+You clicked at x,y:: [48, 13]
+Mouse clicked: [48, 13]
+height x width: [25, 117]
+height x width: [25, 117]

@@ -1589,3 +1589,50 @@ clicked: [7, 13]
 clicked grid: true
 colClicked: 0
 Key pressed: 409
+vals: [6, 3, 12, 55]
+yx: [1, 10]
+Initializing grid: true
+height: [7, 13, 1, 3]
+Key pressed: 0
+Mouse pressed: true
+clicked: [11, 18]
+drawing button: true
+Dice Value: 1
+Dice Value: 6
+Dice Value: 6
+Dice Value: 4
+Dice Value: 1
+Dice Value: 5
+Dice Value: 5
+Dice Value: 6
+Dice Value: 2
+Dice Value: 4
+Dice Value: 2
+Dice Value: 5
+Dice Value: 5
+Dice Value: 6
+Dice Value: 1
+Dice Value: 4
+Dice Value: 6
+Dice Value: 2
+Dice Value: 4
+Dice Value: 3
+Dice Value: 2
+Dice Value: 2
+Dice Value: 2
+Dice Value: 5
+Dice Value: 1
+Dice Value: 6
+Dice Value: 5
+Dice Value: 5
+Dice Value: 3
+Dice Value: 5
+Key pressed: 409
+Mouse pressed: true
+clicked: [5, 17]
+clicked grid: true
+colClicked: 1
+Key pressed: 409
+Mouse pressed: true
+clicked: [12, 29]
+Key pressed: 409
