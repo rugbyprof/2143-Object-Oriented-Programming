@@ -6,7 +6,9 @@
 
 ### Next Program
 
-- AI player
+|                                     AI player                                      |
+| :--------------------------------------------------------------------------------: |
+| <img src="https://reliefline.ca/wp-content/uploads/2023/10/dice.jpg" width="100">" |
 
 ## Overview
 
