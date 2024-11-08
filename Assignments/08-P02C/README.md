@@ -2,6 +2,8 @@
 
 #### Due: 11-18-2024 (Monday the 18<sup>th</sup>)
 
+<img src="https://images2.imgbox.com/f8/8e/BA7Doxin_o.jpg">
+
 ## Overview
 
 https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/
