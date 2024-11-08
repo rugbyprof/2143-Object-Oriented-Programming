@@ -4,6 +4,10 @@
 
 <img src="https://images2.imgbox.com/f8/8e/BA7Doxin_o.jpg">
 
+### Next Program
+
+- AI player
+
 ## Overview
 
 https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/
@@ -182,4 +186,3 @@ Using the bit of information above, decide where the other components might be b
 - Place all of your code and any other documents or resources used inside your games folder.
 - Upload this folder to your `Assignments` folder in Github.
 - If you don't remember how to write a nice readme, go [HERE](../../Resources/02-Readmees/README.md)
--
