@@ -1,6 +1,6 @@
 ## Program 2C - Knuckle Bones
 
-### TBD
+#### Due: 11-18-2024 (Monday the 18<sup>th</sup>)
 
 ## Overview
 
@@ -22,128 +22,162 @@ The game KnuckleBones, as featured in **"Cult of the Lamb"**, is a simple dice g
 
 ### Assignment:
 
-Implement an version of Knucklebones in which the Ncurses library is used to control the output to the console screen. Your output should use various colors, be organized, and utilize the screen as if it were a game window. Where by game window I mean all sides in a way that the console looks like a game visualizing everything necessary to visualize game play while implementing the rules of knucklebones.
+Implement an version of Knucklebones in which the Ncurses library is used to control the output to the console screen. Your output should use various colors, be organized, and utilize the screen as if it were a game window. Where by game window I mean all sides in a way that the console looks like a game visualizing everything necessary to ensure that game play looks animated or fun all while implementing the rules of knucklebones.
 
 https://www.thegamer.com/cult-of-the-lamb-knucklebones-guide-dice-minigame-strategy-ratau-shrumy-klunko-bop-flinky/
 
-|  #  | Name                               | Description                                     |
-| :-: | :--------------------------------- | :---------------------------------------------- |
-|  1  | [button.cpp](button.cpp)           | Example program to run the button class.        |
-|  2  | [buttonClass.hpp](buttonClass.hpp) | The buttonClass header to include elsewhere.    |
-|  3  | [colors.cpp](colors.cpp)           | Example program to show the colors class.       |
-|  4  | [colors.hpp](colors.hpp)           | The colors header to include elsewhere.         |
-|  5  | [colors.md](colors.md)             | -----                                           |
-|  6  | [dice.cpp](dice.cpp)               | Example program to run the dice class.          |
-|  7  | [diceClass.hpp](diceClass.hpp)     | The diceClass header to include elsewhere.      |
-|  8  | [draw_grid.md](draw_grid.md)       | -----                                           |
-|  9  |                                    |                                                 |
-| 10  | [game.cpp](game.cpp)               | Game starter code.                              |
-| 11  | [grid.cpp](grid.cpp)               | Example grid program.                           |
-| 12  | [gridClass.cpp](gridClass.cpp)     | Example grid class.                             |
-| 13  | [gridClass.hpp](gridClass.hpp)     | Header for the grid class to include elsewhere. |
-| 14  | [hello_world.cpp](hello_world.cpp) | Bare bones ncurses example.                     |
-| 15  | [input](input)                     | [binary file](input)                            |
-| 16  | [input.cpp](input.cpp)             | Input class                                     |
-| 17  | [log.txt](log.txt)                 | Log file                                        |
-| 18  | [log2.txt](log2.txt)               | Log file                                        |
-| 19  | [logger.hpp](logger.hpp)           | Logger static class to help debugging           |
+### Specifics
 
-# NOT DONE
+- There are plenty of helper classes to give you a hand in implementing the knucklebones game.
+- At a minimum will need to implement a `Player class` and a `Game class`.
+- The big question is who is in charge of what? We have classes for every component ... pretty much. We really just need to organize the components so the outcome becomes a controlled set of actions (instructions) with a start ... some gameplay ... and an end. Yes I am over simplifying the issue but these are vital to every program.
+- I've mentioned it in class many times. OOP can be a little gray. This project is a great example of how OOP can feel more like art than science! For a game like `Knucklebones`, there are a few ways to organize classes and responsibilities.
+- Here’s a breakdown of a typical OOP structure with some alternatives. I intentionally did not include everything, but I wanted to give the class at least some standard ways of game / player interaction.
 
-<!--
-### Design Steps
+## Game Class
 
-1. **Define the 3x3 Grid for Each Player**:
-   - Use a 2D array (3x3) for each player to represent the grid where dice will be placed.
-2. **Dice Rolling**:
-   - Simulate the rolling of a six-sided die using a random number generator.
-3. **Dice Placement**:
-   - Allow the player to select a column to place the die.
-   - Stack the dice in the column and apply the multiplication rule if the dice match.
-4. **Opponent's Dice Removal**:
-   - If the placed die matches the value of an opponent's die in the same column, remove the opponent's die from the grid.
-5. **Scoring**:
-   - Calculate each player's score based on the sum of the dice in each column, applying the multiplication rule for matching dice.
-6. **Game End**:
-   - The game ends when both grids are full, and the program should declare the winner based on the total score.
+- The Game class is responsible for managing the overall flow of the game.
+- It typically owns the components essential for controlling the game `state` (which in turn controls the `flow`).
+- It can goes as far as controlling a players `turns` along managing ghe interactions with the `dice` and `grid`.
 
-### Example of Basic Code Structure (Python):
+```cpp
+class Game {
+public:
+   Game();
 
-Here’s a simplified outline to get you started:
+      // Main gameplay methods
+      void start();
+      void take_turn();
+      bool check_win();
 
-```python
-import random
+      // Game setup and utility methods
+      void initialize_players(std::string player1_name, std::string player2_name);
+      void roll_dice();
 
-def roll_die():
-    return random.randint(1, 6)
+      // Optional UI-oriented methods
+      void display_game_state();
+      void end_game();
 
-def print_grid(grid):
-    for row in grid:
-        print(row)
+private:
+   Dice dice; // Dice instance owned by Game, used each turn
+   Grid grid; // Game-level grid instance for managing cells
+   Player\* current_player;
+   Player players[2]; // Array of players for a two-player game
 
-def place_die(grid, die, column):
-    for row in range(2, -1, -1):  # Place the die in the first available spot in the column
-        if grid[row][column] == 0:
-            grid[row][column] = die
-            break
+   void switch_turn();
 
-def calculate_score(grid):
-    score = 0
-    for col in range(3):
-        col_values = [grid[row][col] for row in range(3) if grid[row][col] != 0]
-        if len(col_values) > 1 and len(set(col_values)) == 1:  # Multiplication bonus
-            score += col_values[0] * len(col_values)
-        else:
-            score += sum(col_values)
-    return score
-
-def knucklebones_game():
-    player1_grid = [[0 for _ in range(3)] for _ in range(3)]
-    player2_grid = [[0 for _ in range(3)] for _ in range(3)]
-
-    current_player = 1
-
-    while True:
-        if current_player == 1:
-            die = roll_die()
-            print(f"Player 1 rolls: {die}")
-            col = int(input("Choose a column to place your die (0, 1, 2): "))
-            place_die(player1_grid, die, col)
-            current_player = 2
-        else:
-            die = roll_die()
-            print(f"Player 2 rolls: {die}")
-            col = int(input("Choose a column to place your die (0, 1, 2): "))
-            place_die(player2_grid, die, col)
-            current_player = 1
-
-        print("Player 1 Grid:")
-        print_grid(player1_grid)
-        print("Player 2 Grid:")
-        print_grid(player2_grid)
-
-        # Scoring logic and game end condition goes here (when all slots are filled)
-        if all(all(cell != 0 for cell in row) for row in player1_grid + player2_grid):
-            print("Game Over!")
-            p1_score = calculate_score(player1_grid)
-            p2_score = calculate_score(player2_grid)
-            print(f"Player 1 Score: {p1_score}")
-            print(f"Player 2 Score: {p2_score}")
-            if p1_score > p2_score:
-                print("Player 1 Wins!")
-            elif p1_score < p2_score:
-                print("Player 2 Wins!")
-            else:
-                print("It's a tie!")
-            break
-
-knucklebones_game()
+};
 ```
 
-### Additional Features for Advanced Students:
+### Notes:
 
-- Add a graphical user interface (GUI) using a library like `Tkinter` or `pygame`.
-- Include AI to play against a computer opponent.
-- Implement a more complex scoring system or variation of the game’s rules.
+- **Ownership of Dice and Grid:**
+  - Game owns the `dice` and `grid` objects because these are shared resources that shouldn’t belong to a single player.
+  - Game manages access to them and coordinates interactions.
+- **Player Management:**
+  - The Game class keeps track of players and whose turn it is.
+  - It might even handle the flow of turns and rolling the dice for each player.
 
-This game is simple but involves important concepts like **random number generation**, **arrays**, **conditional logic**, and **loops**, making it a great programming exercise. Let me know if you need further refinement for the assignment! -->
+## Player Class
+
+- The Player class represents each player, holding their unique game state.
+- This includes a personal name and score.
+- It interacts with the `Grid` or `Dice` objects indirectly through Game.
+
+```cpp
+class Player {
+public:
+Player(std::string name);
+
+    // Player actions
+    void take_turn(Game& game);  // Player's turn with access to Game methods as needed
+    void add_to_score(int points);
+
+    // Accessors
+    std::string get_name() const;
+    int get_score() const;
+
+private:
+std::string name; // Player's name
+int score; // Player's score
+};
+```
+
+### Notes:
+
+- **Turn Interactions:**
+  - `take_turn` could be designed to interact with `Game` for rolling dice or using grid cells.
+  - This keeps `Player` focused on player-specific actions while still allowing `Game` to enforce the rules.
+- **Score Management:**
+  - `add_to_score` lets the Player update their score directly.
+
+---
+
+## Alternatives and Flexibility
+
+- **Alternative 1:**
+  - Let Player Own Their Own Grid: In some designs, Player might own a Grid instance if each player has their own area to place dice.
+  - If so, Player might contain Grid player_grid; and methods to interact with it independently.
+- **Alternative 2:**
+- Move Dice to Player: If each player has their own dice (or representation of rolled values), then `Dice` could be moved to `Player`, and each `Player` would roll their own dice each turn.
+- But if `Dice` is a shared resource, keeping it in `Game` is more efficient.
+
+### Dice and Grid Classes
+
+Our existing `Dice` and `Grid` classes will remain mostly the same. They’re used by either `Game` (for shared resources) or `Player` (if individual instances are needed). Here are simple stubs just for clarity:
+
+```cpp
+class Dice {
+   public:
+      Dice();
+      int roll(); // Randomly roll and return a value
+
+   private:
+      int current_value;
+};
+
+class Grid {
+   public:
+      Grid();
+
+      // Methods to place dice and manage grid state
+      bool place_dice(int row, int col, int value);
+      int get_cell_value(int row, int col) const;
+
+   private:
+      int cells[3][3]; // Simplified for a 3x3 grid
+};
+```
+
+### Summary of Game vs Player
+
+• **Game Class:** Manages the flow, holds Dice and Grid for shared access, and switches player turns.
+• **Player Class:** Represents individual players, optionally owns personal grids if needed.
+• **Dice and Grid Classes:** Serve as utility classes, either shared in Game or individually managed by Player.
+
+Remember to always think about reusability (but don't force it). For example that's why we made a dice class (earlier this semester) that allowed from 4 sides up to 20 sides, and as many as we wanted. That kind of class is reusable.
+
+This division between Game and Player keeps responsibilities clear while offering flexibility for tweaks and additions. With this approach, we can make each component interact in a natural and OOP-compliant way, while also keeping our code maintainable.
+
+## Other components
+
+Using the bit of information above, decide where the other components might be best placed. Below is a list of hpp files as a reminder of what components we have to work with.
+
+|  #  | Name                                 | Description                                    |
+| :-: | :----------------------------------- | :--------------------------------------------- |
+|  1  | [button_class.hpp](button_class.hpp) | Use to add a button to your game.              |
+|  2  | [color_class.hpp](color_class.hpp)   | Use to easily make color pairs and use colors. |
+|  3  | [dice_class.hpp](dice_class.hpp)     | Animate a cheesy dice square (rectangle).      |
+|  4  | [game.cpp](game.cpp)                 | Example usage of helper classes.               |
+|  5  | [grid_class.hpp](grid_class.hpp)     | Where you place dice values.                   |
+|  6  | [input_class.hpp](input_class.hpp)   | Captures input from users like a txt box.      |
+|  7  | [log.txt](log.txt)                   | Log file to help debug programs.               |
+|  8  | [logger_class.hpp](logger_class.hpp) | Class to assist logging debug statements.      |
+
+## Deliverables
+
+- Create a folder called `P02C` and add a `README.md` to it.
+- Place all of your code and any other documents or resources used inside your games folder.
+- Upload this folder to your `Assignments` folder in Github.
+- If you don't remember how to write a nice readme, go [HERE](../../Resources/02-Readmees/README.md)
+-

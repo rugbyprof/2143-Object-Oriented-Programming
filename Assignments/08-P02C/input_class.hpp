@@ -1,42 +1,42 @@
 #include <ncurses.h>
 
-#include "colors.hpp"
-#include "logger.hpp"
+#include "color_class.hpp"
+#include "logger_class.hpp"
 #include <iostream>
 #include <string>
 
 class Input {
-    std::string input;
-    std::string prompt;
+    int box_color;
     int box_height;
     int box_width;
-    int start_y;
     int start_x;
-    WINDOW* input_win;
-    int box_color;
+    int start_y;
     int text_color;
+    std::string input;
+    std::string prompt;
+    WINDOW* input_win;
 
    public:
     Input() {
-        input      = "";
-        prompt     = "";
+        box_color  = 1;
         box_height = 3;
         box_width  = 60;
-        start_y    = 5;
-        start_x    = 10;
+        input      = "";
         input_win  = newwin(box_height, box_width, start_y, start_x);
-        box_color  = 1;
+        prompt     = "";
+        start_x    = 10;
+        start_y    = 5;
         text_color = 3;
     }
     Input(std::string prm, int h, int w, int y, int x) {
-        input      = "";
-        prompt     = prm;
+        box_color  = 1;
         box_height = h;
         box_width  = w;
-        start_y    = y;
-        start_x    = x;
+        input      = "";
         input_win  = newwin(box_height, box_width, start_y, start_x);
-        box_color  = 1;
+        prompt     = prm;
+        start_x    = x;
+        start_y    = y;
         text_color = 3;
     }
     void addChar(char ch) { input += ch; }
@@ -48,14 +48,17 @@ class Input {
     void setBoxColor(int c) { box_color = c; }
     void setTextColor(int c) { text_color = c; }
     std::string getInput() { return input; }
-    std::string setInput(std::string str) { input = str; }
-    std::string resetInput() { input = ""; }
+    void setInput(std::string str) { input = str; }
+    void resetInput() { input = ""; }
     void printInput(int y, int x) { mvprintw(y, x, "%s", input.c_str()); }
     void clearLine(int y, int x, int width) { mvprintw(y, x, "%-*s", width, " "); }
     void printBorder() {
+        Colorly::setColor(box_color);
+        Colorly::winColorOn(input_win, box_color);
         box(input_win, 0, 0);                        // Draw a border around the input box
         mvwprintw(input_win, 1, 1, prompt.c_str());  // Label inside the box
         wrefresh(input_win);
+        Colorly::winColorOff(input_win, box_color);
     }
     void clearWindow() {
         // Clear the input box and move on to the main loop

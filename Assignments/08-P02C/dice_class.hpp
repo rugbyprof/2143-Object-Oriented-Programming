@@ -3,7 +3,7 @@
 #include <ncurses.h>
 #include <unistd.h>  // For usleep()
 
-#include "logger.hpp"
+#include "logger_class.hpp"
 #include <map>
 #include <string>
 #include <utility>

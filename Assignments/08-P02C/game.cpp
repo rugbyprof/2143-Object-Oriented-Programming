@@ -1,16 +1,32 @@
 #include <locale.h>
 #include <ncurses.h>
 
-#include "buttonClass.hpp"
-#include "colors.hpp"
-#include "diceClass.hpp"
-#include "gridClass.hpp"
-#include "logger.hpp"
+#include "button_class.hpp"
+#include "color_class.hpp"
+#include "dice_class.hpp"
+#include "grid_class.hpp"
+#include "input_class.hpp"
+#include "logger_class.hpp"
 #include <ctime>
 #include <string>
 #include <vector>
 
 using namespace std;
+
+class Player {
+    string name;
+    int score;
+
+   public:
+    Player(string n) : name(n), score(0) {}
+    void addScore(int s) { score += s; }
+    int getScore() { return score; }
+    string getName() { return name; }
+};
+
+class Game {
+
+};
 
 int main() {
     srand(time(0));
@@ -28,7 +44,7 @@ int main() {
 
     colorful();
 
-    Logger::setFilePath("log2.txt");
+    Logger::setFilePath("log.txt");
 
     int rows, cols, size;
     int ch;

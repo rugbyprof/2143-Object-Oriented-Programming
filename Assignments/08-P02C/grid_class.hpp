@@ -2,7 +2,7 @@
 
 #include <ncurses.h>
 
-#include "logger.hpp"
+#include "logger_class.hpp"
 #include <ctime>
 #include <string>
 

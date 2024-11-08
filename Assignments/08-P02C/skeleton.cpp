@@ -1,12 +1,13 @@
 #include <ncurses.h>  // Ncurses library
 
-#include "colors.hpp"
-#include "logger.hpp"  // Logger utility
-#include <fstream>     // File I/O
-#include <iostream>    // Input/Output
-#include <map>         // Map data structure
-#include <string>      // String data structure
-#include <vector>      // Vector data structure
+#include "color_class.hpp"
+#include "input_class.hpp"
+#include "logger_class.hpp"  // Logger utility
+#include <fstream>           // File I/O
+#include <iostream>          // Input/Output
+#include <map>               // Map data structure
+#include <string>            // String data structure
+#include <vector>            // Vector data structure
 
 using namespace std;
 
@@ -15,6 +16,7 @@ int main() {
     int x, y;
     string str;
     int color;
+    string yx;
 
     initscr();  // Start ncurses mode
 
@@ -30,6 +32,8 @@ int main() {
     setlocale(LC_ALL, "");  // Enable Unicode support
 
     start_color();  // enable colors in ncurses
+
+    Input input("Enter text: ", 3, 30, height - 1, (width + 30) / 2);
 
     colorful();  // my custom color class to create many colors
 
@@ -48,6 +52,10 @@ int main() {
     while (true) {
         int ch = getch();
 
+        input.printBorder();
+        input.printInput(height - 1, (width - 30) / 2 + 15);
+        input.captureInput();
+
         if (ch == 'q')  // Exit on 'q'
             break;
         else if (ch == KEY_MOUSE) {
@@ -58,6 +66,9 @@ int main() {
                     x = event.x;
                     Logger::log("You clicked at x,y:", vector<string>({to_string(x), to_string(y)}));
                     Logger::log("Mouse clicked", vector<int>({event.x, event.y}));
+                    yx = to_string(y) + "," + to_string(x);
+
+                    mvprintw(y, x, yx.c_str());
                 }
             }
             // Handle backspace key

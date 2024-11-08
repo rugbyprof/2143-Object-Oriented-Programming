@@ -72,16 +72,29 @@ void colorful() {
 
 class Colorly {
    public:
-    Colorly() { color = rand() % 32 + 1; }
+    Colorly() { attron(COLOR_PAIR(color)); }
     ~Colorly() { attroff(COLOR_PAIR(color)); }
     static void setColor(int c) { color = c; }
+    static void setWin(WINDOW* w) { win = w; }
     static void randColor() { color = rand() % 32 + 1; }
     static void colorOn() { attron(COLOR_PAIR(color)); }
     static void colorOff() { attroff(COLOR_PAIR(color)); }
+    static void colorOn(int c) { attron(COLOR_PAIR(c)); }
+    static void colorOff(int c) { attroff(COLOR_PAIR(c)); }
+    static void winColorOn() { wattron(win, COLOR_PAIR(color)); }
+    static void winColorOff() { wattroff(win, COLOR_PAIR(color)); }
+    static void winColorOn(int c) { wattron(win, COLOR_PAIR(c)); }
+    static void winColorOff(int c) { wattroff(win, COLOR_PAIR(c)); }
+    static void winColorOn(WINDOW* w) { wattron(w, COLOR_PAIR(color)); }
+    static void winColorOff(WINDOW* w) { wattroff(w, COLOR_PAIR(color)); }
+    static void winColorOn(WINDOW* w, int c) { wattron(w, COLOR_PAIR(c)); }
+    static void winColorOff(WINDOW* w, int c) { wattroff(w, COLOR_PAIR(c)); }
 
    private:
     static int color;
+    static WINDOW* win;
 };
 
 // Define the static member variables
-int Colorly::color = rand() % 32 + 1;
+int Colorly::color   = rand() % 32 + 1;
+WINDOW* Colorly::win = nullptr;

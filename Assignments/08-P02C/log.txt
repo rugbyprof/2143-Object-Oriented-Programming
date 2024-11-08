@@ -760,3 +760,67 @@ You clicked at x,y:: [48, 13]
 Mouse clicked: [48, 13]
 height x width: [25, 117]
 height x width: [25, 117]
+height x width: [25, 80]
+height x width: [47, 208]
+You clicked at x,y:: [68, 15]
+Mouse clicked: [68, 15]
+You clicked at x,y:: [100, 13]
+Mouse clicked: [100, 13]
+You clicked at x,y:: [118, 21]
+Mouse clicked: [118, 21]
+You clicked at x,y:: [121, 11]
+Mouse clicked: [121, 11]
+You clicked at x,y:: [163, 19]
+Mouse clicked: [163, 19]
+You clicked at x,y:: [154, 10]
+Mouse clicked: [154, 10]
+You clicked at x,y:: [68, 9]
+Mouse clicked: [68, 9]
+You clicked at x,y:: [53, 19]
+Mouse clicked: [53, 19]
+You clicked at x,y:: [58, 29]
+Mouse clicked: [58, 29]
+You clicked at x,y:: [60, 33]
+Mouse clicked: [60, 33]
+height x width: [47, 208]
+You clicked at x,y:: [45, 23]
+Mouse clicked: [45, 23]
+You clicked at x,y:: [102, 28]
+Mouse clicked: [102, 28]
+height x width: [47, 208]
+You clicked at x,y:: [63, 8]
+Mouse clicked: [63, 8]
+Input string:: j
+Input string:: ja
+Input string:: jas
+Input string:: jasd
+Input string:: jasdf
+Input string:: jasdfn
+Input string:: jasdfna
+Input string:: jasdfnas
+Input string:: jasdfnasd
+Input string:: jasdfnasdl
+Input string:: jasdfnasdlk
+Input string:: jasdfnasdlkf
+Input string:: jasdfnasdlkfn
+Input string:: jasdfnasdlkfna
+Input string:: jasdfnasdlkfnas
+Input string:: jasdfnasdlkfnasd
+Input string:: jasdfnasdlkfnasdf
+You clicked at x,y:: [15, 1]
+Mouse clicked: [15, 1]
+You clicked at x,y:: [20, 7]
+Mouse clicked: [20, 7]
+You clicked at x,y:: [31, 19]
+Mouse clicked: [31, 19]
+You clicked at x,y:: [21, 1]
+Mouse clicked: [21, 1]
+height x width: [47, 208]
+You clicked at x,y:: [108, 18]
+Mouse clicked: [108, 18]
+height x width: [47, 208]
+You clicked at x,y:: [64, 14]
+Mouse clicked: [64, 14]
+You hit the enter key: true
+You hit the enter key: true
+You hit the enter key: true
