@@ -1,13 +1,24 @@
 #include <SFML/Graphics.hpp>
 #include <chrono>
 #include <iostream>
+#include <map>
 #include <random>
 #include <string>
 #include <vector>
 
 using namespace std;
 
-class Animation {
+class Animation : public sf::Drawable {
+   private:
+    vector<sf::Texture> frames;  // Vector to store frames for animation
+    sf::Texture texture;         // Texture for final dice face
+    int frameIndex;              // Current frame index
+    int frameDelay;              // Delay per frame in milliseconds
+    bool isPlaying;              // Is the animation playing?
+    sf::Clock clock;             // Clock for frame timing
+    string folderName;           // Folder name for frame images
+    string filePrefix;           // Prefix for frame image files
+    sf::Sprite sprite;           // Sprite to display the animation
    public:
     // Constructor to initialize frame timing and load images
     Animation(int frameDelayMs = 50) : frameDelay(frameDelayMs), frameIndex(0), isPlaying(false), folderName("") {}
@@ -48,12 +59,16 @@ class Animation {
     }
 
     // Update the animation frame based on the elapsed time
-    void update(sf::Sprite& sprite) {
+    void update() {
         if (!isPlaying)
             return;
 
         if (clock.getElapsedTime().asMilliseconds() > frameDelay) {
-            frameIndex++;
+            frameIndex = (frameIndex + 1) % (frames.size() + 1);
+            if(frameIndex == frames.size()-1) {
+                frameIndex = 0;
+            }
+            cout << frameIndex << endl;
             if (frameIndex < frames.size()) {
                 sprite.setTexture(frames[frameIndex]);
                 clock.restart();
@@ -75,28 +90,43 @@ class Animation {
 
     bool isAnimationPlaying() const { return isPlaying; }
 
-   private:
-    vector<sf::Texture> frames;  // Vector to store frames for animation
-    sf::Texture texture;         // Texture for final dice face
-    int frameIndex;              // Current frame index
-    int frameDelay;              // Delay per frame in milliseconds
-    bool isPlaying;              // Is the animation playing?
-    sf::Clock clock;             // Clock for frame timing
-    string folderName;           // Folder name for frame images
-    string filePrefix;           // Prefix for frame image files
+    void setPos(float x, float y) { sprite.setPosition(x, y); }
+    void setScale(float x, float y) { sprite.setScale(x, y); }
+
+    // Override the draw method to define custom drawing behavior
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
+        target.draw(sprite, states);  // Draw the sprite to the target
+    }
 };
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(400, 400), "Dice Roll Animation");
+    map<string, Animation> animations;
 
-    // Initialize animation with 24 frames at a 50ms delay
-    Animation diceAnimation("./images/", "frame_", 30);
-    diceAnimation.loadFrames(1, 24);
+    animations["da1"] = Animation("./images/rotated/north/", "frame_", 30);
+    animations["da1"].setPos(100, 100);
+    animations["da1"].setScale(0.50f, 0.50f);
+    animations["da1"].loadFrames(1, 24);
+
+    animations["da2"] = Animation("./images/rotated/south/", "frame_", 30);
+    animations["da2"].setPos(200, 100);
+    animations["da2"].setScale(0.50f, 0.50f);
+    animations["da2"].loadFrames(1, 24);
+
+    animations["da3"] = Animation("./images/rotated/east/", "frame_", 30);
+    animations["da3"].setPos(100, 200);
+    animations["da3"].setScale(0.50f, 0.50f);
+    animations["da3"].loadFrames(1, 24);
+
+    animations["da4"] = Animation("./images/rotated/west/", "frame_", 30);
+    animations["da4"].setPos(200, 200);
+    animations["da4"].setScale(0.50f, 0.50f);
+    animations["da4"].loadFrames(1, 24);
 
     // Sprite to display the animation
-    sf::Sprite sprite;
-    sprite.setPosition(100, 100);  // Adjust position as needed
-    sprite.setScale(0.25f, 0.25f);
+    // sf::Sprite sprite;
+    // sprite.setPosition(100, 100);  // Adjust position as needed
+    // sprite.setScale(0.25f, 0.25f);
 
     // Main loop
     while (window.isOpen()) {
@@ -107,18 +137,26 @@ int main() {
 
             // Start or restart animation on mouse click
             if (event.type == sf::Event::MouseButtonPressed && event.mouseButton.button == sf::Mouse::Left) {
-                if (!diceAnimation.isAnimationPlaying()) {
-                    diceAnimation.play();
+                for (auto& [id, anim] : animations) {
+                    if (!anim.isAnimationPlaying()) {
+                        anim.play();
+                    }
                 }
+                // if (!animations["da1"].isAnimationPlaying()) {
+                //     animations["da1"].play();
+                // }
             }
         }
 
         // Update the animation
-        diceAnimation.update(sprite);
 
         // Clear, draw, and display the window
         window.clear();
-        window.draw(sprite);
+        for (auto& [id, anim] : animations) {
+            anim.update();
+            window.draw(anim);
+        }
+
         window.display();
     }
 
