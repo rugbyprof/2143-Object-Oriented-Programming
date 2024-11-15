@@ -8,17 +8,18 @@
 using namespace std;
 
 class Animation {
-public:
+   public:
     // Constructor to initialize frame timing and load images
     Animation(int frameDelayMs = 50) : frameDelay(frameDelayMs), frameIndex(0), isPlaying(false), folderName("") {}
-    Animation(string folderName, string filePrefix, int frameDelayMs = 50) : frameDelay(frameDelayMs), frameIndex(0), isPlaying(false), folderName(folderName), filePrefix(filePrefix) {}
+    Animation(string folderName, string filePrefix, int frameDelayMs = 50)
+        : frameDelay(frameDelayMs), frameIndex(0), isPlaying(false), folderName(folderName), filePrefix(filePrefix) {}
 
     // Load a sequence of frames (e.g., 001.png to 024.png) into textures
     void loadFrames(int start, int end, const string& imageFolder = "") {
         if (imageFolder != "") {
             this->folderName = imageFolder;
         }
-        vector< string > filenames;
+        vector<string> filenames;
         frames.clear();
         for (int i = start; i <= end; ++i) {
             string filename = (i < 10) ? "00" + to_string(i) + ".png" : "0" + to_string(i) + ".png";
@@ -27,7 +28,7 @@ public:
         loadFrames(filenames);
     }
 
-    void loadFrames(vector< string > filenames) {
+    void loadFrames(vector<string> filenames) {
         frames.clear();
         for (const auto& filename : filenames) {
             sf::Texture texture;
@@ -41,14 +42,15 @@ public:
 
     // Start the animation
     void play() {
-        isPlaying = true;
+        isPlaying  = true;
         frameIndex = 0;
         clock.restart();
     }
 
     // Update the animation frame based on the elapsed time
     void update(sf::Sprite& sprite) {
-        if (!isPlaying) return;
+        if (!isPlaying)
+            return;
 
         if (clock.getElapsedTime().asMilliseconds() > frameDelay) {
             frameIndex++;
@@ -57,10 +59,10 @@ public:
                 clock.restart();
             } else {
                 // End animation and display a random dice face (1 to 6)
-                mt19937                         rng(static_cast< unsigned >(chrono::system_clock::now().time_since_epoch().count()));
-                uniform_int_distribution< int > dist(1, 6);
-                int                             finalDiceFace = dist(rng);
-                string                          finalFilename = folderName + to_string(finalDiceFace) + ".png";
+                mt19937 rng(static_cast<unsigned>(chrono::system_clock::now().time_since_epoch().count()));
+                uniform_int_distribution<int> dist(1, 6);
+                int finalDiceFace    = dist(rng);
+                string finalFilename = folderName + to_string(finalDiceFace) + ".png";
                 if (!texture.loadFromFile(finalFilename)) {
                     cerr << "Error loading " << finalFilename << endl;
                     return;
@@ -73,27 +75,28 @@ public:
 
     bool isAnimationPlaying() const { return isPlaying; }
 
-private:
-    vector< sf::Texture > frames;      // Vector to store frames for animation
-    sf::Texture           texture;     // Texture for final dice face
-    int                   frameIndex;  // Current frame index
-    int                   frameDelay;  // Delay per frame in milliseconds
-    bool                  isPlaying;   // Is the animation playing?
-    sf::Clock             clock;       // Clock for frame timing
-    string                folderName;  // Folder name for frame images
-    string                filePrefix;  // Prefix for frame image files
+   private:
+    vector<sf::Texture> frames;  // Vector to store frames for animation
+    sf::Texture texture;         // Texture for final dice face
+    int frameIndex;              // Current frame index
+    int frameDelay;              // Delay per frame in milliseconds
+    bool isPlaying;              // Is the animation playing?
+    sf::Clock clock;             // Clock for frame timing
+    string folderName;           // Folder name for frame images
+    string filePrefix;           // Prefix for frame image files
 };
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(400, 400), "Dice Roll Animation");
 
     // Initialize animation with 24 frames at a 50ms delay
-    Animation diceAnimation("./dice_roll/", "frame_", 30);
+    Animation diceAnimation("./images/", "frame_", 30);
     diceAnimation.loadFrames(1, 24);
 
     // Sprite to display the animation
     sf::Sprite sprite;
     sprite.setPosition(100, 100);  // Adjust position as needed
+    sprite.setScale(0.25f, 0.25f);
 
     // Main loop
     while (window.isOpen()) {
