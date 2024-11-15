@@ -1,9 +1,10 @@
 import os
 import subprocess
 
+
 # Directory containing your images
-input_dir = "path/to/your/images"
-output_dir = "path/to/output/images"
+input_dir = "."
+output_dir = "./rotated"
 
 # Ensure the output directory exists
 os.makedirs(output_dir, exist_ok=True)
