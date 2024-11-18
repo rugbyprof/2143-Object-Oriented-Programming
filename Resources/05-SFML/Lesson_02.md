@@ -22,7 +22,7 @@ Here’s a program that:
 
 int main() {
 // Create a window
-sf::RenderWindow window(sf::VideoMode(800, 600), "Lesson 2: Drawing Shapes and Textures");
+sf::RenderWindow window(sf::VideoMode(800, 600), "Knuckle Bones 02");
 
     // Create a rectangle
     sf::RectangleShape rectangle(sf::Vector2f(200.f, 100.f)); // 200x100 rectangle
