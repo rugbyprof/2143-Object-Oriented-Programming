@@ -1,88 +1,89 @@
 #include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
 #include <iostream>
 #include <string>
 
-using namespace std;
+// generic fail safe capture input
+// all done in the main loop
 
 int main() {
     // Create the window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Enter Name Example");
-    window.setFramerateLimit(60);
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Input Handling Example");
 
-    // Load font
-    sf::Font font;
-    if (!font.loadFromFile("Arial.ttf")) {
-        // Handle error
-        return -1;
-    }
+    // Variables to store input state
+    std::string userInput;           // For storing typed characters
+    sf::Vector2i lastMouseClickPos;  // Last mouse click position
+    std::string lastMouseButton;     // Last mouse button clicked
 
-    // Text objects for instructions and name display
-    sf::Text instructionText("Enter your name:", font, 24);
-    instructionText.setPosition(50, 200);
-    instructionText.setFillColor(sf::Color::White);
-
-    sf::Text nameText("", font, 24);
-    nameText.setPosition(50, 250);
-    nameText.setFillColor(sf::Color::Green);
-
-    sf::Text displayName("", font, 30);
-    displayName.setPosition(50, 50);
-    displayName.setFillColor(sf::Color::Yellow);
-
-    // Variables for input handling
-    std::string userInput;
-    bool nameEntered = false;
-
+    // Main loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
+            // Handle window close
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
 
-            if (!nameEntered) {
-                cout << "nameEntered not entered" << endl;
-                if (event.type == sf::Event::TextEntered) {
-                    if (event.text.unicode == '\b') {
-                        // Handle backspace
+            // **Text Input**: Handle typed characters
+            if (event.type == sf::Event::TextEntered) {
+                if (event.text.unicode < 128) {  // Only handle ASCII characters
+                    char enteredChar = static_cast<char>(event.text.unicode);
+                    if (enteredChar == '\b') {  // Backspace handling
                         if (!userInput.empty()) {
                             userInput.pop_back();
                         }
-                    } else if (event.type == sf::Event::MouseButtonPressed) {
-                        if (event.mouseButton.button == sf::Mouse::Left) {
-                            // Get mouse position relative to the window
-                            nameEntered = true;
-                            displayName.setString("Hello, " + userInput + "!");
-                        }
-                    } else if (event.text.unicode == '\r') {
-                        // Handle enter
-                        nameEntered = true;
-                        displayName.setString("Hello, " + userInput + "!");
-                    } else if (event.text.unicode < 128) {
-                        // Handle valid characters
-                        userInput += static_cast<char>(event.text.unicode);
+                        std::cout << "Backspace detected. Current input: " << userInput << '\n';
+                    } else if (enteredChar == '\r') {  // Enter handling
+                        std::cout << "Enter key detected. Final input: " << userInput << '\n';
+                        userInput.clear();  // Clear input after pressing Enter
+                    } else {
+                        userInput += enteredChar;
+                        std::cout << "Character entered: " << enteredChar << " | Current input: " << userInput << '\n';
                     }
-
-                    nameText.setString(userInput);
                 }
-            } else {
-                cout << "nameEntered" << endl;
+            }
+
+            // **Key Presses**: Handle specific key events
+            if (event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Backspace) {
+                    std::cout << "Backspace key pressed\n";
+                } else if (event.key.code == sf::Keyboard::Enter) {
+                    std::cout << "Enter key pressed\n";
+                } else if (event.key.code == sf::Keyboard::Escape) {
+                    std::cout << "Escape key pressed. Exiting.\n";
+                    window.close();  // Close the window on Escape
+                } else {
+                    std::cout << "Key pressed: " << event.key.code << '\n';
+                }
+            }
+
+            // **Mouse Input**: Handle mouse button presses
+            if (event.type == sf::Event::MouseButtonPressed) {
+                lastMouseClickPos = sf::Mouse::getPosition(window);
+                if (event.mouseButton.button == sf::Mouse::Left) {
+                    lastMouseButton = "Left";
+                } else if (event.mouseButton.button == sf::Mouse::Right) {
+                    lastMouseButton = "Right";
+                } else if (event.mouseButton.button == sf::Mouse::Middle) {
+                    lastMouseButton = "Middle";
+                }
+                std::cout << "Mouse " << lastMouseButton << " button clicked at position: " << lastMouseClickPos.x << ", "
+                          << lastMouseClickPos.y << '\n';
+            }
+
+            // **Mouse Input**: Handle mouse button releases
+            if (event.type == sf::Event::MouseButtonReleased) {
+                std::cout << "Mouse " << lastMouseButton << " button released\n";
+            }
+
+            // **Mouse Movement**: Handle mouse movement
+            if (event.type == sf::Event::MouseMoved) {
+                sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+                std::cout << "Mouse moved to: " << mousePos.x << ", " << mousePos.y << '\n';
             }
         }
 
-        // Clear the window
+        // Clear the window and display
         window.clear(sf::Color::Black);
-
-        // Draw the appropriate text
-        if (!nameEntered) {
-            window.draw(instructionText);
-            window.draw(nameText);
-        } else {
-            window.draw(displayName);
-        }
-
-        // Display everything
         window.display();
     }
 

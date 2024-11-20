@@ -16,11 +16,11 @@ int main() {
         std::cerr << "Error loading font\n";
         return -1;
     }
-    sf::Text menuText("Press Enter to Play", font, 30);
+    sf::Text menuText("Press Enter to Play", font, 50);
     menuText.setFillColor(sf::Color::Black);
     menuText.setPosition(250.f, 250.f);
 
-    sf::Text gameOverText("Game Over! Press R to Restart", font, 30);
+    sf::Text gameOverText("Game Over! Press R to Restart", font, 50);
     gameOverText.setFillColor(sf::Color::Red);
     gameOverText.setPosition(150.f, 250.f);
 

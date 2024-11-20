@@ -1,10 +1,12 @@
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 
-// 11:00
+// 12:00
 
 class Grid {
+    // Grid configuration
     int rows;
     int cols;
     float cellSize;     // Width and height of each cell
@@ -12,16 +14,16 @@ class Grid {
     float gridStartY;   // Starting Y position of the grid
     float cellSpacing;  // Spacing between cells
     float lineThickness;
-    std::vector<sf::RectangleShape> grid;
+    std::vector<sf::RectangleShape> grid;  // Vector to hold grid cells
 
-    void createGrid() {
+    void init() {
         // Create the grid cells
         for (int row = 0; row < rows; ++row) {
             for (int col = 0; col < cols; ++col) {
                 sf::RectangleShape cell(sf::Vector2f(cellSize, cellSize));
                 cell.setFillColor(sf::Color::White);  // Default cell color
                 cell.setOutlineColor(sf::Color::Black);
-                cell.setOutlineThickness(lineThickness);
+                cell.setOutlineThickness(2.f);
 
                 // Calculate cell position
                 float x = gridStartX + col * (cellSize + cellSpacing);
@@ -35,44 +37,53 @@ class Grid {
     }
 
    public:
-    Grid(int r, int c, int cs, int gsx, int gsy, int space, int thick)
-        : rows(r), cols(c), cellSize(cs), gridStartX(gsx), gridStartY(gsy), cellSpacing(space), lineThickness(thick) {
-        createGrid();
-    }
     Grid() {
-        // Grid configuration
         rows          = 3;
         cols          = 3;
-        cellSize      = 100.f;
+        cellSize      = 100.f;  // Width and height of each cell
         gridStartX    = 200.f;  // Starting X position of the grid
         gridStartY    = 100.f;  // Starting Y position of the grid
-        cellSpacing   = 10.f;   // Spacing between cells
-        lineThickness = 2.f;
-        createGrid();
+        cellSpacing   = 0.f;    // Spacing between cells
+        lineThickness = 1.f;
+        init();
     }
-    int getRows() { return rows; }
-    int getCols() { return cols; }
 
-    sf::RectangleShape getCell(int row, int col) { return grid[row * cols + col]; }
+    Grid(int rows, int cols) : rows(rows), cols(cols) {
+        cellSize      = 100.f;  // Width and height of each cell
+        gridStartX    = 200.f;  // Starting X position of the grid
+        gridStartY    = 100.f;  // Starting Y position of the grid
+        cellSpacing   = 0.f;    // Spacing between cells
+        lineThickness = 1.f;
+        init();
+    }
+
+    void setLineThickness(float thickness) {
+        lineThickness = thickness;
+        for (auto& cell : grid) {
+            cell.setOutlineThickness(thickness);
+        }
+    }
 
     sf::Vector2i cellClicked(int x, int y) {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if (grid[i * cols + j].getGlobalBounds().contains(static_cast<float>(x), static_cast<float>(y))) {
-                    std::cout << "Cell clicked at: " << i << ", " << j << std::endl;
-                    return sf::Vector2i(i, j);
+        for (int row = 0; row < rows; ++row) {
+            for (int col = 0; col < cols; ++col) {
+                if (grid[row * cols + col].getGlobalBounds().contains(static_cast<float>(x), static_cast<float>(y))) {
+                    // std::cout << "Cell clicked: " << row << ", " << col << std::endl;
+                    return sf::Vector2i(row, col);
                 }
             }
         }
         return sf::Vector2i(-1, -1);
     }
+
+    std::vector<sf::RectangleShape> getGrid() { return grid; }
 };
 
 int main() {
     // Create a window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Lesson 5: Drawing the Game Grid");
-
-    Grid grid(3, 3, 50, 400, 100, 0, 4);
+    sf::Vector2i clicked;
+    Grid grid(3, 3);
 
     // Main game loop
     while (window.isOpen()) {
@@ -82,25 +93,19 @@ int main() {
                 window.close();
             }
         }
-
         if (event.type == sf::Event::MouseButtonPressed) {
             if (event.mouseButton.button == sf::Mouse::Left) {
                 // Get mouse position relative to the window
                 sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-                // std::cout << "Mouse clicked at: " << mousePos.x << ", " << mousePos.y << std::endl;
-                grid.cellClicked(mousePos.x, mousePos.y);
+
+                clicked = grid.cellClicked(mousePos.x, mousePos.y);
+                std::cout << "clicked: " << clicked.x << ", " << clicked.y << std::endl;
             }
         }
-
         // Render
         window.clear(sf::Color::White);
-        // for (const auto& cell : grid) {
-        //     window.draw(cell);
-        // }
-        for (int i = 0; i < grid.getRows(); i++) {
-            for (int j = 0; j < grid.getCols(); j++) {
-                window.draw(grid.getCell(i, j));
-            }
+        for (const auto& cell : grid.getGrid()) {
+            window.draw(cell);
         }
         window.display();
     }
