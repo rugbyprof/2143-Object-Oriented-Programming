@@ -1,3 +1,18 @@
+/*
+ * This program demonstrates how to create a window using SFML and draw
+ * various graphical objects, including shapes and textures.
+ * It features:
+ * - A blue rectangle and a green circle positioned on the window.
+ * - A sprite that displays a texture loaded from an external image file.
+ * - A game loop that handles window events, clears the screen, draws the
+ *   objects, and updates the display continuously.
+ *
+ * Key concepts covered:
+ * - Creating and positioning shapes (rectangle, circle).
+ * - Loading and displaying textures using sprites.
+ * - Handling events such as window closing.
+ * - Managing the rendering loop with clear, draw, and display operations.
+ */
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -48,24 +63,7 @@ int main() {
             }
         }
 
-        // // Real-time keyboard movement for the circle
-        // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-        //     std::cout << "up" << std::endl;
-        //     circle.move(0.f, -5.f);
-        // }
-        // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-        //     std::cout << "down" << std::endl;
-        //     circle.move(0.f, 5.f);
-        // }
-        // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        //     std::cout << "left" << std::endl;
-        //     circle.move(-5.f, 0.f);
-        // }
-        // if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        //     std::cout << "right" << std::endl;
-        //     circle.move(5.f, 0.f);
-        // }
-
+        // Allows you to move the green circle by pressing the arrow keys
         if (event.type == sf::Event::KeyPressed) {
             switch (event.key.code) {
                 case 71:  // Left arrow

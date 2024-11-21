@@ -1,3 +1,11 @@
+/**
+ * GRID CLASS:
+ *  This file contains a grid class that gives you the start of displaying score values
+ *  within the proper grid columns. There is another version in lesson_05b.cpp that may
+ *  implement things a little different.
+ *
+ */
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>

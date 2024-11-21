@@ -1,3 +1,13 @@
+/*
+ * This program demonstrates how to use SFML sprites and textures to create an animation
+ * It features:
+ * - A series of images loaded for each frame of the animation (texture)
+ * - A sprite that displays each texture one after the other to create an animation
+ * - A game loop that handles window events, clears the screen, draws the
+ *   objects, and updates the display continuously.
+ * Downsides:
+ *  - It is hard coded for a single animation (dice animation) and the class isn't usefull otherwise
+ */
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>

@@ -1,4 +1,7 @@
-
+/**
+ * GAME STATE example.
+ * - Uses keys to transition from game play, to game restart, to game exit
+ */
 #include <SFML/Graphics.hpp>
 #include <iostream>
 

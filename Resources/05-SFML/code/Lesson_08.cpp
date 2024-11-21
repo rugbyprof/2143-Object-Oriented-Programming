@@ -1,7 +1,55 @@
 #include <SFML/Graphics.hpp>
+#include <algorithm>
+#include <filesystem>
+#include <iostream>
 #include <memory>
+#include <regex>
 #include <stdexcept>
+#include <string>
 #include <vector>
+
+using namespace std;
+
+// used for file system operations like iterating through directories
+namespace fs = std::filesystem;
+
+/**
+ * @brief Glob function to match files in a folder using a regex pattern
+ * @param folderPath The folder path to search
+ * @param pattern The regex pattern to match filenames
+ * @return A vector of matched filenames
+ *
+ */
+std::vector<std::string> glob(const std::string& folderPath, const std::string& pattern) {
+    std::vector<std::string> matchedFiles;
+
+    try {
+        // Ensure the folder exists and is a directory
+        if (!fs::exists(folderPath) || !fs::is_directory(folderPath)) {
+            throw std::runtime_error("Invalid folder path");
+        }
+
+        // Use regex to match the pattern
+        std::regex regexPattern(pattern);
+
+        // Iterate through the folder
+        for (const auto& entry : fs::directory_iterator(folderPath)) {
+            if (entry.is_regular_file()) {
+                std::string fileName = entry.path().filename().string();
+                if (std::regex_match(fileName, regexPattern)) {
+                    matchedFiles.push_back(entry.path().string());
+                }
+            }
+        }
+
+        // Sort filenames to maintain a consistent order
+        std::sort(matchedFiles.begin(), matchedFiles.end());
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    return matchedFiles;
+}
 
 class AnimatedSprite : public sf::Drawable, public sf::Transformable {
    private:
@@ -20,6 +68,11 @@ class AnimatedSprite : public sf::Drawable, public sf::Transformable {
    public:
     // Constructor
     AnimatedSprite(float frameDuration = 0.1f) : currentFrame(0), frameDuration(frameDuration) {}
+    AnimatedSprite(vector<string> frames, float frameDuration = 0.1f) : currentFrame(0), frameDuration(frameDuration) {
+        for (auto& frame : frames) {
+            addFrame(frame);
+        }
+    }
 
     // Add a texture (by file path) to the animation
     void addFrame(const std::string& textureFile) {
@@ -61,19 +114,29 @@ int main() {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Animated Sprite with Multiple Textures");
 
-    // Create an AnimatedSprite instance
-    AnimatedSprite animatedSprite(0.2f);  // Frame duration = 0.2 seconds
+    std::string folder  = "./images";
+    std::string pattern = R"(frame_\d+\.png)";  // Regex pattern for filenames like "image_1.jpg"
 
-    // Add frames (images) to the animation
-    try {
-        animatedSprite.addFrame("frame1.png");
-        animatedSprite.addFrame("frame2.png");
-        animatedSprite.addFrame("frame3.png");
-        animatedSprite.addFrame("frame4.png");
-    } catch (const std::runtime_error& e) {
-        std::cerr << e.what() << '\n';
-        return -1;  // Exit if texture loading fails
+    std::vector<std::string> files = glob(folder, pattern);
+
+    std::cout << "Matched files:\n";
+    for (const auto& file : files) {
+        std::cout << file << '\n';
     }
+
+    // Create an AnimatedSprite instance
+    AnimatedSprite animatedSprite(files, 0.2f);  // Frame duration = 0.2 seconds
+
+    // // Add frames (images) to the animation
+    // try {
+    //     animatedSprite.addFrame("frame1.png");
+    //     animatedSprite.addFrame("frame2.png");
+    //     animatedSprite.addFrame("frame3.png");
+    //     animatedSprite.addFrame("frame4.png");
+    // } catch (const std::runtime_error& e) {
+    //     std::cerr << e.what() << '\n';
+    //     return -1;  // Exit if texture loading fails
+    // }
 
     // Set the initial position
     animatedSprite.setPosition(100, 100);
@@ -89,14 +152,41 @@ int main() {
         animatedSprite.update();
 
         // Move sprite with arrow keys
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+            cout << "Right key pressed\n";
             animatedSprite.move(5.f, 0.f);
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+            cout << "Left key pressed\n";
             animatedSprite.move(-5.f, 0.f);
+        }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
             animatedSprite.move(0.f, -5.f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
             animatedSprite.move(0.f, 5.f);
+
+        if (event.type == sf::Event::KeyPressed) {
+            switch (event.key.code) {
+                case 71:  // Left arrow
+                    std::cout << "Left arrow pressed!" << std::endl;
+                    animatedSprite.move(-.01f, 0.f);
+                    break;
+                case 72:  // Right arrow
+                    std::cout << "Right arrow pressed!" << std::endl;
+                    animatedSprite.move(.01f, 0.f);
+                    break;
+                case 73:  // Up arrow
+                    std::cout << "Up arrow pressed!" << std::endl;
+                    animatedSprite.move(0.f, -.01f);
+                    break;
+                case 74:  // Down arrow
+                    std::cout << "Down arrow pressed!" << std::endl;
+                    animatedSprite.move(0.f, .01f);
+                    break;
+                default:
+                    break;
+            }
+        }
 
         // Clear and draw
         window.clear(sf::Color::Black);
