@@ -12,72 +12,83 @@
 #include <iostream>
 #include <vector>
 
+using namespace std;
+
 class DiceAnimation {
     std::vector<sf::Texture> textures;
     sf::Sprite sprite;
     sf::Clock clock;
-    sf::Time frameDuration;  // 100ms per frame
+    sf::Time frameDuration;  // Frame duration (e.g., 100ms per frame)
     int currentFrame;
 
    public:
-    DiceAnimation() {
-        for (int i = 1; i <= 24; ++i) {  // Assume dice frames are named frame1.png to frame6.png
+    DiceAnimation() : frameDuration(sf::milliseconds(100)), currentFrame(0) {
+        // Load textures
+        for (int i = 1; i <= 24; ++i) {
             sf::Texture texture;
-            std::string filename = (i < 10) ? "00" + std::to_string(i) + ".png" : "0" + std::to_string(i) + ".png";
-            if (!texture.loadFromFile("./images/frame_" + filename)) {
-                // if (!texture.loadFromFile("./images/" + std::to_string(i) + ".png")) {
-                std::cerr << "Error loading frame" << i << ".png" << std::endl;
+            string prefix        = (i < 10) ? "00" : "0";
+            std::string filename = "frame_" + prefix + std::to_string(i) + ".png";
+            if (!texture.loadFromFile("./media/animations/dice_roll/" + filename)) {
+                std::cerr << "Error loading " << filename << std::endl;
                 return;
             }
-
             textures.push_back(texture);
         }
-        frameDuration = sf::milliseconds(100);  // 100ms per frame
-        currentFrame  = 0;
-        sprite.setTexture(textures[currentFrame]);  // Start with the first frame
+
+        if (!textures.empty()) {
+            sprite.setTexture(textures[currentFrame]);
+        }
         sprite.setPosition(300.f, 200.f);
     }
 
     void update() {
-        // Update animation frame
         if (clock.getElapsedTime() >= frameDuration) {
-            clock.restart();  // Reset the clock
+            clock.restart();
 
             // Advance to the next frame
             currentFrame = (currentFrame + 1) % textures.size();
             sprite.setTexture(textures[currentFrame]);
         }
     }
-    // void setFrameDuration(sf::Time frameDuration) { this->frameDuration = sf::milliseconds(frameDuration); }
-    // int getFrameDuration() { return frameDuration.asMilliseconds(); }
-    sf::Sprite draw() { return sprite; }
+
+    void setFrameDuration(sf::Time duration) { frameDuration = duration; }
+
+    int getFrameDuration() const { return frameDuration.asMilliseconds(); }
+
+    const sf::Sprite& draw() const { return sprite; }
+
+    void changeSpeed(int delta) {
+        frameDuration += sf::milliseconds(50 * delta);  // Add 50ms to slow down animation
+    }
 };
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Lesson 4: Animations");
-    DiceAnimation dice;
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Lesson 4: Dice Animation");
+    DiceAnimation diceAnimation;
 
-    // Main game loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
                 window.close();
             }
+
             if (event.type == sf::Event::MouseButtonPressed) {
                 if (event.mouseButton.button == sf::Mouse::Left) {
-                    // Get mouse position relative to the window
-                    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-                    std::cout << "Mouse clicked at: " << mousePos.x << ", " << mousePos.y << std::endl;
-                    sf::Time frameDuration = dice.getFrameDuration();
-                    dice.setFrameDuration(frameDuration + sf::milliseconds(10));
+                    diceAnimation.changeSpeed(-1);
+                    std::cout << "Frame duration: " << diceAnimation.getFrameDuration() << " ms" << std::endl;
+                }
+                if (event.mouseButton.button == sf::Mouse::Right) {
+                    diceAnimation.changeSpeed(1);
+                    std::cout << "Frame duration: " << diceAnimation.getFrameDuration() << " ms" << std::endl;
                 }
             }
         }
-        dice.update();
-        // Render
-        window.clear(sf::Color::Black);
-        window.draw(dice.draw());
+
+        diceAnimation.update();
+
+        window.clear();
+        window.draw(diceAnimation.draw());
         window.display();
     }
 

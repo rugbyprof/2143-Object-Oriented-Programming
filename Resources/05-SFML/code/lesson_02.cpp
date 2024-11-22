@@ -28,7 +28,7 @@ int main() {
 
     // Load a texture from an external image file
     sf::Texture texture;
-    if (!texture.loadFromFile("./images/6.png")) {  // Attempt to load the texture file
+    if (!texture.loadFromFile("./media/images/6.png")) {  // Attempt to load the texture file
         // If the texture file fails to load, print an error message and exit the program
         std::cerr << "Error: Could not load texture 'dice_face.png'\n";
         return -1;  // Return error code
