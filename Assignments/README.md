@@ -15,6 +15,6 @@
 | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02C">08-P02C</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02C"> Program 2C </a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02C"> Knuckle Bones</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02C">Nov 18th</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/08-P02C">Monday the 18<sup>th</sup></a>~ | ---- |
 | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-T02">09-T02</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-T02"> Test 2 </a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-T02"> Intermediate Stuff</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-T02">Oct 18th</a>~ | ~<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Assignments/09-T02">Friday @ 11/12</a>~ | ---- |
 
-<sup>Last Updated: 2024-11-22 (Fri @ 11:14)</sup> 
+<sup>Last Updated: 2024-11-22 (Fri @ 21:40)</sup> 
 
 <sup>***Days Left is only accurate if the `Last Updated` date is the same as todays date. Otherwise, use the due date!***</sup> 

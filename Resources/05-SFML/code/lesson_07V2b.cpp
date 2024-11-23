@@ -174,7 +174,7 @@ int main() {
 
     // Load font
     sf::Font font;
-    if (!font.loadFromFile("Arial.ttf")) {
+    if (!font.loadFromFile("./media/fonts/Arial.ttf")) {
         std::cerr << "Failed to load font\n";
         return -1;
     }

@@ -58,6 +58,7 @@ class AnimatedSprite : public sf::Drawable, public sf::Transformable {
     std::size_t currentFrame;                            // Index of the current frame
     sf::Clock animationClock;                            // Timer for animation updates
     float frameDuration;                                 // Duration of each frame in seconds
+    bool clicked;
 
     // Override the draw method
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
@@ -72,6 +73,9 @@ class AnimatedSprite : public sf::Drawable, public sf::Transformable {
         for (auto& frame : frames) {
             addFrame(frame);
         }
+
+        sprite.setTexture(*textures[0]);
+        clicked = false;
     }
 
     // Add a texture (by file path) to the animation
@@ -82,6 +86,16 @@ class AnimatedSprite : public sf::Drawable, public sf::Transformable {
         }
         textures.push_back(std::move(texture));
     }
+
+    void handleEvent(const sf::Event& event, const sf::RenderWindow& window) {
+        if (event.type == sf::Event::MouseButtonPressed) {
+            if (sprite.getGlobalBounds().contains(window.mapPixelToCoords(sf::Mouse::getPosition(window)))) {
+                clicked = true;
+            }
+        }
+    }
+
+    bool isClicked() { return clicked; }
 
     // Update the animation
     void update() {
@@ -114,18 +128,22 @@ int main() {
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Animated Sprite with Multiple Textures");
 
-    std::string folder  = "./images";
+    std::string dsfolder = "./media/animations/dancing_skeleton";
+    std::string drfolder = "./media/animations/dice_roll";
+
     std::string pattern = R"(frame_\d+\.png)";  // Regex pattern for filenames like "image_1.jpg"
 
-    std::vector<std::string> files = glob(folder, pattern);
+    std::vector<std::string> dsfiles = glob(dsfolder, pattern);
+    std::vector<std::string> drfiles = glob(drfolder, pattern);
 
-    std::cout << "Matched files:\n";
-    for (const auto& file : files) {
-        std::cout << file << '\n';
-    }
+    // std::cout << "Matched files:\n";
+    // for (const auto& file : files) {
+    //     std::cout << file << '\n';
+    // }
 
     // Create an AnimatedSprite instance
-    AnimatedSprite animatedSprite(files, 0.2f);  // Frame duration = 0.2 seconds
+    AnimatedSprite dancingSkeleton(dsfiles, 0.01f);  // Frame duration = 0.2 seconds
+    AnimatedSprite diceRoll(drfiles, 0.2f);          // Frame duration = 0.2 seconds
 
     // // Add frames (images) to the animation
     // try {
@@ -139,7 +157,8 @@ int main() {
     // }
 
     // Set the initial position
-    animatedSprite.setPosition(100, 100);
+    dancingSkeleton.setPosition(100, 100);
+    diceRoll.setPosition(400, 100);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -148,40 +167,46 @@ int main() {
                 window.close();
         }
 
+        diceRoll.handleEvent(event, window);
+
+        if (diceRoll.isClicked()) {
+            diceRoll.update();
+        }
+
         // Update the animation
-        animatedSprite.update();
+        dancingSkeleton.update();
 
         // Move sprite with arrow keys
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             cout << "Right key pressed\n";
-            animatedSprite.move(5.f, 0.f);
+            dancingSkeleton.move(5.f, 0.f);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             cout << "Left key pressed\n";
-            animatedSprite.move(-5.f, 0.f);
+            dancingSkeleton.move(-5.f, 0.f);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-            animatedSprite.move(0.f, -5.f);
+            dancingSkeleton.move(0.f, -5.f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-            animatedSprite.move(0.f, 5.f);
+            dancingSkeleton.move(0.f, 5.f);
 
         if (event.type == sf::Event::KeyPressed) {
             switch (event.key.code) {
                 case 71:  // Left arrow
                     std::cout << "Left arrow pressed!" << std::endl;
-                    animatedSprite.move(-.01f, 0.f);
+                    dancingSkeleton.move(-.01f, 0.f);
                     break;
                 case 72:  // Right arrow
                     std::cout << "Right arrow pressed!" << std::endl;
-                    animatedSprite.move(.01f, 0.f);
+                    dancingSkeleton.move(.01f, 0.f);
                     break;
                 case 73:  // Up arrow
                     std::cout << "Up arrow pressed!" << std::endl;
-                    animatedSprite.move(0.f, -.01f);
+                    dancingSkeleton.move(0.f, -.01f);
                     break;
                 case 74:  // Down arrow
                     std::cout << "Down arrow pressed!" << std::endl;
-                    animatedSprite.move(0.f, .01f);
+                    dancingSkeleton.move(0.f, .01f);
                     break;
                 default:
                     break;
@@ -190,7 +215,8 @@ int main() {
 
         // Clear and draw
         window.clear(sf::Color::Black);
-        window.draw(animatedSprite);
+        window.draw(diceRoll);
+        window.draw(dancingSkeleton);
         window.display();
     }
 

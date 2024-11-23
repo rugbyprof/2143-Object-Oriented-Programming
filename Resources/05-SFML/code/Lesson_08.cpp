@@ -164,7 +164,7 @@ class MusicPlayer : public sf::Drawable {
             std::cerr << "Error loading music file!" << std::endl;
         }
         music.setLoop(true);  // Loops the sound indefinitely
-        music.setVolume(50.f);
+        music.setVolume(20.f);
         // music.play();
 
         border.setSize(sf::Vector2f(400.f + 5.f, 3.f + 45.f));
@@ -260,7 +260,7 @@ int main() {
     MusicPlayer musicPlayer;
 
     // Slider slider(200.f, 300.f, 400.f, 3.0f, 0.f, 100.f);
-    Slider slider(50.f, 50.f, 1.f, 200.0f, 0.f, 100.f, 5.f);
+    Slider slider(50.f, 50.f, 1.f, 200.0f, 0.f, 100.f, 15.f);
 
     while (window.isOpen()) {
         sf::Event event;
