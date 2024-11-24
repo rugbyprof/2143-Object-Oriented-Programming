@@ -91,14 +91,14 @@ Each student can edit the SFML_INCLUDE and SFML_LIB paths in the script to match
 For example:
 
 - macOS with Homebrew:
-- Include path: /opt/homebrew/Cellar/sfml/2.6.1/include/
-- Library path: /opt/homebrew/lib/
+  - Include path: /opt/homebrew/Cellar/sfml/2.6.1/include/
+  - Library path: /opt/homebrew/lib/
 - Linux:
-- Include path: /usr/include/
-- Library path: /usr/lib/
+  - Include path: /usr/include/
+  - Library path: /usr/lib/
 - Windows with WSL (if installed via package manager):
-- Include path: /usr/include/
-- Library path: /usr/lib/
+  - Include path: /usr/include/
+  - Library path: /usr/lib/
 
 Advantages
 
@@ -121,5 +121,3 @@ Then students can set their paths dynamically:
 export SFML_INCLUDE="/custom/path/to/include"
 export SFML_LIB="/custom/path/to/lib"
 ```
-
-This script should make compiling SFML projects much easier for your students. Let me know if you’d like further tweaks!

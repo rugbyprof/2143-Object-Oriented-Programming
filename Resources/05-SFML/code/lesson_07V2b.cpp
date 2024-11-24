@@ -9,15 +9,15 @@ using namespace std;
  * @brief A class to create a rainbow text effect using SFML Text objects
  */
 class RainbowText : public sf::Drawable {
-    std::vector<sf::Text> letters;  // Store the individual letters
+    float frameDuration;            // Duration of each frame in seconds
+    int font_size;                  // Size of the font
+    sf::Clock animationClock;       // Timer for animation updates
+    sf::Font font;                  // Font used for the text
+    sf::RectangleShape box;         // Rectangle to look like text box (optional)
     sf::Vector2i base_xy;           // Starting position
     sf::Vector2i current_xy;        // Current position for the next letter
-    sf::Font font;                  // Font used for the text
     std::string font_path;          // Path to the font file
-    int font_size;                  // Size of the font
-    sf::RectangleShape box;         // Rectangle to look like text box (optional)
-    sf::Clock animationClock;       // Timer for animation updates
-    float frameDuration;            // Duration of each frame in seconds
+    std::vector<sf::Text> letters;  // Store the individual letters
 
     // Function to generate a random color
     sf::Color getRandomColor() {
@@ -90,7 +90,7 @@ class RainbowText : public sf::Drawable {
     // Method to add a letter to the RainbowText object
     void addLetter(char c) {
         sf::Text text(std::string(1, c), font, font_size);  // Create sf::Text object
-        text.setPosition(static_cast<float>(current_xy.x), static_cast<float>(current_xy.y));
+        text.setPosition(static_cast<float>(current_xy.x), static_cast<float>(current_xy.y + 50));
         text.setFillColor(getRandomColor());
         letters.push_back(text);    // Add it to the letters vector
         current_xy.x += font_size;  // Update position for the next letter
@@ -127,6 +127,7 @@ class InputHandler {
         lastMouseButton = "";
         enteredChar     = ' ';
     }
+
     char getTextEntered(sf::Event e) {
         if (e.type == sf::Event::TextEntered) {
             if (e.text.unicode < 128) {
@@ -200,7 +201,7 @@ int main() {
     vector<sf::Text> nameTexts;
 
     sf::Text displayName("", font, 30);
-    displayName.setPosition(50, 50);
+    displayName.setPosition(150, 150);
     displayName.setFillColor(getRandomColor());
 
     // Variables to store input state

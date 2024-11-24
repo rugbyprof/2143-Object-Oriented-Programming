@@ -126,11 +126,12 @@ sf::RenderWindow window(sf::VideoMode(800, 600), "Knuckle Bones 02");
 1. What happens if the texture file is missing or the path is incorrect? How can you handle this?
 2. How might you align shapes and sprites dynamically (e.g., centered on the screen)?
 3. What is the difference between setPosition and setScale when applied to sprites?
+4. Why is the background color changing all the time so fast?
 
 ### Expected Output
 
 1. A blue rectangle and a green circle displayed at their specified positions.
 2. A sprite (image) drawn in the lower part of the window.
-3. A white background.
+3. A random background.
 
-This lesson introduces students to shapes and textures, both of which are essential for creating the game board and dice visuals in Knucklebones.
+This lesson introduces you to shapes and textures, both of which are essential for creating the game board and dice visuals in Knucklebones.

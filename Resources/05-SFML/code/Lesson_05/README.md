@@ -16,8 +16,8 @@ Learn how to draw a game grid using SFML’s sf::RectangleShape and manage grid 
 
 ##Code Example
 
-This example draws a 3x3 grid for one player, dynamically positioning cells within the window.
-e
+- This example draws a 3x3 grid for one player, dynamically positioning cells within the window.
+- The actual code in `code.cpp` places the grid drawing into it's own class.
 
 ```cpp
 #include <SFML/Graphics.hpp>
@@ -92,9 +92,9 @@ float x = gridStartX + col * (cellSize + cellSpacing);
 float y = gridStartY + row * (cellSize + cellSpacing);
 ```
 
-• gridStartX and gridStartY determine the grid’s starting position on the screen.
+- `gridStartX` and `gridStartY` determine the grid’s starting position on the screen.
 
-3. Cell Customization:
+1. Cell Customization:
    - setFillColor: Sets the cell’s background color.
    - setOutlineColor and setOutlineThickness: Add a border for better visibility.
 

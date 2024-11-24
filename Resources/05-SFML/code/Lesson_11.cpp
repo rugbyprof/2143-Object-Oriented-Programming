@@ -51,6 +51,12 @@ std::vector<std::string> glob(const std::string& folderPath, const std::string& 
     return matchedFiles;
 }
 
+/**
+ * 
+ * @brief AnimatedSprite class that handles multiple textures for animation
+ * 
+ * 
+ */
 class AnimatedSprite : public sf::Drawable, public sf::Transformable {
    private:
     std::vector<std::unique_ptr<sf::Texture>> textures;  // Vector of unique_ptr to textures
