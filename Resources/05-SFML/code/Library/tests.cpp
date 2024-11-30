@@ -1,6 +1,7 @@
 
 #include "grid.h"
 #include "slider.h"
+#include "sprixture.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -25,6 +26,9 @@ int main() {
     sf::Clock fps_clock;    // SFML clock object to keep track of time
     sf::Clock print_clock;  // SFML clock object to keep track of time
 
+    Sprixture coin("../media/images/0.png");
+    sf::Sprite coinSprite = coin.getSprite();
+
     sf::Font font;
     std::string font_path = "../media/fonts/Arial.ttf";
     if (!font.loadFromFile("../media/fonts/Arial.ttf")) {
@@ -36,9 +40,14 @@ int main() {
     int green = 255 / 2;  // Random color value for green channel
     int blue  = 255 / 2;  // Random color value for blue channel
 
-    Grid<int> grid(3, 3, sf::Vector2f(100.f, 100.f), 0, font_path, sf::Color(128, 255, 0), sf::Color(50, 50, 50), 1.f);
+    //(unsigned int rows, unsigned int cols, const sf::Vector2f& size, const std::string& initialValue, const std::string fontPath,
+    //    const sf::Color& fillColor = sf::Color::White, const sf::Color& outlineColor = sf::Color::Black, float outlineThickness = 1.f)
 
-    DataRectangle<int> rect(sf::Vector2f(100.f, 100.f), 42, font, sf::Vector2f(400.f, 300.f));
+    Grid grid(3, 3, sf::Vector2f(100.f, 100.f), "0", font_path, sf::Color(128, 255, 0), sf::Color(50, 50, 50), 1.f);
+
+    // DataRectangle(sf::Vector2f pos, sf::Vector2f size, sf::Font& font, sf::Sprite& sprite, const std::string& value = "null")
+    // DataRectangle rect2(sf::Vector2f(100.f, 100.f), sf::Vector2f(100.f, 100.f), font, coinSprite, 0.5f, "zero");
+    // std::cout << "rect2: " << rect2.getGlobalBounds().width << std::endl;
 
     // RGB Sliders and Text Display
     sf::Text red_text;
@@ -113,7 +122,8 @@ int main() {
         window.draw(red_text);
         window.draw(green_text);
         window.draw(blue_text);
-        window.draw(rect);
+        // window.draw(rect);
+        // window.draw(rect2);
         window.draw(text);
 
         // Display the contents of the window

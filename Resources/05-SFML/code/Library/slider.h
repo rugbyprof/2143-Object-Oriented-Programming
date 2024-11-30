@@ -67,7 +67,8 @@ class Slider : public sf::Drawable {
     }
 
    public:
-    Slider() {}  // Default constructor
+    Slider() {
+    }  // Default constructor
     Slider(float x, float y, float width, float height, float min, float max, float radius)
         : minValue(min), maxValue(max), value(min), isDragging(false) {
         // Configure the track
@@ -94,7 +95,7 @@ class Slider : public sf::Drawable {
             horizontal = false;
         }
 
-        std::cout << "Horizontal: " << horizontal << std::endl;
+        // std::cout << "Horizontal: " << horizontal << std::endl;
 
         if (horizontal) {
             knob.setPosition(x, y + track.getSize().y / 2);
@@ -106,7 +107,9 @@ class Slider : public sf::Drawable {
         setValue(min + max / 2);
     }
 
-    void setKnobColor(const sf::Color& color) { knob.setFillColor(color); }
+    void setKnobColor(const sf::Color& color) {
+        knob.setFillColor(color);
+    }
 
     /**
      * Handle events for the slider
@@ -145,7 +148,9 @@ class Slider : public sf::Drawable {
     //     target.draw(knob);
     // }
 
-    float getValue() const { return value; }
+    float getValue() const {
+        return value;
+    }
 
     /**
      * Set the value of the slider

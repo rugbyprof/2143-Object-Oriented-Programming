@@ -1,13 +1,13 @@
 #pragma once
 #include "dataRectangle.h"
+#include "sprixture.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 
-template <typename T>
 class Grid : public sf::Drawable {
    private:
-    std::vector<std::vector<DataRectangle<T>>> rectangles;  // 2D vector of rectangles
+    std::vector<std::vector<DataRectangle>> rectangles;  // 2D vector of rectangles
     sf::Vector2f rectangleSize;
     std::string fontPath;  // Shared font for all rectangles
     sf::Font font;
@@ -38,16 +38,24 @@ class Grid : public sf::Drawable {
      * @example:
      * Grid<int> grid(3, 3, sf::Vector2f(100.f, 100.f), 0, font, sf::Color::White, sf::Color::Black, 1.f);
      */
-    Grid(unsigned int rows, unsigned int cols, const sf::Vector2f& size, const T& initialValue, const std::string fontPath,
+
+    Grid(unsigned int rows, unsigned int cols, const sf::Vector2f& size, const std::string& initialValue, const std::string fontPath,
          const sf::Color& fillColor = sf::Color::White, const sf::Color& outlineColor = sf::Color::Black, float outlineThickness = 1.f)
         : rows(rows), cols(cols), rectangleSize(size), fontPath(fontPath) {
         if (!font.loadFromFile(fontPath)) {
             std::cerr << "Error loading font\n";
         }
+
         for (unsigned int i = 0; i < rows; ++i) {
-            std::vector<DataRectangle<T>> row;
+            std::vector<DataRectangle> row;
             for (unsigned int j = 0; j < cols; ++j) {
-                DataRectangle<T> rect(size, rand() % 1000, font, sf::Vector2f(j * size.x, i * size.y));
+                // All the definitions below are because of type issues and mismatches with the DataRectangle class
+                std::string null    = "null";
+                std::string imgPath = "../media/images/0.png";
+                Sprixture pennyDie(imgPath);
+                sf::Sprite pennySprite = pennyDie.getSprite();
+                sf::Vector2f pos(j * size.x, i * size.y);
+                DataRectangle rect(pos, rectangleSize, font, pennySprite, 0.5f, null);
                 rect.setFillColor(fillColor);  // Default color
                 rect.setOutlineColor(outlineColor);
                 rect.setOutlineThickness(outlineThickness);
@@ -59,14 +67,14 @@ class Grid : public sf::Drawable {
     }
 
     // Set a value for a specific rectangle
-    void setRectangleValue(unsigned int row, unsigned int col, const T& value) {
+    void setRectangleValue(unsigned int row, unsigned int col, const std::string& value) {
         if (row < rows && col < cols) {
             rectangles[row][col].setValue(value);
         }
     }
 
     // Get a value from a specific rectangle
-    T getRectangleValue(unsigned int row, unsigned int col) const {
+    std::string getRectangleValue(unsigned int row, unsigned int col) const {
         if (row < rows && col < cols) {
             return rectangles[row][col].getValue();
         }
