@@ -1,6 +1,6 @@
 ## Final Exam - 11:00 Section
 
-#### Due: 12-11-2024 (Wednesday @ 12:30)
+#### Due: 12-09-2024 (Monday @ 10:30)
 
 ### **Section 11:00:** Mon Dec 9<sup>th</sup> from 10:30 am - 12:30 pm
 
