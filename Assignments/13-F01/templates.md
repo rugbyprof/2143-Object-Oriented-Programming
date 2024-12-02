@@ -341,3 +341,45 @@ class Array {
 - Use templates to reduce code duplication for operations that differ only by type.
 - Leverage STL containers and algorithms to simplify your code.
 - Be cautious with template specialization to avoid overly complex designs.
+
+## Example Questions
+
+---
+
+Write a function template swapValues that swaps the values of two variables of any type. Provide an example of its usage.
+
+---
+
+Given the following function template, explain what it does and write a program to use it:
+
+```cpp
+template <typename T>
+T getMax(T a, T b) {
+    return (a > b) ? a : b;
+}
+```
+
+---
+
+Design a class template Box that can store a single value of any type. The class should have:
+
+- A `constructor` to initialize the value.
+- A `getValue` method to return the value.
+- A `setValue` method to modify the value.
+
+---
+
+Write a class template Stack that uses std::vector to implement a stack. It should support the following operations:
+
+- `push` to add an element.
+- `pop` to remove the top element.
+- `top` to access the top element.
+- `isEmpty` to check if the stack is empty.
+
+---
+
+Write a function template `sortVector` that sorts a `std::vector` of any type. Use a custom comparison function passed as an argument.
+
+---
+
+Explain the advantages of templates over traditional inheritance-based designs.

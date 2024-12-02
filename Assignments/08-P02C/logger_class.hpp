@@ -11,7 +11,9 @@
 class Logger {
    public:
     // Set the log file path
-    static void setFilePath(const std::string& filename) { filePath = filename; }
+    static void setFilePath(const std::string& filename) {
+        filePath = filename;
+    }
 
     static void clearLogFile() {
         if (!logging)
