@@ -1,3 +1,5 @@
+## SFML - Super 
+
 ## Lesson 1: Setting Up the Game Window
 
 #### Goal: Understand how to create and manage an SFML window.
