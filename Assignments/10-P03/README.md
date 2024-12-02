@@ -4,6 +4,10 @@
 
 <img src="https://images2.imgbox.com/f8/8e/BA7Doxin_o.jpg">
 
+## Updated to SFML
+
+- look [HERE](../../Resources/05-SFML/code/) for starter code.
+
 ### Next Program
 
 |                                     AI player                                      |
