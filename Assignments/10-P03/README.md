@@ -1,6 +1,6 @@
 ## Program 2C - Knuckle Bones
 
-#### Due: 12-20-2024 (Friday @ 11/12)
+#### Due: 12-11-2024 (Wed By 6PM)
 
 <img src="https://images2.imgbox.com/f8/8e/BA7Doxin_o.jpg">
 

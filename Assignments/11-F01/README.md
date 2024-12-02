@@ -1,6 +1,6 @@
 ## Final Exam - Comprehensive
 
-#### Due: 11:00 Mon @ 12:00 Wed
+#### Due: 12-09-2024 and 12-11-2024
 
 ### **Section 101:** Wed Dec 11<sup>th</sup> from 3:30 pm - 5:30 pm
 
