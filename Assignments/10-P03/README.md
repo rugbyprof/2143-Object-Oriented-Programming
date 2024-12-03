@@ -175,20 +175,25 @@ This division between Game and Player keeps responsibilities clear while offerin
 
 Using the bit of information above, decide where the other components might be best placed. Below is a list of hpp files as a reminder of what components we have to work with.
 
-|  #  | Name                                 | Description                                    |
-| :-: | :----------------------------------- | :--------------------------------------------- |
-|  1  | [button_class.hpp](button_class.hpp) | Use to add a button to your game.              |
-|  2  | [color_class.hpp](color_class.hpp)   | Use to easily make color pairs and use colors. |
-|  3  | [dice_class.hpp](dice_class.hpp)     | Animate a cheesy dice square (rectangle).      |
-|  4  | [game.cpp](game.cpp)                 | Example usage of helper classes.               |
-|  5  | [grid_class.hpp](grid_class.hpp)     | Where you place dice values.                   |
-|  6  | [input_class.hpp](input_class.hpp)   | Captures input from users like a txt box.      |
-|  7  | [log.txt](log.txt)                   | Log file to help debug programs.               |
-|  8  | [logger_class.hpp](logger_class.hpp) | Class to assist logging debug statements.      |
+|  #  | Name                                   | Description                                    |
+| :-: | :------------------------------------- | :--------------------------------------------- |
+|  1  | ~[button_class.hpp](button_class.hpp)~ | Use to add a button to your game.              |
+|  2  | ~[color_class.hpp](color_class.hpp)~   | Use to easily make color pairs and use colors. |
+|  3  | ~[dice_class.hpp](dice_class.hpp)~     | Animate a cheesy dice square (rectangle).      |
+|  4  | ~[game.cpp](game.cpp)~                 | Example usage of helper classes.               |
+|  5  | ~[grid_class.hpp](grid_class.hpp)~     | Where you place dice values.                   |
+|  6  | ~[input_class.hpp](input_class.hpp)~   | Captures input from users like a txt box.      |
+|  7  | ~[log.txt](log.txt)~                   | Log file to help debug programs.               |
+|  8  | ~[logger_class.hpp](logger_class.hpp)~ | Class to assist logging debug statements.      |
 
 ## Deliverables
 
-- Create a folder called `P02C` and add a `README.md` to it.
-- Place all of your code and any other documents or resources used inside your games folder.
+- Create a folder called `P03` and add a `README.md` to it.
+- Place all of your **SFML** code and any other documents or resources used inside your games folder.
+- This will include:
+  - images
+  - animations
+  - sounds
 - Upload this folder to your `Assignments` folder in Github.
 - If you don't remember how to write a nice readme, go [HERE](../../Resources/02-Readmees/README.md)
+- This is one of our biggest programs, so do a nice job!
