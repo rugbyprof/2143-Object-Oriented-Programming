@@ -212,16 +212,16 @@ sf::Clock clock;
 
 class AnimatedCircle : public sf::Drawable, public sf::Transformable {
 private:
-sf::CircleShape shape;
-float elapsedTime = 0;
+    sf::CircleShape shape;
+    float elapsedTime = 0;
 
 public:
-AnimatedCircle(float radius) {
-shape.setRadius(radius);
-shape.setFillColor(sf::Color::Cyan);
-shape.setOrigin(radius, radius);
-shape.setPosition(400, 300);
-}
+    AnimatedCircle(float radius) {
+    shape.setRadius(radius);
+    shape.setFillColor(sf::Color::Cyan);
+    shape.setOrigin(radius, radius);
+    shape.setPosition(400, 300);
+    }
 
     void update(float deltaTime) {
         elapsedTime += deltaTime;
@@ -230,10 +230,10 @@ shape.setPosition(400, 300);
     }
 
 private:
-virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
-states.transform \*= getTransform();
-target.draw(shape, states);
-}
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override {
+        states.transform \*= getTransform();
+        target.draw(shape, states);
+    }
 };
 
 int main() {
