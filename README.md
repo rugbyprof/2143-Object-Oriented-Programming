@@ -1,9 +1,6 @@
 # 2143-Object Oriented Programming
 
-## Fall 2024
-
-<!-- ### Roster
-<a href="https://docs.google.com/spreadsheets/d/12dUUQj2-3riXf7xAVFyMtyYhcLfQaVsr1nF8UrzOrcM/edit?usp=sharing"><img src="https://www.gstatic.com/images/branding/product/2x/sheets_2020q4_48dp.png" width="30">Class Roster</a> -->
+## Spring 2025
 
 ### Assumed
 
@@ -21,23 +18,18 @@ https://msutexas-edu.zoom.us/j/9403974439
 
 ### General Course Info
 
-- **Section 101:**
-  - **Days:** MWF
-  - **Time:** 12:00 p.m. - 12:50 p.m.
-  - **Location:** BO 312
-- **Section 102:**
-  - **Days:** MWF
-  - **Time:** 11:00 a.m. - 11:50 a.m.
-  - **Location:** BO 213
-- [**Semester:**](https://msutexas.edu/registrar/calendars.php) Monday August 26<sup>th</sup> - Friday Dec 6<sup>th</sup>
+- **Section 201:**
+  - **Days:** TR
+  - **Time:** 1230 - 1350
+  - **Location:** McCoy 136
+- [**Semester:**](https://msutexas.edu/registrar/calendars.php) Tuesday January 21<sup>st</sup> - Friday May 9<sup>th</sup>
 - [**Holidays:**](https://msutexas.edu/registrar/calendars.php)
-  - **Labor Day** Mon Sep 2<sup>nd</sup>
-  - **Thanksgiving** Wed Nov 27<sup>th</sup> - Fri Nov 29<sup>th</sup>
-- [**Last Day for “W”:**](https://msutexas.edu/registrar/calendars.php) Mon Nov 25<sup>th</sup>
-- [**Last Day of Class:**](https://msutexas.edu/registrar/calendars.php) Fri Dec 6<sup>th</sup>
-- [**Final Exam:**](https://msutexas.edu/registrar/_assets/files/pdfs/finalexamschedulefall2024.pdf)
-  - **Section 101:** Wed Dec 11<sup>th</sup> from 3:30 pm - 5:30 pm
-  - **Section 102:** Mon Dec 9<sup>th</sup> from 10:30 am - 12:30 pm
+  - **Spring Break** Mon Mar 10<sup>th</sup> - Fri Mar 14<sup>th</sup>
+  - **Easter** Thu Apr 17<sup>th</sup> - Fri Apr 18<sup>th</sup>
+- [**Last Day for “W”:**](https://msutexas.edu/registrar/calendars.php) Wed Apr 30<sup>th</sup>
+- [**Last Day of Class:**](https://msutexas.edu/registrar/calendars.php) Fri May 9<sup>th</sup>
+- [**Final Exam:**](https://msutexas.edu/registrar/schedule/finalexamschedule.php)
+  - Thu May 15<sup>th</sup> from 10:30 a.m. - 12:30 p.m.
 
 ## Course Topics
 
@@ -71,9 +63,9 @@ https://msutexas-edu.zoom.us/j/9403974439
 ## Calendar
 
 - Quiz Every Friday
-- Exam 1 - Sep 20<sup>th</sup>
-- Exam 2 - Oct 18<sup>th</sup>
-- Exam 3 - Nov 15<sup>th</sup>
+- Exam 1 - Feb 13<sup>th</sup>
+- Exam 2 - Mar 20<sup>th</sup>
+- Exam 3 - Apr 17<sup>th</sup>
 
 ## Grading
 
@@ -118,7 +110,9 @@ Lastly, this isn't totally about your own success, but it helps me succeed. Aski
 
 ### Presentations
 
-- Presentations are a major component of your course work. The ability to discuss complex topics in front a group of your peers is an important skill to have.
+(Not all of my courses will have presentations, but when possible I will try and encorporate presentations into the currculum.)
+
+- Presentations are a major component of your course work at MSU. The ability to discuss complex topics in front a group of your peers is an important skill to have.
 - Depending on the course, and the size of the class, you may have many presentations, or just one presentation.
 - The quality of a presentations that accompanies a programming project is highly coupled with the quality of your project. A poor project makes it hard to give a proper presentation on a project in which you did not complete.
 - On the other hand, an excellent project doesn't ensure a great presentation either.
@@ -142,15 +136,21 @@ Some of these points are duplicated in other places in this document. It's ok.
 - All students need a [Github](http://github.com) account
 - All programs need to be turned in and running to pass the course
 - General Assignment Rules:
-- Due dates and times are as listed on assignment and can change with prior notice to class, and always in your favor (aka more time).
-- Formatting of programs is important, and will be graded accordingly.
-- You name is required on ALL documents uploaded or turned in. A handwritten name is not acceptable.
-- For any assignment, you will create a folder and include all documents created by you within this folder for submission. This includes programs, input / output files, readme's, documentation, etc. This folder will subsequently be uploaded to Github in the repo you created for the course.
+  - Due dates and times are as listed on assignment and can change with prior notice to class, and always in your favor (aka more time).
+  - Formatting of programs is important, and will be graded accordingly.
+  - Your name is required on ALL documents uploaded or turned in. A handwritten name is not acceptable unless done in class.
+  - For any assignment, you will create a folder and include all documents created by you within this folder for submission. This includes programs, input / output files, readme's, documentation, etc. This folder will subsequently be uploaded to Github in the repo you created for the course.
 - Attending class is one of the primary keys to doing well in this class. Students may be dropped for excessive absences. There is no distinction made between excused and unexcused.
 - Make-up exams are not given. If I see fit, then I will replace a missed exam with your final exam test grade (but this is optional to instructor based on circumstances, attendance, participation, etc.).
 - Late work will be accepted on a case by case basis. Late penalty is 15 points (out of 100) for initial lateness and 1 half a letter grade (5 points) for every class period until the total reduced is 50 (half credit). Extremely late work is totally at the instructors discretion on whether it will be accepted or not.
 - Programs containing syntax errors are unacceptable and will be returned without grading (your programs must work).
 - Periodically homework assignments will be taken up and graded. It is the student's responsibility to keep up with assignments and to ask questions over the assigned work, even if absent. All homework assignments are due at the specified time that may or may not be in conjunction with a class day. All assignments / homeworks will be uploaded via Github.
+
+## LLM (Large Language Models)
+
+**Caution Regarding the Use of Large Language Models (LLMs aka Chat Gpt and the like)**
+
+While Large Language Models (LLMs) like ChatGPT can be valuable tools for obtaining information and assistance, it is essential to use them responsibly. Relying heavily on LLMs for completing assignments or understanding course material may impede your own learning and critical thinking development. This course encourages active engagement with the content, independent problem-solving, and collaboration with peers and instructors. Please use LLMs as supplementary resources rather than substitutes for your own study and effort to ensure a meaningful and effective educational experience.
 
 ## Official Course and Department Policies
 
