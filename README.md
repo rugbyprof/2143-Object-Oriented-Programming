@@ -8,13 +8,13 @@
   - Linked structures vs Array Based structures
   - Basic concept of Classes and Methods
 
-### ZOOM Link
-
-https://msutexas-edu.zoom.us/j/9403974439
+|                                                                         |     |                                                                         |
+| ----------------------------------------------------------------------- | --- | ----------------------------------------------------------------------- |
+| <img src="https://images2.imgbox.com/cf/72/1rVot2oi_o.png" width="200"> |     | <img src="https://images2.imgbox.com/46/07/hq4ABrFS_o.png" width="200"> |
 
 ## Office Hours
 
-<a href="https://images2.imgbox.com/0c/ee/HDIcuw0A_o.png" target="_blank"><img src="https://images2.imgbox.com/0c/ee/HDIcuw0A_o.png" alt="image host" width="150"/></a>
+<a href="https://images2.imgbox.com/6e/30/FSEnPfv3_o.png" target="_blank"><img src="https://images2.imgbox.com/6e/30/FSEnPfv3_o.png" alt="image host" width="300"/></a>
 
 ### General Course Info
 
@@ -69,15 +69,18 @@ https://msutexas-edu.zoom.us/j/9403974439
 
 ## Grading
 
-| Categories                         | Portion of Course | Letter Grade | Grade Range |
-| :--------------------------------- | :---------------: | :----------: | :---------: |
-| Exams (3)<sup>**1**</sup>          |       ⇦ 45%       |     A ⇨      |   90-100    |
-| Programs (3)<sup>**2**,**3**</sup> |       ⇦ 15%       |     B ⇨      |    80-89    |
-| Quizzes & Assignments              |       ⇦ 15%       |     C ⇨      |    70-79    |
-| Final<sup>**4**</sup>              |       ⇦ 15%       |     D ⇨      |    60-69    |
-| Github Portfolio                   |       ⇦ 10%       |     F ⇨      |  below 60   |
-| Participation                      |                   |              |             |
-|                                    |                   |              |             |
+| Categories                        | Weight |     | Letter Grade | Grade Range |
+| :-------------------------------- | :----: | :-: | :----------: | :---------- |
+| Exams (3)<sup>**1**</sup>         | ⇦ 40%  |     |     A ⇨      | 90-100      |
+| Miscellaneous (3)<sup>**2**</sup> | ⇦ 25%  |     |     B ⇨      | 80-89       |
+| Final<sup>**3**</sup>             | ⇦ 20%  |     |     C ⇨      | 70-79       |
+| Github Portfolio                  | ⇦ 10%  |     |     D ⇨      | 60-69       |
+| Participation<sup>**4**</sup>     |  ⇦ 5%  |     |     F ⇨      | below 60    |
+
+- **Note 1** - Missed exams cannot be made up. I have other ways of adjusting the grading scale if an exam is missed.
+- **Note 2** - Miscelaneous includes: Programs, Quizzes, Assignments, ... you get it.
+- **Note 3** - The final exam cannot be taken early. Dire circumstances should be brought to the dean of students.
+- **Note 4** - Participation is determined by attendance, responding to slack messages, asking questions, and basically being a positive influence on the class.
 
 ## Teaching Philosophy
 
