@@ -29,6 +29,6 @@
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/12-static-polymorphism">12-static-polymorphism</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/12-static-polymorphism">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/12-static-polymorphism">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/12-static-polymorphism">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/12-static-polymorphism">N/A</a>*** |  |
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/knuckleBones">knuckleBones</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/knuckleBones">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/knuckleBones">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/knuckleBones">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/knuckleBones">N/A</a>*** |  |
 
-<sup>Last Updated: 2025-01-21 (Tue @ 19:44)</sup> 
+<sup>Last Updated: 2025-01-22 (Wed @ 02:09)</sup> 
 
 <sup>***Days Left is only accurate if the `Last Updated` date is the same as todays date. Otherwise, use the due date!***</sup> 

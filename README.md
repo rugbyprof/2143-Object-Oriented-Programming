@@ -29,7 +29,7 @@
 - [**Last Day for “W”:**](https://msutexas.edu/registrar/calendars.php) Wed Apr 30<sup>th</sup>
 - [**Last Day of Class:**](https://msutexas.edu/registrar/calendars.php) Fri May 9<sup>th</sup>
 - [**Final Exam:**](https://msutexas.edu/registrar/schedule/finalexamschedule.php)
-  - Thu May 15<sup>th</sup> from 10:30 a.m. - 12:30 p.m.
+  - Thu May 15<sup>th</sup> from 1030 - 1230
 
 ## Course Topics
 
@@ -75,11 +75,11 @@
 | Miscellaneous (3)<sup>**2**</sup> | ⇦ 25%  |     |     B ⇨      | 80-89       |
 | Final<sup>**3**</sup>             | ⇦ 20%  |     |     C ⇨      | 70-79       |
 | Github Portfolio                  | ⇦ 10%  |     |     D ⇨      | 60-69       |
-| Participation<sup>**4**</sup>     |  ⇦ 5%  |     |     F ⇨      | below 60    |
+| Participation<sup>**4**</sup>     | ⇦ 05%  |     |     F ⇨      | below 60    |
 
 > **Note<sup>1</sup>** - Missed exams cannot be made up. I have other ways of adjusting the grading scale if an exam is missed.
 >
-> **Note<sup>2</sup>** - Miscelaneous includes: Programs, Quizzes, Assignments, ... you get it.
+> **Note<sup>2</sup>** - Miscelaneous includes: Programs, Quizzes, Assignments, ... anything not in its own category.
 >
 > **Note<sup>3</sup>** - The final exam cannot be taken early. Dire circumstances should be brought to the dean of students.
 >
