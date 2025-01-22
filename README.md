@@ -77,10 +77,13 @@
 | Github Portfolio                  | ⇦ 10%  |     |     D ⇨      | 60-69       |
 | Participation<sup>**4**</sup>     |  ⇦ 5%  |     |     F ⇨      | below 60    |
 
-- **Note<sup>1</sup>** - Missed exams cannot be made up. I have other ways of adjusting the grading scale if an exam is missed.
-- **Note<sup>2</sup>** - Miscelaneous includes: Programs, Quizzes, Assignments, ... you get it.
-- **Note<sup>3</sup>** - The final exam cannot be taken early. Dire circumstances should be brought to the dean of students.
-- **Note<sup>4</sup>** - Participation is determined by attendance, responding to slack messages, asking questions, and basically being a positive influence on the class.
+> **Note<sup>1</sup>** - Missed exams cannot be made up. I have other ways of adjusting the grading scale if an exam is missed.
+>
+> **Note<sup>2</sup>** - Miscelaneous includes: Programs, Quizzes, Assignments, ... you get it.
+>
+> **Note<sup>3</sup>** - The final exam cannot be taken early. Dire circumstances should be brought to the dean of students.
+>
+> **Note<sup>4</sup>** - Participation is determined by attendance, responding to slack messages, asking questions, and basically being a positive influence on the class.
 
 ## Teaching Philosophy
 
