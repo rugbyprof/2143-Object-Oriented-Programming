@@ -1,6 +1,6 @@
 ## Assignment 4 Pt. 1 - OOP Terminology
 
-#### Due: 17-03-2025 (Midterm)
+#### Due: 03-17-2025 (Midterm)
 
 > Note: This has two due dates where the first due date is for you to show progress on your wiki.
 >
