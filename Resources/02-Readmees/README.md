@@ -1,7 +1,8 @@
 ## README - How You Should Format Them
+
 #### Due: NA
 
-Every single folder on your repo should contain a `README.md`. This is because when I or someone else looks at your repo, and clicks on a folder, they will see not just a directory listing, but an explanation and description of what that folder contains. I'm not making you create README's to be an ass ... I promise. It simply adds credibility to your repo, and makes you look like you know what your doing (and care and visitors to your site). I understand that a lot (if not most) probably don't want anyone looking at your repo, but you should still put your best foot forward. When I browse repos on Github, I not only rely on the README files for information, but find myself judging the software or library based on how organized and descriptive the README's are. And after talking to other developers, I found that I'm not the only one.
+Every single folder on your repo should contain a `README.md`. This is because when I or someone else looks at your repo, and clicks on a folder, they will see not just a directory listing, but an explanation and description of what that folder contains. I'm not making you create README's to be difficult, i'm doing it to help create an organized portfoloio of you work. Well formatted README files add credibility to your repo, and makes you look like you know what your doing (and care and visitors to your site). I understand that a lot (if not most) probably don't want anyone looking at your repo, but you should still put your best foot forward. When I browse repos on Github, I not only rely on the README files for information, but find myself judging the software or library based on how organized and descriptive the README's are. And after talking to other developers, I found that I'm not the only one.
 
 ## README's For Assignments
 
@@ -31,7 +32,6 @@ We will use the README's that you will create in every assignment folder to do t
   - Hard-coding names of external resources that you do not provide:
     - Example: You called your data file **"data.txt"** and use: `open("data.txt")` I called my file **"data.dat"** and now your program crashes.
     - Solution: Read in the filename when the user runs your program, so you get the proper local name ( I will discuss in class argv or command line params)
-
 
 ## Example Assignment README
 
