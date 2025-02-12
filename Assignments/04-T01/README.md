@@ -150,6 +150,20 @@ public:
     void move2D(double, double);
     void moveUp(double);
 };
+
+// Add two points together by adding each double data member.
+
+Point3D operator+(Point3D &rhs){
+    Point3D temp;
+    temp.x = x + rhs.x;
+    temp.y = y + rhs.y;
+    temp.z = z + rhs.z;
+    return temp;
+}
+
+// P1 = P1 + P3;
+
+
 ```
 
 ---
@@ -204,6 +218,7 @@ public:
     // Constructors
     // There were multiple constructor signatures in the usage, but implementing these two
     Movie();
+    Movie(string,string);
     Movie(bool, bool, string , string , int , int, int);
 
     // Getters and Setters
