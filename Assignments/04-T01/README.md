@@ -228,10 +228,14 @@ public:
     int getDuration();
     int getYear();
     int getBudget();
+    int getBudget();
     string getDirector();
     string getTitle();
     // Add setters below (I'm not typing them :)
 };
+
+
+
 ```
 
 ---
