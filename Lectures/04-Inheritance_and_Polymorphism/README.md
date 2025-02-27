@@ -1,11 +1,12 @@
 ## Composition V Inheritance
+
 #### Due: None
 
 ## Key Words
 
-This major topic of this lecture was Inheritance Vs Composition. Some other concepts that were mixed in: 
+The major topic of this lecture was Inheritance Vs Composition. Some other concepts that were mixed in:
 
-- `Polymorphism` 
+- `Polymorphism`
   - `Dynamic Polymorphism` (aka Run Time Polymorphism)
   - `Static Polymorphism` (aka Compile Time Polymorphism)
   - `Overload`
@@ -23,11 +24,4 @@ This major topic of this lecture was Inheritance Vs Composition. Some other conc
   - `Private`
   - `Protected`
 
-
-
-
 The order above matters, meaning, always pair `base` with `sub`, `super` with `derived`, and `parent` with `child`.
-
-
-
-
