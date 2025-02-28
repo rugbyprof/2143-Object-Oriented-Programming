@@ -32,6 +32,6 @@
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/Templates">Templates</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/Templates"> Introduction to C++ Templated Types: A Character</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/Templates">Based Adventure</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/Templates">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/Templates">N/A</a>*** |  |
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/knuckleBones">knuckleBones</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/knuckleBones">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/knuckleBones">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/knuckleBones">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/knuckleBones">N/A</a>*** |  |
 
-<sup>Last Updated: 2025-02-27 (Thu @ 12:25)</sup> 
+<sup>Last Updated: 2025-02-28 (Fri @ 00:42)</sup> 
 
 <sup>***Days Left is only accurate if the `Last Updated` date is the same as todays date. Otherwise, use the due date!***</sup> 
