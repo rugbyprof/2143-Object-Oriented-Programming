@@ -1,4 +1,4 @@
-## Part 1: UML Design
+## Part 1 - UML Design
 
 #### Due: 04-01-2025 (Tuesday)
 

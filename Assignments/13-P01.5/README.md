@@ -1,4 +1,4 @@
-## Part 5: Integration, Final Testing, & Presentation
+## Part 5 - Integration, Final Testing, & Presentation
 
 #### Due: 04-29-2025 (Tuesday)
 

@@ -1,4 +1,4 @@
-## Part 4: CRUD Functionality
+## Part 4 - CRUD Functionality
 
 #### Due: 04-22-2025 (Tuesday)
 

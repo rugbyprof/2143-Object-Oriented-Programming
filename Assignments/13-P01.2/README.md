@@ -1,4 +1,4 @@
-## Part 2: Basic Class Implementations
+## Part 2 - Basic Class Implementations
 
 #### Due: 04-08-2025 (Tuesday)
 

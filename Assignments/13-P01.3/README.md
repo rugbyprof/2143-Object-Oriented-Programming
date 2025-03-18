@@ -1,4 +1,4 @@
-## Part 3: Basic JSON Integration (Loading & Saving)
+## Part 3 - Basic JSON Integration (Loading & Saving)
 
 #### Due: 04-15-2025 (Tuesday)
 
