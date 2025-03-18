@@ -1,258 +1,250 @@
-## C++ Database Project Using JSON as a Backend
+# DB Manager - Using Nlohmann's json lib in C++
 
-# NOT COMPLETE!
+#### Due: Multiple Dates
 
-Below is the **first document** in a series designed to guide students in creating an **OOP-based database** system in C++ with **JSON** serving as the “database” backend. This document provides a **high-level project outline** and **initial steps** to break the project into consumable stages. We will emphasize **design** (private/public/protected), **DRY** (Don’t Repeat Yourself), appropriate **class relationships**, and potentially **UML** for planning.
+## Overview
 
----
+In this assignment, you will design and implement a small **database manager** using JSON files as the underlying storage mechanism. You will create a simple class structure (based on your own UML design) to perform CRUD (Create, Read, Update, Delete) operations on the data. By the end of this assignment, you should have:
 
-## Project Overview
+1. A **UML Class Diagram** showing your proposed design.
+2. A **C++ implementation** that uses the [nlohmann/json](https://github.com/nlohmann/json) library to manage a JSON “database.”
 
-### Goal
-
-Create a small-scale database system in **C++** that:
-
-1. Stores data in **JSON** files (instead of a traditional DB).
-2. Allows basic operations: **CRUD** (Create, Read, Update, Delete).
-3. Demonstrates **multiple classes** with well-thought-out responsibilities.
-
-### Learning Objectives
-
-1. **Apply OOP Principles** (classes, objects, encapsulation, DRY).
-2. **Practice Good Design** (public/private/protected, minimized inheritance).
-3. **Introduce UML** as a tool to plan class relationships and data flow.
-4. **Handle JSON Data**: Understand how to parse and write JSON in C++.
+Although the specific domain of the data is up to you, **candies** or similar straightforward data (e.g., items in a store) are good references since they’re easy to conceptualize.
 
 ---
 
-## Suggested Major Components
+## Objectives
 
-1. **Data Model**
+1. **Practice UML Design**
 
-   - Classes representing entities (e.g., a `Record` or `User`, `Item`, etc.).
-   - JSON reading/writing capabilities (parsing and serialization).
+   - Identify classes, their relationships, and major responsibilities.
 
-2. **Database / Storage Manager**
+2. **Use JSON for Data Persistence**
 
-   - A class or set of classes handling loading and saving data to/from JSON.
-   - Possibly a “driver” or “controller” that orchestrates CRUD.
+   - Store data in a JSON file.
+   - Implement reading, writing, and modifying the JSON file.
 
-3. **Application Logic**
+3. **Demonstrate OOP Principles**
 
-   - Classes or methods providing user commands or programmatic interface for DB operations.
+   - Encapsulation: Keep class responsibilities separate (e.g., a database manager class vs. a model class).
+   - Abstraction: Provide methods to interact with the data without exposing internal details.
+   - Potential use of **inheritance** and/or **composition** if it makes sense in your design.
 
-4. **Main Application**
-   - Where everything ties together.
-   - Possibly an interactive console or minimal user interface to demonstrate functionality.
-
----
-
-## Consumable Steps (Blueprint)
-
-### Step 1: Requirements & Sketching (Design Phase)
-
-1. **Define the Scope**:
-   - What data do we want to store?
-   - Example: “A simple library or inventory system.”
-2. **Determine JSON Structure**:
-   - Example:
-     ```json
-     {
-       "items": [
-         { "id": 1, "name": "Sword", "quantity": 2 },
-         { "id": 2, "name": "Potion", "quantity": 10 }
-       ]
-     }
-     ```
-3. **Outline Classes**:
-   - Potentially a `Database` or `StorageManager` class for I/O with JSON.
-   - One or more “model” classes (e.g., `Item`, `User`, `Record`).
-   - Possibly a “Controller” class to coordinate interactions.
-4. **DRY Emphasis**:
-   - Don’t replicate logic across multiple constructors or classes unnecessarily.
-   - Plan to centralize repeated code in helper functions.
-
-### Step 2: UML and Initial Class Design
-
-1. **Draft UML**:
-   - Introduce simple UML diagrams for:
-     - Class relationships: which classes hold references to others?
-     - Minimal attributes & methods per class.
-   - Example snippet:
-     - `Item` class with private attributes (id, name, quantity).
-     - `Database` class with a method `loadFromFile(string filename)`, `saveToFile(...)`, etc.
-2. **Decide on Access Modifiers**:
-   - **private** for internal data (e.g., `id`, `quantity`).
-   - **public** for essential methods (e.g., `createItem(...)`, `deleteItem(...)`).
-   - Possibly **protected** if inheritance is truly warranted—but caution that we don’t force inheritance where composition might suffice.
-
-### Step 3: JSON Library Selection & Setup
-
-1. **Choose a JSON Parsing Library**:
-   - Examples: [nlohmann/json](https://github.com/nlohmann/json) or [RapidJSON](https://github.com/Tencent/rapidjson).
-2. **Test JSON I/O**:
-   - Simple test to read a small JSON file and print data to confirm library usage.
-
-### Step 4: Implement the Data Model (e.g., `Item` or `User` Class)
-
-1. **Write Minimal Constructors**:
-   - Possibly an empty constructor plus one that initializes from parameters.
-   - Emphasize DRY if multiple constructors share logic—use a private `init(...)` function.
-2. **Add JSON Conversion**:
-   - A method `toJson()` returning a JSON object.
-   - A method `fromJson(...)` that updates the object’s attributes.
-
-### Step 5: Implement the Storage Manager / Database Class
-
-1. **Loading from JSON**:
-   - Method `loadFromFile(std::string filePath)` that reads JSON, populates an internal list/vector of items.
-2. **Saving to JSON**:
-   - Method `saveToFile(...)` that writes the current data model to disk.
-3. **CRUD Methods**:
-   - `createItem(...)`, `getItem(id)`, `updateItem(...)`, `deleteItem(id)`.
-
-### Step 6: Testing & Demonstration
-
-1. **Console-based UI**:
-   - Simple main program that loads from a JSON file, lets user add/update/delete an item, then saves.
-2. **Verify Data**:
-   - Print list of items before and after an operation.
-
-### Step 7: Reflection & Feedback
-
-1. **Discuss**:
-   - Did the design remain consistent with DRY and the chosen UML?
-   - Could inheritance be replaced by composition in any place?
-   - Are public/private divisions logical?
+4. **Perform CRUD Operations**
+   - **Create**: Add new items to your “database” file.
+   - **Read**: Retrieve and display specific items (or list them all).
+   - **Update**: Modify existing items.
+   - **Delete**: Remove items from the file.
 
 ---
 
-## Project Deliverables (for Students)
+## Part 1: UML Class Diagram
 
-1. **Design Document** (First Milestone)
+Before writing any code, design your class structure in UML. Your diagram should include:
 
-   - UML sketches for classes.
-   - Written justification for each class and method.
+- **Classes**
+  - Example: `Candy`, `CandyManager`, `JSONDBManager`, etc.
+- **Relationships**
+  - Indicate if classes have a _composition_ or _aggregation_ relationship.
+  - Show which classes might inherit from a base class, if applicable.
+- **Attributes**
+  - For instance, a `Candy` class might have `id`, `price`, `category`, `title`, etc.
+- **Methods**
+  - For a JSON database manager, you’ll likely have methods like `load()`, `save()`, `addItem()`, `getItem()`, `updateItem()`, and `deleteItem()`.
 
-2. **Implementation** (Second Milestone)
+Here’s a **text-based UML** snippet as an example (feel free to adapt or create your own style):
 
-   - C++ source code with multiple classes (e.g., `Item`, `Database`).
-   - Minimal usage of inheritance unless truly necessary.
+### Example Text-Based UML
 
-3. **Demo / Test** (Final Milestone)
-   - Simple console program showing you can load, create, update, delete, and save data to JSON.
-   - Reflection paragraph on how design changed or improved during development.
+```txt
++—————–+
+|     Candy       |
++—————–+
+| - id: int       |
+| - price: string |
+| - category: … |
+| - title: …    |
+| - imagetype:… |
++—————–+
+| + setters/getters
+| + constructor(…)
+| + toJSON(): json
++—————–+
 
----
++———————–+
+|     JSONDBManager     |
++———————–+
+| - filename: string    |
+| - data: json          |
++———————–+
+| + load(): void        |
+| + save(): void        |
+| + addItem(…): bool  |
+| + getItem(…): Candy |
+| + updateItem(…):bool|
+| + deleteItem(…):bool|
++———————–+
 
-## Additional Suggestions on Approach
++––––––––––+
+|    CandyManager    |
++––––––––––+
+| - dbManager: JSONDBManager
++––––––––––+
+| + createCandy(…): bool
+| + readCandy(id): Candy
+| + updateCandy(id,…): bool
+| + deleteCandy(id): bool
+| + listAllCandies(): void
++––––––––––+
+```
 
-1. **Modularize**:
-   - Keep each class in its own `.hpp`/`.cpp` pair.
-2. **Avoid Over-Engineering**:
-   - Let’s not get stuck adding unnecessary inheritance. For instance, if `Item` and `User` share no logic, no need for a `BaseEntity`.
-3. **Focus on DRY**:
-   - Repeated constructor code? Use a private `init()` method.
-   - Repeated JSON code? Possibly a helper function or a separate “JsonHelper” if it’s repeated across classes.
-4. **Incremental Development**:
-   - Start with reading JSON and building a minimal list of items.
-   - Add writing to JSON once reading is stable.
-   - Introduce CRUD operations step by step.
-
----
-
-## Next Steps
-
-- **Document** your proposed classes in a short UML or textual design doc.
-- **Implement** a minimal data model and test reading/writing JSON.
-- **Iterate** by adding CRUD logic, UI, and final polishing.
-
-_(We can later generate more specific tasks, code skeletons, or additional clarifications as your students progress in each milestone.)_
-
-# Mapping the Consumable Steps to Suggested Major Components
-
-Below is a short guide explaining how each **consumable step** (from the project blueprint) relates to the **major components** of the C++ + JSON database project.
-
----
-
-## Major Components (Recap)
-
-1. **Data Model**
-
-   - Classes representing entities (e.g., `Item`, `Record`, or `User`).
-   - JSON-conversion methods (e.g., `toJson()`, `fromJson(...)`).
-
-2. **Database / Storage Manager**
-
-   - Handles I/O with JSON files (load/save).
-   - Provides CRUD methods (create, read, update, delete).
-
-3. **Application Logic**
-
-   - Could be a “controller” that orchestrates user commands or programmatic calls to the database/storage manager.
-   - Possibly includes some business logic or validation.
-
-4. **Main Application**
-   - Ties everything together (e.g., main function).
-   - May include a console-based interface or minimal UI for demonstrations.
+You can create your UML in a diagramming tool or simply draw it on paper and scan it. The key is to clarify **what** classes exist, **how** they interact, and **why**.
 
 ---
 
-## Consumable Steps (Blueprint)
+## Part 2: Implementation Details
 
-Here’s how each suggested step aligns with one or more major components.
+### 2.1 Project Setup
 
-1. **Requirements & Sketching (Design Phase)**
+1. **Add nlohmann/json**
 
-   - **Covers All Components**
-   - You decide **what** classes you need (data model, manager, logic), plus the overall structure.
-   - Brainstorming for data model (entities), high-level database class, and what the main app does.
+   - Include `json.hpp` in your project.
+   - Make sure your compiler can find the header (e.g., in the same directory or via CMake).
 
-2. **UML and Initial Class Design**
+2. **Create Your Classes**
 
-   - **Covers All Components**
-   - UML diagrams show **relationships** between data classes, the storage manager, and the application logic.
-   - This step ensures clarity on responsibilities (SRP, DRY) before coding.
+   - Each class in the UML corresponds to a `.hpp/.cpp` pair (unless you’re doing header-only).
 
-3. **JSON Library Selection & Setup**
+3. **Candy Class (Model Layer)**
 
-   - **Mostly Database/Storage Manager**
-   - Affects how you’ll **load/save** the data.
-   - Minimal effect on the data model or main app, but it’s critical for the database manager portion.
+   - Represents a candy object with attributes like `id`, `price`, `category`, `title`, and `imagetype`.
+   - Implement convenient constructors, getters/setters, and possibly a `toJSON()` or `fromJSON()` method for easier serialization/deserialization.
 
-4. **Implement the Data Model**
+4. **JSONDBManager Class**
 
-   - **Data Model Component**
-   - Build classes that represent the domain (e.g., `Item`, `User`, `Record`).
-   - Add JSON-conversion methods in these classes or in small helper utilities, so they can be easily serialized/deserialized.
+   - Responsible for loading and saving JSON from/to a file.
+   - Maintains a `json data` structure in memory.
+   - Provides **CRUD** helper methods that operate directly on the JSON data.
 
-5. **Implement the Storage Manager / Database Class**
+5. **CandyManager (Higher-Level Interface)**
+   - Uses `JSONDBManager` to manipulate Candy objects.
+   - Handles any domain-specific logic (e.g., ensuring no duplicate IDs).
+   - Exposes methods like `createCandy()`, `readCandy()`, `updateCandy()`, `deleteCandy()`, and `listAllCandies()`.
 
-   - **Database / Storage Manager Component**
-   - Actually read/write JSON to disk.
-   - Provide `loadFromFile`, `saveToFile`, plus CRUD operations referencing the data model.
+### 2.2 Example Flow
 
-6. **Testing & Demonstration**
+1. **Initialization**
 
-   - **Main Application & Possibly Application Logic**
-   - The console-based program (or minimal UI) that shows how you can load data, create objects, update them, and save back to JSON.
-   - Testing the synergy of all components.
+   - `CandyManager` instantiates a `JSONDBManager`, specifying the filename of the JSON file.
+   - `JSONDBManager` tries to load the file into memory.
 
-7. **Reflection & Feedback**
-   - **Covers All Components**
-   - Evaluate whether the data model was well-structured.
-   - Assess if the storage manager’s approach was correct.
-   - Check if the main application or logic code is organized and adheres to DRY.
+2. **Create**
 
----
+   - `CandyManager::createCandy(...)` constructs a `Candy` object, then calls `JSONDBManager::addItem(...)` with the candy’s JSON data.
 
-## Summary
+3. **Read**
 
-- **Steps 1 & 2**: High-level design, applying to every component in terms of **planning**.
-- **Step 3**: Primarily about **choosing JSON approach** for the storage manager.
-- **Step 4**: Solely about the **Data Model** (entities, classes).
-- **Step 5**: Specifically implements the **Database / Storage** logic.
-- **Step 6**: Involves hooking up everything in the **Main Application** (plus any extra logic).
-- **Step 7**: Reflection on design, code structure, and the synergy across **all components**.
+   - `CandyManager::readCandy(id)` calls `JSONDBManager::getItem(id)`, converts the resulting JSON back into a `Candy` object.
 
-By mapping each consumable step to the relevant components, students can develop the system incrementally while keeping track of the big picture.
+4. **Update**
+
+   - `CandyManager::updateCandy(id, ...)` modifies a candy’s data by calling `JSONDBManager::updateItem(...)`.
+
+5. **Delete**
+
+   - `CandyManager::deleteCandy(id)` calls `JSONDBManager::deleteItem(id)`.
+
+6. **Listing**
+   - `CandyManager::listAllCandies()` might fetch all items from `JSONDBManager` and iterate through them, printing out details.
+
+### 2.3 Sample Code Structure
+
+```cpp
+// Candy.hpp
+#pragma once
+#include <string>
+#include <nlohmann/json.hpp>
+
+class Candy {
+private:
+    int id;
+    std::string price;
+    std::string category;
+    std::string title;
+    std::string imagetype;
+
+public:
+    // Constructors, getters, setters...
+    nlohmann::json toJSON() const {
+        return nlohmann::json{
+            {"id", id},
+            {"price", price},
+            {"category", category},
+            {"title", title},
+            {"imagetype", imagetype}
+        };
+    }
+
+    // static fromJSON(...) method is optional if you prefer constructing from JSON
+};
+
+// JSONDBManager.hpp
+#pragma once
+#include <nlohmann/json.hpp>
+#include <string>
+#include <vector>
+
+class JSONDBManager {
+private:
+    std::string filename;
+    nlohmann::json data;
+
+public:
+    JSONDBManager(const std::string& file);
+    void load();
+    void save() const;
+
+    bool addItem(const nlohmann::json& itemJSON);
+    nlohmann::json getItem(int id) const;
+    bool updateItem(int id, const nlohmann::json& updatedFields);
+    bool deleteItem(int id);
+    std::vector<nlohmann::json> getAllItems() const;
+};
+```
+
+## Part 3: Your Task
+
+1. Create a Detailed UML:
+   - Identify the classes and methods you’ll need based on the snippet above (or your own design).
+2. Implement Your Classes in C++:
+   - Candy (or a different model if you prefer).
+   - JSONDBManager.
+   - CandyManager (or your manager class of choice).
+3. Demonstrate CRUD Operations in main():
+   - Load the JSON file.
+   - Create a new candy item.
+   - Read a candy item (by ID) and print it.
+   - Update an existing candy’s price/title.
+   - Delete a candy item.
+   - Print a list of all candies.
+4. Write a Short Report:
+   - Summarize your UML design decisions.
+   - Show sample inputs/outputs.
+   - Discuss any edge cases (e.g., non-existent IDs, empty JSON, etc.).
+
+## Tips & Suggestions
+
+- Error Handling:
+- Decide what to do if a file fails to open or an ID doesn’t exist.
+- Multiple Models:
+- If you want to expand, consider classes like Customer, Order, etc.
+- Testing:
+- Test each CRUD method thoroughly before moving on.
+
+## Submission
+
+- Create a folder called P01 in your assignments folder.
+- Includer the following documents in your project upload:
+  1. UML Diagram (PDF or image file).
+  2. Source Code (header/source files and main.cpp).
+  3. Short Report documenting your approach, testing, and any notable design decisions (README file).

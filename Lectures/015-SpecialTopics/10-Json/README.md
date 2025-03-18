@@ -1,163 +1,238 @@
-## JSON & C++ - Javascript Object Notation used in C++
-
-#### Due: NA
-
-### General
-
-- JSON is a lightweight data-interchange format.
-- JSON stands for `JavaScript Object Notation`.
-- Started out in JavaScript.
-- It is:
-  - text-based and easily readable.
-  - supported by **many** programming environments!
-  - language and platform independent.
-  - a lightweight alternative to XML.
-- It was invented by Douglas Crockford.
-- JSON is mainly used for storing and exchanging data.
-- The file extension for JSON is `.json`.
-- It's internet Media type is `application/json.`.
-
-### Some Simple Rules
-
-- `{}` curly braces imply **object**.
-- An **object** is a collection of `key value pairs`.
-- `[]` square brackets imply **array**.
-- You can mix and match all of these constructs to create complex data structures.
-
-### Examples:
-
+---
+title: "Introduction to JSON and Using nlohmann::json in C++"
+description: "An introductory document on JSON and how to use the nlohmann::json library in C++ for common CRUD operations, using candy store data as an example."
 ---
 
-- Here is a single object (curly braces with key:value pairs inside).
-- This object contains a name,age,and secretIdentity of a super hero.
-- `super` is the variable storing the object:
+## Introduction to JSON
 
-```json
-    super = {
-      "name": "Molecule Man",
-      "age": 29,
-      "secretIdentity": "Dan Jukes",
-    }
-```
+JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. It is language-independent but uses conventions familiar to programmers of the C-family of languages, making it a popular choice for data storage, configuration files, and web APIs.
 
----
+### JSON Basics
 
-- The traditional method to access a value is by using its key and an array syntax:
-
-```cpp
-    cout<<super["name"]<<", "<<super["age"]<<", "<<super["secretIdentity"]<<endl;
-    // would print: Molecule Man, 29, Dan Jukes
-```
-
----
-
-- Lets add a list of `powers` possessed by this super hero.
-- The `powers` are accessed by the "key": `powers` and listed in an array:
-
-```json
-    super = {
-      "name": "Molecule Man",
-      "age": 29,
-      "secretIdentity": "Dan Jukes",
-      "powers":[
-            "Radiation resistance",
-            "Turning tiny",
-            "Radiation blast"
-      ]
-    }
-```
-
----
-
-- To access each power, we could do the following:
-
-```cpp
-    cout<<super["powers"][0]<<endl
-    cout<<super["powers"][1]<<endl
-    cout<<super["powers"][2]<<endl;
-```
-
-- Looping over the entire array could be done similar to:
-
-```cpp
-    for(int i=0;i<super["powers"].size();i++)
-        cout<<super["powers"][i]<<endl;
-```
-
----
-
-- What about many super hero's and their powers?
-- The entire collection is 1 object.
-- Each super hero is in an array accessed by "members".
-- Each member has its key value pair data + an array of powers.
+A JSON object is a collection of key/value pairs. Here’s an example using candy store data:
 
 ```json
 {
-  "squadName": "Super hero squad",
-  "homeTown": "Metro City",
-  "formed": 2016,
-  "secretBase": "Super tower",
-  "active": true,
-  "members": [
-    {
-      "name": "Molecule Man",
-      "age": 29,
-      "secretIdentity": "Dan Jukes",
-      "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
-    },
-    {
-      "name": "Madame Uppercut",
-      "age": 39,
-      "secretIdentity": "Jane Wilson",
-      "powers": [
-        "Million tonne punch",
-        "Damage resistance",
-        "Superhuman reflexes"
-      ]
-    },
-    {
-      "name": "Eternal Flame",
-      "age": 1000000,
-      "secretIdentity": "Unknown",
-      "powers": [
-        "Immortality",
-        "Heat Immunity",
-        "Inferno",
-        "Teleportation",
-        "Interdimensional travel"
-      ]
-    }
-  ]
+  "id": 18,
+  "price": "$19.99",
+  "category": "individually-wrapped",
+  "title": "Peppermint Twists Mints",
+  "imagetype": "jpg"
 }
 ```
 
----
+This snippet shows:
+- **Keys**: "id", "price", "category", "title", "imagetype"
+- **Values**: A mix of numbers and strings.
 
-- To print out some of the above object:
+Multiple objects can be stored in a JSON array:
+
+```json
+[
+  {
+    "id": 18,
+    "price": "$19.99",
+    "category": "individually-wrapped",
+    "title": "Peppermint Twists Mints",
+    "imagetype": "jpg"
+  },
+  {
+    "id": 19,
+    "price": "$15.99",
+    "category": "individually-wrapped",
+    "title": "Spearmint Starlight Mints",
+    "imagetype": "jpg"
+  }
+]
+
+### Why Use JSON?
+
+Using JSON offers several advantages:
+- **Readability**: The format is clean and human-readable.
+- **Flexibility**: It can easily represent complex nested data.
+- **Language Agnostic**: Nearly every modern programming language includes libraries for working with JSON.
+- **Interoperability**: JSON is widely used for configuration files, web services, and data interchange.
+
+In C++, dealing with JSON manually (parsing, formatting, etc.) can be tedious. That’s where libraries like nlohmann::json shine by providing a simple, intuitive interface to work with JSON.
+
+### Using nlohmann::json in C++
+
+The nlohmann::json library is a single-header JSON parser and generator for C++ that makes it very easy to work with JSON data. Let’s see how to use it in a few common scenarios, including basic CRUD operations, using our candy store example.
+
+- Setup
+1.	Installation:
+- Download the single header file json.hpp from the nlohmann/json GitHub repository and include it in your project.
+2.	Including the Library:
 
 ```cpp
-    for(int i=0;i<super["members"].size();i++){
-        cout<<super["members"]["name"]<<endl;
-        for(int j=0;j<super["members"][i].size();j++){
-            cout<<super["members"][i]["powers"][j]<<endl;
-        }
-    }
+#include <nlohmann/json.hpp>
+#include <fstream>
+#include <iostream>
+#include <vector>
 
-// same as above but with a newer syntax
-
-    // loop trough each member in the members array (grabbing it straight from the original object)
-    for (auto& el : super["members"]) {
-
-        // print out member name
-        std::cout << el["name"] << '\n';
-
-        // add our own power
-        el["powers"].push_back("new super power");
-
-        // loop through the members powers and print them out
-        for (auto& power : el["powers"]) {
-            std::cout <<"\t"<< power << '\n';
-        }
-    }
-
+using json = nlohmann::json;
+using namespace std;
 ```
+
+### CRUD Operations with JSON
+
+Assume we have a JSON file named candy_store.json containing an array of candy items similar to the snippet below:
+
+```json
+[
+  {
+    "id": 18,
+    "price": "$19.99",
+    "category": "individually-wrapped",
+    "title": "Peppermint Twists Mints",
+    "imagetype": "jpg"
+  },
+  {
+    "id": 19,
+    "price": "$15.99",
+    "category": "individually-wrapped",
+    "title": "Spearmint Starlight Mints",
+    "imagetype": "jpg"
+  }
+]
+```
+
+Below are examples of basic CRUD operations.
+
+### 1. Reading JSON Data
+
+Read the JSON file into a json object:
+
+```cpp
+json readJsonFromFile(const string& filename) {
+    ifstream file(filename);
+    if (!file) {
+        cerr << "Unable to open file: " << filename << endl;
+        exit(1);
+    }
+    json j;
+    file >> j;
+    return j;
+}
+```
+### 2. Creating (Adding) an Item
+
+Add a new candy item to the JSON array:
+
+```cpp
+void createItem(json& j, const json& newItem) {
+    // Assuming the JSON file is an array of objects
+    j.push_back(newItem);
+}
+
+// Usage:
+json newCandy = {
+    {"id", 999},
+    {"price", "$12.99"},
+    {"category", "gummy"},
+    {"title", "New Gummy Candy - 5lb"},
+    {"imagetype", "jpg"}
+};
+
+json candyStore = readJsonFromFile("candy_store.json");
+createItem(candyStore, newCandy);
+```
+
+### 3. Reading (Querying) an Item
+
+Query for an item by its id:
+
+```cpp
+json readItemById(const json& j, int id) {
+    for (const auto& item : j) {
+        if (item["id"] == id)
+            return item;
+    }
+    return nullptr; // Item not found
+}
+
+// Usage:
+json candyItem = readItemById(candyStore, 18);
+if (!candyItem.is_null()) {
+    cout << "Found item:\n" << candyItem.dump(4) << endl;
+} else {
+    cout << "Item not found." << endl;
+}
+```
+
+### 4. Updating an Item
+
+Modify an existing item by merging updated fields:
+
+bool updateItemById(json& j, int id, const json& updatedFields) {
+    for (auto& item : j) {
+        if (item["id"] == id) {
+            // Update each field present in updatedFields
+            for (json::const_iterator it = updatedFields.begin(); it != updatedFields.end(); ++it) {
+                item[it.key()] = it.value();
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+// Usage:
+json updateData = {
+    {"price", "$17.99"},
+    {"title", "Peppermint Twists Mints - Updated"}
+};
+
+if (updateItemById(candyStore, 18, updateData)) {
+    cout << "Item updated successfully." << endl;
+} else {
+    cout << "Item not found." << endl;
+}
+
+5. Deleting an Item
+
+Remove an item by its id:
+
+bool deleteItemById(json& j, int id) {
+    for (auto it = j.begin(); it != j.end(); ++it) {
+        if ((*it)["id"] == id) {
+            j.erase(it);
+            return true;
+        }
+    }
+    return false;
+}
+
+// Usage:
+if (deleteItemById(candyStore, 19)) {
+    cout << "Item deleted successfully." << endl;
+} else {
+    cout << "Item not found." << endl;
+}
+
+6. Writing JSON Data Back to a File
+
+After performing CRUD operations, save your changes back to the file:
+
+void writeJsonToFile(const json& j, const string& filename) {
+    ofstream file(filename);
+    if (!file) {
+        cerr << "Unable to open file: " << filename << endl;
+        exit(1);
+    }
+    file << j.dump(4); // Pretty print with an indent of 4 spaces
+}
+
+// Usage:
+writeJsonToFile(candyStore, "candy_store.json");
+
+Summary
+
+Using JSON with C++ becomes very convenient with libraries like nlohmann::json. This tutorial covered:
+- Introduction to JSON: Its syntax and common use cases.
+- CRUD Operations: How to create, read, update, and delete JSON objects.
+- File Operations: Reading from and writing to a JSON file.
+
+These examples demonstrate the simplicity and power of nlohmann’s library to manage JSON data—making it easier to work with complex data structures and eliminate many of the typical programming hassles related to manual parsing.
+
+Feel free to experiment with the examples and extend them to suit your projects. Let me know if you have any questions or need further clarification!
