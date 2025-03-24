@@ -195,7 +195,7 @@
 2.  What does it mean to instantiate a class?
 3.  When or how do we know a class has an instance?
 4.  When does a class become an object?
-5.  An object is a(n) \***\*\_\_\*\*** of a class that resides in \***\*\_\_\*\*** and has \***\*\_\_\*\***. Fill in the blanks.
+5.  An object is a(n) `_________________` of a class that resides in `_________________` and has `_________________`. (Fill in the blanks.)
 6.  How do we define a constructor and a destructor in a C++ class, and when do each of these get called?
 7.  Why might you choose to store data as static in a class?
 8.  Which keywords can be used to control access to class members?
@@ -437,7 +437,92 @@ Label each scenario E (Encapsulation) or A (Abstraction) to indicate whether it 
 
 ⸻
 
-### 11. Final Practice Challenges
+### 11. Here’s a concise reference table and some small code examples illustrating:
+
+- How public, private, and protected work in C++.
+- The table shows where each specifier is visible and how it behaves in inheritance scenarios.
+
+#### Quick Overview Table
+
+| Specifier | Visible Within the Same Class? | Visible in Derived Classes? | Visible Outside the Class (Non-Friend)? | Typical Use Case                                                                |
+| :-------- | :----------------------------- | :-------------------------- | :-------------------------------------- | :------------------------------------------------------------------------------ |
+| public    | Yes                            | Yes                         | Yes                                     | Public API for other parts of the program.                                      |
+| protected | Yes                            | Yes                         | No                                      | Internal mechanisms, intended for subclasses but hidden from “the world.”       |
+| private   | Yes                            | No                          | No                                      | Strictly internal data, kept hidden from derived classes and the outside world. |
+
+⸻
+
+### Code Demonstration
+
+Below is a small C++ example showing how these specifiers actually work. Notice which members you can access in Derived and which ones are off-limits in main().
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Base {
+private:
+    int privVar = 1;      // Only accessible within Base
+protected:
+    int protVar = 2;      // Accessible within Base and Derived
+public:
+    int pubVar  = 3;      // Accessible anywhere
+};
+
+class Derived : public Base {
+public:
+    void tryAccess() {
+        // privVar = 10;  // ERROR: Can't access private from Base
+        protVar = 20;     // OK: protected members are accessible
+        pubVar  = 30;     // OK: public members are accessible
+        cout << "Inside Derived - protVar: " << protVar
+             << ", pubVar: " << pubVar << endl;
+    }
+};
+
+int main() {
+    Base b;
+    // b.privVar = 100; // ERROR: private is not accessible outside Base
+    // b.protVar = 200; // ERROR: protected is not accessible from outside
+    b.pubVar   = 300;   // OK: public members are accessible from anywhere
+
+    Derived d;
+    d.tryAccess();
+
+    // d.protVar = 999; // ERROR: protected is not accessible from outside
+    // d.privVar = 999; // ERROR: private is not accessible from outside
+
+    cout << "Inside main - b.pubVar: " << b.pubVar << endl;
+    return 0;
+}
+```
+
+### Explanation
+
+1. private Members
+
+- Can only be accessed by the class itself (i.e., within the same class where they are declared).
+- Not accessible by derived classes.
+- Not accessible from outside the class.
+
+2. protected Members
+
+- Accessible by the class itself and its derived classes.
+- Not accessible by non-friend classes/functions outside the inheritance chain.
+
+3. public Members
+
+- Accessible from anywhere in the program, as long as you have an instance or a pointer/reference to that object.
+
+⸻
+
+### Why Use Each Specifier?
+
+- Private: To encapsulate and hide data (a key OOP principle) and prevent unintended modifications from derived classes or external code.
+- Protected: To share data between a base class and its derived classes while still hiding it from the rest of the world.
+- Public: To expose an interface (API) that any part of the program can use safely.
+
+### 12. Final Practice Challenges
 
 1. Rewrite the snippet below so that the Kid can access his dad’s private stash of alcohol. (Ensuring alcohol remains private.)
 2. Rewrite the Character class so that the print method in Character must be implemented in both sub-classes (Wizard and Warrior).
