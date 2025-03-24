@@ -1,6 +1,6 @@
 # Test 2 - OOP Study Guide
 
-#### Due: 03-25-2025 (Tuesday)
+#### Due: 03-27-2025 (Thursday)
 
 <!-- # Overview of Topics -->
 
