@@ -145,7 +145,7 @@
 
 ### 1. Key Vocabulary
 
-- Before diving deeper, review these terms. (Many will appear in the questions later.)
+Before diving deeper, review these terms. (Many will appear in the questions later.)
 
 1. Base Class (Parent / Super class)
 2. Derived Class (Child / Sub class)
@@ -178,16 +178,17 @@
 29. Delete
 30. Friend Function
 
-- Additional Terms (some are alternative names or appear in other OOP languages):
-  - Class Variable / Instance Variable
-  - Pure Polymorphism
-  - Interface
-  - Virtualizationism (likely a nonsense or trick term)
-  - Hierarchy (e.g., hierarchical inheritance)
-  - Multi-level Inheritance
-  - Diamond Problem
-  - Method vs Function
-  - Method Overloading vs Method Overriding
+Additional Terms (some are alternative names or appear in other OOP languages):
+
+1. Class Variable / Instance Variable
+1. Pure Polymorphism
+1. Interface
+1. Virtualizationism (likely a nonsense or trick term)
+1. Hierarchy (e.g., hierarchical inheritance)
+1. Multi-level Inheritance
+1. Diamond Problem
+1. Method vs Function
+1. Method Overloading vs Method Overriding
 
 ### 2. Class Fundamentals & Basic Object Concepts
 
@@ -530,6 +531,146 @@ int main() {
 4. Know these words: class definition, instance, instantiated, object and state.
 5. Explain or demonstrate how multiple inheritance might lead to the “diamond problem.”
 6. Fix the diamond problem using either virtual inheritance or a suitable alternative.
+
+⸻
+
+### Static Keyword
+
+Here’s an example of a “team dice game” that tracks each team’s average roll.
+
+- We do two things here:
+
+1. Compute each Team’s own average via instance data (just summing the vector of rolls).
+2. Compute a global average of all dice rolls among all teams using static members (sumAllRolls and totalRolls).
+
+⸻
+
+The Code
+
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+class Team {
+private:
+// Instance data: specific to each team
+string teamName;
+vector<int> diceRolls;
+
+    // Class-level (static) variables: shared among all teams
+    static int   totalTeams;     // How many Team objects exist
+    static int   sumAllRolls;    // Sum of dice rolls across *all* teams
+    static int   totalRolls;     // Count of dice rolls across *all* teams
+
+public:
+// Constructor
+Team(const string& name)
+: teamName(name) {
+++totalTeams;
+}
+
+    // Add a single dice roll to this team's record
+    void addDiceRoll(int roll) {
+        diceRolls.push_back(roll);
+
+        // Update static counters for global tracking
+        sumAllRolls += roll;
+        ++totalRolls;
+    }
+
+    // Calculate and return the *per-team* average
+    double getTeamAverage() const {
+        if (diceRolls.empty()) {
+            return 0.0;
+        }
+
+        int sum = 0;
+        for (int roll : diceRolls) {
+            sum += roll;
+        }
+        return static_cast<double>(sum) / diceRolls.size();
+    }
+
+    // Return the global average of *all* rolls from *all* teams
+    static double getGlobalAverage() {
+        if (totalRolls == 0) {
+            return 0.0;
+        }
+        return static_cast<double>(sumAllRolls) / totalRolls;
+    }
+
+    // Print the team's name and average
+    void printStatus() const {
+        cout << "Team: " << teamName
+             << " | Average Roll: " << getTeamAverage() << endl;
+    }
+
+};
+
+// Definitions of static members must appear outside the class
+int Team::totalTeams = 0;
+int Team::sumAllRolls = 0;
+int Team::totalRolls = 0;
+
+int main() {
+// Create a few teams
+Team t1("Red Dragons");
+Team t2("Blue Phoenix");
+
+    // Add dice rolls for the Red Dragons
+    t1.addDiceRoll(6);
+    t1.addDiceRoll(4);
+    t1.addDiceRoll(5);
+
+    // Add dice rolls for the Blue Phoenix
+    t2.addDiceRoll(2);
+    t2.addDiceRoll(2);
+
+    // Print their individual statuses
+    t1.printStatus();
+    t2.printStatus();
+
+    // Show the overall average across *all* teams
+    cout << "Global Average of all Teams' Rolls: "
+         << Team::getGlobalAverage() << endl;
+
+    return 0;
+
+}
+```
+
+⸻
+
+### How It Works
+
+1. Per-Team Average:
+   - Each Team object keeps its own list of diceRolls. We compute the team’s average by summing its rolls and dividing by the number of rolls.
+2. Global Average (Static Members):
+   - `static int sumAllRolls` stores the sum of every roll from all teams.
+   - `static int totalRolls` stores how many total dice rolls have been recorded across all teams.
+   - Each time we call `addDiceRoll()`, we update these `static` members, allowing us to compute the global average via `Team::getGlobalAverage()`.
+
+- 3. Static Data:
+  - Because sumAllRolls and totalRolls are declared static, they’re shared by all instances of Team and We must define them outside the class, for example:
+
+```cpp
+int Team::sumAllRolls = 0;
+int Team::totalRolls = 0;
+```
+
+4. Printing:
+
+- `printStatus()` shows each team’s name and that team’s current average.
+- The main function also prints out the overall average for all teams.
+
+⸻
+
+### Why Use a Static Variable for the Global Average?
+
+- If you need to track game-wide metrics (e.g., how many dice have been rolled total, or what the global average is), static class variables allow you to maintain a single source of truth shared among all Team objects.
+- Meanwhile, each Team can still calculate its own average independently.
 
 ⸻
 
