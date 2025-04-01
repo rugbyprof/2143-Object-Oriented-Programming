@@ -181,9 +181,9 @@ Before diving deeper, review these terms. (Many will appear in the questions lat
 Additional Terms (some are alternative names or appear in other OOP languages):
 
 1. Class Variable / Instance Variable
-1. Pure Polymorphism
-1. Interface
-1. Virtualizationism (likely a nonsense or trick term)
+<!-- 1. Pure Polymorphism -->
+1. Interface: a class with ALL pure virtual methods.
+<!-- 1. Virtualizationism (likely a nonsense or trick term) -->
 1. Hierarchy (e.g., hierarchical inheritance)
 1. Multi-level Inheritance
 1. Diamond Problem
@@ -680,3 +680,82 @@ int Team::totalRolls = 0;
 - Focus on how keywords (virtual, friend, public, etc.) alter program behavior.
 - Don’t forget the fundamentals of memory management, especially in C++.
 - Try rewriting or combining the example code from different questions to solidify your understanding of inheritance, composition, and polymorphism.
+
+title: "Composition vs. Aggregation"
+description: "A comparison of composition and aggregation in object-oriented programming, including definitions, characteristics, examples, and key differences."
+author: "ChatGPT"
+
+Below is an overview that explains the two relationships clearly without repeating details from previous topics:
+
+⸻
+
+Composition vs. Aggregation
+
+Composition
+• Definition:
+A strong form of association where a whole object is made up of one or more parts. In composition, the parts cannot exist independently of the whole.
+• Key Characteristics:
+• Ownership: The composite object owns the component objects.
+• Lifetime Dependency: When the composite is destroyed, its parts are also destroyed.
+• Example:
+A Car composed of an Engine, Wheels, and Chassis. If the Car is destroyed, its Engine and other components are also disposed of.
+• Code Example:
+
+class Engine {
+public:
+Engine() { /_ ... _/ }
+~Engine() { /_ ... _/ }
+};
+
+class Car {
+private:
+Engine engine; // Composition: Car owns the Engine.
+public:
+Car() { /_ ... _/ }
+// The Engine's lifetime is bound to the Car's lifetime.
+};
+
+⸻
+
+Aggregation
+• Definition:
+A weaker form of association where an object (the aggregate) contains other objects, but those objects can exist independently of the container.
+• Key Characteristics:
+• Association: Represents a “has-a” relationship, but the contained objects are not exclusively owned.
+• Independent Lifetime: The aggregated objects can exist even if the aggregate is destroyed.
+• Example:
+A Library that contains Book objects. Books may exist independently of the library and might even be shared with another library.
+• Code Example:
+
+class Book {
+public:
+Book() { /_ ... _/ }
+~Book() { /_ ... _/ }
+};
+
+class Library {
+private:
+std::vector<Book*> books; // Aggregation: Library aggregates Book objects.
+public:
+Library() { /* ... _/ }
+~Library() {
+// Books might not be deleted here, since they could be shared or exist independently.
+}
+void addBook(Book_ book) {
+books.push_back(book);
+}
+};
+
+⸻
+
+Key Differences
+
+Aspect Composition Aggregation
+Ownership Strong; the composite exclusively owns its parts Weak; parts can exist independently and may be shared
+Lifetime Parts are destroyed when the composite is destroyed Parts outlive the aggregate if needed
+Coupling Tightly coupled Loosely coupled
+Use Case Use when parts are inseparable from the whole Use when parts can exist and be managed independently
+
+⸻
+
+This concise comparison should give your students the key insights they need to understand the difference between composition and aggregation. Let me know if you’d like any further examples or clarifications, Terry!
