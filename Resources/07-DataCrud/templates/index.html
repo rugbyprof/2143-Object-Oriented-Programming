@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>World Cities (HTMX demo)</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/dist/tailwind.min.css">
+  <script src="https://unpkg.com/htmx.org@1.9.9"></script>
+  <!-- Include the Tailwind JS file -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6 font-sans">
+  <input type="hidden" id="current-page" value="1">
+  <h1 class="text-2xl font-bold mb-4">World Cities</h1>
+
+  <div id="table-wrapper">
+    <table class="table-auto w-half border border-slate-400 text-sm">
+      <thead class="bg-slate-200">
+        <tr class="text-left">
+          <th class="p-2">City</th>
+          <th class="p-2">Country</th>
+          <th class="p-2">Lat</th>
+          <th class="p-2">Lon</th>
+          <th class="p-2">Time Zone</th>
+        </tr>
+      </thead>
+      <tbody id="city-body">
+        <!-- This is where the HTMX content will be loaded -->
+        {% include "_rows.html" %}
+      </tbody>
+    </table>
+  </div>
+
+  <input name="q" hx-get="/page/1"
+       hx-target="#city-body" hx-trigger="keyup changed delay:300ms">
+
+  <!-- Pagination buttons -->
+  <div class="mt-4 flex gap-4">
+    <button 
+            onclick="loadPage(getCurrentPage() - 1)"
+            class="px-3 py-1 bg-slate-300 rounded disabled:opacity-40"
+            {% if page == 1 %} disabled {% endif %}>
+      ◀ Prev
+    </button>
+
+    <button 
+            onclick="loadPage(getCurrentPage() + 1)"
+            class="px-3 py-1 bg-slate-300 rounded">
+      Next ▶
+    </button>
+  </div>
+
+
+  <style>
+    .disabled\:opacity-40 {
+      opacity: 0.4;
+    }
+  </style>
+
+  <script>
+    function getCurrentPage() {
+      return parseInt(document.getElementById('current-page').value, 10);
+    }
+    function setCurrentPage(page) {
+      document.getElementById('current-page').value = page;
+    }
+    function loadPage(page) {
+      setCurrentPage(page);
+      htmx.ajax('GET', `/page/${page}`, { target: '#table-wrapper', swap: 'outerHTML' });
+    }
+    console.log(getCurrentPage());
+  </script>
+</body>
+</html>

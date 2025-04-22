@@ -1,4 +1,4 @@
-# Database Assignment - Using Json
+# Database Project - Using Json
 
 ### Due: TBD
 

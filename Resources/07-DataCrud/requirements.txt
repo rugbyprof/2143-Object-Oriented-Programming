@@ -1,0 +1,6 @@
+FastAPI
+pydantic
+requests
+rich
+uvicorn
+jinja2
