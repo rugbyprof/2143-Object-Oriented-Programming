@@ -1,0 +1,5 @@
+rich
+requests
+fastapi
+uvicorn
+pydantic
