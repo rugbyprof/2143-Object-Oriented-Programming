@@ -18,6 +18,11 @@ class QuotesDB(JsonDB):
         self._save_data()
 
     def read(self, **filters):
+        """
+        Read records from the database with optional filters.
+        Filters can include 'author' and 'keyword'.
+        """
+
         author = filters.get("author", None)
         keyword = filters.get("keyword", None)
 
@@ -43,6 +48,10 @@ class QuotesDB(JsonDB):
                 i += 1
 
         return records
+
+    def delete(self, row_id):
+        print(f"[red]Deleting row ID: {row_id}[/red]")
+        del [row_id]
 
 
 if __name__ == "__main__":
