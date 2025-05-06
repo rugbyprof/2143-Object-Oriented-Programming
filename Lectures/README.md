@@ -9,6 +9,6 @@
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/020-Misc">020-Misc</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/020-Misc"> Placeholder Readme </a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/020-Misc"> No Description</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/020-Misc">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/020-Misc">N/A</a>*** |  |
 | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/30-Project_Python">30-Project_Python</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/30-Project_Python"> Placeholder Readme </a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/30-Project_Python"> No Description</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/30-Project_Python">None</a>*** | ***<a href="https://github.com/rugbyprof/2143-Object-Oriented-Programming/tree/master/Lectures/30-Project_Python">N/A</a>*** |  |
 
-<sup>Last Updated: 2025-05-01 (Thu @ 14:20)</sup> 
+<sup>Last Updated: 2025-05-06 (Tue @ 05:32)</sup> 
 
 <sup>***Days Left is only accurate if the `Last Updated` date is the same as todays date. Otherwise, use the due date!***</sup> 
