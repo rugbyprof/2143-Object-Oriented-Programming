@@ -2234,4 +2234,27 @@ Processing [35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Progra
     [32m'A cellular automaton simulation where simple rules lead to complex behavior. Includes strategy tips, patterns, and C++ implementation challenges.'[0m,
     [32m'N/A'[0m,
     [32m'N/A'[0m,
-    [32m'[0m[32
+    [32m'[0m[32m[[0m[32mgame-of-life[0m[32m][0m[32m([0m[32mgame-of-life/[0m[32m)[0m[32m'[0m,
+    [32m'2025-09-08'[0m
+[1m)[0m
+[1m([0m[1;36m999[0m, [32m'Check_File_Change'[0m, [32m'No description'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mCheck_File_Change[0m[32m][0m[32m([0m[32mCheck_File_Change/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m
+[1m([0m[1;36m999[0m, [32m'Vectors'[0m, [32m'No description'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mVectors[0m[32m][0m[32m([0m[32mVectors/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m
+## Resources
+
+| Title | Description | Due | Days Left | Link | Last Updated |
+|-------|-------------|-----|-----------|------|---------------|
+| Code Commenting Standards | A guide for consistent and professional comments in your code, including program, class, and function documentation templates. | N/A | N/A | [1m([0mcommenting-guide/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+| README Formatting Guide | Standards and examples for creating effective README files in assignment folders. Includes templates and common pitfalls. | N/A | N/A | [1m([0mreadme-guide/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+| Data Sets Collection | A curated and growing collection of real-world datasets in various formats for practice, experimentation, and project inspiration. | N/A | N/A | [1m([0mdatasets/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+| Conway's Game of Life | A cellular automaton simulation where simple rules lead to complex behavior. Includes strategy tips, patterns, and C++ implementation challenges. | N/A | N/A | [1m([0mgame-of-life/[1m)[0m | 
+[1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+| Check_File_Change | No description | N/A | N/A | [1m[[0mCheck_File_Change[1m][0m[1m([0mCheck_File_Change/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+| Vectors | No description | N/A | N/A | [1m[[0mVectors[1m][0m[1m([0mVectors/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+
+[1m<[0m[1;95msup[0m[39m>Last Updated: [0m[1;36m2025[0m[39m-[0m[1;36m09[0m[39m-[0m[1;36m08[0m[39m [0m[1;39m([0m[39mMon @ [0m[1;92m04:51[0m[1;39m)[0m[39m<[0m[35m/[0m[95msup[0m[39m>[0m
+
+[39m<sup>***Days Left is only accurate if the `Last Updated` date is today. Otherwise, use the due date!***<[0m[35m/[0m[95msup[0m[1m>[0m
+[35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/[0m[95mResources[0m
+✅ Lecture table written to [35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/Resources/[0m[95mREADME.md[0m
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/2143-Object-Oriented-Programming]1;..d-Programming]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/2143-Object-Oriented-Programming[38;5;245m][00m[38;5;245m[[38;5;118m[32mmaster[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[165C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m4:51[38;5;245m][00m[205D[?1h=[?2004h
