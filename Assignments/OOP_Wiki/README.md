@@ -1,9 +1,9 @@
 ---
 title: "OOP Terminology "
 description: "Creating your own OOP wiki page"
-due: "2025-09-6"
+due: "2025-12-6"
 order: 3
-slug: "oop-wiki"
+slug: "OOP_Wiki"
 ---
 
 > Note: This has two due dates where the first due date is for you to show progress on your wiki.

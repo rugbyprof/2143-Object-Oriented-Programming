@@ -1,9 +1,9 @@
 ---
 title: "Test 1"
 description: "C++ Review and OOP basics"
-due: "2025-09-6"
+due: "2025-09-01"
 order: 4
-slug: "exam-one"
+slug: "Exam_01"
 ---
 
 ## Study Guide

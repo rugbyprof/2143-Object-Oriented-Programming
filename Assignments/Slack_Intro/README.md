@@ -1,9 +1,9 @@
 ---
-title: "Slack "
+title: "Slack Intro "
 description: "Register with Slack"
-due: "2025-09-6"
+due: "2025-09-01"
 order: 2
-slug: "slack"
+slug: "Slack_Intro"
 ---
 
 ## Getting Setup

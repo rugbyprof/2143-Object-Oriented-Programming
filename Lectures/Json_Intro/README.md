@@ -1,6 +1,11 @@
 ---
-title: "Introduction to JSON and Using nlohmann::json in C++"
-description: "An introductory document on JSON and how to use the nlohmann::json library in C++ for common CRUD operations, using candy store data as an example."
+title: "Introduction to JSON and Using json in C++"
+description: "An introductory on nlohmanns library in C++"
+category: "lecture"
+tags: ["json", "c++"]
+slug: "Json_Intro"
+order: 2
+visibility: "public"
 ---
 
 ## Introduction to JSON
@@ -22,12 +27,13 @@ A JSON object is a collection of key/value pairs. Here’s an example using cand
 ```
 
 This snippet shows:
+
 - **Keys**: "id", "price", "category", "title", "imagetype"
 - **Values**: A mix of numbers and strings.
 
 Multiple objects can be stored in a JSON array:
 
-```json
+````json
 [
   {
     "id": 18,
@@ -72,7 +78,7 @@ The nlohmann::json library is a single-header JSON parser and generator for C++ 
 
 using json = nlohmann::json;
 using namespace std;
-```
+````
 
 ### CRUD Operations with JSON
 
@@ -115,6 +121,7 @@ json readJsonFromFile(const string& filename) {
     return j;
 }
 ```
+
 ### 2. Creating (Adding) an Item
 
 Add a new candy item to the JSON array:
@@ -165,28 +172,28 @@ if (!candyItem.is_null()) {
 Modify an existing item by merging updated fields:
 
 bool updateItemById(json& j, int id, const json& updatedFields) {
-    for (auto& item : j) {
-        if (item["id"] == id) {
-            // Update each field present in updatedFields
-            for (json::const_iterator it = updatedFields.begin(); it != updatedFields.end(); ++it) {
-                item[it.key()] = it.value();
-            }
-            return true;
-        }
-    }
-    return false;
+for (auto& item : j) {
+if (item["id"] == id) {
+// Update each field present in updatedFields
+for (json::const_iterator it = updatedFields.begin(); it != updatedFields.end(); ++it) {
+item[it.key()] = it.value();
+}
+return true;
+}
+}
+return false;
 }
 
 // Usage:
 json updateData = {
-    {"price", "$17.99"},
-    {"title", "Peppermint Twists Mints - Updated"}
+{"price", "$17.99"},
+{"title", "Peppermint Twists Mints - Updated"}
 };
 
 if (updateItemById(candyStore, 18, updateData)) {
-    cout << "Item updated successfully." << endl;
+cout << "Item updated successfully." << endl;
 } else {
-    cout << "Item not found." << endl;
+cout << "Item not found." << endl;
 }
 
 5. Deleting an Item
@@ -194,20 +201,20 @@ if (updateItemById(candyStore, 18, updateData)) {
 Remove an item by its id:
 
 bool deleteItemById(json& j, int id) {
-    for (auto it = j.begin(); it != j.end(); ++it) {
-        if ((*it)["id"] == id) {
-            j.erase(it);
-            return true;
-        }
-    }
-    return false;
+for (auto it = j.begin(); it != j.end(); ++it) {
+if ((\*it)["id"] == id) {
+j.erase(it);
+return true;
+}
+}
+return false;
 }
 
 // Usage:
 if (deleteItemById(candyStore, 19)) {
-    cout << "Item deleted successfully." << endl;
+cout << "Item deleted successfully." << endl;
 } else {
-    cout << "Item not found." << endl;
+cout << "Item not found." << endl;
 }
 
 6. Writing JSON Data Back to a File
@@ -215,12 +222,12 @@ if (deleteItemById(candyStore, 19)) {
 After performing CRUD operations, save your changes back to the file:
 
 void writeJsonToFile(const json& j, const string& filename) {
-    ofstream file(filename);
-    if (!file) {
-        cerr << "Unable to open file: " << filename << endl;
-        exit(1);
-    }
-    file << j.dump(4); // Pretty print with an indent of 4 spaces
+ofstream file(filename);
+if (!file) {
+cerr << "Unable to open file: " << filename << endl;
+exit(1);
+}
+file << j.dump(4); // Pretty print with an indent of 4 spaces
 }
 
 // Usage:
@@ -229,6 +236,7 @@ writeJsonToFile(candyStore, "candy_store.json");
 Summary
 
 Using JSON with C++ becomes very convenient with libraries like nlohmann::json. This tutorial covered:
+
 - Introduction to JSON: Its syntax and common use cases.
 - CRUD Operations: How to create, read, update, and delete JSON objects.
 - File Operations: Reading from and writing to a JSON file.

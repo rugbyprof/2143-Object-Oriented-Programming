@@ -1,9 +1,9 @@
 ---
-title: "Github "
+title: "Github Assignment"
 description: "Creating your own github repo"
-due: "2025-09-6"
+due: "2025-09-01"
 order: 1
-slug: "git-repo"
+slug: "Github_Intro"
 ---
 
 This assignment describes setting up a Github repository, the place in which all of your assignments will be turned in.

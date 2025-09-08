@@ -1,3 +1,13 @@
+---
+title: "Introduction to JSON and Using json in C++"
+description: "An introductory on nlohmanns library in C++"
+category: "lecture"
+tags: ["json", "c++"]
+slug: "Json_Intro_Light"
+order: 3
+visibility: "public"
+---
+
 ## JSON & C++ - Javascript Object Notation used in C++
 
 #### Due: NA
