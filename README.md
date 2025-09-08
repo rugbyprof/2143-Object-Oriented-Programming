@@ -1,35 +1,28 @@
 # 2143-Object Oriented Programming
 
-## Spring 2025
+## Fall 2025
+
+## Office Hours
+
+<a href="https://images2.imgbox.com/c6/e3/u7y21BbY_o.png" target="_blank"><img src="https://images2.imgbox.com/d1/92/AaHE4YJf_o.png" alt="thumbnail link to larger version of office hours" width="150"/></a>
+
+### General Course Info
+
+- **Days:** MWF 12:00 p.m. - 12:50 p.m.
+- **Location:** BO 144
+- [**Semester:**](https://msutexas.edu/registrar/calendars.php) Monday August 26<sup>th</sup> - Friday Dec 6<sup>th</sup>
+- [**Holidays:**](https://msutexas.edu/registrar/calendars.php)
+  - **Labor Day** Mon Sep 1<sup>st</sup>
+  - **Thanksgiving** Wed Nov 26<sup>th</sup> - Fri Nov 28<sup>th</sup>
+- [**Last Day for “W”:**](https://msutexas.edu/registrar/calendars.php) Mon Nov 24<sup>th</sup>
+- [**Last Day of Class:**](https://msutexas.edu/registrar/calendars.php) Fri Dec 5<sup>th</sup>
+- [**Final Exam:**](https://msutexas.edu/registrar/schedule/fallfinalexamschedule.php) Tue Dec 9<sup>th</sup> 3:30 p.m. - 5:30 p.m.
 
 ### Assumed
 
 - This course assumes you understand
   - Linked structures vs Array Based structures
   - Basic concept of Classes and Methods
-
-|                                                                         |     |                                                                         |
-| ----------------------------------------------------------------------- | --- | ----------------------------------------------------------------------- |
-| <img src="https://images2.imgbox.com/cf/72/1rVot2oi_o.png" width="200"> |     | <img src="https://images2.imgbox.com/46/07/hq4ABrFS_o.png" width="200"> |
-
-## Office Hours
-
-<a href="https://images2.imgbox.com/6e/30/FSEnPfv3_o.png" target="_blank"><img src="https://images2.imgbox.com/6e/30/FSEnPfv3_o.png" alt="image host" width="300"/></a>
-
-### General Course Info
-
-- **Section 201:**
-  - **Days:** TR
-  - **Time:** 1230 - 1350
-  - **Location:** McCoy 136
-- [**Semester:**](https://msutexas.edu/registrar/calendars.php) Tuesday January 21<sup>st</sup> - Friday May 9<sup>th</sup>
-- [**Holidays:**](https://msutexas.edu/registrar/calendars.php)
-  - **Spring Break** Mon Mar 10<sup>th</sup> - Fri Mar 14<sup>th</sup>
-  - **Easter** Thu Apr 17<sup>th</sup> - Fri Apr 18<sup>th</sup>
-- [**Last Day for “W”:**](https://msutexas.edu/registrar/calendars.php) Wed Apr 30<sup>th</sup>
-- [**Last Day of Class:**](https://msutexas.edu/registrar/calendars.php) Fri May 9<sup>th</sup>
-- [**Final Exam:**](https://msutexas.edu/registrar/schedule/finalexamschedule.php)
-  - Thu May 15<sup>th</sup> from 1030 - 1230
 
 ## Course Topics
 

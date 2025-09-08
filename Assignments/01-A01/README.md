@@ -1,6 +1,10 @@
-## Assignment 1 - Code Repository
-
-#### Due: 01-26-2025 (Sunday by 11:55)
+---
+title: "Github "
+description: "Creating your own github repo"
+due: "2025-09-6"
+order: 1
+slug: "git-repo"
+---
 
 This assignment describes setting up a Github repository, the place in which all of your assignments will be turned in.
 

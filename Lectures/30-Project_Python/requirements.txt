@@ -3,4 +3,4 @@ requests
 fastapi
 uvicorn
 pydantic
-InquirerPy
+InquirerPyrich

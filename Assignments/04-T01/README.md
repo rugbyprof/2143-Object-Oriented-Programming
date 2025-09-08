@@ -1,6 +1,10 @@
-## Test 1 - Basic Stuff
-
-#### Due: 02-13-2025 (Thursday)
+---
+title: "Test 1"
+description: "C++ Review and OOP basics"
+due: "2025-09-6"
+order: 4
+slug: "exam-one"
+---
 
 ## Study Guide
 
@@ -72,7 +76,8 @@ public:
     // Constructors
     // Usage showed multiple constructors with differing values, I'm implementing only two:
     Book();
-    Book(float , int , int , string ,string, string);
+    Book(string ,string, int,int);
+    Book(string ,string, int;
 
     // Getters and Setters
     float getPrice();

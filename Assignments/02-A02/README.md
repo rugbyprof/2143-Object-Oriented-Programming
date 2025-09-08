@@ -1,6 +1,10 @@
-## Assignment 2 - Slack 
-
-#### Due: 01-26-2025 (Sunday by 11:55)
+---
+title: "Slack "
+description: "Register with Slack"
+due: "2025-09-6"
+order: 2
+slug: "slack"
+---
 
 ## Getting Setup
 

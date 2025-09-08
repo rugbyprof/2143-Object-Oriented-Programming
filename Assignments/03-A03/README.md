@@ -1,6 +1,10 @@
-## Assignment 4 Pt. 1 - OOP Terminology
-
-#### Due: 03-17-2025 (Midterm)
+---
+title: "OOP Terminology "
+description: "Creating your own OOP wiki page"
+due: "2025-09-6"
+order: 3
+slug: "oop-wiki"
+---
 
 > Note: This has two due dates where the first due date is for you to show progress on your wiki.
 >
