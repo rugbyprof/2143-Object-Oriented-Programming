@@ -2089,4 +2089,149 @@ Processing [35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Progra
 [35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/[0m[95mResources[0m
 ✅ Lecture table written to [35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/Resources/[0m[95mREADME.md[0m
 [1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/2143-Object-Oriented-Programming]1;..d-Programming]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/2143-Object-Oriented-Programming[38;5;245m][00m[38;5;245m[[38;5;118m[32mmaster[31m✗[00m[38;5;245m][00m
-[38;5;214m[00m [K[165C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m4:46[38;5;245m][00m[205D[?1h=[?2004h
+[38;5;214m[00m [K[165C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m4:46[38;5;245m][00m[205D[?1h=[?2004hgenAssTables[12D[32mg[32me[32mn[32mA[32ms[32ms[32mT[32ma[32mb[32ml[32me[32ms[39m[?1l>[?2004l
+]2;genAssTables]1;genAssTablesargs: [1m[[0m[1m][0m
+Running from: [35m/Users/griffin/Sync/__currentCourses/[0m[95m2143-Object-Oriented-Programming[0m
+Processing [35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/[0m[95mAssignments...[0m
+[1;36m4[0m ~~Test [1;36m1[0m~~ ~~C++ Review and OOP basics~~ ~~[1;36m2025[0m-[1;36m09[0m-[1;36m01[0m~~ ~~[1;36m-7[0m~~ ~~[1m[[0mExam_01[1m][0m[1m([0mExam_01/[1m)[0m~~ ~~[1;36m2025[0m-[1;36m09[0m-[1;36m08[0m~~
+[1;36m1[0m ~~Github Assignment~~ ~~Creating your own github repo~~ ~~[1;36m2025[0m-[1;36m09[0m-[1;36m01[0m~~ ~~[1;36m-7[0m~~ ~~[1m[[0mGithub_Intro[1m][0m[1m([0mGithub_Intro/[1m)[0m~~ ~~[1;36m2025[0m-[1;36m09[0m-[1;36m08[0m~~
+[1;36m3[0m OOP Terminology  Creating your own OOP wiki page [1;36m89[0m [1;36m89[0m [1m[[0mOOP_Wiki[1m][0m[1m([0mOOP_Wiki/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1;36m2[0m ~~Slack Intro~~ ~~Register with Slack~~ ~~[1;36m2025[0m-[1;36m09[0m-[1;36m01[0m~~ ~~[1;36m-7[0m~~ ~~[1m[[0mSlack_Intro[1m][0m[1m([0mSlack_Intro/[1m)[0m~~ ~~[1;36m2025[0m-[1;36m09[0m-[1;36m08[0m~~
+[1m[[0m
+    [1m([0m[1;36m4[0m, [32m'~~Test 1~~'[0m, [32m'~~C++ Review and OOP basics~~'[0m, [32m'~~2025-09-01~~'[0m, [32m'~~-7~~'[0m, [32m'~~[0m[32m[[0m[32mExam_01[0m[32m][0m[32m([0m[32mExam_01/[0m[32m)[0m[32m~~'[0m, [32m'~~2025-09-08~~'[0m[1m)[0m,
+    [1m([0m[1;36m1[0m, [32m'~~Github Assignment~~'[0m, [32m'~~Creating your own github repo~~'[0m, [32m'~~2025-09-01~~'[0m, [32m'~~-7~~'[0m, [32m'~~[0m[32m[[0m[32mGithub_Intro[0m[32m][0m[32m([0m[32mGithub_Intro/[0m[32m)[0m[32m~~'[0m, [32m'~~2025-09-08~~'[0m[1m)[0m,
+    [1m([0m[1;36m3[0m, [32m'OOP Terminology '[0m, [32m'Creating your own OOP wiki page'[0m, [32m'89'[0m, [32m'89'[0m, [32m'[0m[32m[[0m[32mOOP_Wiki[0m[32m][0m[32m([0m[32mOOP_Wiki/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m,
+    [1m([0m[1;36m2[0m, [32m'~~Slack Intro~~'[0m, [32m'~~Register with Slack~~'[0m, [32m'~~2025-09-01~~'[0m, [32m'~~-7~~'[0m, [32m'~~[0m[32m[[0m[32mSlack_Intro[0m[32m][0m[32m([0m[32mSlack_Intro/[0m[32m)[0m[32m~~'[0m, [32m'~~2025-09-08~~'[0m[1m)[0m
+[1m][0m
+[1m([0m[1;36m1[0m, [32m'~~Github Assignment~~'[0m, [32m'~~Creating your own github repo~~'[0m, [32m'~~2025-09-01~~'[0m, [32m'~~-7~~'[0m, [32m'~~[0m[32m[[0m[32mGithub_Intro[0m[32m][0m[32m([0m[32mGithub_Intro/[0m[32m)[0m[32m~~'[0m, [32m'~~2025-09-08~~'[0m[1m)[0m
+[1m([0m[1;36m2[0m, [32m'~~Slack Intro~~'[0m, [32m'~~Register with Slack~~'[0m, [32m'~~2025-09-01~~'[0m, [32m'~~-7~~'[0m, [32m'~~[0m[32m[[0m[32mSlack_Intro[0m[32m][0m[32m([0m[32mSlack_Intro/[0m[32m)[0m[32m~~'[0m, [32m'~~2025-09-08~~'[0m[1m)[0m
+[1m([0m[1;36m3[0m, [32m'OOP Terminology '[0m, [32m'Creating your own OOP wiki page'[0m, [32m'89'[0m, [32m'89'[0m, [32m'[0m[32m[[0m[32mOOP_Wiki[0m[32m][0m[32m([0m[32mOOP_Wiki/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m
+[1m([0m[1;36m4[0m, [32m'~~Test 1~~'[0m, [32m'~~C++ Review and OOP basics~~'[0m, [32m'~~2025-09-01~~'[0m, [32m'~~-7~~'[0m, [32m'~~[0m[32m[[0m[32mExam_01[0m[32m][0m[32m([0m[32mExam_01/[0m[32m)[0m[32m~~'[0m, [32m'~~2025-09-08~~'[0m[1m)[0m
+## Assignments
+
+| Title | Description | Due | Days Left | Link | Last Updated |
+|-------|-------------|-----|-----------|------|---------------|
+| ~~Github Assignment~~ | ~~Creating your own github repo~~ | ~~[1;36m2025[0m-[1;36m09[0m-[1;36m01[0m~~ | ~~[1;36m-7[0m~~ | ~~[1m[[0mGithub_Intro[1m][0m[1m([0mGithub_Intro/[1m)[0m~~ | ~~[1;36m2025[0m-[1;36m09[0m-[1;36m08[0m~~ |
+| ~~Slack Intro~~ | ~~Register with Slack~~ | ~~[1;36m2025[0m-[1;36m09[0m-[1;36m01[0m~~ | ~~[1;36m-7[0m~~ | ~~[1m[[0mSlack_Intro[1m][0m[1m([0mSlack_Intro/[1m)[0m~~ | ~~[1;36m2025[0m-[1;36m09[0m-[1;36m08[0m~~ |
+| OOP Terminology  | Creating your own OOP wiki page | [1;36m89[0m | [1;36m89[0m | [1m[[0mOOP_Wiki[1m][0m[1m([0mOOP_Wiki/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+| ~~Test [1;36m1[0m~~ | ~~C++ Review and OOP basics~~ | ~~[1;36m2025[0m-[1;36m09[0m-[1;36m01[0m~~ | ~~[1;36m-7[0m~~ | ~~[1m[[0mExam_01[1m][0m[1m([0mExam_01/[1m)[0m~~ | ~~[1;36m2025[0m-[1;36m09[0m-[1;36m08[0m~~ |
+
+[1m<[0m[1;95msup[0m[39m>Last Updated: [0m[1;36m2025[0m[39m-[0m[1;36m09[0m[39m-[0m[1;36m08[0m[39m [0m[1;39m([0m[39mMon @ [0m[1;92m04:51[0m[1;39m)[0m[39m<[0m[35m/[0m[95msup[0m[39m>[0m
+
+[39m<sup>***Days Left is only accurate if the `Last Updated` date is today. Otherwise, use the due date!***<[0m[35m/[0m[95msup[0m[1m>[0m
+[35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/[0m[95mAssignments[0m
+✅ Lecture table written to [35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/Assignments/[0m[95mREADME.md[0m
+Processing [35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/[0m[95mLectures...[0m
+[1;36m1[0m Data Structures and Containers Review of data structures N/A N/A [1m[[0mDataStructures_and_Containers[1m][0m[1m([0mDataStructures_and_Containers/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1;36m2[0m Introduction to JSON and Using json in C++ An introductory on nlohmanns library in C++ N/A N/A [1m[[0mJson_Intro[1m][0m[1m([0mJson_Intro/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1;36m3[0m Introduction to JSON and Using json in C++ An introductory on nlohmanns library in C++ N/A N/A [1m[[0mJson_Intro_Light[1m][0m[1m([0mJson_Intro_Light/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1;36m4[0m OOP Fundamentals Covers most basic topics N/A N/A [1m[[0mOOP_Fundamentals[1m][0m[1m([0mOOP_Fundamentals/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1;36m5[0m Overloading Lecture Intro to overloading of methods and operators N/A N/A [1m[[0mOverloadingLecture[1m][0m[1m([0mOverloadingLecture/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1m[[0m
+    [1m([0m[1;36m1[0m, [32m'Data Structures and Containers'[0m, [32m'Review of data structures'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mDataStructures_and_Containers[0m[32m][0m[32m([0m[32mDataStructures_and_Containers/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m,
+    [1m([0m[1;36m2[0m, [32m'Introduction to JSON and Using json in C++'[0m, [32m'An introductory on nlohmanns library in C++'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mJson_Intro[0m[32m][0m[32m([0m[32mJson_Intro/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m,
+    [1m([0m[1;36m3[0m, [32m'Introduction to JSON and Using json in C++'[0m, [32m'An introductory on nlohmanns library in C++'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mJson_Intro_Light[0m[32m][0m[32m([0m[32mJson_Intro_Light/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m,
+    [1m([0m[1;36m4[0m, [32m'OOP Fundamentals'[0m, [32m'Covers most basic topics'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mOOP_Fundamentals[0m[32m][0m[32m([0m[32mOOP_Fundamentals/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m,
+    [1m([0m[1;36m5[0m, [32m'Overloading Lecture'[0m, [32m'Intro to overloading of methods and operators'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mOverloadingLecture[0m[32m][0m[32m([0m[32mOverloadingLecture/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m
+[1m][0m
+[1m([0m[1;36m1[0m, [32m'Data Structures and Containers'[0m, [32m'Review of data structures'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mDataStructures_and_Containers[0m[32m][0m[32m([0m[32mDataStructures_and_Containers/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m
+[1m([0m[1;36m2[0m, [32m'Introduction to JSON and Using json in C++'[0m, [32m'An introductory on nlohmanns library in C++'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mJson_Intro[0m[32m][0m[32m([0m[32mJson_Intro/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m
+[1m([0m[1;36m3[0m, [32m'Introduction to JSON and Using json in C++'[0m, [32m'An introductory on nlohmanns library in C++'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mJson_Intro_Light[0m[32m][0m[32m([0m[32mJson_Intro_Light/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m
+[1m([0m[1;36m4[0m, [32m'OOP Fundamentals'[0m, [32m'Covers most basic topics'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mOOP_Fundamentals[0m[32m][0m[32m([0m[32mOOP_Fundamentals/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m
+[1m([0m[1;36m5[0m, [32m'Overloading Lecture'[0m, [32m'Intro to overloading of methods and operators'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mOverloadingLecture[0m[32m][0m[32m([0m[32mOverloadingLecture/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m
+## Lectures
+
+| Title | Description | Due | Days Left | Link | Last Updated |
+|-------|-------------|-----|-----------|------|---------------|
+| Data Structures and Containers | Review of data structures | N/A | N/A | [1m[[0mDataStructures_and_Containers[1m][0m[1m([0mDataStructures_and_Containers/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+| Introduction to JSON and Using json in C++ | An introductory on nlohmanns library in C++ | N/A | N/A | [1m[[0mJson_Intro[1m][0m[1m([0mJson_Intro/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+| Introduction to JSON and Using json in C++ | An introductory on nlohmanns library in C++ | N/A | N/A | [1m[[0mJson_Intro_Light[1m][0m[1m([0mJson_Intro_Light/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+| OOP Fundamentals | Covers most basic topics | N/A | N/A | [1m[[0mOOP_Fundamentals[1m][0m[1m([0mOOP_Fundamentals/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+| Overloading Lecture | Intro to overloading of methods and operators | N/A | N/A | [1m[[0mOverloadingLecture[1m][0m[1m([0mOverloadingLecture/[1m)[0m | [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m |
+
+[1m<[0m[1;95msup[0m[39m>Last Updated: [0m[1;36m2025[0m[39m-[0m[1;36m09[0m[39m-[0m[1;36m08[0m[39m [0m[1;39m([0m[39mMon @ [0m[1;92m04:51[0m[1;39m)[0m[39m<[0m[35m/[0m[95msup[0m[39m>[0m
+
+[39m<sup>***Days Left is only accurate if the `Last Updated` date is today. Otherwise, use the due date!***<[0m[35m/[0m[95msup[0m[1m>[0m
+[35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/[0m[95mLectures[0m
+✅ Lecture table written to [35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/Lectures/[0m[95mREADME.md[0m
+Processing [35m/Users/griffin/Sync/__currentCourses/2143-Object-Oriented-Programming/[0m[95mResources...[0m
+[1;36m999[0m Check_File_Change No description N/A N/A [1m[[0mCheck_File_Change[1m][0m[1m([0mCheck_File_Change/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1;36m1[0m Code Commenting Standards A guide for consistent and professional comments in your code, including program, class, and function documentation templates. N/A N/A [1m([0mcommenting-guide/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1;36m3[0m Data Sets Collection A curated and growing collection of real-world datasets in various formats for practice, experimentation, and project inspiration. N/A N/A [1m([0mdatasets/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1;36m6[0m Conway's Game of Life A cellular automaton simulation where simple rules lead to complex behavior. Includes strategy tips, patterns, and C++ implementation challenges. N/A N/A [1m([0mgame-of-life/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1;36m2[0m README Formatting Guide Standards and examples for creating effective README files in assignment folders. Includes templates and common pitfalls. N/A N/A [1m([0mreadme-guide/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1;36m999[0m Vectors No description N/A N/A [1m[[0mVectors[1m][0m[1m([0mVectors/[1m)[0m [1;36m2025[0m-[1;36m09[0m-[1;36m08[0m
+[1m[[0m
+    [1m([0m[1;36m999[0m, [32m'Check_File_Change'[0m, [32m'No description'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mCheck_File_Change[0m[32m][0m[32m([0m[32mCheck_File_Change/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m,
+    [1m([0m
+        [1;36m1[0m,
+        [32m'Code Commenting Standards'[0m,
+        [32m'A guide for consistent and professional comments in your code, including program, class, and function documentation templates.'[0m,
+        [32m'N/A'[0m,
+        [32m'N/A'[0m,
+        [32m'[0m[32m[[0m[32mcommenting-guide[0m[32m][0m[32m([0m[32mcommenting-guide/[0m[32m)[0m[32m'[0m,
+        [32m'2025-09-08'[0m
+    [1m)[0m,
+    [1m([0m
+        [1;36m3[0m,
+        [32m'Data Sets Collection'[0m,
+        [32m'A curated and growing collection of real-world datasets in various formats for practice, experimentation, and project inspiration.'[0m,
+        [32m'N/A'[0m,
+        [32m'N/A'[0m,
+        [32m'[0m[32m[[0m[32mdatasets[0m[32m][0m[32m([0m[32mdatasets/[0m[32m)[0m[32m'[0m,
+        [32m'2025-09-08'[0m
+    [1m)[0m,
+    [1m([0m
+        [1;36m6[0m,
+        [32m"Conway's Game of Life"[0m,
+        [32m'A cellular automaton simulation where simple rules lead to complex behavior. Includes strategy tips, patterns, and C++ implementation challenges.'[0m,
+        [32m'N/A'[0m,
+        [32m'N/A'[0m,
+        [32m'[0m[32m[[0m[32mgame-of-life[0m[32m][0m[32m([0m[32mgame-of-life/[0m[32m)[0m[32m'[0m,
+        [32m'2025-09-08'[0m
+    [1m)[0m,
+    [1m([0m
+        [1;36m2[0m,
+        [32m'README Formatting Guide'[0m,
+        [32m'Standards and examples for creating effective README files in assignment folders. Includes templates and common pitfalls.'[0m,
+        [32m'N/A'[0m,
+        [32m'N/A'[0m,
+        [32m'[0m[32m[[0m[32mreadme-guide[0m[32m][0m[32m([0m[32mreadme-guide/[0m[32m)[0m[32m'[0m,
+        [32m'2025-09-08'[0m
+    [1m)[0m,
+    [1m([0m[1;36m999[0m, [32m'Vectors'[0m, [32m'No description'[0m, [32m'N/A'[0m, [32m'N/A'[0m, [32m'[0m[32m[[0m[32mVectors[0m[32m][0m[32m([0m[32mVectors/[0m[32m)[0m[32m'[0m, [32m'2025-09-08'[0m[1m)[0m
+[1m][0m
+[1m([0m
+    [1;36m1[0m,
+    [32m'Code Commenting Standards'[0m,
+    [32m'A guide for consistent and professional comments in your code, including program, class, and function documentation templates.'[0m,
+    [32m'N/A'[0m,
+    [32m'N/A'[0m,
+    [32m'[0m[32m[[0m[32mcommenting-guide[0m[32m][0m[32m([0m[32mcommenting-guide/[0m[32m)[0m[32m'[0m,
+    [32m'2025-09-08'[0m
+[1m)[0m
+[1m([0m
+    [1;36m2[0m,
+    [32m'README Formatting Guide'[0m,
+    [32m'Standards and examples for creating effective README files in assignment folders. Includes templates and common pitfalls.'[0m,
+    [32m'N/A'[0m,
+    [32m'N/A'[0m,
+    [32m'[0m[32m[[0m[32mreadme-guide[0m[32m][0m[32m([0m[32mreadme-guide/[0m[32m)[0m[32m'[0m,
+    [32m'2025-09-08'[0m
+[1m)[0m
+[1m([0m
+    [1;36m3[0m,
+    [32m'Data Sets Collection'[0m,
+    [32m'A curated and growing collection of real-world datasets in various formats for practice, experimentation, and project inspiration.'[0m,
+    [32m'N/A'[0m,
+    [32m'N/A'[0m,
+    [32m'[0m[32m[[0m[32mdatasets[0m[32m][0m[32m([0m[32mdatasets/[0m[32m)[0m[32m'[0m,
+    [32m'2025-09-08'[0m
+[1m)[0m
+[1m([0m
+    [1;36m6[0m,
+    [32m"Conway's Game of Life"[0m,
+    [32m'A cellular automaton simulation where simple rules lead to complex behavior. Includes strategy tips, patterns, and C++ implementation challenges.'[0m,
+    [32m'N/A'[0m,
+    [32m'N/A'[0m,
+    [32m'[0m[32

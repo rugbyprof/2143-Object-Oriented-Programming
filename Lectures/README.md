@@ -8,6 +8,6 @@
 | OOP Fundamentals | Covers most basic topics | N/A | N/A | [OOP_Fundamentals](OOP_Fundamentals/) | 2025-09-08 |
 | Overloading Lecture | Intro to overloading of methods and operators | N/A | N/A | [OverloadingLecture](OverloadingLecture/) | 2025-09-08 |
 
-<sup>Last Updated: 2025-09-08 (Mon @ 04:46)</sup>
+<sup>Last Updated: 2025-09-08 (Mon @ 04:51)</sup>
 
 <sup>***Days Left is only accurate if the `Last Updated` date is today. Otherwise, use the due date!***</sup>
