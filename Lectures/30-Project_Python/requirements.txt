@@ -1,6 +1,0 @@
-rich
-requests
-fastapi
-uvicorn
-pydantic
-InquirerPyrich
