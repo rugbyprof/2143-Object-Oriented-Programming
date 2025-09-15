@@ -16928,4 +16928,301 @@ Processing [35m/Users/griffin/Sync/__currentCourses/5143-Operating-Systems/[0m
 ✅ Lecture table written to [35m/Users/griffin/Sync/__currentCourses/5143-Operating-Systems/Resources/[0m[95mREADME.md[0m
 [1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/5143-Operating-Systems]1;..ating-Systems]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/5143-Operating-Systems\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/5143-Operating-Systems[38;5;245m][00m[38;5;245m[[38;5;118m[32mmaster[32m✓[00m[38;5;245m][00m
 [38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m14:40[38;5;245m][00m[205D[?1h=[?2004h[A[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/5143-Operating-Systems[38;5;245m][00m[38;5;245m[[38;5;118m[32mmaster[31m✗[00m[38;5;245m][00m
-[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m14:40[38;5;245m][00m[205D
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m14:40[38;5;245m][00m[205D.[32m.[39m[32m.[39m[90m.[39m[32m.[32m.[39m[?1l>[?2004l
+]2;cd ../]1;..Activating virtual environment... maybe baybe
+Virtual environment already active: /Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/.venv
+total 976
+-rw-r--r--@  1 griffin  staff    10K Sep 10 11:49 .DS_Store
+drwxr-xr-x@ 15 griffin  staff   480B Sep  8 00:59 [1m[36m2143_backup[39;49m[0m/
+drwxr-xr-x@ 57 griffin  staff   1.8K Sep  8 01:03 [1m[36m2143_Trunk[39;49m[0m/
+drwxr-xr-x@ 16 griffin  staff   512B Sep  8 02:34 [1m[36m2143-Object-Oriented-Programming[39;49m[0m/
+drwxr-xr-x@ 15 griffin  staff   480B Sep  8 01:03 [1m[36m2143-Object-Oriented-Programming-backup[39;49m[0m/
+drwxr-xr-x@ 18 griffin  staff   576B May  5 21:14 [1m[36m3013-Algorithms[39;49m[0m/
+drwxr-xr-x   2 griffin  staff    64B Sep  3 02:06 [1m[36m3603_Jupyter[39;49m[0m/
+drwxr-xr-x@ 20 griffin  staff   640B Sep  5 10:07 [1m[36m3603-Programming-for-Data-Science[39;49m[0m/
+drwxr-xr-x@  4 griffin  staff   128B Sep  1 22:02 [1m[36m3603-Programming-for-Data-Science2[39;49m[0m/
+drwxr-xr-x@ 18 griffin  staff   576B Jul 26 14:04 [1m[36m4443-Msu-IoT[39;49m[0m/
+drwxr-xr-x@ 13 griffin  staff   416B Sep  9 13:02 [1m[36m5143-Operating-Systems[39;49m[0m/
+drwxr-xr-x@ 15 griffin  staff   480B Apr 15 23:48 [1m[36m5243-Algorithms[39;49m[0m/
+-rw-r--r--@  1 griffin  staff   105K Aug 13 21:48 Office_Hours_Fall_25 - Google Sheets.pdf
+-rw-r--r--@  1 griffin  staff    40K Sep  1 15:57 Office_Hours_Fall_25_small.png
+-rw-r--r--@  1 griffin  staff   322K Sep  1 15:31 Office_Hours_Fall_25.png
+-rw-r--r--@  1 griffin  staff    34B Jul  7 04:00 speedtest_log.csv
+drwxr-xr-x@ 18 griffin  staff   576B Mar  5  2025 [1m[36mtemp[39;49m[0m/
+drwxr-xr-x@  6 griffin  staff   192B Aug 27  2024 [1m[36mtrunk[39;49m[0m/
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses]1;..urrentCourses]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses[38;5;245m][00m[38;5;245m[[38;5;118m[32mmaster[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:50[38;5;245m][00m[205D[?1h=[?2004h[A[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses[38;5;245m][00m[38;5;245m[[38;5;118m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:50[38;5;245m][00m[205Dc[32mc[39m[32mc[39m[90ms2[39m[32mc[32md[39m[39m [90m 5143-Operating-Systems[39m[23D[32mc[32md[32m [39m[32mc[32md[39m[39m [39m3[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [21D[4m3[24m[90m603-Programming-for-Data-Science[39m[32D[4m3[39m[4m6[24m[24m3[24m6[39m0[39m3[4m3[4m6[4m0[4m3[24m[24m3[24m6[24m0[24m3
+[J[1;36m3603_Jupyter[0m/                        [J[1;36m3603-Programming-for-Data-Science[0m/   [J[1;36m3603-Programming-for-Data-Science2[0m/[J[A[0m[27m[24m[38;5;118m[2C[32mcd[39m 3603[90m-Programming-for-Data-Science[39m[K[128C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:50[38;5;245m][00m[38;5;118m[198D[4m3[4m6[4m0[4m3[24m[4m3[39m[4m_[39m[4mJ[39m[4mu[39m[4mp[39m[4my[39m[4mt[39m[4me[39m[4mr[39m[1m[4m/[0m[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [20D
+[J[7m3603_Jupyter/                      [0m  [J[1;36m3603-Programming-for-Data-Science[0m/   [J[1;36m3603-Programming-for-Data-Science2[0m/[J[A[0m[27m[24m[38;5;118m[2C[32mcd[39m [4m3603_Jupyter[1m[4m/[0m[24m[K[148C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:50[38;5;245m][00m[38;5;118m[189D
+[7m3603_Jupyter/                      [0m  [7m3603_Jupyter/                      [0m  [A[0m[27m[24m[38;5;118m[2C[32mcd[39m [4m3603_Jupyter[1m[4m/[0m[24m[K[148C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:50[38;5;245m][00m[38;5;118m[189D
+[J[A[18C[16D[39mc[39md [24m3[24m6[24m0[24m3[24m_[24mJ[24mu[24mp[24my[24mt[24me[24mr[24m[1m/[0m[90m-Programming-for-Data-Science[39m[29D[0m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [30D[15D[32mc[32md[39m [4m3[4m6[4m0[4m3[4m_[4mJ[4mu[4mp[4my[4mt[4me[4mr[24m[4me[24m[24m [4mt[24m[24m [4my[24m[24m [4mp[24m[24m [4mu[24m[24m [4mJ[24m[24m [4m_[24m[24m [4m_[4m_[24m[24m3[24m6[24m0[24m3[24m_[24m_r  [4m3[4m6[4m0[4m3[4m_[24m[4m_[4mp[24m[24m3[24m6[24m0[24m3[24m_[24mpro[11D[39mc[39md[9C[11D[32mc[32md[39m[9C[11D[39mc[39md[9C[11D[32mc[32md[39m[9C   [4m3[4m6[4m0[4m3[4m_[24m[4m_[4mP[24m[24m3[24m6[24m0[24m3[24m_[24mPro[11D[39mc[39md[9C[11D[32mc[32md[39m[9C   [4m3[4m6[4m0[4m3[4m_[24m[4m3[24m[24m [90m-Programming-for-Data-Science[39m[29D[39m-[39mP[39mr[39mo[39mg[39mr[39ma[39mm[39mm[39mi[39mn[39mg[39m-[39mf[39mo[39mr[39m-[39mD[39ma[39mt[39ma[39m-[39mS[39mc[39mi[39me[39mn[39mc[39me[30D[4m3[4m-[4mP[4mr[4mo[4mg[4mr[4ma[4mm[4mm[4mi[4mn[4mg[4m-[4mf[4mo[4mr[4m-[4mD[4ma[4mt[4ma[4m-[4mS[4mc[4mi[4me[4mn[4mc[4me[24m[?1l>[?2004l
+[J]2;cd 3603-Programming-for-Data-Science]1;cdActivating virtual environment... maybe baybe
+Virtual environment already active: /Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/.venv
+total 416
+-rw-r--r--@  1 griffin  staff   6.0K Sep  2 23:15 .DS_Store
+drwxr-xr-x@ 15 griffin  staff   480B Sep 11 21:04 [1m[36m.git[39;49m[0m/
+-rw-r--r--@  1 griffin  staff   360B Sep  1 20:21 .gitignore
+drwxr-xr-x@ 11 griffin  staff   352B Sep 11 21:36 [1m[36m.trunk[39;49m[0m/
+drwxr-xr-x@  9 griffin  staff   288B Sep  5 03:23 [1m[36m.venv[39;49m[0m/
+drwxr-xr-x@  5 griffin  staff   160B Sep  3 03:40 [1m[36mAppendix[39;49m[0m/
+-rw-------@  1 griffin  staff   5.2K Sep  3 03:35 Appendix_Comprehensions_and_Generators.zip
+drwxr-xr-x@  9 griffin  staff   288B Sep 11 21:04 [1m[36mAssignments[39;49m[0m/
+-rw-r--r--   1 griffin  staff    54K Sep  1 21:55 awtop.png
+drwxr-xr-x   6 griffin  staff   192B Sep  5 02:51 [1m[36mBooks[39;49m[0m/
+drwxr-xr-x   3 griffin  staff    96B Sep  4 13:01 [1m[36mCompleted[39;49m[0m/
+-rw-------@  1 griffin  staff   1.2K Sep  2 23:17 Course_Calendar_Fall2025.csv
+drwxr-xr-x@  4 griffin  staff   128B Sep  3 03:41 [1m[36mExams[39;49m[0m/
+-rw-r--r--   1 griffin  staff   103K Sep  1 21:58 pdsh.png
+-rw-r--r--@  1 griffin  staff   7.3K Sep  2 22:44 README.md
+-rw-r--r--   1 griffin  staff    67B Sep  5 03:22 requirements.txt
+-rw-r--r--   1 griffin  staff   6.1K Sep  5 10:18 temp.json
+-rwxr-xr-x@  1 griffin  staff   770B Sep  5 05:18 [31mzzz.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science]1;..-Data-Science]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science[38;5;245m][00m[38;5;245m[[38;5;118m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:51[38;5;245m][00m[205D[?1h=[?2004h[A[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:51[38;5;245m][00m[205Df[32mf[39m[32mf[39m[90mind ./ -name myKwargs.py -print[39m[31D[32mf[32mi[39m[1m[31mf[1m[31mi[0m[39m[1m[31mf[1m[31mi[1m[31mn[0m[39m[1m[31mn[1m[31md[0m[39m[0m[32mf[0m[32mi[0m[32mn[0m[32md[39m[32md[32m [39m[32md[39m[39m [39m.[4m.[24m[4m.[39m[4m/[24m[4m/[39m[4m [24m[4m/[24m[24m [39m-[39mn[39ma[39mm[39me[39m [39md[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17Dl  [90mmyKwargs.py -print[39m[18D[39mc[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [17Dlen aning -print[?1l>[?2004l
+]2;find ./ -name cleaning -print]1;find[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science]1;..-Data-Science]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:51[38;5;245m][00m[205D[?1h=[?2004hfind ./ -name cleaning -print[29D[32mf[32mi[32mn[32md[39m [4m.[4m/[24m[22C"cleaning -print[15D[33m"[33mc[33ml[33me[33ma[33mn[33mi[33mn[33mg[33m [33m-[33mp[33mr[33mi[33mn[33mt[39m[15D[33m*[33mc[33ml[33me[33ma[33mn[33mi[33mn[33mg[33m [33m-[33mp[33mr[33mi[33mn[33mt[39m[15D[1C[1C[1C[1C[1C[1C[1C[1C[33m [33m-[33mp[33mr[33mi[33mn[33mt[39m[39m [8D[33m [33m-[33mp[33mr[33mi[33mn[33mt[39m[39m [8D[33m [33m-[33mp[33mr[33mi[33mn[33mt[39m[39m [8D[33m*[33m [33m-[33mp[33mr[33mi[33mn[33mt[39m[33m"[33m [33m-[33mp[33mr[33mi[33mn[33mt[39m[33m"[39m[39m [39m-[39mp[39mr[39mi[39mn[39mt[?1l>[?2004l
+]2;find ./ -name "*clean*" -print]1;find./.trunk/06-Working_with_Data/05-basic_cleaning.ipynb
+./.trunk/06-Working_with_Data copy/05-basic_cleaning.ipynb
+./.venv/lib/python3.13/site-packages/pygments/lexers/clean.py
+./.venv/lib/python3.13/site-packages/pygments/lexers/__pycache__/clean.cpython-313.pyc
+./.venv/lib/python3.13/site-packages/jedi/third_party/typeshed/stdlib/3/distutils/command/clean.pyi
+./.venv/lib/python3.13/site-packages/jedi/third_party/typeshed/stdlib/2/distutils/command/clean.pyi
+./.venv/lib/python3.13/site-packages/setuptools/_distutils/tests/__pycache__/test_clean.cpython-313.pyc
+./.venv/lib/python3.13/site-packages/setuptools/_distutils/tests/test_clean.py
+./.venv/lib/python3.13/site-packages/setuptools/_distutils/command/clean.py
+./.venv/lib/python3.13/site-packages/setuptools/_distutils/command/__pycache__/clean.cpython-313.pyc
+./.venv/lib/python3.13/site-packages/scipy/optimize/tests/test__linprog_clean_inputs.py
+./.venv/lib/python3.13/site-packages/scipy/optimize/tests/__pycache__/test__linprog_clean_inputs.cpython-313.pyc
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science]1;..-Data-Science]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:52[38;5;245m][00m[205D[?1h=[?2004hm[1m[31mm[0m[39m[1m[31mm[0m[39m[90more ./local/env/include/myKwargs.py[39m[35D[1m[31mm[1m[31mo[0m[39m[1m[31mm[1m[31mo[1m[31mr[0m[39m[1m[31mr[1m[31me[0m[39m[0m[32mm[0m[32mo[0m[32mr[0m[32me[39m[32me[32m [39m[32me[39m[39m [39m.[39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [35D./.trunk/06-Working_with_Data/05-basic_cleaning.ipynb[53Dmore [7m.[7m/[7m.[7mt[7mr[7mu[7mn[7mk[7m/[7m0[7m6[7m-[7mW[7mo[7mr[7mk[7mi[7mn[7mg[7m_[7mw[7mi[7mt[7mh[7m_[7mD[7ma[7mt[7ma[7m/[7m0[7m5[7m-[7mb[7ma[7ms[7mi[7mc[7m_[7mc[7ml[7me[7ma[7mn[7mi[7mn[7mg[7m.[7mipynb[27m[53D[27m.[27m/[27m.[27mt[27mr[27mu[27mn[27mk[27m/[27m0[27m6[27m-[27mW[27mo[27mr[27mk[27mi[27mn[27mg[27m_[27mw[27mi[27mt[27mh[27m_[27mD[27ma[27mt[27ma[27m/[27m0[27m5[27m-[27mb[27ma[27ms[27mi[27mc[27m_[27mc[27ml[27me[27ma[27mn[27mi[27mn[27mg[27m.[27mi[27mp[27my[27mn[27mb[90m./lo[39m[90mcal/env/include/myKwargs.py[39m[31D[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [31D[58D[32mm[32mo[32mr[32me[39m [4m.[4m/[4m.[4mt[4mr[4mu[4mn[4mk[4m/[4m0[4m6[4m-[4mW[4mo[4mr[4mk[4mi[4mn[4mg[4m_[4mw[4mi[4mt[4mh[4m_[4mD[4ma[4mt[4ma[4m/[4m0[4m5[4m-[4mb[4ma[4ms[4mi[4mc[4m_[4mc[4ml[4me[4ma[4mn[4mi[4mn[4mg[4m.[4mi[4mp[4my[4mn[4mb[24m[?1l>[?2004l
+]2;more ./.trunk/06-Working_with_Data/05-basic_cleaning.ipynb]1;more[?1h=[K[7m./.trunk/06-Working_with_Data/05-basic_cleaning.ipynb (END)[27m[K[K [KESCESC[Kqq...skipping...
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[1m~[0m
+[7m(END)[27m[K[K[?1l>[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science]1;..-Data-Science]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:52[38;5;245m][00m[205D[?1h=[?2004hl[32ml[39m[32ml[39m[90ml[39m[32ml[32ml[39m[?1l>[?2004l
+]2;ls -G -FGlAhp]1;lltotal 416
+-rw-r--r--@  1 griffin  staff   6.0K Sep  2 23:15 .DS_Store
+drwxr-xr-x@ 15 griffin  staff   480B Sep 11 21:04 [1m[36m.git[39;49m[0m/
+-rw-r--r--@  1 griffin  staff   360B Sep  1 20:21 .gitignore
+drwxr-xr-x@ 11 griffin  staff   352B Sep 11 21:36 [1m[36m.trunk[39;49m[0m/
+drwxr-xr-x@  9 griffin  staff   288B Sep  5 03:23 [1m[36m.venv[39;49m[0m/
+drwxr-xr-x@  5 griffin  staff   160B Sep  3 03:40 [1m[36mAppendix[39;49m[0m/
+-rw-------@  1 griffin  staff   5.2K Sep  3 03:35 Appendix_Comprehensions_and_Generators.zip
+drwxr-xr-x@  9 griffin  staff   288B Sep 11 21:04 [1m[36mAssignments[39;49m[0m/
+-rw-r--r--   1 griffin  staff    54K Sep  1 21:55 awtop.png
+drwxr-xr-x   6 griffin  staff   192B Sep  5 02:51 [1m[36mBooks[39;49m[0m/
+drwxr-xr-x   3 griffin  staff    96B Sep  4 13:01 [1m[36mCompleted[39;49m[0m/
+-rw-------@  1 griffin  staff   1.2K Sep  2 23:17 Course_Calendar_Fall2025.csv
+drwxr-xr-x@  4 griffin  staff   128B Sep  3 03:41 [1m[36mExams[39;49m[0m/
+-rw-r--r--   1 griffin  staff   103K Sep  1 21:58 pdsh.png
+-rw-r--r--@  1 griffin  staff   7.3K Sep  2 22:44 README.md
+-rw-r--r--   1 griffin  staff    67B Sep  5 03:22 requirements.txt
+-rw-r--r--   1 griffin  staff   6.1K Sep  5 10:18 temp.json
+-rwxr-xr-x@  1 griffin  staff   770B Sep  5 05:18 [31mzzz.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science]1;..-Data-Science]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:52[38;5;245m][00m[205D[?1h=[?2004hll[32ml[32ml[39m[32mm[32mo[39mre ./.trunk/06-Working_with_Data/05-basic_cleaning.ipynb[58D[32mm[32mo[32mr[32me[39m [4m.[4m/[4m.[4mt[4mr[4mu[4mn[4mk[4m/[4m0[4m6[4m-[4mW[4mo[4mr[4mk[4mi[4mn[4mg[4m_[4mw[4mi[4mt[4mh[4m_[4mD[4ma[4mt[4ma[4m/[4m0[4m5[4m-[4mb[4ma[4ms[4mi[4mc[4m_[4mc[4ml[4me[4ma[4mn[4mi[4mn[4mg[4m.[4mi[4mp[4my[4mn[4mb[24m[58D[32ml[32ml[39m[39m [39m  [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [56D[32mm[32mo[39mre ./.trunk/06-Working_with_Data/05-basic_cleaning.ipynb[58D[32mm[32mo[32mr[32me[39m [4m.[4m/[4m.[4mt[4mr[4mu[4mn[4mk[4m/[4m0[4m6[4m-[4mW[4mo[4mr[4mk[4mi[4mn[4mg[4m_[4mw[4mi[4mt[4mh[4m_[4mD[4ma[4mt[4ma[4m/[4m0[4m5[4m-[4mb[4ma[4ms[4mi[4mc[4m_[4mc[4ml[4me[4ma[4mn[4mi[4mn[4mg[4m.[4mi[4mp[4my[4mn[4mb[24m[58D[32mf[32mi[32mn[32md[39m[3C[4m [4m-[4mn[4ma[4mm[4me[4m [4m"[4m*[4mc[4ml[4me[4ma[4mn[4m*[4m"[4m [4m-[4mp[4mr[4mi[4mn[4mt[24m[24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [24m [28D[24D[4m/[24m[24m [24m-[24mn[24ma[24mm[24me[24m [24m[33m"[24m[33m*[24m[33mc[24m[33ml[24m[33me[24m[33ma[24m[33mn[24m[33m*[24m[33m"[39m[24m [24m-[24mp[24mr[24mi[24mn[24mt[?1l>[?2004l
+]2;find ./ -name "*clean*" -print]1;find./.trunk/06-Working_with_Data/05-basic_cleaning.ipynb
+./.trunk/06-Working_with_Data copy/05-basic_cleaning.ipynb
+./.venv/lib/python3.13/site-packages/pygments/lexers/clean.py
+./.venv/lib/python3.13/site-packages/pygments/lexers/__pycache__/clean.cpython-313.pyc
+./.venv/lib/python3.13/site-packages/jedi/third_party/typeshed/stdlib/3/distutils/command/clean.pyi
+./.venv/lib/python3.13/site-packages/jedi/third_party/typeshed/stdlib/2/distutils/command/clean.pyi
+./.venv/lib/python3.13/site-packages/setuptools/_distutils/tests/__pycache__/test_clean.cpython-313.pyc
+./.venv/lib/python3.13/site-packages/setuptools/_distutils/tests/test_clean.py
+./.venv/lib/python3.13/site-packages/setuptools/_distutils/command/clean.py
+./.venv/lib/python3.13/site-packages/setuptools/_distutils/command/__pycache__/clean.cpython-313.pyc
+./.venv/lib/python3.13/site-packages/scipy/optimize/tests/test__linprog_clean_inputs.py
+./.venv/lib/python3.13/site-packages/scipy/optimize/tests/__pycache__/test__linprog_clean_inputs.cpython-313.pyc
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science]1;..-Data-Science]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:52[38;5;245m][00m[205D[?1h=[?2004hm[1m[31mm[0m[39m[1m[31mm[0m[39m[90more ./.trunk/06-Working_with_Data/05-basic_cleaning.ipynb[39m[57D[1m[31mm[1m[31mo[0m[39m[1m[31mm[1m[31mo[1m[31mr[0m[39m[1m[31mr[1m[31me[0m[39m[0m[32mm[0m[32mo[0m[32mr[0m[32me[39m[32me[32m [39m[32me[39m[39m [39m.[39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [57D./.trunk/06-Working_with_Data copy/05-basic_cleaning.ipynb[58Dmore [7m.[7m/[7m.[7mt[7mr[7mu[7mn[7mk[7m/[7m0[7m6[7m-[7mW[7mo[7mr[7mk[7mi[7mn[7mg[7m_[7mw[7mi[7mt[7mh[7m_[7mD[7ma[7mt[7ma[7m [7mc[7mo[7mp[7my[7m/[7m0[7m5[7m-[7mb[7ma[7ms[7mi[7mc[7m_[7mc[7ml[7me[7ma[7mn[7mi[7mn[7mg[7m.[7mipynb[27m[58D[27m.[27m/[27m.[27mt[27mr[27mu[27mn[27mk[27m/[27m0[27m6[27m-[27mW[27mo[27mr[27mk[27mi[27mn[27mg[27m_[27mw[27mi[27mt[27mh[27m_[27mD[27ma[27mt[27ma[27m [27mc[27mo[27mp[27my[27m/[27m0[27m5[27m-[27mb[27ma[27ms[27mi[27mc[27m_[27mc[27ml[27me[27ma[27mn[27mi[27mn[27mg[27m.[27mi[27mp[27my[27mn[27mb[90m./.t[39m[90mrunk/06-Working_with_Data/05-basic_cleaning.ipynb[39m[53D[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [53D[63D[32mm[32mo[32mr[32me[39m [4m.[4m/[4m.[4mt[4mr[4mu[4mn[4mk[4m/[4m0[4m6[4m-[4mW[4mo[4mr[4mk[4mi[4mn[4mg[4m_[4mw[4mi[4mt[4mh[4m_[4mD[4ma[4mt[4ma[24m[29C[?1l>[?2004l
+]2;more ./.trunk/06-Working_with_Data copy/05-basic_cleaning.ipynb]1;more./.trunk/06-Working_with_Data is a directory
+copy/05-basic_cleaning.ipynb: No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science]1;..-Data-Science]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m21:52[38;5;245m][00m[205D[?1h=[?2004hl[32ml[39m[32ml[39m[90ml[39m[32ml[32ml[39m[?1l>[?2004l
+]2;ls -G -FGlAhp]1;lltotal 416
+-rw-r--r--@  1 griffin  staff   6.0K Sep  2 23:15 .DS_Store
+drwxr-xr-x@ 15 griffin  staff   480B Sep 11 21:04 [1m[36m.git[39;49m[0m/
+-rw-r--r--@  1 griffin  staff   360B Sep  1 20:21 .gitignore
+drwxr-xr-x@ 12 griffin  staff   384B Sep 11 22:36 [1m[36m.trunk[39;49m[0m/
+drwxr-xr-x@  9 griffin  staff   288B Sep  5 03:23 [1m[36m.venv[39;49m[0m/
+drwxr-xr-x@  5 griffin  staff   160B Sep  3 03:40 [1m[36mAppendix[39;49m[0m/
+-rw-------@  1 griffin  staff   5.2K Sep  3 03:35 Appendix_Comprehensions_and_Generators.zip
+drwxr-xr-x@ 10 griffin  staff   320B Sep 11 21:58 [1m[36mAssignments[39;49m[0m/
+-rw-r--r--   1 griffin  staff    54K Sep  1 21:55 awtop.png
+drwxr-xr-x   6 griffin  staff   192B Sep  5 02:51 [1m[36mBooks[39;49m[0m/
+drwxr-xr-x   3 griffin  staff    96B Sep  4 13:01 [1m[36mCompleted[39;49m[0m/
+-rw-------@  1 griffin  staff   1.2K Sep  2 23:17 Course_Calendar_Fall2025.csv
+drwxr-xr-x   9 griffin  staff   288B Sep 11 22:20 [1m[36mdata[39;49m[0m/
+drwxr-xr-x@  4 griffin  staff   128B Sep  3 03:41 [1m[36mExams[39;49m[0m/
+-rw-r--r--   1 griffin  staff   103K Sep  1 21:58 pdsh.png
+-rw-r--r--@  1 griffin  staff   7.3K Sep  2 22:44 README.md
+-rw-r--r--   1 griffin  staff    67B Sep  5 03:22 requirements.txt
+-rw-r--r--   1 griffin  staff   6.1K Sep  5 10:18 temp.json
+-rwxr-xr-x@  1 griffin  staff   770B Sep  5 05:18 [31mzzz.sh[39;49m[0m
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science]1;..-Data-Science]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:37[38;5;245m][00m[205D[?1h=[?2004h.[32m.[39m[32m.[39m[90m.[39m[32m.[32m.[39m[32m.[39m[39m [32m.[39m[90m.[39m[39m [39m c[32mc[39m[32mc[39m[90md data[39m[32mc[32md[39m[32mc[32md[32m [39m[32mc[32md[39m[39m [39ma[39m [39m [39m [4ma[24m[90mssets[39m[4ma[39m[4ms[24m[24ma[24ms[39ms[4mA[4ms[4ms[39m[4mi[39m[4mg[39m[4mn[4mments[1m[4m/[0m[24m[90m07-Working_with_Data[39m[20D[4ms[24m[0m[24m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [21D[?1l>[?2004l
+]2;cd Assignments]1;cdActivating virtual environment... maybe baybe
+Virtual environment already active: /Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/.venv
+total 0
+drwxr-xr-x   5 griffin  staff   160B Sep  4 13:01 [1m[36m00-StartHere[39;49m[0m/
+drwxr-xr-x@  5 griffin  staff   160B Sep  4 11:23 [1m[36m01-Getting_Started[39;49m[0m/
+drwxr-xr-x@ 10 griffin  staff   320B Sep  4 11:22 [1m[36m02-Working_with_Data[39;49m[0m/
+drwxr-xr-x@  8 griffin  staff   256B Sep  3 08:06 [1m[36m03-Scalar_Types_and_Control_Flow[39;49m[0m/
+drwxr-xr-x@  9 griffin  staff   288B Sep  3 08:12 [1m[36m04-Loops_and_Iteration[39;49m[0m/
+drwxr-xr-x  13 griffin  staff   416B Sep  5 03:46 [1m[36m05-Foundations[39;49m[0m/
+drwxr-xr-x@ 16 griffin  staff   512B Sep 11 22:36 [1m[36m06-Working_with_Data[39;49m[0m/
+-rw-r--r--@  1 griffin  staff     0B Sep  3 03:41 README.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments]1;..e/Assignments]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:37[38;5;245m][00m[205D[?1h=[?2004hc[32mc[39m[32mc[39m[90md Assignments[39m[13D[32mc[32md[39m[32mc[32md[32m [39m[32mc[32md[39m[39m [39m0[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[4m0[24m[90m10-Project_Stuff[39m[16D[4m0[39m[4m5[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [15D[90m-Foundations[39m[12D[4m5[39m[4m-[39m[4mF[39m[4mo[39m[4mu[39m[4mn[39m[4md[39m[4ma[39m[4mt[39m[4mi[39m[4mo[39m[4mn[39m[4ms[1m[4m/[0m[24m[4ms[24m[0m[24m [?1l>[?2004l
+]2;cd 05-Foundations]1;cdActivating virtual environment... maybe baybe
+Virtual environment already active: /Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/.venv
+total 224
+-rw-------@ 1 griffin  staff   8.4K Sep  5 03:02 01-magic_commands.ipynb
+-rw-------@ 1 griffin  staff   4.6K Sep  5 03:08 02-markdown_and_formatting.ipynb
+-rw-------@ 1 griffin  staff   4.9K Sep  5 03:12 03-working_with_files_and_paths.ipynb
+-rw-------@ 1 griffin  staff   4.2K Sep  5 03:16 04-data_input_output.ipynb
+-rw-------@ 1 griffin  staff    43K Sep  5 03:26 05-plotting_basics.ipynb
+-rw-------@ 1 griffin  staff   4.0K Sep  5 03:19 06-jupyter_shortcuts_and_productivity.ipynb
+-rw-------@ 1 griffin  staff   4.5K Sep  5 03:26 07-using_help_and_docs.ipynb
+-rw-------@ 1 griffin  staff   4.8K Sep 11 22:37 08-timing_and_performance.ipynb
+-rw-------@ 1 griffin  staff   3.8K Sep  5 03:33 Foundations_Quiz.ipynb
+-rw-------@ 1 griffin  staff   2.2K Sep 11 22:35 glossary.md
+-rw-------@ 1 griffin  staff   1.9K Sep  5 04:56 README.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/05-Foundations]1;..5-Foundations]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/05-Foundations\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/05-Foundations[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:37[38;5;245m][00m[205D[?1h=[?2004hl[32ml[39m[32ml[39m[90ml[39m[32ml[32mr[39m[90m 06-Data[39m[8D[32ml[32mr[32m [39m[32ml[32mr[39m[39m [39m.[39m [39m [39m [39m [39m [39m [4m.[24m[?1l>[?2004l
+]2;ls -G -R | grep --color=auto  ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g']1;lr[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/05-Foundations]1;..5-Foundations]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/05-Foundations\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/05-Foundations[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:37[38;5;245m][00m[205D[?1h=[?2004hl[32ml[39m[32ml[39m[90mr .[39m[32ml[32ms[39m[39m [39m [90m -l | awk '{print $NF}'[39m[23D[32ml[32ms[32m [39m[32ml[32ms[39m[39m 
+[0m01-magic_commands.ipynb                      04-data_input_output.ipynb                   07-using_help_and_docs.ipynb                 glossary.md                                
+02-markdown_and_formatting.ipynb             05-plotting_basics.ipynb                     08-timing_and_performance.ipynb              README.md                                  
+[J03-working_with_files_and_paths.ipynb        [J06-jupyter_shortcuts_and_productivity.ipynb  [JFoundations_Quiz.ipynb                       [J                                           [3A[0m[27m[24m[38;5;118m[2C[32mls[39m [90m-l | awk '{print $NF}'[39m[K[139C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:37[38;5;245m][00m[38;5;118m[202D[39m-[39ml[39m [39m|[39m [39ma[39mw[39mk[39m [39m'[39m{[39mp[39mr[39mi[39mn[39mt[39m [39m$[39mN[39mF[39m}[39m'[17D[32ma[32mw[32mk[39m [33m'[33m{[33mp[33mr[33mi[33mn[33mt[33m [33m$[33mN[33mF[33m}[33m'[39m[?1l>[?2004l
+[J]2;ls -G -l | awk '{print $NF}']1;ls224
+01-magic_commands.ipynb
+02-markdown_and_formatting.ipynb
+03-working_with_files_and_paths.ipynb
+04-data_input_output.ipynb
+05-plotting_basics.ipynb
+06-jupyter_shortcuts_and_productivity.ipynb
+07-using_help_and_docs.ipynb
+08-timing_and_performance.ipynb
+Foundations_Quiz.ipynb
+glossary.md
+README.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/05-Foundations]1;..5-Foundations]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/05-Foundations\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/05-Foundations[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:37[38;5;245m][00m[205D[?1h=[?2004hls -l | awk '{print $NF}'[25D[32ml[32ms[39m[6C[32ma[32mw[32mk[39m [33m'[33m{[33mp[33mr[33mi[33mn[33mt[33m [33m$[33mN[33mF[33m}[33m'[39m[25D[39m [39m       [39m [39m [39m  [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [25Dc[32mc[39m[32mc[39m[90md 05-Foundations[39m[16D[32mc[32md[39m[32mc[32md[32m [39m[32mc[32md[39m[39m [39m.[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [13D[4m.[24m[90m.[39m[4m.[39m[4m.[24m[4m.[4m/[24m[90m__currentCourses/5143-Operating-Systems[39m[39D[4m/[39m[4m0[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [38D[4m0[4m5[24m[4m0[24m[24m [4m0[4m4[24m[4m4[4m-Loops_and_Iteration[1m[4m/[0m[24m[4mn[24m[0m[24m [?1l>[?2004l
+]2;cd ../04-Loops_and_Iteration]1;cdActivating virtual environment... maybe baybe
+Virtual environment already active: /Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/.venv
+total 56
+-rw-r--r--@ 1 griffin  staff   1.7K Sep  3 08:12 01-For_Loops.ipynb
+-rw-r--r--@ 1 griffin  staff   1.5K Sep  3 08:12 02-While_Loops.ipynb
+-rw-r--r--@ 1 griffin  staff   1.5K Sep  3 08:12 03-File_Loops_and_With.ipynb
+-rw-r--r--@ 1 griffin  staff   709B Sep  3 08:12 glossary.md
+-rw-r--r--@ 1 griffin  staff   408B Sep  3 08:12 mini_quiz.md
+-rw-r--r--@ 1 griffin  staff   963B Sep  3 08:12 README.md
+-rw-r--r--@ 1 griffin  staff   1.1K Sep  3 08:12 worksheet.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/04-Loops_and_Iteration]1;..and_Iteration]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/04-Loops_and_Iteration\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/04-Loops_and_Iteration[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:40[38;5;245m][00m[205D[?1h=[?2004hcd ../04-Loops_and_Iteration[28D[32mc[32md[39m [4m.[4m.[4m/[4m0[4m4[4m-[4mL[4mo[4mo[4mp[4ms[4m_[4ma[4mn[4md[4m_[4mI[4mt[4me[4mr[4ma[4mt[4mi[4mo[4mn[24m[28D[32ml[32ms[39m [4m-[4ml[4m [4m|[4m [4ma[4mw[4mk[4m [4m'[4m{[4mp[4mr[4mi[4mn[4mt[4m [4m$[4mN[4mF[4m}[4m'[24m[24m [24m [24m [22D[24m-[24ml[24m [24m|[24m [24m[32ma[24m[32mw[24m[32mk[39m[24m [24m[33m'[24m[33m{[24m[33mp[24m[33mr[24m[33mi[24m[33mn[24m[33mt[24m[33m [24m[33m$[24m[33mN[24m[33mF[24m[33m}[24m[33m'[39m[?1l>[?2004l
+]2;ls -G -l | awk '{print $NF}']1;ls56
+01-For_Loops.ipynb
+02-While_Loops.ipynb
+03-File_Loops_and_With.ipynb
+glossary.md
+mini_quiz.md
+README.md
+worksheet.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/04-Loops_and_Iteration]1;..and_Iteration]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/04-Loops_and_Iteration\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/04-Loops_and_Iteration[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:40[38;5;245m][00m[205D[?1h=[?2004h.[32m.[39m[32m.[39m[90m.[39m[32m.[32m.[39m[?1l>[?2004l
+]2;cd ../]1;..Activating virtual environment... maybe baybe
+Virtual environment already active: /Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/.venv
+total 0
+drwxr-xr-x   5 griffin  staff   160B Sep  4 13:01 [1m[36m00-StartHere[39;49m[0m/
+drwxr-xr-x@  5 griffin  staff   160B Sep  4 11:23 [1m[36m01-Getting_Started[39;49m[0m/
+drwxr-xr-x@ 10 griffin  staff   320B Sep  4 11:22 [1m[36m02-Working_with_Data[39;49m[0m/
+drwxr-xr-x@  8 griffin  staff   256B Sep  3 08:06 [1m[36m03-Scalar_Types_and_Control_Flow[39;49m[0m/
+drwxr-xr-x@  9 griffin  staff   288B Sep  3 08:12 [1m[36m04-Loops_and_Iteration[39;49m[0m/
+drwxr-xr-x  13 griffin  staff   416B Sep 11 22:39 [1m[36m05-Foundations[39;49m[0m/
+drwxr-xr-x@ 16 griffin  staff   512B Sep 11 22:36 [1m[36m06-Working_with_Data[39;49m[0m/
+-rw-r--r--@  1 griffin  staff     0B Sep  3 03:41 README.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments]1;..e/Assignments]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:43[38;5;245m][00m[205D[?1h=[?2004hc[32mc[39m[32mc[39m[90md ../04-Loops_and_Iteration[39m[27D[32mc[32md[39m[32mc[32md[32m [39m[32mc[32md[39m[39m [39m0[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [24D[4m0[24m[90m5-Foundations[39m[13D[4m0[39m[4m2[24m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[90m-Intro_to_Python[39m[16D[4m2[39m[4m-[39m[4mW[39m[4mo[39m[4mr[39m[4mk[39m[4mi[39m[4mn[39m[4mg[39m[4m_[39m[4mw[39m[4mi[39m[4mt[39m[4mh[39m[4m_[39m[4mD[39m[4ma[4mta[1m[4m/[0m[24m[4ma[24m[0m[24m [?1l>[?2004l
+]2;cd 02-Working_with_Data]1;cdActivating virtual environment... maybe baybe
+Virtual environment already active: /Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/.venv
+total 64
+-rw-r--r--@ 1 griffin  staff   1.7K Sep  3 07:36 01-Lists.ipynb
+-rw-r--r--@ 1 griffin  staff   1.6K Sep  3 07:36 02-Tuples.ipynb
+-rw-r--r--@ 1 griffin  staff   1.8K Sep  3 07:34 03-Data_Types_and_Arithmetic.ipynb
+-rw-r--r--@ 1 griffin  staff   1.4K Sep  3 07:36 03-Dictionaries.ipynb
+-rw-r--r--@ 1 griffin  staff   729B Sep  3 07:37 glossary.md
+-rw-r--r--@ 1 griffin  staff   449B Sep  3 07:37 mini_quiz.md
+-rw-r--r--@ 1 griffin  staff   855B Sep  3 07:36 README.md
+-rw-r--r--@ 1 griffin  staff   1.7K Sep  3 07:37 worksheet.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/02-Working_with_Data]1;..ing_with_Data]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/02-Working_with_Data\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/02-Working_with_Data[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:43[38;5;245m][00m[205D[?1h=[?2004hcd 02-Working_with_Data[23D[32mc[32md[39m[21C[23D[32m.[32m.[39m                     [21D[32ml[32ms[39m -l | awk '{print $NF}'[17D[32ma[32mw[32mk[39m [33m'[33m{[33mp[33mr[33mi[33mn[33mt[33m [33m$[33mN[33mF[33m}[33m'[39m[?1l>[?2004l
+]2;ls -G -l | awk '{print $NF}']1;ls64
+01-Lists.ipynb
+02-Tuples.ipynb
+03-Data_Types_and_Arithmetic.ipynb
+03-Dictionaries.ipynb
+glossary.md
+mini_quiz.md
+README.md
+worksheet.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/02-Working_with_Data]1;..ing_with_Data]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/02-Working_with_Data\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments/02-Working_with_Data[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:43[38;5;245m][00m[205D[?1h=[?2004h.[32m.[39m[32m.[39m[90m.[39m[32m.[32m.[39m[?1l>[?2004l
+]2;cd ../]1;..Activating virtual environment... maybe baybe
+Virtual environment already active: /Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/.venv
+total 0
+drwxr-xr-x   5 griffin  staff   160B Sep  4 13:01 [1m[36m00-StartHere[39;49m[0m/
+drwxr-xr-x@  5 griffin  staff   160B Sep  4 11:23 [1m[36m01-Getting_Started[39;49m[0m/
+drwxr-xr-x@ 10 griffin  staff   320B Sep  4 11:22 [1m[36m02-Working_with_Data[39;49m[0m/
+drwxr-xr-x@  8 griffin  staff   256B Sep  3 08:06 [1m[36m03-Scalar_Types_and_Control_Flow[39;49m[0m/
+drwxr-xr-x@  9 griffin  staff   288B Sep  3 08:12 [1m[36m04-Loops_and_Iteration[39;49m[0m/
+drwxr-xr-x  13 griffin  staff   416B Sep 11 22:39 [1m[36m05-Foundations[39;49m[0m/
+drwxr-xr-x@ 16 griffin  staff   512B Sep 11 22:36 [1m[36m06-Working_with_Data[39;49m[0m/
+-rw-r--r--@  1 griffin  staff     0B Sep  3 03:41 README.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments]1;..e/Assignments]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:53[38;5;245m][00m[205D[?1h=[?2004h..[32m.[32m.[39m[32ml[32ms[39m -l | awk '{print $NF}'[17D[32ma[32mw[32mk[39m [33m'[33m{[33mp[33mr[33mi[33mn[33mt[33m [33m$[33mN[33mF[33m}[33m'[39m[?1l>[?2004l
+]2;ls -G -l | awk '{print $NF}']1;ls0
+00-StartHere
+01-Getting_Started
+02-Working_with_Data
+03-Scalar_Types_and_Control_Flow
+04-Loops_and_Iteration
+05-Foundations
+06-Working_with_Data
+README.md
+[1m[7m%[27m[1m[0m                                                                                                                                                                                                                ]2;griffin@Terrys-MacBook-Air:~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments]1;..e/Assignments]7;file://Terrys-MacBook-Air.local/Users/griffin/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments\[0m[27m[24m[J[38;5;245m[[38;5;214mgriffin[38;5;245m][00m[38;5;245m[[38;5;006m~/Sync/__currentCourses/3603-Programming-for-Data-Science/Assignments[38;5;245m][00m[38;5;245m[[38;5;118m[32mmain[31m✗[00m[38;5;245m][00m
+[38;5;214m[00m [K[164C[38;5;245m[[38;5;099mTerrys-MacBook-Air[38;5;245m][00m[38;5;245m[[38;5;006m192.168.4.23[38;5;245m][00m[38;5;245m[[38;5;013m22:53[38;5;245m][00m[205D[?1h=[?2004h
