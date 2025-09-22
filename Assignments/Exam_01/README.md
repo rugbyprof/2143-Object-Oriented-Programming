@@ -13,8 +13,11 @@ slug: "Exam_01"
 | DataStructures_and_Containers | [DataStructures_and_Containers](../../Lectures/DataStructures_and_Containers/) |
 | Day_5_Overloading             | [Day_5_Overloading](../../Lectures/Day_5_Overloading/)                         |
 | Day_6_Composition             | [Day_6_Composition](../../Lectures/Day_6_Composition/)                         |
-| Day_7_Templates               | [Day_7_Templates](../../Lectures/Day_7_Templates/)                             |
 | OOP_Fundamentals              | [OOP_Fundamentals](../../Lectures/OOP_Fundamentals/)                           |
+| 02-PublicVsPrivate            | [02-PublicVsPrivate](../../Lectures/OOP_Fundamentals/02-PublicVsPrivate/)      |
+| 03-CopyConstructor            | [03-CopyConstructor](../../Lectures/OOP_Fundamentals/03-CopyConstructor/)      |
+| 07-4KeysOOP                   | [07-4KeysOOP](../../Lectures/OOP_Fundamentals/07-4KeysOOP/)                    |
+| 07-FractionClass              | [07-FractionClass](../../Lectures/OOP_Fundamentals/07-FractionClass/)          |
 
 **I will talk more about OOP fundamentals and which ones will be on the exam!**
 
