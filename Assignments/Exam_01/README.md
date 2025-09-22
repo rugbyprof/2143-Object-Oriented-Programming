@@ -8,6 +8,10 @@ slug: "Exam_01"
 
 ## Study Guide
 
+### Links
+
+These are equivalent to my version of a text book. It's the content that describes and explains each concept or topic.
+
 | Folder                        | Link                                                                           |
 | ----------------------------- | ------------------------------------------------------------------------------ |
 | DataStructures_and_Containers | [DataStructures_and_Containers](../../Lectures/DataStructures_and_Containers/) |
