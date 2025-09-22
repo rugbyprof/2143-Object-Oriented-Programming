@@ -1,18 +1,20 @@
 ---
 title: "Test 1"
 description: "C++ Review and OOP basics"
-due: "2025-09-01"
+due: "29 Sep 2025"
 order: 4
 slug: "Exam_01"
 ---
 
 ## Study Guide
 
-| Read These                                                         |
-| :----------------------------------------------------------------- |
-| [Stack and Queue Overview](../../Lectures/01-Stack-Queue/)         |
-| [Public vs Private Protection](../../Lectures/02-PublicVsPrivate/) |
-| [Copy Constructors & More ](../../Lectures/03-CopyConstructor/)    |
+| Folder                        | Link                                                                           |
+| ----------------------------- | ------------------------------------------------------------------------------ |
+| DataStructures_and_Containers | [DataStructures_and_Containers](../../Lectures/DataStructures_and_Containers/) |
+| Day_5_Overloading             | [Day_5_Overloading](../../Lectures/Day_5_Overloading/)                         |
+| Day_6_Composition             | [Day_6_Composition](../../Lectures/Day_6_Composition/)                         |
+| Day_7_Templates               | [Day_7_Templates](../../Lectures/Day_7_Templates/)                             |
+| OOP_Fundamentals              | [OOP_Fundamentals](../../Lectures/OOP_Fundamentals/)                           |
 
 ## Question Types
 

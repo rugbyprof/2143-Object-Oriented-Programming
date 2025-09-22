@@ -1,7 +1,7 @@
 ---
-title: "OOP Terminology "
+title: "OOP Terminology"
 description: "Creating your own OOP wiki page"
-due: "2025-12-6"
+due: "06 Dec 2025"
 order: 3
 slug: "OOP_Wiki"
 ---

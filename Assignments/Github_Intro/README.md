@@ -1,7 +1,7 @@
 ---
 title: "Github Assignment"
 description: "Creating your own github repo"
-due: "2025-09-01"
+due: "09 Sep 2025"
 order: 1
 slug: "Github_Intro"
 ---

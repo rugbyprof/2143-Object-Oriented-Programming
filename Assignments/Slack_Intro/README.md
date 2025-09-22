@@ -1,7 +1,7 @@
 ---
 title: "Slack Intro "
 description: "Register with Slack"
-due: "2025-09-01"
+due: "01 Sep 2025"
 order: 2
 slug: "Slack_Intro"
 ---
