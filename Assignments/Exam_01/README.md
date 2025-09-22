@@ -16,6 +16,8 @@ slug: "Exam_01"
 | Day_7_Templates               | [Day_7_Templates](../../Lectures/Day_7_Templates/)                             |
 | OOP_Fundamentals              | [OOP_Fundamentals](../../Lectures/OOP_Fundamentals/)                           |
 
+**I will talk more about OOP fundamentals and which ones will be on the exam!**
+
 ## Question Types
 
 There will be mostly multiple choice, with a couple of short answer questions to show me you can write code. Maybe some matching if we get to a place where we have a lot of concepts with definitions to match up, but not on this test. For now, my go to question is to give you small code snippets and see what information you can gather from those snippets.
