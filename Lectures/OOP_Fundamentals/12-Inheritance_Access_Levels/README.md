@@ -1,3 +1,5 @@
+## Public, Private, Protected
+
 In C++, when a class inherits from a base class, the level of access control determines how the members of the base class are treated in the derived class. The access specifier (`public`, `protected`, or `private`) changes how the base class members are accessed within the derived class and outside of it.
 
 ### 1. **Public Inheritance** (`class Derived : public Base`)
