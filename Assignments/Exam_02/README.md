@@ -154,8 +154,8 @@ Before diving deeper, review these terms. (Many will appear in the questions lat
 3. Overloading
 4. Overriding
 5. Polymorphism
-6. Static Polymorphism (Compile-time Polymorphism)
-7. Dynamic Polymorphism (Run-time Polymorphism)
+6. ~Static Polymorphism (Compile-time Polymorphism~)
+7. ~Dynamic Polymorphism (Run-time Polymorphism)~
 8. Virtual Function
 9. Pure Virtual Function
 10. Abstract Class
@@ -163,7 +163,7 @@ Before diving deeper, review these terms. (Many will appear in the questions lat
 12. Friend Class
 13. Encapsulation
 14. Inheritance
-15. Multiple Inheritance
+15. ~Multiple Inheritance~
 16. Access Modifiers (private, protected, public)
 17. Protected
 18. Private
