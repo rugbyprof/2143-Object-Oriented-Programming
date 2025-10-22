@@ -145,7 +145,7 @@
 
 ### 1. Key Vocabulary
 
-**NOTE: IGNORE DYNAMIC POLYMORPHISM AND THE USE OF THE `STATIC` KEYWORD.**
+**NOTE: IGNORE `DYNAMIC POLYMORPHISM `AND THE USE OF THE `STATIC` KEYWORD.**
 
 Before diving deeper, review these terms. (Many will appear in the questions later.)
 
