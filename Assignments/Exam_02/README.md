@@ -145,6 +145,8 @@
 
 ### 1. Key Vocabulary
 
+**NOTE: IGNORE DYNAMIC POLYMORPHISM AND THE USE OF THE `STATIC` KEYWORD.**
+
 Before diving deeper, review these terms. (Many will appear in the questions later.)
 
 1. Base Class (Parent / Super class)
@@ -525,12 +527,11 @@ int main() {
 
 ### 12. Final Practice Challenges
 
-1. Rewrite the snippet below so that the Kid can access his dad’s private stash of alcohol. (Ensuring alcohol remains private.)
-2. Rewrite the Character class so that the print method in Character must be implemented in both sub-classes (Wizard and Warrior).
-3. What keyword must a method have to ensure that run time polymorphism can happen?
-4. Know these words: class definition, instance, instantiated, object and state.
-5. Explain or demonstrate how multiple inheritance might lead to the “diamond problem.”
-6. Fix the diamond problem using either virtual inheritance or a suitable alternative.
+1. Rewrite the Character class so that the print method in Character must be implemented in both sub-classes (Wizard and Warrior).
+2. What keyword must a method have to ensure that run time polymorphism can happen?
+3. Know these words: class definition, instance, instantiated, object and state.
+4. Explain or demonstrate how multiple inheritance might lead to the “diamond problem.”
+5. Fix the diamond problem using either virtual inheritance or a suitable alternative.
 
 ⸻
 
