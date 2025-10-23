@@ -254,7 +254,7 @@ public:
 
 Write a class called Customer that can access both account_number and account_balance if possible. If not, explain why. Make any fixes necessary to Account if your design calls for it.
 
-⸻
+---
 
 ### 4. Inheritance Fundamentals
 
@@ -281,7 +281,7 @@ class Wizard : public Character {
     - ~Multiple Inheritance~
     - ~Hierarchical Inheritance~
 
-⸻
+---
 
 ### 5. Polymorphism (Overloading & Overriding)
 
@@ -350,7 +350,7 @@ int main() {
 
 **Fill in the blank:** The concept portrayed here is known as `_______________`
 
-⸻
+---
 
 ### 7. Abstract Classes & Pure Virtual Functions
 
@@ -434,7 +434,7 @@ Answers [HERE](../../Lectures/OOP_Exam2_Snippets/AbstractionVEncapsulation.md)
 3.  What is a pointer, and why do we use pointers in OOP?
 4.  When is dynamic memory allocation preferable over automatic (stack) allocation? Explanation [HERE](../../Lectures/OOP_Exam2_Snippets/StackOrHeap.md)
 
-⸻
+---
 
 ### 10. Miscellaneous (Short Questions / Quick Checks)
 
@@ -444,7 +444,7 @@ Answers [HERE](../../Lectures/OOP_Exam2_Snippets/AbstractionVEncapsulation.md)
 4. By defining a base abstract method as public pure virtual, are you guaranteeing that protected or private access in derived classes won’t cause conflicts? (Trick question, reflect on access levels!) Explanation [HERE](../../Lectures/OOP_Exam2_Snippets/ChangingProtection.md)
 5. Do we typically choose inheritance over composition? Why or why not?
 
-⸻
+---
 
 ### 11. Here’s a concise reference table and some small code examples illustrating:
 
@@ -461,7 +461,7 @@ More on protection levels [HERE](../../Lectures/OOP_Exam2_Snippets/ProtectionLev
 | protected | Yes                            | Yes                         | No                                      | Internal mechanisms, intended for subclasses but hidden from “the world.”       |
 | private   | Yes                            | No                          | No                                      | Strictly internal data, kept hidden from derived classes and the outside world. |
 
-⸻
+---
 
 ### Code Demonstration
 
@@ -525,7 +525,7 @@ int main() {
 
 - Accessible from anywhere in the program, as long as you have an instance or a pointer/reference to that object.
 
-⸻
+---
 
 ### Why Use Each Specifier?
 
@@ -541,7 +541,7 @@ int main() {
 4. ~Explain or demonstrate how multiple inheritance might lead to the “diamond problem.”~
 5. ~Fix the diamond problem using either virtual inheritance or a suitable alternative.~
 
-⸻
+---
 
 ### ~Static Keyword~
 
@@ -552,7 +552,7 @@ Here’s an example of a “team dice game” that tracks each team’s average 
 1. Compute each Team’s own average via instance data (just summing the vector of rolls).
 2. Compute a global average of all dice rolls among all teams using static members (sumAllRolls and totalRolls).
 
-⸻
+---
 
 The Code
 
@@ -650,7 +650,7 @@ Team t2("Blue Phoenix");
 }
 ```
 
-⸻
+---
 
 ### How It Works
 
@@ -674,14 +674,14 @@ int Team::totalRolls = 0;
 - `printStatus()` shows each team’s name and that team’s current average.
 - The main function also prints out the overall average for all teams.
 
-⸻
+---
 
 ### ~Why Use a Static Variable for the Global Average?~
 
 - If you need to track game-wide metrics (e.g., how many dice have been rolled total, or what the global average is), static class variables allow you to maintain a single source of truth shared among all Team objects.
 - Meanwhile, each Team can still calculate its own average independently.
 
-⸻
+---
 
 ## Composition vs. Aggregation
 
@@ -715,7 +715,7 @@ public:
 };
 ```
 
-⸻
+---
 
 ### Aggregation
 
@@ -754,7 +754,7 @@ public:
 };
 ```
 
-⸻
+---
 
 ## 🧩 Composition vs Aggregation (Clean Comparison)
 
