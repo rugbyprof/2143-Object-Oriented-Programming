@@ -154,7 +154,7 @@ Before diving deeper, review these terms. (Many will appear in the questions lat
 3. Overloading
 4. Overriding
 5. Polymorphism
-6. ~Static Polymorphism (Compile-time Polymorphism~)
+6. ~Static Polymorphism (Compile-time Polymorphism)~
 7. ~Dynamic Polymorphism (Run-time Polymorphism)~
 8. Virtual Function
 9. Pure Virtual Function
@@ -173,7 +173,7 @@ Before diving deeper, review these terms. (Many will appear in the questions lat
 22. Destructor
 23. Operator Overloading
 24. Composition (“has-a” relationship)
-25. Instantiation
+25. Instantiation (the act of creating an Instance)
 26. Pointer
 27. Dynamic Memory Allocation
 28. New
@@ -186,9 +186,9 @@ Additional Terms (some are alternative names or appear in other OOP languages):
 <!-- 1. Pure Polymorphism -->
 1. Interface: a class with ALL pure virtual methods.
 <!-- 1. Virtualizationism (likely a nonsense or trick term) -->
-1. Hierarchy (e.g., hierarchical inheritance)
-1. Multi-level Inheritance
-1. Diamond Problem
+1. ~Hierarchy (e.g., hierarchical inheritance)~
+1. ~Multi-level Inheritance~
+1. ~Diamond Problem~
 1. Method vs Function
 1. Method Overloading vs Method Overriding
 
@@ -200,9 +200,9 @@ Additional Terms (some are alternative names or appear in other OOP languages):
 4.  When does a class become an object?
 5.  An object is a(n) `_________________` of a class that resides in `_________________` and has `_________________`. (Fill in the blanks.)
 6.  How do we define a constructor and a destructor in a C++ class, and when do each of these get called?
-7.  Why might you choose to store data as static in a class?
+7.  ~Why might you choose to store data as static in a class?~
 8.  Which keywords can be used to control access to class members?
-9.  What type of data member can be shared by all instances of its class?
+9.  ~What type of data member can be shared by all instances of its class?~ (uses static keyword)
 10. Rewrite the snippet below so that Kid can access his dad’s private stash of alcohol, but keep alcohol private. This is an example of controlling access in a class:
 
 ```cpp
@@ -229,8 +229,10 @@ public:
 3. Does everyone agree that friend fits neatly into the OOP paradigm, or are there drawbacks?
 4. Which access level can be circumvented with the friend keyword?
 5. Who or what can access a protected data member of a class?
-6. Is there ever a time you would use private in a base class and prevent access to a derived class? Give an example.
+6. Is there ever a time you would use private in a base class and prevent access to a derived class? Give an example. Example: [HERE](../../Lectures/OOP_Exam2_Snippets/PrivateMembersBaseClass.md)
 7. What is a potential drawback of using the friend keyword?
+
+---
 
 ## Practice Exercise
 
@@ -268,22 +270,22 @@ class Wizard : public Character {
 };
 ```
 
-3.  What is multiple inheritance, and when might it be used?
-4.  What is the diamond problem, and how can it be addressed or avoided?
-5.  Explain or write an example in C++ describing the diamond problem and how to fix/avoid it.
+3.  ~What is multiple inheritance, and when might it be used?~
+4.  ~What is the diamond problem, and how can it be addressed or avoided?~
+5.  ~Explain or write an example in C++ describing the diamond problem and how to fix/avoid it.~
 6.  Compare composition vs inheritance. When do we typically choose one over the other?
-7.  What is aggregation, and how does it differ from composition? Give an example.
-8.  Give a concise example in C++ showing:
-    - Simple Inheritance
-    - Multi-Level Inheritance
-    - Multiple Inheritance
-    - Hierarchical Inheritance
+7.  ~What is aggregation, and how does it differ from composition? Give an example.~
+8.  ~Give a concise example in C++ showing:~
+    - ~Simple Inheritance~
+    - ~Multi-Level Inheritance~
+    - ~Multiple Inheritance~
+    - ~Hierarchical Inheritance~
 
 ⸻
 
 ### 5. Polymorphism (Overloading & Overriding)
 
-1. What is the difference between overloading and overriding?
+1. What is the difference between overloading and overriding? Example: [HERE](../../Lectures/OOP_Exam2_Snippets/Overriding.md)
 2. In a snippet like this:
 
 ```cpp
@@ -312,9 +314,16 @@ public:
 ### 6. Which of the following can be overloaded in C++?
 
 - Constructors
+- Destructors
 - Operators
-- Functions with different parameter lists
-- Etc. 4. What concept means “determine at runtime what method to invoke”? 5. What is the one thing that is necessary for run-time polymorphism to happen? 6. What is static (compile-time) polymorphism, and how do you implement it in C++? 7. What is operator overloading? Give an example of how you might overload + or <<. 8. What is the output of the following code snippet, and what concept is it demonstrating?
+- Functions
+- Methods
+
+1. What concept means “determine at runtime what method to invoke”?
+2. What is the one thing that is necessary for run-time polymorphism to happen?
+3. What is static (compile-time) polymorphism, and how do you implement it in C++?
+4. What is operator overloading? Give an example of how you might overload + or <<.
+5. ~What is the output of the following code snippet, and what concept is it demonstrating?~ (Dynamic Polymorphism)
 
 ```cpp
 class Animals {
@@ -339,17 +348,17 @@ int main() {
 }
 ```
 
-**Fill in the blank:** The concept portrayed here is known as **\*\*\*\***\_\_\_\_**\*\*\*\***.
+**Fill in the blank:** The concept portrayed here is known as `_______________`
 
 ⸻
 
 ### 7. Abstract Classes & Pure Virtual Functions
 
-1.  How can we make a class abstract in C++?
-2.  What is the purpose of an abstract class in C++?
-3.  How many objects can be created from an abstract class?
-4.  What is the difference between an abstract class and an interface?
-5.  Rewrite the following Character class so that its print method is pure virtual, forcing each derived class (Wizard, Warrior, etc.) to implement its own version:
+- How can we make a class abstract in C++?
+- What is the purpose of an abstract class in C++?
+- How many objects can be created from an abstract class?
+- What is the difference between an abstract class and an interface?
+- Rewrite the following Character class so that its print method is pure virtual, forcing each derived class (Wizard, Warrior, etc.) to implement its own version:
 
 ````cpp
 class Character {
@@ -374,7 +383,7 @@ public:
 };
 
 
-6.	Similarly, if we have:
+- Similarly, if we have:
 
 ```cpp
 class Base {
@@ -392,14 +401,9 @@ public:
 };
 ````
 
-What changes would make Base an abstract class so that Derived must implement print?
+What changes would make `Base` an `abstract class` so that `Derived` must implement print?
 
 ---
-
-7. Write a base class so that certain methods must be implemented in sub-classes.
-   > Hint: This typically involves pure virtual functions.
-
-⸻
 
 ### 8. Encapsulation vs. Abstraction
 
@@ -416,7 +420,9 @@ Label each scenario E (Encapsulation) or A (Abstraction) to indicate whether it 
 9. Solves problems at the design level.
 10. Hides the irrelevant details found in the code.
 
-⸻
+Answers [HERE](../../Lectures/OOP_Exam2_Snippets/AbstractionVEncapsulation.md)
+
+---
 
 ### 9. Memory & Pointers
 
@@ -426,16 +432,16 @@ Label each scenario E (Encapsulation) or A (Abstraction) to indicate whether it 
 
 2.  Explain new and delete in C++, and why they are important for dynamic memory.
 3.  What is a pointer, and why do we use pointers in OOP?
-4.  When is dynamic memory allocation preferable over automatic (stack) allocation?
+4.  When is dynamic memory allocation preferable over automatic (stack) allocation? Explanation [HERE](../../Lectures/OOP_Exam2_Snippets/StackOrHeap.md)
 
 ⸻
 
 ### 10. Miscellaneous (Short Questions / Quick Checks)
 
-1. What does it mean: “The use of an object of one class in the definition of another class”?
-2. In an oversimplified way, encapsulation deals with hiding things and **\*\***\_**\*\*** deals with exposing things.
-3. An abstract method in C++ is basically a regular method except it’s declared as a pure virtual function (= 0). We sometimes call this a(n) **\*\*\*\***\_\_**\*\*\*\*** in other OOP languages.
-4. By defining a base abstract method as public pure virtual, are you guaranteeing that protected or private access in derived classes won’t cause conflicts? (Trick question, reflect on access levels!)
+1. What does it mean: “The use of an object of one class in the definition of another class”? Example: A Line uses two Points in its own definition.
+2. In an oversimplified way, encapsulation deals with hiding things and `___________________` deals with exposing things.
+3. An abstract method in C++ is basically a regular method except it’s declared as a pure virtual function (= 0). We sometimes call this a(n) `___________________` in other OOP languages.
+4. By defining a base abstract method as public pure virtual, are you guaranteeing that protected or private access in derived classes won’t cause conflicts? (Trick question, reflect on access levels!) Explanation [HERE](../../Lectures/OOP_Exam2_Snippets/ChangingProtection.md)
 5. Do we typically choose inheritance over composition? Why or why not?
 
 ⸻
@@ -446,6 +452,8 @@ Label each scenario E (Encapsulation) or A (Abstraction) to indicate whether it 
 - The table shows where each specifier is visible and how it behaves in inheritance scenarios.
 
 #### Quick Overview Table
+
+More on protection levels [HERE](../../Lectures/OOP_Exam2_Snippets/ProtectionLevels.md)
 
 | Specifier | Visible Within the Same Class? | Visible in Derived Classes? | Visible Outside the Class (Non-Friend)? | Typical Use Case                                                                |
 | :-------- | :----------------------------- | :-------------------------- | :-------------------------------------- | :------------------------------------------------------------------------------ |
@@ -528,14 +536,14 @@ int main() {
 ### 12. Final Practice Challenges
 
 1. Rewrite the Character class so that the print method in Character must be implemented in both sub-classes (Wizard and Warrior).
-2. What keyword must a method have to ensure that run time polymorphism can happen?
+2. ~What keyword must a method have to ensure that run time polymorphism can happen?~
 3. Know these words: class definition, instance, instantiated, object and state.
-4. Explain or demonstrate how multiple inheritance might lead to the “diamond problem.”
-5. Fix the diamond problem using either virtual inheritance or a suitable alternative.
+4. ~Explain or demonstrate how multiple inheritance might lead to the “diamond problem.”~
+5. ~Fix the diamond problem using either virtual inheritance or a suitable alternative.~
 
 ⸻
 
-### Static Keyword
+### ~Static Keyword~
 
 Here’s an example of a “team dice game” that tracks each team’s average roll.
 
@@ -668,7 +676,7 @@ int Team::totalRolls = 0;
 
 ⸻
 
-### Why Use a Static Variable for the Global Average?
+### ~Why Use a Static Variable for the Global Average?~
 
 - If you need to track game-wide metrics (e.g., how many dice have been rolled total, or what the global average is), static class variables allow you to maintain a single source of truth shared among all Team objects.
 - Meanwhile, each Team can still calculate its own average independently.

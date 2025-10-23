@@ -181,8 +181,8 @@ class PrivateGrandchild : public PrivateDerived {
 
 | Inheritance Chain             | Base::public | Base::protected | Base::private | Visibility Notes              |
 | ----------------------------- | ------------ | --------------- | ------------- | ----------------------------- |
-| Base → Public → Grandchild    | ✅public     | ✅protected     | ❌            | fully accessible              |
-| Base → Protected → Grandchild | ✅protected  | ✅protected     | ❌            | visible only within hierarchy |
+| Base → Public → Grandchild    | ✅ public    | ✅ protected    | ❌            | fully accessible              |
+| Base → Protected → Grandchild | ✅ protected | ✅ protected    | ❌            | visible only within hierarchy |
 | Base → Private → Grandchild   | ❌           | ❌              | ❌            | completely hidden             |
 
 ---
@@ -199,15 +199,15 @@ class PrivateGrandchild : public PrivateDerived {
 
 ## 💡 Key Takeaways
 
-:white*check_mark: `protected` members are **visible to subclasses**, not outsiders.
-⚙️ Inheritance type \_transforms* visibility.
-🔒 `private` members never pass down the line.
-🧬 Access cascades: **public → protected → private** like a fading signal.
-🤯 Private inheritance hides base internals from **everyone**, even grandkids.
+- ✅ `protected` members are **visible to subclasses**, not outsiders.
+- ⚙️ Inheritance type **transforms** visibility.
+- 🔒 `private` members never pass down the line.
+- 🧬 Access cascades: **public → protected → private** like a fading signal.
+- 🤯 Private inheritance hides base internals from **everyone**, even grandkids.
 
 ---
 
-## :mortar_board: “The Access Modifier Prayer”
+## “The Access Modifier Prayer”
 
 “Grant me the serenity to `protect` what should not be public,
 the courage to `public` what must be seen,
@@ -216,7 +216,7 @@ _(— Saint Stroustrup, probably)_
 
 ---
 
-## :checkered_flag: Summary
+## Summary
 
 | Concept               | Description                                                                                       |
 | --------------------- | ------------------------------------------------------------------------------------------------- |
