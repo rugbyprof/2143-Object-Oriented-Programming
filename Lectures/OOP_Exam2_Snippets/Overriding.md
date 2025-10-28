@@ -128,4 +128,4 @@ public:
 
 ---
 
-Would you like me to show a quick example where _function hiding_ (same name, different signature) causes a subtle bug — and how to fix it with `using Base::functionName`? That’s another classic “gotcha” in C++.
+<!-- Would you like me to show a quick example where _function hiding_ (same name, different signature) causes a subtle bug — and how to fix it with `using Base::functionName`? That’s another classic “gotcha” in C++. -->

@@ -95,15 +95,15 @@ Here’s the same setup, but the base class is too trusting:
 
 class Logger {
 protected:
-std::string logFile; // uh oh... subclasses can now mess with this!
+    std::string logFile; // uh oh... subclasses can now mess with this!
 
     void writeLog(const std::string& message) {
         std::cout << "[LOG] " << message << " (to " << logFile << ")" << std::endl;
     }
 
 public:
-Logger(const std::string& filename) : logFile(filename) {}
-virtual ~Logger() = default;
+    Logger(const std::string& filename) : logFile(filename) {}
+    virtual ~Logger() = default;
 
     void log(const std::string& message) {
         writeLog(message);
@@ -113,7 +113,7 @@ virtual ~Logger() = default;
 
 class EvilLogger : public Logger {
 public:
-EvilLogger(const std::string& filename) : Logger(filename) {}
+    EvilLogger(const std::string& filename) : Logger(filename) {}
 
     void sabotage() {
         // Direct access to base class internals 😬
@@ -154,16 +154,16 @@ Encapsulation isn’t just about “hiding data from the outside world” — it
 ```cpp
 class Logger {
 private:
-std::string logFile; // hands off!
+    std::string logFile; // hands off!
 
 protected:
-void writeLog(const std::string& message) {
-std::cout << "[LOG] " << message << " (to " << logFile << ")" << std::endl;
-}
+    void writeLog(const std::string& message) {
+        std::cout << "[LOG] " << message << " (to " << logFile << ")" << std::endl;
+    }
 
 public:
-Logger(const std::string& filename) : logFile(filename) {}
-virtual ~Logger() = default;
+    Logger(const std::string& filename) : logFile(filename) {}
+    virtual ~Logger() = default;
 
     void log(const std::string& message) {
         writeLog(message);
