@@ -289,7 +289,6 @@ std::cout << "\nTotal shapes loaded: " << shapes_data.size() << "\n";
 
 ---
 
-# 🎯 Next Step
+# 🎯 Deliverables:
 
-In **Program_02**, we’ll open an SDL2 window and draw a _parameterized grid_ that this shape data will eventually live in.
-(And yes — we’ll start layering in color schemes and configurable cell size.)
+Upload your `Program_01` folder into your `Assignments` folder for grading.
