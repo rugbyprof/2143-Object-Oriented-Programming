@@ -114,6 +114,10 @@ int main() {
 
 ## ⚙️ 3️⃣ One-Liner Compile + Run Command
 
+```bash
+g++ -std=c++17 -Wall -O2 main.cpp -o main $(pkg-config --cflags --libs sdl2 SDL2_ttf libzmq)
+```
+
 Compile and run using a single command:
 
 ```bash
