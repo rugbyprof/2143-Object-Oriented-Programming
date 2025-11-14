@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CellularAutomaton.h"
+#include "CellularAutomaton.hpp"
 #include <iostream>
 #include <vector>
 
@@ -63,7 +63,7 @@ void ConwayLife::step() {
 // --------------------------------------------------------------
 void ConwayLife::display() const {
     for (const auto& row : grid) {
-        for (int cell : row) std::cout << (cell ? "#" : ".");
+        for (int cell : row) std::cout << (cell ? "⬜" : "  ");
         std::cout << "\n";
     }
 }
