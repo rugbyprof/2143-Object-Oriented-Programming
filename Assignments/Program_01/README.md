@@ -1,35 +1,12 @@
 # 🧩 `Program_01_JSON_Loader`
 
-#### Due: 11-12-2025 (Wednesday @ ClassTime)
-
-```yaml
-title: "Program_01 — JSON Loader Assignment"
-course: "Operating Systems / Game of Life Series"
-language: "C++17"
-library: ["nlohmann::json"]
-author: "T. Griffin"
-summary: >
-  A starter program to load and display Game of Life shape data from a JSON file.
-  This introduces structured data parsing, iteration, and simple console output.
-objectives:
-  - Confirm you can compile and run a program that uses nlohmann::json
-  - Understand how structured data (objects and arrays) represent GOL shapes
-  - Visualize shapes as simple ASCII grids
-  - Explore the JSON hierarchy and metadata
-dependencies:
-  - Program_00 successfully compiled and run
-  - nlohmann/json.hpp placed inside ./includes/
-```
-
----
+#### Due: 11-14-2025 (Wednesday @ ClassTime)
 
 ## 🧩 Overview
 
-Welcome to **Program_01 – JSON Loader**.
-This short exercise builds your first _data-driven_ component for the Game of Life series.
-
-You’ll load a JSON file containing named shape definitions (like “glider” or “blinker”), and then print one in ASCII form.
-This will form the foundation for later programs that visualize these same shapes using **SDL2**.
+- Welcome to **Program_01 – JSON Loader**. This short exercise builds your first _data-driven_ component for the Game of Life series.
+- You’ll load a JSON file containing named shape definitions (like “glider” or “blinker”), and then print one in ASCII form.
+- This will form the foundation for later programs that visualize these same shapes using **SDL2**.
 
 ---
 
@@ -37,10 +14,23 @@ This will form the foundation for later programs that visualize these same shape
 
 By completing this assignment, you’ll:
 
-- Successfully compile and run a program that includes **nlohmann/json**.
+- Successfully compile and run a program that includes and uses **`nlohmann/json`**.
 - Load structured shape data from a file.
 - Print a shape to the terminal using characters.
 - Explore and optionally modify shape data to see how structure changes behavior.
+
+---
+
+## Objectives:
+
+- Confirm you can compile and run a program that uses **`nlohmann::json`**
+- Understand how structured data (objects and arrays) represent GOL shapes
+- Visualize shapes as simple ASCII grids
+- Explore the JSON hierarchy and metadata
+
+## Dependencies:
+
+- `nlohmann/json.hpp` placed inside a folder named `includes`
 
 ---
 
@@ -50,7 +40,7 @@ By completing this assignment, you’ll:
 
 1. **Setup Folder**
 
-   - Copy or clone the `Program_01_JSON_Loader` folder.
+   - Copy or clone the `Program_01` folder.
    - Ensure the file `includes/json.hpp` exists.
    - Confirm that `shapes.json` is present in the same folder as `main.cpp`.
 
@@ -135,7 +125,7 @@ void print_shape(const Shape& shape) {
         std::cout << row << '\n';
 }
 
-int main() {
+int main(int argc, char** argv) {
     std::ifstream file("shapes.json");
     if (!file.is_open()) {
         std::cerr << "Error: Could not open shapes.json\n";
@@ -251,7 +241,7 @@ XX..
 
 ---
 
-### 🧩 1. Add Your Own Shape
+### 🧩 1. Add A Shape
 
 Open `shapes.json` and add a simple one-cell pattern:
 
@@ -266,7 +256,14 @@ Re-run the program and confirm it appears in the list and prints correctly.
 
 ---
 
-### 🧩 2. Change the Display Character
+### 🧩 2. Add Your Own Shape
+
+- Make up your own shape (min 4x4) and add it to the json file.
+- Give it a name!
+
+---
+
+### 🧩 3. Change the Display Character
 
 In `main.cpp`, find:
 
@@ -274,12 +271,16 @@ In `main.cpp`, find:
 grid[gy][gx] = 'X';
 ```
 
-Change it to `'█'`, `'#'`, or anything you like.
-Re-run and see the difference in visualization.
+- Change it to `'█'`, `'#'`, or anything you like.
+- Re-run and see the difference in visualization.
+- Even use unicode escape sequences to display characters.
+  - `const char* block = "\u2588";` // unicode block
+
+See [print_color.cpp](./print_color.cpp)
 
 ---
 
-### 🧩 3. Print Shape Count
+### 🧩 4. Print Shape Count
 
 Add this line before asking for input:
 

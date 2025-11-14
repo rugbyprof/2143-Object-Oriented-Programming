@@ -23,19 +23,18 @@
  *                      for other projects as well.
  *****************************************************************************/
 
-#include <iostream>
-#include "gol.hpp"
 #include <unistd.h>
+
+#include "gol.hpp"
+#include <iostream>
 
 using namespace std;
 
-int main()
-{
+int main() {
+    GOL G(30, 60);
+    // G.addGlider()
+    system("clear");
 
-  GOL G(20, 20);
-  // G.addGlider()
-  system("clear");
-
-  G.rando();
-  G.Run(100);
+    G.rando();
+    G.Run(100);
 }

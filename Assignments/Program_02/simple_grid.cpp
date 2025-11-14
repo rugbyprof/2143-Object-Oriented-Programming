@@ -1,46 +1,3 @@
-## 🎨 Assignment 02 – SDL2 Shape Renderer
-
-#### Due: 11-21-2025 (Wednesday @ ClassTime)
-
-### 🎯 Overview
-
-Now that you can parse patterns from JSON, use **SDL2** to render those shapes visually on screen.
-
-You’ll create an SDL2 window and draw each cell as a filled rectangle (no grid lines or animation yet).
-This sets the foundation for your upcoming **Game of Life** grid engine.
-
----
-
-### 🧠 Learning Objectives
-
-- Set up an SDL2 window and renderer.
-- Draw rectangles to represent live cells.
-- Load pattern data from JSON and render at correct coordinates.
-- Understand the difference between **logical** vs **pixel** space.
-
----
-
-### 🧰 Requirements
-
-1. Load the same `patterns.json` file.
-2. Select one pattern (e.g., `glider`) to draw.
-3. Each cell is a filled rectangle of a fixed size (e.g., 10×10 px).
-4. The pattern should be centered in the window.
-5. The pattern should have a random color.
-6. BONUS: Load pattern choice from command line argument.
-7. Press **ESC** to quit.
-
----
-
-### 🪄 Example Output
-
-A 500×500 window showing small white squares arranged in your chosen pattern.
-
----
-
-### 🧩 Suggested Starter Code
-
-```cpp
 /**
  * ============================================================
  *  SDL2 Grid Example
@@ -56,29 +13,32 @@ A 500×500 window showing small white squares arranged in your chosen pattern.
  *
  */
 #include <SDL.h>
+
+#include "./includes/argsToJson.hpp"
+#include "./includes/json.hpp"
 #include <fstream>
 #include <iostream>  // For error logging to std::cerr
-
-#include "json.hpp"
-
 using json = nlohmann::json;
 
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
+    json params = ArgsToJson(argc, argv);
+    cout << params.dump(4) << endl;
+
     // ------------------------------------------------------------
     // CONFIGURATION SECTION
     // ------------------------------------------------------------
     // Each "cell" will be a square this many pixels wide/tall
-    const int cellSize = 20;
+    const int cellSize = params["cell_size"];
 
-    // Number of cells horizontally and vertically
-    const int gridWidth = 30;   // 30 cells across
-    const int gridHeight = 20;  // 20 cells tall
+    // // Number of cells horizontally and vertically
+    // const int gridWidth  = 30;  // 30 cells across
+    // const int gridHeight = 20;  // 20 cells tall
 
     // Total pixel dimensions of the SDL window
-    const int windowWidth = cellSize * gridWidth;
-    const int windowHeight = cellSize * gridHeight;
+    const int windowWidth  = params["width"];
+    const int windowHeight = params["height"];
 
     // ------------------------------------------------------------
     // INITIALIZE SDL
@@ -99,13 +59,12 @@ int main() {
     //   - x, y screen position (SDL_WINDOWPOS_CENTERED lets SDL decide)
     //   - Width and height in pixels
     //   - Flags (SDL_WINDOW_SHOWN = visible on creation)
-    SDL_Window* window = SDL_CreateWindow(
-        "SDL2 Grid Example",     // title
-        SDL_WINDOWPOS_CENTERED,  // x position
-        SDL_WINDOWPOS_CENTERED,  // y position
-        windowWidth,             // window width (pixels)
-        windowHeight,            // window height (pixels)
-        SDL_WINDOW_SHOWN         // flags
+    SDL_Window* window = SDL_CreateWindow("SDL2 Grid Example",     // title
+                                          SDL_WINDOWPOS_CENTERED,  // x position
+                                          SDL_WINDOWPOS_CENTERED,  // y position
+                                          windowWidth,             // window width (pixels)
+                                          windowHeight,            // window height (pixels)
+                                          SDL_WINDOW_SHOWN         // flags
     );
 
     // Verify the window was successfully created
@@ -132,11 +91,11 @@ int main() {
     // MAIN LOOP
     // ------------------------------------------------------------
     // "running" flag controls the lifetime of the program.
-    bool      running = true;
+    bool running = true;
     SDL_Event event;  // Struct that holds event information (keyboard, mouse, quit, etc.)
 
-    ifstream f("patterns.json");
-    json     data = json::parse(f);
+    ifstream f("./includes/shapes.json");
+    json data = json::parse(f);
 
     while (running) {
         // --------------------------------------------------------
@@ -201,18 +160,3 @@ int main() {
 
     return 0;  // 0 = successful program termination
 }
-
-```
-
-### 🧮 Rubric
-
-Upload your `Program_02` folder into your `Assignments` folder for grading.
-
-| Criterion                          | Description                             | Points  |
-| ---------------------------------- | --------------------------------------- | ------- |
-| SDL2 window setup                  | Properly initializes and shuts down SDL | 20      |
-| JSON data correctly rendered       | Pattern visible as expected             | 25      |
-| Centered and scaled correctly      | Pattern placement logical               | 15      |
-| Code organization and clarity      | Readable, modular, comments             | 20      |
-| Responsiveness (ESC to quit, etc.) | Handles input cleanly                   | 20      |
-| **Total**                          |                                         | **100** |
