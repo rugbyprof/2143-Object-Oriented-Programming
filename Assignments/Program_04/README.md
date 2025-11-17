@@ -1,5 +1,7 @@
 # 🧬 **Project: Conway’s Game of Life — SDL2 Edition**
 
+This README is your full guide.
+
 **Upgrade your existing terminal version into a fully interactive graphical program using SDL2.**  
 This project merges everything you’ve learned so far:
 
@@ -12,8 +14,6 @@ This project merges everything you’ve learned so far:
 - **Building real tools, not toy demos**
 
 SDL2 Code Examples are [HERE](../../Resources/Sdl2_Graphics/README.md)
-
-This README is your full guide.
 
 ---
 
