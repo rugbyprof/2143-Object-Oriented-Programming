@@ -7,8 +7,6 @@ notes: "High-level overview + examples; tone: casual, detailed, clever"
 
 # 🧬 C++ Inheritance — The “Family Tree” You Actually Care About
 
-_Terry, crack open the C++ family album. Some of these relatives are cool, some chaotic, all important._
-
 Below is a clean, thorough rundown of **the different types of inheritance in C++**, why they matter, and little code snippets to make them stick.
 
 ---
