@@ -1,22 +1,22 @@
 # 2143-Object Oriented Programming
 
-## Fall 2025
+## Spring 2026
 
 ## Office Hours
 
-<a href="https://images2.imgbox.com/c6/e3/u7y21BbY_o.png" target="_blank"><img src="https://images2.imgbox.com/d1/92/AaHE4YJf_o.png" alt="thumbnail link to larger version of office hours" width="150"/></a>
+<a href="https://images2.imgbox.com/48/11/j3rPbIsG_o.png" target="_blank"><img src="https://images2.imgbox.com/48/11/j3rPbIsG_o.png" alt="thumbnail link to larger version of office hours" width="150"/></a>
 
 ### General Course Info
 
-- **Days:** MWF 12:00 p.m. - 12:50 p.m.
-- **Location:** BO 144
-- [**Semester:**](https://msutexas.edu/registrar/calendars.php) Monday August 26<sup>th</sup> - Friday Dec 6<sup>th</sup>
+- **Days:** MWF 11:00 p.m. - 11:50 p.m.
+- **Location:** BO 103
+- [**Semester:**](https://msutexas.edu/registrar/calendars.php) Tuesday January 20<sup>th</sup> - Friday May 8<sup>th</sup>
 - [**Holidays:**](https://msutexas.edu/registrar/calendars.php)
-  - **Labor Day** Mon Sep 1<sup>st</sup>
-  - **Thanksgiving** Wed Nov 26<sup>th</sup> - Fri Nov 28<sup>th</sup>
-- [**Last Day for “W”:**](https://msutexas.edu/registrar/calendars.php) Mon Nov 24<sup>th</sup>
-- [**Last Day of Class:**](https://msutexas.edu/registrar/calendars.php) Fri Dec 5<sup>th</sup>
-- [**Final Exam:**](https://msutexas.edu/registrar/schedule/fallfinalexamschedule.php) Tue Dec 9<sup>th</sup> 3:30 p.m. - 5:30 p.m.
+  - **Spring Break** Mar 7<sup>th</sup> - Mar 15<sup>th</sup>
+  - **Easter** Apr 2<sup>nd</sup> - Apr 5<sup>th</sup>
+- [**Last Day for “W”:**](https://msutexas.edu/registrar/calendars.php) Mon Apr 29<sup>th</sup>
+- [**Last Day of Class:**](https://msutexas.edu/registrar/calendars.php) Fri May 8<sup>th</sup>
+- [**Final Exam:**](https://msutexas.edu/registrar/schedule/fallfinalexamschedule.php) Mon May 11<sup>th</sup> 10:30 a.m. - 12:30 p.m.
 
 ### Assumed
 

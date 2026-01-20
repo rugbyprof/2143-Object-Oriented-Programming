@@ -47,7 +47,6 @@ I use Github as a home-base for all assignments, lectures, and resources. It's b
 #### Create a Github account.
 
 - You shouldn't need this tutorial, but just in case:
-
   - https://www.wikihow.com/Create-an-Account-on-Github
 
 - When you create a Github account, you must choose a `username`.
@@ -279,15 +278,15 @@ The above markdown will produce a README that looks like:
 
 The simplest way to add an image to your `README.md` file is to place said image in the same place as the README.md file. If you do this, then you can simply link to it in one of two ways. Let's assume my image is called: `MugShot.png` then I can do the following:
 
-| **1.** `![Alt Txt](MugShot.png)` |
-| :------------------------------: |
-|     ![Alt Txt](MugShot.jpg)      |
-|        **Original Size**         |
+|              **1.** `![Alt Txt](https://images2.imgbox.com/8d/7c/e6DsilWD_o.png)`               |
+| :---------------------------------------------------------: |
+| ![MugShot](https://images2.imgbox.com/8d/7c/e6DsilWD_o.png) |
+|                      **Original Size**                      |
 
-| **2.** `<img src=MugShot.jpg width=150>` |
-| :--------------------------------------: |
-|     <img src=MugShot.jpg width=150>      |
-|          **Width Set to 150px**          |
+| **2.** `<img src="https://images2.imgbox.com/8d/7c/e6DsilWD_o.png" width="150">` |
+| :------------------------------------------------------------------------------: |
+|     <img src="https://images2.imgbox.com/8d/7c/e6DsilWD_o.png" width="150">      |
+|                              **Width Set to 150px**                              |
 
 These both work, with the second option giving you a little more control on sizing the image.
 
