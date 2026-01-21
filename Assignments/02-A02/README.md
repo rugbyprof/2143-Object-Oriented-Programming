@@ -1,10 +1,6 @@
----
-title: "Slack Intro "
-description: "Register with Slack"
-due: "01 Sep 2025"
-order: 2
-slug: "Slack_Intro"
----
+## Assignment 2 - Slack
+
+#### Due: 01-23-2026 (Friday by Classtime)
 
 ## Getting Setup
 
@@ -44,7 +40,9 @@ So, **NO email!** Unless I specifically ask. Slack is your communication conduit
 
 1. I **highly** recommend installing slack on your mobile device as well as your own computer. I often upload help, or code suggestions on Slack in the evening or on weekends. Having slack on your mobile device will give you the best chance of getting the `alert` or notification that something was done.
 2. **The students that monitor our slack channel and participate in discussions almost alway do better. I've used slack since it was established almost 10 years ago and I can say with a high level of confidence that students who participate on Slack to better in the course.**
-3. **YOU WILL** update your profile so your avatar in chats shows either an image of you, or an avatar that ends up on your Github repo's main page.
+3. **YOU WILL** update your profile so your picture in chats shows an image of you. See below for good and bad pics.
+
+<img src="https://images2.imgbox.com/87/5e/EthImSmk_o.png" width="400">
 
 Now that we have our communication client set up, we probably need to start getting the actual programming environment ready! We will be doing many things from the command line this semester. Windows is not known for it's command line prowess, so we need to give it some assistance.
 
@@ -73,3 +71,8 @@ Now that we have our communication client set up, we probably need to start gett
 ---
 
 Just message me on slack :) Emails get lost.
+
+
+
+
+
