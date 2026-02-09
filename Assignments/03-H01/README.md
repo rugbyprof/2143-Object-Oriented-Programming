@@ -10,7 +10,7 @@ coverage:
   - friend
   - Composition (intro, not yet the full assignment)
 due:
-  day: Friday
+  day: Monday the 16th
   time: 11:00 AM
 in_class_support:
   day: Wednesday
@@ -25,6 +25,8 @@ philosophy: |
 
 # 🧠 OOP Worksheet & Study Guide  
 ### *Making Your Own Types Feel Like the Language Meant Them to Exist*
+
+### Due: 16 Feb 2026 by class time. 
 
 > If this feels long, good.  
 > If it feels unfinished, also good.  
@@ -258,7 +260,7 @@ std::cout << a << std::endl;
 
 ---
 
-## 10️⃣ Design Constraints (Read Carefully)
+## 1️⃣0️⃣ Design Constraints (Read Carefully)
 
 You **may not**:
 - expose raw data publicly
@@ -274,7 +276,7 @@ You **should**:
 
 # Part 8 — Composition (The Quiet MVP of OOP)
 
-## 11️⃣ Composition in Plain English
+## 1️⃣1️⃣ Composition in Plain English
 
 > **Composition means assembling behavior from parts, not becoming those parts.**
 
@@ -284,7 +286,7 @@ Or more bluntly:
 
 ---
 
-## 12️⃣ Inheritance vs Composition (No Dragons Yet)
+## 1️⃣2️⃣ Inheritance vs Composition (No Dragons Yet)
 
 ### ❌ Inheritance First Instinct
 
@@ -318,7 +320,7 @@ Benefits:
 
 ---
 
-## 13️⃣ The Big Takeaway
+## 1️⃣3️⃣ The Big Takeaway
 
 > **Inheritance expresses identity.  
 > Composition expresses capability.**
@@ -392,4 +394,4 @@ The goal is **better judgment**.
 - You have to use markdown to create your document. Why? It does syntax highlighting, and makes writing documents easy. 
   - [Markdown Getting Started](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
   - [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
-- If you use code spaces or download VsCode, you can install plugins to let you convert markdown to pdf, and to allow you to print directly from vscode.
+- If you use code spaces or download VsCode, you can install plugins to let you convert markdown to pdf, and to allow you to print directly from VsCode.
