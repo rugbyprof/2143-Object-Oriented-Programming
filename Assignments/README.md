@@ -1,14 +1,11 @@
-## Assignments
+# Assignments Schedule
 
-| Title | Description | Due | Days Left | Link | Last Updated |
-|-------|-------------|-----|-----------|------|---------------|
+_Last updated: 2026-01-24_
 
-<sup>Last Updated: 22-Sep-2025 (Mon @ 16:03)</sup>
+| # | Assignment | Due Date | Days Left | Points |
+|---|------------|----------|-----------|--------|
+| 1 | [Github and Your Repository](01-A01) | Jan 23, 2026 | — | 100 |
+| 2 | [Establishiing Comms](02-A02) | Jan 23, 2026 | — | 100 |
+| 3 | [OOP Wiki](Wiki) | Mar 17, 2026 | 52 | 100 |
 
-<sup>***Days Left is only accurate if the `Last Updated` date is today. Otherwise, use the due date!***</sup>
-
-### Older Assignments
-
-| Title | Description | Due | Days Left | Link | Last Updated |
-|-------|-------------|-----|-----------|------|---------------|
-
+<sup>Last Updated:Saturday @ 21:37 2026-01-24  </sup>

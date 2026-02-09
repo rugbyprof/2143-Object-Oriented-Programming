@@ -219,3 +219,6 @@ Senate Bill 11 passed by the 84th Texas Legislature allows licensed handgun hold
 ### **Midterm Progress Report**
 
 In order to help students keep track of their progress toward course objectives, the instructor for this class will provide a Midterm Progress Report for all students in the course through each student’s MSU Portal account. Midterm grades will not be reported on the students’ transcript; nor will they be calculated in the cumulative GPA. They simply give students an idea of where they stand at the midpoint of the semester. Students earning below a C at the midway point should a) schedule a meeting with the professor and b) Seek out tutoring.
+
+
+
