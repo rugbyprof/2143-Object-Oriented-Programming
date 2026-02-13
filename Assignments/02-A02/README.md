@@ -1,3 +1,13 @@
+---
+id: 02-A02
+name: 02-A02
+description: ''
+category: assignment
+date_assigned: YYYY-MM-DD HH:MM
+date_due: YYYY-MM-DD HH:MM
+resources: []
+---
+
 ## Assignment 2 - Slack
 
 #### Due: 01-23-2026 (Friday by Classtime)

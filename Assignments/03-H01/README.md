@@ -1,6 +1,12 @@
-```yaml
-course: OOP (Object-Oriented Programming)
-artifact: Mega Worksheet + Study Guide + Rubric
+---
+id: 03-H01
+name: "\U0001F9E0 OOP Worksheet & Study Guide"
+description: '  OOP is not about inheritance.
+  It is about designing types that are hard to misuse.'
+category: homework
+date_assigned: 2026-02-09 12:00
+date_due: 2026-02-16 11:00
+resources: []
 coverage:
   - Stacks & Queues (ADT mindset refresher)
   - Overloading vs Overriding
@@ -9,17 +15,7 @@ coverage:
   - Operator Overloading
   - friend
   - Composition (intro, not yet the full assignment)
-due:
-  day: Monday the 16th
-  time: 11:00 AM
-in_class_support:
-  day: Wednesday
-  note: Questions encouraged. Panic discouraged.
-tone: Academically serious, emotionally sarcastic
-philosophy: |
-  OOP is not about inheritance.
-  It is about designing types that are hard to misuse.
-```
+---
 
 ---
 

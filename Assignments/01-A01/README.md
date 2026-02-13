@@ -1,3 +1,13 @@
+---
+id: 01-A01
+name: 01-A01
+description: ''
+category: assignment
+date_assigned: YYYY-MM-DD HH:MM
+date_due: YYYY-MM-DD HH:MM
+resources: []
+---
+
 ## Assignment 1 - Code Repository
 
 
