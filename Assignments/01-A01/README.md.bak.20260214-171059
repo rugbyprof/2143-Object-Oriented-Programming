@@ -2,11 +2,12 @@
 id: 01-A01
 name: 01-A01
 description: ''
-category: Assignment
-date_assigned: 2026-01-20 17:10
-date_due: 2026-01-23 11:00
+category: assignment
+date_assigned: YYYY-MM-DD HH:MM
+date_due: YYYY-MM-DD HH:MM
 resources: []
 ---
+
 ## Assignment 1 - Code Repository
 
 
@@ -115,17 +116,17 @@ https://imgbox.com/cbpg81dL -->
 ```md
 ## Assignments
 
-|   #   | Folder Link | Assignment Description |
-| :---: | ----------- | ---------------------- |
-|   0   | link 0      | description 0          |
+|  #  | Folder Link | Assignment Description |
+| :-: | ----------- | ---------------------- |
+|  0  | link 0      | description 0          |
 ```
 
 - This will be a table in the root of your folder that will eventually hold a link to each assignment uploaded to Github.
 - Your table will initially look very worthless with this example filler data for a single row:
 
-|   #   | Folder Link | Assignment Description |
-| :---: | ----------- | ---------------------- |
-|   0   | link 0      | description 0          |
+|  #  | Folder Link | Assignment Description |
+| :-: | ----------- | ---------------------- |
+|  0  | link 0      | description 0          |
 
 ---
 
@@ -134,24 +135,24 @@ But then it will improve as you add rows to the table which link to each of your
 #### Markdown
 
 ```md
-|   #   | Folder Link                            | Assignment Description                               |
-| :---: | -------------------------------------- | ---------------------------------------------------- |
-|   1   | [A01](./FakeAssignments/A01/README.md) | [Show up to class ](./FakeAssignments/A01/README.md) |
-|   2   | [A02](./FakeAssignments/A02/README.md) | [Listen in class ](./FakeAssignments/A02/README.md)  |
-|   3   | [P01](./FakeAssignments/P01/README.md) | [Hello World ](./FakeAssignments/P01/README.md)      |
-|   1   | [P02](./FakeAssignments/P02/README.md) | [Hello Mars ](./FakeAssignments/P02/README.md)       |
+|  #  | Folder Link                            | Assignment Description                               |
+| :-: | -------------------------------------- | ---------------------------------------------------- |
+|  1  | [A01](./FakeAssignments/A01/README.md) | [Show up to class ](./FakeAssignments/A01/README.md) |
+|  2  | [A02](./FakeAssignments/A02/README.md) | [Listen in class ](./FakeAssignments/A02/README.md)  |
+|  3  | [P01](./FakeAssignments/P01/README.md) | [Hello World ](./FakeAssignments/P01/README.md)      |
+|  1  | [P02](./FakeAssignments/P02/README.md) | [Hello Mars ](./FakeAssignments/P02/README.md)       |
 ```
 
 ---
 
 #### Resulting Table
 
-|   #   | Folder Link                            | Assignment Description                               |
-| :---: | -------------------------------------- | ---------------------------------------------------- |
-|   1   | [A01](./FakeAssignments/A01/README.md) | [Show up to class ](./FakeAssignments/A01/README.md) |
-|   2   | [A02](./FakeAssignments/A02/README.md) | [Listen in class ](./FakeAssignments/A02/README.md)  |
-|   3   | [P01](./FakeAssignments/P01/README.md) | [Hello World ](./FakeAssignments/P01/README.md)      |
-|   1   | [P02](./FakeAssignments/P02/README.md) | [Hello Mars ](./FakeAssignments/P02/README.md)       |
+|  #  | Folder Link                            | Assignment Description                               |
+| :-: | -------------------------------------- | ---------------------------------------------------- |
+|  1  | [A01](./FakeAssignments/A01/README.md) | [Show up to class ](./FakeAssignments/A01/README.md) |
+|  2  | [A02](./FakeAssignments/A02/README.md) | [Listen in class ](./FakeAssignments/A02/README.md)  |
+|  3  | [P01](./FakeAssignments/P01/README.md) | [Hello World ](./FakeAssignments/P01/README.md)      |
+|  1  | [P02](./FakeAssignments/P02/README.md) | [Hello Mars ](./FakeAssignments/P02/README.md)       |
 
 ---
 

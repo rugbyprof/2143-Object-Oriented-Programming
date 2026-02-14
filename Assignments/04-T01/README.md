@@ -7,8 +7,8 @@ slug: Exam_01
 id: 04-T01
 name: 04-T01
 category: exam
-date_assigned: YYYY-MM-DD HH:MM
-date_due: YYYY-MM-DD HH:MM
+date_assigned: 2026-02-09 12:00
+date_due: 2026-02-20 11:00
 resources: []
 ---
 ## Study Guide
@@ -20,8 +20,6 @@ These are equivalent to my version of a text book. It's the content that describ
 | Folder                        | Link                                                                           |
 | ----------------------------- | ------------------------------------------------------------------------------ |
 | DataStructures_and_Containers | [DataStructures_and_Containers](../../Lectures/DataStructures_and_Containers/) |
-| Day_5_Overloading             | [Day_5_Overloading](../../Lectures/Day_5_Overloading/)                         |
-| Day_6_Composition             | [Day_6_Composition](../../Lectures/Day_6_Composition/)                         |
 | OOP_Fundamentals              | [OOP_Fundamentals](../../Lectures/OOP_Fundamentals/)                           |
 | 02-PublicVsPrivate            | [02-PublicVsPrivate](../../Lectures/OOP_Fundamentals/02-PublicVsPrivate/)      |
 | 03-CopyConstructor            | [03-CopyConstructor](../../Lectures/OOP_Fundamentals/03-CopyConstructor/)      |
