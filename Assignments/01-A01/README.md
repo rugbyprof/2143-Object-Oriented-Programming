@@ -1,4 +1,4 @@
----
+```yaml
 id: 01-A01
 name: 01-A01
 description: ''
@@ -6,7 +6,7 @@ category: Assignment
 date_assigned: 2026-01-20 17:10
 date_due: 2026-01-23 11:00
 resources: []
----
+```
 ## Assignment 1 - Code Repository
 
 
