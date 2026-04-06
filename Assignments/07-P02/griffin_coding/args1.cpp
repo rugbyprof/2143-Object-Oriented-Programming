@@ -1,7 +1,8 @@
+// Classroom discussion
+
 #include <iostream>
 
 using namespace std;
-
 
 class Args {
     public:

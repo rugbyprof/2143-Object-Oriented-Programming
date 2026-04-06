@@ -1,3 +1,5 @@
+// Classroom discussion
+
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -5,8 +7,8 @@
 using namespace std;
 
 class Args {
-    private:
-    public:
+private:
+public:
 };
 
 int main (int argc, char** argv) {
