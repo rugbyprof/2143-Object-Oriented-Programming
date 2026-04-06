@@ -53,16 +53,16 @@ void loadPPM (IMG& img, string filename) {
     for (int i = 0; i < img.w * img.h; i++) {
         int r, g, b;
         f >> r >> g >> b;
-        if (r > 255)
-            r = 255;
+        if (r > maxval)
+            r = maxval;
         if (r < 0)
             r = 0;
-        if (g > 255)
-            g = 255;
+        if (g > maxval)
+            g = maxval;
         if (g < 0)
             g = 0;
-        if (b > 255)
-            b = 255;
+        if (b > maxval)
+            b = maxval;
         if (b < 0)
             b = 0;
         img.R[i] = r;
@@ -137,7 +137,9 @@ int main () {
     IMG image;
     loadPPM (image, "in.ppm");
     grayScale (image);
+    savePPM (image, "out_grayscale.ppm");
+    // printDebug (image);
     brighten (image, .50);
-    savePPM (image, "out.ppm");
+    savePPM (image, "out_brighten.ppm");
     return 0;
 }
