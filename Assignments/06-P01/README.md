@@ -1,17 +1,53 @@
 ```yaml
-title: Program 1
-description: Image Viewer
+title: Program 1 — Image Tool
+description: Grayscale conversion with colored output and auto-open
 id: 06-P01
-name: 06-P01
-category: program
+course: 2143 - Object Oriented Programming
 date_assigned: 2026-03-02 12:00
 date_due: 2026-03-09 11:00
-resources: []
+points: 100
 ```
 
-# Program 1 Starter Code (compiles as-is)
+# Program 1 — Image Tool
 
-> File: [`source1.cpp`](./source1.cpp)
+## Overview
+
+You are given working starter code that loads an image, converts it to grayscale using the luminance formula, and saves the result as a PNG. It compiles and runs correctly as-is.
+
+Your job is to add two small but meaningful extras:
+
+- **Task A** — Replace plain terminal output with colored messages using the `termcolor` library
+- **Task B** — After saving the output image, automatically open it in the system's default image viewer
+  > Image not opening is not catastrophic if the proper code is there.
+
+This is **Program 1 of 4**. Each program builds on the previous one. Keeping your code clean and organized here pays off later.
+
+---
+
+## Project Structure
+
+```
+06-P01/
+├── README.md
+├── src/
+│   └── main.cpp          ← your working file
+├── include/
+│   ├── stb_image.h       ← image loading (provided)
+│   ├── stb_image_write.h ← image writing (provided)
+│   └── termcolor.hpp     ← colored terminal output (provided)
+├── images/
+│   ├── Hulda.png         ← test input image
+│   ├── Hulda.jpg         ← alternate input format
+│   └── HuldaBW.png       ← expected output (reference)
+└── docs/
+    └── compile_cmd.md    ← breakdown of compiler flags
+```
+
+---
+
+## Starter Code
+
+`src/main.cpp` compiles and runs as-is. Read it carefully before making changes.
 
 ```cpp
 #define STB_IMAGE_IMPLEMENTATION
@@ -57,7 +93,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    const int channels = 3;
+    const int channels    = 3;
     const int totalPixels = width * height;
 
     std::cout << "Loaded image: " << width << "x" << height
@@ -73,7 +109,6 @@ int main(int argc, char* argv[]) {
 
         int gray = static_cast<int>(0.299 * r + 0.587 * g + 0.114 * b);
 
-        // gray will already be in [0,255] for this formula
         unsigned char gr = static_cast<unsigned char>(gray);
 
         data[idx + 0] = gr;
@@ -98,7 +133,7 @@ int main(int argc, char* argv[]) {
 
     std::cout << "Saved output to: " << outputPath << "\n";
 
-    // TODO (Student): open output file automatically in default viewer
+    // TODO (Task B): open output file automatically in default viewer
 
     return 0;
 }
@@ -106,70 +141,78 @@ int main(int argc, char* argv[]) {
 
 ---
 
-# Your Tasks (Add the “Extras”)
+## Build & Run
 
-## Task A — Add termcolor (colored output)
+```bash
+# Compile from the project root (06-P01/)
+g++ -std=c++17 -O2 -Wall -Wextra -pedantic -Iinclude src/main.cpp -o imgtool
 
-### 1) Add include
-At the top, add:
+# Run it
+./imgtool images/Hulda.png output.png
+```
+
+The `-Iinclude` flag tells the compiler to search the `include/` folder for header files.
+
+For a full breakdown of every compiler flag, see [docs/compile_cmd.md](./docs/compile_cmd.md).
+
+---
+
+## Task A — Colored Terminal Output
+
+Include the `termcolor` header and replace the plain `cout`/`cerr` messages with colored versions.
+
+### 1) Add the include
 
 ```cpp
 #include "termcolor.hpp"
 ```
 
-### 2) (Optional) Add namespace shortcut
-Add below includes:
+### 2) Optional namespace shortcut
 
 ```cpp
 using namespace termcolor;
 ```
 
+### 3) Replace the three messages
 
-### 3) Replace messages with colored versions
-Examples:
+**Usage error** (bad argument count):
 
-**Usage message**
 ```cpp
-std::cout << red << "Usage: " << blue
-          << "./imgtool <input_image> <output_image>\n"
+std::cout << red    << "Usage: "
+          << blue   << "./imgtool <input_image> <output_image>\n"
           << reset;
 ```
 
-If you don't add `using namespace termcolor` below your includes, your code will look like: 
+**Load failure:**
 
-**Usage message**
 ```cpp
-std::cout << termcolor::red << "Usage: " << termcolor::blue
-          << "./imgtool <input_image> <output_image>\n"
-          << termcolor::reset;
+std::cerr << red   << "Failed to load image: "
+          << reset << inputPath << "\n";
 ```
 
-**Load fail**
+**Success:**
+
 ```cpp
-std::cerr << red << "Failed to load image: " << reset
-          << inputPath << "\n";
+std::cout << green  << "Saved output to: "
+          << yellow << outputPath
+          << reset  << "\n";
 ```
 
-**Success**
-```cpp
-std::cout << green << "Saved output to: " << yellow
-          << outputPath << reset << "\n";
-```
-
-That’s it. They’ll feel like terminal wizards immediately.
+You can color the "Loaded image" message too — it's good practice.
 
 ---
 
-## Task B — Add “open output image in default viewer”
+## Task B — Auto-Open Output Image
 
-### 1) Add include for `system()`
-At the top:
+After saving, automatically open the output file in the default image viewer.
+
+### 1) Add the include
 
 ```cpp
 #include <cstdlib>
 ```
 
-### 2) Paste this function ABOVE `main()`
+### 2) Add this function above `main()`
 
 ```cpp
 bool open_file_default_app(const std::string& path) {
@@ -184,9 +227,7 @@ bool open_file_default_app(const std::string& path) {
 }
 ```
 
-### 3) Call it after saving
-
-Replace the TODO with:
+### 3) Replace the TODO comment with a call
 
 ```cpp
 std::cout << "Opening output in default viewer...\n";
@@ -195,24 +236,38 @@ if (!open_file_default_app(outputPath)) {
 }
 ```
 
-(Students can color those messages too.)
-
----
-
-# Build / Run
-
-```bash
-# Compile your code
-g++ -std=c++17 -O2 -Wall -Wextra -pedantic source1.cpp -o imgtool
-./imgtool input.png output.png
-```
-
-For a breakdown of the compile command, look [HERE](./compile_cmd.md)
+> **Note:** If you are working in a remote environment (GitHub Codespaces, SSH server, etc.) with no display, the viewer will not open. That is expected — the code should still compile and run without errors.
 
 ---
 
 ## Notes
-- If you’re on a server with no GUI (like Codespaces), the viewer won’t open. That’s normal.
-- This is Program 1: hardcoded grayscale only.
-- Program 2: you’ll add your `Args::parse()` and select the filter + `--view`.
 
+- This is Program 1 of 4. Do not refactor the grayscale logic into a class or add extra features — that is Program 2's job.
+- Submit only `src/main.cpp`. The headers and images are provided.
+- Your code must compile with the exact command shown above, with no errors and no warnings.
+
+---
+
+## Rubric
+
+> _Program must compile. Or it will be considered a failure._
+
+| Category                      | Points  | Details                                                      |
+| ----------------------------- | ------- | ------------------------------------------------------------ |
+| **Compiles clean**            | 20      | No errors, no warnings with `-Wall -Wextra -pedantic`        |
+| **Task A — Usage message**    | 15      | Usage error uses at least two distinct colors + reset        |
+| **Task A — Error message**    | 10      | Load failure uses color                                      |
+| **Task A — Success message**  | 15      | Save success uses color                                      |
+| **Task B — Function defined** | 20      | `open_file_default_app()` present, handles all 3 platforms   |
+| **Task B — Function called**  | 10      | Called after successful save with appropriate output message |
+| **Code quality**              | 10      | No dead code, no unused variables, consistent style          |
+| **Total**                     | **100** |                                                              |
+
+### Deductions
+
+| Issue                                                              | Penalty           |
+| ------------------------------------------------------------------ | ----------------- |
+| Missing `reset` after colored output (colors bleed into next line) | −5 per occurrence |
+| Hardcoded platform string instead of `#if defined(...)`            | −10               |
+| Extra features added beyond what was asked                         | −10               |
+| Does not compile on grader's machine                               | up to −50         |

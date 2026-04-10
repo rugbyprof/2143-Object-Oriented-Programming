@@ -1,343 +1,321 @@
 ```yaml
-title: Program 4
-description: Color Class + PPM Image Type
+title: Program 4 — Color, Kernels, and Convolution
+description: Operator overloading, named constructors, convolution kernels
 id: 11-P04
-name: 11-P04
-category: program
+course: 2143 - Object Oriented Programming
 date_assigned: 2026-04-20 12:00
 date_due: 2026-05-04 11:00
-resources: []
+points: 100
 ```
 
-# Program 4: Build a Type That Fits (C++)
+# Program 4 — Color, Kernels, and Convolution
 
 ## Overview
 
-A well-designed type feels like it belongs in the language. You don't look up how to use it — it just works the way you'd expect. `std::string` is like that. `nlohmann::json` is like that. In this assignment you'll build two types that aim for that standard:
+P03 gave you a working image pipeline. This program extends it in two directions:
 
-- `Color` — an RGB color value with arithmetic, comparison, indexing, and named constructors
-- `PPM` — an image file that stores `Color` pixels and knows how to load, save, and be accessed naturally
+1. **`Color`** replaces the raw `Pixel` struct with a type that has operator overloading, named constructors, and indexed channel access. When a type has these, filter arithmetic becomes expressive — `p = p * 0.5` instead of `p.r = p.r/2; p.g = p.g/2; p.b = p.b/2`.
 
-The `PPM` class is built *from* `Color` — this is **composition**: a `PPM` has a grid of `Color` objects, not raw integers. You will replace the primitive `Pixel` struct from P03 with your new `Color` type.
+2. **`Kernel`** generalizes the blur effect from P03 into a convolution kernel. The same 15-line loop can produce blur, sharpen, edge detection, emboss, and more — the only thing that changes is the numbers in the 3×3 grid.
+
+`KernelFilter` is the bridge: it wraps a `Kernel` in the `Filter` interface, so every kernel plugs directly into your existing `Pipeline`. You write one new class, and the pipeline from P03 gains five new effects without touching `Pipeline` or `main.cpp`.
+
+---
+
+## From P03 to P04
+
+### `Pixel` → `Color`
+
+In P03, pixels were stored as a plain `struct Pixel { int r, g, b; }`. In P04, pixels are `Color` objects — the same three integer channels, but with operators:
+
+```cpp
+// P03 style
+p.r += 50; p.g += 50; p.b += 50;
+
+// P04 style — same result, cleaner code
+p = p + Color(50, 50, 50);
+```
+
+Your P03 filters still compile unchanged in P04 because `Filter.h` defines:
+
+```cpp
+using Pixel = Color;
+```
+
+That alias means any code that says `Pixel` is using `Color` under the hood. Study `Brighten.cpp` — it is the exact P03 implementation running inside P04 without modification.
+
+### `Blur` → `KernelFilter`
+
+P03's `Blur` class manually computed a 3×3 average using a hand-written loop. In P04, the same effect is:
+
+```cpp
+pipeline.add(new KernelFilter(Kernel::boxBlur(), "blur"));
+```
+
+And sharpening, edge detection, and emboss are:
+
+```cpp
+pipeline.add(new KernelFilter(Kernel::sharpen(),    "sharpen"));
+pipeline.add(new KernelFilter(Kernel::edgeDetect(), "edgeDetect"));
+pipeline.add(new KernelFilter(Kernel::emboss(),     "emboss"));
+```
+
+The convolution loop is the same every time. That's the point: one general algorithm, different data.
+
+---
+
+## Project Structure
+
+```
+11-P04/
+├── README.md
+├── src/
+│   ├── main.cpp              ← do not modify
+│   ├── Image.h / Image.cpp   ← updated: uses Color, adds Image::apply()
+│   ├── Color.h / Color.cpp   ← your main task (Part 1)
+│   ├── Kernel.h / Kernel.cpp ← your second task (Part 2)
+│   ├── Filter.h              ← updated: Grid uses Color, adds Pixel alias
+│   ├── Pipeline.h/.cpp       ← unchanged from P03
+│   ├── KernelFilter.h/.cpp   ← provided complete — the P03→P04 bridge
+│   ├── Brighten.h/.cpp       ← provided (P03 implementation, unchanged)
+│   ├── Grayscale.h/.cpp      ← stub — paste and optionally refactor P03
+│   ├── FlipH.h/.cpp          ← stub — paste P03
+│   ├── FlipV.h/.cpp          ← stub — paste P03
+│   └── Rotate.h/.cpp         ← stub — paste P03
+├── include/
+│   ├── stb_image.h           ← do not modify
+│   └── stb_image_write.h     ← do not modify
+├── images/
+│   ├── Hulda.jpg             ← test image
+│   └── in.png                ← test image
+└── docs/
+    ├── image_example.cpp     ← standalone demo (reference, not compiled with imgtool)
+    └── ppm_example.cpp       ← legacy reference showing what Image replaced
+```
+
+---
+
+## Build & Run
+
+```bash
+# Compile from the project root (11-P04/)
+g++ -std=c++17 -O2 -Wall -Wextra -pedantic -isystem include \
+    src/main.cpp src/Image.cpp src/Color.cpp src/Kernel.cpp \
+    src/Pipeline.cpp src/KernelFilter.cpp \
+    src/Brighten.cpp src/Grayscale.cpp \
+    src/FlipH.cpp src/FlipV.cpp src/Rotate.cpp \
+    src/Args.cpp -o imgtool
+```
+
+---
+
+## Example Commands
+
+```bash
+# P03 filters still work
+./imgtool images/Hulda.jpg out.png --grayscale --brighten 30
+
+# Blur is now routed through KernelFilter
+./imgtool images/Hulda.jpg out.png --blur
+
+# New kernel effects
+./imgtool images/Hulda.jpg out.png --sharpen
+./imgtool images/Hulda.jpg out.png --edgeDetect
+./imgtool images/Hulda.jpg out.png --emboss
+./imgtool images/Hulda.jpg out.png --gaussian
+
+# Chain effects: grayscale first, then find edges
+./imgtool images/Hulda.jpg out.png --grayscale --edgeDetect
+
+# Chain effects: soft blur, then sharpen
+./imgtool images/Hulda.jpg out.png --gaussian --sharpen
+
+# Mix P03 and P04 filters
+./imgtool images/Hulda.jpg out.png --flipH --sharpen --brighten 20
+
+# Short flags
+./imgtool images/Hulda.jpg out.png -g -s -b 10
+```
+
+### Expected output (success)
+
+```
+INPUT   : images/Hulda.jpg
+OUTPUT  : out.png
+ORDER   : grayscale edgeDetect
+
+Loaded: Image(546 x 640, 349440 pixels)
+FILTERS : grayscale -> edgeDetect
+Saved: out.png
+```
 
 ---
 
 ## Part 1: The `Color` Class
 
-### Storage
+Every operator and factory in `Color.cpp` is a student TODO except:
 
-Internally store `r`, `g`, `b` as integers clamped to `[0, 255]`. Enforce this in every method that sets a channel — an invalid value should clamp, not crash or silently overflow.
+- **Constructors** — provided (clamp on construction)
+- **`operator[]`** — provided (needed by `KernelFilter` and `Image::apply`)
+- **`clamp` / `clampDouble`** — provided private helpers
+
+### Operators to implement
+
+| Operator    | Behavior                                     |
+| ----------- | -------------------------------------------- |
+| `c + d`     | Add channels, clamp result to [0, 255]       |
+| `c * 0.5`   | Scale each channel by a double, clamp        |
+| `0.5 * c`   | Same (already delegating to the above)       |
+| `c == d`    | True if all three channels match             |
+| `c != d`    | Already implemented (delegates to `==`)      |
+| `cout << c` | Print as `rgb(r, g, b)`                      |
+| `cin >> c`  | Read three integers into r, g, b; clamp each |
+
+### Static factories to implement
 
 ```cpp
-Color c(300, -10, 128);   // stored as (255, 0, 128)
+Color Color::fromRGB(int r, int g, int b);           // thin wrapper around constructor
+Color Color::fromHex(const std::string& hex);         // "#ff8000" or "ff8000"
+Color Color::fromHSL(double h, double s, double l);   // h in [0,360), s/l in [0,1]
 ```
 
-### Required Operator Overloads
+`fromHex` and `fromHSL` must throw `std::invalid_argument` on bad input.
 
-| Operator | Behavior |
-|---|---|
-| `c + d` | Add channels, clamp result to [0, 255] |
-| `c * 0.5` | Scale each channel by a double, clamp |
-| `0.5 * c` | Same — order shouldn't matter |
-| `c[0]`, `c[1]`, `c[2]` | Access r, g, b by index |
-| `c == d` | True if all three channels match |
-| `c != d` | Opposite of `==` |
-| `cout << c` | Print as `rgb(255, 128, 0)` |
-| `cin >> c` | Read three integers into r, g, b |
+#### HSL → RGB Conversion
 
-### Required Static Factories
+HSL (Hue, Saturation, Lightness) is a human-friendly color model. The standard algorithm is well-documented — look it up, understand it, implement it.
 
-```cpp
-Color Color::fromRGB(int r, int g, int b);
-Color Color::fromHex(const std::string& hex);   // "#ff8000" or "ff8000"
-Color Color::fromHSL(double h, double s, double l);
-```
+Test cases:
 
-Why factories instead of constructors? Because `Color(30.0, 1.0, 0.5)` is ambiguous — is that HSL or HSV? `Color::fromHSL(30.0, 1.0, 0.5)` is not. See the HSL conversion notes below.
+| HSL           | Expected RGB           |
+| ------------- | ---------------------- |
+| (0, 1, 0.5)   | (255, 0, 0) — red      |
+| (120, 1, 0.5) | (0, 255, 0) — green    |
+| (240, 1, 0.5) | (0, 0, 255) — blue     |
+| (0, 0, 0.5)   | (128, 128, 128) — gray |
+| (0, 0, 0)     | (0, 0, 0) — black      |
 
-### Error Handling
+---
 
-Factories should throw `std::invalid_argument` on bad input:
+## Part 2: Kernel Factories
+
+`Kernel.h`, `Kernel.cpp` stubs, and the two constructors are provided. Your task is the six named factories and the `operator<<`.
+
+Each factory builds and returns a 3×3 `Kernel` using the values from the table below. The stubs in `Kernel.cpp` include the kernel grid in comments — fill in the data:
 
 ```cpp
-Color::fromHex("zzzzzz");   // throws — not valid hex
-Color::fromHSL(400, 1, 1);  // throws — hue must be [0, 360)
-```
-
-Callers catch this in `main`:
-
-```cpp
-try {
-    Color c = Color::fromHex(userInput);
-} catch (const std::invalid_argument& e) {
-    std::cerr << "Error: " << e.what() << "\n";
+Kernel Kernel::boxBlur() {
+    //   1/9  1/9  1/9
+    //   1/9  1/9  1/9       all nine values are 1.0/9.0
+    //   1/9  1/9  1/9
+    return Kernel(3, { 1.0/9, 1.0/9, 1.0/9,
+                       1.0/9, 1.0/9, 1.0/9,
+                       1.0/9, 1.0/9, 1.0/9 });
 }
 ```
 
----
+You also need to implement the flat-vector constructor that unpacks values into `data_[row][col]`, and the `at(row, col)` accessor with bounds checking.
 
-## Part 2: The `PPM` Class
+### Kernel reference table
 
-A `PPM` is an image. Internally it stores a 2D grid of `Color` objects. It knows how to load and save the PPM P3 format from P03.
+| Name         | Grid                            | Kernel sums to |
+| ------------ | ------------------------------- | -------------- |
+| identity     | center = 1, rest = 0            | 1.0            |
+| boxBlur      | all 1/9                         | 1.0            |
+| sharpen      | `0 -1 0 / -1 5 -1 / 0 -1 0`     | 1.0            |
+| edgeDetect   | all -1, center = 8              | 0.0            |
+| emboss       | diagonal from -2..+2 (see stub) | 1.0            |
+| gaussianBlur | `1 2 1 / 2 4 2 / 1 2 1` ÷ 16    | 1.0            |
 
-### Required Interface
-
-```cpp
-class PPM {
-public:
-    static PPM load(const std::string& filename);  // factory
-    void save(const std::string& filename) const;
-
-    int width()  const;
-    int height() const;
-
-    Color&       operator[](int row, int col);        // C++23
-    const Color& operator[](int row, int col) const;
-
-    // C++20/earlier fallback — row access returns a vector
-    std::vector<Color>&       operator[](int row);
-    const std::vector<Color>& operator[](int row) const;
-
-    friend std::ostream& operator<<(std::ostream& os, const PPM& img);
-};
-```
-
-### Composition
-
-`PPM` stores `Color`, not raw ints. The internal grid is:
-
-```cpp
-std::vector<std::vector<Color>> pixels;
-```
-
-This means your filters from P03 need updating — `Pixel` becomes `Color`. The arithmetic you added to `Color` (`+`, `*`) should simplify the filter implementations noticeably.
-
-### `operator<<` for PPM
-
-Should print a compact summary, not the entire pixel grid:
-
-```
-PPM(640 x 480, 307200 pixels)
-```
+Notice the relationship between sum and effect: sum = 1.0 preserves overall brightness; sum = 0.0 turns uniform regions black (edges only).
 
 ---
 
-## Part 3: Fix the Smell (Refactoring Exercise)
+## Part 3: Bring Forward Your P03 Filters
 
-The file `smelly_ppm.cpp` is provided. It is a working PPM loader/saver written by a beginner — correct but unrefined. Your job is to:
+Paste your P03 implementations into the corresponding `*.cpp` files. They will compile unchanged because `Filter.h` defines `using Pixel = Color`.
 
-1. Read it and identify the code smells (list is below)
-2. Refactor it into a clean `PPM` class
-3. Write a short paragraph for each smell: what it is, where it appears, and how you fixed it
+Optionally (for the 10-point "Color operators" credit), refactor one or more filters to use `Color` operators. For example:
 
-### Smells to Find and Fix
+```cpp
+// Grayscale — P03 style
+int gray = (p.r + p.g + p.b) / 3;
+p.r = p.g = p.b = gray;
 
-| Smell | Hint |
-|---|---|
-| Magic numbers | `255` and `3` appear repeatedly with no explanation |
-| Primitive obsession | Pixels stored as separate `r`, `g`, `b` integer arrays |
-| Long method | One function does file open, parse, validate, and store |
-| Dead code | A `printDebug()` function that is never called |
-| God object | One struct handles file I/O, pixel math, and error reporting |
-| Inconsistent naming | Mix of `camelCase`, `snake_case`, and `ALL_CAPS` in same file |
+// Grayscale — P04 style (uses Color(int,int,int) + operator[])
+int gray = (p[0] + p[1] + p[2]) / 3;
+p = Color(gray, gray, gray);
+```
+
+Both are correct. The refactored version demonstrates why `operator[]` is useful.
 
 ---
 
-## HSL Conversion Notes
+## Part 4: `Image::apply` (non-destructive convolution)
 
-HSL (Hue, Saturation, Lightness) is a human-friendly color model. The conversion to RGB is well-documented — look it up, understand it, implement it. Do not copy-paste without understanding.
+`Image::apply(const Kernel& k)` returns a new `Image` — `*this` is unchanged. The algorithm is identical to `KernelFilter::apply()` which is provided as a complete working example. Study it, then implement `Image::apply`.
 
-Inputs:
-- `h` in `[0.0, 360.0)` — the color wheel position
-- `s` in `[0.0, 1.0]` — 0 = gray, 1 = full color
-- `l` in `[0.0, 1.0]` — 0 = black, 0.5 = normal, 1 = white
+The difference in intent:
 
-Output: a `Color` with r, g, b in [0, 255].
-
-Some examples to test against:
-
-| HSL | Expected RGB |
-|---|---|
-| (0, 1, 0.5) | (255, 0, 0) — red |
-| (120, 1, 0.5) | (0, 255, 0) — green |
-| (240, 1, 0.5) | (0, 0, 255) — blue |
-| (0, 0, 0.5) | (128, 128, 128) — gray |
-| (0, 0, 0) | (0, 0, 0) — black |
-
----
-
-## Updating P03 Filters
-
-Once `Color` is working, update your filters from P03:
-
-- Replace `struct Pixel { int r, g, b; }` with `Color`
-- `Grayscale::apply` becomes: `p = p * (1.0/3.0) * 3.0` — or just use the average
-- `Brighten::apply` becomes: `p = p + Color(delta, delta, delta)` — or `p * factor` with the new double range
-- `Blur` and `Rotate` stay structurally the same — the pixel arithmetic simplifies
-
-Note: `brighten` is now a `double` in `[-1.0, 1.0]` representing a scale factor, not an additive integer.
-
----
-
-## Part 4: Kernel-Based Filtering
-
-### What Is a Kernel?
-
-An image **kernel** (also called a convolution matrix) is a small grid of numbers — typically 3×3 or 5×5 — that defines how each output pixel is computed from its neighborhood in the original image.
-
-The idea is simple: slide the kernel over every pixel. At each position, multiply each kernel value by the corresponding nearby pixel's channel value, then sum all those products. The result is the new pixel value at that position. Do this independently for r, g, and b.
-
-This operation is called **convolution**, and it is the mathematical foundation of blur, sharpening, edge detection, and dozens of other effects. The same code runs for all of them — only the kernel values change.
-
-### The Math
-
-For a 3×3 kernel `K` applied at pixel position `(row, col)`:
-
-```
-new_channel(row, col) =
-    sum over i in {-1, 0, 1}:
-        sum over j in {-1, 0, 1}:
-            K[i+1][j+1]  *  original_channel(row+i, col+j)
-```
-
-Clamp each channel of the result to [0, 255] after summing. Apply this formula independently to r, g, and b.
-
-### Named Kernels
-
-The same convolution loop produces completely different effects depending on what values are in the kernel:
-
-| Name | Kernel (3×3) | Effect |
-|---|---|---|
-| Identity | `0 0 0 / 0 1 0 / 0 0 0` | No change — pixel passes through |
-| Box Blur | all `1/9` | Averages each pixel with its 8 neighbors |
-| Sharpen | `0 -1 0 / -1 5 -1 / 0 -1 0` | Center boosted, neighbors subtracted — enhances edges |
-| Edge Detect | all `-1` except center `8` | Flat regions → black; edges → bright |
-| Emboss | diagonal gradient from `-2` to `+2` | Simulates a raised 3-D surface |
-| Gaussian Blur | `1 2 1 / 2 4 2 / 1 2 1` divided by 16 | Smooth, natural-looking blur |
-
-Study these values. Notice that the box blur kernel sums to exactly 1.0 (preserves brightness). The edge-detect kernel sums to 0.0 (flat areas become black). The relationship between sum and effect is not a coincidence.
-
-### Why Static Factories?
-
-You used this pattern in `Color::fromHex` and `Color::fromHSL`. Use it again here:
+- `KernelFilter::apply(Grid&)` — modifies in place, for use in the pipeline
+- `Image::apply(const Kernel&)` — non-destructive, returns a copy
 
 ```cpp
-PPM blurred = img.apply(Kernel::boxBlur());
-PPM edges   = img.apply(Kernel::edgeDetect());
+// Non-destructive: pass1 and pass2 are separate images, img is untouched
+Image pass1 = img.apply(Kernel::gaussianBlur());
+Image pass2 = pass1.apply(Kernel::edgeDetect());
+pass2.save("edges.png");
 ```
 
-Compare to the alternative:
-
-```cpp
-// What does this do? You have to count values.
-img.apply(Kernel(3, {-1,-1,-1,-1,8,-1,-1,-1,-1}));
-```
-
-The name is the documentation. Static factories make intent unambiguous.
-
-### Boundary Handling
-
-At the edges of the image the kernel window extends outside the image bounds. You need a strategy for those missing pixels. Three common ones:
-
-| Strategy | Description |
-|---|---|
-| **Skip** | Don't write output for border pixels — leave them unchanged |
-| **Clamp** | Treat out-of-bounds coordinates as the nearest valid pixel |
-| **Wrap** | Wrap around to the opposite edge (rarely useful for photos) |
-
-Implement **skip** for this assignment. For a 3×3 kernel this means the outermost ring of pixels (row 0, last row, col 0, last col) is copied unchanged into the output. For a 5×5 kernel, the outermost two rings are skipped. In general, skip the outer `size/2` pixels on each side.
-
-### Non-Destructive Design
-
-`PPM::apply` must return a **new** `PPM` rather than modifying the image in place. This is the correct design because it lets you chain filters without destroying the original:
-
-```cpp
-PPM img    = PPM::load("photo.ppm");
-PPM pass1  = img.apply(Kernel::gaussianBlur());
-PPM pass2  = pass1.apply(Kernel::edgeDetect());
-pass2.save("edges.ppm");
-// img is still the unmodified original
-```
-
-If `apply` modified `img` directly you could never go back, and you could not apply the same image to two different pipelines. Immutability here is a feature, not a limitation.
-
-### The `Kernel` Class Interface
-
-```cpp
-class Kernel {
-public:
-    explicit Kernel(int size);                              // size x size, all zeros
-    Kernel(int size, const std::vector<double>& values);   // row-major flat init
-
-    double&       at(int row, int col);
-    const double& at(int row, int col) const;
-
-    int size() const;
-
-    static Kernel identity();
-    static Kernel boxBlur();
-    static Kernel sharpen();
-    static Kernel edgeDetect();
-    static Kernel emboss();
-    static Kernel gaussianBlur();
-
-    friend std::ostream& operator<<(std::ostream& os, const Kernel& k);
-};
-```
-
-The `at(row, col)` accessor should throw `std::out_of_range` on invalid indices. The two constructors should throw `std::invalid_argument` if `size` is even, less than 3, or if `values.size() != size*size`.
-
-### Connecting Kernel to PPM
-
-Add one method to your `PPM` class:
-
-```cpp
-PPM apply(const Kernel& k) const;
-```
-
-The algorithm:
-1. Create a new `PPM` of the same width and height, initialized as a copy of `*this`.
-2. Determine the half-size: `int half = k.size() / 2;`
-3. For every pixel `(row, col)` not within `half` of any edge:
-   - For each channel `ch` in `{0, 1, 2}`:
-     - Compute the convolution sum over the kernel window.
-     - Clamp to [0, 255] and write into the output pixel.
-4. Return the new `PPM`.
+The stub in `Image.cpp` has the algorithm spelled out in comments. Boundary handling: skip the outer `half = k.size()/2` pixels (copy them unchanged from `*this`).
 
 ---
 
 ## What to Submit
 
-- `Color.h / Color.cpp`
-- `PPM.h / PPM.cpp`
-- `Kernel.h / Kernel.cpp`
-- `smelly_ppm.cpp` — original, unmodified
-- `clean_ppm.cpp` — your refactored version
-- `refactor_notes.md` — one paragraph per smell
-- `main.cpp` — demonstrates Color factories, PPM load/save, and at least 3 kernel filters
-- At least 2 test PPM images
+- `src/Color.cpp` — operators and factories implemented
+- `src/Kernel.cpp` — factories and accessors implemented
+- `src/Grayscale.cpp`, `FlipH.cpp`, `FlipV.cpp`, `Rotate.cpp` — P03 implementations pasted (and optionally refactored)
+- `src/Image.cpp` — `Image::apply()` implemented
+- A short section added to your `README.md`:
+  - 5 example commands (at least 2 demonstrating kernel filter effects)
+  - Which HSL algorithm you used and one test case you verified
+  - Whether you refactored any P03 filters to use Color operators, and what changed
+
+Do **not** modify: `main.cpp`, `Image.h`, `Color.h`, `Kernel.h`, `Filter.h`, `Pipeline.h/.cpp`, `KernelFilter.h/.cpp`, `Brighten.h/.cpp`.
 
 ---
 
 ## Rubric
 
-| Category | Points |
-|---|---|
-| `Color` operators correct and clamped | 20 |
-| `Color` static factories + error handling | 15 |
-| `PPM` load/save correct | 10 |
-| `PPM` composition uses `Color` correctly | 10 |
-| P03 filters updated to use `Color` | 10 |
-| `Kernel` factories return correct values | 15 |
-| `PPM::apply` correct (convolution + boundary skip) | 10 |
-| Smells identified and fixed correctly | 7 |
-| Refactor notes clear and accurate | 3 |
-| **Total** | **100** |
+> _Program must compile. Or it will be considered a failure._
 
-### Extra Credit
+| Category                | Points  | Details                                                             |
+| ----------------------- | ------- | ------------------------------------------------------------------- |
+| **Color operators**     | 20      | `+`, `*`, `==` correct and clamped                                  |
+| **Color factories**     | 15      | `fromHex` and `fromHSL` correct, throw on bad input                 |
+| **Kernel factories**    | 15      | All 6 return correct values                                         |
+| **Kernel accessors**    | 5       | `at()` with bounds check; flat-vector constructor unpacks correctly |
+| **P03 filters updated** | 10      | Paste and compile; +bonus for Color operator refactor               |
+| **`Image::apply`**      | 15      | Correct convolution, boundary skip, non-destructive                 |
+| **Pipeline ordering**   | 10      | Kernel filters run in CLI order, mixed with P03 filters             |
+| **Compiles clean**      | 5       | Zero errors and zero warnings with the given compile command        |
+| **Example commands**    | 5       | README section with 5 examples and notes                            |
+| **Total**               | **100** |                                                                     |
 
-- `Color::fromHSV(h, s, v)`: +5
-- `operator*` between two Colors (multiply channels, useful for lighting): +5
-- `PPM::resize(int w, int h)` nearest-neighbor: +10
-- `Kernel` constructor that accepts a 2-D `vector<vector<double>>`: +5
-- Support 5×5 kernels (the convolution loop already generalizes — just make sure boundary skip uses `half`): +5
+### Extra Credit (up to +20)
+
+| Option                                                                            | Points |
+| --------------------------------------------------------------------------------- | ------ |
+| `Color::fromHSL` also handles edge cases (s=0 gray path, boundary hue=360)        | +5     |
+| `Color::operator*(Color, Color)` — channel multiply (useful for lighting effects) | +5     |
+| `Image::resize(int w, int h)` — nearest-neighbor scaling                          | +10    |
+
+### Deductions
+
+| Issue                                            | Penalty      |
+| ------------------------------------------------ | ------------ |
+| Does not compile on grader's machine             | up to −50    |
+| Modifies provided files                          | −10 per file |
+| `Image::apply` is destructive (modifies `*this`) | −10          |
+| Off-by-one in boundary skip                      | −5           |

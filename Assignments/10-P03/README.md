@@ -1,232 +1,271 @@
 ```yaml
-title: Program 3
-description: Image Filter Pipeline
+title: Program 3 — Image Filter Pipeline
+description: Abstract base class, strategy pattern, filter pipeline
 id: 10-P03
-name: 10-P03
-category: program
+course: 2143 - Object Oriented Programming
 date_assigned: 2026-04-06 12:00
 date_due: 2026-04-20 11:00
-resources: []
+points: 100
 ```
 
-# Program 3: Image Filter Pipeline (C++)
+# Program 3 — Image Filter Pipeline
 
 ## Overview
 
-You now have a working command-line parser from P02. In this assignment you'll use it — `Args` becomes the configuration that drives an actual processing pipeline.
+You now have a working `Args` parser from P02. In this assignment you'll use it — `Args` drives an actual image processing pipeline.
 
-You will build a small image filter engine using the **Strategy pattern**: each filter operation is a class that inherits from a common `Filter` interface. A `Pipeline` owns a sequence of filters and applies them in order to an image.
+The central idea is the **Strategy pattern**: each image operation is a class that inherits from a common `Filter` interface. A `Pipeline` object owns a sequence of filters and calls them in order. Adding a new filter means writing one new class — `main.cpp` and `Pipeline` don't need to change at all.
 
-No external libraries. No OpenCV. Your "image" is a plain-text **PPM file** — dead simple to read and write, and any image viewer can open it.
+Program 4 will extend this pipeline with convolution kernels and color manipulation built on the same structure.
 
 ---
 
-## Usage
-
-Your program is called exactly like P02's `imgtool`:
-
-```bash
-./imgtool <input_image> <output_image> [options]
-```
-
-### Example Commands
-
-**Convert to grayscale:**
-```bash
-./imgtool photo.ppm out.ppm --grayscale
-```
-
-**Brighten, then flip horizontally:**
-```bash
-./imgtool photo.ppm out.ppm --brighten 40 --flipH
-```
-
-**Full pipeline — order matters:**
-```bash
-./imgtool photo.ppm out.ppm --grayscale --brighten 30 --blur --rotate 90
-```
-
-**Short flags work too:**
-```bash
-./imgtool photo.ppm out.ppm -g -b 20 -l
-```
-
-**Error cases still caught by Args:**
-```bash
-./imgtool photo.ppm out.ppm --brighten 999
-# Error: brighten must be in [-255, 255]
-
-./imgtool photo.ppm out.ppm --rotate 45
-# Error: rotate must be one of {0, 90, 180, 270}
-```
-
-### Expected Output (success)
+## Project Structure
 
 ```
-INPUT   : photo.ppm
-OUTPUT  : out.ppm
-FILTERS : grayscale -> brighten(30) -> blur -> rotate(90)
-Done. Output written to out.ppm
+10-P03/
+├── README.md
+├── src/
+│   ├── main.cpp              ← do not modify (wires Args → Pipeline → Image)
+│   ├── Image.h / Image.cpp   ← provided, do not modify
+│   ├── Args.h / Args.cpp     ← provided (P02 solution + order field)
+│   ├── Filter.h              ← abstract base class, do not modify
+│   ├── Pipeline.h/.cpp       ← provided, do not modify
+│   ├── Brighten.h/.cpp       ← provided as a complete example — read this first
+│   ├── Blur.h/.cpp           ← provided as a complete example
+│   ├── Grayscale.h/.cpp      ← stub — implement this (simplest filter)
+│   ├── FlipH.h/.cpp          ← stub — implement this
+│   ├── FlipV.h/.cpp          ← stub — implement this
+│   └── Rotate.h/.cpp         ← stub — implement this (most complex)
+├── include/
+│   ├── stb_image.h           ← third-party image loader, do not modify
+│   └── stb_image_write.h     ← third-party image writer, do not modify
+├── images/
+│   └── Hulda.jpg             ← test image (PNG and JPG both work)
+└── docs/
+    ├── classroom_ex1.cpp     ← raw classroom notes (reference only)
+    └── img2ppm.cpp           ← legacy PPM converter (reference only)
 ```
 
 ---
 
-## The Image Format: PPM (P3)
+## Build & Run
 
-PPM is ASCII. A valid file looks like:
-
-```
-P3
-4 3
-255
-255 0 0   0 255 0   0 0 255   255 255 0
-128 0 128  0 128 128  255 128 0  64 64 64
-0 0 0     255 255 255  128 128 128  32 32 200
+```bash
+# Compile from the project root (10-P03/)
+g++ -std=c++17 -O2 -Wall -Wextra -pedantic -isystem include \
+    src/main.cpp src/Image.cpp src/Pipeline.cpp \
+    src/Grayscale.cpp src/Brighten.cpp src/FlipH.cpp \
+    src/FlipV.cpp src/Blur.cpp src/Rotate.cpp \
+    src/Args.cpp -o imgtool
 ```
 
-- Line 1: magic number `P3`
-- Line 2: `width height`
-- Line 3: max value (always `255` for this assignment)
-- Remaining: `R G B` triples, left-to-right, top-to-bottom
+### Compiler flag notes
 
-You must implement `Image::load(filename)` and `Image::save(filename)`.
+| Flag               | What it does                                                                                       |
+| ------------------ | -------------------------------------------------------------------------------------------------- |
+| `-std=c++17`       | Required for structured bindings (`auto [a, b] = ...`) and `std::clamp`                            |
+| `-O2`              | Optimization level 2 — realistic performance without breaking debugging                            |
+| `-Wall -Wextra`    | Enable common and extra warnings — keep these; they catch real bugs                                |
+| `-pedantic`        | Enforce strict standard C++ — no compiler-specific extensions                                      |
+| `-isystem include` | Add `include/` to the header search path **and** suppress warnings from third-party code inside it |
 
-Your `Image` class should store pixels as a 2D structure of RGB triples:
+> **`-isystem` vs `-I`:** Both add a directory to the include search path. The difference is that `-isystem` marks the directory as "system code" — warnings generated by code _inside_ those headers are suppressed. Your own code in `src/` still gets full `-Wall -Wextra` treatment. Always use `-isystem` for third-party library directories (stb, boost, etc.) and `-I` for your own headers.
 
-```cpp
-struct Pixel { int r, g, b; };
-using Row    = std::vector<Pixel>;
-using Grid   = std::vector<Row>;
+---
+
+## Example Commands
+
+```bash
+# Grayscale only
+./imgtool images/Hulda.jpg out.png --grayscale
+
+# Brighten, then grayscale
+./imgtool images/Hulda.jpg out.png --brighten 50 --grayscale
+
+# Grayscale, then brighten — different result from above
+./imgtool images/Hulda.jpg out.png --grayscale --brighten 50
+
+# Full pipeline
+./imgtool images/Hulda.jpg out.png --grayscale --brighten 30 --blur --flipH
+
+# Short flags
+./imgtool images/Hulda.jpg out.jpg -g -b 40 -l
+
+# Error — out of range
+./imgtool images/Hulda.jpg out.png --brighten 999
+
+# Error — invalid rotate angle
+./imgtool images/Hulda.jpg out.png --rotate 45
+```
+
+### Expected output (success)
+
+```
+INPUT   : images/Hulda.jpg
+OUTPUT  : out.png
+ORDER   : grayscale brighten
+BRIGHTEN: 30
+
+Loaded: Image(546 x 640, 349440 pixels)
+FILTERS : grayscale -> brighten(30)
+Saved: out.png
 ```
 
 ---
 
 ## The Filter Interface
 
+Every filter inherits from `Filter` (defined in `src/Filter.h`):
+
 ```cpp
 class Filter {
 public:
-    virtual void apply(Grid& pixels) = 0;
-    virtual std::string name() const = 0;
+    virtual void apply(Grid& pixels) = 0;   // modify pixels in place
+    virtual std::string name() const = 0;   // label for Pipeline::printSteps()
     virtual ~Filter() = default;
 };
 ```
 
-That's it. Every filter takes a `Grid&` and modifies it in place.
-
-See `Filter.h` and `Grayscale.h` / `Grayscale.cpp` for starter stubs.
-
----
-
-## Required Filters
-
-Implement all six. The math is straightforward — correctness matters more than cleverness.
-
-| Class | Flag | What it does |
-|---|---|---|
-| `Grayscale` | `--grayscale` | For each pixel: `avg = (r+g+b)/3`, set `r=g=b=avg` |
-| `Brighten` | `--brighten N` | Add `N` to each channel, clamp result to `[0, 255]` |
-| `FlipH` | `--flipH` | Reverse each row |
-| `FlipV` | `--flipV` | Reverse the row order |
-| `Blur` | `--blur` | 3×3 box blur: each pixel becomes the average of its neighbors (clamp indices at edges — do not wrap) |
-| `Rotate` | `--rotate N` | Rotate 90°, 180°, or 270° clockwise. Note: 90° and 270° swap width and height. |
-
----
-
-## The Pipeline Class
+`Grid` is a type alias defined in `Filter.h`:
 
 ```cpp
-class Pipeline {
-public:
-    void add(Filter* f);
-    void run(Grid& pixels);
-    void printSteps() const;   // print ordered list: grayscale -> blur -> ...
-private:
-    std::vector<Filter*> filters;
-};
+using Grid = std::vector<std::vector<Pixel>>;
 ```
 
-`run()` calls `apply()` on each filter in order. **Order matters** — `--grayscale --brighten 50` produces a different result than `--brighten 50 --grayscale`.
+Pixels are stored row-major: `pixels[row][col]`, top-left is `(0, 0)`.
+
+Each `Pixel` has `int r, g, b` channels. Integer channels mean filter arithmetic is clean — no casting, no unsigned overflow. `Image::save()` clamps values back to `[0, 255]` when writing to disk, so filters don't need to clamp themselves.
 
 ---
 
-## Wiring It Together
+## Your Task: Implement Four Filters
 
-`main.cpp` should look roughly like this:
+**Read `src/Brighten.cpp` first** — it is a complete, clean example of the nested-loop pattern that every per-pixel filter uses.
+
+### Grayscale
+
+```
+For each pixel:
+    gray = (p.r + p.g + p.b) / 3           ← simple average
+    OR
+    gray = 0.299*p.r + 0.587*p.g + 0.114*p.b   ← luminance (perceptual)
+    p.r = p.g = p.b = gray
+```
+
+Choose one formula and explain your choice in your README submission.
+
+### FlipH — mirror left-right
+
+```
+For each row:
+    swap row[col] with row[width - 1 - col]
+    iterate col from 0 to width/2 only (stop at midpoint to avoid double-swapping)
+```
+
+### FlipV — mirror top-bottom
+
+```
+swap pixels[row] with pixels[height - 1 - row]
+iterate row from 0 to height/2 only
+std::swap works on entire rows (vector<Pixel>) in one call
+```
+
+### Rotate — clockwise by 90°, 180°, or 270°
+
+90° and 270° **change the image dimensions**. A 200×100 image becomes 100×200 after a 90° rotation. You must build a new `Grid` with swapped dimensions and assign it back to `pixels`.
+
+| Rotation | New size         | Pixel mapping                                       |
+| -------- | ---------------- | --------------------------------------------------- |
+| 0°       | unchanged        | no-op                                               |
+| 90° CW   | `width × height` | `result[col][height-1-row] = old[row][col]`         |
+| 180°     | unchanged        | `result[height-1-row][width-1-col] = old[row][col]` |
+| 270° CW  | `width × height` | `result[width-1-col][row] = old[row][col]`          |
+
+---
+
+## The Pipeline
+
+`Pipeline` is fully provided. It owns every `Filter*` passed to `add()` and deletes them in the destructor.
 
 ```cpp
-int main(int argc, char* argv[]) {
-    Args args = Args::parse(argc, argv);
+Pipeline pipeline;
+pipeline.add(new Grayscale());      // pipeline takes ownership
+pipeline.add(new Brighten(50));
 
-    Image img;
-    img.load(args.input);
-
-    Pipeline pipeline;
-    // build pipeline from args — see design note below
-    for (const std::string& op : args.order) {
-        if (op == "grayscale") pipeline.add(new Grayscale());
-        if (op == "brighten")  pipeline.add(new Brighten(args.brighten));
-        if (op == "blur")      pipeline.add(new Blur());
-        if (op == "flipH")     pipeline.add(new FlipH());
-        if (op == "flipV")     pipeline.add(new FlipV());
-        if (op == "rotate")    pipeline.add(new Rotate(args.rotate));
-    }
-
-    pipeline.printSteps();
-    pipeline.run(img.pixels);
-    img.save(args.output);
-
-    return 0;
-}
+pipeline.printSteps();              // prints: FILTERS : grayscale -> brighten(50)
+pipeline.run(img.pixels());         // calls apply() on each filter in order
 ```
+
+`img.pixels()` returns a `Grid&` (a reference to the image's internal pixel data). Each filter receives the same reference and modifies it in place — the output of each filter becomes the input of the next.
 
 ---
 
-## Design Note: Order Matters
+## Why Order Matters
 
-This is the interesting design challenge. In P02, flags were stored as plain booleans — order was lost. Now order matters. You have a few options:
+```bash
+# Order 1: brighten in color, then flatten to gray
+./imgtool photo.jpg out.jpg --brighten 80 --grayscale
 
-1. Add a `std::vector<std::string> order` field to `Args` that records flag names as they are parsed (shown above).
-2. Store the pipeline directly in `Args` (less clean — mixes concerns).
-3. Accept a fixed order (grayscale → brighten → blur → flip → rotate) and document it clearly.
+# Order 2: flatten to gray, then brighten the gray image
+./imgtool photo.jpg out.jpg --grayscale --brighten 80
+```
 
-**Pick one and justify it in your README.**
+Both produce a grayscale image, but the intermediate values differ. The `Args` struct records flags in the order they appear (via `args.order`). `main.cpp` iterates `args.order` to build the pipeline in that same sequence.
 
 ---
 
 ## What to Submit
 
-- `Args.h / Args.cpp` (updated from P02 if needed)
-- `Filter.h` (base class — provided as stub)
-- `Grayscale.h / Grayscale.cpp` (provided as stub — complete this one first)
-- `Brighten.h / Brighten.cpp`
-- `FlipH.h / FlipH.cpp`
-- `FlipV.h / FlipV.cpp`
-- `Blur.h / Blur.cpp`
-- `Rotate.h / Rotate.cpp`
-- `Pipeline.h / Pipeline.cpp`
-- `Image.h / Image.cpp`
-- `main.cpp`
-- `README.md` with: build instructions, 5 example commands, and your ordering justification
-- At least 3 test PPM images
+- `src/Grayscale.cpp`
+- `src/FlipH.cpp`
+- `src/FlipV.cpp`
+- `src/Rotate.cpp`
+- A short section added to your `README.md`:
+  - 5 example commands (at least 2 showing different orderings of the same filters)
+  - Which grayscale formula you chose and why
+
+Do **not** modify: `main.cpp`, `Image.h/.cpp`, `Filter.h`, `Pipeline.h/.cpp`, `Args.h/.cpp`, `Brighten.h/.cpp`, `Blur.h/.cpp`.
+
+---
+
+## Notes
+
+- This is Program 3 of 4.
+- Your code must compile with the exact command shown above — zero errors, zero warnings.
+- Both PNG and JPG output work. The format is inferred from the output filename extension.
+- Input images can be JPG, PNG, BMP, or any other format `stb_image` supports.
 
 ---
 
 ## Rubric
 
-| Category | Points |
-|---|---|
-| PPM load/save correct | 15 |
-| `Filter` interface + clean inheritance | 10 |
-| All 6 filters implemented correctly | 30 |
-| `Pipeline` runs filters in correct order | 15 |
-| Correct wiring from `Args` to `Pipeline` | 15 |
-| Filter ordering handled and documented | 10 |
-| Code organization / class design | 5 |
-| **Total** | **100** |
+> _Program must compile. Or it will be considered a failure._
 
-### Extra Credit
+| Category              | Points  | Details                                                      |
+| --------------------- | ------- | ------------------------------------------------------------ |
+| **Grayscale**         | 15      | Correct formula applied to all pixels                        |
+| **FlipH**             | 15      | Mirror left-right; image dimensions unchanged                |
+| **FlipV**             | 15      | Mirror top-bottom; image dimensions unchanged                |
+| **Rotate 180°**       | 10      | Correct pixel mapping; dimensions unchanged                  |
+| **Rotate 90° / 270°** | 15      | Correct mapping; width and height swap                       |
+| **Pipeline ordering** | 15      | Filters run in the order given on the command line           |
+| **Code organization** | 10      | Each filter in its own `.h`/`.cpp`; no logic in `main.cpp`   |
+| **Compiles clean**    | 5       | Zero errors and zero warnings with the given compile command |
+| **Total**             | **100** |                                                              |
 
-- Support `--resize W H` (nearest-neighbor scaling): +10
-- Load a pipeline from a text file: `--pipeline ops.txt` where each line is a filter command: +10
-- `Filter::preview()` prints an ASCII-art thumbnail of the pixel grid to stdout: +5
+### Extra Credit (up to +15)
+
+| Option                                                                     | Points |
+| -------------------------------------------------------------------------- | ------ |
+| `--resize W H` (nearest-neighbor scaling)                                  | +10    |
+| `Filter::preview()` — print an ASCII thumbnail of the pixel grid to stdout | +5     |
+
+### Deductions
+
+| Issue                                                                    | Penalty       |
+| ------------------------------------------------------------------------ | ------------- |
+| Does not compile on grader's machine                                     | up to −50     |
+| Modifies provided files (`main.cpp`, `Image.h`, `Pipeline.h/.cpp`, etc.) | −10 per file  |
+| Image processing logic placed in `main.cpp` instead of filter classes    | −10           |
+| Off-by-one error in flip or rotate boundary pixels                       | −5 per filter |

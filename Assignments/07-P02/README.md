@@ -1,30 +1,74 @@
 ```yaml
-title: Program 2
-description: Cmd Line Args
+title: Program 2 — Args Parser
+description: Command-line argument parser for imgtool
 id: 07-P02
-name: 07-P02
-category: program
+course: 2143 - Object Oriented Programming
 date_assigned: 2026-03-02 12:00
 date_due: 2026-03-21 11:00
-resources: []
+points: 100
 ```
 
-# Program2: Build a Command-Line Args Parser (C++)
+# Program 2 — Command-Line Args Parser
 
 ## Overview
 
-You are writing a small command-line argument parser for an image processing tool called `imgtool`.
+In Program 1 you hard-coded two things: the input/output filenames came straight from `argv[1]` and `argv[2]`, and the only operation was grayscale. That works for a demo, but a real tool needs to accept options.
 
-This assignment is not about fancy libraries. It’s about:
+Your job in Program 2 is to build the `Args` component that `imgtool` will eventually use. You are not doing any image processing here — you are building the configuration layer: read raw command-line tokens, validate them, and package the result into a clean object that the rest of the program can query.
 
-- reading `argc/argv`
-- string handling
-- validating inputs
-- designing a clean class that packages parsing into a reusable component
+Program 3 will plug your `Args` parser directly into the image processing code from Program 1.
 
-You will create an `Args` class (or `struct`) and a parsing method that converts raw CLI tokens into a validated configuration object.
+---
 
-You will **not** perform actual image processing in this assignment. Your job is configuration and correctness.
+## Project Structure
+
+```
+07-P02/
+├── README.md
+├── src/
+│   ├── main.cpp              ← do not modify (calls parse and print)
+│   ├── Args.h                ← your class declaration goes here
+│   └── Args.cpp              ← your implementation goes here
+├── docs/
+│   ├── factory.md            ← design discussion: constructor vs factory
+│   └── solution.cpp          ← reference solution (look after you attempt it)
+└── classroom_examples/
+    ├── args_ex1.cpp          ← annotated sketch of what NOT to do
+    └── args_ex2.cpp          ← annotated factory pattern skeleton
+```
+
+---
+
+## Starter Code
+
+`src/main.cpp` is given and should not be modified. It compiles once you implement `Args.h` and `Args.cpp`.
+
+```cpp
+#include "Args.h"
+
+int main(int argc, char* argv[]) {
+    Args args = Args::parse(argc, argv);
+    args.print();
+    return 0;
+}
+```
+
+`src/Args.h` gives you the class skeleton with all data members defined. Fill in the implementation in `src/Args.cpp`.
+
+---
+
+## Build & Run
+
+```bash
+# Compile from the project root (07-P02/)
+g++ -std=c++17 -O2 -Wall -Wextra -pedantic src/main.cpp src/Args.cpp -o imgtool
+
+# Run with valid input
+./imgtool in.png out.png --grayscale --brighten 20
+
+# Run with an invalid option to test your error handling
+./imgtool in.png out.png --graycale
+```
 
 ---
 
@@ -36,157 +80,134 @@ Your tool will be called like this:
 ./imgtool <input_image> <output_image> [options]
 ```
 
-### Example
+The first two positional arguments are required:
 
-```bash
-./imgtool in.png out.png --grayscale --brighten 20 --blur
-```
+- `input_image` — must be a recognized image extension (`.png`, `.jpg`, `.jpeg`, `.bmp`, `.ppm`)
+- `output_image` — same extension requirement
 
-- The first two positional arguments after the program name are required:
-  - `input_image`
-  - `output_image`
-
-- Everything after that is optional flags and options.
+Everything after that is optional flags and options.
 
 ---
 
 ## Required Options
 
-Your parser must support these options:
-
 ### Flags (no value required)
 
-- `--grayscale` (short form: `-g`)
-- `--blur` (short form: `-l`) _(yes, that’s a weird letter; life is weird)_
-- `--flipH` (short form: `-h`)
-- `--flipV` (short form: `-v`)
+| Long form     | Short form | Description          |
+| ------------- | ---------- | -------------------- |
+| `--grayscale` | `-g`       | Convert to grayscale |
+| `--blur`      | `-l`       | Apply blur filter    |
+| `--flipH`     | `-h`       | Flip horizontally    |
+| `--flipV`     | `-v`       | Flip vertically      |
+
+> Note: `--blur` uses `-l` (not `-b`). Yes, it's a weird letter. Life is weird.
 
 ### Options with values
 
-- `--brighten N` (short form: `-b N`)
-  - `N` is an integer in **[-255, 255]**
-- `--rotate N` (short form: `-r N`)
-  - `N` must be one of: **{0, 90, 180, 270}**
+| Long form      | Short form | Value   | Constraint            |
+| -------------- | ---------- | ------- | --------------------- |
+| `--brighten N` | `-b N`     | integer | N ∈ [-255, 255]       |
+| `--rotate N`   | `-r N`     | integer | N ∈ {0, 90, 180, 270} |
 
 ---
 
 ## Accepted Token Formats
 
-Your parser must accept:
+Your parser must accept both of these styles:
 
-### Long option styles
+```bash
+--brighten 20        # value as the next token
+--brighten=20        # value joined with =
+```
 
-- `--brighten 20`
-- `--brighten=20` ✅ must be supported
-- `--rotate 90`
-- `--rotate=90`
+Both must work for `--brighten` and `--rotate`. Short forms take a space:
 
-### Short option styles
+```bash
+-b 20
+-r 90
+```
 
-- `-b 20`
-- `-r 90`
-- `-g`
-- `-l`
+### Extra Credit: grouped short flags
 
-### Optional (extra credit): grouped short flags
-
-- `-gl` should behave like `-g -l`  
-  Only valid when all grouped options are **flags** (no values).
+`-glhv` should behave like `-g -l -h -v`. Only valid when all grouped characters are flags (no values).
 
 ---
 
-## What Your Parser Must Detect (Error Rules)
+## Error Rules
 
 If anything is wrong, your parser must:
 
-1. **Stop parsing**
-2. **Produce a helpful error message**
-3. **Show a usage line**
-4. Return a failure status (or throw an exception that `main` catches)
+1. Stop parsing immediately
+2. Print a helpful error message
+3. Print a usage line
+4. Exit with a non-zero status
 
-### You must detect and reject:
+### Cases you must handle
 
-#### 1) Missing required positional args
+**Missing required positional args**
 
 ```bash
 ./imgtool in.png
+# Error: output file is required
 ```
 
-Error: missing output file
-
-#### 2) Unknown options
+**Unknown option**
 
 ```bash
 ./imgtool in.png out.png --graycale
+# Error: unknown option '--graycale'
 ```
 
-Error: unknown option `--graycale`
-
-#### 3) Missing option value
+**Missing option value**
 
 ```bash
 ./imgtool in.png out.png --brighten
+# Error: '--brighten' requires an integer value
 ```
 
-Error: `--brighten` requires an integer value
-
-#### 4) Value looks like another option
+**Value looks like another option**
 
 ```bash
 ./imgtool in.png out.png --brighten --blur
+# Error: '--brighten' expected a value but got option '--blur'
 ```
 
-Error: `--brighten` expected a value but got option `--blur`
-
-#### 5) Invalid integer format
+**Invalid integer format**
 
 ```bash
 ./imgtool in.png out.png --brighten twenty
+# Error: invalid integer for '--brighten': 'twenty'
 ```
 
-Error: invalid integer for `--brighten`: `twenty`
-
-#### 6) Out of range values
+**Out of range**
 
 ```bash
 ./imgtool in.png out.png --brighten 999
+# Error: '--brighten' must be in [-255, 255]
 ```
 
-Error: brighten must be in [-255, 255]
-
-#### 7) Invalid rotate values
+**Invalid rotate value**
 
 ```bash
 ./imgtool in.png out.png --rotate 45
+# Error: '--rotate' must be one of {0, 90, 180, 270}
 ```
-
-Error: rotate must be one of {0, 90, 180, 270}
 
 ---
 
-## “Whitespace Problems” Clarification
+## Whitespace and Quoting
 
 Your program receives arguments already split by the shell.
 
-This means:
-
-- `--brighten 20` arrives as two tokens
-- `--brighten    20` still arrives as two tokens (extra spaces don’t matter)
-- `--brighten 20 30` arrives as three tokens (and you must decide what to do with the extra token)
-
-If a filename contains spaces, it must be quoted by the user:
-
-```bash
-./imgtool "my input.png" out.png --grayscale
-```
-
-You are not required to support unquoted filenames with spaces (that’s the shell’s job).
+- `--brighten 20` → two tokens, always, regardless of spacing in the shell
+- `--brighten=20` → one token; your parser splits it on `=`
+- Filenames with spaces must be quoted by the user — you do not need to handle that
 
 ---
 
-## Output Requirements (What You Print)
+## Output Requirements
 
-If parsing succeeds, print a clean summary like this:
+If parsing succeeds, print:
 
 ```
 INPUT  : in.png
@@ -195,7 +216,7 @@ FLAGS  : grayscale blur flipH
 PARAMS : brighten=20 rotate=90
 ```
 
-Only print enabled flags/options.
+Only print flags and params that were actually set. If no flags were given, `FLAGS  :` prints with nothing after the colon.
 
 If parsing fails, print:
 
@@ -206,77 +227,56 @@ Usage: ./imgtool <input_image> <output_image> [options]
 
 ---
 
-## Design Requirements (OOP Packaging)
-
-You must implement:
+## Design Requirements
 
 ### A) An `Args` type
 
 Your `Args` must store:
 
-- input filename
-- output filename
-- flag booleans
-- option values (brighten, rotate) and whether they were provided
+- `std::string input, output` — positional args
+- `bool grayscale, blur, flipH, flipV` — flags
+- `bool use_brighten; int brighten` — valued option + presence flag
+- `bool use_rotate; int rotate` — valued option + presence flag
 
 ### B) A parsing method
 
 You must provide **one** of these interfaces:
 
-#### Option 1 (recommended): static factory method
+**Option 1 (recommended) — static factory method:**
 
-<!-- ```cpp -->
+```cpp
+static Args parse(int argc, char* argv[]);
+```
 
-static Args parse(int argc, char\* argv[]);
-
-<!-- ``` -->
-
-#### Option 2: parsing constructor
+**Option 2 — parsing constructor:**
 
 ```cpp
 Args(int argc, char* argv[]);
 ```
 
-You choose. Be prepared to justify it.
+You choose. Be prepared to justify your choice. See [docs/factory.md](./docs/factory.md) for the full design discussion.
 
 ---
 
-## Suggested Data Members (Not Mandatory)
+## Implementation Hints
 
-You may use something like:
+Helper functions that will make your life easier:
 
-- `std::string input, output;`
-- `bool grayscale, blur, flipH, flipV;`
-- `bool use_brighten; int brighten;`
-- `bool use_rotate; int rotate;`
+```cpp
+// Returns true if the filename ends in a known image extension.
+bool isImageFile(const std::string& filename);
 
-OR any equivalent design.
+// Splits "--brighten=20" into ("--brighten", "20").
+// Returns ("token", "") when there is no '='.
+std::pair<std::string, std::string> splitEq(const std::string& token);
 
----
+// Returns true if s begins with prefix.
+bool startsWith(const std::string& s, const std::string& prefix);
+```
 
-## Implementation Hints (Tools You’re Allowed to Use)
+For converting strings to integers, use `std::stoi` — but wrap it in a try/catch. It throws `std::invalid_argument` for non-numeric input and `std::out_of_range` for overflow.
 
-You may use:
-
-- `std::string`
-- `std::stoi` (with error handling!)
-- `<vector>`, `<optional>` (optional)
-- helper functions like:
-  - `bool starts_with_dash(const std::string&)`
-  - `bool is_option(const std::string&)`
-  - `std::pair<std::string,std::string>` split on `=`
-
-You may **not** use external CLI parsing libraries.
-
----
-
-## Extra Credit Ideas
-
-Pick one:
-
-1. Support grouped short flags: `-glhv`
-2. Suggest likely intended option for typos (simple version: check edit distance <= 2)
-3. Collect all errors and print them all instead of failing on the first one
+You may **not** use external CLI parsing libraries (no `getopt`, no `cxxopts`, no Boost.ProgramOptions).
 
 ---
 
@@ -284,27 +284,52 @@ Pick one:
 
 Submit:
 
-- `Args.h`
-- `Args.cpp`
-- `main.cpp` (that only calls parse and prints the summary)
-- `README.md` describing:
+- `src/Args.h`
+- `src/Args.cpp`
+- `src/main.cpp` (unchanged from starter is fine)
+- A short section in your `README.md` describing:
   - how to build
-  - supported options
-  - 5 example commands (at least 2 invalid)
+  - all supported options
+  - 5 example commands (at least 2 that trigger errors)
 
 ---
 
-## Rubric (Logic > Syntax)
+## Notes
 
-| Category                                  | Points  |
-| ----------------------------------------- | ------- |
-| Correct parsing of positional args        | 10      |
-| Correct parsing of flags                  | 15      |
-| Correct parsing of valued options         | 20      |
-| Correct support for `--opt=value` format  | 10      |
-| Error handling messages (clear + correct) | 20      |
-| Range checking and validation rules       | 15      |
-| Clean packaging / class design            | 10      |
-| **Total**                                 | **100** |
+- This is Program 2 of 4. Do not add image processing here — keep `main.cpp` as a pure parse-and-print driver.
+- Program 3 will take your `Args` class and wire it into the grayscale/filter code from Program 1.
+- Your code must compile with the exact command shown above, no errors, no warnings.
 
-Extra credit: +10 max
+---
+
+## Rubric
+
+> _Program must compile. Or it will be considered a failure._
+
+| Category                 | Points  | Details                                                                           |
+| ------------------------ | ------- | --------------------------------------------------------------------------------- |
+| **Positional args**      | 10      | Input and output parsed and validated (extension check)                           |
+| **Flags**                | 15      | All four flags work, both long and short forms                                    |
+| **Valued options**       | 20      | `--brighten` and `--rotate` parse correctly in both space and `=` forms           |
+| **`--opt=value` format** | 10      | `--brighten=20` and `--rotate=90` work without space                              |
+| **Error messages**       | 20      | All 7 error cases produce clear, specific messages + usage line                   |
+| **Range checking**       | 15      | Brighten [-255,255] and rotate {0,90,180,270} enforced                            |
+| **Class design**         | 10      | Clean packaging; private constructor or equivalent; `print()` output matches spec |
+| **Total**                | **100** |                                                                                   |
+
+### Extra Credit (up to +10)
+
+| Option                                                            | Points |
+| ----------------------------------------------------------------- | ------ |
+| Grouped short flags: `-glhv`                                      | +5     |
+| Typo suggestion for unknown options (edit distance ≤ 2)           | +5     |
+| Collect all errors and print them all instead of failing on first | +5     |
+
+### Deductions
+
+| Issue                                                   | Penalty     |
+| ------------------------------------------------------- | ----------- |
+| Does not compile on grader's machine                    | up to −50   |
+| Segfault or undefined behavior on any valid input       | −20         |
+| Hardcoded index access (`argv[3]`) without bounds check | −10         |
+| Missing usage line on error output                      | −5 per case |
