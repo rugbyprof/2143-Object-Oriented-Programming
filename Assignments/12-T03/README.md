@@ -1,3 +1,16 @@
+```yaml
+title: Test 3
+description: Test 2 Take-Home
+due: 24 Apr 2026
+slug: Exam_03
+id: 12-T03
+name: 12-T03
+category: exam
+date_assigned: 2026-04-17 12:00
+date_due: 2026-04-24 11:00
+resources: []
+```
+
 # 2143 OOP — Exam 3 Study Guide
 
 **Course:** 2143 Object-Oriented Programming
@@ -898,7 +911,7 @@ public:
 
 What's wrong, and what's the minimum fix?
 
-**Fill in the Blank.** A class member declared ****\_\_**** is accessible inside the class and its derived classes, but not from outside.
+**Fill in the Blank.** A class member declared \***\*\_\_\*\*** is accessible inside the class and its derived classes, but not from outside.
 
 ---
 
@@ -1007,7 +1020,7 @@ int main() {
 
 **Code Writing.** Write a function `printAll(vector<Shape*> shapes)` that calls `area()` on every shape polymorphically.
 
-**Fill in the Blank.** The hidden table of function pointers used to implement runtime polymorphism is called the ****\_\_****.
+**Fill in the Blank.** The hidden table of function pointers used to implement runtime polymorphism is called the \***\*\_\_\*\***.
 
 ---
 
