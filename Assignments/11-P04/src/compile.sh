@@ -1,0 +1,1 @@
+g++ -std=c++20  -isystem include main.cpp Image.cpp color.cpp Kernel.cpp Pipeline.cpp KernelFilter.cpp Brighten.cpp Grayscale.cpp FlipH.cpp FlipV.cpp Rotate.cpp Args.cpp -o imgtool
