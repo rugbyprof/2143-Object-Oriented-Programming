@@ -4,7 +4,7 @@ description: Abstract base class, strategy pattern, filter pipeline
 id: 10-P03
 course: 2143 - Object Oriented Programming
 date_assigned: 2026-04-06 12:00
-date_due: 2026-04-20 11:00
+date_due: 2026-04-24 11:00
 points: 100
 ```
 

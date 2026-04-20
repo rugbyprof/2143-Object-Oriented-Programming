@@ -2,7 +2,7 @@
 
 | Folder | Title | Description | Date Due | Days Left | Available |
 |:------|:------|:------|------:|:-----:|-----|
-| <sup>10-P03</sup> | <sup>Program 3 — Image Filter Pipeline</sup> | <sup>Abstract base class, strategy pattern, filter pipeline</sup> | <sup>Mon Apr 20th @ 1100am</sup> | <sup>1</sup> | <sup>🟢</sup> |
+| <sup>10-P03</sup> | <sup>Program 3 — Image Filter Pipeline</sup> | <sup>Abstract base class, strategy pattern, filter pipeline</sup> | <sup>Fri Apr 24th @ 1100am</sup> | <sup>5</sup> | <sup>🟢</sup> |
 | <sup>12-T03</sup> | <sup>Test 3</sup> | <sup>Test 2 Take-Home</sup> | <sup>Fri Apr 24th @ 1100am</sup> | <sup>5</sup> | <sup>🟢</sup> |
 | <sup>11-P04</sup> | <sup>Program 4 — Color, Kernels, and Convolution</sup> | <sup>Operator overloading, named constructors, convolution kernels</sup> | <sup>Mon May 04th @ 1100am</sup> | <sup>15</sup> | <sup>🟢</sup> |
 | <sup>03-H01</sup> | <sup>OOP Wiki</sup> | <sup>OOP Wiki Assignment (Spiced Up + Better Requirements)</sup> | <sup>Fri May 08th @ 0500pm</sup> | <sup>19</sup> | <sup>🟢</sup> |
@@ -14,6 +14,6 @@
 | <sup>06-P01</sup> | <sup>Program 1 — Image Tool</sup> | <sup>Grayscale conversion with colored output and auto-open</sup> | <sup>Mon Mar 09th @ 1100am</sup> | <sup>-41</sup> | <sup>🔴</sup> |
 | <sup>09-T02b</sup> | <sup>Test 2b</sup> | <sup>Test 2 Take-Home</sup> | <sup>Mon Mar 16th @ 1100am</sup> | <sup>-34</sup> | <sup>🔴</sup> |
 
-<sup>Last Updated: 2026-04-20 (Mon @ 10:23)</sup> 
+<sup>Last Updated: 2026-04-20 (Mon @ 10:24)</sup> 
 
 <sup>***Days Left is only accurate if the `Last Updated` date is the same as todays date. Otherwise, use the due date!***</sup> 
