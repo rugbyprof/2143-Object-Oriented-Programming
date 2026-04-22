@@ -377,7 +377,7 @@ A **static member** belongs to the class itself, not to any individual object. A
 
 ```cpp
 int count(){
-    static int i;
+    static int i=0;
     ++i;
     return i;
 }
