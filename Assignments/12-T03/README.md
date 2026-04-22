@@ -146,7 +146,7 @@ int main() {
 - A. `virtual void draw() const;`
 - B. `virtual void draw() const = 0;`
 - C. `void draw() const override;`
-- D. `static virtual void draw() = 0;`
+- D. ` virtual void draw() = 0;`
 
 **MC2.** If `Shape` has a pure virtual `area()` and `Circle : public Shape` does _not_ override it, what happens?
 
@@ -360,7 +360,7 @@ And why?
 
 ---
 
-## 6. Static Members & Static Methods
+## 6.  Members & Static Methods
 
 ### Definition
 
@@ -376,6 +376,12 @@ A **static member** belongs to the class itself, not to any individual object. A
 ### Code Example
 
 ```cpp
+int count(){
+    static int i;
+    ++i;
+    return i;
+}
+
 class Widget {
     static int count;           // declaration
     int id;
