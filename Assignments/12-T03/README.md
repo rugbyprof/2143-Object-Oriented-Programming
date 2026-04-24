@@ -1308,6 +1308,8 @@ Suggest a one-line improvement and explain it.
 
 ---
 
+
+
 # Master Topic Checklist
 
 Use this right before the exam. If you can't explain any line below in one sentence plus a code example, revisit that section.
@@ -1335,3 +1337,90 @@ Use this right before the exam. If you can't explain any line below in one sente
 ---
 
 _Good luck. If you've worked through every code example and answered every question in this guide, you're in great shape._
+
+---
+
+# Keyword Glossary
+
+## Inheritance & Access
+
+| Term | Definition |
+|------|------------|
+| **Inheritance** | A mechanism where a derived (child) class acquires the properties and behaviors of a base (parent) class; models an "is-a" relationship. |
+| **`public` inheritance** | Preserves the base class interface in the derived class; the most common form. |
+| **`protected` access modifier** | Makes members accessible to the class itself and its derived classes, but not to external code. |
+| **Construction/destruction order** | Constructors run top-down (base first, then derived); destructors run bottom-up (derived first, then base). |
+
+## Abstract Classes & Virtual Functions
+
+| Term | Definition |
+|------|------------|
+| **Abstract class** | A class that cannot be instantiated because it contains at least one pure virtual function; exists to define a shared interface. |
+| **Pure virtual function** | A virtual function declared with `= 0` and no body; derived classes must override it or they remain abstract. |
+| **Virtual destructor** | A destructor declared with `virtual` so that deleting through a base class pointer correctly runs the derived destructor first, preventing resource leaks. |
+| **`override` keyword** | Compiler-enforced check that a derived class method actually overrides a base class virtual function. |
+| **`final` keyword** | Prevents a virtual function from being further overridden, or prevents a class from being further inherited. |
+
+## Polymorphism
+
+| Term | Definition |
+|------|------------|
+| **Runtime polymorphism** (dynamic dispatch / late binding) | The mechanism by which a call through a base class pointer or reference invokes the correct derived class function at runtime, based on the actual object type. |
+| **Object slicing** | When a derived object is assigned to a base object by value, the derived-specific parts are lost and polymorphism no longer works. |
+| **vtable** (v-table) | A per-class table of function pointers the compiler uses to implement runtime polymorphism. |
+
+## Static Members
+
+| Term | Definition |
+|------|------------|
+| **Static member** | A class variable that belongs to the class itself, not any individual instance; all objects share the same copy. |
+| **Static method** | A class-level function that can be called without an object and has no `this` pointer; cannot access non-static members directly. |
+
+## Design Relationships
+
+| Term | Definition |
+|------|------------|
+| **Composition** ("has-a") | A design relationship where one class contains an instance of another class as a member; more flexible than inheritance. |
+| **Inheritance** ("is-a") | A design relationship where a class derives from another, modeling a hierarchical type relationship. |
+
+## Multiple Inheritance
+
+| Term | Definition |
+|------|------------|
+| **Multiple inheritance** | When a class inherits from more than one base class. |
+| **Diamond problem** | Ambiguity that arises when a class inherits from two classes that share a common base, creating two copies of the grandparent's members. |
+| **Virtual inheritance** | Solves the diamond problem by ensuring only one copy of the shared base class exists in the derived hierarchy. |
+
+## Exception Handling
+
+| Term | Definition |
+|------|------------|
+| **Exception handling** | A structured mechanism for responding to runtime errors using `try`, `throw`, and `catch` blocks. |
+| **`try`** | Marks a block of code where an exception might be thrown. |
+| **`throw`** | Signals that an exceptional (error) situation has occurred, propagating an exception up the call stack. |
+| **`catch`** | Handles a thrown exception; matched by type. |
+| **`std::exception`** | The root base class of the C++ standard exception hierarchy. |
+| **`std::runtime_error`** | A standard exception for errors detectable only at runtime. |
+| **`std::logic_error`** | A standard exception for errors that represent violations of logical preconditions (detectable at design time). |
+| **`std::invalid_argument`** | A standard exception for invalid argument values passed to a function. |
+| **`std::out_of_range`** | A standard exception for out-of-bounds access. |
+| **`std::bad_alloc`** | A standard exception thrown when `new` fails to allocate memory. |
+| **Stack unwinding** | The process of calling destructors for all stack-allocated objects in scope when an exception is thrown, before the matching `catch` is reached. |
+
+## Templates
+
+| Term | Definition |
+|------|------------|
+| **Template** | C++'s mechanism for generic programming — code written once that the compiler instantiates for each specific type used, at compile time. |
+| **Function template** | A generic function parameterized by one or more types; the compiler generates a concrete version for each type used. |
+| **Class template** | A generic class parameterized by one or more types (e.g., `Stack<int>`, `Stack<string>`). |
+
+## Memory Management
+
+| Term | Definition |
+|------|------------|
+| **Smart pointer** | An object that owns a dynamically allocated resource and automatically releases it when the object goes out of scope. |
+| **`std::unique_ptr`** | A smart pointer with exclusive (sole) ownership; cannot be copied, only moved. The default choice for owned heap objects. |
+| **`std::shared_ptr`** | A smart pointer with reference-counted shared ownership; the resource is freed when the last owner is destroyed. |
+| **`std::weak_ptr`** | A non-owning reference to a `shared_ptr`; used to break reference cycles without preventing destruction. |
+| **RAII** (Resource Acquisition Is Initialization) | The C++ idiom of binding the lifetime of a resource (memory, file handle, lock) to the lifetime of a stack-allocated object — acquired in the constructor, released in the destructor. |
