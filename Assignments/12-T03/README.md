@@ -1430,3 +1430,53 @@ _Good luck. If you've worked through every code example and answered every quest
 | **`std::shared_ptr`** | A smart pointer with reference-counted shared ownership; the resource is freed when the last owner is destroyed. |
 | **`std::weak_ptr`** | A non-owning reference to a `shared_ptr`; used to break reference cycles without preventing destruction. |
 | **RAII** (Resource Acquisition Is Initialization) | The C++ idiom of binding the lifetime of a resource (memory, file handle, lock) to the lifetime of a stack-allocated object — acquired in the constructor, released in the destructor. |
+
+---
+
+# Conceptual Q&A
+
+## Q: Is the `virtual` keyword necessary when no dynamic memory or base class pointers are involved?
+
+If a program uses no base class pointers or references and allocates all objects on the stack, can the compiler resolve all function calls and destructor invocations at compile time — making `virtual` unnecessary?
+
+### Answer
+
+Yes — that reasoning is correct. The `virtual` keyword exists solely to enable **runtime dispatch** (dynamic polymorphism), and runtime dispatch only activates when two conditions are both true:
+
+1. A method call (or `delete`) is made **through a base class pointer or reference**
+2. The actual object type is not known until runtime
+
+If neither condition holds, the compiler knows the exact concrete type at every call site and resolves everything statically. Adding `virtual` in that situation costs you a vtable pointer per object (typically 8 bytes) and an extra level of indirection on every call, with zero correctness benefit.
+
+The same logic applies to destructors specifically: the dangerous scenario is `delete basePtr` where `basePtr` points to a derived object and `~Base()` is not virtual — only the base destructor runs and derived resources leak. That scenario requires a base class pointer. Stack-allocated objects and smart pointers typed to the concrete class always destroy through the known concrete type, so the correct destructor fires regardless of `virtual`.
+
+```cpp
+// No virtual needed — no pointers, no dynamic dispatch
+class Animal {
+public:
+    string name;
+    ~Animal() {}          // safe: never deleted through a base pointer
+};
+
+class Dog : public Animal {
+public:
+    void bark() {}
+};
+
+int main() {
+    Dog d;                // stack allocation — type known at compile time
+    d.bark();             // static dispatch — no vtable lookup needed
+}                         // ~Dog then ~Animal called automatically, correctly
+```
+
+### The practical takeaway
+
+| Situation | `virtual` needed? |
+|-----------|-------------------|
+| Calling methods on a concrete-type variable | No |
+| Calling methods through a `Base*` or `Base&` | Yes |
+| Deleting through a `Base*` | Yes (virtual destructor) |
+| Stack allocation only, no base pointers | No |
+| Storing mixed derived types in a `Base*` container | Yes |
+
+The study guide teaches `virtual` as the full tool. Knowing *when not* to use it — when static dispatch is sufficient — is the more advanced insight. The rule of thumb: if you never write `Base* p = new Derived();` or `Base& r = derived;`, you probably don't need `virtual`.
