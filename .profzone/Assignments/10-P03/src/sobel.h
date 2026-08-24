@@ -1,3 +1,0 @@
-/**
- * Griffins Sobel Stuff
- */
