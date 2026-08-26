@@ -12,7 +12,7 @@ date_due:
   month: 08
   day: '28'
   year: 2026
-  hour: 1100
+  hour: 11
 ```
 
 </details>
