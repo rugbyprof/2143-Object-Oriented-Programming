@@ -9,7 +9,7 @@ title: Stacks and Access Control
 description: First week worksheet
 category: Worksheets
 date_due:
-  month: 08
+  month: '08'
   day: '28'
   year: 2026
   hour: 11
