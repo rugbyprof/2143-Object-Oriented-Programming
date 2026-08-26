@@ -5,7 +5,7 @@
 is_due: true
 id: W01-Stacks-and-Access-Control
 name: W01-Stacks-and-Access-Control
-title: Stack and Access Control
+title: Stacks and Access Control
 description: First week worksheet
 category: Worksheets
 date_due:
