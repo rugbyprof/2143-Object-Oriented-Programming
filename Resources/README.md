@@ -1,4 +1,4 @@
 ## Resources
 
-| Folder | Title | Description | Date Due | Days Left | Available |
-| :----- | :---- | :---------- | -------: | :-------: | --------- |
+| Is Due | Folder | Title | Description | Date Due | Days Left |
+| :----- | :----- | :---- | :---------- | -------: | :-------: |

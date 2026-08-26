@@ -1,4 +1,4 @@
 ## Lectures
 
-| Title | Description | Due | Days Left | Link | Last Updated |
-| ----- | ----------- | --- | --------- | ---- | ------------ |
+| Is Due | Folder | Title | Description | Date Due | Days Left |
+| :----- | :----- | :---- | :---------- | -------: | :-------: |
