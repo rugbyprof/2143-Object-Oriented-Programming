@@ -4,4 +4,4 @@
 | :----- | :----- | :---- | :---------- | -------: | :-------: |
 | Yes | [W01-Stacks-and-Access-Control](./W01-Stacks-and-Access-Control/) | Stacks and Access Control | First week worksheet | Aug 28th @ 11:00 AM | 2 |
 
-<sup>Last Updated: 2026-08-26 (Wed @ 01:13)</sup>
+<sup>Last Updated: 2026-08-26 (Wed @ 01:43)</sup>
