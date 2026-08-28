@@ -9,8 +9,8 @@ title: Quiz 01
 description: Quiz on worksheet W01
 category: Assignments
 date_due:
-  month: "08"
-  day: "28"
+  month: '08'
+  day: '28'
   year: 2026
   hour: 11
 ```

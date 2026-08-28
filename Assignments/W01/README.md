@@ -9,8 +9,8 @@ title: NO TITLE
 description: NO DESCRIPTION
 category: Assignments
 date_due:
-  month: "09"
-  day: "01"
+  month: '09'
+  day: '01'
   year: 2026
   hour: 11
 ```
