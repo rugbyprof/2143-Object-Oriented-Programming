@@ -3,11 +3,11 @@
 
 ```yaml
 is_due: false
-id: W01
-name: W01
+id: L01-Week_01
+name: L01-Week_01
 title: NO TITLE
 description: NO DESCRIPTION
-category: Assignments
+category: Lectures
 date_due:
   month: '08'
   day: '28'
@@ -16,7 +16,3 @@ date_due:
 ```
 
 </details>
-
-## Week 01 Worksheet
-
-See worksheet [here](../../Worksheets/W01-Stacks-and-Access-Control/W01-Stacks-and-Access-Control.pdf).
