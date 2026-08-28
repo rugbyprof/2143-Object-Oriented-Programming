@@ -5,8 +5,8 @@
 is_due: true
 id: W01
 name: W01
-title: NO TITLE
-description: NO DESCRIPTION
+title: Week 01 worksheet.
+description: Review - stacks,queues, and class syntax.
 category: Assignments
 date_due:
   month: '09'
