@@ -17,6 +17,13 @@ date_due:
 
 </details>
 
-## Quiz 01
+## Quiz 01 — Stacks and Access Control
 
 Based on contents from [Worksheet 01](../../Worksheets/W01-Stacks-and-Access-Control/README.md).
+
+One question, based on the Week 1 worksheet:
+
+- Write the class syntax for a **Stack** and a **Queue**
+- Data members only — no methods, no constructor, no destructor
+- Array-based Stack, linked-list Queue
+

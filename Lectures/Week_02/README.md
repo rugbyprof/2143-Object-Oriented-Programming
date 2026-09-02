@@ -3,14 +3,14 @@
 
 ```yaml
 is_due: false
-id: L01-Week_01
-name: L01-Week_01
-title: C++ Review
-description: Stacks and Queues
+id: L02-Week_02
+name: L02-Week_02
+title: NO TITLE
+description: NO DESCRIPTION
 category: Lectures
 date_due:
-  month: '08'
-  day: '28'
+  month: '09'
+  day: '02'
   year: 2026
   hour: 9
 ```

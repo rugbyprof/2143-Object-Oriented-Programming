@@ -2,6 +2,7 @@
 
 | Is Due | Folder | Title | Description | Date Due | Days Left |
 | :----- | :----- | :---- | :---------- | -------: | :-------: |
-| — | [L01-Week_01](./Week_01/) | NO TITLE | NO DESCRIPTION | N/A | N/A |
+| — | [L01-Week_01](./Week_01/) | C++ Review | Stacks and Queues | N/A | N/A |
+| — | [L02-Week_02](./Week_02/) | NO TITLE | NO DESCRIPTION | N/A | N/A |
 
-<sup>Last Updated: 2026-08-28 (Fri @ 09:26)</sup>
+<sup>Last Updated: 2026-09-02 (Wed @ 09:58)</sup>
