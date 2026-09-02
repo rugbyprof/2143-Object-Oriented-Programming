@@ -31,7 +31,7 @@ public:
     return;
   }
 
-  void jackit() { front->next->val = "tim"; }
+  void shallow_copy_side_effects() { front->next->val = "tim"; }
 
   string pop() {
     string hold = front->val;
@@ -87,7 +87,6 @@ public:
 
   friend ostream &operator<<(ostream &os, const Basic &bas) {
     return os << "[" << bas.a << " " << bas.b << " " << bas.c << "]" << endl;
-
   }
 };
 
@@ -108,7 +107,7 @@ int main(int argc, char **argv) {
 
   q2.print();
 
-  q1.jackit();
+  q1.shallow_copy_side_effects();
 
   q1.print();
 
