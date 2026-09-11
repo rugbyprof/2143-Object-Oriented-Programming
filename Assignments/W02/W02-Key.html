@@ -1,0 +1,331 @@
+<title>Streams, Friends &amp; Constructors — Answer Key</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.4in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 0.16in;
+    margin-bottom: 0.14in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+  .stamp {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 3px;
+    padding: 0.05in 0.14in;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.05in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.03em 0.48em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .blankgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.06in 0.4in;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .blankgrid li {
+    font-size: 0.79rem;
+    line-height: 1.4;
+    display: flex;
+    gap: 0.4em;
+  }
+  .blankgrid .n {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--ink-soft);
+    flex: 0 0 auto;
+  }
+  .blankgrid .a {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .cases {
+    display: flex;
+    flex-direction: column;
+    gap: 0.045in;
+  }
+  .case {
+    display: grid;
+    grid-template-columns: 3.9em 1fr;
+    gap: 0.04in 0.2in;
+    font-size: 0.79rem;
+    line-height: 1.4;
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.12in;
+  }
+  .case .label {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--amber);
+  }
+  .case .verdict {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    grid-column: 2;
+    margin-top: -0.06in;
+  }
+
+  ol.saq {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  ol.saq li {
+    font-size: 0.79rem;
+    line-height: 1.4;
+  }
+  ol.saq .q {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.28in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+</style>
+
+<div class="wrap">
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Streams, Friends &amp; the Many Ways to Build an Object</h1>
+        <div class="tagline">Instructor reference for the review worksheet</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[0]</span>
+      <span class="part-title">Fill in the Blank</span>
+    </div>
+    <ul class="blankgrid">
+      <li><span class="n">1.</span><span><span class="a">ostream</span> (returns <code class="k">std::ostream&amp;</code>, enabling chaining)</span></li>
+      <li><span class="n">2.</span><span><span class="a">first</span></span></li>
+      <li><span class="n">3.</span><span><span class="a">non</span>-member</span></li>
+      <li><span class="n">4.</span><span><span class="a">friend</span></span></li>
+      <li><span class="n">5.</span><span><span class="a">default</span></span></li>
+      <li><span class="n">6.</span><span><span class="a">overloading</span></span></li>
+      <li><span class="n">7.</span><span><span class="a">member initializer</span> list</span></li>
+      <li><span class="n">8.</span><span><span class="a">declared</span> (declaration order in the class)</span></li>
+      <li><span class="n">9.</span><span><span class="a">member initializer</span> list</span></li>
+    </ul>
+
+    <div class="part-head">
+      <span class="part-tag">array[1]</span>
+      <span class="part-title">Find the Error</span>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <span class="label">Case A</span>
+        <span>Written as a <em>member</em>, <code class="k">operator&lt;&lt;</code>'s left operand is <code class="k">*this</code> &mdash; the <code class="k">Fraction</code>. So it would only bind to <code class="k">f &lt;&lt; cout</code>; <code class="k">cout &lt;&lt; f</code> has no matching overload. Correct form is a non-member <code class="k">ostream&amp; operator&lt;&lt;(ostream&amp; os, const Fraction&amp; f)</code> (usually a <code class="k">friend</code>).</span>
+        <span class="verdict">does not compile (cout &lt;&lt; f)</span>
+      </div>
+      <div class="case">
+        <span class="label">Case B</span>
+        <span><code class="k">f.num</code> and <code class="k">f.den</code> are <code class="k">private</code>; the free <code class="k">operator&lt;&lt;</code> is outside the class and has no access. Fix: add inside <code class="k">Fraction</code> &mdash; <code class="k">friend ostream&amp; operator&lt;&lt;(ostream&amp;, const Fraction&amp;);</code></span>
+        <span class="verdict">does not compile</span>
+      </div>
+      <div class="case">
+        <span class="label">Case C</span>
+        <span>Line 6: <code class="k">PI = 3.14159;</code> assigns to a <code class="k">const</code> member (which also was never initialized). A <code class="k">const</code> member can only be set in the init list. Fix: <code class="k">Circle(double radius) : PI(3.14159), r(radius) {}</code> with an empty body.</span>
+        <span class="verdict">does not compile</span>
+      </div>
+      <div class="case">
+        <span class="label">Case D</span>
+        <span><code class="k">Fraction b(3)</code> &mdash; one <code class="k">int</code> argument matches both <code class="k">Fraction(int)</code> and <code class="k">Fraction(int, int = 1)</code> equally well, so overload resolution is ambiguous. Fixes: delete <code class="k">Fraction(int n)</code>; <em>or</em> collapse both into the single <code class="k">Fraction(int n = 0, int d = 1) : num(n), den(d) {}</code>.</span>
+        <span class="verdict">does not compile</span>
+      </div>
+      <div class="case">
+        <span class="label">Case E</span>
+        <span>The <code class="k">friend</code> overload is fine. Inside the constructor, <code class="k">x = x; y = y;</code> &mdash; name lookup finds the <em>parameters</em>, so each just assigns to itself and the members stay uninitialized. Fix: <code class="k">Point(int x, int y) : x(x), y(y) {}</code> &mdash; in a mem-initializer <code class="k">x(x)</code> is unambiguously <em>member(param)</em>.</span>
+        <span class="verdict">compiles, prints garbage</span>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[2]</span>
+      <span class="part-title">Short Answer &mdash; model answers</span>
+    </div>
+    <ol class="saq">
+      <li><span class="q">Why non-member:</span> In <code class="k">cout &lt;&lt; obj</code> the left operand is the stream (<code class="k">std::ostream</code>), not your object. A member <code class="k">operator&lt;&lt;</code> would take <code class="k">*this</code> as the left operand, forcing the unnatural <code class="k">obj &lt;&lt; cout</code>. You cannot add a member to <code class="k">std::ostream</code>, so the overload must be a free function taking <code class="k">(ostream&amp;, const T&amp;)</code>.</li>
+      <li><span class="q">Return <code class="k">ostream&amp;</code> / friendship:</span> Returning the stream lets calls chain &mdash; <code class="k">cout &lt;&lt; a &lt;&lt; b &lt;&lt; endl;</code> parses as <code class="k">(((cout &lt;&lt; a) &lt;&lt; b) &lt;&lt; endl)</code>, each <code class="k">&lt;&lt;</code> feeding the next; with <code class="k">void</code> the second <code class="k">&lt;&lt;</code> has no stream on its left and won't compile. Friendship is safe here because <code class="k">operator&lt;&lt;</code> only <em>reads</em> the state accessors would expose, is authored with the class, and adds no new mutation path.</li>
+      <li><span class="q">Declaration order:</span> Members initialize in the order they are <em>declared</em> (<code class="k">size</code>, then <code class="k">data</code>), regardless of list order &mdash; so <code class="k">data(new int[size])</code> runs while <code class="k">size</code> is still garbage and the array gets a garbage length. Fix: make sure <code class="k">size</code> is the first-declared (and first-listed) member.</li>
+      <li><span class="q">Init list over assignment:</span> (1) It is the <em>only</em> way to set <code class="k">const</code> members, reference members, members with no default constructor, and to pass args to a base-class constructor. (2) It initializes each member once directly; body assignment first default-constructs the member, then overwrites it &mdash; two steps, and sometimes impossible.</li>
+    </ol>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 2</span><span>instructor copy</span></div>
+  </section>
+</div>

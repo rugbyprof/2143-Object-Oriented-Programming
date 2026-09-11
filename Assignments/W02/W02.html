@@ -1,0 +1,543 @@
+<title>Streams, Friends &amp; Constructors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.42in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .idbar {
+    display: flex;
+    gap: 1.4em;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.12in;
+    flex-wrap: wrap;
+  }
+  .idbar span { white-space: nowrap; }
+  .fill {
+    display: inline-block;
+    border-bottom: 1px solid var(--ink-soft);
+    min-width: 1.6in;
+    height: 1.05em;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.06in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  ol.blanks {
+    margin: 0;
+    padding-left: 1.3em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.075in;
+  }
+  ol.blanks li {
+    font-size: 0.8rem;
+    line-height: 1.32;
+  }
+  .blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--ink);
+    min-width: 1.15in;
+    height: 1em;
+    vertical-align: -0.15em;
+  }
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .wordbank {
+    margin-top: 0.08in;
+    border: 1px dashed var(--rule);
+    border-radius: 4px;
+    padding: 0.06in 0.14in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.08in 0.3in;
+  }
+  .wordbank strong {
+    color: var(--ink);
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    margin-right: 0.1in;
+  }
+
+  .snippet {
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.08in 0.12in;
+    margin-bottom: 0.06in;
+  }
+  .snippet-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.04in;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.63rem;
+    line-height: 1.26;
+    color: var(--ink);
+    white-space: pre;
+  }
+  .prompt {
+    font-size: 0.76rem;
+    line-height: 1.32;
+  }
+  .answer-rule {
+    display: block;
+    border-bottom: 1px solid var(--ink-soft);
+    height: 0.17in;
+    margin-top: 0.03in;
+  }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+  }
+  .twocol .span2 { grid-column: 1 / -1; }
+
+  ol.saq {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  ol.saq li {
+    font-size: 0.77rem;
+    line-height: 1.26;
+  }
+  ol.saq .answer-rule { margin-top: 0.03in; height: 0.14in; }
+  ol.saq .answer-rule + .answer-rule { margin-top: 0.04in; }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  .key {
+    width: 8.5in;
+    flex: 0 0 auto;
+    background: var(--paper);
+    border: 1px dashed var(--rule);
+    border-radius: 6px;
+    padding: 0.4in 0.55in;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .key h2 {
+    font-family: "Archivo", sans-serif;
+    font-size: 1rem;
+    margin: 0 0 0.05in;
+  }
+  .key .key-eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .key dl {
+    margin: 0.14in 0 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.06in 0.2in;
+  }
+  .key dt {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .key dd { margin: 0; color: var(--ink-soft); }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+    .key { display: none; }
+  }
+  @media (max-width: 9in) {
+    .sheet, .key { width: 100%; min-width: 8.5in; }
+  }
+</style>
+
+<div class="wrap">
+
+  <!-- FRONT -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Streams, Friends &amp; the Many Ways to Build an Object</h1>
+        <div class="tagline">Review worksheet &mdash; <code class="k">operator&lt;&lt;</code>, <code class="k">friend</code>, overloaded constructors, initializer lists</div>
+      </div>
+    </div>
+
+    <div class="idbar">
+      <span>Name <span class="fill"></span></span>
+      <span>Date <span class="fill" style="min-width:1in;"></span></span>
+      <span>Section <span class="fill" style="min-width:0.7in;"></span></span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[0]</span>
+      <span class="part-title">Fill in the Blank</span>
+      <span class="part-note">one word / token per blank</span>
+    </div>
+    <ol class="blanks">
+      <li>To make <code class="k">cout &lt;&lt; f;</code> work for your own type, you overload <code class="k">operator&lt;&lt;</code>. It returns <code class="k"><span class="blank"></span>&amp;</code> so that <code class="k">&lt;&lt;</code> calls can be chained.</li>
+      <li>A stream-insertion overload takes <code class="k">std::ostream&amp;</code> as its <span class="blank"></span> parameter and a <code class="k">const</code> reference to your class as its second.</li>
+      <li><code class="k">operator&lt;&lt;</code> is written as a <span class="blank"></span>-member function because its left operand is a stream object, not an instance of your class.</li>
+      <li>The <span class="blank"></span> keyword lets a non-member function (or another class) reach the <code class="k">private</code> members of a class.</li>
+      <li>A constructor callable with no arguments &mdash; because it takes none, or supplies a default for every parameter &mdash; is the <span class="blank"></span> constructor.</li>
+      <li>Giving one class several constructors that differ in their parameter lists is an example of function <span class="blank"></span>.</li>
+      <li>The comma-separated list written after a colon, between a constructor's signature and its <code class="k">{ }</code> body, is the <span class="blank" style="min-width:1.5in;"></span> list.</li>
+      <li>Data members are initialized in the order they are <span class="blank"></span> in the class &mdash; not the order they appear in the initializer list.</li>
+      <li>A <code class="k">const</code> data member or a reference data member <em>must</em> be set in the <span class="blank" style="min-width:1.5in;"></span> list, since it cannot be assigned in the constructor body.</li>
+    </ol>
+
+    <div class="wordbank">
+      <span><strong>Word bank</strong></span>
+      <span>ostream</span><span>first</span><span>non</span><span>friend</span>
+      <span>default</span><span>overloading</span><span>member&nbsp;initializer</span><span>declared</span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[1]</span>
+      <span class="part-title">Find the Error</span>
+      <span class="part-note">continued on back</span>
+    </div>
+
+    <div class="twocol">
+      <div class="snippet">
+        <div class="snippet-head"><span>Case A</span><span>compiles? Y / N</span></div>
+        <pre><code>class Fraction {
+    int num, den;
+public:
+    Fraction(int n, int d)
+      : num(n), den(d) {}
+
+    ostream&amp; operator&lt;&lt;(ostream&amp; os) {
+        return os &lt;&lt; num &lt;&lt; "/" &lt;&lt; den;
+    }
+};
+
+int main() {
+    Fraction f(1, 2);
+    cout &lt;&lt; f;        // line 13
+}</code></pre>
+        <div class="prompt">Why does <code class="k">cout &lt;&lt; f;</code> (line 13) not match this overload? What signature would?</div>
+        <span class="answer-rule"></span>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-head"><span>Case B</span><span>compiles? Y / N</span></div>
+        <pre><code>class Fraction {
+    int num, den;
+public:
+    Fraction(int n, int d)
+      : num(n), den(d) {}
+};
+
+ostream&amp; operator&lt;&lt;(ostream&amp; os,
+                     const Fraction&amp; f) {
+    return os &lt;&lt; f.num
+              &lt;&lt; "/" &lt;&lt; f.den;
+}</code></pre>
+        <div class="prompt">Which two expressions are rejected, and why? Write the one line to add to the class.</div>
+        <span class="answer-rule"></span>
+      </div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 2</span><span>front</span></div>
+  </section>
+
+  <!-- BACK -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Streams, Friends &amp; the Many Ways to Build an Object</h1>
+        <div class="tagline">Review worksheet &mdash; <code class="k">operator&lt;&lt;</code>, <code class="k">friend</code>, overloaded constructors, initializer lists</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[1]</span>
+      <span class="part-title">Find the Error</span>
+      <span class="part-note">2 of 2</span>
+    </div>
+
+    <div class="twocol">
+      <div class="snippet">
+        <div class="snippet-head"><span>Case C</span><span>compiles? Y / N</span></div>
+        <pre><code>class Circle {
+    const double PI;
+    double r;
+public:
+    Circle(double radius) {
+        PI = 3.14159;
+        r  = radius;
+    }
+};</code></pre>
+        <div class="prompt">Name the compile error and the exact line. Rewrite the constructor so it is correct.</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-head"><span>Case D</span><span>compiles? Y / N</span></div>
+        <pre><code>class Fraction {
+    int num, den;
+public:
+    Fraction(int n) : num(n), den(1) {}
+    Fraction(int n, int d = 1)
+      : num(n), den(d) {}
+};
+
+Fraction b(3);   // rejected</code></pre>
+        <div class="prompt"><code class="k">Fraction b(3);</code> will not compile. Why? Give two different one-line fixes (one of them a single constructor with default arguments).</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+
+      <div class="snippet span2">
+        <div class="snippet-head"><span>Case E</span><span>compiles? Y / N</span></div>
+        <pre><code>class Point {
+    int x, y;
+public:
+    Point(int x, int y) { x = x; y = y; }
+    friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const Point&amp; p);
+};
+ostream&amp; operator&lt;&lt;(ostream&amp; os, const Point&amp; p) {
+    return os &lt;&lt; "(" &lt;&lt; p.x &lt;&lt; ", " &lt;&lt; p.y &lt;&lt; ")";
+}
+int main() { Point p(3, 4);  cout &lt;&lt; p; }   // prints garbage</code></pre>
+        <div class="prompt">The <code class="k">friend</code> overload is fine, yet this prints garbage. What is wrong inside the constructor, and how does a member initializer list fix it in one stroke?</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[2]</span>
+      <span class="part-title">Short Answer</span>
+      <span class="part-note">full sentences</span>
+    </div>
+    <ol class="saq">
+      <li>Explain why <code class="k">operator&lt;&lt;</code> for a user-defined type is almost always a non-member function. Refer to what the left operand of <code class="k">cout &lt;&lt; obj</code> actually is.
+        <span class="answer-rule"></span><span class="answer-rule"></span>
+      </li>
+      <li>Why does the overload return <code class="k">ostream&amp;</code> and not <code class="k">void</code>? Give one line of code that would fail to compile if it returned <code class="k">void</code>, and give one reason making <code class="k">operator&lt;&lt;</code> a <code class="k">friend</code> does not really weaken encapsulation.
+        <span class="answer-rule"></span><span class="answer-rule"></span>
+      </li>
+      <li>Members are initialized in <em>declaration</em> order, not list order. In <code class="k">class Buffer { int size; int* data; Buffer(int n) : data(new int[size]), size(n) {} };</code> &mdash; what goes wrong, and how do you fix it?
+        <span class="answer-rule"></span><span class="answer-rule"></span>
+      </li>
+      <li>Give two distinct reasons to prefer a member initializer list over plain assignment in the constructor body.
+        <span class="answer-rule"></span><span class="answer-rule"></span>
+      </li>
+    </ol>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 2</span><span>back</span></div>
+  </section>
+
+  <div class="key">
+    <div class="key-eyebrow">Instructor copy &mdash; omitted from print</div>
+    <h2>Answer key, condensed</h2>
+    <dl>
+      <dt>array[0].1</dt><dd>ostream (i.e. <code>std::ostream&amp;</code>)</dd>
+      <dt>array[0].2</dt><dd>first</dd>
+      <dt>array[0].3</dt><dd>non (non-member)</dd>
+      <dt>array[0].4</dt><dd>friend</dd>
+      <dt>array[0].5</dt><dd>default</dd>
+      <dt>array[0].6</dt><dd>overloading</dd>
+      <dt>array[0].7</dt><dd>member initializer</dd>
+      <dt>array[0].8</dt><dd>declared</dd>
+      <dt>array[0].9</dt><dd>member initializer</dd>
+      <dt>Case A</dt><dd>does not compile for <code>cout &lt;&lt; f</code> &mdash; as a member, the overload's left operand is the <code>Fraction</code>, so it only matches <code>f &lt;&lt; cout</code>. Need a non-member <code>ostream&amp; operator&lt;&lt;(ostream&amp;, const Fraction&amp;)</code>.</dd>
+      <dt>Case B</dt><dd>does not compile &mdash; <code>f.num</code> and <code>f.den</code> are private and the free function has no access. Fix: add <code>friend ostream&amp; operator&lt;&lt;(ostream&amp;, const Fraction&amp;);</code> inside the class.</dd>
+      <dt>Case C</dt><dd>does not compile &mdash; line 6, assigning to <code>const</code> member <code>PI</code> in the body (also <code>PI</code> has no initializer). Fix: <code>Circle(double radius) : PI(3.14159), r(radius) {}</code>.</dd>
+      <dt>Case D</dt><dd>does not compile &mdash; <code>Fraction(int)</code> and <code>Fraction(int, int = 1)</code> are both viable for one <code>int</code> arg: ambiguous call. Fixes: delete <code>Fraction(int n)</code>; OR collapse both into <code>Fraction(int n = 0, int d = 1) : num(n), den(d) {}</code>.</dd>
+      <dt>Case E</dt><dd>compiles, prints garbage &mdash; <code>x = x; y = y;</code> assigns the parameters to themselves; the members are never set. Fix: <code>Point(int x, int y) : x(x), y(y) {}</code> &mdash; in the init list <code>x(x)</code> unambiguously means member(parameter).</dd>
+      <dt>SAQ 1</dt><dd>the left operand of <code>cout &lt;&lt; obj</code> is the stream, not your object; a member <code>operator&lt;&lt;</code> would take <code>*this</code> as the left operand (forcing <code>obj &lt;&lt; cout</code>), and you cannot add members to <code>std::ostream</code>.</dd>
+      <dt>SAQ 2</dt><dd><code>cout &lt;&lt; a &lt;&lt; b &lt;&lt; "\n";</code> needs each <code>&lt;&lt;</code> to return the stream so the next can chain; with <code>void</code> it won't compile. Friendship: <code>operator&lt;&lt;</code> only reads state accessors would expose, is authored with the class, and adds no new mutation path.</dd>
+      <dt>SAQ 3</dt><dd><code>data</code> is initialized before <code>size</code> (declaration order), so <code>new int[size]</code> uses an uninitialized <code>size</code>. Fix: declare/list <code>size</code> before <code>data</code> so the length is set first.</dd>
+      <dt>SAQ 4</dt><dd>(1) required for <code>const</code>/reference/no-default members and base-class construction; (2) avoids default-construct-then-assign, so it's one initialization instead of two.</dd>
+    </dl>
+  </div>
+
+</div>

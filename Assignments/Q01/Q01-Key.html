@@ -1,0 +1,318 @@
+<title>Stacks &amp; Access Control &mdash; Quiz Key</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.42in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.14in 0 0.06in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .prompt { font-size: 0.86rem; line-height: 1.38; margin: 0.05in 0 0.12in; }
+
+  .answer-block { margin-bottom: 0.16in; }
+  .answer-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.05in;
+  }
+  pre {
+    margin: 0;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    padding: 0.1in 0.14in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    line-height: 1.4;
+    color: var(--ink);
+    white-space: pre;
+  }
+
+  .key {
+    border: 1px dashed var(--rule);
+    border-radius: 6px;
+    padding: 0.16in 0.2in;
+    margin-top: 0.18in;
+    font-size: 0.8rem;
+    line-height: 1.46;
+  }
+  .key h2 {
+    font-family: "Archivo", sans-serif;
+    font-size: 0.98rem;
+    margin: 0 0 0.04in;
+  }
+  .key-eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .key dl {
+    margin: 0.12in 0 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.07in 0.2in;
+  }
+  .key dt {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .key dd { margin: 0; color: var(--ink-soft); }
+  .key code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.9em;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.01em 0.28em;
+  }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet { box-shadow: none; width: 8.5in; min-height: 11in; }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+</style>
+
+<div class="wrap">
+
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Stacks, Queues &amp; the Public/Private Divide</h1>
+        <div class="tagline">Quiz 01 &mdash; Instructor key (omit from print run)</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[0]</span>
+      <span class="part-title">Class Syntax</span>
+      <span class="part-note">model answer</span>
+    </div>
+
+    <p class="prompt">Two <code class="k">class</code> definitions, data members only. Access specifiers
+    are not required by the prompt, but <code class="k">private:</code> members are the expected default
+    and should be rewarded.</p>
+
+    <div class="answer-block">
+      <div class="answer-label">// Stack &mdash; array-based</div>
+      <pre><code>class Stack {
+private:
+    int *array;     // heap-allocated element buffer
+    int  capacity;  // number of slots in array
+    int  top;       // index of the most recent push; -1 when empty
+};</code></pre>
+    </div>
+
+    <div class="answer-block">
+      <div class="answer-label">// Queue &mdash; singly linked list</div>
+      <pre><code>class Queue {
+private:
+    Node *front;   // dequeue from here (head)
+    Node *rear;    // enqueue here (tail)
+};</code></pre>
+    </div>
+
+    <div class="key">
+      <div class="key-eyebrow">Grading notes</div>
+      <h2>What counts</h2>
+      <dl>
+        <dt>Stack &mdash; min</dt>
+        <dd><code>int *array;</code> + <code>int top;</code>. Full credit also for a
+            <code>capacity</code> / <code>size</code> member; templated element type is fine.</dd>
+        <dt>Stack &mdash; watch</dt>
+        <dd>Missing the <code>*</code> on <code>array</code>; <code>int array[];</code> with no size
+            (not a valid non-static member); using <code>front</code>/<code>rear</code> names.</dd>
+        <dt>Queue &mdash; min</dt>
+        <dd><code>Node *front;</code> + <code>Node *rear;</code>. A <code>Node</code> definition is not
+            required; an extra <code>int count;</code> is acceptable.</dd>
+        <dt>Queue &mdash; watch</dt>
+        <dd>Only one pointer (no O(1) enqueue without <code>rear</code>); calling the members
+            <code>top</code>/<code>array</code>; pointer type written as the value type
+            (<code>Node front;</code>).</dd>
+        <dt>Auto-deductions</dt>
+        <dd>Any method (<code>push</code>, <code>pop</code>, <code>enqueue</code>, <code>dequeue</code>),
+            constructor, or destructor &mdash; these were explicitly excluded.</dd>
+        <dt>Cosmetic</dt>
+        <dd><code>Node *front</code> vs <code>Node* front</code> &mdash; spacing does not matter.
+            Trailing semicolon after <code>}</code> required for the class to compile.</dd>
+        <dt>If Node shown</dt>
+        <dd>Should carry <code>int data;</code> and <code>Node *next;</code>.</dd>
+      </dl>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Quiz 1 &middot; KEY</span><span>front</span></div>
+  </section>
+
+</div>
