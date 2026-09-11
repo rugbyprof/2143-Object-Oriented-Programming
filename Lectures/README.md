@@ -4,5 +4,6 @@
 | :----- | :----- | :---- | :---------- | -------: | :-------: |
 | — | [L01-Week_01](./Week_01/) | C++ Review | Stacks and Queues | N/A | N/A |
 | — | [L02-Week_02](./Week_02/) | NO TITLE | NO DESCRIPTION | N/A | N/A |
+| — | [L03-Week_03](./Week_03/) | NO TITLE | NO DESCRIPTION | N/A | N/A |
 
-<sup>Last Updated: 2026-09-02 (Wed @ 09:58)</sup>
+<sup>Last Updated: 2026-09-10 (Thu @ 21:55)</sup>
