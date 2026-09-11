@@ -3,15 +3,7 @@
 using namespace std;
 
 namespace MathUtils {
-  
-}
-
-// Fraction Definition
-class Fraction {
-  int num;
-  int den;
-
-  // Find GCD using Euclid's algorithm
+    // Find GCD using Euclid's algorithm
   int gcd(int a, int b) {
     while (b != 0) {
       int temp = b;
@@ -23,6 +15,25 @@ class Fraction {
 
   // Find LCM using GCD
   int lcm(int a, int b) { return (a / gcd(a, b)) * b; }
+}
+
+// Fraction Definition
+class Fraction {
+  int num;
+  int den;
+
+  // Find GCD using Euclid's algorithm
+  // int gcd(int a, int b) {
+  //   while (b != 0) {
+  //     int temp = b;
+  //     b = a % b;
+  //     a = temp;
+  //   }
+  //   return a;
+  // }
+
+  // // Find LCM using GCD
+  // int lcm(int a, int b) { return (a / gcd(a, b)) * b; }
 
 public:
   Fraction() : num(1), den(1) {} // default const
@@ -33,14 +44,16 @@ public:
   int getDen(void);
   void setNumDen(int, int);
   friend ostream &operator<<(ostream &, const Fraction &); // lets Fraction be printed with cout <<
-  Fraction add(const Fraction &);                          // returns *this + other, simplified
+  //Fraction add(const Fraction &);                          // returns *this + other, simplified
+  Fraction operator +(const Fraction &);
 };
 
 // Fraction Implementation
 
-Fraction Fraction::add(const Fraction &other) {
+//Fraction Fraction::add(const Fraction &other) {
+Fraction Fraction::operator +(const Fraction &other) {
   // Convert both fractions to a common denominator before adding
-  int commonDenominator = lcm(den, other.den);
+  int commonDenominator = MathUtils::lcm(den, other.den);
 
   // Scale each numerator by the same factor its denominator needed
   // to reach the common denominator, then add
@@ -48,7 +61,7 @@ Fraction Fraction::add(const Fraction &other) {
                   other.num * (commonDenominator / other.den);
 
   // Simplify the result down to lowest terms
-  int divisor = gcd(numerator, commonDenominator);
+  int divisor = MathUtils::gcd(numerator, commonDenominator);
 
   numerator /= divisor;
   commonDenominator /= divisor;
