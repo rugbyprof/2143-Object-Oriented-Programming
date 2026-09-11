@@ -1,6 +1,9 @@
 <title>Stacks &amp; Access Control — Answer Key</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+/>
 <style>
   :root {
     --paper: #f5f6f2;
@@ -50,7 +53,9 @@
     --wrap-bg: #0c0f0d;
   }
 
-  * { box-sizing: border-box; }
+  * {
+    box-sizing: border-box;
+  }
 
   body {
     background: var(--wrap-bg);
@@ -76,7 +81,10 @@
       linear-gradient(var(--paper-line) 1px, transparent 1px),
       linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
       var(--paper);
-    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-size:
+      0.25in 0.25in,
+      0.25in 0.25in,
+      auto;
     background-position: -1px -1px;
     box-shadow: 0 12px 32px var(--shadow);
     padding: 0.4in 0.62in;
@@ -242,8 +250,13 @@
   }
 
   @media print {
-    body { background: #fff; padding: 0; }
-    .wrap { align-items: stretch; }
+    body {
+      background: #fff;
+      padding: 0;
+    }
+    .wrap {
+      align-items: stretch;
+    }
     .sheet {
       box-shadow: none;
       width: 8.5in;
@@ -251,7 +264,10 @@
     }
   }
   @media (max-width: 9in) {
-    .sheet { width: 100%; min-width: 8.5in; }
+    .sheet {
+      width: 100%;
+      min-width: 8.5in;
+    }
   }
 </style>
 
@@ -260,7 +276,9 @@
     <div class="band">
       <div>
         <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
-        <h1>Answer Key &mdash; Stacks, Queues &amp; the Public/Private Divide</h1>
+        <h1>
+          Answer Key &mdash; Stacks, Queues &amp; the Public/Private Divide
+        </h1>
         <div class="tagline">Instructor reference for the review worksheet</div>
       </div>
       <span class="stamp">Not for students</span>
@@ -271,15 +289,49 @@
       <span class="part-title">Fill in the Blank</span>
     </div>
     <ul class="blankgrid">
-      <li><span class="n">1.</span><span>class &rarr; <span class="a">private</span> &middot; struct &rarr; <span class="a">public</span></span></li>
-      <li><span class="n">2.</span><span><span class="a">new</span></span></li>
-      <li><span class="n">3.</span><span><span class="a">top</span></span></li>
-      <li><span class="n">4.</span><span><span class="a">push</span> &middot; <span class="a">pop</span></span></li>
-      <li><span class="n">5.</span><span><span class="a">rear</span> &middot; <span class="a">front</span></span></li>
-      <li><span class="n">6.</span><span><span class="a">encapsulation</span></span></li>
-      <li><span class="n">7.</span><span><span class="a">abstraction</span></span></li>
-      <li><span class="n">8.</span><span><span class="a">private</span></span></li>
-      <li><span class="n">9.</span><span><span class="a">public</span> (label before <code class="k">void push(...)</code>)</span></li>
+      <li>
+        <span class="n">1.</span
+        ><span
+          >class &rarr; <span class="a">private</span> &middot; struct &rarr;
+          <span class="a">public</span></span
+        >
+      </li>
+      <li>
+        <span class="n">2.</span><span><span class="a">new</span></span>
+      </li>
+      <li>
+        <span class="n">3.</span><span><span class="a">top</span></span>
+      </li>
+      <li>
+        <span class="n">4.</span
+        ><span
+          ><span class="a">push</span> &middot; <span class="a">pop</span></span
+        >
+      </li>
+      <li>
+        <span class="n">5.</span
+        ><span
+          ><span class="a">rear</span> &middot;
+          <span class="a">front</span></span
+        >
+      </li>
+      <li>
+        <span class="n">6.</span
+        ><span><span class="a">encapsulation</span></span>
+      </li>
+      <li>
+        <span class="n">7.</span><span><span class="a">abstraction</span></span>
+      </li>
+      <li>
+        <span class="n">8.</span><span><span class="a">private</span></span>
+      </li>
+      <li>
+        <span class="n">9.</span
+        ><span
+          ><span class="a">public</span> (label before
+          <code class="k">void push(...)</code>)</span
+        >
+      </li>
     </ul>
 
     <div class="part-head">
@@ -289,22 +341,49 @@
     <div class="cases">
       <div class="case">
         <span class="label">Case A</span>
-        <span>Does not compile. <code class="k">Stack(int size)</code> sits above the <code class="k">public:</code> label, so it's private by default. <code class="k">Stack S(10);</code> in <code class="k">main()</code> calls a private constructor from outside the class &mdash; <code class="k">error: 'Stack::Stack(int)' is private within this context</code>.</span>
+        <span
+          >Does not compile. <code class="k">Stack(int size)</code> sits above
+          the <code class="k">public:</code> label, so it's private by default.
+          <code class="k">Stack S(10);</code> in
+          <code class="k">main()</code> calls a private constructor from outside
+          the class &mdash;
+          <code class="k"
+            >error: 'Stack::Stack(int)' is private within this context</code
+          >.</span
+        >
         <span class="verdict">does not compile</span>
       </div>
       <div class="case">
         <span class="label">Case B</span>
-        <span><code class="k">top</code> is declared but never assigned in the constructor (only <code class="k">array</code> is set). It starts as an indeterminate/garbage value, so the first <code class="k">push()</code> writes to <code class="k">array[++top]</code> at an unpredictable &mdash; possibly out-of-bounds &mdash; index.</span>
+        <span
+          ><code class="k">top</code> is declared but never assigned in the
+          constructor (only <code class="k">array</code> is set). It starts as
+          an indeterminate/garbage value, so the first
+          <code class="k">push()</code> writes to
+          <code class="k">array[++top]</code> at an unpredictable &mdash;
+          possibly out-of-bounds &mdash; index.</span
+        >
         <span class="verdict">compiles, undefined behavior</span>
       </div>
       <div class="case">
         <span class="label">Case C</span>
-        <span><code class="k">front</code> is a private member of <code class="k">Queue</code>. <code class="k">main()</code> is outside the class, so <code class="k">Q.front = nullptr;</code> is illegal no matter how harmless the assignment looks &mdash; access is checked at compile time, not by intent.</span>
+        <span
+          ><code class="k">front</code> is a private member of
+          <code class="k">Queue</code>. <code class="k">main()</code> is outside
+          the class, so <code class="k">Q.front = nullptr;</code> is illegal no
+          matter how harmless the assignment looks &mdash; access is checked at
+          compile time, not by intent.</span
+        >
         <span class="verdict">does not compile</span>
       </div>
       <div class="case">
         <span class="label">Case D</span>
-        <span>Missing semicolon after the closing brace of the <code class="k">Node</code> class definition. Without it, the compiler reads the class body and <code class="k">int main()</code> as one run-on declaration.</span>
+        <span
+          >Missing semicolon after the closing brace of the
+          <code class="k">Node</code> class definition. Without it, the compiler
+          reads the class body and <code class="k">int main()</code> as one
+          run-on declaration.</span
+        >
         <span class="verdict">does not compile</span>
       </div>
     </div>
@@ -314,13 +393,45 @@
       <span class="part-title">Short Answer &mdash; model answers</span>
     </div>
     <ol class="saq">
-      <li><span class="q">Encapsulation vs. abstraction:</span> Encapsulation bundles an object's data with the functions that operate on it and restricts outside access &mdash; e.g., making <code class="k">array</code> and <code class="k">top</code> private in <code class="k">Stack</code>. Abstraction exposes only the operations a caller needs (<code class="k">push()</code>, <code class="k">pop()</code>, <code class="k">print()</code>) while hiding whether the implementation is an array or a linked list.</li>
-      <li><span class="q">front/rear vs. top:</span> A stack only ever adds and removes at one end, so a single <code class="k">top</code> index locates that end. A queue adds at one end and removes at the other, so it needs two references &mdash; <code class="k">front</code> and <code class="k">rear</code> &mdash; to reach both ends in constant time.</li>
-      <li><span class="q">Broken invariant example:</span> Any direct write with no bounds check, e.g. <code class="k">S.top = 999;</code> or <code class="k">S.array[50] = 42;</code> &mdash; either desyncs <code class="k">top</code> from the array's real contents.</li>
-      <li><span class="q">Fixing Case A:</span> Move the constructor under <code class="k">public:</code>, or add a separate public constructor/factory function that <code class="k">main()</code> can call.</li>
-      <li><span class="q">LIFO / FIFO:</span> LIFO ("last in, first out") describes the Stack &mdash; the most recently pushed value is the first one popped. FIFO ("first in, first out") describes the Queue &mdash; the earliest value pushed is the first to leave.</li>
+      <li>
+        <span class="q">Encapsulation vs. abstraction:</span> Encapsulation
+        bundles an object's data with the functions that operate on it and
+        restricts outside access &mdash; e.g., making
+        <code class="k">array</code> and <code class="k">top</code> private in
+        <code class="k">Stack</code>. Abstraction exposes only the operations a
+        caller needs (<code class="k">push()</code>,
+        <code class="k">pop()</code>, <code class="k">print()</code>) while
+        hiding whether the implementation is an array or a linked list.
+      </li>
+      <li>
+        <span class="q">front/rear vs. top:</span> A stack only ever adds and
+        removes at one end, so a single <code class="k">top</code> index locates
+        that end. A queue adds at one end and removes at the other, so it needs
+        two references &mdash; <code class="k">front</code> and
+        <code class="k">rear</code> &mdash; to reach both ends in constant time.
+      </li>
+      <li>
+        <span class="q">Broken invariant example:</span> Any direct write with
+        no bounds check, e.g. <code class="k">S.top = 999;</code> or
+        <code class="k">S.array[50] = 42;</code> &mdash; either desyncs
+        <code class="k">top</code> from the array's real contents.
+      </li>
+      <li>
+        <span class="q">Fixing Case A:</span> Move the constructor under
+        <code class="k">public:</code>, or add a separate public
+        constructor/factory function that <code class="k">main()</code> can
+        call.
+      </li>
+      <li>
+        <span class="q">LIFO / FIFO:</span> LIFO ("last in, first out")
+        describes the Stack &mdash; the most recently pushed value is the first
+        one popped. FIFO ("first in, first out") describes the Queue &mdash; the
+        earliest value pushed is the first to leave.
+      </li>
     </ol>
 
-    <div class="footer-rule"><span>2143 &middot; Review Day 1</span><span>instructor copy</span></div>
+    <div class="footer-rule">
+      <span>2143 &middot; Review Day 1</span><span>instructor copy</span>
+    </div>
   </section>
 </div>
