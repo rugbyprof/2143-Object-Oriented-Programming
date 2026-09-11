@@ -21,6 +21,6 @@ date_due:
 
 ## Quiz 03 — Streams, Friends & Constructors
 
-Two questions, 5-10 minutes, based on [Worksheet 02](../../Worksheets/W02/W02.pdf):
+Two questions, 5-10 minutes, based on [Worksheet 02](Assignments/Worksheets/W02/W02.pdf):
 
 Blank quiz: [Q03.pdf](./Q03.pdf) &middot; Key: [Q03-Key.pdf](./Q03-Key.pdf) (published after the due date)
