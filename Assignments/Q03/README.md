@@ -6,13 +6,12 @@ is_due: true
 id: Q03
 name: Q03
 title: Streams, Friends & Constructors
-description:
-  Third week quiz - ostream overloading, friend, and member initializer
+description: Third week quiz - ostream overloading, friend, and member initializer
   lists.
 category: Assignments
 date_due:
-  month: "09"
-  day: "11"
+  month: '09'
+  day: '11'
   year: 2026
   hour: 11
 ```

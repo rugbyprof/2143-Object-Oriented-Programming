@@ -1,0 +1,325 @@
+<title>Streams, Friends &amp; Constructors &mdash; Quiz Key</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.36in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.12in 0 0.06in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .prompt {
+    font-size: 0.82rem;
+    line-height: 1.32;
+    margin: 0.04in 0 0.06in;
+  }
+
+  .answer-block { margin-bottom: 0.14in; }
+  .answer-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.04in;
+  }
+  pre {
+    margin: 0;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.07in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    color: var(--ink);
+    white-space: pre;
+  }
+
+  .key {
+    border: 1px dashed var(--rule);
+    border-radius: 6px;
+    padding: 0.16in 0.2in;
+    font-size: 0.78rem;
+    line-height: 1.42;
+    margin-top: 0.1in;
+  }
+  .key-eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .key h2 {
+    font-family: "Archivo", sans-serif;
+    font-size: 0.95rem;
+    margin: 0.03in 0 0.1in;
+  }
+  .key dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.05in 0.2in;
+  }
+  .key dt {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .key dd { margin: 0; color: var(--ink-soft); }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+</style>
+
+<div class="wrap">
+
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Streams, Friends &amp; the Many Ways to Build an Object</h1>
+        <div class="tagline">Quiz 03 &mdash; ANSWER KEY</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[0]</span>
+      <span class="part-title">Find the Bug</span>
+      <span class="part-note">model answer</span>
+    </div>
+
+    <p class="prompt">Bug is on <code class="k">x = x; y = y;</code> inside the constructor body:
+    the parameters <code class="k">x</code> and <code class="k">y</code> are assigned to
+    <em>themselves</em> (the parameter names hide the member names), so the data members
+    <code class="k">Point::x</code> and <code class="k">Point::y</code> are never touched and stay
+    whatever garbage was on the heap/stack &mdash; hence <code class="k">(0, 0)</code> or worse.</p>
+
+    <div class="answer-block">
+      <div class="answer-label">Corrected constructor</div>
+      <pre><code>Point(int x, int y) : x(x), y(y) {}</code></pre>
+    </div>
+
+    <p class="prompt">In the initializer list, <code class="k">x(x)</code> is unambiguous: the left
+    <code class="k">x</code> is looked up as a member, the right <code class="k">x</code> as the
+    parameter in scope &mdash; unlike a bare assignment in the body, where an unqualified
+    <code class="k">x</code> always resolves to the parameter.</p>
+
+    <div class="part-head">
+      <span class="part-tag">array[1]</span>
+      <span class="part-title">Write the Code</span>
+      <span class="part-note">model answer</span>
+    </div>
+
+    <div class="answer-block">
+      <div class="answer-label">(a) inside the class</div>
+      <pre><code>friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const Fraction&amp; f);</code></pre>
+    </div>
+    <div class="answer-block">
+      <div class="answer-label">(b) free function, below the class</div>
+      <pre><code>ostream&amp; operator&lt;&lt;(ostream&amp; os, const Fraction&amp; f) {
+    return os &lt;&lt; f.num &lt;&lt; "/" &lt;&lt; f.den;
+}</code></pre>
+    </div>
+
+    <div class="key">
+      <div class="key-eyebrow">Grading notes</div>
+      <h2>What counts</h2>
+      <dl>
+        <dt>array[0] &mdash; bug</dt>
+        <dd>Must name the exact issue (self-assignment / parameter shadows member), not just
+            "wrong values." Line number or the literal <code>x = x;</code> both acceptable.</dd>
+        <dt>array[0] &mdash; fix</dt>
+        <dd><code>: x(x), y(y)</code> in either member order is fine here (no dependency between
+            them). Renaming the parameters (e.g. <code>_x</code>, <code>xVal</code>) and assigning
+            in the body also earns full credit &mdash; the point is members get set.</dd>
+        <dt>array[1](a) &mdash; watch</dt>
+        <dd>Accept the friend line placed anywhere inside the class body. A student who instead
+            makes <code>num</code>/<code>den</code> <code>public:</code> has NOT answered the
+            question &mdash; that avoids <code>friend</code> rather than using it.</dd>
+        <dt>array[1](b) &mdash; watch</dt>
+        <dd>Must return <code>ostream&amp;</code> (not <code>void</code>) and take
+            <code>ostream&amp;</code> first, <code>const Fraction&amp;</code> second. A member
+            function version (<code>Fraction::operator&lt;&lt;</code>) is incorrect for this call
+            direction &mdash; partial credit if the friend declaration in (a) was also dropped
+            consistently.</dd>
+        <dt>Cosmetic</dt>
+        <dd>Separator character (<code>/</code>) must appear; exact spacing does not matter.</dd>
+      </dl>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Quiz 3 &middot; KEY</span><span>front</span></div>
+  </section>
+
+</div>

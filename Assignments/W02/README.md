@@ -9,8 +9,8 @@ title: Streams, Friends and Constructors
 description: Second week worksheet
 category: Assignments
 date_due:
-  month: "09"
-  day: "04"
+  month: '09'
+  day: '04'
   year: 2026
   hour: 11
 ```
