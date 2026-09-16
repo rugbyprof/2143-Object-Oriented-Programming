@@ -1,0 +1,330 @@
+<title>Operator Overloading &amp; Copy Semantics — Answer Key</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.4in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 0.16in;
+    margin-bottom: 0.14in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+  .stamp {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 3px;
+    padding: 0.05in 0.14in;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.05in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.03em 0.48em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .blankgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.06in 0.4in;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .blankgrid li {
+    font-size: 0.79rem;
+    line-height: 1.4;
+    display: flex;
+    gap: 0.4em;
+  }
+  .blankgrid .n {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--ink-soft);
+    flex: 0 0 auto;
+  }
+  .blankgrid .a {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .cases {
+    display: flex;
+    flex-direction: column;
+    gap: 0.045in;
+  }
+  .case {
+    display: grid;
+    grid-template-columns: 3.9em 1fr;
+    gap: 0.04in 0.2in;
+    font-size: 0.79rem;
+    line-height: 1.4;
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.12in;
+  }
+  .case .label {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--amber);
+  }
+  .case .verdict {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    grid-column: 2;
+    margin-top: -0.06in;
+  }
+
+  ol.saq {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  ol.saq li {
+    font-size: 0.79rem;
+    line-height: 1.4;
+  }
+  ol.saq .q {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.28in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+</style>
+
+<div class="wrap">
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Operator Overloading &amp; the Anatomy of a Copy</h1>
+        <div class="tagline">Instructor reference for the review worksheet</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[0]</span>
+      <span class="part-title">Fill in the Blank</span>
+    </div>
+    <ul class="blankgrid">
+      <li><span class="n">1.</span><span><span class="a">*this</span></span></li>
+      <li><span class="n">2.</span><span><span class="a">const</span></span></li>
+      <li><span class="n">3.</span><span><span class="a">*this</span> (the calling object)</span></li>
+      <li><span class="n">4.</span><span><span class="a">one</span> / <span class="a">two</span></span></li>
+      <li><span class="n">5.</span><span><span class="a">encapsulation</span></span></li>
+      <li><span class="n">6.</span><span><span class="a">copy</span> constructor</span></li>
+      <li><span class="n">7.</span><span><span class="a">ints</span></span></li>
+      <li><span class="n">8.</span><span><span class="a">Fraction&amp;</span> (a reference to *this)</span></li>
+    </ul>
+
+    <div class="part-head">
+      <span class="part-tag">array[1]</span>
+      <span class="part-title">Find the Error</span>
+    </div>
+    <div class="cases">
+      <div class="case">
+        <span class="label">Case A</span>
+        <span><code class="k">a.num</code>/<code class="k">a.den</code> are <code class="k">private</code>; this free <code class="k">operator+</code> has no access. Fix: add <code class="k">friend Fraction operator+(const Fraction&amp;, const Fraction&amp;);</code> inside the class &mdash; the function signature doesn't change.</span>
+        <span class="verdict">does not compile</span>
+      </div>
+      <div class="case">
+        <span class="label">Case B</span>
+        <span><code class="k">operator+</code> is missing <code class="k">const</code>, so it can't be invoked on <code class="k">a</code> or <code class="k">b</code>, which are <code class="k">const Fraction&amp;</code>. Fix: <code class="k">Fraction operator+(const Fraction&amp; rhs) const { ... }</code>.</span>
+        <span class="verdict">does not compile</span>
+      </div>
+      <div class="case">
+        <span class="label">Case C</span>
+        <span>Comparing raw <code class="k">num</code>/<code class="k">den</code> fails for unreduced-but-equal fractions &mdash; 1/2 and 2/4 are the same value but different fields. Fix: cross-multiply &mdash; <code class="k">return num * rhs.den == rhs.num * den;</code></span>
+        <span class="verdict">compiles, wrong answer</span>
+      </div>
+      <div class="case">
+        <span class="label">Case D</span>
+        <span><code class="k">a + 2</code> resolves through the <em>member</em> <code class="k">operator+</code> found on <code class="k">a</code>'s type, implicitly converting <code class="k">2</code> to <code class="k">Fraction</code> for the parameter. <code class="k">2 + a</code> looks for a member <code class="k">operator+</code> on <code class="k">int</code> &mdash; which doesn't exist &mdash; and there's no non-member <code class="k">operator+(int, const Fraction&amp;)</code> to fall back on. Fix: a non-member (or <code class="k">friend</code>) <code class="k">operator+</code> makes both orders resolve.</span>
+        <span class="verdict">line 13 does not compile</span>
+      </div>
+      <div class="case">
+        <span class="label">Case E</span>
+        <span>The compiler-generated copy constructor copies the <code class="k">data</code> pointer's <em>address</em>, not the array it points to. <code class="k">b1</code> and <code class="k">b2</code> now both &ldquo;own&rdquo; the same heap block &mdash; a textbook shallow copy, setting up a double free / dangling pointer once destructors (even implicit ones) run.</span>
+        <span class="verdict">compiles, undefined behavior</span>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[2]</span>
+      <span class="part-title">Short Answer &mdash; model answers</span>
+    </div>
+    <ol class="saq">
+      <li><span class="q">Why const:</span> without it, <code class="k">operator+</code> isn't callable on a <code class="k">const Fraction</code> or through a <code class="k">const Fraction&amp;</code>. Example failing line: <code class="k">void f(const Fraction&amp; a, const Fraction&amp; b) { a + b; }</code> &mdash; won't compile if <code class="k">operator+</code> isn't <code class="k">const</code>.</li>
+      <li><span class="q">Member vs. non-member:</span> <code class="k">cout &lt;&lt; obj</code>'s left operand is an <code class="k">ostream</code> &mdash; you can't add members to a type you don't own, so the overload must be free (or <code class="k">friend</code>). <code class="k">a + b</code>'s left operand is your own <code class="k">Fraction</code>, which you're free to add a member to, so a member overload is the natural, simpler choice.</li>
+      <li><span class="q">Buffer's crash:</span> both <code class="k">Buffer</code> objects end up pointing at the same heap array; whichever is destroyed first (or whichever writes) leaves the other holding a dangling pointer, and any code that frees both frees the same block twice. Term: <strong>shallow copy</strong>.</li>
+      <li><span class="q">Why Fraction is safe:</span> its members are plain value types (<code class="k">int</code>) with no ownership semantics, so a member-wise copy is already a complete, independent copy. A raw owning pointer (like <code class="k">Buffer::data</code>) is what forces a hand-written copy constructor, destructor, and <code class="k">operator=</code> together &mdash; the &ldquo;Rule of Three.&rdquo;</li>
+    </ol>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 3</span><span>instructor copy</span></div>
+  </section>
+</div>

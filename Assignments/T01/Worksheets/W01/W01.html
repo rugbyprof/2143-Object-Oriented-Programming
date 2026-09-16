@@ -1,0 +1,537 @@
+<title>Stacks &amp; Access Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.42in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .idbar {
+    display: flex;
+    gap: 1.4em;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.12in;
+    flex-wrap: wrap;
+  }
+  .idbar span { white-space: nowrap; }
+  .fill {
+    display: inline-block;
+    border-bottom: 1px solid var(--ink-soft);
+    min-width: 1.6in;
+    height: 1.05em;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.06in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  ol.blanks {
+    margin: 0;
+    padding-left: 1.3em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.075in;
+  }
+  ol.blanks li {
+    font-size: 0.8rem;
+    line-height: 1.32;
+  }
+  .blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--ink);
+    min-width: 1.15in;
+    height: 1em;
+    vertical-align: -0.15em;
+  }
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .wordbank {
+    margin-top: 0.08in;
+    border: 1px dashed var(--rule);
+    border-radius: 4px;
+    padding: 0.06in 0.14in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.08in 0.3in;
+  }
+  .wordbank strong {
+    color: var(--ink);
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    margin-right: 0.1in;
+  }
+
+  .snippet {
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.09in 0.13in;
+    margin-bottom: 0.09in;
+  }
+  .snippet-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.04in;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    line-height: 1.28;
+    color: var(--ink);
+    white-space: pre;
+  }
+  .prompt {
+    font-size: 0.76rem;
+    line-height: 1.32;
+  }
+  .answer-rule {
+    display: block;
+    border-bottom: 1px solid var(--ink-soft);
+    height: 0.17in;
+    margin-top: 0.03in;
+  }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+  }
+  .twocol .span2 { grid-column: 1 / -1; }
+
+  ol.saq {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.06in;
+  }
+  ol.saq li {
+    font-size: 0.77rem;
+    line-height: 1.26;
+  }
+  ol.saq .answer-rule { margin-top: 0.03in; height: 0.14in; }
+  ol.saq .answer-rule + .answer-rule { margin-top: 0.04in; }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  .key {
+    width: 8.5in;
+    flex: 0 0 auto;
+    background: var(--paper);
+    border: 1px dashed var(--rule);
+    border-radius: 6px;
+    padding: 0.4in 0.55in;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .key h2 {
+    font-family: "Archivo", sans-serif;
+    font-size: 1rem;
+    margin: 0 0 0.05in;
+  }
+  .key .key-eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .key dl {
+    margin: 0.14in 0 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.06in 0.2in;
+  }
+  .key dt {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .key dd { margin: 0; color: var(--ink-soft); }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+    .key { display: none; }
+  }
+  @media (max-width: 9in) {
+    .sheet, .key { width: 100%; min-width: 8.5in; }
+  }
+</style>
+
+<div class="wrap">
+
+  <!-- FRONT -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Stacks, Queues &amp; the Public/Private Divide</h1>
+        <div class="tagline">Review worksheet &mdash; ADTs, encapsulation, and access control</div>
+      </div>
+    </div>
+
+    <div class="idbar">
+      <span>Name <span class="fill"></span></span>
+      <span>Date <span class="fill" style="min-width:1in;"></span></span>
+      <span>Section <span class="fill" style="min-width:0.7in;"></span></span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[0]</span>
+      <span class="part-title">Fill in the Blank</span>
+      <span class="part-note">one word / token per blank</span>
+    </div>
+    <ol class="blanks">
+      <li>A <code class="k">class</code> defaults its members to <span class="blank"></span> access; a <code class="k">struct</code> defaults its members to <span class="blank"></span> access.</li>
+      <li>The keyword that requests memory from the heap instead of the stack is <span class="blank"></span>.</li>
+      <li>In an array-based stack, the integer that stores the index of the most recently pushed value is conventionally named <span class="blank"></span>.</li>
+      <li>Adding a value to a stack is called a <span class="blank"></span>; removing the top value is called a <span class="blank"></span>.</li>
+      <li>In a linked-list based queue, new nodes are attached at the <span class="blank"></span> and removed from the <span class="blank"></span>.</li>
+      <li><span class="blank" style="min-width:1.5in;"></span> is the principle of bundling data with the methods that act on it, and restricting outside code from touching that data directly.</li>
+      <li><span class="blank" style="min-width:1.5in;"></span> is the principle that lets you call <code class="k">push()</code> on a stack without knowing (or caring) whether it's backed by an array or a linked list.</li>
+      <li>A member marked <span class="blank"></span> can be called only by code that lives inside the class itself.</li>
+      <li>Fill in the missing keyword so <code class="k">main()</code> is allowed to call <code class="k">push()</code>:
+        <pre><code>class Stack {
+    int *array;
+    int top;
+<span class="blank" style="min-width:0.9in;"></span>:
+    void push(int val);
+};</code></pre>
+      </li>
+    </ol>
+
+    <div class="wordbank">
+      <span><strong>Word bank</strong></span>
+      <span>public</span><span>private</span><span>class</span><span>struct</span><span>new</span>
+      <span>encapsulation</span><span>abstraction</span><span>top</span><span>front</span><span>rear</span>
+      <span>push</span><span>pop</span><span>constructor</span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[1]</span>
+      <span class="part-title">Find the Error</span>
+      <span class="part-note">continued on back</span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Case A</span><span>compiles? Y / N</span></div>
+      <pre><code>class Stack {
+    int *array;
+    int top;
+
+    Stack(int size) {
+        array = new int[size];
+        top = -1;
+    }
+
+public:
+    void push(int val) { array[++top] = val; }
+};
+
+int main() {
+    Stack S(10);
+    S.push(7);
+}</code></pre>
+      <div class="prompt">Circle one: <strong>compiles</strong> / <strong>does not compile</strong>. Which line fails, and why?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 1</span><span>front</span></div>
+  </section>
+
+  <!-- BACK -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Stacks, Queues &amp; the Public/Private Divide</h1>
+        <div class="tagline">Review worksheet &mdash; ADTs, encapsulation, and access control</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[1]</span>
+      <span class="part-title">Find the Error</span>
+      <span class="part-note">2 of 2</span>
+    </div>
+
+    <div class="twocol">
+      <div class="snippet">
+        <div class="snippet-head"><span>Case B</span><span>compiles, but&hellip;</span></div>
+        <pre><code>class Stack {
+public:
+    int *array;
+    int top;
+
+    Stack(int size) {
+        array = new int[size];
+    }
+
+    void push(int val) {
+        array[++top] = val;
+    }
+};</code></pre>
+        <div class="prompt">This compiles and runs. What value does <code class="k">top</code> start with, and why does that make <code class="k">push()</code> unreliable?</div>
+        <span class="answer-rule"></span>
+      </div>
+
+      <div class="snippet">
+        <div class="snippet-head"><span>Case C</span><span>compiles? Y / N</span></div>
+        <pre><code>class Queue {
+    Node *front;
+    Node *rear;
+public:
+    Queue() { front = rear = nullptr; }
+    void push(int val);
+};
+
+int main() {
+    Queue Q;
+    Q.front = nullptr;  // line 11
+}</code></pre>
+        <div class="prompt">Name the exact error on line 11, and explain why access control blocks it.</div>
+        <span class="answer-rule"></span>
+      </div>
+
+      <div class="snippet span2">
+        <div class="snippet-head"><span>Case D</span><span>compiles? Y / N</span></div>
+        <pre><code>class Node {
+    int data;
+    Node *next;
+public:
+    Node(int v)
+      : data(v), next(nullptr) {}
+}
+
+int main() {
+    Node n(5);
+}</code></pre>
+        <div class="prompt">This is a plain syntax error, not an access error. What's missing, and exactly where?</div>
+        <span class="answer-rule"></span>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[2]</span>
+      <span class="part-title">Short Answer</span>
+      <span class="part-note">full sentences</span>
+    </div>
+    <ol class="saq">
+      <li>Distinguish <em>encapsulation</em> from <em>abstraction</em> in your own words. Give one example of each from the Stack or Queue class we built in lecture.
+        <span class="answer-rule"></span><span class="answer-rule"></span>
+      </li>
+      <li>Why does a linked-list queue need to track both <code class="k">front</code> and <code class="k">rear</code>, while an array-based stack only needs a single index, <code class="k">top</code>?
+        <span class="answer-rule"></span><span class="answer-rule"></span>
+      </li>
+      <li>Suppose <code class="k">array</code> and <code class="k">top</code> were <code class="k">public</code> instead of <code class="k">private</code> in the Stack class. Write one line of code a careless caller in <code class="k">main()</code> could use to corrupt the stack's invariant.
+        <span class="answer-rule"></span>
+      </li>
+      <li>Look back at <strong>Case A</strong>. Give one way to fix it so <code class="k">main()</code> can still create a <code class="k">Stack</code> object.
+        <span class="answer-rule"></span>
+      </li>
+      <li>Define LIFO and FIFO in one sentence each, and say which describes the Stack and which describes the Queue.
+        <span class="answer-rule"></span><span class="answer-rule"></span>
+      </li>
+    </ol>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 1</span><span>back</span></div>
+  </section>
+
+  <div class="key">
+    <div class="key-eyebrow">Instructor copy &mdash; omitted from print</div>
+    <h2>Answer key, condensed</h2>
+    <dl>
+      <dt>array[0].1</dt><dd>private &middot; public</dd>
+      <dt>array[0].2</dt><dd>new</dd>
+      <dt>array[0].3</dt><dd>top</dd>
+      <dt>array[0].4</dt><dd>push &middot; pop</dd>
+      <dt>array[0].5</dt><dd>rear &middot; front</dd>
+      <dt>array[0].6</dt><dd>encapsulation</dd>
+      <dt>array[0].7</dt><dd>abstraction</dd>
+      <dt>array[0].8</dt><dd>private</dd>
+      <dt>array[0].9</dt><dd>public</dd>
+      <dt>Case A</dt><dd>does not compile &mdash; <code>Stack S(10);</code> calls a private constructor from outside the class.</dd>
+      <dt>Case B</dt><dd>compiles &mdash; <code>top</code> is never initialized (garbage value), so the first <code>push()</code> writes to an unpredictable index.</dd>
+      <dt>Case C</dt><dd>does not compile &mdash; <code>front</code> is private; <code>main()</code> has no access, even though it's a "simple" assignment.</dd>
+      <dt>Case D</dt><dd>does not compile &mdash; missing semicolon after the closing brace of the <code>Node</code> class definition.</dd>
+      <dt>SAQ 3 example</dt><dd><code>S.top = 999;</code> or <code>S.array[3] = 42;</code> with no bounds check.</dd>
+      <dt>SAQ 4</dt><dd>Add a <code>public</code> constructor/overload, or move the existing constructor under <code>public:</code>.</dd>
+    </dl>
+  </div>
+
+</div>

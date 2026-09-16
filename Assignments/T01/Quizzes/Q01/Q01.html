@@ -1,0 +1,303 @@
+<title>Stacks &amp; Access Control &mdash; Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.42in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .idbar {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.4in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin: 0.2in 0 0.28in;
+    flex-wrap: nowrap;
+  }
+  .idbar span {
+    white-space: nowrap;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.14in;
+  }
+  .fill {
+    display: inline-block;
+    border-bottom: 1.5px solid var(--ink-soft);
+    min-width: 3in;
+    height: 1.9em;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.14in 0 0.06in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .prompt {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0.05in 0 0.04in;
+  }
+  .prompt.sub {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.16in;
+  }
+  .prompt ul {
+    margin: 0.06in 0 0;
+    padding-left: 1.15em;
+  }
+  .prompt li { margin-bottom: 0.02in; }
+
+  .rules {
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.09in 0.14in;
+    margin: 0.1in 0 0.2in;
+    font-size: 0.78rem;
+    line-height: 1.36;
+  }
+  .rules strong { color: var(--amber); }
+
+  .answer-block { margin-bottom: 0.24in; }
+  .answer-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.05in;
+  }
+  .code-area {
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    background-image: repeating-linear-gradient(
+      var(--code-bg) 0,
+      var(--code-bg) calc(0.28in - 1px),
+      var(--code-border) calc(0.28in - 1px),
+      var(--code-border) 0.28in
+    );
+    background-size: 100% 0.28in;
+  }
+  .code-area.tall { height: 2.24in; }
+  .code-area.short { height: 1.68in; }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+</style>
+
+<div class="wrap">
+
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Stacks, Queues &amp; the Public/Private Divide</h1>
+        <div class="tagline">Quiz 01 &mdash; class syntax &amp; data members</div>
+      </div>
+    </div>
+
+    <div class="idbar">
+      <span>Name <span class="fill" style="min-width:3in;"></span></span>
+      <span>Date <span class="fill" style="min-width:1.5in;"></span></span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[0]</span>
+      <span class="part-title">Class Syntax</span>
+      <span class="part-note">one question</span>
+    </div>
+
+    <p class="prompt">Write the <strong>class syntax</strong> for a <code class="k">Stack</code> and for a
+    <code class="k">Queue</code>. Include <strong>only the data members</strong> each data structure needs to
+    do its job &mdash; declare every member with an appropriate type.</p>
+    <p class="prompt sub">Assume the array-based <code class="k">Stack</code> and the linked-list
+    <code class="k">Queue</code> from lecture. A <code class="k">Node</code> type may be assumed for the
+    queue &mdash; you do <em>not</em> need to define it.</p>
+
+    <div class="rules">
+      <strong>No</strong> methods. <strong>No</strong> constructor. <strong>No</strong> destructor.
+      Just two <code class="k">class</code> definitions with their data members declared.
+    </div>
+
+    <div class="answer-block">
+      <div class="answer-label">// Stack</div>
+      <div class="code-area tall"></div>
+    </div>
+
+    <div class="answer-block">
+      <div class="answer-label">// Queue</div>
+      <div class="code-area tall"></div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Quiz 1</span><span>front</span></div>
+  </section>
+
+</div>
