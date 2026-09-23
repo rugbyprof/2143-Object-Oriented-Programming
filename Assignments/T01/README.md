@@ -6,7 +6,8 @@ is_due: false
 id: T01
 name: T01
 title: Test 1 — C++ Review and OOP Basics
-description: Exam 1 study guide, combining the Test 1 review sheet with all Quiz 01-03 and Worksheet 01-04 material
+description: Exam 1 study guide, combining the Test 1 review sheet with all Quiz 01-03
+  and Worksheet 01-04 material
 category: Assignments
 date_due:
   month: '09'
