@@ -95,10 +95,13 @@ int main() {
     Wa.printName();
 
     c = &Wz;
+    cout<<"pointer1"<<endl;
     (*c).printName();
 
     c = &Wa;
+    cout<<"pointer2"<<endl;
     c->printName();
+    // exit(0);
 
     ifstream fin;
 
@@ -123,8 +126,12 @@ int main() {
         n++;
     }
 
-    for (int i = 0; i < n; i++) {
-        c = characters[i];
+    // for (int i = 0; i < n; i++) {
+    //     c = characters[i];
+    //     c->printName();
+    // }
+
+    for (auto &c : characters){
         c->printName();
     }
 }
