@@ -45,6 +45,7 @@ public:
     // cout << secretPassword;  // ERROR: private to Character
     // Warrior can still use the public interface:
     cout << "password ok? " << checkPassword("hunter2") << endl;
+    
   }
 };
 
