@@ -1,3 +1,22 @@
+<details>
+<summary>⚙️ Metadata (auto-managed by <code>readmees</code> — edit values, not structure)</summary>
+
+```yaml
+is_due: false
+id: 03-Vectors
+name: 03-Vectors
+title: NO TITLE
+description: NO DESCRIPTION
+category: Resources
+date_due:
+  month: '09'
+  day: '28'
+  year: 2026
+  hour: 8
+```
+
+</details>
+
 ## Vectors - Introduction and Overview
 
 #### Due: NA
