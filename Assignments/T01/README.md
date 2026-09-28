@@ -10,7 +10,7 @@ description: Exam 1 study guide, combining the Test 1 review sheet with all Quiz
   and Worksheet 01-04 material
 category: Assignments
 date_due:
-  month: '08'
+  month: '09'
   day: '18'
   year: 2026
   hour: 11
