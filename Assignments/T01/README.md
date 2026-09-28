@@ -2,7 +2,7 @@
 <summary>⚙️ Metadata (auto-managed by <code>readmees</code> — edit values, not structure)</summary>
 
 ```yaml
-is_due: false
+is_due: true
 id: T01
 name: T01
 title: Test 1 — C++ Review and OOP Basics
@@ -10,8 +10,8 @@ description: Exam 1 study guide, combining the Test 1 review sheet with all Quiz
   and Worksheet 01-04 material
 category: Assignments
 date_due:
-  month: '09'
-  day: '29'
+  month: '08'
+  day: '18'
   year: 2026
   hour: 11
 ```
