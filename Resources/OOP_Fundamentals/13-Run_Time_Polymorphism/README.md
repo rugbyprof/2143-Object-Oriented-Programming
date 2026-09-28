@@ -12,6 +12,20 @@ So, these examples are **about the future** — about keeping code flexible when
 
 ---
 
+## 📂 Code Examples
+
+These pick up where [04-Inheritance/06_the_problem.cpp](../04-Inheritance/06_the_problem.cpp) left off, using the same `Character` classes.
+
+| #   | File                                                         | New idea                                                                   |
+| --- | ------------------------------------------------------------ | -------------------------------------------------------------------------- |
+| 07  | [07_virtual_override.cpp](07_virtual_override.cpp)           | Add `virtual` / `override`, and base pointers and references now work      |
+| 08  | [08_party_container.cpp](08_party_container.cpp)             | `vector<unique_ptr<Character>>` built from `dnd_last_names.txt`            |
+| 09  | [09_virtual_destructor.cpp](09_virtual_destructor.cpp)       | A non-virtual base destructor skips the derived destructor, causing a leak |
+| 10  | [10_abstract_base.cpp](10_abstract_base.cpp)                 | Pure virtual `attack() = 0`, so `Character` can't be created               |
+| 11  | [11_diamond_mountain_dwarf.cpp](11_diamond_mountain_dwarf.cpp) | _Advanced:_ multiple and virtual inheritance, the diamond problem        |
+
+---
+
 ## 🧠 What Runtime Polymorphism Enables
 
 - **Extensibility without rewrites**  

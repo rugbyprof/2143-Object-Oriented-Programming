@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
@@ -15,10 +16,11 @@ protected:
   float manna;
   float wisdom;
   float defense;
+  string currency;
 
 public:
   /**
-   * @brief Construct a new Character object
+   * @brief Construct a new Characte` q12r object
    *
    * @param (string) name
    */
@@ -27,7 +29,8 @@ public:
     power = rand() % 100;
     this->name = name;
   }
-  virtual void printName() { cout << name << endl; }
+  void printName() { cout << name << endl; }
+  virtual void money(string m) = 0;
   virtual ~Character() {}
 };
 
@@ -42,6 +45,7 @@ protected:
 
 public:
   Wizard(string _name) { this->name = _name; }
+  void money(string m) { this->currency = m; }
   void printName() { cout << "The magnificant: " << name << endl; }
 };
 
@@ -58,6 +62,7 @@ protected:
 
 public:
   Warrior(string _name) { this->name = _name; }
+  void money(string m) { this->currency = m; }
   void printName() { cout << "The powerful: " << name << endl; }
 };
 
@@ -66,30 +71,16 @@ public:
   MountainDwarf(string _name) : Warrior(_name), Wizard(_name) {
     this->name = _name;
   }
+  void money(string m) { this->currency = m; }
   void printName() { cout << "The mountain dwarf: " << name << endl; }
 };
 
 int main() {
-  vector<Character *> characters;
 
-  Character *c;
-  Wizard Wz("moldour");
-  Warrior Wa("conan");
-
-  // vector<Character*> characters;
-
-  Wz.printName();
-
-  Wa.printName();
-
-  c = &Wz;
-  cout << "pointer1" << endl;
-  (*c).printName();
-
-  c = &Wa;
-  cout << "pointer2" << endl;
-  c->printName();
-  // exit(0);
+  vector<Warrior> warriors;
+  vector<Wizard> wizards;
+  vector<MountainDwarf> awesome;
+  string og = "papadopolous";
 
   ifstream fin;
 
@@ -105,23 +96,39 @@ int main() {
     id = rand() % 3;
 
     if (id % 3 == 0) {
-      characters.push_back(new Warrior(name));
+      warriors.push_back(Warrior(name));
     } else if (id % 3 == 1) {
-      characters.push_back(new Wizard(name));
+      wizards.push_back(Wizard(name));
     } else {
-      characters.push_back(new MountainDwarf(name));
+      awesome.push_back(MountainDwarf(name));
     }
     n++;
   }
 
-  cout << characters.size() << endl;
-
+  cout << warriors.size() << endl;
+  cout << wizards.size() << endl;
+  cout << awesome.size() << endl;
   // for (int i = 0; i < n; i++) {
   //     c = characters[i];
   //     c->printName();
   // }
 
-  for (auto &c : characters) {
-    c->printName();
+  for (auto &c : warriors) {
+    c.printName();
+  }
+  for (auto &c : wizards) {
+    c.printName();
+  }
+  for (auto &c : awesome) {
+    c.printName();
+  }
+
+  for (int i = 0; i < og.size(); i++) {
+    cout << og[i];
+  }
+  cout << endl;
+
+  for (auto &c : og) {
+    cout << c << endl;
   }
 }
