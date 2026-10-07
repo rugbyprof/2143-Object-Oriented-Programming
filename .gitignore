@@ -3,3 +3,4 @@
 !.gitignore
 *.chat
 temp.md
+build/

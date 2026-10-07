@@ -189,7 +189,7 @@ int main() {
                       nullptr, // entire source image
                       &dest);
 
-    printCard(renderer, 31, 260, 100, 150, 210);
+    printCard(renderer, 31, ++x, ++y, 150, 210);
 
     SDL_RenderPresent(renderer);
   }
