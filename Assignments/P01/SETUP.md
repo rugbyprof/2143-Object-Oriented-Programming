@@ -171,17 +171,17 @@ Once `TuiView.cpp` exists, this command no longer links. Use CMake from then on.
 
 ## Troubleshooting
 
-| You see | What it means / fix |
-| --- | --- |
-| `cmake: command not found` / `'cmake' is not recognized` | CMake isn't on your PATH. Mac: redo step 2. Windows: redo step 3, then **reopen** the terminal. |
-| `CMake 3.20 or higher is required` | Old CMake. Mac: `brew upgrade cmake`. Windows: `pacman -Syu`. |
-| `Could not find ... NMake` or it tries to use Visual Studio | You forgot `-G Ninja` on Windows. Delete `build/` and configure again **with** `-G Ninja`. |
-| `Does not match the generator used previously` | You switched generators. Delete the `build/` folder and configure again. |
-| Fails while downloading FTXUI | You need internet for the first configure. Campus Wi-Fi blocking it? Try another network once. After that it's cached in `build/`. |
-| `fatal error: ftxui/...: No such file` | You compiled with plain `g++` instead of CMake. Use `cmake --build build`. |
-| `undefined reference to Hand::...` (or similar) | You added a new `.cpp`. Re-run the configure line (`cmake -S . -B build ...`). |
-| Suits show as `?` or boxes, or arrow keys print `^[[D` | Wrong terminal. Use Windows Terminal or the VS Code terminal. |
-| `libstdc++-6.dll was not found` | Your `CMakeLists.txt` lost the `if(MINGW) ... -static` block. Put it back. |
-| Anything weird after editing `CMakeLists.txt` | Delete `build/` and configure again. This fixes about half of all CMake problems. |
+| You see                                                     | What it means / fix                                                                                                                |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `cmake: command not found` / `'cmake' is not recognized`    | CMake isn't on your PATH. Mac: redo step 2. Windows: redo step 3, then **reopen** the terminal.                                    |
+| `CMake 3.20 or higher is required`                          | Old CMake. Mac: `brew upgrade cmake`. Windows: `pacman -Syu`.                                                                      |
+| `Could not find ... NMake` or it tries to use Visual Studio | You forgot `-G Ninja` on Windows. Delete `build/` and configure again **with** `-G Ninja`.                                         |
+| `Does not match the generator used previously`              | You switched generators. Delete the `build/` folder and configure again.                                                           |
+| Fails while downloading FTXUI                               | You need internet for the first configure. Campus Wi-Fi blocking it? Try another network once. After that it's cached in `build/`. |
+| `fatal error: ftxui/...: No such file`                      | You compiled with plain `g++` instead of CMake. Use `cmake --build build`.                                                         |
+| `undefined reference to Hand::...` (or similar)             | You added a new `.cpp`. Re-run the configure line (`cmake -S . -B build ...`).                                                     |
+| Suits show as `?` or boxes, or arrow keys print `^[[D`      | Wrong terminal. Use Windows Terminal or the VS Code terminal.                                                                      |
+| `libstdc++-6.dll was not found`                             | Your `CMakeLists.txt` lost the `if(MINGW) ... -static` block. Put it back.                                                         |
+| Anything weird after editing `CMakeLists.txt`               | Delete `build/` and configure again. This fixes about half of all CMake problems.                                                  |
 
 Still stuck? Bring **(1)** the exact command you ran and **(2)** the full error text, copy-pasted rather than a phone photo, to office hours or the class forum.

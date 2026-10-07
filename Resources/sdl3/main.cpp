@@ -1,10 +1,15 @@
 #include <SDL3/SDL.h>
 #include <SDL3_image/SDL_image.h>
 #include <algorithm>
+#include <format>
 #include <iomanip>
+#include <iostream>
 #include <random>
 #include <sstream>
+#include <string>
 #include <unordered_map>
+
+using namespace std;
 
 vector<string> Rank = {"",     "Two",   "Three", "Four", "Five",
                        "Six",  "Seven", "Eight", "Nine", "Ten",
@@ -13,11 +18,12 @@ vector<string> Suit = {"Clubs", "Diamonds", "Hearts", "Spades"};
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-std::map<int, std::string> rankName = {
+std::unordered_map<int, std::string> rankName = {
     {2, "2"}, {3, "3"},   {4, "4"},  {5, "5"},  {6, "6"},  {7, "7"}, {8, "8"},
     {9, "9"}, {10, "10"}, {11, "J"}, {12, "Q"}, {13, "K"}, {14, "A"}};
 
-std::map<int, std::string> suitName = {{0, "♣"}, {1, "♦"}, {2, "♥"}, {3, "♠"}};
+std::unordered_map<int, std::string> suitName = {
+    {0, "♣"}, {1, "♦"}, {2, "♥"}, {3, "♠"}};
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -72,17 +78,19 @@ private:
   }
 
 public:
-  Deck(bool shuffle = 0);
-
+  Deck();
+  Deck(bool);
   void shuffle();
   Card deal();
   bool empty() const;
   int size() const;
 };
 
-Deck::Deck(bool shuffle = 0) {
+Deck::Deck() { genCards(); }
+
+Deck::Deck(bool do_shuffle) {
   genCards();
-  if (shuffle) {
+  if (do_shuffle) {
     shuffle();
   }
 }
@@ -104,6 +112,28 @@ bool Deck::empty() const { return deck.size() == 0; }
 int Deck::size() const { return deck.size(); }
 
 ///////////////////////////////////////////////////////////////////////////
+std::string pad2(int n) { return (n < 10 ? "0" : "") + std::to_string(n); }
+
+void printCard(SDL_Renderer *renderer, int index, float x, float y, float w,
+               float h) {
+
+  std::string c = "./png/" + pad2(index) + ".png";
+
+  // Load image directly into a GPU texture
+  SDL_Texture *card = IMG_LoadTexture(renderer, c.c_str());
+  // Destination rectangle
+  SDL_FRect dest = {
+      x, // x
+      y, // y
+      w, // width 150
+      h  // height 210
+  };
+
+  SDL_RenderTexture(renderer, card,
+                    nullptr, // entire source image
+                    &dest);
+}
+///////////////////////////////////////////////////////////////////////////
 
 int main() {
 
@@ -115,10 +145,14 @@ int main() {
 
   SDL_Renderer *renderer = SDL_CreateRenderer(window, nullptr);
 
-  int cardIndex = getRandomNumber(0, 51);
+  int cardIndex = rand() % 52;
+
+  std::string c = "./png/" + pad2(cardIndex) + ".png";
+
+  std::cout << c;
 
   // Load image directly into a GPU texture
-  SDL_Texture *card = IMG_LoadTexture(renderer, "./png/00.png");
+  SDL_Texture *card = IMG_LoadTexture(renderer, c.c_str());
 
   if (!card) {
     SDL_Log("Could not load image: %s", SDL_GetError());
@@ -126,6 +160,9 @@ int main() {
   }
 
   bool running = true;
+
+  int x = 100;
+  int y = 100;
 
   while (running) {
 
@@ -151,6 +188,8 @@ int main() {
     SDL_RenderTexture(renderer, card,
                       nullptr, // entire source image
                       &dest);
+
+    printCard(renderer, 31, 260, 100, 150, 210);
 
     SDL_RenderPresent(renderer);
   }
