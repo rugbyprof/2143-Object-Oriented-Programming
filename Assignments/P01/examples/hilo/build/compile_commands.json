@@ -1,0 +1,440 @@
+[
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/screen.dir/src/ftxui/screen/box.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/box.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/box.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/box.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/screen.dir/src/ftxui/screen/color.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/color.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/color.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/color.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/screen.dir/src/ftxui/screen/color_info.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/color_info.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/color_info.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/color_info.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/screen.dir/src/ftxui/screen/image.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/image.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/image.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/image.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/screen.dir/src/ftxui/screen/screen.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/screen.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/screen.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/screen.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/screen.dir/src/ftxui/screen/string.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/string.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/string.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/string.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/screen.dir/src/ftxui/screen/terminal.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/terminal.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/screen/terminal.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/screen.dir/src/ftxui/screen/terminal.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/automerge.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/automerge.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/automerge.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/automerge.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/selection_style.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/selection_style.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/selection_style.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/selection_style.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/blink.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/blink.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/blink.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/blink.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/bold.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/bold.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/bold.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/bold.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/border.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/border.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/border.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/border.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/box_helper.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/box_helper.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/box_helper.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/box_helper.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/canvas.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/canvas.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/canvas.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/canvas.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/clear_under.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/clear_under.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/clear_under.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/clear_under.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/color.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/color.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/color.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/color.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/composite_decorator.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/composite_decorator.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/composite_decorator.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/composite_decorator.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/dbox.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/dbox.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/dbox.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/dbox.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/dim.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/dim.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/dim.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/dim.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/flex.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/flex.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/flex.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/flex.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/flexbox.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/flexbox.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/flexbox.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/flexbox.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/flexbox_config.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/flexbox_config.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/flexbox_config.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/flexbox_config.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/flexbox_helper.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/flexbox_helper.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/flexbox_helper.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/flexbox_helper.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/focus.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/focus.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/focus.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/focus.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/frame.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/frame.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/frame.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/frame.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/gauge.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/gauge.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/gauge.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/gauge.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/graph.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/graph.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/graph.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/graph.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/gridbox.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/gridbox.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/gridbox.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/gridbox.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/hbox.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/hbox.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/hbox.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/hbox.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/hyperlink.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/hyperlink.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/hyperlink.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/hyperlink.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/inverted.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/inverted.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/inverted.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/inverted.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/italic.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/italic.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/italic.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/italic.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/linear_gradient.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/linear_gradient.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/linear_gradient.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/linear_gradient.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/node.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/node.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/node.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/node.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/node_decorator.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/node_decorator.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/node_decorator.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/node_decorator.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/paragraph.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/paragraph.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/paragraph.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/paragraph.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/reflect.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/reflect.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/reflect.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/reflect.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/scroll_indicator.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/scroll_indicator.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/scroll_indicator.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/scroll_indicator.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/selection.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/selection.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/selection.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/selection.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/separator.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/separator.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/separator.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/separator.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/size.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/size.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/size.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/size.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/spinner.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/spinner.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/spinner.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/spinner.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/strikethrough.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/strikethrough.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/strikethrough.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/strikethrough.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/table.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/table.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/table.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/table.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/text.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/text.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/text.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/text.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/underlined.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/underlined.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/underlined.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/underlined.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/underlined_double.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/underlined_double.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/underlined_double.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/underlined_double.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/util.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/util.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/util.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/util.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/dom.dir/src/ftxui/dom/vbox.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/vbox.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/dom/vbox.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/dom.dir/src/ftxui/dom/vbox.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/animation.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/animation.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/animation.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/animation.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/button.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/button.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/button.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/button.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/catch_event.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/catch_event.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/catch_event.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/catch_event.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/checkbox.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/checkbox.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/checkbox.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/checkbox.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/collapsible.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/collapsible.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/collapsible.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/collapsible.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/component.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/component.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/component.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/component.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/component_options.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/component_options.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/component_options.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/component_options.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/container.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/container.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/container.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/container.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/dropdown.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/dropdown.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/dropdown.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/dropdown.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/event.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/event.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/event.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/event.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/hoverable.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/hoverable.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/hoverable.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/hoverable.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/input.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/input.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/input.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/input.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/loop.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/loop.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/loop.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/loop.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/maybe.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/maybe.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/maybe.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/maybe.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/menu.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/menu.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/menu.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/menu.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/modal.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/modal.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/modal.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/modal.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/radiobox.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/radiobox.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/radiobox.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/radiobox.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/renderer.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/renderer.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/renderer.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/renderer.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/resizable_split.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/resizable_split.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/resizable_split.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/resizable_split.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/screen_interactive.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/screen_interactive.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/screen_interactive.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/screen_interactive.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/slider.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/slider.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/slider.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/slider.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/terminal_input_parser.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/terminal_input_parser.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/terminal_input_parser.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/terminal_input_parser.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/util.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/util.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/util.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/util.cpp.o"
+},
+{
+  "directory": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build",
+  "command": "/usr/bin/c++  -I\"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src\" -isystem \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/include\" -std=gnu++17 -arch arm64 -fPIC -o CMakeFiles/component.dir/src/ftxui/component/window.cpp.o -c \"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/window.cpp\"",
+  "file": "/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src/src/ftxui/component/window.cpp",
+  "output": "_deps/ftxui-build/CMakeFiles/component.dir/src/ftxui/component/window.cpp.o"
+}
+]

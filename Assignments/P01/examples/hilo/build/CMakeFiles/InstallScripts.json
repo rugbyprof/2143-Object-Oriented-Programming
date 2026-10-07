@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/cmake_install.cmake",
+		"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build/cmake_install.cmake",
+		"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build/examples/cmake_install.cmake",
+		"/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-build/doc/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

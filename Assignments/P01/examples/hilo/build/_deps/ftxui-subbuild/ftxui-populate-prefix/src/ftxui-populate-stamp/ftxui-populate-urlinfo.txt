@@ -1,0 +1,12 @@
+# This is a generated file and its contents are an internal implementation detail.
+# The download step will be re-executed if anything in this file changes.
+# No other meaning or use of this file is supported.
+
+method=url
+command=/opt/homebrew/bin/cmake;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/download-ftxui-populate.cmake;COMMAND;/opt/homebrew/bin/cmake;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/verify-ftxui-populate.cmake;COMMAND;/opt/homebrew/bin/cmake;-DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE;-P;/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-subbuild/ftxui-populate-prefix/src/ftxui-populate-stamp/extract-ftxui-populate.cmake
+source_dir=/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps/ftxui-src
+work_dir=/Users/griffin/Library/Mobile Documents/com~apple~CloudDocs/_git_repos/2143-Object-Oriented-Programming/Assignments/P01/examples/hilo/build/_deps
+url(s)=https://github.com/ArthurSonzogni/FTXUI/archive/refs/tags/v6.1.9.tar.gz
+hash=
+      no_extract=
+
