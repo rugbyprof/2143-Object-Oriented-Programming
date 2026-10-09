@@ -1,0 +1,477 @@
+<title>Inheritance &mdash; Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.34in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .idbar {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.4in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin: 0.14in 0 0.16in;
+    flex-wrap: nowrap;
+  }
+  .idbar span {
+    white-space: nowrap;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.14in;
+  }
+  .fill {
+    display: inline-block;
+    border-bottom: 1.5px solid var(--ink-soft);
+    min-width: 3in;
+    height: 1.9em;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.09in 0 0.05in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .prompt {
+    font-size: 0.82rem;
+    line-height: 1.3;
+    margin: 0.03in 0 0.03in;
+  }
+  .prompt.sub {
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.06in;
+  }
+
+  .snippet {
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.12in;
+    margin: 0.04in 0 0.06in;
+  }
+  .snippet-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.03in;
+  }
+  pre {
+    margin: 0;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.05in 0.09in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    line-height: 1.24;
+    color: var(--ink);
+    white-space: pre;
+  }
+
+  .answer-block { margin-bottom: 0.1in; }
+  .answer-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.05in;
+  }
+  .code-area {
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    background-image: repeating-linear-gradient(
+      var(--code-bg) 0,
+      var(--code-bg) calc(0.28in - 1px),
+      var(--code-border) calc(0.28in - 1px),
+      var(--code-border) 0.28in
+    );
+    background-size: 100% 0.28in;
+  }
+  .code-area.tall { height: 1.15in; }
+  .code-area.short { height: 0.82in; }
+  .code-area.line { height: 0.36in; }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+</style>
+<style>
+  .idbar { margin: 0.06in 0 0.06in !important; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.16in; align-items: start; }
+  .lines {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+    margin: 0.04in 0 0.08in;
+  }
+  .lines th, .lines td {
+    border: 1px solid var(--rule);
+    padding: 0.04in 0.08in;
+    text-align: left;
+    vertical-align: middle;
+  }
+  .lines th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .lines td { height: 0.27in; background: var(--paper); }
+  .lines td.tag { font-family: "JetBrains Mono", monospace; font-weight: 600; width: 0.7in; }
+  .lines td.yn { width: 0.95in; text-align: center; color: var(--ink-soft); font-family: "JetBrains Mono", monospace; }
+  .code-area.mid { height: 0.56in; }
+  .code-area.xtall { height: 2.8in; }
+  .pts { font-family: "JetBrains Mono", monospace; font-size: 0.7rem; color: var(--ink-soft); }
+</style>
+
+<div class="wrap">
+
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Inheritance: Building New Classes from Old Ones</h1>
+        <div class="tagline">Quiz 04 &mdash; constructor chaining, access control, overriding vs. overloading &middot; 15 min &middot; front &amp; back</div>
+      </div>
+    </div>
+
+    <div class="idbar">
+      <span>Name <span class="fill" style="min-width:3in;"></span></span>
+      <span>Date <span class="fill" style="min-width:1.5in;"></span></span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[0]</span>
+      <span class="part-title">Predict the Output</span>
+      <span class="part-note">construction &amp; destruction order</span>
+    </div>
+
+    <div class="two-col">
+      <div class="snippet">
+        <div class="snippet-head"><span>three-level hierarchy</span></div>
+        <pre><code>class Base { public:
+    Base()  { cout &lt;&lt; "B "; }   ~Base() { cout &lt;&lt; "~B "; }
+};
+class Mid : public Base { public:
+    Mid()  { cout &lt;&lt; "M "; }   ~Mid() { cout &lt;&lt; "~M "; }
+};
+class Top : public Mid { public:
+    Top()  { cout &lt;&lt; "T "; }   ~Top() { cout &lt;&lt; "~T "; }
+};
+int main() {
+    Top t;
+    cout &lt;&lt; "| ";
+}   // t goes out of scope here</code></pre>
+      </div>
+      <div>
+        <p class="prompt">Write the <strong>exact</strong> output of the whole program, including anything that prints after the <code class="k">|</code>.</p>
+        <div class="answer-block">
+          <div class="answer-label">Output</div>
+          <div class="code-area mid"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[1]</span>
+      <span class="part-title">Who Can See What?</span>
+      <span class="part-note">private / protected / public</span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>four marked lines</span></div>
+      <pre><code>class Account {
+    double balance;
+protected:
+    string owner;
+public:
+    Account(string o, double b) : balance(b), owner(o) {}
+    double getBalance() const { return balance; }
+};
+class Savings : public Account {
+    double rate;
+public:
+    Savings(string o, double b, double r) : Account(o, b), rate(r) {}
+    void addInterest() {
+        balance += balance * rate;      // Line A
+        cout &lt;&lt; owner &lt;&lt; "\n";          // Line B
+    }
+};
+int main() {
+    Savings s("Ana", 100.0, 0.05);
+    cout &lt;&lt; s.getBalance();             // Line C
+    cout &lt;&lt; s.owner;                    // Line D
+}</code></pre>
+    </div>
+
+    <p class="prompt">For each line, circle whether it compiles and give a short reason.</p>
+
+    <table class="lines">
+      <tr><th>Line</th><th>Compiles?</th><th>Reason</th></tr>
+      <tr><td class="tag">A</td><td class="yn">Y &nbsp;/&nbsp; N</td><td></td></tr>
+      <tr><td class="tag">B</td><td class="yn">Y &nbsp;/&nbsp; N</td><td></td></tr>
+      <tr><td class="tag">C</td><td class="yn">Y &nbsp;/&nbsp; N</td><td></td></tr>
+      <tr><td class="tag">D</td><td class="yn">Y &nbsp;/&nbsp; N</td><td></td></tr>
+    </table>
+
+    <p class="prompt">Line A is supposed to work. Without making <code class="k">balance</code> <code class="k">public</code>, what is the <strong>smallest change</strong> to <code class="k">Account</code> that lets it compile?</p>
+    <div class="answer-block">
+      <div class="code-area line"></div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Quiz 4</span><span>front &middot; turn over &rarr;</span></div>
+  </section>
+
+  <section class="sheet">
+    <div class="part-head">
+      <span class="part-tag">array[2]</span>
+      <span class="part-title">Override, Overload, or Neither?</span>
+      <span class="part-note">same name &ne; same thing</span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>no <code>virtual</code> anywhere</span></div>
+      <pre><code>class Animal { public:
+    void speak()          { cout &lt;&lt; "..."; }
+    void eat(string food) { cout &lt;&lt; "eats " &lt;&lt; food; }
+};
+class Dog : public Animal { public:
+    void speak()          { cout &lt;&lt; "Woof"; }
+    void speak(int times) { for (int i = 0; i &lt; times; i++) cout &lt;&lt; "Woof "; }
+    void fetch()          { cout &lt;&lt; "fetching"; }
+};</code></pre>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <p class="prompt">(a) Label each pair <strong>OVERRIDDEN</strong>, <strong>OVERLOADED</strong>, or <strong>NEITHER</strong>.</p>
+        <table class="lines">
+          <tr><th>Pair</th><th style="width:1.15in;">Answer</th></tr>
+          <tr><td><code class="k">Animal::speak()</code><br><code class="k">Dog::speak()</code></td><td></td></tr>
+          <tr><td><code class="k">Dog::speak()</code><br><code class="k">Dog::speak(int)</code></td><td></td></tr>
+          <tr><td><code class="k">Animal::eat(string)</code><br><code class="k">Dog::fetch()</code></td><td></td></tr>
+        </table>
+      </div>
+      <div>
+        <p class="prompt">(b) Given <code class="k">Animal a; Dog d;</code> what does each call print?</p>
+        <table class="lines">
+          <tr><th>Call</th><th style="width:1.6in;">Prints</th></tr>
+          <tr><td><code class="k">a.speak();</code></td><td></td></tr>
+          <tr><td><code class="k">d.speak();</code></td><td></td></tr>
+          <tr><td><code class="k">d.eat("bone");</code></td><td></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <p class="prompt">(c) Write the <strong>one statement</strong> you would put inside <code class="k">Dog::speak()</code> to also run <code class="k">Animal</code>'s version.</p>
+    <div class="answer-block">
+      <div class="code-area line"></div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[3]</span>
+      <span class="part-title">Write the Code</span>
+      <span class="part-note">derive, chain, override</span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>base class &mdash; do not change</span></div>
+      <pre><code>class Employee {
+protected:
+    string name;  double salary;
+public:
+    Employee(string n, double s) : name(n), salary(s) {}
+    void print() { cout &lt;&lt; name &lt;&lt; ": $" &lt;&lt; salary &lt;&lt; "\n"; }
+};</code></pre>
+    </div>
+
+    <p class="prompt">Write a class <code class="k">Manager</code> that <strong>publicly</strong> inherits from <code class="k">Employee</code> and has:</p>
+    <p class="prompt sub">&bull; a private <code class="k">int reports;</code> (number of direct reports)<br>
+    &bull; a constructor <code class="k">Manager(string n, double s, int r)</code> that passes <code class="k">n</code> and <code class="k">s</code> up to <code class="k">Employee</code> using an <strong>initializer list</strong><br>
+    &bull; its own <code class="k">print()</code> that first runs <code class="k">Employee</code>'s <code class="k">print()</code>, then prints <code class="k">Reports: </code> followed by <code class="k">reports</code></p>
+
+    <div class="answer-block">
+      <div class="code-area xtall"></div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Quiz 4</span><span>back</span></div>
+  </section>
+
+</div>

@@ -1,0 +1,380 @@
+<title>Inheritance &mdash; Quiz Key</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.36in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.12in 0 0.06in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .prompt {
+    font-size: 0.82rem;
+    line-height: 1.32;
+    margin: 0.04in 0 0.06in;
+  }
+
+  .answer-block { margin-bottom: 0.14in; }
+  .answer-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.04in;
+  }
+  pre {
+    margin: 0;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.07in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    color: var(--ink);
+    white-space: pre;
+  }
+
+  .key {
+    border: 1px dashed var(--rule);
+    border-radius: 6px;
+    padding: 0.16in 0.2in;
+    font-size: 0.78rem;
+    line-height: 1.42;
+    margin-top: 0.1in;
+  }
+  .key-eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .key h2 {
+    font-family: "Archivo", sans-serif;
+    font-size: 0.95rem;
+    margin: 0.03in 0 0.1in;
+  }
+  .key dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.05in 0.2in;
+  }
+  .key dt {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .key dd { margin: 0; color: var(--ink-soft); }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @media print {
+    @page { size: letter; margin: 0; }
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+</style>
+<style>
+  .lines { width: 100%; border-collapse: collapse; font-size: 0.78rem; margin: 0.04in 0 0.1in; }
+  .lines th, .lines td { border: 1px solid var(--rule); padding: 0.04in 0.08in; text-align: left; vertical-align: top; }
+  .lines th {
+    font-family: "JetBrains Mono", monospace; font-size: 0.66rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--accent); background: var(--accent-soft);
+  }
+  .lines td.tag { font-family: "JetBrains Mono", monospace; font-weight: 600; width: 0.6in; }
+  .lines td.yn { width: 0.75in; font-family: "JetBrains Mono", monospace; font-weight: 600; }
+  .key { margin-bottom: 0.5in; }
+</style>
+
+<div class="wrap">
+
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Inheritance: Building New Classes from Old Ones</h1>
+        <div class="tagline">Quiz 04 &mdash; ANSWER KEY &middot; 20 points</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[0]</span>
+      <span class="part-title">Predict the Output</span>
+      <span class="part-note">3 pts</span>
+    </div>
+    <div class="answer-block">
+      <div class="answer-label">Output</div>
+      <pre><code>B M T | ~T ~M ~B</code></pre>
+    </div>
+    <p class="prompt">Constructors run base-first, all the way down the chain (<code class="k">B M T</code>).
+    Destructors run in the exact reverse order when <code class="k">t</code> leaves scope at the closing
+    brace of <code class="k">main</code>, which is <em>after</em> the <code class="k">|</code> prints.</p>
+
+    <div class="part-head">
+      <span class="part-tag">array[1]</span>
+      <span class="part-title">Who Can See What?</span>
+      <span class="part-note">5 pts</span>
+    </div>
+    <table class="lines">
+      <tr><th>Line</th><th>Compiles?</th><th>Reason</th></tr>
+      <tr><td class="tag">A</td><td class="yn">N</td><td><code class="k">balance</code> has no label, so it is <code class="k">private</code>. Private members are inherited (they exist inside every <code class="k">Savings</code>) but only <code class="k">Account</code>'s own code can touch them.</td></tr>
+      <tr><td class="tag">B</td><td class="yn">Y</td><td><code class="k">owner</code> is <code class="k">protected</code>, so derived-class member functions can use it.</td></tr>
+      <tr><td class="tag">C</td><td class="yn">Y</td><td><code class="k">getBalance()</code> is <code class="k">public</code> in <code class="k">Account</code> and stays public through <code class="k">public</code> inheritance.</td></tr>
+      <tr><td class="tag">D</td><td class="yn">N</td><td><code class="k">protected</code> only opens access to derived classes. <code class="k">main()</code> is outside code, so it is blocked just as if <code class="k">owner</code> were private.</td></tr>
+    </table>
+    <div class="answer-block">
+      <div class="answer-label">Fix for Line A</div>
+      <pre><code>class Account {
+protected:
+    double balance;   // moved under protected:
+    string owner;
+    ...</code></pre>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">array[2]</span>
+      <span class="part-title">Override, Overload, or Neither?</span>
+      <span class="part-note">7 pts &middot; 1 each</span>
+    </div>
+    <table class="lines">
+      <tr><th>Item</th><th>Answer</th></tr>
+      <tr><td><code class="k">Animal::speak()</code> / <code class="k">Dog::speak()</code></td><td><strong>OVERRIDDEN</strong>: same signature, redefined in the derived class</td></tr>
+      <tr><td><code class="k">Dog::speak()</code> / <code class="k">Dog::speak(int)</code></td><td><strong>OVERLOADED</strong>: same name, different parameter lists, same class</td></tr>
+      <tr><td><code class="k">Animal::eat(string)</code> / <code class="k">Dog::fetch()</code></td><td><strong>NEITHER</strong>: different names, unrelated functions</td></tr>
+      <tr><td><code class="k">a.speak();</code></td><td><code class="k">...</code></td></tr>
+      <tr><td><code class="k">d.speak();</code></td><td><code class="k">Woof</code></td></tr>
+      <tr><td><code class="k">d.eat("bone");</code></td><td><code class="k">eats bone</code> (inherited unchanged from <code class="k">Animal</code>)</td></tr>
+      <tr><td>(c) inside <code class="k">Dog::speak()</code></td><td><code class="k">Animal::speak();</code></td></tr>
+    </table>
+
+    <div class="footer-rule"><span>2143 &middot; Quiz 4 &middot; KEY</span><span>front</span></div>
+  </section>
+
+  <section class="sheet">
+    <div class="part-head">
+      <span class="part-tag">array[3]</span>
+      <span class="part-title">Write the Code</span>
+      <span class="part-note">5 pts &middot; model answer</span>
+    </div>
+    <div class="answer-block">
+      <pre><code>class Manager : public Employee {
+    int reports;
+public:
+    Manager(string n, double s, int r) : Employee(n, s), reports(r) {}
+
+    void print() {
+        Employee::print();
+        cout &lt;&lt; "Reports: " &lt;&lt; reports &lt;&lt; "\n";
+    }
+};</code></pre>
+    </div>
+    <p class="prompt"><code class="k">Manager m("Kim", 90000, 4); m.print();</code> prints
+    <code class="k">Kim: $90000</code> then <code class="k">Reports: 4</code>.</p>
+
+    <div class="key">
+      <div class="key-eyebrow">Grading notes</div>
+      <h2>What counts</h2>
+      <dl>
+        <dt>array[0]</dt>
+        <dd>1 pt for <code>B M T</code>, 1 pt for <code>~T ~M ~B</code> (reverse order), 1 pt for the
+            destructors appearing <em>after</em> the <code>|</code>. Destructors in constructor order
+            (<code>~B ~M ~T</code>) loses the second point.</dd>
+        <dt>array[1]</dt>
+        <dd>1 pt per line (Y/N plus a reason that names the access level). The fix (1 pt) is
+            <code>protected</code>. Also accept adding a <code>protected</code> (or public) setter/deposit
+            method to <code>Account</code> and calling it in Line A. Making <code>balance</code>
+            <code>public</code> or making <code>Savings</code> a <code>friend</code> earns 0, because the
+            first breaks the stated rule and the second dodges the point of the question.</dd>
+        <dt>array[1] watch</dt>
+        <dd>&ldquo;A fails because <code>balance</code> isn't inherited&rdquo; is <strong>wrong</strong>.
+            It is inherited but not accessible (W05 Q2). Deduct the reason point.</dd>
+        <dt>array[2] note</dt>
+        <dd>Without <code>virtual</code> this is technically <em>hiding/redefinition</em>; W05 calls it
+            OVERRIDDEN, so accept either term. A student who points out the difference gets a nod;
+            it's next week's topic (W06 Polymorphism).</dd>
+        <dt>array[3]</dt>
+        <dd>1 pt each: <code>: public Employee</code>; <code>int reports</code> private;
+            <code>Employee(n, s)</code> in the initializer list; <code>Employee::print()</code> call;
+            prints <code>reports</code>. Assigning <code>name = n; salary = s;</code> in the
+            constructor body instead of chaining <strong>does not compile</strong> (Employee has no
+            default constructor), so no chaining point. Forgetting <code>Employee::</code> (so
+            <code>print()</code> calls itself forever) loses the call point. Inheritance with no
+            <code>public</code> keyword (private inheritance) loses the first point.</dd>
+        <dt>Timing</dt>
+        <dd>Roughly 3 / 4 / 3 / 5 minutes. If students run short, array[3] is the one to allow
+            pseudo-C++ on.</dd>
+      </dl>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Quiz 4 &middot; KEY</span><span>back</span></div>
+  </section>
+
+</div>
