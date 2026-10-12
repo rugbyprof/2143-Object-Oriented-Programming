@@ -3,11 +3,11 @@
 
 ```yaml
 is_due: false
-id: 01-OOP_Fundamentals
-name: 01-OOP_Fundamentals
+id: L01-OOP_Fundamentals
+name: L01-OOP_Fundamentals
 title: NO TITLE
 description: NO DESCRIPTION
-category: Resources
+category: Lectures
 date_due:
   month: '09'
   day: '02'

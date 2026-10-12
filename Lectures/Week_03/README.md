@@ -3,8 +3,8 @@
 
 ```yaml
 is_due: false
-id: L03-Week_03
-name: L03-Week_03
+id: L06-Week_03
+name: L06-Week_03
 title: NO TITLE
 description: NO DESCRIPTION
 category: Lectures

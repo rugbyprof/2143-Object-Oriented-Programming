@@ -3,11 +3,11 @@
 
 ```yaml
 is_due: false
-id: 02-Vectors
-name: 02-Vectors
+id: L03-Vectors
+name: L03-Vectors
 title: NO TITLE
 description: NO DESCRIPTION
-category: Resources
+category: Lectures
 date_due:
   month: '09'
   day: '28'

@@ -1,8 +1,15 @@
 ```yaml
-topic: "52-Card Deck in C++"
-focus: "Class structure"
-level: "OOP teaching example"
-recommendation: "Card + Deck first; Hand later"
+is_due: false
+id: L02-Poker_Game
+name: L02-Poker_Game
+title: NO TITLE
+description: NO DESCRIPTION
+category: Lectures
+date_due:
+  month: '10'
+  day: '12'
+  year: 2026
+  hour: 10
 ```
 
 Poker is a **really good C++ OOP example** showing composition. Below is a breakdown of a set of classes to implement the start of a poker game.
