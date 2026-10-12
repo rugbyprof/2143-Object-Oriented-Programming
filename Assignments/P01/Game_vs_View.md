@@ -42,12 +42,12 @@ Now imagine each ATM had its own copy of the rule, and someone updated the app's
 
 **In P01:**
 
-| Bank world | P01 world |
-| --- | --- |
-| The bank | Your game class (`VideoPoker` / `Blackjack`). We'll call it the **model**. |
-| ATM, app, teller | `ConsoleView`, `TuiView`. These are the **views**. |
-| "Withdraw $40" | `game.draw()`, `game.hit()`. These are **actions**. |
-| "What's my balance?" | `game.credits()`, `game.hand()`. These are **questions** (getters). |
+| Bank world           | P01 world                                                                  |
+| -------------------- | -------------------------------------------------------------------------- |
+| The bank             | Your game class (`VideoPoker` / `Blackjack`). We'll call it the **model**. |
+| ATM, app, teller     | `ConsoleView`, `TuiView`. These are the **views**.                         |
+| "Withdraw $40"       | `game.draw()`, `game.hit()`. These are **actions**.                        |
+| "What's my balance?" | `game.credits()`, `game.hand()`. These are **questions** (getters).        |
 
 ---
 
@@ -171,10 +171,10 @@ A **phase** says what's allowed *right now*. Draw it before you code it:
             └─────────────────────────── restart() ───────────────────────┘
 ```
 
-| Phase | `guess()` | `restart()` |
-| --- | --- | --- |
-| Guessing | ✅ allowed | ❌ returns `false` |
-| GameOver | ❌ returns `false` | ✅ allowed |
+| Phase    | `guess()`         | `restart()`       |
+| -------- | ----------------- | ----------------- |
+| Guessing | ✅ allowed         | ❌ returns `false` |
+| GameOver | ❌ returns `false` | ✅ allowed         |
 
 Make this table for your own game. Every ❌ is an `if` at the top of an action method.
 
@@ -278,10 +278,10 @@ switch (game.lastResult()) {
 
 Same three jobs, different tools. FTXUI happens to split them into two pieces for you:
 
-| Job | FTXUI piece | Rule of thumb |
-| --- | --- | --- |
-| Ask + show | `Renderer([&]{ ... })` | Only **reads** from the game. Calls only `const` methods. |
-| Read input + one call | `CatchEvent(..., [&](Event e){ ... })` | Each key → **one line**, one game call. |
+| Job                   | FTXUI piece                            | Rule of thumb                                             |
+| --------------------- | -------------------------------------- | --------------------------------------------------------- |
+| Ask + show            | `Renderer([&]{ ... })`                 | Only **reads** from the game. Calls only `const` methods. |
+| Read input + one call | `CatchEvent(..., [&](Event e){ ... })` | Each key → **one line**, one game call.                   |
 
 ```cpp
 auto app = CatchEvent(renderer, [&](Event e) {
@@ -317,38 +317,38 @@ Each view holds a **reference** to the game (`HiLo& game;`). It *uses* the game 
 
 For each line, decide: **Game** (model) or **View**? Cover the answers first.
 
-| # | Code / task |
-| --- | --- |
-| 1 | `if (lives_ == 0) phase_ = Phase::GameOver;` |
-| 2 | Choose red for ♥ and ♦ |
-| 3 | Decide that a pair of Jacks pays 1× the bet |
-| 4 | `std::cout << "Credits: " << game.credits();` |
-| 5 | Remember which card the arrow-key cursor is on |
-| 6 | Remember which cards the player is holding |
-| 7 | Refuse a bet bigger than the player's credits |
-| 8 | Turn `HandRank::FullHouse` into the text `"Full House!"` |
-| 9 | Count an Ace as 1 instead of 11 so the hand doesn't bust |
-| 10 | Clear `cin` after the user types `abc` for a bet |
-| 11 | Hide the dealer's hole card until the player stands |
-| 12 | Draw the hidden hole card as a box full of `░` |
+| #   | Code / task                                              |
+| --- | -------------------------------------------------------- |
+| 1   | `if (lives_ == 0) phase_ = Phase::GameOver;`             |
+| 2   | Choose red for ♥ and ♦                                   |
+| 3   | Decide that a pair of Jacks pays 1× the bet              |
+| 4   | `std::cout << "Credits: " << game.credits();`            |
+| 5   | Remember which card the arrow-key cursor is on           |
+| 6   | Remember which cards the player is holding               |
+| 7   | Refuse a bet bigger than the player's credits            |
+| 8   | Turn `HandRank::FullHouse` into the text `"Full House!"` |
+| 9   | Count an Ace as 1 instead of 11 so the hand doesn't bust |
+| 10  | Clear `cin` after the user types `abc` for a bet         |
+| 11  | Hide the dealer's hole card until the player stands      |
+| 12  | Draw the hidden hole card as a box full of `░`           |
 
 <details>
 <summary><b>Answers</b> (try first!)</summary>
 
-| # | Answer | Why |
-| --- | --- | --- |
-| 1 | **Game** | A rule about when the game ends. |
-| 2 | **View** | Color is appearance. The console view doesn't even use color. |
-| 3 | **Game** | A payout rule. It has to be identical in every view. |
-| 4 | **View** | Printing. The game only *answers* `credits()`. |
-| 5 | **View** | ⚠️ Tricky! The cursor only exists in the TUI. The console has no cursor. That makes it *view state*, so it belongs in `TuiView`, like `int selected` in the demo. |
-| 6 | **Game** | ⚠️ Tricky! Which cards are held affects `draw()`, so it's *game state*. Both views must agree on it. |
-| 7 | **Game** | A rule. `deal(bet)` returns `false`, and the view then decides how to tell the user. |
-| 8 | **View** | Words are appearance. The game provides the enum, or at most a `rankName()` helper both views can share. |
-| 9 | **Game** | Scoring rule. |
-| 10 | **View** | It's about *how input arrives*. The FTXUI view never deals with `cin`. |
-| 11 | **Game** | Whether a card is secret is a rule (`dealerHoleHidden()`). |
-| 12 | **View** | *How* a secret card looks is appearance. |
+| #   | Answer   | Why                                                                                                                                                              |
+| --- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Game** | A rule about when the game ends.                                                                                                                                 |
+| 2   | **View** | Color is appearance. The console view doesn't even use color.                                                                                                    |
+| 3   | **Game** | A payout rule. It has to be identical in every view.                                                                                                             |
+| 4   | **View** | Printing. The game only *answers* `credits()`.                                                                                                                   |
+| 5   | **View** | ⚠️ Tricky! The cursor only exists in the TUI. The console has no cursor. That makes it *view state*, so it belongs in `TuiView`, like `int selected` in the demo. |
+| 6   | **Game** | ⚠️ Tricky! Which cards are held affects `draw()`, so it's *game state*. Both views must agree on it.                                                              |
+| 7   | **Game** | A rule. `deal(bet)` returns `false`, and the view then decides how to tell the user.                                                                             |
+| 8   | **View** | Words are appearance. The game provides the enum, or at most a `rankName()` helper both views can share.                                                         |
+| 9   | **Game** | Scoring rule.                                                                                                                                                    |
+| 10  | **View** | It's about *how input arrives*. The FTXUI view never deals with `cin`.                                                                                           |
+| 11  | **Game** | Whether a card is secret is a rule (`dealerHoleHidden()`).                                                                                                       |
+| 12  | **View** | *How* a secret card looks is appearance.                                                                                                                         |
 
 **The test for any line:** *"If I wrote a third view tomorrow, would I need this exact same logic again?"* If yes, it belongs in the **game**. If each view would do it differently, it belongs in the **view**.
 
@@ -413,20 +413,20 @@ Fill this in **on paper** before you write code. It's Steps 1–4 for your own g
 
 ### Video Poker
 
-| Step | Your list |
-| --- | --- |
+| Step                | Your list                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------ |
 | 1. State (remember) | deck, hand, which cards are held, credits, current bet, phase, last result, last payout, … |
-| 2. Actions (do) | `deal(bet)`, `toggleHold(i)`, `draw()`, … |
-| 3. Questions (know) | `hand()`, `isHeld(i)`, `credits()`, `phase()`, … |
-| 4. Phases | `Betting` → `Holding` → `Betting` … → `GameOver`. Which actions are allowed in each phase? |
+| 2. Actions (do)     | `deal(bet)`, `toggleHold(i)`, `draw()`, …                                                  |
+| 3. Questions (know) | `hand()`, `isHeld(i)`, `credits()`, `phase()`, …                                           |
+| 4. Phases           | `Betting` → `Holding` → `Betting` … → `GameOver`. Which actions are allowed in each phase? |
 
 ### Blackjack
 
-| Step | Your list |
-| --- | --- |
-| 1. State (remember) | deck, player hand, dealer hand, chips, bet, phase, outcome, is the hole card hidden?, … |
-| 2. Actions (do) | `startRound(bet)`, `hit()`, `stand()`, `nextRound()`, … |
-| 3. Questions (know) | `playerHand()`, `dealerHand()`, `dealerHoleHidden()`, `chips()`, … |
-| 4. Phases | `Betting` → `PlayerTurn` → `RoundOver` → `Betting` … → `GameOver`. Where does a natural blackjack skip to? Where does the dealer play? |
+| Step                | Your list                                                                                                                              |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. State (remember) | deck, player hand, dealer hand, chips, bet, phase, outcome, is the hole card hidden?, …                                                |
+| 2. Actions (do)     | `startRound(bet)`, `hit()`, `stand()`, `nextRound()`, …                                                                                |
+| 3. Questions (know) | `playerHand()`, `dealerHand()`, `dealerHoleHidden()`, `chips()`, …                                                                     |
+| 4. Phases           | `Betting` → `PlayerTurn` → `RoundOver` → `Betting` … → `GameOver`. Where does a natural blackjack skip to? Where does the dealer play? |
 
 Then build in the same order as Hi-Lo: **game → tests → ConsoleView → TuiView.** Don't skip ahead to the pretty part.
