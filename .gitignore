@@ -4,3 +4,4 @@
 *.chat
 temp.md
 build/
+.claude.md
