@@ -30,28 +30,7 @@ set(FTXUI_ENABLE_INSTALL OFF CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(ftxui)
 
 # --------------------------------------------------
-# Lessons 01-07: every examples/NN_*.cpp becomes its own program
-# --------------------------------------------------
-file(GLOB EXAMPLES CONFIGURE_DEPENDS
-    "${CMAKE_CURRENT_SOURCE_DIR}/examples/[0-9]*.cpp"
-)
-
-foreach(SOURCE ${EXAMPLES})
-    get_filename_component(NAME ${SOURCE} NAME_WE)
-
-    add_executable(${NAME} ${SOURCE})
-
-    target_link_libraries(${NAME} PRIVATE
-        ftxui::component
-    )
-endforeach()
-
-# Lessons 06-07: these programs are built from two .cpp files
-target_sources(06_counter PRIVATE examples/Counter.cpp)
-target_sources(07_counter_view PRIVATE examples/Counter.cpp)
-
-# --------------------------------------------------
-# Lessons 08-16: the War application
+# The War application
 # --------------------------------------------------
 add_executable(war
     src/main.cpp
