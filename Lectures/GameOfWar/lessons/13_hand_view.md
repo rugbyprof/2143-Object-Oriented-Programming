@@ -1,8 +1,8 @@
-# TinyChunks 13 — Creating a Reusable `HandView`
+# GameOfWar 13 — Creating a Reusable `HandView`
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 13 - HandView
 previous: Lesson 12 (src/main.cpp)
 new_files:
@@ -260,7 +260,6 @@ So in the header we write the full names: `ftxui::Element`, `ftxui::Event`, `ftx
 
 ### Create `include/HandView.hpp`
 
-<!-- checkpoint: HandView.hpp -->
 ```cpp
 #pragma once
 
@@ -301,7 +300,6 @@ public:
 
 Move `shortRank()`, `suitSymbol()`, and `renderCard()` here from `main.cpp`, along with the method bodies:
 
-<!-- checkpoint: HandView.cpp -->
 ```cpp
 #include "HandView.hpp"
 
@@ -450,12 +448,87 @@ cmake --build build --target war
 
 ---
 
-## Checkpoint: complete `src/main.cpp`
+## Step 13.8 — What did composition buy us?
 
-<details>
-<summary>Click to compare your file</summary>
+`HandView` **uses** FTXUI (it builds a `CatchEvent` component and returns `Element`s), but it doesn't **inherit** from anything.
 
-<!-- checkpoint: main.cpp -->
+### What about inheritance?
+
+FTXUI does support custom components through inheritance:
+
+```cpp
+class HandView : public ftxui::ComponentBase {
+public:
+    bool OnEvent(ftxui::Event event) override;
+    ftxui::Element OnRender() override;
+};
+```
+
+That's a legitimate design. It makes `HandView` *be* an FTXUI component. It could then sit inside a `Container`, receive focus like a button, and handle arrow keys **only when focused**.
+
+That last point is a real limitation of our version: `attach()` wraps the *whole* interface, so `HandView` grabs Left/Right no matter what has focus. For this app that's fine. For a screen with several hands, inheritance (or FTXUI's focus tools) would be worth the extra complexity.
+
+| Approach                     | Says…                                  | Good when…                                  |
+| ---------------------------- | -------------------------------------- | ------------------------------------------- |
+| Composition (what we did)    | "HandView **uses** FTXUI components"   | You just need to assemble existing pieces   |
+| Inheritance from ComponentBase | "HandView **is** an FTXUI component" | You need custom focus/event behavior        |
+
+**Start with composition. Reach for inheritance when you have a concrete need it solves.**
+
+---
+
+## Step 13.9 — Student challenge
+
+Add a method to `HandView`:
+
+```cpp
+int selectedCardId() const;
+```
+
+- Return the ID of the selected card, or `-1` when the hand is empty.
+- Don't expose the hand's vector.
+
+**Bonus:** Add Home and End support inside `HandView::handleEvent()`. **`main.cpp` should not need to change at all.** That's what encapsulating the selection behavior buys us.
+
+---
+
+## Project structure after Lesson 13
+
+```text
+GameOfWar/
+├── CMakeLists.txt
+├── examples/          (Lessons 01–07)
+├── include/
+│   ├── Card.hpp
+│   ├── Deck.hpp
+│   ├── Hand.hpp
+│   └── HandView.hpp
+└── src/
+    ├── main.cpp
+    ├── Card.cpp
+    ├── Deck.cpp
+    ├── Hand.cpp
+    └── HandView.cpp
+```
+
+| Class / function | Responsibility                       |
+| ---------------- | ------------------------------------ |
+| `Card`           | Represent a playing card             |
+| `Deck`           | Manage available cards               |
+| `Hand`           | Store cards                          |
+| `renderCard()`   | Draw one card                        |
+| `HandView`       | Display a hand and manage selection  |
+| `main()`         | Create objects and wire them together |
+
+We **refactored toward** an abstraction instead of inventing one up front: messy code first, then a class once the shape was obvious.
+
+## Putting it Together
+
+Here is every file in the War app at the end of Lesson 13. Files marked **new** or **changed** were touched in this lesson; the rest are the same as last lesson.
+
+### `src/main.cpp` (changed)
+
+<!-- file: src/main.cpp -->
 ```cpp
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
@@ -516,7 +589,7 @@ int main() {
         }
 
         return vbox({
-            text("TinyChunks 13") | bold | center,
+            text("GameOfWar 13") | bold | center,
 
             separator(),
 
@@ -548,83 +621,376 @@ int main() {
 }
 ```
 
-</details>
+<details>
+<summary><code>include/Card.hpp</code> (unchanged)</summary>
 
----
-
-## Step 13.8 — What did composition buy us?
-
-`HandView` **uses** FTXUI (it builds a `CatchEvent` component and returns `Element`s), but it doesn't **inherit** from anything.
-
-### What about inheritance?
-
-FTXUI does support custom components through inheritance:
-
+<!-- file: include/Card.hpp -->
 ```cpp
-class HandView : public ftxui::ComponentBase {
+#pragma once
+
+#include <string>
+
+class Card {
+private:
+    int id;
+
 public:
-    bool OnEvent(ftxui::Event event) override;
-    ftxui::Element OnRender() override;
+    Card(int id = 0);
+
+    int getId() const;
+    int getSuit() const;
+    int getRank() const;
+
+    std::string rankName() const;
+    std::string suitName() const;
+    std::string toString() const;
+
+    void setId(int newId);
 };
 ```
 
-That's a legitimate design. It makes `HandView` *be* an FTXUI component. It could then sit inside a `Container`, receive focus like a button, and handle arrow keys **only when focused**.
+</details>
 
-That last point is a real limitation of our version: `attach()` wraps the *whole* interface, so `HandView` grabs Left/Right no matter what has focus. For this app that's fine. For a screen with several hands, inheritance (or FTXUI's focus tools) would be worth the extra complexity.
+<details>
+<summary><code>src/Card.cpp</code> (unchanged)</summary>
 
-| Approach                     | Says…                                  | Good when…                                  |
-| ---------------------------- | -------------------------------------- | ------------------------------------------- |
-| Composition (what we did)    | "HandView **uses** FTXUI components"   | You just need to assemble existing pieces   |
-| Inheritance from ComponentBase | "HandView **is** an FTXUI component" | You need custom focus/event behavior        |
-
-**Start with composition. Reach for inheritance when you have a concrete need it solves.**
-
----
-
-## Step 13.9 — Student challenge
-
-Add a method to `HandView`:
-
+<!-- file: src/Card.cpp -->
 ```cpp
-int selectedCardId() const;
+#include "Card.hpp"
+
+#include <vector>
+
+Card::Card(int id) : id(0) {
+    setId(id);
+}
+
+int Card::getId() const {
+    return id;
+}
+
+int Card::getSuit() const {
+    return id / 13;
+}
+
+int Card::getRank() const {
+    return id % 13;
+}
+
+std::string Card::rankName() const {
+    static const std::vector<std::string> ranks = {
+        "Ace", "2", "3", "4", "5", "6", "7",
+        "8", "9", "10", "Jack", "Queen", "King"
+    };
+
+    return ranks[getRank()];
+}
+
+std::string Card::suitName() const {
+    static const std::vector<std::string> suits = {
+        "Clubs", "Diamonds", "Hearts", "Spades"
+    };
+
+    return suits[getSuit()];
+}
+
+std::string Card::toString() const {
+    return rankName() + " of " + suitName();
+}
+
+void Card::setId(int newId) {
+    if (newId >= 0 && newId < 52) {
+        id = newId;
+    }
+}
 ```
 
-- Return the ID of the selected card, or `-1` when the hand is empty.
-- Don't expose the hand's vector.
+</details>
 
-**Bonus:** Add Home and End support inside `HandView::handleEvent()`. **`main.cpp` should not need to change at all.** That's what encapsulating the selection behavior buys us.
+<details>
+<summary><code>include/Deck.hpp</code> (unchanged)</summary>
+
+<!-- file: include/Deck.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Deck {
+private:
+    std::vector<int> cards;
+
+public:
+    Deck();
+
+    int size() const;
+    int draw();
+    void shuffle();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Deck.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Deck.cpp -->
+```cpp
+#include "Deck.hpp"
+
+#include <algorithm>
+#include <random>
+
+Deck::Deck() {
+    for (int i = 0; i < 52; i++) {
+        cards.push_back(i);
+    }
+}
+
+int Deck::size() const {
+    return static_cast<int>(cards.size());
+}
+
+int Deck::draw() {
+    if (cards.empty()) {
+        return -1;
+    }
+
+    int card = cards.back();
+    cards.pop_back();
+
+    return card;
+}
+
+void Deck::shuffle() {
+    static std::mt19937 rng(std::random_device{}());
+
+    std::shuffle(cards.begin(), cards.end(), rng);
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Hand.hpp</code> (unchanged)</summary>
+
+<!-- file: include/Hand.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Hand {
+private:
+    std::vector<int> cards;
+
+public:
+    int size() const;
+
+    void add(int cardId);
+    int getCard(int index) const;
+    void clear();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Hand.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Hand.cpp -->
+```cpp
+#include "Hand.hpp"
+
+int Hand::size() const {
+    return static_cast<int>(cards.size());
+}
+
+void Hand::add(int cardId) {
+    if (cardId >= 0 && cardId < 52) {
+        cards.push_back(cardId);
+    }
+}
+
+int Hand::getCard(int index) const {
+    if (index < 0 || index >= size()) {
+        return -1;
+    }
+
+    return cards[index];
+}
+
+void Hand::clear() {
+    cards.clear();
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/HandView.hpp</code> (new)</summary>
+
+<!-- file: include/HandView.hpp -->
+```cpp
+#pragma once
+
+#include <string>
+
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/event.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include "Card.hpp"
+#include "Hand.hpp"
+
+// Draws one card. Lives here because HandView is its main user.
+ftxui::Element renderCard(const Card& card);
+
+class HandView {
+private:
+    Hand& hand;
+    int selectedCard = 0;
+
+public:
+    HandView(Hand& h);
+
+    int selectedIndex() const;
+    void resetSelection();
+
+    bool handleEvent(ftxui::Event event);
+
+    ftxui::Element render() const;
+
+    std::string selectedCardName() const;
+
+    ftxui::Component attach(ftxui::Component child);
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/HandView.cpp</code> (new)</summary>
+
+<!-- file: src/HandView.cpp -->
+```cpp
+#include "HandView.hpp"
+
+#include <vector>
+
+using namespace ftxui;
+
+namespace {
+
+std::string shortRank(const Card& card) {
+    const std::string ranks = "A23456789TJQK";
+    return std::string(1, ranks[card.getRank()]);
+}
+
+std::string suitSymbol(const Card& card) {
+    static const std::vector<std::string> suits = {
+        "♣", "♦", "♥", "♠"
+    };
+
+    return suits[card.getSuit()];
+}
+
+}
+
+Element renderCard(const Card& card) {
+
+    std::string rank = shortRank(card);
+    std::string suit = suitSymbol(card);
+
+    bool isRed = card.getSuit() == 1 || card.getSuit() == 2;
+
+    auto face = vbox({
+        text(rank),
+        filler(),
+        text(suit) | center,
+        filler(),
+        text(rank) | align_right,
+    })
+    | size(WIDTH, EQUAL, 7)
+    | size(HEIGHT, EQUAL, 5)
+    | border;
+
+    if (isRed) {
+        return face | color(Color::Red);
+    }
+
+    return face;
+}
+
+HandView::HandView(Hand& h) : hand(h) {
+}
+
+int HandView::selectedIndex() const {
+    return selectedCard;
+}
+
+void HandView::resetSelection() {
+    selectedCard = 0;
+}
+
+bool HandView::handleEvent(Event event) {
+    if (event == Event::ArrowRight) {
+        if (selectedCard + 1 < hand.size()) {
+            selectedCard++;
+        }
+        return true;
+    }
+
+    if (event == Event::ArrowLeft) {
+        if (selectedCard > 0) {
+            selectedCard--;
+        }
+        return true;
+    }
+
+    return false;
+}
+
+Element HandView::render() const {
+    Elements elements;
+
+    for (int i = 0; i < hand.size(); i++) {
+        Card card(hand.getCard(i));
+
+        auto element = renderCard(card);
+
+        if (i == selectedCard) {
+            element = element | bgcolor(Color::Blue);
+        }
+
+        elements.push_back(element);
+        elements.push_back(text(" "));
+    }
+
+    return hbox(std::move(elements));
+}
+
+std::string HandView::selectedCardName() const {
+    if (hand.size() == 0) {
+        return "No card selected";
+    }
+
+    Card card(hand.getCard(selectedCard));
+
+    return card.toString();
+}
+
+Component HandView::attach(Component child) {
+    return CatchEvent(child, [this](Event event) {
+        return handleEvent(event);
+    });
+}
+```
+
+</details>
+
+> **Linker errors?** Make sure `src/HandView.cpp` is listed in `add_executable(war ...)` in `CMakeLists.txt`.
 
 ---
-
-## Project structure after Lesson 13
-
-```text
-tinychunks/
-├── CMakeLists.txt
-├── examples/          (Lessons 01–07)
-├── include/
-│   ├── Card.hpp
-│   ├── Deck.hpp
-│   ├── Hand.hpp
-│   └── HandView.hpp
-└── src/
-    ├── main.cpp
-    ├── Card.cpp
-    ├── Deck.cpp
-    ├── Hand.cpp
-    └── HandView.cpp
-```
-
-| Class / function | Responsibility                       |
-| ---------------- | ------------------------------------ |
-| `Card`           | Represent a playing card             |
-| `Deck`           | Manage available cards               |
-| `Hand`           | Store cards                          |
-| `renderCard()`   | Draw one card                        |
-| `HandView`       | Display a hand and manage selection  |
-| `main()`         | Create objects and wire them together |
-
-We **refactored toward** an abstraction instead of inventing one up front: messy code first, then a class once the shape was obvious.
 
 ## Commit your work
 

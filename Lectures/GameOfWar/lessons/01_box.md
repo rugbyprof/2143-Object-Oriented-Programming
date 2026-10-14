@@ -1,8 +1,8 @@
-# TinyChunks 01 — Project Setup and Your First FTXUI Box
+# GameOfWar 01 — Project Setup and Your First FTXUI Box
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 01 - Elements and Layout
 new_file: examples/01_box.cpp
 concepts:
@@ -26,7 +26,7 @@ Lessons 08–16 build **one application**, the War game. Those lessons edit the 
 By the end of the course your project will look like this:
 
 ```text
-tinychunks/
+GameOfWar/
 ├── CMakeLists.txt
 ├── .gitignore
 ├── examples/          ← Lessons 01–07 (one program per file)
@@ -39,8 +39,8 @@ tinychunks/
 ## Step 1.1 — Create the project
 
 ```bash
-mkdir tinychunks
-cd tinychunks
+mkdir GameOfWar
+cd GameOfWar
 mkdir examples
 git init
 ```
@@ -62,7 +62,7 @@ Create `CMakeLists.txt` in the project folder:
 ```cmake
 cmake_minimum_required(VERSION 3.20)
 
-project(tinychunks LANGUAGES CXX)
+project(GameOfWar LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -130,7 +130,7 @@ using namespace ftxui;
 
 int main() {
 
-    Element document = text("Hello, TinyChunks!") | border;
+    Element document = text("Hello, GameOfWar!") | border;
 
     auto screen = Screen::Create(
         Dimension::Fixed(40),
@@ -158,7 +158,7 @@ You should see:
 
 ```text
 ╭──────────────────────────────────────╮
-│Hello, TinyChunks!                    │
+│Hello, GameOfWar !                    │
 ╰──────────────────────────────────────╯
 ```
 
@@ -177,7 +177,7 @@ An `Element` is a *description* of something visual. Creating it doesn't print a
 Now look at this line:
 
 ```cpp
-text("Hello, TinyChunks!") | border
+text("Hello, GameOfWar!") | border
 ```
 
 The `|` operator applies a **decorator**. It takes an element and returns a new element with a border around it.
@@ -194,9 +194,9 @@ Replace the `document` line with:
 
 ```cpp
 Element document = vbox({
-    text("TinyChunks 01") | bold,
+    text("GameOfWar 01") | bold,
     separator(),
-    text("Hello, TinyChunks!"),
+    text("Hello, GameOfWar!"),
 }) | border;
 ```
 
@@ -209,9 +209,9 @@ cmake --build build --target 01_box
 
 ```text
 ╭──────────────────────────────────────╮
-│TinyChunks 01                         │
+│GameOfWar 01                          │
 ├──────────────────────────────────────┤
-│Hello, TinyChunks!                    │
+│Hello, GameOfWar !                    │
 ╰──────────────────────────────────────╯
 ```
 
@@ -227,7 +227,7 @@ Add an `hbox` between the separator and the text:
 
 ```cpp
 Element document = vbox({
-    text("TinyChunks 01") | bold | center,
+    text("GameOfWar 01") | bold | center,
 
     separator(),
 
@@ -248,7 +248,7 @@ Compile and run:
 
 ```text
 ╭──────────────────────────────────────╮
-│            TinyChunks 01             │
+│            GameOfWar 01              │
 ├──────────────────────────────────────┤
 │╭────╮╭───────────────────────╮╭─────╮│
 ││Left││Middle                 ││Right││
@@ -263,7 +263,7 @@ Compile and run:
 Decorators chain left to right:
 
 ```cpp
-text("TinyChunks 01") | bold | center
+text("GameOfWar 01") | bold | center
 ```
 
 That means: make some text, make it bold, then center it.
@@ -315,6 +315,54 @@ cmake --build build --target help
 
 ---
 
+## Putting it Together
+
+Here is the complete program at the end of this lesson. Compare it with yours before you commit.
+
+### `examples/01_box.cpp` (new)
+
+<!-- file: examples/01_box.cpp -->
+```cpp
+#include <ftxui/dom/elements.hpp>
+#include <ftxui/screen/screen.hpp>
+
+#include <iostream>
+
+using namespace ftxui;
+
+int main() {
+
+    Element document = vbox({
+        text("GameOfWar 01") | bold | center,
+
+        separator(),
+
+        hbox({
+            text("Left") | border,
+            text("Middle") | border | flex,
+            text("Right") | border,
+        }),
+
+        separator(),
+
+        text("Static screens are drawn once.") | color(Color::Green),
+
+    }) | border;
+
+    auto screen = Screen::Create(
+        Dimension::Fixed(40),
+        Dimension::Fit(document)
+    );
+
+    Render(screen, document);
+    screen.Print();
+
+    std::cout << '\n';
+}
+```
+
+---
+
 ## Commit your work
 
 ```bash
@@ -322,6 +370,6 @@ git add .
 git commit -m "Lesson 01: project setup and first box"
 ```
 
-## Next: TinyChunks 02 — Interactive Rendering
+## Next: GameOfWar 02 — Interactive Rendering
 
 Our program draws once and exits. Next we'll switch to an interactive screen that keeps running, and we'll meet the tool FTXUI uses everywhere: the **lambda function**.

@@ -39,7 +39,7 @@ int main() {
     // Render the interface
     auto renderer = Renderer(buttons, [&] {
         return vbox({
-            text("TinyChunks 04") | bold | center,
+            text("GameOfWar 04") | bold | center,
 
             separator(),
 

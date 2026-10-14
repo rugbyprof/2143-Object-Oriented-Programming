@@ -1,8 +1,8 @@
-# TinyChunks 07 — Composition: Building a Reusable FTXUI View
+# GameOfWar 07 — Composition: Building a Reusable FTXUI View
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 07 - Composition and UI Classes
 previous: examples/06_counter.cpp
 new_file: examples/07_counter_view.cpp
@@ -36,7 +36,7 @@ The new program also uses `Counter.cpp`. At the bottom of `CMakeLists.txt`, unde
 target_sources(07_counter_view PRIVATE examples/Counter.cpp)
 ```
 
-Change the title text to `"TinyChunks 07"`, then compile:
+Change the title text to `"GameOfWar 07"`, then compile:
 
 ```bash
 cmake -S . -B build
@@ -293,7 +293,7 @@ Component build() {
     return Renderer(buttons, [this] {
 
         return vbox({
-            text("TinyChunks 07") | bold | center,
+            text("GameOfWar 07") | bold | center,
 
             separator(),
 
@@ -583,6 +583,152 @@ CardTableView
 
 Each view can manage its own FTXUI components while referring to the application data it needs.
 
+## Putting it Together
+
+Here is the complete program at the end of this lesson. Compare it with yours before you commit.
+
+### `examples/07_counter_view.cpp` (new)
+
+<!-- file: examples/07_counter_view.cpp -->
+```cpp
+#include "Counter.hpp"
+
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/screen_interactive.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include <string>
+
+using namespace ftxui;
+
+class CounterView {
+private:
+    Counter& counter;
+
+    Component increment;
+    Component decrement;
+    Component reset;
+
+public:
+    CounterView(Counter& c) : counter(c) {
+
+        increment = Button("Increment", [this] {
+            counter.increment();
+        });
+
+        decrement = Button("Decrement", [this] {
+            counter.decrement();
+        });
+
+        reset = Button("Reset", [this] {
+            counter.reset();
+        });
+    }
+
+    Component build() {
+
+        auto row = Container::Horizontal({
+            increment,
+            decrement,
+        });
+
+        auto buttons = Container::Vertical({
+            row,
+            reset,
+        });
+
+        return Renderer(buttons, [this] {
+            return vbox({
+                text("GameOfWar 07") | bold | center,
+
+                separator(),
+
+                text("Counter: " + std::to_string(counter.getValue())) | center,
+
+                separator(),
+
+                hbox({
+                    increment->Render(),
+                    text("  "),
+                    decrement->Render(),
+                }) | center,
+
+                separatorEmpty(),
+
+                reset->Render() | center,
+
+            }) | border;
+        });
+    }
+};
+
+int main() {
+
+    Counter counter;
+
+    CounterView view(counter);
+
+    auto screen = ScreenInteractive::TerminalOutput();
+
+    screen.Loop(view.build());
+}
+```
+
+<details>
+<summary><code>examples/Counter.hpp</code> (unchanged)</summary>
+
+<!-- file: examples/Counter.hpp -->
+```cpp
+#pragma once
+
+class Counter {
+private:
+    int value;
+
+public:
+    Counter();
+
+    void increment();
+    void decrement();
+    void reset();
+
+    int getValue() const;
+};
+```
+
+</details>
+
+<details>
+<summary><code>examples/Counter.cpp</code> (unchanged)</summary>
+
+<!-- file: examples/Counter.cpp -->
+```cpp
+#include "Counter.hpp"
+
+Counter::Counter() : value(0) {
+}
+
+void Counter::increment() {
+    value++;
+}
+
+void Counter::decrement() {
+    value--;
+}
+
+void Counter::reset() {
+    value = 0;
+}
+
+int Counter::getValue() const {
+    return value;
+}
+```
+
+</details>
+
+---
+
 ## Commit your work
 
 ```bash
@@ -592,7 +738,7 @@ git commit -m "Lesson 07: CounterView"
 
 This is the last lesson in `examples/`.
 
-### Next: TinyChunks 08 — Starting the War Application
+### Next: GameOfWar 08 — Starting the War Application
 
 We're ready to move beyond counters. From Lesson 08 on, we stop making a new file per lesson. Instead we build **one application**, a game of War, in `src/main.cpp`, and add classes to `include/` and `src/` as we need them.
 

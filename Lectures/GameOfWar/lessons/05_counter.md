@@ -1,8 +1,8 @@
-# TinyChunks 05 — Encapsulation: Introducing a Counter Class
+# GameOfWar 05 — Encapsulation: Introducing a Counter Class
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 05 - Encapsulation
 previous: examples/04_containers.cpp
 new_file: examples/05_counter.cpp
@@ -47,7 +47,7 @@ cmake --build build --target 05_counter
 ./build/05_counter
 ```
 
-Everything should work exactly as before. Change the title text to `"TinyChunks 05"`.
+Everything should work exactly as before. Change the title text to `"GameOfWar 05"`.
 
 ---
 
@@ -481,6 +481,104 @@ We have introduced encapsulation without inheritance, virtual functions, or abst
 
 And we have a genuine reason for doing it.
 
+## Putting it Together
+
+Here is the complete program at the end of this lesson. Compare it with yours before you commit.
+
+### `examples/05_counter.cpp` (new)
+
+<!-- file: examples/05_counter.cpp -->
+```cpp
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/screen_interactive.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include <string>
+
+using namespace ftxui;
+
+class Counter {
+private:
+    int value;
+
+public:
+    Counter() : value(0) {
+    }
+
+    void increment() {
+        value++;
+    }
+
+    void decrement() {
+        value--;
+    }
+
+    void reset() {
+        value = 0;
+    }
+
+    int getValue() const {
+        return value;
+    }
+};
+
+int main() {
+
+    Counter counter;
+
+    auto screen = ScreenInteractive::TerminalOutput();
+
+    auto increment = Button("Increment", [&] {
+        counter.increment();
+    });
+
+    auto decrement = Button("Decrement", [&] {
+        counter.decrement();
+    });
+
+    auto reset = Button("Reset", [&] {
+        counter.reset();
+    });
+
+    auto row = Container::Horizontal({
+        increment,
+        decrement,
+    });
+
+    auto buttons = Container::Vertical({
+        row,
+        reset,
+    });
+
+    auto renderer = Renderer(buttons, [&] {
+        return vbox({
+            text("GameOfWar 05") | bold | center,
+
+            separator(),
+
+            text("Counter: " + std::to_string(counter.getValue())) | center,
+
+            separator(),
+
+            hbox({
+                increment->Render(),
+                text("  "),
+                decrement->Render(),
+            }) | center,
+
+            separatorEmpty(),
+
+            reset->Render() | center,
+
+        }) | border;
+    });
+
+    screen.Loop(renderer);
+}
+```
+
+---
+
 ## Commit your work
 
 ```bash
@@ -488,7 +586,7 @@ git add .
 git commit -m "Lesson 05: Counter class"
 ```
 
-### Next: TinyChunks 06 — Moving Classes Into Header Files
+### Next: GameOfWar 06 — Moving Classes Into Header Files
 
 Our `Counter` class currently lives inside `05_counter.cpp`.
 
@@ -497,7 +595,7 @@ That's acceptable for a small example, but what happens when multiple programs n
 Next, we'll introduce:
 
 ```text
-tinychunks/
+GameOfWar/
 ├── CMakeLists.txt
 └── examples/
     ├── Counter.hpp        ← new: the class declaration

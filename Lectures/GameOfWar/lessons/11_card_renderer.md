@@ -1,8 +1,8 @@
-# TinyChunks 11 — Rendering Playing Cards with FTXUI
+# GameOfWar 11 — Rendering Playing Cards with FTXUI
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 11 - Rendering Playing Cards
 previous: Lesson 10 (src/main.cpp)
 changed_file: src/main.cpp
@@ -55,7 +55,7 @@ Inside the renderer lambda, **temporarily** comment out the existing `return vbo
 
 ```cpp
 return vbox({
-    text("TinyChunks 11") | bold | center,
+    text("GameOfWar 11") | bold | center,
     separator(),
     renderCard(Card(51)) | center,
 }) | border;
@@ -70,7 +70,7 @@ cmake --build build --target war
 
 ```text
 ┌─────────────────────┐
-│    TinyChunks 11    │
+│    GameOfWar 11     │
 ├─────────────────────┤
 │     ┌──────┐        │
 │     │King  │        │
@@ -295,7 +295,7 @@ Compile, run, and draw three cards:
 
 ```text
 ┌───────────────────────────────────────────┐
-│               TinyChunks 11               │
+│               GameOfWar 11                │
 ├───────────────────────────────────────────┤
 │            Cards remaining: 49            │
 │             Cards in hand: 3              │
@@ -321,12 +321,59 @@ For a handful of cards this works nicely. With 52 cards, the row gets far wider 
 
 ---
 
-## Checkpoint: complete `src/main.cpp`
+## Step 11.7 — Student challenge
 
-<details>
-<summary>Click to compare your file</summary>
+Add a second visual style with a parameter:
 
-<!-- checkpoint: main.cpp -->
+```cpp
+Element renderCard(const Card& card, bool compact = false);
+```
+
+**Compact:**
+
+```text
+┌─────┐
+│ A ♠ │
+└─────┘
+```
+
+**Full** (what we have now):
+
+```text
+┌───────┐
+│A      │
+│       │
+│   ♠   │
+│       │
+│      A│
+└───────┘
+```
+
+Use an `if` statement to pick the layout. Add a button that toggles a `bool compact` variable so you can switch styles while the program runs.
+
+**Constraint:** Do not create `CompactCard` or `FullCard` subclasses. We're changing the *presentation*, not the *kind* of card.
+
+---
+
+## Where we are
+
+| Piece          | Responsibility                            |
+| -------------- | ----------------------------------------- |
+| `Card`         | Represents a playing card                 |
+| `Deck`         | Manages available cards                   |
+| `Hand`         | Stores drawn cards                        |
+| `renderCard()` | Turns a card into an FTXUI element        |
+| `main()`       | Handles interaction and displays the hand |
+
+No new files this lesson.
+
+## Putting it Together
+
+Here is every file in the War app at the end of Lesson 11. Files marked **new** or **changed** were touched in this lesson; the rest are the same as last lesson.
+
+### `src/main.cpp` (changed)
+
+<!-- file: src/main.cpp -->
 ```cpp
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
@@ -436,7 +483,7 @@ int main() {
         }
 
         return vbox({
-            text("TinyChunks 11") | bold | center,
+            text("GameOfWar 11") | bold | center,
 
             separator(),
 
@@ -464,55 +511,212 @@ int main() {
 }
 ```
 
+<details>
+<summary><code>include/Card.hpp</code> (unchanged)</summary>
+
+<!-- file: include/Card.hpp -->
+```cpp
+#pragma once
+
+#include <string>
+
+class Card {
+private:
+    int id;
+
+public:
+    Card(int id = 0);
+
+    int getId() const;
+    int getSuit() const;
+    int getRank() const;
+
+    std::string rankName() const;
+    std::string suitName() const;
+    std::string toString() const;
+
+    void setId(int newId);
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Card.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Card.cpp -->
+```cpp
+#include "Card.hpp"
+
+#include <vector>
+
+Card::Card(int id) : id(0) {
+    setId(id);
+}
+
+int Card::getId() const {
+    return id;
+}
+
+int Card::getSuit() const {
+    return id / 13;
+}
+
+int Card::getRank() const {
+    return id % 13;
+}
+
+std::string Card::rankName() const {
+    static const std::vector<std::string> ranks = {
+        "Ace", "2", "3", "4", "5", "6", "7",
+        "8", "9", "10", "Jack", "Queen", "King"
+    };
+
+    return ranks[getRank()];
+}
+
+std::string Card::suitName() const {
+    static const std::vector<std::string> suits = {
+        "Clubs", "Diamonds", "Hearts", "Spades"
+    };
+
+    return suits[getSuit()];
+}
+
+std::string Card::toString() const {
+    return rankName() + " of " + suitName();
+}
+
+void Card::setId(int newId) {
+    if (newId >= 0 && newId < 52) {
+        id = newId;
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Deck.hpp</code> (unchanged)</summary>
+
+<!-- file: include/Deck.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Deck {
+private:
+    std::vector<int> cards;
+
+public:
+    Deck();
+
+    int size() const;
+    int draw();
+    void shuffle();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Deck.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Deck.cpp -->
+```cpp
+#include "Deck.hpp"
+
+#include <algorithm>
+#include <random>
+
+Deck::Deck() {
+    for (int i = 0; i < 52; i++) {
+        cards.push_back(i);
+    }
+}
+
+int Deck::size() const {
+    return static_cast<int>(cards.size());
+}
+
+int Deck::draw() {
+    if (cards.empty()) {
+        return -1;
+    }
+
+    int card = cards.back();
+    cards.pop_back();
+
+    return card;
+}
+
+void Deck::shuffle() {
+    static std::mt19937 rng(std::random_device{}());
+
+    std::shuffle(cards.begin(), cards.end(), rng);
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Hand.hpp</code> (unchanged)</summary>
+
+<!-- file: include/Hand.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Hand {
+private:
+    std::vector<int> cards;
+
+public:
+    int size() const;
+
+    void add(int cardId);
+    int getCard(int index) const;
+    void clear();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Hand.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Hand.cpp -->
+```cpp
+#include "Hand.hpp"
+
+int Hand::size() const {
+    return static_cast<int>(cards.size());
+}
+
+void Hand::add(int cardId) {
+    if (cardId >= 0 && cardId < 52) {
+        cards.push_back(cardId);
+    }
+}
+
+int Hand::getCard(int index) const {
+    if (index < 0 || index >= size()) {
+        return -1;
+    }
+
+    return cards[index];
+}
+
+void Hand::clear() {
+    cards.clear();
+}
+```
+
 </details>
 
 ---
-
-## Step 11.7 — Student challenge
-
-Add a second visual style with a parameter:
-
-```cpp
-Element renderCard(const Card& card, bool compact = false);
-```
-
-**Compact:**
-
-```text
-┌─────┐
-│ A ♠ │
-└─────┘
-```
-
-**Full** (what we have now):
-
-```text
-┌───────┐
-│A      │
-│       │
-│   ♠   │
-│       │
-│      A│
-└───────┘
-```
-
-Use an `if` statement to pick the layout. Add a button that toggles a `bool compact` variable so you can switch styles while the program runs.
-
-**Constraint:** Do not create `CompactCard` or `FullCard` subclasses. We're changing the *presentation*, not the *kind* of card.
-
----
-
-## Where we are
-
-| Piece          | Responsibility                            |
-| -------------- | ----------------------------------------- |
-| `Card`         | Represents a playing card                 |
-| `Deck`         | Manages available cards                   |
-| `Hand`         | Stores drawn cards                        |
-| `renderCard()` | Turns a card into an FTXUI element        |
-| `main()`       | Handles interaction and displays the hand |
-
-No new files this lesson.
 
 ## Commit your work
 
@@ -521,6 +725,6 @@ git add .
 git commit -m "Lesson 11: renderCard"
 ```
 
-### Next: TinyChunks 12 — Selecting Cards in a Hand
+### Next: GameOfWar 12 — Selecting Cards in a Hand
 
 Our cards are **elements**: we can see them, but we can't interact with them individually. Next, we'll let the player move a highlight across the hand with the arrow keys. That means catching keyboard events ourselves.

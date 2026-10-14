@@ -22,7 +22,7 @@ int main() {
     // Renderer with button as child
     auto renderer = Renderer(button, [&] {
         return vbox({
-            text("TinyChunks 03") | bold,
+            text("GameOfWar 03") | bold,
 
             separator(),
 

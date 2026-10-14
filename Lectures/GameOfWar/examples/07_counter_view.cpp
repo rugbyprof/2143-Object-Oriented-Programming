@@ -46,7 +46,7 @@ public:
 
         return Renderer(buttons, [this] {
             return vbox({
-                text("TinyChunks 07") | bold | center,
+                text("GameOfWar 07") | bold | center,
 
                 separator(),
 

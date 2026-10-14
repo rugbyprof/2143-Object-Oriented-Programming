@@ -1,8 +1,8 @@
-# TinyChunks 04 — Multiple Buttons and Component Containers
+# GameOfWar 04 — Multiple Buttons and Component Containers
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 04 - Component Containers
 previous: examples/03_buttons.cpp
 new_file: examples/04_containers.cpp
@@ -122,7 +122,7 @@ You should now have something resembling:
 
 ```text
 ┌────────────────────────────────┐
-│ TinyChunks 03                  │
+│ GameOfWar 03                   │
 ├────────────────────────────────┤
 │ Counter: 0                     │
 ├────────────────────────────────┤
@@ -130,7 +130,7 @@ You should now have something resembling:
 └────────────────────────────────┘
 ```
 
-The heading still says TinyChunks 03 because we copied the file. Change it to `"TinyChunks 04"` now.
+The heading still says GameOfWar 03 because we copied the file. Change it to `"GameOfWar 04"` now.
 
 ### Experiment
 
@@ -361,7 +361,7 @@ int main() {
     auto renderer = Renderer(buttons, [&] {
 
         return vbox({
-            text("TinyChunks 04") | bold | center,
+            text("GameOfWar 04") | bold | center,
 
             separator(),
 
@@ -417,7 +417,7 @@ Arrange them like this:
 
 ```text
 ┌─────────────────────────────────┐
-│          TinyChunks 04          │
+│          GameOfWar 04           │
 ├─────────────────────────────────┤
 │                                 │
 │           Counter: 0            │
@@ -436,6 +436,82 @@ Use nested horizontal and vertical containers. Every button must be reachable wi
 **Constraint:** Do not create a class yet.
 
 The goal is to understand how FTXUI components cooperate before we start designing abstractions around them.
+
+---
+
+## Putting it Together
+
+Here is the complete program at the end of this lesson. Compare it with yours before you commit.
+
+### `examples/04_containers.cpp` (new)
+
+<!-- file: examples/04_containers.cpp -->
+```cpp
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/screen_interactive.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include <string>
+
+using namespace ftxui;
+
+int main() {
+
+    int counter = 0;
+
+    auto screen = ScreenInteractive::TerminalOutput();
+
+    // Individual components
+    auto increment = Button("Increment", [&] {
+        counter++;
+    });
+
+    auto decrement = Button("Decrement", [&] {
+        counter--;
+    });
+
+    auto reset = Button("Reset", [&] {
+        counter = 0;
+    });
+
+    // Compose components
+    auto row = Container::Horizontal({
+        increment,
+        decrement,
+    });
+
+    auto buttons = Container::Vertical({
+        row,
+        reset,
+    });
+
+    // Render the interface
+    auto renderer = Renderer(buttons, [&] {
+        return vbox({
+            text("GameOfWar 04") | bold | center,
+
+            separator(),
+
+            text("Counter: " + std::to_string(counter)) | center,
+
+            separator(),
+
+            hbox({
+                increment->Render(),
+                text("  "),
+                decrement->Render(),
+            }) | center,
+
+            separatorEmpty(),
+
+            reset->Render() | center,
+
+        }) | border;
+    });
+
+    screen.Loop(renderer);
+}
+```
 
 ---
 
@@ -476,7 +552,7 @@ We could end up with callbacks scattered throughout the UI, all manipulating app
 
 That's where our next lesson will take us.
 
-**TinyChunks 05 — Introducing a `Counter` Class**
+**GameOfWar 05 — Introducing a `Counter` Class**
 
 We'll move the counter's state and operations into a proper C++ class, leaving the FTXUI code responsible only for interaction and presentation.
 

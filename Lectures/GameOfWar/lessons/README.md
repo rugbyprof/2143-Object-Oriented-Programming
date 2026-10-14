@@ -1,4 +1,4 @@
-# TinyChunks — Building War with FTXUI
+# GameOfWar — Building War with FTXUI
 
 Sixteen short lessons that go from a single terminal box to a playable game of War. Along the way they teach lambdas, classes, separate compilation, encapsulation, composition, and const-correctness. Every lesson follows the same rhythm: **make one small change, compile, run, discuss.**
 
@@ -27,12 +27,12 @@ Sixteen short lessons that go from a single terminal box to a playable game of W
 
 - **Lessons 01–07** are standalone warm-ups in `examples/`. Every numbered file there is its own program, so earlier lessons stay runnable.
 - **Lessons 08–16** build **one** application, `war`, from `src/main.cpp` plus one `.hpp`/`.cpp` pair per class. Students commit to git at the end of every lesson, so the git log holds each checkpoint.
-- Each War lesson ends with a collapsible **complete `main.cpp`** (and any class files that changed) so a student who falls behind can catch up.
+- Every lesson ends with **Putting it Together**: the complete program as of that lesson, with each file marked new, changed, or unchanged, so a student who falls behind can catch up.
 
 ## Final structure
 
 ```text
-tinychunks/
+GameOfWar/
 ├── CMakeLists.txt
 ├── .gitignore
 ├── examples/        01_box.cpp … 07_counter_view.cpp, Counter.hpp, Counter.cpp
@@ -67,7 +67,7 @@ cmake --build build --target war         # the War application (lessons 08–16)
 ## Instructor notes
 
 - The code in `examples/`, `include/`, and `src/` is the **finished state** after Lesson 16. It builds with no warnings on FTXUI v6.1.9.
-- Every checkpoint block in Lessons 08–16 was extracted and compiled on its own.
+- The code in every lesson's **Putting it Together** section was extracted and compiled on its own (all 16 build with no warnings).
 - `WarGame` was simulated over 20,000 games: every game ended, and the 52-card total held after every round. Lesson 16 Step 16.5 explains the "games that never end" bug that this simulation found in the Lesson 15 version.
 - Lesson 16 Challenge 3 (a `war_test` executable) is a good assignment: it reuses the model without the UI, which is the payoff of keeping `WarGame` FTXUI-free.
 - **Facade discussion:** Lesson 15 ends with "Is `WarGame` a Facade?". It argues `WarGame` is better described as a game model/controller. A UI-side facade (e.g. a `GameView` that wraps the whole FTXUI screen so `main()` becomes three lines) would be a natural follow-up lesson.

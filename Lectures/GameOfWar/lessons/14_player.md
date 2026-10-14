@@ -1,8 +1,8 @@
-# TinyChunks 14 — Introducing the `Player` Class
+# GameOfWar 14 — Introducing the `Player` Class
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 14 - Player
 previous: Lesson 13
 new_files:
@@ -340,7 +340,7 @@ Replace the renderer:
 ```cpp
 auto renderer = Renderer([&] {
     return vbox({
-        text("TinyChunks 14 - Players") | bold | center,
+        text("GameOfWar 14 - Players") | bold | center,
 
         separator(),
 
@@ -362,7 +362,7 @@ Compile and run:
 
 ```text
 ┌──────────────────────────────┐
-│   TinyChunks 14 - Players    │
+│   GameOfWar 14 - Players     │
 ├──────────────────────────────┤
 │Alice                         │
 │Cards: 2                      │
@@ -432,74 +432,6 @@ We *could* write `deck.deal(alice)`, but then `Deck` would depend on `Player`. K
 
 ---
 
-## Checkpoint: complete `src/main.cpp`
-
-<details>
-<summary>Click to compare your file</summary>
-
-<!-- checkpoint: main.cpp -->
-```cpp
-#include <ftxui/component/component.hpp>
-#include <ftxui/component/screen_interactive.hpp>
-#include <ftxui/dom/elements.hpp>
-
-#include <string>
-
-#include "Deck.hpp"
-#include "HandView.hpp"
-#include "Player.hpp"
-
-using namespace ftxui;
-
-int main() {
-
-    Deck deck;
-    deck.shuffle();
-
-    Player alice("Alice");
-    Player bob("Bob");
-
-    for (int i = 0; i < 5; i++) {
-        alice.receiveCard(deck.draw());
-        bob.receiveCard(deck.draw());
-    }
-
-    HandView aliceView(alice.getHand());
-    HandView bobView(bob.getHand());
-
-    auto screen = ScreenInteractive::TerminalOutput();
-
-    auto renderer = Renderer([&] {
-        return vbox({
-            text("TinyChunks 14 - Players") | bold | center,
-
-            separator(),
-
-            text("Deck: " + std::to_string(deck.size()) + " cards remaining"),
-
-            separator(),
-
-            text(alice.getName()) | bold,
-            text("Cards: " + std::to_string(alice.cardCount())),
-            aliceView.render(),
-
-            separator(),
-
-            text(bob.getName()) | bold,
-            text("Cards: " + std::to_string(bob.cardCount())),
-            bobView.render(),
-
-        }) | border;
-    });
-
-    screen.Loop(renderer);
-}
-```
-
-</details>
-
----
-
 ## Step 14.9 — A missing operation
 
 War requires players to **play** cards, not just receive them. `Hand` can `add()`, `getCard()`, `size()`, and `clear()`, but it can't **remove and return** one card.
@@ -540,7 +472,7 @@ Display each player's rounds won. (You'll be able to use this in Lesson 15.)
 ## Project structure after Lesson 14
 
 ```text
-tinychunks/
+GameOfWar/
 ├── CMakeLists.txt
 ├── examples/          (Lessons 01–07)
 ├── include/
@@ -567,6 +499,502 @@ tinychunks/
 | Reference vs ownership | `HandView` refers; `Player` owns               |
 
 Still no inheritance. Our relationships are all *has-a* or *uses-a*, not *is-a*.
+
+## Putting it Together
+
+Here is every file in the War app at the end of Lesson 14. Files marked **new** or **changed** were touched in this lesson; the rest are the same as last lesson.
+
+### `src/main.cpp` (changed)
+
+<!-- file: src/main.cpp -->
+```cpp
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/screen_interactive.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include <string>
+
+#include "Deck.hpp"
+#include "HandView.hpp"
+#include "Player.hpp"
+
+using namespace ftxui;
+
+int main() {
+
+    Deck deck;
+    deck.shuffle();
+
+    Player alice("Alice");
+    Player bob("Bob");
+
+    for (int i = 0; i < 5; i++) {
+        alice.receiveCard(deck.draw());
+        bob.receiveCard(deck.draw());
+    }
+
+    HandView aliceView(alice.getHand());
+    HandView bobView(bob.getHand());
+
+    auto screen = ScreenInteractive::TerminalOutput();
+
+    auto renderer = Renderer([&] {
+        return vbox({
+            text("GameOfWar 14 - Players") | bold | center,
+
+            separator(),
+
+            text("Deck: " + std::to_string(deck.size()) + " cards remaining"),
+
+            separator(),
+
+            text(alice.getName()) | bold,
+            text("Cards: " + std::to_string(alice.cardCount())),
+            aliceView.render(),
+
+            separator(),
+
+            text(bob.getName()) | bold,
+            text("Cards: " + std::to_string(bob.cardCount())),
+            bobView.render(),
+
+        }) | border;
+    });
+
+    screen.Loop(renderer);
+}
+```
+
+<details>
+<summary><code>include/Card.hpp</code> (unchanged)</summary>
+
+<!-- file: include/Card.hpp -->
+```cpp
+#pragma once
+
+#include <string>
+
+class Card {
+private:
+    int id;
+
+public:
+    Card(int id = 0);
+
+    int getId() const;
+    int getSuit() const;
+    int getRank() const;
+
+    std::string rankName() const;
+    std::string suitName() const;
+    std::string toString() const;
+
+    void setId(int newId);
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Card.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Card.cpp -->
+```cpp
+#include "Card.hpp"
+
+#include <vector>
+
+Card::Card(int id) : id(0) {
+    setId(id);
+}
+
+int Card::getId() const {
+    return id;
+}
+
+int Card::getSuit() const {
+    return id / 13;
+}
+
+int Card::getRank() const {
+    return id % 13;
+}
+
+std::string Card::rankName() const {
+    static const std::vector<std::string> ranks = {
+        "Ace", "2", "3", "4", "5", "6", "7",
+        "8", "9", "10", "Jack", "Queen", "King"
+    };
+
+    return ranks[getRank()];
+}
+
+std::string Card::suitName() const {
+    static const std::vector<std::string> suits = {
+        "Clubs", "Diamonds", "Hearts", "Spades"
+    };
+
+    return suits[getSuit()];
+}
+
+std::string Card::toString() const {
+    return rankName() + " of " + suitName();
+}
+
+void Card::setId(int newId) {
+    if (newId >= 0 && newId < 52) {
+        id = newId;
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Deck.hpp</code> (unchanged)</summary>
+
+<!-- file: include/Deck.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Deck {
+private:
+    std::vector<int> cards;
+
+public:
+    Deck();
+
+    int size() const;
+    int draw();
+    void shuffle();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Deck.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Deck.cpp -->
+```cpp
+#include "Deck.hpp"
+
+#include <algorithm>
+#include <random>
+
+Deck::Deck() {
+    for (int i = 0; i < 52; i++) {
+        cards.push_back(i);
+    }
+}
+
+int Deck::size() const {
+    return static_cast<int>(cards.size());
+}
+
+int Deck::draw() {
+    if (cards.empty()) {
+        return -1;
+    }
+
+    int card = cards.back();
+    cards.pop_back();
+
+    return card;
+}
+
+void Deck::shuffle() {
+    static std::mt19937 rng(std::random_device{}());
+
+    std::shuffle(cards.begin(), cards.end(), rng);
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Hand.hpp</code> (unchanged)</summary>
+
+<!-- file: include/Hand.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Hand {
+private:
+    std::vector<int> cards;
+
+public:
+    int size() const;
+
+    void add(int cardId);
+    int getCard(int index) const;
+    void clear();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Hand.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Hand.cpp -->
+```cpp
+#include "Hand.hpp"
+
+int Hand::size() const {
+    return static_cast<int>(cards.size());
+}
+
+void Hand::add(int cardId) {
+    if (cardId >= 0 && cardId < 52) {
+        cards.push_back(cardId);
+    }
+}
+
+int Hand::getCard(int index) const {
+    if (index < 0 || index >= size()) {
+        return -1;
+    }
+
+    return cards[index];
+}
+
+void Hand::clear() {
+    cards.clear();
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/HandView.hpp</code> (changed)</summary>
+
+<!-- file: include/HandView.hpp -->
+```cpp
+#pragma once
+
+#include <string>
+
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/event.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include "Card.hpp"
+#include "Hand.hpp"
+
+// Draws one card. Lives here because HandView is its main user.
+ftxui::Element renderCard(const Card& card);
+
+class HandView {
+private:
+    const Hand& hand;
+    int selectedCard = 0;
+
+public:
+    HandView(const Hand& h);
+
+    int selectedIndex() const;
+    void resetSelection();
+
+    bool handleEvent(ftxui::Event event);
+
+    ftxui::Element render() const;
+
+    std::string selectedCardName() const;
+
+    ftxui::Component attach(ftxui::Component child);
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/HandView.cpp</code> (changed)</summary>
+
+<!-- file: src/HandView.cpp -->
+```cpp
+#include "HandView.hpp"
+
+#include <vector>
+
+using namespace ftxui;
+
+namespace {
+
+std::string shortRank(const Card& card) {
+    const std::string ranks = "A23456789TJQK";
+    return std::string(1, ranks[card.getRank()]);
+}
+
+std::string suitSymbol(const Card& card) {
+    static const std::vector<std::string> suits = {
+        "♣", "♦", "♥", "♠"
+    };
+
+    return suits[card.getSuit()];
+}
+
+}
+
+Element renderCard(const Card& card) {
+
+    std::string rank = shortRank(card);
+    std::string suit = suitSymbol(card);
+
+    bool isRed = card.getSuit() == 1 || card.getSuit() == 2;
+
+    auto face = vbox({
+        text(rank),
+        filler(),
+        text(suit) | center,
+        filler(),
+        text(rank) | align_right,
+    })
+    | size(WIDTH, EQUAL, 7)
+    | size(HEIGHT, EQUAL, 5)
+    | border;
+
+    if (isRed) {
+        return face | color(Color::Red);
+    }
+
+    return face;
+}
+
+HandView::HandView(const Hand& h) : hand(h) {
+}
+
+int HandView::selectedIndex() const {
+    return selectedCard;
+}
+
+void HandView::resetSelection() {
+    selectedCard = 0;
+}
+
+bool HandView::handleEvent(Event event) {
+    if (event == Event::ArrowRight) {
+        if (selectedCard + 1 < hand.size()) {
+            selectedCard++;
+        }
+        return true;
+    }
+
+    if (event == Event::ArrowLeft) {
+        if (selectedCard > 0) {
+            selectedCard--;
+        }
+        return true;
+    }
+
+    return false;
+}
+
+Element HandView::render() const {
+    Elements elements;
+
+    for (int i = 0; i < hand.size(); i++) {
+        Card card(hand.getCard(i));
+
+        auto element = renderCard(card);
+
+        if (i == selectedCard) {
+            element = element | bgcolor(Color::Blue);
+        }
+
+        elements.push_back(element);
+        elements.push_back(text(" "));
+    }
+
+    return hbox(std::move(elements));
+}
+
+std::string HandView::selectedCardName() const {
+    if (hand.size() == 0) {
+        return "No card selected";
+    }
+
+    Card card(hand.getCard(selectedCard));
+
+    return card.toString();
+}
+
+Component HandView::attach(Component child) {
+    return CatchEvent(child, [this](Event event) {
+        return handleEvent(event);
+    });
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Player.hpp</code> (new)</summary>
+
+<!-- file: include/Player.hpp -->
+```cpp
+#pragma once
+
+#include <string>
+
+#include "Hand.hpp"
+
+class Player {
+private:
+    std::string name;
+    Hand hand;
+
+public:
+    Player(const std::string& name);
+
+    std::string getName() const;
+    int cardCount() const;
+
+    void receiveCard(int cardId);
+
+    const Hand& getHand() const;
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Player.cpp</code> (new)</summary>
+
+<!-- file: src/Player.cpp -->
+```cpp
+#include "Player.hpp"
+
+Player::Player(const std::string& name)
+    : name(name) {
+}
+
+std::string Player::getName() const {
+    return name;
+}
+
+int Player::cardCount() const {
+    return hand.size();
+}
+
+void Player::receiveCard(int cardId) {
+    hand.add(cardId);
+}
+
+const Hand& Player::getHand() const {
+    return hand;
+}
+```
+
+</details>
+
+> **Linker errors?** Make sure `src/Player.cpp` is listed in `add_executable(war ...)` in `CMakeLists.txt`.
+
+---
 
 ## Commit your work
 

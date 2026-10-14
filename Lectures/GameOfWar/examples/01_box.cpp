@@ -8,7 +8,7 @@ using namespace ftxui;
 int main() {
 
     Element document = vbox({
-        text("TinyChunks 01") | bold | center,
+        text("GameOfWar 01") | bold | center,
 
         separator(),
 

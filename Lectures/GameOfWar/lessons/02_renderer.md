@@ -1,8 +1,8 @@
-# TinyChunks 02 — From Static Elements to Interactive Rendering
+# GameOfWar 02 — From Static Elements to Interactive Rendering
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 02 - Interactive Rendering
 previous: examples/01_box.cpp
 new_file: examples/02_renderer.cpp
@@ -39,7 +39,7 @@ int main() {
 
     auto renderer = Renderer([] {
         return vbox({
-            text("TinyChunks 02") | bold,
+            text("GameOfWar 02") | bold,
             separator(),
             text("Hello from a renderer!"),
         }) | border;
@@ -128,7 +128,7 @@ And add the counter to the display:
 ```cpp
 auto renderer = Renderer([&] {
     return vbox({
-        text("TinyChunks 02") | bold,
+        text("GameOfWar 02") | bold,
         separator(),
         text("Counter: " + std::to_string(counter)),
     }) | border;
@@ -146,7 +146,7 @@ You should see:
 
 ```text
 ┌──────────────────┐
-│TinyChunks 02     │
+│GameOfWar 02      │
 ├──────────────────┤
 │Counter: 42       │
 └──────────────────┘
@@ -247,7 +247,7 @@ Without looking up the solution, modify the renderer to display:
 
 ```text
 ┌────────────────────────────┐
-│ TinyChunks 02              │
+│ GameOfWar 02               │
 ├────────────────────────────┤
 │                            │
 │ Counter: 100               │
@@ -295,6 +295,44 @@ But something is missing.
 We have state, and we have a renderer that can read that state, but we don't have any mechanism for modifying it interactively.
 
 That's exactly the problem we'll solve next.
+
+## Putting it Together
+
+Here is the complete program at the end of this lesson. Compare it with yours before you commit.
+
+### `examples/02_renderer.cpp` (new)
+
+<!-- file: examples/02_renderer.cpp -->
+```cpp
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/screen_interactive.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include <string>
+
+using namespace ftxui;
+
+int main() {
+
+    int counter = 0;
+
+    auto screen = ScreenInteractive::TerminalOutput();
+
+    auto renderer = Renderer([&] {
+        return vbox({
+            text("GameOfWar 02") | bold,
+            separator(),
+            text("Counter: " + std::to_string(counter)),
+        }) | border;
+    });
+
+    counter = 100;
+
+    screen.Loop(renderer);
+}
+```
+
+---
 
 ## Commit your work
 

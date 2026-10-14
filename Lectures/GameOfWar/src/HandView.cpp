@@ -19,16 +19,13 @@ Element renderCard(const Card& card) {
     std::string rank = shortRank(card);
     std::string suit = suitSymbol(card);
     bool isRed = card.getSuit() == 1 || card.getSuit() == 2;
-    auto face = vbox({text(rank),
-                      filler(),
-                      text(suit) | center,
-                      filler(),
-                      text(rank) | align_right,
-                      hbox({
-                          //   text(std::to_string(i)) | size(WIDTH, EQUAL, 2),
-                          //   separator(),
-                          spinner(0, 15) | bold,
-                      })}) |
+    auto face = vbox({
+                    text(rank),
+                    filler(),
+                    text(suit) | center,
+                    filler(),
+                    text(rank) | align_right,
+                }) |
                 size(WIDTH, EQUAL, 7) | size(HEIGHT, EQUAL, 5) | border;
     if (isRed) {
         return face | color(Color::Red);

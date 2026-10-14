@@ -14,7 +14,7 @@ int main() {
 
     auto renderer = Renderer([&] {
         return vbox({
-            text("TinyChunks 02") | bold,
+            text("GameOfWar 02") | bold,
             separator(),
             text("Counter: " + std::to_string(counter)),
         }) | border;

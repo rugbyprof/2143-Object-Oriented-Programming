@@ -1,8 +1,8 @@
-# TinyChunks 08 — Starting the War App: The Card Class
+# GameOfWar 08 — Starting the War App: The Card Class
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 08 - Card ADT
 previous: examples/07_counter_view.cpp
 new_file: src/main.cpp
@@ -75,7 +75,7 @@ int main() {
 
     auto renderer = Renderer([&] {
         return vbox({
-            text("TinyChunks 08") | bold | center,
+            text("GameOfWar 08") | bold | center,
             separator(),
             text("War is coming...") | center,
         }) | border;
@@ -244,7 +244,7 @@ Update the renderer:
 ```cpp
 auto renderer = Renderer([&] {
     return vbox({
-        text("TinyChunks 08") | bold | center,
+        text("GameOfWar 08") | bold | center,
 
         separator(),
 
@@ -260,7 +260,7 @@ Compile and run:
 
 ```text
 ┌───────────────────────────┐
-│       TinyChunks 08       │
+│       GameOfWar 08        │
 ├───────────────────────────┤
 │        Card ID: 17        │
 │       5 of Diamonds       │
@@ -324,12 +324,43 @@ That last row is interesting. Should the *button* calculate the next ID, or shou
 
 ---
 
-## Checkpoint: complete `src/main.cpp`
+## Step 8.7 — Student challenge
 
-<details>
-<summary>Click to compare your file</summary>
+Add two more buttons:
 
-<!-- checkpoint: main.cpp -->
+```text
+[ Previous ] [ Next ]
+
+      [ Random ]
+```
+
+Requirements:
+
+1. Previous moves backward; Next moves forward.
+2. Both wrap around at the boundaries.
+3. Random selects an ID between 0 and 51.
+4. The `Card` class must enforce valid IDs.
+5. The renderer must not calculate ranks or suits.
+
+For Previous, consider:
+
+```cpp
+(card.getId() - 1 + 52) % 52
+```
+
+**Why add 52 before applying modulo?** Because in C++, `-1 % 52` is `-1`, not `51`. The remainder takes the sign of the left operand.
+
+For Random, look up `<random>` (`std::mt19937` and `std::uniform_int_distribution`). We'll use the same tools to shuffle a deck in Lesson 09.
+
+---
+
+## Putting it Together
+
+Here is every file in the War app at the end of Lesson 08. Files marked **new** or **changed** were touched in this lesson; the rest are the same as last lesson.
+
+### `src/main.cpp` (new)
+
+<!-- file: src/main.cpp -->
 ```cpp
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
@@ -400,7 +431,7 @@ int main() {
 
     auto renderer = Renderer(next, [&] {
         return vbox({
-            text("TinyChunks 08") | bold | center,
+            text("GameOfWar 08") | bold | center,
 
             separator(),
 
@@ -419,38 +450,6 @@ int main() {
 }
 ```
 
-</details>
-
----
-
-## Step 8.7 — Student challenge
-
-Add two more buttons:
-
-```text
-[ Previous ] [ Next ]
-
-      [ Random ]
-```
-
-Requirements:
-
-1. Previous moves backward; Next moves forward.
-2. Both wrap around at the boundaries.
-3. Random selects an ID between 0 and 51.
-4. The `Card` class must enforce valid IDs.
-5. The renderer must not calculate ranks or suits.
-
-For Previous, consider:
-
-```cpp
-(card.getId() - 1 + 52) % 52
-```
-
-**Why add 52 before applying modulo?** Because in C++, `-1 % 52` is `-1`, not `51`. The remainder takes the sign of the left operand.
-
-For Random, look up `<random>` (`std::mt19937` and `std::uniform_int_distribution`). We'll use the same tools to shuffle a deck in Lesson 09.
-
 ---
 
 ## Commit your work
@@ -460,6 +459,6 @@ git add .
 git commit -m "Lesson 08: Card class"
 ```
 
-### Next: TinyChunks 09 — A Deck of Cards
+### Next: GameOfWar 09 — A Deck of Cards
 
 We'll move `Card` into `include/Card.hpp` and `src/Card.cpp`, using exactly what we learned in Lesson 06. Then we'll add a `Deck` class that holds a `std::vector<int>` of card IDs and can **draw** and **shuffle**.

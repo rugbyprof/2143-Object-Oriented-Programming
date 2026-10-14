@@ -1,8 +1,8 @@
-# TinyChunks 09 — Building a Deck of Cards
+# GameOfWar 09 — Building a Deck of Cards
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 09 - Deck of Cards
 previous: Lesson 08 (src/main.cpp)
 new_files:
@@ -238,7 +238,7 @@ int main() {
 
     auto renderer = Renderer([&] {
         return vbox({
-            text("TinyChunks 09") | bold | center,
+            text("GameOfWar 09") | bold | center,
 
             separator(),
 
@@ -255,7 +255,7 @@ Compile and run:
 
 ```text
 ┌─────────────────────────┐
-│      TinyChunks 09      │
+│      GameOfWar 09       │
 ├─────────────────────────┤
 │   Cards remaining: 52   │
 └─────────────────────────┘
@@ -325,7 +325,7 @@ auto renderer = Renderer(drawButton, [&] {
     }
 
     return vbox({
-        text("TinyChunks 09") | bold | center,
+        text("GameOfWar 09") | bold | center,
 
         separator(),
 
@@ -446,12 +446,55 @@ Notice that shuffling doesn't bring back drawn cards. It only reorders the cards
 
 ---
 
-## Checkpoint: complete `src/main.cpp`
+## Step 9.8 — Student challenge
 
-<details>
-<summary>Click to compare your file</summary>
+Add a method to `Deck`:
 
-<!-- checkpoint: main.cpp -->
+```cpp
+void reset();
+```
+
+Requirements:
+
+1. Restore all 52 cards to the deck (in order).
+2. Add a **Reset** button to the interface.
+3. Resetting also sets the displayed card back to "No card drawn".
+4. Add a **Reset & Shuffle** button that calls both methods.
+5. Keep all deck-management logic inside `Deck`.
+
+**Bonus:** Add `bool empty() const;` and use it to display `Deck is empty!` when no cards remain.
+
+---
+
+## Project structure after Lesson 09
+
+```text
+GameOfWar/
+├── CMakeLists.txt
+├── examples/          (Lessons 01–07)
+├── include/
+│   ├── Card.hpp
+│   └── Deck.hpp
+└── src/
+    ├── main.cpp
+    ├── Card.cpp
+    └── Deck.cpp
+```
+
+We now have two reusable classes:
+
+- **`Card`** interprets an integer ID as a playing card.
+- **`Deck`** manages an ordered collection of card IDs and supports drawing and shuffling.
+
+Neither knows anything about FTXUI. The application uses their public interfaces.
+
+## Putting it Together
+
+Here is every file in the War app at the end of Lesson 09. Files marked **new** or **changed** were touched in this lesson; the rest are the same as last lesson.
+
+### `src/main.cpp` (changed)
+
+<!-- file: src/main.cpp -->
 ```cpp
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
@@ -500,7 +543,7 @@ int main() {
         }
 
         return vbox({
-            text("TinyChunks 09") | bold | center,
+            text("GameOfWar 09") | bold | center,
 
             separator(),
 
@@ -521,51 +564,158 @@ int main() {
 }
 ```
 
+<details>
+<summary><code>include/Card.hpp</code> (new)</summary>
+
+<!-- file: include/Card.hpp -->
+```cpp
+#pragma once
+
+#include <string>
+
+class Card {
+private:
+    int id;
+
+public:
+    Card(int id = 0);
+
+    int getId() const;
+    int getSuit() const;
+    int getRank() const;
+
+    std::string rankName() const;
+    std::string suitName() const;
+    std::string toString() const;
+
+    void setId(int newId);
+};
+```
+
 </details>
 
----
+<details>
+<summary><code>src/Card.cpp</code> (new)</summary>
 
-## Step 9.8 — Student challenge
-
-Add a method to `Deck`:
-
+<!-- file: src/Card.cpp -->
 ```cpp
-void reset();
+#include "Card.hpp"
+
+#include <vector>
+
+Card::Card(int id) : id(0) {
+    setId(id);
+}
+
+int Card::getId() const {
+    return id;
+}
+
+int Card::getSuit() const {
+    return id / 13;
+}
+
+int Card::getRank() const {
+    return id % 13;
+}
+
+std::string Card::rankName() const {
+    static const std::vector<std::string> ranks = {
+        "Ace", "2", "3", "4", "5", "6", "7",
+        "8", "9", "10", "Jack", "Queen", "King"
+    };
+
+    return ranks[getRank()];
+}
+
+std::string Card::suitName() const {
+    static const std::vector<std::string> suits = {
+        "Clubs", "Diamonds", "Hearts", "Spades"
+    };
+
+    return suits[getSuit()];
+}
+
+std::string Card::toString() const {
+    return rankName() + " of " + suitName();
+}
+
+void Card::setId(int newId) {
+    if (newId >= 0 && newId < 52) {
+        id = newId;
+    }
+}
 ```
 
-Requirements:
+</details>
 
-1. Restore all 52 cards to the deck (in order).
-2. Add a **Reset** button to the interface.
-3. Resetting also sets the displayed card back to "No card drawn".
-4. Add a **Reset & Shuffle** button that calls both methods.
-5. Keep all deck-management logic inside `Deck`.
+<details>
+<summary><code>include/Deck.hpp</code> (new)</summary>
 
-**Bonus:** Add `bool empty() const;` and use it to display `Deck is empty!` when no cards remain.
+<!-- file: include/Deck.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Deck {
+private:
+    std::vector<int> cards;
+
+public:
+    Deck();
+
+    int size() const;
+    int draw();
+    void shuffle();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Deck.cpp</code> (new)</summary>
+
+<!-- file: src/Deck.cpp -->
+```cpp
+#include "Deck.hpp"
+
+#include <algorithm>
+#include <random>
+
+Deck::Deck() {
+    for (int i = 0; i < 52; i++) {
+        cards.push_back(i);
+    }
+}
+
+int Deck::size() const {
+    return static_cast<int>(cards.size());
+}
+
+int Deck::draw() {
+    if (cards.empty()) {
+        return -1;
+    }
+
+    int card = cards.back();
+    cards.pop_back();
+
+    return card;
+}
+
+void Deck::shuffle() {
+    static std::mt19937 rng(std::random_device{}());
+
+    std::shuffle(cards.begin(), cards.end(), rng);
+}
+```
+
+</details>
+
+> **Linker errors?** Make sure `src/Card.cpp` and `src/Deck.cpp` are listed in `add_executable(war ...)` in `CMakeLists.txt`.
 
 ---
-
-## Project structure after Lesson 09
-
-```text
-tinychunks/
-├── CMakeLists.txt
-├── examples/          (Lessons 01–07)
-├── include/
-│   ├── Card.hpp
-│   └── Deck.hpp
-└── src/
-    ├── main.cpp
-    ├── Card.cpp
-    └── Deck.cpp
-```
-
-We now have two reusable classes:
-
-- **`Card`** interprets an integer ID as a playing card.
-- **`Deck`** manages an ordered collection of card IDs and supports drawing and shuffling.
-
-Neither knows anything about FTXUI. The application uses their public interfaces.
 
 ## Commit your work
 
@@ -574,7 +724,7 @@ git add .
 git commit -m "Lesson 09: Card files and Deck class"
 ```
 
-### Next: TinyChunks 10 — Introducing a Hand
+### Next: GameOfWar 10 — Introducing a Hand
 
 Right now, a drawn card just vanishes. We'll create a `Hand` class to hold the cards we draw:
 

@@ -1,8 +1,8 @@
-# TinyChunks 15 — Implementing the Rules of War
+# GameOfWar 15 — Implementing the Rules of War
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 15 - Game of War
 previous: Lesson 14
 new_files:
@@ -252,7 +252,7 @@ int main() {
 
     auto renderer = Renderer([&] {
         return vbox({
-            text("TinyChunks 15 - War") | bold | center,
+            text("GameOfWar 15 - War") | bold | center,
 
             separator(),
 
@@ -270,7 +270,7 @@ Compile and run:
 
 ```text
 ┌────────────────────────┐
-│  TinyChunks 15 - War   │
+│  GameOfWar 15 - War    │
 ├────────────────────────┤
 │Alice: 26               │
 │Bob: 26                 │
@@ -380,7 +380,7 @@ auto renderer = Renderer(playButton, [&] {
     int total = game.getPlayer1().cardCount() + game.getPlayer2().cardCount();
 
     return vbox({
-        text("TinyChunks 15 - War") | bold | center,
+        text("GameOfWar 15 - War") | bold | center,
 
         separator(),
 
@@ -538,12 +538,586 @@ Compile and run. Click **Play Round** many times. The **Total stays at 52**, and
 
 ---
 
-## Checkpoint: complete files
+## Step 15.8 — Student challenge
+
+Add to `WarGame`:
+
+```cpp
+bool isGameOver() const;
+std::string winnerName() const;
+```
+
+- `isGameOver()` returns `true` when either player has no cards. Don't add a `bool gameOver` member; compute it from `cardCount()`.
+- `winnerName()` returns the winner's name once the game is over.
+- Don't expose the players' hands.
+
+Use them in `main()` to show **"Game Over: Alice"** and stop playing rounds.
+
+Lesson 16 starts with our version of these methods, so compare yours.
+
+---
+
+## Is `WarGame` a Facade?
+
+Look at how little `main()` needs to know:
+
+```cpp
+game.deal();
+game.playRound();
+game.getPlayer1().cardCount();
+```
+
+`main()` never touches the deck, a hand, or a card ID comparison. `WarGame` hides all of that behind a few simple calls. That's **facade-like**.
+
+But a textbook **Facade** mostly *simplifies access* to an existing subsystem without adding logic of its own. `WarGame` does more than that: it **owns the rules and the game state**. A more precise name for it is a **game model** or **controller**.
+
+Not every class that simplifies an interface is a Facade, and that's OK. The name matters less than the separation: **the rules live in one class that has no idea FTXUI exists.**
+
+---
+
+## Project structure after Lesson 15
+
+```text
+GameOfWar/
+├── CMakeLists.txt
+├── examples/          (Lessons 01–07)
+├── include/
+│   ├── Card.hpp
+│   ├── Deck.hpp
+│   ├── Hand.hpp
+│   ├── HandView.hpp
+│   ├── Player.hpp
+│   └── WarGame.hpp
+└── src/
+    ├── main.cpp
+    ├── Card.cpp
+    ├── Deck.cpp
+    ├── Hand.cpp
+    ├── HandView.cpp
+    ├── Player.cpp
+    └── WarGame.cpp
+```
+
+This is the final set of classes. Lesson 16 finishes the game without adding any more.
+
+## Putting it Together
+
+Here is every file in the War app at the end of Lesson 15. Files marked **new** or **changed** were touched in this lesson; the rest are the same as last lesson.
+
+### `src/main.cpp` (changed)
+
+<!-- file: src/main.cpp -->
+```cpp
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/screen_interactive.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include <string>
+
+#include "WarGame.hpp"
+
+using namespace ftxui;
+
+int main() {
+
+    WarGame game;
+    game.deal();
+
+    RoundResult lastRound;
+
+    auto screen = ScreenInteractive::TerminalOutput();
+
+    auto playButton = Button("Play Round", [&] {
+        lastRound = game.playRound();
+    });
+
+    auto renderer = Renderer(playButton, [&] {
+
+        std::string winnerText = "Ready to play";
+
+        if (lastRound.winner == 1) {
+            winnerText = game.getPlayer1().getName() + " wins the round!";
+        }
+        else if (lastRound.winner == 2) {
+            winnerText = game.getPlayer2().getName() + " wins the round!";
+        }
+        else if (lastRound.cardsPlayed > 0) {
+            winnerText = "Unresolved tie";
+        }
+
+        int total = game.getPlayer1().cardCount() + game.getPlayer2().cardCount();
+
+        return vbox({
+            text("GameOfWar 15 - War") | bold | center,
+
+            separator(),
+
+            text(game.getPlayer1().getName() + ": " + std::to_string(game.getPlayer1().cardCount())),
+            text(game.getPlayer2().getName() + ": " + std::to_string(game.getPlayer2().cardCount())),
+            text("Total: " + std::to_string(total)),
+
+            separator(),
+
+            text(winnerText) | center,
+
+            playButton->Render() | center,
+
+        }) | border;
+    });
+
+    screen.Loop(renderer);
+}
+```
 
 <details>
-<summary><code>include/WarGame.hpp</code></summary>
+<summary><code>include/Card.hpp</code> (unchanged)</summary>
 
-<!-- checkpoint: WarGame.hpp -->
+<!-- file: include/Card.hpp -->
+```cpp
+#pragma once
+
+#include <string>
+
+class Card {
+private:
+    int id;
+
+public:
+    Card(int id = 0);
+
+    int getId() const;
+    int getSuit() const;
+    int getRank() const;
+
+    std::string rankName() const;
+    std::string suitName() const;
+    std::string toString() const;
+
+    void setId(int newId);
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Card.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Card.cpp -->
+```cpp
+#include "Card.hpp"
+
+#include <vector>
+
+Card::Card(int id) : id(0) {
+    setId(id);
+}
+
+int Card::getId() const {
+    return id;
+}
+
+int Card::getSuit() const {
+    return id / 13;
+}
+
+int Card::getRank() const {
+    return id % 13;
+}
+
+std::string Card::rankName() const {
+    static const std::vector<std::string> ranks = {
+        "Ace", "2", "3", "4", "5", "6", "7",
+        "8", "9", "10", "Jack", "Queen", "King"
+    };
+
+    return ranks[getRank()];
+}
+
+std::string Card::suitName() const {
+    static const std::vector<std::string> suits = {
+        "Clubs", "Diamonds", "Hearts", "Spades"
+    };
+
+    return suits[getSuit()];
+}
+
+std::string Card::toString() const {
+    return rankName() + " of " + suitName();
+}
+
+void Card::setId(int newId) {
+    if (newId >= 0 && newId < 52) {
+        id = newId;
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Deck.hpp</code> (unchanged)</summary>
+
+<!-- file: include/Deck.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Deck {
+private:
+    std::vector<int> cards;
+
+public:
+    Deck();
+
+    int size() const;
+    int draw();
+    void shuffle();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Deck.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Deck.cpp -->
+```cpp
+#include "Deck.hpp"
+
+#include <algorithm>
+#include <random>
+
+Deck::Deck() {
+    for (int i = 0; i < 52; i++) {
+        cards.push_back(i);
+    }
+}
+
+int Deck::size() const {
+    return static_cast<int>(cards.size());
+}
+
+int Deck::draw() {
+    if (cards.empty()) {
+        return -1;
+    }
+
+    int card = cards.back();
+    cards.pop_back();
+
+    return card;
+}
+
+void Deck::shuffle() {
+    static std::mt19937 rng(std::random_device{}());
+
+    std::shuffle(cards.begin(), cards.end(), rng);
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Hand.hpp</code> (changed)</summary>
+
+<!-- file: include/Hand.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Hand {
+private:
+    std::vector<int> cards;
+
+public:
+    int size() const;
+
+    void add(int cardId);
+    int getCard(int index) const;
+    void clear();
+
+    int removeCard();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Hand.cpp</code> (changed)</summary>
+
+<!-- file: src/Hand.cpp -->
+```cpp
+#include "Hand.hpp"
+
+int Hand::size() const {
+    return static_cast<int>(cards.size());
+}
+
+void Hand::add(int cardId) {
+    if (cardId >= 0 && cardId < 52) {
+        cards.push_back(cardId);
+    }
+}
+
+int Hand::getCard(int index) const {
+    if (index < 0 || index >= size()) {
+        return -1;
+    }
+
+    return cards[index];
+}
+
+void Hand::clear() {
+    cards.clear();
+}
+
+int Hand::removeCard() {
+    if (cards.empty()) {
+        return -1;
+    }
+
+    int id = cards.front();
+    cards.erase(cards.begin());
+
+    return id;
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/HandView.hpp</code> (unchanged)</summary>
+
+<!-- file: include/HandView.hpp -->
+```cpp
+#pragma once
+
+#include <string>
+
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/event.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include "Card.hpp"
+#include "Hand.hpp"
+
+// Draws one card. Lives here because HandView is its main user.
+ftxui::Element renderCard(const Card& card);
+
+class HandView {
+private:
+    const Hand& hand;
+    int selectedCard = 0;
+
+public:
+    HandView(const Hand& h);
+
+    int selectedIndex() const;
+    void resetSelection();
+
+    bool handleEvent(ftxui::Event event);
+
+    ftxui::Element render() const;
+
+    std::string selectedCardName() const;
+
+    ftxui::Component attach(ftxui::Component child);
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/HandView.cpp</code> (unchanged)</summary>
+
+<!-- file: src/HandView.cpp -->
+```cpp
+#include "HandView.hpp"
+
+#include <vector>
+
+using namespace ftxui;
+
+namespace {
+
+std::string shortRank(const Card& card) {
+    const std::string ranks = "A23456789TJQK";
+    return std::string(1, ranks[card.getRank()]);
+}
+
+std::string suitSymbol(const Card& card) {
+    static const std::vector<std::string> suits = {
+        "♣", "♦", "♥", "♠"
+    };
+
+    return suits[card.getSuit()];
+}
+
+}
+
+Element renderCard(const Card& card) {
+
+    std::string rank = shortRank(card);
+    std::string suit = suitSymbol(card);
+
+    bool isRed = card.getSuit() == 1 || card.getSuit() == 2;
+
+    auto face = vbox({
+        text(rank),
+        filler(),
+        text(suit) | center,
+        filler(),
+        text(rank) | align_right,
+    })
+    | size(WIDTH, EQUAL, 7)
+    | size(HEIGHT, EQUAL, 5)
+    | border;
+
+    if (isRed) {
+        return face | color(Color::Red);
+    }
+
+    return face;
+}
+
+HandView::HandView(const Hand& h) : hand(h) {
+}
+
+int HandView::selectedIndex() const {
+    return selectedCard;
+}
+
+void HandView::resetSelection() {
+    selectedCard = 0;
+}
+
+bool HandView::handleEvent(Event event) {
+    if (event == Event::ArrowRight) {
+        if (selectedCard + 1 < hand.size()) {
+            selectedCard++;
+        }
+        return true;
+    }
+
+    if (event == Event::ArrowLeft) {
+        if (selectedCard > 0) {
+            selectedCard--;
+        }
+        return true;
+    }
+
+    return false;
+}
+
+Element HandView::render() const {
+    Elements elements;
+
+    for (int i = 0; i < hand.size(); i++) {
+        Card card(hand.getCard(i));
+
+        auto element = renderCard(card);
+
+        if (i == selectedCard) {
+            element = element | bgcolor(Color::Blue);
+        }
+
+        elements.push_back(element);
+        elements.push_back(text(" "));
+    }
+
+    return hbox(std::move(elements));
+}
+
+std::string HandView::selectedCardName() const {
+    if (hand.size() == 0) {
+        return "No card selected";
+    }
+
+    Card card(hand.getCard(selectedCard));
+
+    return card.toString();
+}
+
+Component HandView::attach(Component child) {
+    return CatchEvent(child, [this](Event event) {
+        return handleEvent(event);
+    });
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Player.hpp</code> (changed)</summary>
+
+<!-- file: include/Player.hpp -->
+```cpp
+#pragma once
+
+#include <string>
+
+#include "Hand.hpp"
+
+class Player {
+private:
+    std::string name;
+    Hand hand;
+
+public:
+    Player(const std::string& name);
+
+    std::string getName() const;
+    int cardCount() const;
+
+    void receiveCard(int cardId);
+    int playCard();
+
+    const Hand& getHand() const;
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Player.cpp</code> (changed)</summary>
+
+<!-- file: src/Player.cpp -->
+```cpp
+#include "Player.hpp"
+
+Player::Player(const std::string& name)
+    : name(name) {
+}
+
+std::string Player::getName() const {
+    return name;
+}
+
+int Player::cardCount() const {
+    return hand.size();
+}
+
+void Player::receiveCard(int cardId) {
+    hand.add(cardId);
+}
+
+int Player::playCard() {
+    return hand.removeCard();
+}
+
+const Hand& Player::getHand() const {
+    return hand;
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/WarGame.hpp</code> (new)</summary>
+
+<!-- file: include/WarGame.hpp -->
 ```cpp
 #pragma once
 
@@ -578,9 +1152,9 @@ public:
 </details>
 
 <details>
-<summary><code>src/WarGame.cpp</code></summary>
+<summary><code>src/WarGame.cpp</code> (new)</summary>
 
-<!-- checkpoint: WarGame.cpp -->
+<!-- file: src/WarGame.cpp -->
 ```cpp
 #include "WarGame.hpp"
 
@@ -692,137 +1266,9 @@ RoundResult WarGame::playRound() {
 
 </details>
 
-<details>
-<summary><code>src/main.cpp</code></summary>
-
-<!-- checkpoint: main.cpp -->
-```cpp
-#include <ftxui/component/component.hpp>
-#include <ftxui/component/screen_interactive.hpp>
-#include <ftxui/dom/elements.hpp>
-
-#include <string>
-
-#include "WarGame.hpp"
-
-using namespace ftxui;
-
-int main() {
-
-    WarGame game;
-    game.deal();
-
-    RoundResult lastRound;
-
-    auto screen = ScreenInteractive::TerminalOutput();
-
-    auto playButton = Button("Play Round", [&] {
-        lastRound = game.playRound();
-    });
-
-    auto renderer = Renderer(playButton, [&] {
-
-        std::string winnerText = "Ready to play";
-
-        if (lastRound.winner == 1) {
-            winnerText = game.getPlayer1().getName() + " wins the round!";
-        }
-        else if (lastRound.winner == 2) {
-            winnerText = game.getPlayer2().getName() + " wins the round!";
-        }
-        else if (lastRound.cardsPlayed > 0) {
-            winnerText = "Unresolved tie";
-        }
-
-        int total = game.getPlayer1().cardCount() + game.getPlayer2().cardCount();
-
-        return vbox({
-            text("TinyChunks 15 - War") | bold | center,
-
-            separator(),
-
-            text(game.getPlayer1().getName() + ": " + std::to_string(game.getPlayer1().cardCount())),
-            text(game.getPlayer2().getName() + ": " + std::to_string(game.getPlayer2().cardCount())),
-            text("Total: " + std::to_string(total)),
-
-            separator(),
-
-            text(winnerText) | center,
-
-            playButton->Render() | center,
-
-        }) | border;
-    });
-
-    screen.Loop(renderer);
-}
-```
-
-</details>
+> **Linker errors?** Make sure `src/WarGame.cpp` is listed in `add_executable(war ...)` in `CMakeLists.txt`.
 
 ---
-
-## Step 15.8 — Student challenge
-
-Add to `WarGame`:
-
-```cpp
-bool isGameOver() const;
-std::string winnerName() const;
-```
-
-- `isGameOver()` returns `true` when either player has no cards. Don't add a `bool gameOver` member; compute it from `cardCount()`.
-- `winnerName()` returns the winner's name once the game is over.
-- Don't expose the players' hands.
-
-Use them in `main()` to show **"Game Over: Alice"** and stop playing rounds.
-
-Lesson 16 starts with our version of these methods, so compare yours.
-
----
-
-## Is `WarGame` a Facade?
-
-Look at how little `main()` needs to know:
-
-```cpp
-game.deal();
-game.playRound();
-game.getPlayer1().cardCount();
-```
-
-`main()` never touches the deck, a hand, or a card ID comparison. `WarGame` hides all of that behind a few simple calls. That's **facade-like**.
-
-But a textbook **Facade** mostly *simplifies access* to an existing subsystem without adding logic of its own. `WarGame` does more than that: it **owns the rules and the game state**. A more precise name for it is a **game model** or **controller**.
-
-Not every class that simplifies an interface is a Facade, and that's OK. The name matters less than the separation: **the rules live in one class that has no idea FTXUI exists.**
-
----
-
-## Project structure after Lesson 15
-
-```text
-tinychunks/
-├── CMakeLists.txt
-├── examples/          (Lessons 01–07)
-├── include/
-│   ├── Card.hpp
-│   ├── Deck.hpp
-│   ├── Hand.hpp
-│   ├── HandView.hpp
-│   ├── Player.hpp
-│   └── WarGame.hpp
-└── src/
-    ├── main.cpp
-    ├── Card.cpp
-    ├── Deck.cpp
-    ├── Hand.cpp
-    ├── HandView.cpp
-    ├── Player.cpp
-    └── WarGame.cpp
-```
-
-This is the final set of classes. Lesson 16 finishes the game without adding any more.
 
 ## Commit your work
 

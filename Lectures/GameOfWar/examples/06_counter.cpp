@@ -38,7 +38,7 @@ int main() {
 
     auto renderer = Renderer(buttons, [&] {
         return vbox({
-            text("TinyChunks 06") | bold | center,
+            text("GameOfWar 06") | bold | center,
 
             separator(),
 

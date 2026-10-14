@@ -1,8 +1,8 @@
-# TinyChunks 06 — Separating Classes Into Header and Implementation Files
+# GameOfWar 06 — Separating Classes Into Header and Implementation Files
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 06 - Header and Implementation Files
 previous: examples/05_counter.cpp
 new_files:
@@ -29,7 +29,7 @@ Let's separate the class's **interface** (what it can do) from its **implementat
 cp examples/05_counter.cpp examples/06_counter.cpp
 ```
 
-Change the title text to `"TinyChunks 06"`, then compile:
+Change the title text to `"GameOfWar 06"`, then compile:
 
 ```bash
 cmake -S . -B build
@@ -106,7 +106,7 @@ class Counter {
 #endif
 ```
 
-For TinyChunks, we'll use `#pragma once`.
+For GameOfWar, we'll use `#pragma once`.
 
 ---
 
@@ -329,7 +329,7 @@ If you did the Lesson 05 challenge (`add()` / `subtract()`), move those methods 
 | **06** | **Header/implementation files and linking** |
 
 ```text
-tinychunks/
+GameOfWar/
 ├── CMakeLists.txt
 └── examples/
     ├── 01_box.cpp
@@ -342,6 +342,134 @@ tinychunks/
     └── Counter.cpp
 ```
 
+## Putting it Together
+
+Here is the complete program at the end of this lesson. Compare it with yours before you commit.
+
+### `examples/06_counter.cpp` (new)
+
+<!-- file: examples/06_counter.cpp -->
+```cpp
+#include "Counter.hpp"
+
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/screen_interactive.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include <string>
+
+using namespace ftxui;
+
+int main() {
+
+    Counter counter;
+
+    auto screen = ScreenInteractive::TerminalOutput();
+
+    auto increment = Button("Increment", [&] {
+        counter.increment();
+    });
+
+    auto decrement = Button("Decrement", [&] {
+        counter.decrement();
+    });
+
+    auto reset = Button("Reset", [&] {
+        counter.reset();
+    });
+
+    auto row = Container::Horizontal({
+        increment,
+        decrement,
+    });
+
+    auto buttons = Container::Vertical({
+        row,
+        reset,
+    });
+
+    auto renderer = Renderer(buttons, [&] {
+        return vbox({
+            text("GameOfWar 06") | bold | center,
+
+            separator(),
+
+            text("Counter: " + std::to_string(counter.getValue())) | center,
+
+            separator(),
+
+            hbox({
+                increment->Render(),
+                text("  "),
+                decrement->Render(),
+            }) | center,
+
+            separatorEmpty(),
+
+            reset->Render() | center,
+
+        }) | border;
+    });
+
+    screen.Loop(renderer);
+}
+```
+
+<details>
+<summary><code>examples/Counter.hpp</code> (new)</summary>
+
+<!-- file: examples/Counter.hpp -->
+```cpp
+#pragma once
+
+class Counter {
+private:
+    int value;
+
+public:
+    Counter();
+
+    void increment();
+    void decrement();
+    void reset();
+
+    int getValue() const;
+};
+```
+
+</details>
+
+<details>
+<summary><code>examples/Counter.cpp</code> (new)</summary>
+
+<!-- file: examples/Counter.cpp -->
+```cpp
+#include "Counter.hpp"
+
+Counter::Counter() : value(0) {
+}
+
+void Counter::increment() {
+    value++;
+}
+
+void Counter::decrement() {
+    value--;
+}
+
+void Counter::reset() {
+    value = 0;
+}
+
+int Counter::getValue() const {
+    return value;
+}
+```
+
+</details>
+
+---
+
 ## Commit your work
 
 ```bash
@@ -349,7 +477,7 @@ git add .
 git commit -m "Lesson 06: header and implementation files"
 ```
 
-### Next: TinyChunks 07 — A Reusable FTXUI View Class
+### Next: GameOfWar 07 — A Reusable FTXUI View Class
 
 Now that `Counter` is separate, we can address another problem: our entire FTXUI interface still lives inside `main()`.
 

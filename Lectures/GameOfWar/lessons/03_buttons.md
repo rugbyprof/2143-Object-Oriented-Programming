@@ -1,8 +1,8 @@
-# TinyChunks 03 — Buttons, Callbacks, and State
+# GameOfWar 03 — Buttons, Callbacks, and State
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 03 - Buttons and Callbacks
 previous: examples/02_renderer.cpp
 new_file: examples/03_buttons.cpp
@@ -29,7 +29,7 @@ Our goal is simple:
 
 ```text
 ┌─────────────────────────┐
-│ TinyChunks 03           │
+│ GameOfWar 03            │
 ├─────────────────────────┤
 │                         │
 │ Counter: 0              │
@@ -70,7 +70,7 @@ int main() {
 
     auto renderer = Renderer([&] {
         return vbox({
-            text("TinyChunks 03") | bold,
+            text("GameOfWar 03") | bold,
             separator(),
             text("Counter: " + std::to_string(counter)),
         }) | border;
@@ -206,7 +206,7 @@ Our renderer becomes:
 ```cpp
 auto renderer = Renderer(button, [&] {
     return vbox({
-        text("TinyChunks 03") | bold,
+        text("GameOfWar 03") | bold,
 
         separator(),
 
@@ -322,7 +322,7 @@ int main() {
     auto renderer = Renderer(button, [&] {
 
         return vbox({
-            text("TinyChunks 03") | bold,
+            text("GameOfWar 03") | bold,
 
             separator(),
 
@@ -458,6 +458,58 @@ This distinction is the foundation of the larger application we're building.
 
 ---
 
+## Putting it Together
+
+Here is the complete program at the end of this lesson. Compare it with yours before you commit.
+
+### `examples/03_buttons.cpp` (new)
+
+<!-- file: examples/03_buttons.cpp -->
+```cpp
+#include <ftxui/component/component.hpp>
+#include <ftxui/component/screen_interactive.hpp>
+#include <ftxui/dom/elements.hpp>
+
+#include <string>
+
+using namespace ftxui;
+
+int main() {
+
+    // Application state
+    int counter = 0;
+
+    // Interactive terminal
+    auto screen = ScreenInteractive::TerminalOutput();
+
+    // Interactive component
+    auto button = Button("Increment", [&] {
+        counter++;
+    });
+
+    // Renderer with button as child
+    auto renderer = Renderer(button, [&] {
+        return vbox({
+            text("GameOfWar 03") | bold,
+
+            separator(),
+
+            text("Counter: " + std::to_string(counter)),
+
+            separator(),
+
+            button->Render(),
+
+        }) | border;
+    });
+
+    // Start event loop
+    screen.Loop(renderer);
+}
+```
+
+---
+
 ## Commit your work
 
 ```bash
@@ -465,7 +517,7 @@ git add .
 git commit -m "Lesson 03: buttons and callbacks"
 ```
 
-## Next: TinyChunks 04 — Multiple Buttons and Component Containers
+## Next: GameOfWar 04 — Multiple Buttons and Component Containers
 
 Our next problem is straightforward.
 
@@ -473,7 +525,7 @@ We want:
 
 ```text
 ┌─────────────────────────────┐
-│ TinyChunks 04               │
+│ GameOfWar 04                │
 ├─────────────────────────────┤
 │                             │
 │ Counter: 5                  │

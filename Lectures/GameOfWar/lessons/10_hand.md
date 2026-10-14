@@ -1,8 +1,8 @@
-# TinyChunks 10 — Introducing the Hand Class
+# GameOfWar 10 — Introducing the Hand Class
 
 ```yaml
 course: 2143 - Object-Oriented Programming
-project: tinychunks
+project: GameOfWar
 lesson: 10 - Hand ADT
 previous: Lesson 09 (src/main.cpp)
 new_files:
@@ -136,7 +136,7 @@ Compile and run:
 
 ```text
 ┌────────────────────────────┐
-│       TinyChunks 10        │
+│       GameOfWar 10         │
 ├────────────────────────────┤
 │    Cards remaining: 52     │
 │     Cards in hand: 0       │
@@ -147,7 +147,7 @@ Compile and run:
 └────────────────────────────┘
 ```
 
-(Update the title text to `"TinyChunks 10"` while you're there.)
+(Update the title text to `"GameOfWar 10"` while you're there.)
 
 **Checkpoint:** Two objects exist side by side, but no cards move between them yet.
 
@@ -332,12 +332,47 @@ When we clear the hand, **where do those cards go?** Nowhere. They vanish from t
 
 ---
 
-## Checkpoint: complete `src/main.cpp`
+## Step 10.8 — Student challenge
 
-<details>
-<summary>Click to compare your file</summary>
+1. Add a **Draw 5** button that draws five cards into the hand at once. What should happen if fewer than five cards remain?
+2. Add `bool contains(int cardId) const;` to `Hand`. Use it to display `"You have the Ace of Spades!"` when card 39 is in the hand.
 
-<!-- checkpoint: main.cpp -->
+Rules: no code outside `Hand` may touch its vector, and the renderer must not do any card math.
+
+---
+
+## Project structure after Lesson 10
+
+```text
+GameOfWar/
+├── CMakeLists.txt
+├── examples/          (Lessons 01–07)
+├── include/
+│   ├── Card.hpp
+│   ├── Deck.hpp
+│   └── Hand.hpp
+└── src/
+    ├── main.cpp
+    ├── Card.cpp
+    ├── Deck.cpp
+    └── Hand.cpp
+```
+
+| Class  | Responsibility                               |
+| ------ | -------------------------------------------- |
+| `Card` | Interpret an integer as a playing card       |
+| `Deck` | Maintain the remaining cards and their order |
+| `Hand` | Store cards that have been drawn             |
+
+No inheritance anywhere. Just **encapsulation, vectors, and small public interfaces**, coordinated by the application.
+
+## Putting it Together
+
+Here is every file in the War app at the end of Lesson 10. Files marked **new** or **changed** were touched in this lesson; the rest are the same as last lesson.
+
+### `src/main.cpp` (changed)
+
+<!-- file: src/main.cpp -->
 ```cpp
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
@@ -404,7 +439,7 @@ int main() {
         }
 
         return vbox({
-            text("TinyChunks 10") | bold | center,
+            text("GameOfWar 10") | bold | center,
 
             separator(),
 
@@ -432,43 +467,214 @@ int main() {
 }
 ```
 
-</details>
+<details>
+<summary><code>include/Card.hpp</code> (unchanged)</summary>
 
----
+<!-- file: include/Card.hpp -->
+```cpp
+#pragma once
 
-## Step 10.8 — Student challenge
+#include <string>
 
-1. Add a **Draw 5** button that draws five cards into the hand at once. What should happen if fewer than five cards remain?
-2. Add `bool contains(int cardId) const;` to `Hand`. Use it to display `"You have the Ace of Spades!"` when card 39 is in the hand.
+class Card {
+private:
+    int id;
 
-Rules: no code outside `Hand` may touch its vector, and the renderer must not do any card math.
+public:
+    Card(int id = 0);
 
----
+    int getId() const;
+    int getSuit() const;
+    int getRank() const;
 
-## Project structure after Lesson 10
+    std::string rankName() const;
+    std::string suitName() const;
+    std::string toString() const;
 
-```text
-tinychunks/
-├── CMakeLists.txt
-├── examples/          (Lessons 01–07)
-├── include/
-│   ├── Card.hpp
-│   ├── Deck.hpp
-│   └── Hand.hpp
-└── src/
-    ├── main.cpp
-    ├── Card.cpp
-    ├── Deck.cpp
-    └── Hand.cpp
+    void setId(int newId);
+};
 ```
 
-| Class  | Responsibility                               |
-| ------ | -------------------------------------------- |
-| `Card` | Interpret an integer as a playing card       |
-| `Deck` | Maintain the remaining cards and their order |
-| `Hand` | Store cards that have been drawn             |
+</details>
 
-No inheritance anywhere. Just **encapsulation, vectors, and small public interfaces**, coordinated by the application.
+<details>
+<summary><code>src/Card.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Card.cpp -->
+```cpp
+#include "Card.hpp"
+
+#include <vector>
+
+Card::Card(int id) : id(0) {
+    setId(id);
+}
+
+int Card::getId() const {
+    return id;
+}
+
+int Card::getSuit() const {
+    return id / 13;
+}
+
+int Card::getRank() const {
+    return id % 13;
+}
+
+std::string Card::rankName() const {
+    static const std::vector<std::string> ranks = {
+        "Ace", "2", "3", "4", "5", "6", "7",
+        "8", "9", "10", "Jack", "Queen", "King"
+    };
+
+    return ranks[getRank()];
+}
+
+std::string Card::suitName() const {
+    static const std::vector<std::string> suits = {
+        "Clubs", "Diamonds", "Hearts", "Spades"
+    };
+
+    return suits[getSuit()];
+}
+
+std::string Card::toString() const {
+    return rankName() + " of " + suitName();
+}
+
+void Card::setId(int newId) {
+    if (newId >= 0 && newId < 52) {
+        id = newId;
+    }
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Deck.hpp</code> (unchanged)</summary>
+
+<!-- file: include/Deck.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Deck {
+private:
+    std::vector<int> cards;
+
+public:
+    Deck();
+
+    int size() const;
+    int draw();
+    void shuffle();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Deck.cpp</code> (unchanged)</summary>
+
+<!-- file: src/Deck.cpp -->
+```cpp
+#include "Deck.hpp"
+
+#include <algorithm>
+#include <random>
+
+Deck::Deck() {
+    for (int i = 0; i < 52; i++) {
+        cards.push_back(i);
+    }
+}
+
+int Deck::size() const {
+    return static_cast<int>(cards.size());
+}
+
+int Deck::draw() {
+    if (cards.empty()) {
+        return -1;
+    }
+
+    int card = cards.back();
+    cards.pop_back();
+
+    return card;
+}
+
+void Deck::shuffle() {
+    static std::mt19937 rng(std::random_device{}());
+
+    std::shuffle(cards.begin(), cards.end(), rng);
+}
+```
+
+</details>
+
+<details>
+<summary><code>include/Hand.hpp</code> (new)</summary>
+
+<!-- file: include/Hand.hpp -->
+```cpp
+#pragma once
+
+#include <vector>
+
+class Hand {
+private:
+    std::vector<int> cards;
+
+public:
+    int size() const;
+
+    void add(int cardId);
+    int getCard(int index) const;
+    void clear();
+};
+```
+
+</details>
+
+<details>
+<summary><code>src/Hand.cpp</code> (new)</summary>
+
+<!-- file: src/Hand.cpp -->
+```cpp
+#include "Hand.hpp"
+
+int Hand::size() const {
+    return static_cast<int>(cards.size());
+}
+
+void Hand::add(int cardId) {
+    if (cardId >= 0 && cardId < 52) {
+        cards.push_back(cardId);
+    }
+}
+
+int Hand::getCard(int index) const {
+    if (index < 0 || index >= size()) {
+        return -1;
+    }
+
+    return cards[index];
+}
+
+void Hand::clear() {
+    cards.clear();
+}
+```
+
+</details>
+
+> **Linker errors?** Make sure `src/Hand.cpp` is listed in `add_executable(war ...)` in `CMakeLists.txt`.
+
+---
 
 ## Commit your work
 
@@ -477,7 +683,7 @@ git add .
 git commit -m "Lesson 10: Hand class"
 ```
 
-### Next: TinyChunks 11 — Rendering Actual Playing Cards
+### Next: GameOfWar 11 — Rendering Actual Playing Cards
 
 Instead of a list of names, we'll write a reusable function that draws real-looking cards:
 
