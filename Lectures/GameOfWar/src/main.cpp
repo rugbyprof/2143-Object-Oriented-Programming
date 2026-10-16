@@ -80,8 +80,10 @@ int main() {
         if (lastRound.wasWar && !revealing) {
             status += " (WAR!)";
         }
-        auto card1 = revealing ? renderSpinnerCard(frame) : renderPlayedCard(lastRound.card1);
-        auto card2 = revealing ? renderSpinnerCard(frame) : renderPlayedCard(lastRound.card2);
+        auto card1 = revealing ? renderPlayedCard(rand() % 52) : renderPlayedCard(lastRound.card1);
+        auto card2 = revealing ? renderPlayedCard(rand() % 52) : renderPlayedCard(lastRound.card2);
+        // auto card1 = revealing ? renderSpinnerCard(frame) : renderPlayedCard(lastRound.card1);
+        // auto card2 = revealing ? renderSpinnerCard(frame) : renderPlayedCard(lastRound.card2);
         auto player1Display = vbox({
                                   text(game.getPlayer1().getName()) | bold | center,
                                   text("Cards: " + std::to_string(count1)) | center,

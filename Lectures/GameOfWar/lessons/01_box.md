@@ -338,7 +338,7 @@ int main() {
         separator(),
 
         hbox({
-            text("Left") | border,
+            text("Left") | border | center,
             text("Middle") | border | flex,
             text("Right") | border,
         }),
@@ -359,7 +359,7 @@ int main() {
 
     std::cout << '\n';
 }
-```
+````
 
 ---
 

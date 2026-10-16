@@ -31,6 +31,7 @@ FetchContent_MakeAvailable(ftxui)
 
 # --------------------------------------------------
 # The War application
+# 
 # --------------------------------------------------
 add_executable(war
     src/main.cpp
