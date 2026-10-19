@@ -2,7 +2,7 @@
 <summary>⚙️ Metadata (auto-managed by <code>readmees</code> — edit values, not structure)</summary>
 
 ```yaml
-is_due: false
+is_due: true
 id: P01
 name: P01
 title: Terminal Card Game
@@ -21,11 +21,11 @@ date_due:
 
 You will build a playable card game that runs in the terminal. **You choose the game:**
 
-| | Video Poker (Jacks or Better) | Blackjack |
-| --- | --- | --- |
-| Hardest part | Evaluating a 5-card poker hand | Aces count as 1 **or** 11; the dealer's rules |
-| UI | Pick cards to hold, then draw | Hit or stand, dealer's hole card hidden |
-| Good pick if… | You like logic puzzles | You like state and turn flow |
+|               | Video Poker (Jacks or Better)  | Blackjack                                     |
+| ------------- | ------------------------------ | --------------------------------------------- |
+| Hardest part  | Evaluating a 5-card poker hand | Aces count as 1 **or** 11; the dealer's rules |
+| UI            | Pick cards to hold, then draw  | Hit or stand, dealer's hole card hidden       |
+| Good pick if… | You like logic puzzles         | You like state and turn flow                  |
 
 Both are worth the same and graded with the same rubric. Pick one and stick with it.
 
@@ -140,18 +140,18 @@ Model it as a **state machine**. An `enum class Phase` says what the player is a
 5. Evaluate the final hand and pay `bet × multiplier` from the table. A royal flush bet at 5 credits pays **4000**, not 1250.
 6. The game is over when credits reach 0.
 
-| Hand | Pays (per credit bet) |
-| --- | ---: |
-| Royal Flush (10-J-Q-K-A, same suit) | 250 (**800** at 5 credits) |
-| Straight Flush | 50 |
-| Four of a Kind | 25 |
-| Full House | 9 |
-| Flush | 6 |
-| Straight (A-2-3-4-5 **and** 10-J-Q-K-A both count) | 4 |
-| Three of a Kind | 3 |
-| Two Pair | 2 |
-| Pair of **Jacks or better** (J, Q, K, A) | 1 |
-| Anything else (including a pair of 10s or lower) | 0 |
+| Hand                                               |      Pays (per credit bet) |
+| -------------------------------------------------- | -------------------------: |
+| Royal Flush (10-J-Q-K-A, same suit)                | 250 (**800** at 5 credits) |
+| Straight Flush                                     |                         50 |
+| Four of a Kind                                     |                         25 |
+| Full House                                         |                          9 |
+| Flush                                              |                          6 |
+| Straight (A-2-3-4-5 **and** 10-J-Q-K-A both count) |                          4 |
+| Three of a Kind                                    |                          3 |
+| Two Pair                                           |                          2 |
+| Pair of **Jacks or better** (J, Q, K, A)           |                          1 |
+| Anything else (including a pair of 10s or lower)   |                          0 |
 
 "Pays 1" means you get your bet back. You don't come out ahead.
 
@@ -305,11 +305,11 @@ Write a `runTests()` function (in `src/Tests.cpp`) that uses **stacked decks** a
 
 ## 5. Milestones & submission
 
-| # | Due | What | Points |
-| --- | --- | --- | ---: |
-| M0 | end of **week 1** | Screenshot of `./build/check` running ([SETUP.md](./SETUP.md)) | 10 |
-| M1 | end of **week 2** | `Hand` + game class + `ConsoleView` + `--test`. Fully playable with `--text`. | 45 |
-| M2 | end of **week 3** | `TuiView`, `main` selects views polymorphically, README | 45 |
+| #   | Due               | What                                                                          | Points |
+| --- | ----------------- | ----------------------------------------------------------------------------- | -----: |
+| M0  | end of **week 1** | Screenshot of `./build/check` running ([SETUP.md](./SETUP.md))                |     10 |
+| M1  | end of **week 2** | `Hand` + game class + `ConsoleView` + `--test`. Fully playable with `--text`. |     45 |
+| M2  | end of **week 3** | `TuiView`, `main` selects views polymorphically, README                       |     45 |
 
 Submit your `starter/` folder **without** the `build/` directory (it's huge) to your course repo under `Assignments/P01/`. Include a `README.md` with:
 
@@ -323,15 +323,15 @@ Submit your `starter/` folder **without** the `build/` directory (it's huge) to 
 
 ## 6. Grading (100)
 
-| Area | Pts | What "full credit" looks like |
-| --- | ---: | --- |
-| M0 toolchain screenshot | 10 | On time, `check` visibly running |
-| Game rules correct | 20 | Matches every rule in §3.2; tests prove it |
-| Tests (`--test`) | 10 | All required cases, clear PASS/FAIL output |
-| OOP design | 25 | Game class has **no** I/O; private data; `const` getters; composition (`Hand` *has* `Card`s); state enforced by `Phase`; `GameView` used polymorphically through a `unique_ptr` |
-| ConsoleView | 10 | Playable, ASCII-only, survives garbage input |
-| TuiView | 20 | Playable, readable, red/black suits, shows keys, messages, and credits |
-| Code quality + README | 5 | Consistent names, one class per file pair, short functions, README complete |
+| Area                    |  Pts | What "full credit" looks like                                                                                                                                                   |
+| ----------------------- | ---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| M0 toolchain screenshot |   10 | On time, `check` visibly running                                                                                                                                                |
+| Game rules correct      |   20 | Matches every rule in §3.2; tests prove it                                                                                                                                      |
+| Tests (`--test`)        |   10 | All required cases, clear PASS/FAIL output                                                                                                                                      |
+| OOP design              |   25 | Game class has **no** I/O; private data; `const` getters; composition (`Hand` *has* `Card`s); state enforced by `Phase`; `GameView` used polymorphically through a `unique_ptr` |
+| ConsoleView             |   10 | Playable, ASCII-only, survives garbage input                                                                                                                                    |
+| TuiView                 |   20 | Playable, readable, red/black suits, shows keys, messages, and credits                                                                                                          |
+| Code quality + README   |    5 | Consistent names, one class per file pair, short functions, README complete                                                                                                     |
 
 **Automatic deductions:** doesn't compile (−50 for that milestone); `cout`/`cin`/FTXUI inside the game class (−10); game rules inside a view (−10); `using namespace std;` in a header (−5).
 

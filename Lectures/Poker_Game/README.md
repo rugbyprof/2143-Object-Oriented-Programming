@@ -1,7 +1,7 @@
 ```yaml
 is_due: false
-id: L02-Poker_Game
-name: L02-Poker_Game
+id: L03-Poker_Game
+name: L03-Poker_Game
 title: NO TITLE
 description: NO DESCRIPTION
 category: Lectures
