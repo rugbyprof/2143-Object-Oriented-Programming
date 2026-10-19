@@ -33,6 +33,4 @@ Review worksheet covering:
 
 Every code snippet was compiled (clang++, C++17) and the key's outputs and compile errors were checked against real runs.
 
-Blank worksheet: [W06.html](./W06.html) &middot; Key: [W06-Key.html](./W06-Key.html)
-
-This is a draft in `.profzone/Handouts/` — not yet published to the public `Assignments/` tree. Review, then publish manually per the usual workflow.
+Blank worksheet: [W06.pdf](./W06.pdf) &middot; Key: [W06-Key.pdf](./W06-Key.pdf)

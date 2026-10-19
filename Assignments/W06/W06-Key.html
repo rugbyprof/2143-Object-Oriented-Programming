@@ -1,0 +1,482 @@
+<title>Polymorphism — Answer Key</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.4in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 0.16in;
+    margin-bottom: 0.14in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+  .stamp {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 3px;
+    padding: 0.05in 0.14in;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.05in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.03em 0.48em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.58rem;
+    line-height: 1.2;
+    color: var(--ink);
+    white-space: pre;
+  }
+
+  .blankgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.06in 0.4in;
+    margin: 0 0 0.06in;
+    padding: 0;
+    list-style: none;
+  }
+  .blankgrid li {
+    font-size: 0.79rem;
+    line-height: 1.4;
+    display: flex;
+    gap: 0.4em;
+  }
+  .blankgrid .n {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--ink-soft);
+    flex: 0 0 auto;
+  }
+  .blankgrid .a {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .case {
+    display: grid;
+    grid-template-columns: 3.9em 1fr;
+    gap: 0.04in 0.2in;
+    font-size: 0.78rem;
+    line-height: 1.38;
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.12in;
+    margin-bottom: 0.05in;
+  }
+  .case .label {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--amber);
+  }
+
+  table.trace, table.cheat {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.72rem;
+    margin: 0 0 0.07in;
+  }
+  table.trace th, table.trace td,
+  table.cheat th, table.cheat td {
+    border: 1px solid var(--rule);
+    padding: 0.05in 0.08in;
+    text-align: left;
+  }
+  table.trace th, table.cheat th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .a { color: var(--accent); font-weight: 600; }
+
+  ol.matchans {
+    margin: 0 0 0.08in;
+    padding-left: 1.2em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.04in;
+  }
+  ol.matchans li { font-size: 0.78rem; line-height: 1.3; }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.28in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+  table.compact td, table.compact th { padding: 0.025in 0.08in; }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 0.14in; margin: 0 0 0.06in; }
+</style>
+
+<div class="wrap">
+
+  <!-- KEY PAGE 1 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Polymorphism</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 1 of 3</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 1</span><span class="part-title">The Problem We Left Off With &mdash; Q1, Q2</span></div>
+    <table class="trace">
+      <tr><th>Call</th><th>As written</th><th>With <code>virtual</code></th></tr>
+      <tr><td><code class="k">(a) c.describe();</code></td><td class="a">A car.</td><td class="a">A car.</td></tr>
+      <tr><td><code class="k">(b) vp-&gt;describe();</code></td><td class="a">A vehicle.</td><td class="a">A car.</td></tr>
+      <tr><td><code class="k">(c) vr.describe();</code></td><td class="a">A vehicle.</td><td class="a">A car.</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.06in;"><strong>(a) never changes.</strong> It's called directly on a <code class="k">Car</code> object, not through a pointer or reference, so there is nothing to look up. The compiler already knows the object is a <code class="k">Car</code>.</p>
+    <ul class="blankgrid">
+      <li><span class="n">1.</span><span class="a">declared &middot; compile &middot; static (early)</span></li>
+      <li><span class="n">2.</span><span class="a">actual &middot; run &middot; dynamic (late)</span></li>
+      <li><span class="n">3.</span><span class="a">pointer &middot; reference</span></li>
+      <li><span class="n">4.</span><span class="a">forms</span></li>
+    </ul>
+
+    <div class="part-head"><span class="part-tag">part 2</span><span class="part-title">Two Kinds of Polymorphism &mdash; Q3, Q4</span></div>
+    <ol class="matchans">
+      <li><code class="k">print(5)</code> &mdash; <span class="a">COMPILE TIME</span> (function overloading; chosen from the argument type)</li>
+      <li><code class="k">a + b</code> &mdash; <span class="a">COMPILE TIME</span> (operator overloading)</li>
+      <li><code class="k">maxOf(...)</code> &mdash; <span class="a">COMPILE TIME</span> (the template makes an <code class="k">int</code> and a <code class="k">double</code> version while compiling)</li>
+      <li><code class="k">s-&gt;draw()</code> &mdash; <span class="a">RUN TIME</span> (virtual + base pointer)</li>
+      <li><code class="k">v-&gt;describe()</code> non-virtual &mdash; <span class="a">COMPILE TIME</span>. This is the trap: it's bound to the pointer type, so it runs <code class="k">Vehicle::describe()</code> even though the object is a <code class="k">Car</code>.</li>
+      <li><code class="k">c-&gt;attack()</code> &mdash; <span class="a">RUN TIME</span></li>
+    </ol>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><strong>Q4:</strong> The type depends on <code class="k">rand()</code>, which only has a value <span class="a">while the program runs</span>. The compiler can't know which class it will be, so the language has to make the choice at run time. It does this by looking up the function through the actual object (dynamic binding / the vtable), which is exactly what <code class="k">virtual</code> asks for.</p>
+
+    <div class="part-head"><span class="part-tag">part 3</span><span class="part-title"><code>virtual</code>, <code>override</code> &mdash; Q5, Q6</span></div>
+    <table class="trace">
+      <tr><th>Line</th><th>Verdict</th><th>Reason</th></tr>
+      <tr><td>(1)</td><td class="a">OK</td><td>Exact match of a virtual base function</td></tr>
+      <tr><td>(2)</td><td class="a">ERROR</td><td>Missing <code class="k">const</code>. The base is <code class="k">printName() const</code>, so the signatures differ.</td></tr>
+      <tr><td>(3)</td><td class="a">ERROR</td><td>Parameter is <code class="k">double</code>, base takes <code class="k">int</code>. Different signature.</td></tr>
+      <tr><td>(4)</td><td class="a">ERROR</td><td><code class="k">rest()</code> isn't virtual in the base, and only virtual functions can be overridden</td></tr>
+      <tr><td>(5)</td><td class="a">ERROR</td><td>No virtual <code class="k">Attack</code> in the base. C++ is case-sensitive.</td></tr>
+      <tr><td>(6)</td><td class="a">OK</td><td>Exact match, so it still overrides. <code class="k">virtual</code> is inherited, and <code class="k">override</code> is optional (but recommended).</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><strong>Q6:</strong> It runs <span class="a"><code class="k">Character::printName()</code></span>. Without <code class="k">const</code>, <code class="k">Wizard::printName()</code> is a <em>new</em> function that hides the base one, so it never goes into the <code class="k">printName</code> slot of the vtable. No error, wrong output. That silent bug is exactly what <code class="k">override</code> prevents. (clang does warn: <code class="k">-Woverloaded-virtual</code>.)</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 6</span><span>instructor copy 1/3</span></div>
+  </section>
+
+  <!-- KEY PAGE 2 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Polymorphism</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 2 of 3</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 4</span><span class="part-title">Pointers, References, and Slicing &mdash; Q7, Q8</span></div>
+    <ul class="blankgrid">
+      <li><span class="n">(a)</span><span class="a">The magnificent Merlin</span></li>
+      <li><span class="n">(b)</span><span class="a">The powerful Conan</span></li>
+      <li><span class="n">(c)</span><span class="a">Merlin</span></li>
+      <li><span class="n">(d)</span><span class="a">Conan</span></li>
+      <li><span class="n">(e)</span><span class="a">The powerful Conan</span></li>
+    </ul>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><strong>Q8:</strong> Both <span class="a">copy the object by value into a plain <code class="k">Character</code></span> (a by-value parameter, and a <code class="k">vector&lt;Character&gt;</code>). That's slicing: the new object really <em>is</em> just a <code class="k">Character</code>, so virtual has nothing to find. Fix: <code class="k">void byVal(Character<span class="a">&amp;</span> c)</code>. (Not <code class="k">const&amp;</code> here, because <code class="k">printName()</code> isn't a <code class="k">const</code> method.)</p>
+
+    <div class="part-head"><span class="part-tag">part 5</span><span class="part-title">One Loop, Many Types &mdash; Q9, Q10, Q11</span></div>
+    <table class="trace">
+      <tr><th>Object</th><th><code>printName()</code></th><th><code>attack()</code></th></tr>
+      <tr><td><code class="k">Warrior("Conan")</code></td><td class="a">The powerful Conan</td><td class="a">Conan cleaves with an axe!</td></tr>
+      <tr><td><code class="k">Wizard("Merlin")</code></td><td class="a">The magnificent Merlin</td><td class="a">Merlin swings wildly.</td></tr>
+      <tr><td><code class="k">Rogue("Vex")</code></td><td class="a">Vex</td><td class="a">Vex stabs from the shadows!</td></tr>
+      <tr><td><code class="k">Character("Bob")</code></td><td class="a">Bob</td><td class="a">Bob swings wildly.</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;">The Wizard/Rogue rows are the point: a class that doesn't override a function falls back to the inherited <code class="k">Character</code> version.</p>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;"><strong>Q10 &mdash; polymorphic:</strong> write one new class, <code class="k">Bard</code>, plus one line in the factory (<code class="k">makeCharacter</code>) if you use one. Nothing else changes. <strong>if/else:</strong> add a <code class="k">"bard"</code> branch to <code class="k">attack()</code>, check <code class="k">printName()</code>, and then do the same in <em>every</em> other function that tests <code class="k">type</code> (<code class="k">defend</code>, <code class="k">levelUp</code>, <code class="k">save</code>, &hellip;).</p>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;">Does the loop change? <span class="a">No.</span> Forget a branch in the if/else version and there's <strong>no compiler error</strong>: the Bard silently does nothing, or gets the wrong behavior. With a pure virtual (Part 7), a forgotten method becomes a compile error.</p>
+    <p style="font-size:0.79rem;margin:0 0 0.03in;"><strong>Q11 model answer:</strong></p>
+    <pre><code>class Bard : public Character {
+public:
+    Bard(string n) : Character(n) {}
+    void attack() override { cout &lt;&lt; name &lt;&lt; " plays a very loud lute!" &lt;&lt; endl; }
+};
+
+party.push_back(make_unique&lt;Bard&gt;("Jaskier"));</code></pre>
+    <p style="font-size:0.74rem;margin:0 0 0.08in;color:var(--ink-soft);">Accept <code class="k">"\n"</code> for <code class="k">endl</code>. Reaching <code class="k">name</code> works because it's <code class="k">protected</code> in <code class="k">Character</code> (W05). Common mistakes: forgetting <code class="k">public</code> in the inheritance list (private inheritance, so the <code class="k">unique_ptr&lt;Character&gt;</code> conversion fails), or trying to assign <code class="k">name</code> in the constructor body instead of chaining.</p>
+
+    <div class="part-head"><span class="part-tag">part 6</span><span class="part-title">Virtual Destructors &mdash; Q12, Q13, Q14</span></div>
+    <ul class="blankgrid">
+      <li><span class="n">1.</span><span class="a">~Base</span></li>
+      <li><span class="n">2.</span><span class="a">the <code class="k">new int[100]</code> array owned by <code class="k">Derived</code></span></li>
+      <li><span class="n">3.</span><span class="a"><code class="k">virtual ~Base()</code>, in class <code class="k">Base</code></span></li>
+      <li><span class="n">4.</span><span class="a">~Derived ~Base</span></li>
+    </ul>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;"><strong>Q13:</strong> <span class="a">No problem.</span> <code class="k">d</code> is a <code class="k">Derived</code> object, not something reached through a <code class="k">Base*</code>, so the compiler knows its exact type and runs <code class="k">~Derived</code> then <code class="k">~Base</code>. The bug only appears when you <code class="k">delete</code> through a base pointer.</p>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;"><strong>Q14:</strong> &ldquo;If a class has <span class="a">any virtual function</span>, give it a <span class="a">virtual destructor</span>.&rdquo;</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 6</span><span>instructor copy 2/3</span></div>
+  </section>
+
+  <!-- KEY PAGE 3 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Polymorphism</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 3 of 3</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 7</span><span class="part-title">Abstract Classes &mdash; Q15&ndash;Q18</span></div>
+    <ol class="matchans">
+      <li><code class="k">Shape s("thing");</code> &mdash; <span class="a">N</span> (can't create an object of an abstract class)</li>
+      <li><code class="k">Shape* p = new Circle(2.0);</code> &mdash; <span class="a">Y</span> (pointer to abstract is fine; the object is a concrete <code class="k">Circle</code>)</li>
+      <li><code class="k">Shape&amp; ref = c;</code> &mdash; <span class="a">Y</span></li>
+      <li><code class="k">Blob b;</code> &mdash; <span class="a">N</span></li>
+      <li><code class="k">c.name()</code> &mdash; <span class="a">Y</span> (prints <code class="k">circle</code>; ordinary inherited method)</li>
+      <li><code class="k">vector&lt;Shape*&gt; shapes;</code> &mdash; <span class="a">Y</span></li>
+    </ol>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;"><strong>Blob:</strong> it never overrides the pure virtual <code class="k">area()</code>, so <code class="k">Blob</code> is <span class="a">abstract too</span>. Adding <code class="k">double area() const override { ... }</code> makes it concrete. <strong>Q16:</strong> <span class="a">pure virtual</span> &middot; <span class="a">interface</span></p>
+    <div class="twocol">
+      <div>
+        <p style="font-size:0.79rem;margin:0 0 0.03in;"><strong>Q17 model answer:</strong></p>
+        <pre><code>class Rectangle : public Shape {
+    double width;
+    double height;
+public:
+    Rectangle(double w, double h)
+        : Shape("rectangle"),
+          width(w), height(h) {}
+
+    double area() const override {
+        return width * height;
+    }
+};</code></pre>
+      </div>
+      <div>
+        <p style="font-size:0.79rem;margin:0 0 0.03in;"><strong>Q18 model answer:</strong></p>
+        <pre><code>double totalArea(const vector&lt;Shape*&gt;&amp; shapes) {
+    double sum = 0;
+    for (Shape* s : shapes)
+        sum += s-&gt;area();
+    return sum;
+}</code></pre>
+        <p style="font-size:0.79rem;margin:0;">Returns <span class="a">9.14159</span> (3.14159 + 6).</p>
+      </div>
+    </div>
+    <p style="font-size:0.74rem;margin:0 0 0.08in;color:var(--ink-soft);">Q17: watch for a missing <code class="k">const</code> on <code class="k">area()</code> (see Case B). Q18: the function should never mention <code class="k">Circle</code> or <code class="k">Rectangle</code>.</p>
+
+    <div class="part-head"><span class="part-tag">part 8</span><span class="part-title">Find the Error &mdash; Cases A&ndash;D</span></div>
+    <div class="case">
+      <span class="label">Case A</span>
+      <span>Prints <span class="a">"..."</span>. <code class="k">speak()</code> is <strong>not</strong> virtual in <code class="k">Animal</code>, and <code class="k">a</code> is an <code class="k">Animal&amp;</code>, so the call is bound at compile time to <code class="k">Animal::speak()</code>. <code class="k">virtual</code> has to be on the <strong>base</strong> class's function. Adding it in <code class="k">Dog</code> only affects classes derived <em>from</em> <code class="k">Dog</code>. Fix: <code class="k">virtual void speak()</code> in <code class="k">Animal</code> (and <code class="k">override</code> in <code class="k">Dog</code>).</span>
+    </div>
+    <div class="case">
+      <span class="label">Case B</span>
+      <span>Does <span class="a">NOT compile</span>: &ldquo;variable type 'Square' is an abstract class.&rdquo; <code class="k">Square::area()</code> is missing <code class="k">const</code>, so it doesn't override <code class="k">area() const</code>. The pure virtual is still unimplemented, which leaves <code class="k">Square</code> abstract. <code class="k"><span class="a">override</span></code> on the <code class="k">area()</code> line would have reported the real problem right where it happened. Fix: <code class="k">double area() const override</code>.</span>
+    </div>
+    <div class="case">
+      <span class="label">Case C</span>
+      <span><span class="a">Memory leak.</span> Every <code class="k">new</code> needs a <code class="k">delete</code>, and none happen. Fix 1: <code class="k">for (auto c : party) delete c;</code> before <code class="k">main</code> ends (this relies on <code class="k">Character</code> having a virtual destructor, Part 6). Fix 2 (preferred): <code class="k">vector&lt;unique_ptr&lt;Character&gt;&gt;</code> with <code class="k">make_unique&lt;Wizard&gt;("Merlin")</code>, which cleans up automatically.</span>
+    </div>
+    <div class="case">
+      <span class="label">Case D</span>
+      <span>Does <span class="a">NOT compile</span>: &ldquo;no member named 'castSpell' in 'Character'.&rdquo; The <strong>pointer's</strong> type decides what you may call, and <code class="k">Character</code> has no <code class="k">castSpell</code>. <code class="k">c-&gt;attack()</code> is fine. Fix: keep a <code class="k">Wizard*</code> when you need Wizard-only behavior, or add a virtual <code class="k">specialMove()</code> to <code class="k">Character</code>.</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 9</span><span class="part-title">Under the Hood &mdash; Q19, Q20</span></div>
+    <div class="twocol">
+      <table class="trace compact" style="margin:0;">
+        <tr><th>vtable</th><th><code>printName</code></th><th><code>attack</code></th></tr>
+        <tr><td><code class="k">Character</code></td><td class="a">Character::</td><td class="a">Character::</td></tr>
+        <tr><td><code class="k">Warrior</code></td><td class="a">Warrior::</td><td class="a">Warrior::</td></tr>
+        <tr><td><code class="k">Wizard</code></td><td class="a">Wizard::</td><td class="a">Character::</td></tr>
+        <tr><td><code class="k">Rogue</code></td><td class="a">Character::</td><td class="a">Rogue::</td></tr>
+      </table>
+      <ol class="matchans" style="margin:0;">
+        <li><span class="a">F</span>: one vtable per <em>class</em>, shared. Each object carries only a vptr.</li>
+        <li><span class="a">T</span>: the hidden vptr gets added (typically 8 bytes).</li>
+        <li><span class="a">F</span>: non-virtual calls are resolved at compile time.</li>
+        <li><span class="a">F</span>: the constructor of the <em>actual</em> object sets the vptr.</li>
+        <li><span class="a">T</span>: load the vptr, load the slot, then call. It's tiny, but it's real.</li>
+      </ol>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 6</span><span>instructor copy 3/3</span></div>
+  </section>
+
+</div>
