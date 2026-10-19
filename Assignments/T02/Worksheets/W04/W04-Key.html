@@ -1,0 +1,394 @@
+<title>Constructors &amp; Initializer Lists — Answer Key</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.4in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 0.16in;
+    margin-bottom: 0.14in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+  .stamp {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 3px;
+    padding: 0.05in 0.14in;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.05in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.03em 0.48em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.58rem;
+    line-height: 1.2;
+    color: var(--ink);
+    white-space: pre;
+  }
+
+  .blankgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.06in 0.4in;
+    margin: 0 0 0.06in;
+    padding: 0;
+    list-style: none;
+  }
+  .blankgrid li {
+    font-size: 0.79rem;
+    line-height: 1.4;
+    display: flex;
+    gap: 0.4em;
+  }
+  .blankgrid .n {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--ink-soft);
+    flex: 0 0 auto;
+  }
+  .blankgrid .a {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .case {
+    display: grid;
+    grid-template-columns: 3.9em 1fr;
+    gap: 0.04in 0.2in;
+    font-size: 0.78rem;
+    line-height: 1.38;
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.12in;
+    margin-bottom: 0.05in;
+  }
+  .case .label {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--amber);
+  }
+
+  table.trace, table.cheat {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.72rem;
+    margin: 0 0 0.07in;
+  }
+  table.trace th, table.trace td,
+  table.cheat th, table.cheat td {
+    border: 1px solid var(--rule);
+    padding: 0.05in 0.08in;
+    text-align: left;
+  }
+  table.trace th, table.cheat th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .a { color: var(--accent); font-weight: 600; }
+
+  ol.saq {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  ol.saq li {
+    font-size: 0.78rem;
+    line-height: 1.36;
+  }
+  ol.saq .q {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.28in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+</style>
+
+<div class="wrap">
+
+  <!-- KEY PAGE 1 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Constructors &amp; the Order Things Get Built</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 1 of 2</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 1</span><span class="part-title">What Is a Constructor? &mdash; Q1</span></div>
+    <ul class="blankgrid">
+      <li><span class="n">1.</span><span class="a">name</span></li>
+      <li><span class="n">2.</span><span class="a">return</span></li>
+      <li><span class="n">3.</span><span class="a">object</span></li>
+    </ul>
+
+    <div class="part-head"><span class="part-tag">part 2</span><span class="part-title">Default Constructor &mdash; Q2, Q3</span></div>
+    <p style="font-size:0.79rem;margin:0 0 0.06in;"><strong>Q2:</strong> <code class="k">hero.name = "Unknown"</code>, <code class="k">hero.health = 100</code> (the default constructor runs).</p>
+    <p style="font-size:0.79rem;margin:0 0 0.03in;"><strong>Q3 model answer:</strong></p>
+    <pre><code>Weapon() : name("Fists"), damage(1) {}</code></pre>
+
+    <div class="part-head"><span class="part-tag">part 3</span><span class="part-title">Overloaded Constructors &mdash; Q4, Q5</span></div>
+    <table class="trace">
+      <tr><th>Statement</th><th>Constructor</th><th>name</th><th>health</th></tr>
+      <tr><td><code class="k">Player a;</code></td><td class="a">Player()</td><td class="a">"Unknown"</td><td class="a">100</td></tr>
+      <tr><td><code class="k">Player b("Kevin");</code></td><td class="a">Player(string n)</td><td class="a">"Kevin"</td><td class="a">100</td></tr>
+      <tr><td><code class="k">Player c("Terry", 9000);</code></td><td class="a">Player(string n, int h)</td><td class="a">"Terry"</td><td class="a">9000</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><strong>Q5:</strong> C++ distinguishes overloads by parameter <em>types</em>, never parameter names. <code class="k">Player(string playerName)</code> has the exact same signature as <code class="k">Player(string n)</code> &mdash; one <code class="k">string</code> parameter &mdash; so it's a duplicate declaration of the same constructor, not a new overload. This does not compile.</p>
+
+    <div class="part-head"><span class="part-tag">part 4</span><span class="part-title">Copy Constructor &mdash; Q6, Q7</span></div>
+    <p style="font-size:0.79rem;margin:0 0 0.04in;"><strong>Q6:</strong> <code class="k">original</code> &rarr; name=<span class="a">"Mario"</span>, health=<span class="a">95</span>. &nbsp; <code class="k">copy</code> &rarr; name=<span class="a">"Mario"</span>, health=<span class="a">95</span>. Same object? <span class="a">NO</span>. Same values? <span class="a">YES</span>.</p>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><strong>Q7:</strong> <code class="k">Player b(a);</code> &rarr; <span class="a">COPY</span> &middot; <code class="k">Player c = a;</code> &rarr; <span class="a">COPY</span> (copy-<em>initialization</em> &mdash; <code class="k">c</code> doesn't exist yet, so despite the <code class="k">=</code> this calls the copy constructor, not assignment) &middot; <code class="k">Player d;</code> &rarr; <span class="a">NOT COPY</span> (default ctor) &middot; <code class="k">Player e("Alice");</code> &rarr; <span class="a">NOT COPY</span> (overloaded ctor).</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 4</span><span>instructor copy 1/2</span></div>
+  </section>
+
+  <!-- KEY PAGE 2 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Constructors &amp; the Order Things Get Built</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 2 of 2</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 5</span><span class="part-title">Why Copy Constructors Matter &mdash; Q8</span></div>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;">Shallow-copying a pointer duplicates the <em>address</em>, not the memory it points to. Two objects end up owning the same heap block; when either is destroyed (or reassigned/freed), the other is left with a dangling pointer, and if both eventually free the block, that's a double free. Modifying data through one object also silently affects the other.</p>
+
+    <div class="part-head"><span class="part-tag">part 6</span><span class="part-title">Initializer Lists &mdash; Q9</span></div>
+    <pre><code>Weapon(string n, int d)
+    : name(n), damage(d)
+{
+}</code></pre>
+
+    <div class="part-head"><span class="part-tag">part 9</span><span class="part-title">Find the Error &mdash; Q12</span></div>
+    <div class="case">
+      <span class="label">Course</span>
+      <span><span class="a">NO</span>, it will not compile &mdash; <code class="k">number</code> is <code class="k">const</code>, so it must receive its value before the constructor body executes; assigning to it in the body (<code class="k">number = 2143;</code>) is illegal. Fix: <code class="k">Course() : number(2143), name("OOP") {}</code></span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 10</span><span class="part-title">Write the Class &mdash; Book (model answer)</span></div>
+    <pre><code>class Book {
+    string title;
+    string author;
+    int pages;
+public:
+    Book()
+      : title("Unknown"), author("Unknown"), pages(0) {}
+    Book(string t, string a)
+      : title(t), author(a), pages(0) {}
+    Book(string t, string a, int p)
+      : title(t), author(a), pages(p) {}
+    Book(const Book& other)
+      : title(other.title), author(other.author), pages(other.pages) {}
+};</code></pre>
+
+    <div class="part-head"><span class="part-tag">part 8 / 11</span><span class="part-title">Trace tables</span></div>
+    <table class="trace">
+      <tr><th>Robot</th><th>Constructor</th><th>name</th><th>battery</th></tr>
+      <tr><td><code class="k">a</code></td><td class="a">Robot()</td><td class="a">"Unknown"</td><td class="a">100</td></tr>
+      <tr><td><code class="k">b</code></td><td class="a">Robot(string n)</td><td class="a">"R2D2"</td><td class="a">100</td></tr>
+      <tr><td><code class="k">c</code></td><td class="a">Robot(string n, int b)</td><td class="a">"Johnny 5"</td><td class="a">75</td></tr>
+      <tr><td><code class="k">d</code></td><td class="a">Robot(const Robot&amp;)</td><td class="a">"Johnny 5"</td><td class="a">75</td></tr>
+    </table>
+    <table class="trace">
+      <tr><th>Book</th><th>title</th><th>author</th><th>pages</th></tr>
+      <tr><td><code class="k">a</code></td><td class="a">"Unknown"</td><td class="a">"Unknown"</td><td class="a">0</td></tr>
+      <tr><td><code class="k">b</code></td><td class="a">"Dune"</td><td class="a">"Frank Herbert"</td><td class="a">0</td></tr>
+      <tr><td><code class="k">c</code></td><td class="a">"The Hobbit"</td><td class="a">"J.R.R. Tolkien"</td><td class="a">310</td></tr>
+      <tr><td><code class="k">d</code></td><td class="a">"The Hobbit"</td><td class="a">"J.R.R. Tolkien"</td><td class="a">310</td></tr>
+    </table>
+
+    <div class="part-head"><span class="part-tag">part 12</span><span class="part-title">Constructor Challenge</span></div>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;">Output: <span class="a">A</span>, <span class="a">B</span>, <span class="a">C</span>, <span class="a">C</span>. <code class="k">Thing d = c;</code> is the common surprise &mdash; even though it uses <code class="k">=</code>, <code class="k">d</code> doesn't exist yet, so this is copy-<em>initialization</em> and calls the copy constructor (prints <code class="k">"C"</code>), the same lesson as Q7.</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 4</span><span>instructor copy 2/2</span></div>
+  </section>
+
+</div>

@@ -1,0 +1,822 @@
+<title>Constructors &amp; Initializer Lists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.42in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .idbar {
+    display: flex;
+    gap: 1.4em;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.12in;
+    flex-wrap: wrap;
+  }
+  .idbar span { white-space: nowrap; }
+  .fill {
+    display: inline-block;
+    border-bottom: 1px solid var(--ink-soft);
+    min-width: 1.6in;
+    height: 1.05em;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.06in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  .copy {
+    font-size: 0.79rem;
+    line-height: 1.42;
+    margin: 0 0 0.08in;
+  }
+  .copy code.k, li code.k, dd code.k, td code.k { }
+
+  ol.blanks {
+    margin: 0;
+    padding-left: 1.3em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.075in;
+  }
+  ol.blanks li {
+    font-size: 0.8rem;
+    line-height: 1.32;
+  }
+  .blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--ink);
+    min-width: 1.15in;
+    height: 1em;
+    vertical-align: -0.15em;
+  }
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .wordbank {
+    margin-top: 0.08in;
+    border: 1px dashed var(--rule);
+    border-radius: 4px;
+    padding: 0.06in 0.14in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.08in 0.3in;
+  }
+  .wordbank strong {
+    color: var(--ink);
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    margin-right: 0.1in;
+  }
+
+  .snippet {
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.11in;
+    margin-bottom: 0.045in;
+  }
+  .snippet-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.04in;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.6rem;
+    line-height: 1.2;
+    color: var(--ink);
+    white-space: pre;
+  }
+  .prompt {
+    font-size: 0.73rem;
+    line-height: 1.26;
+  }
+  .answer-rule {
+    display: block;
+    border-bottom: 1px solid var(--ink-soft);
+    height: 0.17in;
+    margin-top: 0.03in;
+  }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+  }
+  .twocol .span2 { grid-column: 1 / -1; }
+
+  ol.saq {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  ol.saq li {
+    font-size: 0.75rem;
+    line-height: 1.22;
+  }
+  ol.saq .answer-rule { margin-top: 0.02in; height: 0.11in; }
+  ol.saq .answer-rule + .answer-rule { margin-top: 0.03in; }
+
+  .diagram {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    line-height: 1.3;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.08in 0.14in;
+    margin: 0 0 0.08in;
+    white-space: pre;
+  }
+
+  .matchlist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  .matchlist li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.3in;
+    font-size: 0.78rem;
+  }
+  .matchlist code.k { font-size: 0.82em; }
+  .verdict-blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--ink);
+    min-width: 1.3in;
+    height: 1em;
+    flex: 0 0 auto;
+  }
+
+  .taskbox {
+    border: 1px dashed var(--rule);
+    border-radius: 5px;
+    background: var(--code-bg);
+    min-height: 1.9in;
+    padding: 0.08in 0.12in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.08in;
+  }
+  .taskbox .hint { font-style: italic; }
+
+  table.trace, table.cheat {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.74rem;
+    margin: 0 0 0.08in;
+  }
+  table.trace th, table.trace td,
+  table.cheat th, table.cheat td {
+    border: 1px solid var(--rule);
+    padding: 0.06in 0.09in;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.trace th, table.cheat th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .predictgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+    font-size: 0.75rem;
+  }
+  .predictgrid .obj { font-family: "JetBrains Mono", monospace; color: var(--accent); margin-bottom: 0.02in; }
+  .predictgrid dl { margin: 0; }
+  .predictgrid dt { display: inline-block; min-width: 0.6in; color: var(--ink-soft); }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+</style>
+
+<div class="wrap">
+
+  <!-- PAGE 1 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Constructors &amp; the Order Things Get Built</h1>
+        <div class="tagline">Review worksheet &mdash; default/overloaded/copy constructors, initializer lists, <code class="k">const</code> members &mdash; builds on Worksheet 02</div>
+      </div>
+    </div>
+
+    <div class="idbar">
+      <span>Name <span class="fill"></span></span>
+      <span>Date <span class="fill" style="min-width:1in;"></span></span>
+      <span>Section <span class="fill" style="min-width:0.7in;"></span></span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 1</span>
+      <span class="part-title">What Is a Constructor?</span>
+    </div>
+    <p class="copy">A <strong>constructor</strong> is a special member function that initializes an object when the object is created.</p>
+    <pre><code>class Player {
+    string name;
+    int health;
+public:
+    Player() {
+        name = "Unknown";
+        health = 100;
+    }
+};</code></pre>
+    <p class="copy">When we write <code class="k">Player p;</code>, C++ automatically calls <code class="k">Player()</code>.</p>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 1</span><span>fill in the blanks</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">What makes a constructor different from a normal member function?</div>
+      <ol class="blanks">
+        <li>A constructor has the same <span class="blank"></span> as the class.</li>
+        <li>A constructor has no <span class="blank"></span> type.</li>
+        <li>A constructor is normally called when an <span class="blank"></span> is created.</li>
+      </ol>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 2</span>
+      <span class="part-title">Default Constructor</span>
+    </div>
+    <p class="copy">A <strong>default constructor</strong> is a constructor that can be called <strong>without supplying arguments</strong>. Given the <code class="k">Player</code> class above, we can write <code class="k">Player p;</code> and the resulting object contains:</p>
+    <div class="diagram">p
++------------------+
+| name   "Unknown" |
+| health 100       |
++------------------+</div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 2</span><span>fill in the values</span></div>
+      <pre><code>Player hero;</code></pre>
+      <div class="prompt">hero.name &nbsp;= <span class="blank"></span> &nbsp;&nbsp; hero.health = <span class="blank"></span></div>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 3</span><span>write the constructor</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Add a default constructor to <code class="k">Weapon</code>. A default <code class="k">Weapon</code> should have the name <code class="k">"Fists"</code> and damage <code class="k">1</code>.</div>
+      <pre><code>class Weapon {
+    string name;
+    int damage;
+public:</code></pre>
+      <div class="taskbox" style="min-height:0.7in;"></div>
+      <pre><code>};</code></pre>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 4</span><span>page 1 of 7</span></div>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Constructors &amp; the Order Things Get Built</h1>
+        <div class="tagline">Review worksheet &mdash; default/overloaded/copy constructors, initializer lists, <code class="k">const</code> members &mdash; builds on Worksheet 02</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 3</span>
+      <span class="part-title">Overloaded Constructors</span>
+    </div>
+    <p class="copy">Just like normal functions, constructors can be <strong>overloaded</strong> &mdash; a class can have multiple constructors as long as their parameter lists differ.</p>
+    <pre><code>class Player {
+    string name;
+    int health;
+public:
+    Player() { name = "Unknown"; health = 100; }
+    Player(string n) { name = n; health = 100; }
+    Player(string n, int h) { name = n; health = h; }
+};</code></pre>
+    <p class="copy">Now there are three ways to create a <code class="k">Player</code>: <code class="k">Player a;</code> &nbsp; <code class="k">Player b("Bob");</code> &nbsp; <code class="k">Player c("Alice", 75);</code></p>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 4</span><span>which constructor runs?</span></div>
+      <table class="trace">
+        <tr><th>Statement</th><th>Constructor used</th><th><code class="k">name</code></th><th><code class="k">health</code></th></tr>
+        <tr><td><code class="k">Player a;</code></td><td><span class="blank" style="min-width:1.4in;"></span></td><td><span class="blank" style="min-width:0.9in;"></span></td><td><span class="blank" style="min-width:0.6in;"></span></td></tr>
+        <tr><td><code class="k">Player b("Kevin");</code></td><td><span class="blank" style="min-width:1.4in;"></span></td><td><span class="blank" style="min-width:0.9in;"></span></td><td><span class="blank" style="min-width:0.6in;"></span></td></tr>
+        <tr><td><code class="k">Player c("Terry", 9000);</code></td><td><span class="blank" style="min-width:1.4in;"></span></td><td><span class="blank" style="min-width:0.9in;"></span></td><td><span class="blank" style="min-width:0.6in;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 5</span><span>explain</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Why is the following <strong>not</strong> an overload of the existing <code class="k">Player(string n)</code> constructor?</div>
+      <pre><code>Player(string playerName) {
+    name = playerName;
+    health = 50;
+}</code></pre>
+      <div class="prompt">Hint: does C++ care about the parameter <strong>name</strong> or the parameter <strong>type</strong> when distinguishing overloads?</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 4</span><span>page 2 of 7</span></div>
+  </section>
+
+  <!-- PAGE 3 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Constructors &amp; the Order Things Get Built</h1>
+        <div class="tagline">Review worksheet &mdash; default/overloaded/copy constructors, initializer lists, <code class="k">const</code> members &mdash; builds on Worksheet 02</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 4</span>
+      <span class="part-title">Copy Constructor</span>
+    </div>
+    <p class="copy">Suppose we already have <code class="k">Player original("Bob", 80);</code> and want a new object built from it: <code class="k">Player clone(original);</code>. C++ uses a <strong>copy constructor</strong>:</p>
+    <pre><code>Player(const Player& other) {
+    name = other.name;
+    health = other.health;
+}</code></pre>
+    <p class="copy">We're passing another <code class="k">Player</code> object by <strong>const reference</strong>.</p>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 6</span><span>fill in the values</span></div>
+      <pre><code>Player original("Mario", 95);
+Player copy(original);</code></pre>
+      <div class="predictgrid">
+        <div>
+          <div class="obj">original</div>
+          <dl><dt>name</dt> <span class="blank" style="min-width:1.3in;"></span><br><dt>health</dt> <span class="blank" style="min-width:1.3in;"></span></dl>
+        </div>
+        <div>
+          <div class="obj">copy</div>
+          <dl><dt>name</dt> <span class="blank" style="min-width:1.3in;"></span><br><dt>health</dt> <span class="blank" style="min-width:1.3in;"></span></dl>
+        </div>
+      </div>
+      <div class="prompt" style="margin-top:0.08in;">Are <code class="k">original</code> and <code class="k">copy</code> the same object? <span class="blank" style="min-width:0.8in;"></span> &nbsp;&nbsp; Do they initially contain the same values? <span class="blank" style="min-width:0.8in;"></span></div>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 7 &mdash; Spot the Copy</span><span>mark COPY / NOT COPY</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">Assume <code class="k">Player a("Bob", 100);</code></div>
+      <ul class="matchlist">
+        <li><code class="k">Player b(a);</code> <span class="verdict-blank"></span></li>
+        <li><code class="k">Player c = a;</code> <span class="verdict-blank"></span></li>
+        <li><code class="k">Player d;</code> <span class="verdict-blank"></span></li>
+        <li><code class="k">Player e("Alice");</code> <span class="verdict-blank"></span></li>
+      </ul>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 4</span><span>page 3 of 7</span></div>
+  </section>
+
+  <!-- PAGE 4 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Constructors &amp; the Order Things Get Built</h1>
+        <div class="tagline">Review worksheet &mdash; default/overloaded/copy constructors, initializer lists, <code class="k">const</code> members &mdash; builds on Worksheet 02</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 5</span>
+      <span class="part-title">Why Copy Constructors Matter</span>
+    </div>
+    <p class="copy">For a class with plain members like <code class="k">string</code>/<code class="k">int</code>, the compiler-generated copy constructor is fine. But once a class holds a <strong>pointer</strong>&hellip;</p>
+    <pre><code>class IntArray {
+    int* data;
+    int size;
+};</code></pre>
+    <p class="copy">&hellip;copying the pointer instead of what it points to gives two objects pointing at the <em>same</em> memory (a <strong>shallow copy</strong>):</p>
+    <div class="diagram">Array A                     Array B
+
+data --------+              data --------+
+             |                           |
+             +----&gt; [10][20][30] &lt;-------+</div>
+    <p class="copy">A custom copy constructor can allocate new memory instead &mdash; a <strong>deep copy</strong>:</p>
+    <div class="diagram">Array A                     Array B
+
+data ----&gt; [10][20][30]     data ----&gt; [10][20][30]
+
+          separate memory             separate memory</div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 8</span><span>explain</span></div>
+      <div class="prompt">Why could shallow copying dynamically allocated memory be dangerous?</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 6</span>
+      <span class="part-title">Constructor Initializer Lists</span>
+    </div>
+    <p class="copy">C++ provides a second syntax for constructors &mdash; the <strong>initializer list</strong> &mdash; which initializes members <em>before</em> the constructor body runs:</p>
+    <table class="trace">
+      <tr><th>Body assignment</th><th>Initializer list</th></tr>
+      <tr>
+        <td><pre style="margin:0;"><code>Player(string n, int h) {
+    name = n;
+    health = h;
+}</code></pre></td>
+        <td><pre style="margin:0;"><code>Player(string n, int h)
+    : name(n), health(h)
+{
+}</code></pre></td>
+      </tr>
+    </table>
+    <p class="copy">These often produce the same values, but they don't mean the same thing: <em>construct members &rarr; enter body &rarr; assign new values</em> vs. <em>construct members using desired values &rarr; enter body</em>. That distinction matters once members are themselves objects.</p>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 9 &mdash; Rewrite It</span><span>use an initializer list</span></div>
+      <pre><code>Weapon(string n, int d) {
+    name = n;
+    damage = d;
+}</code></pre>
+      <pre><code>Weapon(string n, int d)
+    <span class="blank" style="min-width:2.6in;"></span>
+{
+}</code></pre>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 4</span><span>page 4 of 7</span></div>
+  </section>
+
+  <!-- PAGE 5 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Constructors &amp; the Order Things Get Built</h1>
+        <div class="tagline">Review worksheet &mdash; default/overloaded/copy constructors, initializer lists, <code class="k">const</code> members &mdash; builds on Worksheet 02</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 7</span>
+      <span class="part-title">When Initializer Lists Are Required</span>
+    </div>
+    <p class="copy">Sometimes an initializer list isn't just prettier &mdash; it's <strong>required</strong>. Consider a <code class="k">const</code> member:</p>
+    <pre><code>class Student {
+    const int id;
+    string name;
+};</code></pre>
+    <p class="copy">This will not compile &mdash; <code class="k">id</code> is supposed to already have a value by the time the body runs:</p>
+    <pre><code>Student(int i, string n) {
+    id = i;    // ERROR
+    name = n;
+}</code></pre>
+    <p class="copy">Instead: <code class="k">Student(int i, string n) : id(i), name(n) {}</code>. Initializer lists are especially important for <code class="k">const</code> data members, reference members, member objects that need constructor arguments, and avoiding unnecessary default construction followed by assignment.</p>
+
+    <div class="part-head">
+      <span class="part-tag">part 8</span>
+      <span class="part-title">Put Them Together</span>
+    </div>
+    <pre><code>class Robot {
+    string name;
+    int battery;
+public:
+    Robot() : name("Unknown"), battery(100) {}
+    Robot(string n) : name(n), battery(100) {}
+    Robot(string n, int b) : name(n), battery(b) {}
+    Robot(const Robot& other) : name(other.name), battery(other.battery) {}
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 10 &mdash; Identify Them</span><span>label each constructor</span></div>
+      <ul class="matchlist">
+        <li><code class="k">Robot()</code> <span class="verdict-blank"></span></li>
+        <li><code class="k">Robot(string n)</code> <span class="verdict-blank"></span></li>
+        <li><code class="k">Robot(string n, int b)</code> <span class="verdict-blank"></span></li>
+        <li><code class="k">Robot(const Robot& other)</code> <span class="verdict-blank"></span></li>
+      </ul>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 11 &mdash; Trace the Program</span><span>fill in the table</span></div>
+      <pre><code>Robot a;
+Robot b("R2D2");
+Robot c("Johnny 5", 75);
+Robot d(c);</code></pre>
+      <table class="trace">
+        <tr><th>Object</th><th>Constructor used</th><th><code class="k">name</code></th><th><code class="k">battery</code></th></tr>
+        <tr><td><code class="k">a</code></td><td><span class="blank" style="min-width:1.3in;"></span></td><td><span class="blank" style="min-width:0.9in;"></span></td><td><span class="blank" style="min-width:0.6in;"></span></td></tr>
+        <tr><td><code class="k">b</code></td><td><span class="blank" style="min-width:1.3in;"></span></td><td><span class="blank" style="min-width:0.9in;"></span></td><td><span class="blank" style="min-width:0.6in;"></span></td></tr>
+        <tr><td><code class="k">c</code></td><td><span class="blank" style="min-width:1.3in;"></span></td><td><span class="blank" style="min-width:0.9in;"></span></td><td><span class="blank" style="min-width:0.6in;"></span></td></tr>
+        <tr><td><code class="k">d</code></td><td><span class="blank" style="min-width:1.3in;"></span></td><td><span class="blank" style="min-width:0.9in;"></span></td><td><span class="blank" style="min-width:0.6in;"></span></td></tr>
+      </table>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 4</span><span>page 5 of 7</span></div>
+  </section>
+
+  <!-- PAGE 6 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Constructors &amp; the Order Things Get Built</h1>
+        <div class="tagline">Review worksheet &mdash; default/overloaded/copy constructors, initializer lists, <code class="k">const</code> members &mdash; builds on Worksheet 02</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 9</span>
+      <span class="part-title">Find the Error</span>
+    </div>
+    <pre><code>class Course {
+    const int number;
+    string name;
+public:
+    Course() {
+        number = 2143;
+        name = "OOP";
+    }
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 12</span><span>compiles? Y / N</span></div>
+      <div class="prompt">Will this compile? <span class="blank" style="min-width:0.8in;"></span> &nbsp; If not, explain why:</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+      <div class="prompt" style="margin-top:0.05in;">Rewrite the constructor correctly:</div>
+      <pre><code>Course()
+    <span class="blank" style="min-width:2.6in;"></span>
+{
+}</code></pre>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 10</span>
+      <span class="part-title">Write the Class</span>
+      <span class="part-note">Book</span>
+    </div>
+    <p class="copy">Create a class <code class="k">Book</code> with <code class="k">string title;</code>, <code class="k">string author;</code>, <code class="k">int pages;</code>. Implement: (1) a default constructor &mdash; title/author <code class="k">"Unknown"</code>, pages <code class="k">0</code>; (2) an overload taking title + author; (3) an overload taking title + author + pages; (4) a copy constructor. <strong>Use initializer lists for every constructor.</strong></p>
+    <pre><code>class Book {</code></pre>
+    <div class="taskbox" style="min-height:2.7in;"></div>
+    <pre><code>};</code></pre>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 4</span><span>page 6 of 7</span></div>
+  </section>
+
+  <!-- PAGE 7 -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Constructors &amp; the Order Things Get Built</h1>
+        <div class="tagline">Review worksheet &mdash; default/overloaded/copy constructors, initializer lists, <code class="k">const</code> members &mdash; builds on Worksheet 02</div>
+      </div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 11</span>
+      <span class="part-title">Predict Before Running</span>
+      <span class="part-note">using your Book class</span>
+    </div>
+    <pre><code>Book a;
+Book b("Dune", "Frank Herbert");
+Book c("The Hobbit", "J.R.R. Tolkien", 310);
+Book d(c);</code></pre>
+    <div class="predictgrid">
+      <div><div class="obj">a</div><dl><dt>title</dt><span class="blank" style="min-width:1.5in;"></span><br><dt>author</dt><span class="blank" style="min-width:1.5in;"></span><br><dt>pages</dt><span class="blank" style="min-width:1.5in;"></span></dl></div>
+      <div><div class="obj">b</div><dl><dt>title</dt><span class="blank" style="min-width:1.5in;"></span><br><dt>author</dt><span class="blank" style="min-width:1.5in;"></span><br><dt>pages</dt><span class="blank" style="min-width:1.5in;"></span></dl></div>
+      <div><div class="obj">c</div><dl><dt>title</dt><span class="blank" style="min-width:1.5in;"></span><br><dt>author</dt><span class="blank" style="min-width:1.5in;"></span><br><dt>pages</dt><span class="blank" style="min-width:1.5in;"></span></dl></div>
+      <div><div class="obj">d</div><dl><dt>title</dt><span class="blank" style="min-width:1.5in;"></span><br><dt>author</dt><span class="blank" style="min-width:1.5in;"></span><br><dt>pages</dt><span class="blank" style="min-width:1.5in;"></span></dl></div>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 12</span>
+      <span class="part-title">Constructor Challenge</span>
+    </div>
+    <pre><code>class Thing {
+    int x;
+public:
+    Thing() : x(0) { cout << "A\n"; }
+    Thing(int value) : x(value) { cout << "B\n"; }
+    Thing(const Thing& other) : x(other.x) { cout << "C\n"; }
+};</code></pre>
+    <div class="snippet">
+      <div class="snippet-head"><span>What is printed?</span><span>predict, then compile and check</span></div>
+      <pre><code>Thing a;
+Thing b(10);
+Thing c(b);
+Thing d = c;</code></pre>
+      <div class="prompt">Prediction: <span class="blank" style="min-width:0.5in;"></span> <span class="blank" style="min-width:0.5in;"></span> <span class="blank" style="min-width:0.5in;"></span> <span class="blank" style="min-width:0.5in;"></span></div>
+      <div class="prompt" style="margin-top:0.06in;">Was your prediction correct? <span class="blank" style="min-width:0.8in;"></span> &nbsp; If not, what surprised you?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">cheat sheet</span>
+      <span class="part-title">Constructors at a Glance</span>
+    </div>
+    <table class="cheat">
+      <tr><th>Concept</th><th>Typical syntax</th><th>Purpose</th></tr>
+      <tr><td>Default constructor</td><td><code class="k">Player()</code></td><td>Create object without arguments</td></tr>
+      <tr><td>Overloaded constructor</td><td><code class="k">Player(string n)</code></td><td>Create object using supplied values</td></tr>
+      <tr><td>Copy constructor</td><td><code class="k">Player(const Player& p)</code></td><td>Create a new object from another object</td></tr>
+      <tr><td>Initializer list</td><td><code class="k">Player(...) : name(n), health(h)</code></td><td>Initialize members directly, before the body runs</td></tr>
+    </table>
+    <p class="copy">An initializer list is <strong>not</strong> a fourth kind of constructor &mdash; <code class="k">Player()</code>, <code class="k">Player(string n)</code>, and <code class="k">Player(const Player&amp; p)</code> describe <em>which</em> constructor runs; <code class="k">: name(n), health(100)</code> describes <em>how</em> that constructor initializes its members.</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 4</span><span>page 7 of 7</span></div>
+  </section>
+
+</div>
