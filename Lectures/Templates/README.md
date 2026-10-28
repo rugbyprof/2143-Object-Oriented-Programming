@@ -570,3 +570,81 @@ Complete these tasks:
 6. Explain whether a virtual base class would help this design, and why.
 
 As you work, ask yourself: **Does the behavior stay the same while the stored type changes?** That is a strong indication that a template may be useful.
+
+## Edge Cases
+
+The current `Larger` already compiles for vectors, but it doesn't compare sums. `std::vector` has its own `operator>`, and it compares **lexicographically**, the way strings are compared: element by element until two elements differ.
+
+```cpp
+vector<int> a = {9, 1};      // sum 10
+vector<int> b = {1, 2, 50};  // sum 53
+Larger(a, b);                // returns a, because 9 > 1
+```
+
+So you need to say what "larger" means for a vector. There are three common ways to do it.
+
+### 1. Overload `Larger` for vectors (recommended for teaching)
+
+Add a second template that only accepts vectors. When both templates match, the compiler picks the more specialized one, so `vector<int>` arguments go to this version and everything else goes to the generic one.
+
+```cpp
+#include <iostream>
+#include <numeric>
+#include <vector>
+
+using namespace std;
+
+template <typename T>
+T Larger(T first, T second) {
+    return first > second ? first : second;
+}
+
+template <typename T>
+vector<T> Larger(const vector<T>& first, const vector<T>& second) {
+    T sumFirst = accumulate(first.begin(), first.end(), T{});
+    T sumSecond = accumulate(second.begin(), second.end(), T{});
+    return sumFirst > sumSecond ? first : second;
+}
+
+int main() {
+    vector<int> a = {9, 1};
+    vector<int> b = {1, 2, 50};
+
+    cout << Larger(3, 7) << endl;           // generic version: 7
+
+    vector<int> big = Larger(a, b);         // vector overload: b
+    for (int x : big) {
+        cout << x << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+```
+
+Use `T{}` as the starting value, not `0`. A literal `0` makes `accumulate` add up `int`s, so a `vector<double>` sum gets truncated.
+
+**A good point you should remember:** you can't *partially specialize* a function template, so `template<> Larger<vector<T>>` doesn't work for every `T`. Overloading is the right tool here.
+
+### 2. Pass in how to compare
+
+This keeps one template and lets the caller decide what "larger" means:
+
+```cpp
+template <typename T, typename Compare>
+T Larger(const T& first, const T& second, Compare greater) {
+    return greater(first, second) ? first : second;
+}
+
+auto bySum = [](const vector<int>& x, const vector<int>& y) {
+    return accumulate(x.begin(), x.end(), 0) > accumulate(y.begin(), y.end(), 0);
+};
+
+Larger(a, b, bySum);
+```
+
+This is how the STL works: `sort`, `max`, and `max_element` all take comparators.
+
+### 3. Give the type its own `operator>`
+
+If the vector stands for something, like a `Scoreboard` or `Cart`, wrap it in a class and define `operator>` to compare sums. The original `Larger` then works unchanged. This ties back nicely to operator overloading, and the template just requires that `T` supports `>`.
