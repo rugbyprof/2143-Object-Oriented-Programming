@@ -1,3 +1,22 @@
+<details>
+<summary>⚙️ Metadata (auto-managed by <code>readmees</code> — edit values, not structure)</summary>
+
+```yaml
+is_due: false
+id: L02-Important_Keywords
+name: L02-Important_Keywords
+title: NO TITLE
+description: NO DESCRIPTION
+category: Lectures
+date_due:
+  month: '11'
+  day: '02'
+  year: 2026
+  hour: 9
+```
+
+</details>
+
 # Modern C++: Expressing Intent and Catching Mistakes
 
 Modern C++ provides ways to tell the compiler how your code is intended to work. These features help catch mistakes, clarify interfaces, and manage resources.

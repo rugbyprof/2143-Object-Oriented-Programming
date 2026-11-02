@@ -3,8 +3,8 @@
 
 ```yaml
 is_due: false
-id: L02-OOP_Fundamentals
-name: L02-OOP_Fundamentals
+id: L03-OOP_Fundamentals
+name: L03-OOP_Fundamentals
 title: NO TITLE
 description: NO DESCRIPTION
 category: Lectures

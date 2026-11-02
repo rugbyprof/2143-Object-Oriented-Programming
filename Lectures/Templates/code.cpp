@@ -1,3 +1,6 @@
+/*
+Griffins scratch pad, nothing to see here.
+*/
 #include <iostream>
 #include <vector>
 #include <numeric>
@@ -24,8 +27,6 @@ public:
     // Overload operator< to compare two Rankable objects.
     // Comparison must use Score().
 };
-
-
 
 class A {
 public:

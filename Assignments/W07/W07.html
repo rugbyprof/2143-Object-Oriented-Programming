@@ -1,0 +1,1392 @@
+<title>Templates &mdash; Write It Once, Use It for Any Type</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.42in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .idbar {
+    display: flex;
+    gap: 1.4em;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.12in;
+    flex-wrap: wrap;
+  }
+  .idbar span { white-space: nowrap; }
+  .fill {
+    display: inline-block;
+    border-bottom: 1px solid var(--ink-soft);
+    min-width: 1.6in;
+    height: 1.05em;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.06in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  .copy {
+    font-size: 0.79rem;
+    line-height: 1.42;
+    margin: 0 0 0.08in;
+  }
+
+  ol.blanks {
+    margin: 0;
+    padding-left: 1.3em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.075in;
+  }
+  ol.blanks li {
+    font-size: 0.8rem;
+    line-height: 1.32;
+  }
+  .blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--ink);
+    min-width: 1.15in;
+    height: 1em;
+    vertical-align: -0.15em;
+  }
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .wordbank {
+    margin-top: 0.08in;
+    border: 1px dashed var(--rule);
+    border-radius: 4px;
+    padding: 0.06in 0.14in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.08in 0.3in;
+  }
+  .wordbank strong {
+    color: var(--ink);
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    margin-right: 0.1in;
+  }
+
+  .snippet {
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.11in;
+    margin-bottom: 0.045in;
+  }
+  .snippet-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.04in;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.6rem;
+    line-height: 1.2;
+    color: var(--ink);
+    white-space: pre;
+  }
+  .prompt {
+    font-size: 0.73rem;
+    line-height: 1.26;
+  }
+  .answer-rule {
+    display: block;
+    border-bottom: 1px solid var(--ink-soft);
+    height: 0.17in;
+    margin-top: 0.03in;
+  }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+  }
+  .twocol .span2 { grid-column: 1 / -1; }
+
+  ol.saq {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  ol.saq li {
+    font-size: 0.75rem;
+    line-height: 1.22;
+  }
+  ol.saq .answer-rule { margin-top: 0.02in; height: 0.11in; }
+  ol.saq .answer-rule + .answer-rule { margin-top: 0.03in; }
+
+  .diagram {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    line-height: 1.3;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.08in 0.14in;
+    margin: 0 0 0.08in;
+    white-space: pre;
+  }
+
+  .matchlist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  .matchlist li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.3in;
+    font-size: 0.78rem;
+  }
+  .matchlist code.k { font-size: 0.82em; }
+  .verdict-blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--ink);
+    min-width: 1.3in;
+    height: 1em;
+    flex: 0 0 auto;
+  }
+
+  .taskbox {
+    border: 1px dashed var(--rule);
+    border-radius: 5px;
+    background: var(--code-bg);
+    min-height: 1.9in;
+    padding: 0.08in 0.12in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.08in;
+  }
+  .taskbox .hint { font-style: italic; }
+
+  table.trace, table.cheat {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.74rem;
+    margin: 0 0 0.08in;
+  }
+  table.trace th, table.trace td,
+  table.cheat th, table.cheat td {
+    border: 1px solid var(--rule);
+    padding: 0.06in 0.09in;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.trace th, table.cheat th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .predictgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+    font-size: 0.75rem;
+  }
+  .predictgrid .obj { font-family: "JetBrains Mono", monospace; color: var(--accent); margin-bottom: 0.02in; }
+  .predictgrid dl { margin: 0; }
+  .predictgrid dt { display: inline-block; min-width: 0.6in; color: var(--ink-soft); }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+  pre, code, .diagram { font-variant-ligatures: none; }   /* show >= and != as typed */
+</style>
+
+<div class="wrap">
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="idbar">
+      <span>Name <span class="fill"></span></span>
+      <span>Date <span class="fill" style="min-width:1in;"></span></span>
+      <span>Section <span class="fill" style="min-width:0.7in;"></span></span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 1</span>
+      <span class="part-title">One Recipe, Many Types</span>
+      <span class="part-note">template_01.cpp</span>
+    </div>
+    <p class="copy">In Worksheet 06 you met two kinds of polymorphism and saw <code class="k">template</code> listed under <strong>static</strong> (compile-time). This worksheet looks at templates themselves. Start with the problem they solve: the same algorithm, copied once for each type.</p>
+    <pre><code>int LargerInt(int first, int second) {
+    return first &gt; second ? first : second;
+}
+double LargerDouble(double first, double second) {
+    return first &gt; second ? first : second;
+}
+
+// One function template replaces both (and every other type, too):
+template &lt;typename T&gt;
+T Larger(T first, T second) {
+    return first &gt; second ? first : second;
+}</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 1</span><span>fill in the blanks</span></div>
+      <ol class="blanks">
+        <li>In <code class="k">template &lt;typename T&gt;</code>, <code class="k">T</code> is a template <span class="blank"></span>. In <code class="k">Larger&lt;double&gt;(4, 9.2)</code>, <code class="k">double</code> is a template <span class="blank"></span>.</li>
+        <li>When the compiler works out <code class="k">T</code> from the function's arguments, it is doing template argument <span class="blank"></span>.</li>
+        <li>The real function the compiler generates for <code class="k">Larger(3, 7)</code> is called an <span class="blank"></span> of the template. It is generated at <span class="blank" style="min-width:0.9in;"></span> time.</li>
+        <li>In <code class="k">template &lt;class T&gt;</code>, the word <code class="k">class</code> means exactly the same thing as <span class="blank"></span>. It does <strong>not</strong> restrict <code class="k">T</code> to class types.</li>
+      </ol>
+      <div class="wordbank"><strong>Word bank</strong><span>argument</span><span>compile</span><span>deduction</span><span>instantiation</span><span>parameter</span><span>run</span><span>specialization</span><span>typename</span><span>virtual</span></div>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 2</span><span>what is T? what prints?</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">For each call, write the type the compiler uses for <code class="k">T</code> and the value printed by <code class="k">cout &lt;&lt; Larger(...)</code>. If the call does not compile, write <strong>ERROR</strong>.</div>
+      <table class="trace">
+        <tr><th style="width:2.5in;">Call</th><th style="width:1.2in;">T is&hellip;</th><th>Prints</th></tr>
+        <tr><td><code class="k">(a) Larger(3, 7)</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">(b) Larger(2.5, 1.5)</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">(c) Larger(4, 9.2)</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">(d) Larger&lt;double&gt;(4, 9.2)</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">(e) Larger('a', 'Z')</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">(f) Larger(string("apple"), string("Banana"))</code></td><td></td><td></td></tr>
+      </table>
+      <div class="prompt">Call <code class="k">(c)</code>: why can't the compiler pick a <code class="k">T</code>? Give one way to fix it besides <code class="k">(d)</code>.</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 1 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 2</span>
+      <span class="part-title">What a Template Requires</span>
+      <span class="part-note">template_02.cpp</span>
+    </div>
+    <p class="copy">A template does not work for <em>every</em> type. It works for every type that supports the operations its body uses. Those operations are the template's <strong>requirements</strong>. They aren't written down anywhere (until Part 10). You find them by reading the code.</p>
+    <pre><code>template &lt;typename T&gt;
+T Average(const vector&lt;T&gt;&amp; values) {
+    T total{};
+    for (const T&amp; value : values) {
+        total += value;
+    }
+    return total / values.size();
+}</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 3</span><span>list the requirements</span></div>
+      <div class="prompt">List every operation <code class="k">Average</code> needs from <code class="k">T</code>. (There are at least three. Look at each line.)</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 4</span><span>which types work?</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">Write the result, or <strong>ERROR</strong> plus the operation that's missing.</div>
+      <ul class="matchlist">
+        <li><span><code class="k">Average(vector&lt;double&gt;{7, 8})</code></span> <span class="verdict-blank" style="min-width:2.2in;"></span></li>
+        <li><span><code class="k">Average(vector&lt;int&gt;{7, 8})</code> &nbsp;(careful)</span> <span class="verdict-blank" style="min-width:2.2in;"></span></li>
+        <li><span><code class="k">Average(vector&lt;string&gt;{"a", "b"})</code></span> <span class="verdict-blank" style="min-width:2.2in;"></span></li>
+      </ul>
+      <div class="prompt" style="margin-top:0.06in;">For the <code class="k">string</code> call, does the compiler's error point at the line in <code class="k">main()</code> or at a line <em>inside</em> <code class="k">Average</code>? Which line?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 5 &mdash; Make It Fit</span><span>operator overloading meets templates</span></div>
+      <pre><code>class Player {
+public:
+    Player(const string&amp; name, int score)
+        : name_(name), score_(score) {
+    }
+    int Score() const {
+        return score_;
+    }
+private:
+    string name_;
+    int score_;
+};
+
+Player winner = Larger(Player("Thorin", 85), Player("Malakai", 92));   // ERROR</code></pre>
+      <div class="prompt" style="margin-bottom:0.04in;">Write the <strong>one function</strong> (outside the class) that makes the last line compile and pick the higher score. Do not change <code class="k">Larger</code>.</div>
+      <div class="taskbox" style="min-height:1.1in;"></div>
+      <div class="prompt">What does it mean that we made <code class="k">Player</code> fit the template, and didn't change the template to fit <code class="k">Player</code>?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 2 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 3</span>
+      <span class="part-title">Class Templates</span>
+      <span class="part-note">template_03 &amp; 04</span>
+    </div>
+    <p class="copy">A class template is a recipe for classes. <code class="k">Box&lt;int&gt;</code> and <code class="k">Box&lt;string&gt;</code> are two separate classes made from one recipe. Everything you know about classes still applies: private data, constructors, <code class="k">const</code> methods. In a real project the whole template lives in <code class="k">Box.h</code>. Methods can be defined inside the class, or below it like this:</p>
+    <pre><code>template &lt;typename T&gt;
+class Box {
+public:
+    explicit Box(const T&amp; value);
+    const T&amp; Get() const;
+    T Replace(const T&amp; new_value);   // store new_value, return the OLD value
+private:
+    T value_;
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 6 &mdash; Write the Definitions</span><span>below the class, same header</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Write all three member functions <strong>outside</strong> the class. Watch the two things every out-of-class template definition needs.</div>
+      <div class="taskbox" style="min-height:2.5in;"></div>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 7</span><span>true / false</span></div>
+      <ul class="matchlist">
+        <li><span><code class="k">Box&lt;int&gt;</code> and <code class="k">Box&lt;string&gt;</code> are the same type, so one can be assigned to the other.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+        <li><span><code class="k">Box&lt;int&gt; b = 5;</code> compiles.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+        <li><span><code class="k">Box b{2.5};</code> compiles and creates a <code class="k">Box&lt;double&gt;</code>.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+        <li><span>A member function you never call is never generated, so it can use operations <code class="k">T</code> doesn't have.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+        <li><span>Template member definitions belong in a <code class="k">.cpp</code> file, the same as normal classes.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+        <li><span>In <code class="k">Box&lt;string&gt;</code>, the member <code class="k">value_</code> is a <code class="k">string</code>.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+      </ul>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 3 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 4</span>
+      <span class="part-title">Value Parameters and Defaults</span>
+      <span class="part-note">template_05.cpp</span>
+    </div>
+    <p class="copy">A template parameter can be a <strong>value</strong> instead of a type. The value must be known at compile time, and it becomes part of the type. A template parameter can also have a <strong>default</strong>, just like a function parameter.</p>
+    <pre><code>template &lt;typename T, size_t Capacity&gt;
+class Inventory {
+public:
+    bool Add(const T&amp; item);
+    constexpr size_t MaxSize() const {
+        return Capacity;
+    }
+private:
+    array&lt;T, Capacity&gt; items_{};
+    size_t count_ = 0;
+};
+
+template &lt;typename T = int&gt;
+class Counter {
+public:
+    void Increment() {
+        ++value_;
+    }
+private:
+    T value_{};
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 8</span><span>compiles? Y / N</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">Judge each line on its own. If it doesn't compile, say why in a few words.</div>
+      <table class="trace">
+        <tr><th style="width:0.4in;">#</th><th style="width:3.3in;">Code</th><th style="width:0.5in;">Y / N</th><th>Why not?</th></tr>
+        <tr><td>1</td><td><code class="k">Inventory&lt;string, 3&gt; backpack;</code></td><td></td><td></td></tr>
+        <tr><td>2</td><td><code class="k">Inventory&lt;int, 4&gt; a; Inventory&lt;int, 8&gt; b; a = b;</code></td><td></td><td></td></tr>
+        <tr><td>3</td><td><code class="k">size_t n = 5; Inventory&lt;int, n&gt; c;</code></td><td></td><td></td></tr>
+        <tr><td>4</td><td><code class="k">constexpr size_t kSlots = 5; Inventory&lt;int, kSlots&gt; d;</code></td><td></td><td></td></tr>
+        <tr><td>5</td><td><code class="k">Counter&lt;&gt; turns;</code></td><td></td><td></td></tr>
+        <tr><td>6</td><td><code class="k">Counter&lt;string&gt; name;</code></td><td></td><td></td></tr>
+        <tr><td>7</td><td><code class="k">Counter&lt;string&gt; name; name.Increment();</code></td><td></td><td></td></tr>
+      </table>
+      <div class="prompt">Lines 6 and 7 together show something important about class templates. What?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 9</span><span>design decision</span></div>
+      <div class="prompt">Your <code class="k">Inventory</code> could take its capacity as a <strong>template argument</strong> (<code class="k">Inventory&lt;Item, 10&gt;</code>) or as a <strong>constructor argument</strong> (<code class="k">Inventory&lt;Item&gt; bag(10);</code>). Give one reason to choose each.</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 4 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 5</span>
+      <span class="part-title">A Generic Container</span>
+      <span class="part-note">template_06.cpp &middot; builds on W01 stacks</span>
+    </div>
+    <p class="copy">Containers are where templates pay for themselves. A stack works the same way whatever it holds. In Worksheet 01 you wrote a stack of <code class="k">int</code>s. Here it is once, for every type. Notice the design: <code class="k">Stack&lt;T&gt;</code> <strong>has a</strong> <code class="k">vector&lt;T&gt;</code> (composition) and only exposes stack operations.</p>
+    <pre><code>template &lt;typename T&gt;
+class Stack {
+public:
+    void Push(const T&amp; item) {
+        items_.push_back(item);
+    }
+    T Pop() {
+        if (items_.empty()) {
+            throw underflow_error("Stack::Pop on empty stack");
+        }
+        T top = items_.back();
+        items_.pop_back();
+        return top;
+    }
+    const T&amp; Peek() const {
+        return items_.back();
+    }
+    size_t Size() const {
+        return items_.size();
+    }
+private:
+    vector&lt;T&gt; items_;
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 10</span><span>trace it</span></div>
+      <div class="twocol">
+        <pre style="margin:0;"><code>Stack&lt;string&gt; s;
+s.Push("red");
+s.Push("green");
+s.Push("blue");
+cout &lt;&lt; s.Pop() &lt;&lt; "\n";    // (a)
+s.Push("gold");
+cout &lt;&lt; s.Peek() &lt;&lt; "\n";   // (b)
+cout &lt;&lt; s.Size() &lt;&lt; "\n";   // (c)
+cout &lt;&lt; s.Pop() &lt;&lt; "\n";    // (d)
+cout &lt;&lt; s.Pop() &lt;&lt; "\n";    // (e)
+s.Pop();
+s.Pop();                    // (f)</code></pre>
+        <div class="predictgrid" style="grid-template-columns:1fr;align-content:start;">
+          <div><span class="obj">(a)</span> <span class="blank" style="min-width:1.5in;"></span></div>
+          <div><span class="obj">(b)</span> <span class="blank" style="min-width:1.5in;"></span></div>
+          <div><span class="obj">(c)</span> <span class="blank" style="min-width:1.5in;"></span></div>
+          <div><span class="obj">(d)</span> <span class="blank" style="min-width:1.5in;"></span></div>
+          <div><span class="obj">(e)</span> <span class="blank" style="min-width:1.5in;"></span></div>
+          <div><span class="obj">(f)</span> what happens? <span class="blank" style="min-width:1.5in;"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 11 &mdash; Write the Method</span><span><code>Contains</code></span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Write <code class="k">bool Contains(const T&amp; item) const</code> as it would appear inside the class.</div>
+      <div class="taskbox" style="min-height:1.0in;"></div>
+      <div class="prompt">What <strong>new</strong> requirement does <code class="k">Contains</code> put on <code class="k">T</code>? <span class="blank" style="min-width:2in;"></span><br>
+      Could you still make a <code class="k">Stack&lt;Card&gt;</code> if <code class="k">Card</code> doesn't have it? <span class="blank" style="min-width:1.6in;"></span></div>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 12</span><span>composition vs. inheritance</span></div>
+      <div class="prompt">Suppose instead we wrote <code class="k">class Stack : public vector&lt;T&gt; { ... }</code>. Name two things a user could then do to a &ldquo;stack&rdquo; that break its last-in-first-out rule.</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 5 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 6</span>
+      <span class="part-title">An Interface Without Inheritance</span>
+      <span class="part-note">template_07.cpp &middot; compare W06 Part 7</span>
+    </div>
+    <p class="copy">In Worksheet 06, unrelated shapes shared an interface by inheriting from an abstract <code class="k">Shape</code>. A template can do something similar <strong>without</strong> a base class: any type with the methods the template calls will fit. This is sometimes called <em>duck typing</em>: &ldquo;if it has <code class="k">Name()</code> and <code class="k">Score()</code>, it's rankable.&rdquo;</p>
+    <pre><code>template &lt;typename T&gt;
+class Leaderboard {
+public:
+    explicit Leaderboard(size_t max_entries)
+        : max_entries_(max_entries) {
+    }
+    void Submit(const T&amp; entry) {
+        entries_.push_back(entry);
+        sort(entries_.begin(), entries_.end(), [](const T&amp; left, const T&amp; right) {
+            return left.Score() &gt; right.Score();
+        });
+        if (entries_.size() &gt; max_entries_) {
+            entries_.pop_back();
+        }
+    }
+private:
+    vector&lt;T&gt; entries_;
+    size_t max_entries_;
+};
+
+class Player { /* string Name() const;   int Score() const;    */ };
+class Team   { /* string Name() const;   double Score() const; */ };   // win %, a double
+class Monster { /* string Species() const;   int HitPoints() const; */ };</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 13</span><span>trace the board</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;"><code class="k">Leaderboard&lt;Player&gt; board(3);</code> Write the board, top to bottom, after each <code class="k">Submit</code>.</div>
+      <table class="trace">
+        <tr><th style="width:2.1in;">Submit</th><th>Board after (name and score)</th></tr>
+        <tr><td><code class="k">Player("Thorin", 85)</code></td><td></td></tr>
+        <tr><td><code class="k">Player("Malakai", 92)</code></td><td></td></tr>
+        <tr><td><code class="k">Player("Jordan", 77)</code></td><td></td></tr>
+        <tr><td><code class="k">Player("Rhea", 99)</code></td><td></td></tr>
+        <tr><td><code class="k">Player("Vex", 80)</code></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 14</span><span>where's the error?</span></div>
+      <pre><code>Leaderboard&lt;Team&gt; teams(2);                  // (1)
+Leaderboard&lt;Monster&gt; monsters(5);            // (2)
+monsters.Submit(Monster("Troll", 40));       // (3)</code></pre>
+      <div class="prompt">Which numbered line(s) fail to compile? <span class="blank" style="min-width:0.8in;"></span> Why does line (2) on its own <em>not</em> fail? Why is line (1) fine even though <code class="k">Team::Score()</code> returns a <code class="k">double</code>?</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 6 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 6</span>
+      <span class="part-title">An Interface Without Inheritance (continued)</span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 15 &mdash; Write an Adapter</span><span>you may not edit <code>Monster</code> or <code>Leaderboard</code></span></div>
+      <div class="prompt" style="margin-bottom:0.04in;"><code class="k">Monster</code> comes from a library you can't change. Write a small class <code class="k">RankedMonster</code> that <strong>holds</strong> a <code class="k">Monster</code> and gives it the interface <code class="k">Leaderboard</code> needs. Use the species as the name and the hit points as the score.</div>
+      <pre><code>class RankedMonster {</code></pre>
+      <div class="taskbox" style="min-height:2.0in;"></div>
+      <pre><code>};
+
+Leaderboard&lt;RankedMonster&gt; monsters(5);
+monsters.Submit(RankedMonster(Monster("Troll", 40)));</code></pre>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 16</span><span>template vs. abstract base class</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Someone rewrites <code class="k">Leaderboard</code> to store <code class="k">Rankable*</code>, where <code class="k">Rankable</code> is an abstract base with pure virtual <code class="k">Name()</code> and <code class="k">Score()</code>.</div>
+      <ol class="blanks">
+        <li>What must <code class="k">Player</code>, <code class="k">Team</code>, and <code class="k">Monster</code> now do that they didn't before? <span class="blank" style="min-width:2.2in;"></span></li>
+        <li><code class="k">Player::Score()</code> returns <code class="k">int</code>, <code class="k">Team::Score()</code> returns <code class="k">double</code>. What return type must the pure virtual <code class="k">Score()</code> have? What changes in the derived classes? <span class="blank" style="min-width:2.6in;"></span></li>
+        <li>Name one thing the <code class="k">Rankable*</code> version can do that <code class="k">Leaderboard&lt;T&gt;</code> can't. <span class="blank" style="min-width:2.8in;"></span></li>
+      </ol>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 17</span><span>the same idea, one line each</span></div>
+      <table class="trace">
+        <tr><th style="width:1.6in;"></th><th>Template version</th><th>Abstract base version</th></tr>
+        <tr><td>Where the interface is written down</td><td></td><td></td></tr>
+        <tr><td>When a missing method is caught</td><td></td><td></td></tr>
+        <tr><td>Can one board mix Players and Teams?</td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 7 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 7</span>
+      <span class="part-title">Passing Behavior In</span>
+      <span class="part-note">template_08.cpp</span>
+    </div>
+    <p class="copy">A template parameter can stand for <em>something you can call</em>: a function, a lambda, or a <strong>function object</strong> (a class with <code class="k">operator()</code>). This lets the caller decide part of the behavior. It's the Strategy pattern, chosen at compile time. The standard library does this everywhere: <code class="k">sort</code>, <code class="k">map</code>, <code class="k">set</code>.</p>
+    <pre><code>template &lt;typename T, typename Predicate&gt;
+vector&lt;T&gt; Filter(const vector&lt;T&gt;&amp; items, Predicate keep) {
+    vector&lt;T&gt; result;
+    for (const T&amp; item : items) {
+        if (keep(item)) {
+            result.push_back(item);
+        }
+    }
+    return result;
+}
+
+bool IsEven(int value) {
+    return value % 2 == 0;
+}
+
+class AtLeast {
+public:
+    explicit AtLeast(int threshold)
+        : threshold_(threshold) {
+    }
+    bool operator()(int value) const {
+        return value &gt;= threshold_;
+    }
+private:
+    int threshold_;
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 18</span><span>predict the result</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Use <code class="k">vector&lt;int&gt; scores = {72, 95, 88, 41, 100, 63};</code></div>
+      <table class="trace">
+        <tr><th style="width:3.4in;">Expression</th><th>Result</th></tr>
+        <tr><td><code class="k">Filter(scores, IsEven)</code></td><td></td></tr>
+        <tr><td><code class="k">Filter(scores, AtLeast(80))</code></td><td></td></tr>
+        <tr><td><code class="k">Filter(scores, [](int s) { return s &lt; 70; })</code></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 19 &mdash; Write a Function Object</span><span><code>Between</code></span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Write a class <code class="k">Between</code> so that <code class="k">Filter(scores, Between(60, 90))</code> keeps scores from 60 to 90, inclusive. Model it on <code class="k">AtLeast</code>.</div>
+      <div class="taskbox" style="min-height:1.7in;"></div>
+      <div class="prompt">Why can't a plain function like <code class="k">IsEven</code> do this job as neatly? What does the class have that the function doesn't?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 8 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 7</span>
+      <span class="part-title">Passing Behavior In (continued)</span>
+    </div>
+    <p class="copy">A class template can take a behavior too. <code class="k">SortedList</code> doesn't hard-code what &ldquo;in order&rdquo; means. The second template parameter is the ordering strategy, and it defaults to the standard library's <code class="k">less&lt;T&gt;</code> (which uses <code class="k">&lt;</code>).</p>
+    <pre><code>template &lt;typename T, typename Compare = less&lt;T&gt;&gt;
+class SortedList {
+public:
+    void Insert(const T&amp; item) {                       // keeps items_ in order
+        auto position = items_.begin();
+        while (position != items_.end() &amp;&amp; compare_(*position, item)) {
+            ++position;
+        }
+        items_.insert(position, item);
+    }
+private:
+    vector&lt;T&gt; items_;
+    Compare compare_;
+};
+
+struct ByLength {
+    bool operator()(const string&amp; left, const string&amp; right) const {
+        return left.size() &lt; right.size();
+    }
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 20</span><span>predict the order</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Trace <code class="k">Insert</code> carefully. It stops at the first item that does <strong>not</strong> belong before the new one.</div>
+      <table class="trace">
+        <tr><th style="width:3.4in;">List</th><th>Contents, front to back</th></tr>
+        <tr><td><code class="k">SortedList&lt;int, greater&lt;int&gt;&gt;</code> after inserting <code class="k">5, 1, 4, 1</code></td><td></td></tr>
+        <tr><td><code class="k">SortedList&lt;string, ByLength&gt;</code> after inserting <code class="k">"dragon", "elf", "wizard", "orc"</code> (careful with ties)</td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 21</span><span>short answer</span></div>
+      <ol class="blanks">
+        <li>Are <code class="k">SortedList&lt;int&gt;</code> and <code class="k">SortedList&lt;int, greater&lt;int&gt;&gt;</code> the same type? <span class="blank" style="min-width:0.6in;"></span> Why?<span class="answer-rule"></span></li>
+        <li><code class="k">SortedList&lt;int&gt;</code> doesn't say what <code class="k">Compare</code> is. What does it use, and how does it sort? <span class="blank" style="min-width:2in;"></span></li>
+        <li>Another design gives <code class="k">SortedList</code> a <code class="k">Comparator*</code> to an abstract class with a virtual <code class="k">Compare()</code>. When would that be the better choice? <span class="answer-rule"></span></li>
+      </ol>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 9 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 8</span>
+      <span class="part-title">Specialization</span>
+      <span class="part-note">template_09.cpp</span>
+    </div>
+    <p class="copy">A <strong>full specialization</strong> (<code class="k">template &lt;&gt;</code>) replaces a template for one exact type. A <strong>partial specialization</strong> replaces it for a family of types, like every <code class="k">vector&lt;T&gt;</code>. The compiler picks the <em>most specialized</em> match.</p>
+    <pre><code>template &lt;typename T&gt;                      // primary: anything that supports &lt;&lt;
+class Formatter {
+public:
+    static string Format(const T&amp; value) {
+        ostringstream out;
+        out &lt;&lt; value;
+        return out.str();
+    }
+};
+template &lt;&gt;                                // full specialization: exactly bool
+class Formatter&lt;bool&gt; {
+public:
+    static string Format(const bool&amp; value) {
+        return value ? "yes" : "no";
+    }
+};
+template &lt;&gt;                                // full specialization: exactly string
+class Formatter&lt;string&gt; {
+public:
+    static string Format(const string&amp; value) {
+        return "\"" + value + "\"";
+    }
+};
+template &lt;typename T&gt;                      // partial specialization: any vector
+class Formatter&lt;vector&lt;T&gt;&gt; {
+public:
+    static string Format(const vector&lt;T&gt;&amp; values) {
+        string result = "[";
+        for (size_t i = 0; i &lt; values.size(); ++i) {
+            if (i &gt; 0) {
+                result += ", ";
+            }
+            result += Formatter&lt;T&gt;::Format(values[i]);
+        }
+        return result + "]";
+    }
+};
+template &lt;typename T&gt;
+void Show(const string&amp; label, const T&amp; value) {
+    cout &lt;&lt; label &lt;&lt; " = " &lt;&lt; Formatter&lt;T&gt;::Format(value) &lt;&lt; "\n";
+}</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 22</span><span>predict the output</span></div>
+      <table class="trace">
+        <tr><th style="width:3.3in;">Call</th><th>Prints</th></tr>
+        <tr><td><code class="k">Show("level", 7);</code></td><td></td></tr>
+        <tr><td><code class="k">Show("alive", true);</code></td><td></td></tr>
+        <tr><td><code class="k">Show("name", string("Thorin"));</code></td><td></td></tr>
+        <tr><td><code class="k">Show("flags", vector&lt;bool&gt;{true, false});</code></td><td></td></tr>
+        <tr><td><code class="k">Show("party", vector&lt;string&gt;{"Thorin", "Rhea"});</code></td><td></td></tr>
+        <tr><td><code class="k">Show("grid", vector&lt;vector&lt;int&gt;&gt;{{1, 2}, {3}});</code></td><td></td></tr>
+        <tr><td><code class="k">Show("name", "Thorin");</code> &nbsp;(no <code class="k">string(...)</code>)</td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 10 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 8</span>
+      <span class="part-title">Specialization (continued)</span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 23</span><span>short answer</span></div>
+      <ol class="blanks">
+        <li>Explain the last row of Question 22. What is <code class="k">T</code>, and which <code class="k">Formatter</code> runs? <span class="answer-rule"></span><span class="answer-rule"></span></li>
+        <li>The <code class="k">grid</code> row worked even though nobody wrote a <code class="k">Formatter</code> for <code class="k">vector&lt;vector&lt;int&gt;&gt;</code>. Explain how. <span class="answer-rule"></span><span class="answer-rule"></span></li>
+        <li>Delete <code class="k">Formatter&lt;bool&gt;</code>. What does <code class="k">Show("alive", true)</code> print now, and which version handles it? <span class="answer-rule"></span></li>
+      </ol>
+    </div>
+
+    <p class="copy" style="margin-top:0.1in;"><strong>Function templates are different.</strong> You can fully specialize a function template, but you <em>cannot partially specialize</em> one. To give a function template special behavior for a family of types, you <strong>overload</strong> it instead.</p>
+    <pre><code>template &lt;typename T&gt;
+T Total(const vector&lt;T&gt;&amp; values) {          // (1) general version
+    T sum{};
+    for (const T&amp; value : values) {
+        sum += value;
+    }
+    return sum;
+}
+
+int Total(const vector&lt;bool&gt;&amp; values) {      // (2) an overload, not a specialization
+    int count = 0;
+    for (bool value : values) {
+        if (value) {
+            ++count;
+        }
+    }
+    return count;
+}</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 24</span><span>which version runs?</span></div>
+      <table class="trace">
+        <tr><th style="width:3.1in;">Call</th><th style="width:0.9in;">(1) or (2)?</th><th>Returns</th></tr>
+        <tr><td><code class="k">Total(vector&lt;int&gt;{5, 10, 15})</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">Total(vector&lt;double&gt;{1.5, 2.25})</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">Total(vector&lt;bool&gt;{true, true, false, true})</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">Total(vector&lt;string&gt;{"ab", "cd"})</code></td><td></td><td></td></tr>
+      </table>
+      <div class="prompt">Without overload (2), what would <code class="k">Total(vector&lt;bool&gt;{true, true, false, true})</code> try to return? Why is that not useful?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 11 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 9</span>
+      <span class="part-title">Templates and Inheritance Together</span>
+      <span class="part-note">template_10 &amp; 11 &middot; builds on W06</span>
+    </div>
+    <p class="copy">Use <strong>inheritance</strong> when different types must be mixed together and chosen <em>at run time</em>. Use <strong>templates</strong> when the same code should work for many types. Strong designs use both: <code class="k">vector&lt;unique_ptr&lt;Character&gt;&gt;</code> is a template holding a polymorphic hierarchy.</p>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 25 &mdash; Pick the Tool</span><span>template / virtual / both</span></div>
+      <ul class="matchlist">
+        <li><span>A <code class="k">Matrix</code> class that should work for <code class="k">int</code>, <code class="k">double</code>, and your W04 <code class="k">Fraction</code></span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+        <li><span>A battle loop that holds Warriors, Wizards, and Rogues in one container and calls <code class="k">attack()</code></span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+        <li><span>A <code class="k">Queue</code> used for print jobs in one program and game events in another</span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+        <li><span>A drawing app that reads shape names from a file and creates the matching shape objects</span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+        <li><span>One <code class="k">Spawn&lt;Derived&gt;(name)</code> function that builds any <code class="k">Character</code> subclass and returns a <code class="k">unique_ptr&lt;Character&gt;</code></span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+      </ul>
+    </div>
+
+    <p class="copy" style="margin-top:0.1in;">A base class can itself be a template. In the pattern below (called <strong>CRTP</strong>), each class passes <em>itself</em> to its base. <code class="k">Comparable&lt;Coin&gt;</code> writes all the comparison operators in terms of one method, <code class="k">LessThan()</code>. <code class="k">Counted&lt;Coin&gt;</code> counts live objects with a <code class="k">static</code> member.</p>
+    <pre><code>template &lt;typename Derived&gt;
+class Comparable {
+public:
+    friend bool operator&lt;(const Derived&amp; left, const Derived&amp; right) {
+        return left.LessThan(right);
+    }
+    friend bool operator!=(const Derived&amp; left, const Derived&amp; right) {
+        return left.LessThan(right) || right.LessThan(left);
+    }
+    // ... plus &gt;, &gt;=, &lt;=, == written the same way
+};
+
+template &lt;typename Derived&gt;
+class Counted {
+public:
+    Counted() {
+        ++alive_;
+    }
+    Counted(const Counted&amp;) {
+        ++alive_;
+    }
+    ~Counted() {
+        --alive_;
+    }
+    static int Alive() {
+        return alive_;
+    }
+private:
+    static inline int alive_ = 0;
+};
+
+class Coin : public Comparable&lt;Coin&gt;, public Counted&lt;Coin&gt; {
+public:
+    explicit Coin(int cents)
+        : cents_(cents) {
+    }
+    bool LessThan(const Coin&amp; other) const {
+        return cents_ &lt; other.cents_;
+    }
+private:
+    int cents_;
+};
+class Gem : public Comparable&lt;Gem&gt;, public Counted&lt;Gem&gt; { /* similar, compares carats */ };</code></pre>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 12 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 9</span>
+      <span class="part-title">Templates and Inheritance Together (continued)</span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 26</span><span>predict the output</span></div>
+      <div class="twocol">
+        <pre style="margin:0;"><code>Coin dime(10);
+Coin quarter(25);
+cout &lt;&lt; (dime &lt; quarter);      // (a)
+cout &lt;&lt; (dime &gt;= quarter);     // (b)
+cout &lt;&lt; (dime != Coin(10));    // (c)
+{
+    Coin penny(1);
+    Coin copy = penny;
+    cout &lt;&lt; Coin::Alive();     // (d)
+}
+cout &lt;&lt; Coin::Alive();         // (e)
+Gem ruby(3);
+cout &lt;&lt; Counted&lt;Gem&gt;::Alive(); // (f)</code></pre>
+        <div class="predictgrid" style="grid-template-columns:1fr;align-content:start;">
+          <div><span class="obj">(a)</span> <span class="blank" style="min-width:1.2in;"></span></div>
+          <div><span class="obj">(b)</span> <span class="blank" style="min-width:1.2in;"></span></div>
+          <div><span class="obj">(c)</span> <span class="blank" style="min-width:1.2in;"></span></div>
+          <div><span class="obj">(d)</span> <span class="blank" style="min-width:1.2in;"></span></div>
+          <div><span class="obj">(e)</span> <span class="blank" style="min-width:1.2in;"></span></div>
+          <div><span class="obj">(f)</span> <span class="blank" style="min-width:1.2in;"></span></div>
+        </div>
+      </div>
+      <div class="prompt" style="margin-top:0.05in;">(<code class="k">cout</code> prints <code class="k">bool</code> as <code class="k">1</code> or <code class="k">0</code>.)</div>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 27</span><span>short answer</span></div>
+      <ol class="blanks">
+        <li>Why does <code class="k">Coin</code> get its own count, separate from <code class="k">Gem</code>, when both inherit the same <code class="k">alive_</code> code? <span class="answer-rule"></span><span class="answer-rule"></span></li>
+        <li>Does <code class="k">dime &lt; ruby</code> compile? <span class="blank" style="min-width:0.5in;"></span> Why or why not? <span class="answer-rule"></span></li>
+        <li>Why couldn't <code class="k">Comparable</code> be an ordinary base class with <code class="k">virtual bool LessThan(const ??? &amp; other)</code>? What would you write for <code class="k">???</code>, and what goes wrong? <span class="answer-rule"></span><span class="answer-rule"></span></li>
+      </ol>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 13 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 10</span>
+      <span class="part-title">Concepts: Writing the Requirements Down</span>
+      <span class="part-note">template_12.cpp &middot; C++20</span>
+    </div>
+    <p class="copy">In Part 6, <code class="k">Leaderboard</code>'s requirements were hidden in its code, and the error for <code class="k">Monster</code> showed up deep inside the template. A <strong>concept</strong> turns the requirements into code the compiler checks <em>where the template is used</em>. It works a lot like an abstract base class's list of pure virtuals, but nothing has to inherit from anything.</p>
+    <pre><code>template &lt;typename T&gt;
+concept Scorable = requires(const T&amp; item) {
+    { item.Name() } -&gt; convertible_to&lt;string&gt;;
+    { item.Score() } -&gt; totally_ordered;     // supports &lt; &gt; &lt;= &gt;= == !=
+};
+
+template &lt;Scorable T&gt;
+class Leaderboard { /* same as Part 6 */ };</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 28</span><span>does it satisfy <code>Scorable</code>? Y / N</span></div>
+      <table class="trace">
+        <tr><th style="width:4.2in;">Type</th><th style="width:0.5in;">Y / N</th><th>If N, why?</th></tr>
+        <tr><td><code class="k">struct Player { string Name() const; int Score() const; };</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">struct Monster { string Species() const; int HitPoints() const; };</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">int</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">struct Ghost { string Name() const; string Score() const; };</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">struct Bot { int Name() const; int Score() const; };</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">struct Drone { string Name() const; int Score(); };</code></td><td></td><td></td></tr>
+      </table>
+      <div class="prompt"><code class="k">Ghost</code>'s &ldquo;score&rdquo; is a <code class="k">string</code>. What does that tell you about what a concept can and can't check?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 29 &mdash; Write a Concept</span><span><code>Printable</code></span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Write a concept <code class="k">Printable</code> that is satisfied when <code class="k">cout &lt;&lt; item</code> compiles for a <code class="k">const T&amp; item</code>. Then write the first line of a function template <code class="k">PrintAll</code> that only accepts a <code class="k">vector</code> of <code class="k">Printable</code> things.</div>
+      <div class="taskbox" style="min-height:1.5in;"></div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 14 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 11</span>
+      <span class="part-title">Find the Error</span>
+      <span class="part-note">four traps</span>
+    </div>
+    <div class="twocol">
+      <div class="snippet">
+        <div class="snippet-head"><span>Case A</span><span>three files</span></div>
+        <pre><code>// Box.h  -- class declaration only
+// Box.cpp
+template &lt;typename T&gt;
+const T&amp; Box&lt;T&gt;::Get() const {
+    return value_;
+}
+// main.cpp
+#include "Box.h"
+Box&lt;int&gt; b(3);
+cout &lt;&lt; b.Get();</code></pre>
+        <div class="prompt">Each <code class="k">.cpp</code> compiles. What fails, and at which step (compile or link)? What's the fix?</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+      <div class="snippet">
+        <div class="snippet-head"><span>Case B</span><span>compiles? Y / N</span></div>
+        <pre><code>template &lt;typename T&gt;
+class Box {
+public:
+    const T&amp; Get() const;
+private:
+    T value_;
+};
+
+const T&amp; Box::Get() const {
+    return value_;
+}</code></pre>
+        <div class="prompt">Find <strong>two</strong> mistakes in the definition and fix them.</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+      <div class="snippet">
+        <div class="snippet-head"><span>Case C</span><span>compiles? Y / N</span></div>
+        <pre><code>int slots;
+cout &lt;&lt; "How many slots? ";
+cin &gt;&gt; slots;
+Inventory&lt;string, slots&gt; bag;</code></pre>
+        <div class="prompt">What's wrong? If the user really must choose the size, how should <code class="k">Inventory</code> be redesigned?</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+      <div class="snippet">
+        <div class="snippet-head"><span>Case D</span><span>compiles? Y / N</span></div>
+        <pre><code>Stack s;
+s.Push(5);
+s.Push(10);</code></pre>
+        <div class="prompt">Why can't the compiler work out the type here, when <code class="k">Box b{2.5};</code> worked fine?</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+    </div>
+
+    <div class="snippet" style="margin-top:0.1in;">
+      <div class="snippet-head"><span>Question 30 &mdash; Your Own Design</span><span>P01 card game</span></div>
+      <div class="prompt">Think about your P01 card game. Name <strong>one</strong> class that would be a good template (what is <code class="k">T</code>?) and <strong>one</strong> part that should stay a virtual hierarchy. Give a reason for each.</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 15 of 16</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Templates &mdash; Write It Once, Use It for Any Type</h1>
+        <div class="tagline">Review worksheet &mdash; function &amp; class templates, requirements, non-type parameters, function objects, specialization, CRTP, concepts &mdash; builds on Worksheet 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">cheat sheet</span>
+      <span class="part-title">Templates at a Glance</span>
+    </div>
+    <table class="cheat">
+      <tr><th>Concept</th><th>Typical syntax</th><th>Purpose</th></tr>
+      <tr><td>Function template</td><td><code class="k">template &lt;typename T&gt; T Larger(T a, T b)</code></td><td>One algorithm for many types</td></tr>
+      <tr><td>Explicit argument</td><td><code class="k">Larger&lt;double&gt;(4, 9.2)</code></td><td>Choose <code class="k">T</code> yourself when deduction can't</td></tr>
+      <tr><td>Class template</td><td><code class="k">template &lt;typename T&gt; class Box</code></td><td>One class design, many stored types</td></tr>
+      <tr><td>Out-of-class member</td><td><code class="k">template &lt;typename T&gt; const T&amp; Box&lt;T&gt;::Get() const</code></td><td>Define methods below the class, <strong>in the header</strong></td></tr>
+      <tr><td>CTAD</td><td><code class="k">Box b{2.5};</code></td><td>Compiler deduces <code class="k">Box&lt;double&gt;</code> from the constructor</td></tr>
+      <tr><td>Non-type parameter</td><td><code class="k">template &lt;typename T, size_t N&gt;</code></td><td>A compile-time value that becomes part of the type</td></tr>
+      <tr><td>Default argument</td><td><code class="k">template &lt;typename T = int&gt;</code> &middot; <code class="k">Counter&lt;&gt;</code></td><td>Use a type unless told otherwise</td></tr>
+      <tr><td>Function object</td><td><code class="k">bool operator()(int v) const</code></td><td>Behavior with its own data, passed as a template argument</td></tr>
+      <tr><td>Full specialization</td><td><code class="k">template &lt;&gt; class Formatter&lt;bool&gt;</code></td><td>Different code for one exact type</td></tr>
+      <tr><td>Partial specialization</td><td><code class="k">template &lt;typename T&gt; class Formatter&lt;vector&lt;T&gt;&gt;</code></td><td>Different code for a family of types (classes only)</td></tr>
+      <tr><td>CRTP mixin</td><td><code class="k">class Coin : public Comparable&lt;Coin&gt;</code></td><td>Reuse behavior across classes, no <code class="k">virtual</code></td></tr>
+      <tr><td>Concept</td><td><code class="k">template &lt;Scorable T&gt;</code></td><td>State the requirements; errors appear at the use site</td></tr>
+    </table>
+
+    <div class="part-head" style="margin-top:0.16in;">
+      <span class="part-tag">recap</span>
+      <span class="part-title">Static vs. Dynamic Polymorphism</span>
+      <span class="part-note">W06 meets W07</span>
+    </div>
+    <table class="cheat">
+      <tr><th></th><th>Templates (static)</th><th>Virtual functions (dynamic)</th></tr>
+      <tr><td>Decided</td><td>At compile time</td><td>At run time</td></tr>
+      <tr><td>Shared base class?</td><td>Not needed. The type just needs the right operations.</td><td>Required</td></tr>
+      <tr><td>Mixed types in one container?</td><td>No. A <code class="k">vector&lt;T&gt;</code> holds one <code class="k">T</code>.</td><td>Yes, through <code class="k">unique_ptr&lt;Base&gt;</code></td></tr>
+      <tr><td>Interface written as</td><td>A concept (or just the code, before C++20)</td><td>An abstract base class</td></tr>
+      <tr><td>Cost</td><td>More compiled code (one copy per type)</td><td>A small lookup on each virtual call</td></tr>
+    </table>
+
+    <div class="snippet" style="margin-top:0.12in;">
+      <div class="snippet-head"><span>Takeaway</span><span>one question to ask</span></div>
+      <p class="copy" style="margin:0;"><strong>Does the behavior stay the same while the type changes?</strong> Use a template. <strong>Does the behavior change depending on which object you have at run time?</strong> Use a virtual function. Often a good design uses both.</p>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>page 16 of 16</span></div>
+  </section>
+
+</div>

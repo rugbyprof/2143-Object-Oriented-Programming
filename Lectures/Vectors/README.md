@@ -3,8 +3,8 @@
 
 ```yaml
 is_due: false
-id: L04-Vectors
-name: L04-Vectors
+id: L06-Vectors
+name: L06-Vectors
 title: NO TITLE
 description: NO DESCRIPTION
 category: Lectures

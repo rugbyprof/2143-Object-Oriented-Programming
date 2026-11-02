@@ -1,6 +1,49 @@
+<details>
+<summary>⚙️ Metadata (auto-managed by <code>readmees</code> — edit values, not structure)</summary>
+
+```yaml
+is_due: false
+id: L05-Templates
+name: L05-Templates
+title: NO TITLE
+description: NO DESCRIPTION
+category: Lectures
+date_due:
+  month: '11'
+  day: '02'
+  year: 2026
+  hour: 9
+```
+
+</details>
+
 # C++ Templates: Writing Code That Works with Different Types
 
 Templates let you write a function or class once and use it with different types. You will begin with templates you already recognize, build your own, and then compare them with runtime polymorphism.
+
+## Example Code Files
+
+Each example compiles and runs on its own. Read them in order: each file adds one idea to the previous ones. Every file ends with a **Try it** block, so work through those as you go.
+
+```bash
+g++ -std=c++20 template_01.cpp -o template_01 && ./template_01
+```
+
+| File                               | Topic                                         | New ideas                                                     | README section |
+| ---------------------------------- | --------------------------------------------- | ------------------------------------------------------------- | -------------- |
+| [template_01.cpp](template_01.cpp) | From copy/paste to a function template        | `template <typename T>`, deduction, `Larger<double>(...)`     | 2, 3           |
+| [template_02.cpp](template_02.cpp) | References, several types, requirements       | `T&` vs `const T&`, `<typename A, typename B>`, `operator>`   | 3, 6           |
+| [template_03.cpp](template_03.cpp) | Your first class template                     | `Box<T>`, encapsulation, CTAD (`Box b{42};`)                  | 4              |
+| [template_04.cpp](template_04.cpp) | Two type parameters, out-of-class definitions | `Entry<Key, Value>`, `Entry<K, V>::Method()`, friend `<<`     | 5, 9           |
+| [template_05.cpp](template_05.cpp) | Non-type parameters and defaults              | `Inventory<T, Capacity>`, `Counter<T = int>`                  | 7, 8           |
+| [template_06.cpp](template_06.cpp) | Building a generic container                  | `Stack<T>`, composition, exceptions                           | 4, 12          |
+| [template_07.cpp](template_07.cpp) | An interface without inheritance              | Calling methods on `T`, "duck typing"                         | 6, 10          |
+| [template_08.cpp](template_08.cpp) | Passing behavior as a template parameter      | Functors, lambdas, `SortedList<T, Compare>`, Strategy         | Edge Cases     |
+| [template_09.cpp](template_09.cpp) | Specialization                                | Full and partial specialization, overload vs specialize       | Edge Cases     |
+| [template_10.cpp](template_10.cpp) | Templates and inheritance together            | `vector<unique_ptr<Base>>`, factory `Spawn<Derived>()`        | 10             |
+| [template_11.cpp](template_11.cpp) | Reusable behavior with base-class templates   | CRTP mixins, per-type `static` members                        | 10             |
+| [template_12.cpp](template_12.cpp) | Concepts                                      | `concept`, `requires`, `template <Scorable T>`, `auto` params | 11             |
+| [template_13.cpp](template_13.cpp) | Capstone: a generic battle roster             | Everything above in one design                                | 12             |
 
 ## 1. You Have Probably Already Used Templates
 
@@ -648,3 +691,69 @@ This is how the STL works: `sort`, `max`, and `max_element` all take comparators
 ### 3. Give the type its own `operator>`
 
 If the vector stands for something, like a `Scoreboard` or `Cart`, wrap it in a class and define `operator>` to compare sums. The original `Larger` then works unchanged. This ties back nicely to operator overloading, and the template just requires that `T` supports `>`.
+
+## Templates in Your Own Designs
+
+A template is a design decision, just like choosing inheritance or composition. Ask these questions when you are designing a class:
+
+| Ask yourself                                                                | If yes, consider...                        | Example                       |
+| --------------------------------------------------------------------------- | ------------------------------------------ | ----------------------------- |
+| Does the behavior stay the same while the **stored type** changes?          | A class template                           | `Stack<T>`, `History<T>`      |
+| Am I about to copy/paste a function and only change the types?              | A function template                        | `Larger<T>`, `Swap<T>`        |
+| Do I need to mix **different** types together and decide at **runtime**?    | An abstract base class + virtual functions | A party of Fighters and Mages |
+| Do several unrelated classes need the same ability (compare, count, print)? | A mixin base-class template (CRTP)         | `Comparable<Coin>`            |
+| Should the user choose a **strategy** (ordering, filtering, scoring)?       | A template parameter for the behavior      | `SortedList<T, Compare>`      |
+| Is the size or a setting fixed for the life of the program?                 | A non-type template parameter              | `Inventory<T, 10>`            |
+| Does my template expect certain methods on `T`?                             | Write those down as a **concept**          | `template <Combatant T>`      |
+
+Templates and inheritance are not rivals. A common, strong design uses both:
+
+```text
+Roster<Character>             <- template: same container logic for any type
+   holds unique_ptr<Character> <- inheritance: Fighter, Mage, Rogue decided at runtime
+   created by Spawn<Mage>()    <- template: one factory for every subclass
+```
+
+### Compile-time vs runtime polymorphism at a glance
+
+|                             | Templates (static)                              | Virtual functions (dynamic)                   |
+| --------------------------- | ----------------------------------------------- | --------------------------------------------- |
+| Decided                     | When you compile                                | While the program runs                        |
+| Shared base class needed?   | No, the type just needs the right operations    | Yes                                           |
+| Mix types in one container? | No, `vector<T>` holds one `T`                   | Yes, through `Base*` / `unique_ptr<Base>`     |
+| Interface written down as   | A concept (or a comment, before C++20)          | An abstract base class                        |
+| Where errors appear         | At compile time, sometimes deep in the template | Some only at runtime (bad cast, null pointer) |
+| Cost                        | More compiled code (one copy per type)          | A small cost per virtual call                 |
+
+## Common Template Errors and What They Mean
+
+| You see something like...                                              | It usually means...                                                        | Fix                                                               |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `no matching function ... deduced conflicting types for parameter 'T'` | The arguments disagree about what `T` is (`Larger(4, 9.2)`)                | Make the types match, or write `Larger<double>(4, 9.2)`           |
+| `invalid operands to binary expression` pointing **inside** a template | Your type doesn't support an operation the template uses (`>`, `<<`, `+=`) | Overload the operator for your type, or pick a different template |
+| `no member named 'Score' in 'Monster'`                                 | The template calls a method your class doesn't have                        | Add the method, or write an adapter class                         |
+| `undefined reference to Box<int>::Get()` (a **linker** error)          | The template's definitions are in a `.cpp` file the compiler couldn't see  | Move the definitions into the header                              |
+| `use of class template 'Box' requires template arguments`              | You wrote `Box::Get()` instead of `Box<T>::Get()` outside the class        | Repeat `template <typename T>` and write `Box<T>::`               |
+| `constraints not satisfied ... does not satisfy 'Scorable'`            | A concept rejected your type (good news: the error is on **your** line)    | Read the note that follows. It names the missing requirement.     |
+| `non-type template argument is not a constant expression`              | You passed a normal variable as a value parameter (`Inventory<int, n>`)    | Use a literal or a `constexpr` variable                           |
+
+**Reading tip:** template errors are long. Scroll to the **first** `error:` line, then look for the `note: in instantiation of ... requested here` line. That note points to the line in **your** code that caused the problem.
+
+## Vocabulary
+
+| Term                        | Meaning                                                                                    |
+| --------------------------- | ------------------------------------------------------------------------------------------ |
+| Template                    | A recipe the compiler uses to generate functions or classes                                |
+| Template parameter          | The placeholder in the recipe: `T` in `template <typename T>`                              |
+| Template argument           | What you fill in: `int` in `Box<int>`                                                      |
+| Instantiation               | The real function or class the compiler generates, such as `Box<int>`                      |
+| Argument deduction          | The compiler figures out `T` from the function arguments                                   |
+| CTAD                        | Class template argument deduction: `Box b{42};` becomes `Box<int>` (C++17)                 |
+| Non-type template parameter | A compile-time **value** parameter, like `size_t N`                                        |
+| Specialization              | A custom version of a template for one specific type argument                              |
+| Partial specialization      | A custom version for a family of types, like `Formatter<vector<T>>` (class templates only) |
+| Function object (functor)   | An object of a class that overloads `operator()`, so it can be called like a function      |
+| Concept                     | A named compile-time requirement on a type (C++20)                                         |
+| CRTP                        | A class that inherits from a template of itself: `class Coin : public Comparable<Coin>`    |
+| Static polymorphism         | Choosing behavior by type at compile time (templates)                                      |
+| Dynamic polymorphism        | Choosing behavior by object at runtime (virtual functions)                                 |
