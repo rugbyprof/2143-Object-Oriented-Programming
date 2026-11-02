@@ -1,0 +1,1147 @@
+<title>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.42in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .idbar {
+    display: flex;
+    gap: 1.4em;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.12in;
+    flex-wrap: wrap;
+  }
+  .idbar span { white-space: nowrap; }
+  .fill {
+    display: inline-block;
+    border-bottom: 1px solid var(--ink-soft);
+    min-width: 1.6in;
+    height: 1.05em;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.06in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  .copy {
+    font-size: 0.79rem;
+    line-height: 1.42;
+    margin: 0 0 0.08in;
+  }
+
+  ol.blanks {
+    margin: 0;
+    padding-left: 1.3em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.075in;
+  }
+  ol.blanks li {
+    font-size: 0.8rem;
+    line-height: 1.32;
+  }
+  .blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--ink);
+    min-width: 1.15in;
+    height: 1em;
+    vertical-align: -0.15em;
+  }
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .wordbank {
+    margin-top: 0.08in;
+    border: 1px dashed var(--rule);
+    border-radius: 4px;
+    padding: 0.06in 0.14in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.08in 0.3in;
+  }
+  .wordbank strong {
+    color: var(--ink);
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    margin-right: 0.1in;
+  }
+
+  .snippet {
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.11in;
+    margin-bottom: 0.045in;
+  }
+  .snippet-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.04in;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.6rem;
+    line-height: 1.2;
+    color: var(--ink);
+    white-space: pre;
+  }
+  .prompt {
+    font-size: 0.73rem;
+    line-height: 1.26;
+  }
+  .answer-rule {
+    display: block;
+    border-bottom: 1px solid var(--ink-soft);
+    height: 0.17in;
+    margin-top: 0.03in;
+  }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+  }
+  .twocol .span2 { grid-column: 1 / -1; }
+
+  ol.saq {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  ol.saq li {
+    font-size: 0.75rem;
+    line-height: 1.22;
+  }
+  ol.saq .answer-rule { margin-top: 0.02in; height: 0.11in; }
+  ol.saq .answer-rule + .answer-rule { margin-top: 0.03in; }
+
+  .diagram {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    line-height: 1.3;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.08in 0.14in;
+    margin: 0 0 0.08in;
+    white-space: pre;
+  }
+
+  .matchlist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  .matchlist li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.3in;
+    font-size: 0.78rem;
+  }
+  .matchlist code.k { font-size: 0.82em; }
+  .verdict-blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--ink);
+    min-width: 1.3in;
+    height: 1em;
+    flex: 0 0 auto;
+  }
+
+  .taskbox {
+    border: 1px dashed var(--rule);
+    border-radius: 5px;
+    background: var(--code-bg);
+    min-height: 1.9in;
+    padding: 0.08in 0.12in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.08in;
+  }
+  .taskbox .hint { font-style: italic; }
+
+  table.trace, table.cheat {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.74rem;
+    margin: 0 0 0.08in;
+  }
+  table.trace th, table.trace td,
+  table.cheat th, table.cheat td {
+    border: 1px solid var(--rule);
+    padding: 0.06in 0.09in;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.trace th, table.cheat th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .predictgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+    font-size: 0.75rem;
+  }
+  .predictgrid .obj { font-family: "JetBrains Mono", monospace; color: var(--accent); margin-bottom: 0.02in; }
+  .predictgrid dl { margin: 0; }
+  .predictgrid dt { display: inline-block; min-width: 0.6in; color: var(--ink-soft); }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+  pre, code, .diagram { font-variant-ligatures: none; }   /* show >= and != as typed */
+  pre, code, .diagram { font-variant-ligatures: none; }   /* show >= and != as typed */
+  .twocol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }   /* long code lines must not squeeze the other column */
+</style>
+
+<div class="wrap">
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="idbar">
+      <span>Name <span class="fill"></span></span>
+      <span>Date <span class="fill" style="min-width:1in;"></span></span>
+      <span>Section <span class="fill" style="min-width:0.7in;"></span></span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 1</span>
+      <span class="part-title">When Do Objects Die?</span>
+      <span class="part-note">builds on W05 construction order</span>
+    </div>
+    <p class="copy">Every object has a <strong>lifetime</strong>: it starts when its constructor finishes and ends when its destructor runs. <em>When</em> the destructor runs depends on how the object was created:</p>
+    <table class="cheat">
+      <tr><th>Kind of object</th><th>Created by</th><th>Destroyed when&hellip;</th></tr>
+      <tr><td><strong>Automatic</strong> (local)</td><td><code class="k">Tracer a("A");</code></td><td>its enclosing <code class="k">{ }</code> block ends, in <em>reverse</em> order of creation</td></tr>
+      <tr><td><strong>Parameter</strong> (by value)</td><td>calling <code class="k">Visit(b)</code></td><td>the function returns</td></tr>
+      <tr><td><strong>Dynamic</strong> (heap)</td><td><code class="k">new Tracer("C")</code></td><td>someone calls <code class="k">delete</code>. If nobody does, never (a leak).</td></tr>
+    </table>
+    <p class="copy">This class prints a line every time one of its objects is born, copied, or dies. A copy gets the original's name plus a <code class="k">'</code>.</p>
+    <pre><code>class Tracer {
+public:
+    Tracer(const string&amp; name)
+        : name_(name) {
+        cout &lt;&lt; "+" &lt;&lt; name_ &lt;&lt; " ";
+    }
+    Tracer(const Tracer&amp; other)
+        : name_(other.name_ + "'") {
+        cout &lt;&lt; "copy:" &lt;&lt; name_ &lt;&lt; " ";
+    }
+    ~Tracer() {
+        cout &lt;&lt; "-" &lt;&lt; name_ &lt;&lt; " ";
+    }
+private:
+    string name_;
+};
+
+void Visit(Tracer t) {
+    cout &lt;&lt; "visit ";
+}
+
+int main() {
+    Tracer a("A");
+    {
+        Tracer b("B");
+        Tracer* c = new Tracer("C");
+        Visit(b);
+    }
+    Tracer d("D");
+    cout &lt;&lt; "end ";
+}</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 1</span><span>predict the output</span></div>
+      <div class="prompt">Write the complete output, in order. (There are 11 items.)</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 2</span><span>short answer</span></div>
+      <ol class="blanks">
+        <li>Which object is created but <strong>never</strong> destroyed? <span class="blank" style="min-width:0.6in;"></span> Why? <span class="answer-rule"></span></li>
+        <li>The pointer <code class="k">c</code> itself <em>is</em> destroyed at the closing <code class="k">}</code>. Why doesn't that destroy the <code class="k">Tracer</code> it points to? <span class="answer-rule"></span></li>
+      </ol>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 1 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 2</span>
+      <span class="part-title">The Big Three</span>
+      <span class="part-note">finishes the W03/W04 preview</span>
+    </div>
+    <p class="copy">If you don't write these, the compiler does. Its versions copy or destroy each member in turn.</p>
+    <table class="cheat">
+      <tr><th>Special member</th><th>Signature</th><th>Runs when&hellip;</th></tr>
+      <tr><td>Destructor</td><td><code class="k">~IntStack()</code></td><td>an object's lifetime ends</td></tr>
+      <tr><td>Copy constructor</td><td><code class="k">IntStack(const IntStack&amp; other)</code></td><td>a <strong>new</strong> object is made as a copy</td></tr>
+      <tr><td>Copy assignment</td><td><code class="k">IntStack&amp; operator=(const IntStack&amp; other)</code></td><td>an <strong>existing</strong> object is overwritten</td></tr>
+    </table>
+    <p class="copy">For an <code class="k">int*</code> member, &ldquo;copy the member&rdquo; copies the <em>address</em>: the shallow copy from W04. Here is the W01 stack with only a constructor and destructor:</p>
+    <pre><code>class IntStack {
+public:
+    explicit IntStack(int capacity)
+        : data_(new int[capacity]), size_(0), capacity_(capacity) {
+    }
+    ~IntStack() {
+        delete[] data_;
+    }
+    // ... Push, Pop, Top ...
+private:
+    int* data_;
+    int size_;
+    int capacity_;
+};
+
+void Show(IntStack s);    void Peek(const IntStack&amp; s);    // Show copies, Peek borrows</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 3</span><span>which special member runs?</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">For each line, write <strong>ctor</strong>, <strong>copy ctor</strong>, <strong>copy assign</strong>, or <strong>none</strong>.</div>
+      <table class="trace">
+        <tr><th style="width:2.6in;">Line</th><th style="width:1.2in;">Runs</th><th style="width:2.6in;">Line</th><th>Runs</th></tr>
+        <tr><td><code class="k">IntStack a(10);</code></td><td></td><td><code class="k">Show(a);</code></td><td></td></tr>
+        <tr><td><code class="k">IntStack b = a;</code></td><td></td><td><code class="k">Peek(a);</code></td><td></td></tr>
+        <tr><td><code class="k">IntStack c(a);</code></td><td></td><td><code class="k">IntStack* p = &amp;a;</code></td><td></td></tr>
+        <tr><td><code class="k">c = b;</code></td><td></td><td><code class="k">a = a;</code></td><td></td></tr>
+      </table>
+      <div class="prompt"><code class="k">IntStack b = a;</code> has an <code class="k">=</code> in it. Why isn't it an assignment?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 4</span><span>what goes wrong?</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">With only the class above (no copy constructor, no <code class="k">operator=</code>), describe exactly what goes wrong at the end of <code class="k">main()</code> for each line.</div>
+      <table class="trace">
+        <tr><th style="width:1.5in;">Line</th><th>Problem</th></tr>
+        <tr><td><code class="k">IntStack b = a;</code></td><td style="height:0.36in;"></td></tr>
+        <tr><td><code class="k">c = b;</code> <span style="font-size:0.68rem;">(c had its own array)</span></td><td style="height:0.36in;"></td></tr>
+      </table>
+      <div class="prompt"><strong>The Rule of Three:</strong> if a class needs a hand-written <span class="blank"></span>, <span class="blank"></span>, or <span class="blank"></span>, it almost certainly needs all three.</div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 2 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 3</span>
+      <span class="part-title">Writing Copy Assignment</span>
+    </div>
+    <p class="copy">You wrote a deep-copy constructor in W04. Copy assignment is harder, because the object on the left <strong>already owns an array</strong>. Each version below has exactly one serious bug.</p>
+    <div class="twocol">
+      <div class="snippet">
+        <div class="snippet-head"><span>Question 5 &middot; Version 1</span><span>find the bug</span></div>
+        <pre><code>IntStack&amp; operator=(const IntStack&amp; other) {
+    data_ = other.data_;
+    size_ = other.size_;
+    capacity_ = other.capacity_;
+    return *this;
+}</code></pre>
+        <div class="prompt">Bug:</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+      <div class="snippet">
+        <div class="snippet-head"><span>Question 5 &middot; Version 2</span><span>find the bug</span></div>
+        <pre><code>IntStack&amp; operator=(const IntStack&amp; other) {
+    delete[] data_;
+    data_ = new int[other.capacity_];
+    for (int i = 0; i &lt; other.size_; ++i) {
+        data_[i] = other.data_[i];
+    }
+    size_ = other.size_;
+    capacity_ = other.capacity_;
+    return *this;
+}</code></pre>
+        <div class="prompt">Bug (hint: <code class="k">a = a;</code>):</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+    </div>
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 5 &middot; Version 3</span><span>find the bug</span></div>
+      <pre><code>void operator=(const IntStack&amp; other) {
+    if (this == &amp;other) {
+        return;
+    }
+    // ... correct deep copy ...
+}</code></pre>
+      <div class="prompt">This one copies correctly. Which line no longer compiles, <code class="k">a = b;</code> or <code class="k">a = b = c;</code>? <span class="blank" style="min-width:0.9in;"></span> Why?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 6 &mdash; Write It Correctly</span><span><code>operator=</code></span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Write a correct copy assignment operator for <code class="k">IntStack</code>. Handle self-assignment, don't leak the old array, deep copy, and return the right thing.</div>
+      <div class="taskbox" style="min-height:3.0in;"></div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 3 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 4</span>
+      <span class="part-title">Move Semantics</span>
+      <span class="part-note">C++11</span>
+    </div>
+    <p class="copy">Sometimes the object you're copying is about to be thrown away, like a temporary returned from a function. A deep copy is wasted work: you build a new array, copy every element, and then the original deletes its array a moment later. <strong>Moving</strong> lets the new object <em>steal</em> the old object's resources instead.</p>
+    <table class="cheat">
+      <tr><th>Expression</th><th>Kind</th><th>Meaning</th></tr>
+      <tr><td><code class="k">a</code>, <code class="k">names[0]</code>, <code class="k">*p</code></td><td><strong>lvalue</strong></td><td>has a name or address and will still be around. Must copy.</td></tr>
+      <tr><td><code class="k">IntStack(5)</code>, <code class="k">MakeStack()</code>, <code class="k">a + b</code></td><td><strong>rvalue</strong></td><td>a temporary that's about to disappear. Safe to steal from.</td></tr>
+      <tr><td><code class="k">std::move(a)</code></td><td>rvalue</td><td>&ldquo;I promise I'm done with <code class="k">a</code>. Treat it as a temporary.&rdquo; It's only a <em>cast</em>. It moves nothing by itself.</td></tr>
+    </table>
+    <p class="copy">A <strong>move constructor</strong> takes an <em>rvalue reference</em>, <code class="k">IntStack&amp;&amp;</code>. It copies the pointer, then leaves the source empty but still <strong>safe to destroy</strong>:</p>
+    <pre><code>IntStack(IntStack&amp;&amp; other) noexcept
+    : data_(other.data_), size_(other.size_), capacity_(other.capacity_) {
+    // ??? -- what must happen to other here?
+}</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 7 &mdash; Finish the Move Constructor</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Write the body.</div>
+      <div class="taskbox" style="min-height:0.9in;"></div>
+      <ol class="blanks">
+        <li>What happens when <code class="k">other</code>'s destructor runs if you leave the body empty? <span class="answer-rule"></span></li>
+        <li>A move does a fixed amount of work. A deep copy of an <code class="k">IntStack</code> holding <em>n</em> items does how much? <span class="blank" style="min-width:1.3in;"></span></li>
+        <li><code class="k">noexcept</code> promises the move can't throw. Why is a move that only copies pointers and integers safe to promise that, when a deep copy (which calls <code class="k">new</code>) isn't? <span class="answer-rule"></span></li>
+      </ol>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 8</span><span>true / false</span></div>
+      <ul class="matchlist">
+        <li><span><code class="k">std::move(a)</code> moves <code class="k">a</code>'s data somewhere.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+        <li><span>After <code class="k">IntStack d = std::move(b);</code>, you may still call <code class="k">b</code>'s destructor or assign <code class="k">b</code> a new value.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+        <li><span>After a move, reading <code class="k">b.Top()</code> is safe and returns the old top.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+        <li><span>Moving makes sense for an <code class="k">int</code> member, which is cheaper to move than to copy.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+        <li><span><code class="k">std::string</code> and <code class="k">std::vector</code> already have move constructors.</span> <span class="verdict-blank" style="min-width:0.6in;"></span></li>
+      </ul>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 4 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 4</span>
+      <span class="part-title">Move Semantics (continued)</span>
+    </div>
+    <p class="copy">Give <code class="k">Tracer</code> from Part 1 a move constructor. A moved-to object gets the name plus <code class="k">*</code>, and the moved-from object is renamed <code class="k">~</code>.</p>
+    <pre><code>Tracer(Tracer&amp;&amp; other) noexcept
+    : name_(other.name_ + "*") {
+    other.name_ = "~";
+    cout &lt;&lt; "move:" &lt;&lt; name_ &lt;&lt; " ";
+}
+
+Tracer MakeTracer() {
+    return Tracer("T");
+}
+
+vector&lt;Tracer&gt; v;
+v.reserve(4);        // room for 4, so the vector never has to grow</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 9</span><span>predict each line's output</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Run in order. Some lines print nothing but <code class="k">+</code>, and one prints <strong>three</strong> things.</div>
+      <table class="trace">
+        <tr><th style="width:2.6in;">Line</th><th>Output</th></tr>
+        <tr><td><code class="k">Tracer a("A");</code></td><td></td></tr>
+        <tr><td><code class="k">Tracer b = a;</code></td><td></td></tr>
+        <tr><td><code class="k">Tracer c = std::move(a);</code></td><td></td></tr>
+        <tr><td><code class="k">Tracer d = MakeTracer();</code></td><td></td></tr>
+        <tr><td><code class="k">v.push_back(b);</code></td><td></td></tr>
+        <tr><td><code class="k">v.push_back(std::move(b));</code></td><td></td></tr>
+        <tr><td><code class="k">v.push_back(Tracer("X"));</code></td><td></td></tr>
+        <tr><td><code class="k">v.emplace_back("Y");</code></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 10</span><span>short answer</span></div>
+      <ol class="blanks">
+        <li><code class="k">Tracer d = MakeTracer();</code> printed no copy and no move. What did the compiler do instead? <span class="answer-rule"></span></li>
+        <li>What's the difference between <code class="k">push_back(Tracer("X"))</code> and <code class="k">emplace_back("Y")</code>? <span class="answer-rule"></span></li>
+        <li>After line 3, what is <code class="k">a</code>'s name? <span class="blank" style="min-width:0.5in;"></span> Is <code class="k">a</code> still a valid object? <span class="blank" style="min-width:0.6in;"></span></li>
+      </ol>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 5 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 5</span>
+      <span class="part-title">The Rule of Five, and the Rule of Zero</span>
+    </div>
+    <table class="cheat">
+      <tr><th>Rule</th><th>You write</th><th>When</th></tr>
+      <tr><td><strong>Three</strong></td><td>destructor, copy constructor, copy assignment</td><td>Your class directly manages a resource (memory, a file, a lock)</td></tr>
+      <tr><td><strong>Five</strong></td><td>the three, plus move constructor and move assignment</td><td>Same, and you also want cheap moves</td></tr>
+      <tr><td><strong>Zero</strong></td><td><em>none of them</em></td><td>Your members already manage themselves (<code class="k">string</code>, <code class="k">vector</code>, <code class="k">unique_ptr</code>, ...). <strong>This should be most of your classes.</strong></td></tr>
+    </table>
+    <p class="copy"><strong>A trap:</strong> if you declare <em>any</em> of the destructor, copy constructor, or copy assignment, the compiler stops generating the move operations. A &ldquo;move&rdquo; then quietly becomes a copy. <code class="k">Spy</code> below prints <code class="k">copy</code> or <code class="k">move</code> when it is copied or moved.</p>
+    <pre><code>struct Plain {
+    Spy s;
+};
+struct WithDtor {
+    Spy s;
+    ~WithDtor() {
+    }
+};
+struct WithCopy {
+    Spy s;
+    WithCopy() = default;
+    WithCopy(const WithCopy&amp; other)
+        : s(other.s) {
+    }
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 11</span><span>copy or move?</span></div>
+      <ul class="matchlist">
+        <li><span><code class="k">Plain p1; Plain p2 = std::move(p1);</code> prints</span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+        <li><span><code class="k">WithDtor w1; WithDtor w2 = std::move(w1);</code> prints</span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+        <li><span><code class="k">WithCopy c1; WithCopy c2 = std::move(c1);</code> prints</span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+      </ul>
+      <div class="prompt" style="margin-top:0.05in;">That empty <code class="k">~WithDtor() {}</code> does nothing useful. What does it cost?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 12 &mdash; Rule of Zero</span><span>rewrite <code>IntStack</code></span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Rewrite <code class="k">IntStack</code> (constructor, <code class="k">Push</code>, <code class="k">Pop</code>, <code class="k">Top</code>, <code class="k">Size</code>) so it needs <strong>none</strong> of the five special members, and still copies and moves correctly.</div>
+      <div class="taskbox" style="min-height:1.55in;"></div>
+      <div class="prompt">Who now does the work your hand-written destructor, copy, and move used to do?</div>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 6 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 5</span>
+      <span class="part-title">The Rule of Five, and the Rule of Zero (continued)</span>
+    </div>
+    <p class="copy">Some things should never be copied: an open file, a network connection, a game window. Two copies would both try to close the same thing. Use <code class="k">= delete</code> to forbid the operation. (<code class="k">= default</code> asks for the compiler's version on purpose.)</p>
+    <pre><code>class FileHandle {
+public:
+    explicit FileHandle(const char* path)
+        : file_(fopen(path, "w")) {
+    }
+    ~FileHandle() {
+        if (file_ != nullptr) {
+            fclose(file_);
+        }
+    }
+    FileHandle(const FileHandle&amp;) = delete;
+    FileHandle&amp; operator=(const FileHandle&amp;) = delete;
+    bool IsOpen() const {
+        return file_ != nullptr;
+    }
+private:
+    FILE* file_;
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 13</span><span>compiles? Y / N</span></div>
+      <table class="trace">
+        <tr><th style="width:3.6in;">Code</th><th style="width:0.6in;">Y / N</th><th>Why?</th></tr>
+        <tr><td><code class="k">FileHandle log("game.log");</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">FileHandle copy = log;</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">void Save(FileHandle f);</code> &nbsp;then&nbsp; <code class="k">Save(log);</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">void Save(FileHandle&amp; f);</code> &nbsp;then&nbsp; <code class="k">Save(log);</code></td><td></td><td></td></tr>
+        <tr><td><code class="k">vector&lt;FileHandle&gt; logs;</code> &nbsp;then&nbsp; <code class="k">logs.push_back(log);</code></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 14</span><span>classify each class</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">Rule of <strong>Zero</strong>, <strong>Three/Five</strong>, or <strong>copying deleted</strong>? One word or number each.</div>
+      <ul class="matchlist">
+        <li><span><code class="k">Card</code> with an <code class="k">int value_</code></span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+        <li><span><code class="k">Hand</code> with a <code class="k">vector&lt;Card&gt; cards_</code></span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+        <li><span><code class="k">Party</code> with a <code class="k">vector&lt;unique_ptr&lt;Character&gt;&gt;</code> (copying a party makes no sense)</span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+        <li><span><code class="k">Matrix</code> with <code class="k">double* cells_ = new double[rows * cols]</code></span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+        <li><span><code class="k">Player</code> with a <code class="k">string name_</code> and a <code class="k">Hand hand_</code></span> <span class="verdict-blank" style="min-width:0.9in;"></span></li>
+      </ul>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 7 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 6</span>
+      <span class="part-title">RAII: Let the Destructor Clean Up</span>
+    </div>
+    <p class="copy"><strong>RAII</strong> (&ldquo;Resource Acquisition Is Initialization&rdquo;) is the most important C++ idiom: <em>tie every resource to an object's lifetime</em>. Acquire it in the constructor and release it in the destructor. Destructors of local objects always run when a scope ends, whether by reaching <code class="k">}</code>, by <code class="k">return</code>, or by an <strong>exception</strong>. So the resource is always released. <code class="k">FileHandle</code>, <code class="k">vector</code>, <code class="k">string</code>, and <code class="k">unique_ptr</code> are all RAII.</p>
+    <pre><code>void Risky(bool fail) {
+    int* scores = new int[100];
+    Tracer guard("guard");
+    if (fail) {
+        throw runtime_error("boom");
+    }
+    delete[] scores;
+    cout &lt;&lt; "done ";
+}
+
+int main() {
+    try {
+        Risky(false);
+        Risky(true);
+        cout &lt;&lt; "after ";
+    } catch (const exception&amp; e) {
+        cout &lt;&lt; "caught:" &lt;&lt; e.what() &lt;&lt; " ";
+    }
+}</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 15</span><span>exceptions and destructors</span></div>
+      <ol class="blanks">
+        <li>Write the output: <span class="answer-rule"></span></li>
+        <li>Did <code class="k">guard</code>'s destructor run when the exception was thrown? <span class="blank" style="min-width:0.5in;"></span> What leaked on the second call? <span class="blank" style="min-width:2in;"></span></li>
+        <li>Change <strong>one line</strong> so nothing can leak, with no <code class="k">delete</code> and no <code class="k">try</code>. Write the new line: <span class="answer-rule"></span></li>
+      </ol>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 16 &mdash; Write an RAII Class</span><span><code>LogScope</code></span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Write <code class="k">LogScope</code>. Its constructor takes a name and prints <code class="k">enter NAME</code>, and its destructor prints <code class="k">exit NAME</code>. Copying should be impossible.</div>
+      <div class="taskbox" style="min-height:1.3in;"></div>
+      <div class="twocol">
+        <pre style="margin:0;"><code>void Inner() {
+    LogScope s("inner");
+    throw runtime_error("fail");
+}
+void Outer() {
+    LogScope s("outer");
+    Inner();
+    cout &lt;&lt; "unreachable ";
+}</code></pre>
+        <div class="prompt"><code class="k">main</code> runs <code class="k">try { Outer(); } catch (...) { cout &lt;&lt; "caught"; }</code>. Output:<span class="answer-rule"></span><span class="answer-rule"></span></div>
+      </div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 8 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 7</span>
+      <span class="part-title">Smart Pointers</span>
+      <span class="part-note">builds on W06's <code>unique_ptr&lt;Character&gt;</code></span>
+    </div>
+    <p class="copy">Smart pointers are RAII for heap objects. Each one says <strong>who owns</strong> the object:</p>
+    <table class="cheat">
+      <tr><th>Type</th><th>Ownership</th><th>Copy?</th><th>Object deleted when&hellip;</th></tr>
+      <tr><td><code class="k">unique_ptr&lt;T&gt;</code></td><td>exactly one owner</td><td>No. Move only.</td><td>the owner is destroyed or reset</td></tr>
+      <tr><td><code class="k">shared_ptr&lt;T&gt;</code></td><td>shared by several owners, with a count</td><td>Yes. Each copy adds 1 to the count.</td><td>the <strong>last</strong> owner goes away (count reaches 0)</td></tr>
+      <tr><td><code class="k">weak_ptr&lt;T&gt;</code></td><td>not an owner; it only watches a <code class="k">shared_ptr</code></td><td>Yes</td><td>never by this pointer (it can check <code class="k">expired()</code>)</td></tr>
+    </table>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 17</span><span>predict the output</span></div>
+      <div class="twocol">
+        <pre style="margin:0;"><code>auto a = make_unique&lt;Tracer&gt;("U");
+auto b = std::move(a);
+cout &lt;&lt; (a == nullptr);           // (a)
+// auto c = b;                     // (b)
+
+auto s1 = make_shared&lt;Tracer&gt;("S");
+cout &lt;&lt; s1.use_count();           // (c)
+{
+    auto s2 = s1;
+    cout &lt;&lt; s1.use_count();       // (d)
+}
+cout &lt;&lt; s1.use_count();           // (e)
+weak_ptr&lt;Tracer&gt; w = s1;
+cout &lt;&lt; s1.use_count();           // (f)
+cout &lt;&lt; w.expired();              // (g)
+s1.reset();                        // (h)
+cout &lt;&lt; w.expired();              // (i)</code></pre>
+        <div class="predictgrid" style="grid-template-columns:1fr;align-content:start;">
+          <div><span class="obj">(a)</span> <span class="blank" style="min-width:1.4in;"></span></div>
+          <div><span class="obj">(b)</span> compiles? <span class="blank" style="min-width:0.9in;"></span></div>
+          <div><span class="obj">(c)</span> <span class="blank" style="min-width:1.4in;"></span></div>
+          <div><span class="obj">(d)</span> <span class="blank" style="min-width:1.4in;"></span></div>
+          <div><span class="obj">(e)</span> <span class="blank" style="min-width:1.4in;"></span></div>
+          <div><span class="obj">(f)</span> <span class="blank" style="min-width:1.4in;"></span></div>
+          <div><span class="obj">(g)</span> <span class="blank" style="min-width:1.4in;"></span></div>
+          <div><span class="obj">(h)</span> prints? <span class="blank" style="min-width:1.0in;"></span></div>
+          <div><span class="obj">(i)</span> <span class="blank" style="min-width:1.4in;"></span></div>
+        </div>
+      </div>
+      <div class="prompt" style="margin-top:0.04in;">(<code class="k">bool</code> prints as <code class="k">1</code>/<code class="k">0</code>.) When is the <code class="k">"U"</code> Tracer destroyed? <span class="blank" style="min-width:2.4in;"></span></div>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 18</span><span>the cycle</span></div>
+      <pre><code>class Team {                                   class Player {
+    vector&lt;shared_ptr&lt;Player&gt;&gt; roster_;            shared_ptr&lt;Team&gt; team_;
+    // ~Team() prints "~Team"                      // ~Player() prints "~Player"
+};                                             };
+
+{
+    auto mustangs = make_shared&lt;Team&gt;("Mustangs");
+    auto rhea = make_shared&lt;Player&gt;("Rhea");
+    mustangs-&gt;Add(rhea);       // roster_ holds rhea
+    rhea-&gt;Join(mustangs);      // team_ holds mustangs
+}
+cout &lt;&lt; "end";</code></pre>
+      <ol class="blanks">
+        <li>Just before the <code class="k">}</code>, what are <code class="k">mustangs.use_count()</code> and <code class="k">rhea.use_count()</code>? <span class="blank" style="min-width:1in;"></span></li>
+        <li>What prints? <span class="blank" style="min-width:2in;"></span> Why? <span class="answer-rule"></span></li>
+        <li>Change one member's type to fix it. Which one, and to what? <span class="answer-rule"></span></li>
+      </ol>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 9 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 8</span>
+      <span class="part-title">Ownership Is a Design Decision</span>
+      <span class="part-note">applies to P01</span>
+    </div>
+    <p class="copy">A function's signature tells the caller who will own the object afterward. Good code makes ownership obvious from the types alone. The default is: <strong>hold by value, and borrow by reference</strong>. Reach for a pointer only when you need what a pointer adds.</p>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 19</span><span>what does the signature promise?</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">Match each signature to a meaning (A&ndash;F).</div>
+      <div class="twocol">
+        <ul class="matchlist">
+          <li><span><code class="k">void Inspect(const Card&amp; c)</code></span> <span class="verdict-blank" style="min-width:0.4in;"></span></li>
+          <li><span><code class="k">void Discard(unique_ptr&lt;Card&gt; c)</code></span> <span class="verdict-blank" style="min-width:0.4in;"></span></li>
+          <li><span><code class="k">void Track(shared_ptr&lt;Card&gt; c)</code></span> <span class="verdict-blank" style="min-width:0.4in;"></span></li>
+          <li><span><code class="k">void MaybeShow(const Card* c)</code></span> <span class="verdict-blank" style="min-width:0.4in;"></span></li>
+          <li><span><code class="k">unique_ptr&lt;Card&gt; Draw()</code></span> <span class="verdict-blank" style="min-width:0.4in;"></span></li>
+          <li><span><code class="k">const Card&amp; TopCard() const</code></span> <span class="verdict-blank" style="min-width:0.4in;"></span></li>
+        </ul>
+        <div class="prompt" style="line-height:1.45;">
+          <strong>A.</strong> Takes ownership. The caller gives it up.<br>
+          <strong>B.</strong> Borrows, read-only, never null.<br>
+          <strong>C.</strong> Gives ownership to the caller.<br>
+          <strong>D.</strong> Becomes one of several owners.<br>
+          <strong>E.</strong> Borrows, read-only, and it might be null.<br>
+          <strong>F.</strong> Lets the caller look at something <em>this</em> object owns. Don't keep the reference longer than the object lives.
+        </div>
+      </div>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 20</span><span>pick the member type</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">Choose: <strong>value</strong>, <strong>reference</strong>, <strong><code>unique_ptr</code></strong>, <strong><code>shared_ptr</code></strong>, or <strong><code>weak_ptr</code></strong>.</div>
+      <ul class="matchlist">
+        <li><span>A <code class="k">Hand</code> holds its cards</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span><code class="k">main()</code> holds the one <code class="k">GameView</code> chosen at run time (Console or TUI)</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span>A <code class="k">ConsoleView</code> needs the game it displays, which <code class="k">main()</code> owns and which outlives the view</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span>Several sprites draw the same texture. Free it when the last sprite is gone.</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span>A <code class="k">Player</code> remembers its <code class="k">Team</code>, but the team owns the players</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span>A <code class="k">Party</code> holds Warriors and Wizards through their base class</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+      </ul>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 21</span><span>short answer</span></div>
+      <div class="prompt">Why is <code class="k">vector&lt;Card&gt;</code> a better choice for a <code class="k">Hand</code> than <code class="k">vector&lt;unique_ptr&lt;Card&gt;&gt;</code>, but <code class="k">vector&lt;unique_ptr&lt;Character&gt;&gt;</code> is the right choice for a <code class="k">Party</code>? (Hint: W06, slicing.)</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 10 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 9</span>
+      <span class="part-title">Find the Error</span>
+      <span class="part-note">all four compile</span>
+    </div>
+    <div class="twocol">
+      <div class="snippet">
+        <div class="snippet-head"><span>Case A</span><span>runs, but&hellip;</span></div>
+        <pre><code>const string&amp; Greeting() {
+    string message = "Hello";
+    return message;
+}
+
+cout &lt;&lt; Greeting();</code></pre>
+        <div class="prompt">What's wrong, and what's the simplest fix?</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+      <div class="snippet">
+        <div class="snippet-head"><span>Case B</span><span>runs, but&hellip;</span></div>
+        <pre><code>vector&lt;string&gt; names = {"Thorin"};
+string&amp; first = names[0];
+names.push_back("Rhea");
+names.push_back("Vex");
+cout &lt;&lt; first;</code></pre>
+        <div class="prompt">Why might <code class="k">first</code> no longer refer to a real string?</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+      <div class="snippet">
+        <div class="snippet-head"><span>Case C</span><span>crashes</span></div>
+        <pre><code>int* raw = new int(5);
+unique_ptr&lt;int&gt; p(raw);
+unique_ptr&lt;int&gt; q(raw);</code></pre>
+        <div class="prompt">What happens at the end of the scope? What habit prevents it?</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+      <div class="snippet">
+        <div class="snippet-head"><span>Case D</span><span>runs, but&hellip;</span></div>
+        <pre><code>string name = "Malakai";
+vector&lt;string&gt; party;
+party.push_back(std::move(name));
+cout &lt;&lt; "Welcome, " &lt;&lt; name;</code></pre>
+        <div class="prompt">What does it print, and is that guaranteed?</div>
+        <span class="answer-rule"></span>
+        <span class="answer-rule"></span>
+      </div>
+    </div>
+
+    <div class="snippet" style="margin-top:0.12in;">
+      <div class="snippet-head"><span>Takeaway</span><span>three rules</span></div>
+      <p class="copy" style="margin:0;"><strong>1.</strong> Every resource has exactly one clear owner, and that owner is an object whose destructor releases it. <strong>2.</strong> Prefer the Rule of Zero: build classes out of members that already manage themselves. <strong>3.</strong> A reference or raw pointer <em>borrows</em>. It must never outlive what it points to.</p>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 11 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Object Lifetime &amp; Ownership &mdash; Who Cleans Up?</h1>
+        <div class="tagline">Review worksheet &mdash; destructors, the Rule of Three / Five / Zero, move semantics, RAII, smart pointers, ownership &mdash; builds on Worksheets 03, 04 &amp; 06</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">cheat sheet</span>
+      <span class="part-title">Lifetime and Ownership at a Glance</span>
+    </div>
+    <table class="cheat">
+      <tr><th>Concept</th><th>Typical syntax</th><th>Purpose</th></tr>
+      <tr><td>Destructor</td><td><code class="k">~IntStack()</code></td><td>Release what the object owns. Runs automatically when its lifetime ends.</td></tr>
+      <tr><td>Copy constructor</td><td><code class="k">IntStack(const IntStack&amp; other)</code></td><td>Build a <strong>new</strong> object as an independent (deep) copy</td></tr>
+      <tr><td>Copy assignment</td><td><code class="k">IntStack&amp; operator=(const IntStack&amp; other)</code></td><td>Overwrite an <strong>existing</strong> object: check self-assignment, free the old data, copy, <code class="k">return *this</code></td></tr>
+      <tr><td>Move constructor</td><td><code class="k">IntStack(IntStack&amp;&amp; other) noexcept</code></td><td>Steal resources from a temporary, then leave the source empty but destructible</td></tr>
+      <tr><td>Move assignment</td><td><code class="k">IntStack&amp; operator=(IntStack&amp;&amp; other) noexcept</code></td><td>Free your own data, steal the other's, empty the source</td></tr>
+      <tr><td><code class="k">std::move</code></td><td><code class="k">v.push_back(std::move(name));</code></td><td>A cast that says &ldquo;I'm done with this, you may steal it.&rdquo; It doesn't move anything itself.</td></tr>
+      <tr><td><code class="k">= delete</code> / <code class="k">= default</code></td><td><code class="k">FileHandle(const FileHandle&amp;) = delete;</code></td><td>Forbid an operation, or ask for the compiler's version on purpose</td></tr>
+      <tr><td>Rule of Three / Five</td><td>&mdash;</td><td>Managing a raw resource yourself? Write all three (or five).</td></tr>
+      <tr><td>Rule of Zero</td><td><code class="k">vector&lt;int&gt; data_;</code></td><td>Let members manage themselves and write none. <strong>The default choice.</strong></td></tr>
+      <tr><td>RAII</td><td><code class="k">FileHandle f("x.txt");</code></td><td>Acquire in the constructor, release in the destructor. Safe even when an exception is thrown.</td></tr>
+      <tr><td><code class="k">unique_ptr</code></td><td><code class="k">auto p = make_unique&lt;Wizard&gt;("Merlin");</code></td><td>One owner, move-only. Deletes automatically.</td></tr>
+      <tr><td><code class="k">shared_ptr</code></td><td><code class="k">auto t = make_shared&lt;Texture&gt;("orc.png");</code></td><td>Several owners. Deleted when the count reaches 0.</td></tr>
+      <tr><td><code class="k">weak_ptr</code></td><td><code class="k">weak_ptr&lt;Team&gt; team_;</code></td><td>Watches without owning. Breaks <code class="k">shared_ptr</code> cycles.</td></tr>
+    </table>
+
+    <div class="part-head" style="margin-top:0.16in;">
+      <span class="part-tag">decision</span>
+      <span class="part-title">Which One Should This Member Be?</span>
+    </div>
+    <div class="diagram">Does this object OWN the thing?
+ ├─ no  ─► reference (always there)  ·  raw pointer (might be null)  ·  weak_ptr (shared thing that may die)
+ └─ yes ─► Must it be polymorphic, or does it outlive the scope that made it?
+            ├─ no  ─► a plain VALUE member: Card, string, vector&lt;Card&gt;    (Rule of Zero)
+            └─ yes ─► Is there exactly one owner?
+                       ├─ yes ─► unique_ptr&lt;T&gt;          (the usual answer)
+                       └─ no  ─► shared_ptr&lt;T&gt;          (only when ownership really is shared)</div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>page 12 of 12</span></div>
+  </section>
+
+</div>

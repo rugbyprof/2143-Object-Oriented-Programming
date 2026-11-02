@@ -1,0 +1,1087 @@
+<title>Designing with Objects &mdash; Relationships, Principles, Patterns</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.42in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.1in;
+    margin-bottom: 0.08in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+
+  .idbar {
+    display: flex;
+    gap: 1.4em;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-bottom: 0.12in;
+    flex-wrap: wrap;
+  }
+  .idbar span { white-space: nowrap; }
+  .fill {
+    display: inline-block;
+    border-bottom: 1px solid var(--ink-soft);
+    min-width: 1.6in;
+    height: 1.05em;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.06in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.04em 0.5em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  .copy {
+    font-size: 0.79rem;
+    line-height: 1.42;
+    margin: 0 0 0.08in;
+  }
+
+  ol.blanks {
+    margin: 0;
+    padding-left: 1.3em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.075in;
+  }
+  ol.blanks li {
+    font-size: 0.8rem;
+    line-height: 1.32;
+  }
+  .blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--ink);
+    min-width: 1.15in;
+    height: 1em;
+    vertical-align: -0.15em;
+  }
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+
+  .wordbank {
+    margin-top: 0.08in;
+    border: 1px dashed var(--rule);
+    border-radius: 4px;
+    padding: 0.06in 0.14in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.08in 0.3in;
+  }
+  .wordbank strong {
+    color: var(--ink);
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    margin-right: 0.1in;
+  }
+
+  .snippet {
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.11in;
+    margin-bottom: 0.045in;
+  }
+  .snippet-head {
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.04in;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.6rem;
+    line-height: 1.2;
+    color: var(--ink);
+    white-space: pre;
+  }
+  .prompt {
+    font-size: 0.73rem;
+    line-height: 1.26;
+  }
+  .answer-rule {
+    display: block;
+    border-bottom: 1px solid var(--ink-soft);
+    height: 0.17in;
+    margin-top: 0.03in;
+  }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+  }
+  .twocol .span2 { grid-column: 1 / -1; }
+
+  ol.saq {
+    margin: 0;
+    padding-left: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  ol.saq li {
+    font-size: 0.75rem;
+    line-height: 1.22;
+  }
+  ol.saq .answer-rule { margin-top: 0.02in; height: 0.11in; }
+  ol.saq .answer-rule + .answer-rule { margin-top: 0.03in; }
+
+  .diagram {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    line-height: 1.3;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.08in 0.14in;
+    margin: 0 0 0.08in;
+    white-space: pre;
+  }
+
+  .matchlist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.05in;
+  }
+  .matchlist li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.3in;
+    font-size: 0.78rem;
+  }
+  .matchlist code.k { font-size: 0.82em; }
+  .verdict-blank {
+    display: inline-block;
+    border-bottom: 1.3px solid var(--ink);
+    min-width: 1.3in;
+    height: 1em;
+    flex: 0 0 auto;
+  }
+
+  .taskbox {
+    border: 1px dashed var(--rule);
+    border-radius: 5px;
+    background: var(--code-bg);
+    min-height: 1.9in;
+    padding: 0.08in 0.12in;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.08in;
+  }
+  .taskbox .hint { font-style: italic; }
+
+  table.trace, table.cheat {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.74rem;
+    margin: 0 0 0.08in;
+  }
+  table.trace th, table.trace td,
+  table.cheat th, table.cheat td {
+    border: 1px solid var(--rule);
+    padding: 0.06in 0.09in;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.trace th, table.cheat th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .predictgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+    font-size: 0.75rem;
+  }
+  .predictgrid .obj { font-family: "JetBrains Mono", monospace; color: var(--accent); margin-bottom: 0.02in; }
+  .predictgrid dl { margin: 0; }
+  .predictgrid dt { display: inline-block; min-width: 0.6in; color: var(--ink-soft); }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.3in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+  pre, code, .diagram { font-variant-ligatures: none; }   /* show >= and != as typed */
+  pre, code, .diagram { font-variant-ligatures: none; }   /* show >= and != as typed */
+  .twocol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }   /* long code lines must not squeeze the other column */
+</style>
+
+<div class="wrap">
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="idbar">
+      <span>Name <span class="fill"></span></span>
+      <span>Date <span class="fill" style="min-width:1in;"></span></span>
+      <span>Section <span class="fill" style="min-width:0.7in;"></span></span>
+    </div>
+
+    <div class="part-head">
+      <span class="part-tag">part 1</span>
+      <span class="part-title">Four Ways Objects Relate</span>
+      <span class="part-note">builds on W05 and W08</span>
+    </div>
+    <p class="copy">Most design decisions come down to one question: <strong>how are these two classes related?</strong> There are four basic answers. The C++ you write is what shows which one you chose.</p>
+    <table class="cheat">
+      <tr><th>Relationship</th><th>Meaning</th><th>Lifetime</th><th>Typical C++</th><th>UML</th></tr>
+      <tr><td><strong>Dependency</strong> (uses)</td><td>A uses a B briefly</td><td>unrelated</td><td>B is a parameter or local: <code class="k">void Deal(Deck&amp; d)</code></td><td><code>A - - -&gt; B</code></td></tr>
+      <tr><td><strong>Association</strong> (knows)</td><td>A keeps track of a B it doesn't own</td><td>B outlives A</td><td>reference or pointer member: <code class="k">Game&amp; game_;</code></td><td><code>A ──&gt; B</code></td></tr>
+      <tr><td><strong>Aggregation</strong> (has, shared)</td><td>A groups Bs that also exist on their own</td><td>Bs can outlive A</td><td><code class="k">vector&lt;Player*&gt;</code>, <code class="k">vector&lt;shared_ptr&lt;B&gt;&gt;</code></td><td><code>A ◇── B</code></td></tr>
+      <tr><td><strong>Composition</strong> (owns)</td><td>A is made of Bs</td><td>Bs die with A</td><td>value member or <code class="k">unique_ptr</code>: <code class="k">vector&lt;Card&gt; cards_;</code></td><td><code>A ◆── B</code></td></tr>
+      <tr><td><strong>Inheritance</strong> (is-a)</td><td>A <em>is a kind of</em> B and can be used anywhere a B can</td><td>one object</td><td><code class="k">class Wizard : public Character</code></td><td><code>A ──▷ B</code></td></tr>
+    </table>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 1</span><span>name the relationship</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">Write <strong>dependency</strong>, <strong>association</strong>, <strong>aggregation</strong>, <strong>composition</strong>, or <strong>inheritance</strong>.</div>
+      <ul class="matchlist">
+        <li><span><code class="k">class Hand { vector&lt;Card&gt; cards_; };</code></span> <span class="verdict-blank"></span></li>
+        <li><span><code class="k">class ConsoleView { VideoPoker&amp; game_; };</code></span> <span class="verdict-blank"></span></li>
+        <li><span><code class="k">class Tournament { vector&lt;Player*&gt; entrants_; };</code> (players exist before and after)</span> <span class="verdict-blank"></span></li>
+        <li><span><code class="k">int Score(const Hand&amp; hand);</code> as a member of <code class="k">Scorer</code></span> <span class="verdict-blank"></span></li>
+        <li><span><code class="k">class Car { Engine engine_; Wheel wheels_[4]; };</code></span> <span class="verdict-blank"></span></li>
+        <li><span><code class="k">class Blackjack : public CardGame { ... };</code></span> <span class="verdict-blank"></span></li>
+        <li><span><code class="k">class Party { vector&lt;unique_ptr&lt;Character&gt;&gt; members_; };</code></span> <span class="verdict-blank"></span></li>
+        <li><span><code class="k">class Sprite { shared_ptr&lt;Texture&gt; texture_; };</code> (many sprites share one texture)</span> <span class="verdict-blank"></span></li>
+      </ul>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 2</span><span>short answer</span></div>
+      <div class="prompt">Aggregation and composition both say &ldquo;A has Bs.&rdquo; What single question tells you which one it is? Answer it for a university's <code class="k">Department</code> and its <code class="k">Professor</code>s.</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 1 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 2</span>
+      <span class="part-title">Is It Really &ldquo;Is-A&rdquo;?</span>
+      <span class="part-note">Liskov substitution</span>
+    </div>
+    <p class="copy">Public inheritance is a promise: <em>a derived object can be used anywhere a base object is expected, and the code using it won't notice.</em> This is the <strong>Liskov Substitution Principle</strong> (LSP), the &ldquo;L&rdquo; in SOLID. &ldquo;A square is a rectangle&rdquo; is true in geometry. Is it true in code?</p>
+    <pre><code>class Rectangle {
+public:
+    virtual ~Rectangle() = default;
+    virtual void SetWidth(int width) {
+        width_ = width;
+    }
+    virtual void SetHeight(int height) {
+        height_ = height;
+    }
+    int Area() const {
+        return width_ * height_;
+    }
+protected:
+    int width_ = 0;
+    int height_ = 0;
+};
+
+class Square : public Rectangle {          // keep it square!
+public:
+    void SetWidth(int width) override {
+        width_ = width;
+        height_ = width;
+    }
+    void SetHeight(int height) override {
+        width_ = height;
+        height_ = height;
+    }
+};
+
+void Stretch(Rectangle&amp; shape) {           // written by someone who only knows Rectangle
+    shape.SetWidth(5);
+    shape.SetHeight(4);
+    cout &lt;&lt; shape.Area() &lt;&lt; " ";
+}</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 3</span><span>predict and explain</span></div>
+      <div class="prompt"><code class="k">Rectangle r; Square s; Stretch(r); Stretch(s);</code> prints <span class="blank" style="min-width:1.2in;"></span>. Everything compiled and nothing crashed. So what exactly went wrong, and whose &ldquo;fault&rdquo; is it?</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 4</span><span>good is-a, or should it be has-a?</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">Write <strong>IS-A OK</strong> or <strong>USE HAS-A</strong>. For HAS-A, name the member it should be.</div>
+      <ul class="matchlist">
+        <li><span><code class="k">class Car : public Engine</code></span> <span class="verdict-blank" style="min-width:2in;"></span></li>
+        <li><span><code class="k">class Stack : public vector&lt;int&gt;</code> (W07 Q12)</span> <span class="verdict-blank" style="min-width:2in;"></span></li>
+        <li><span><code class="k">class Wizard : public Character</code></span> <span class="verdict-blank" style="min-width:2in;"></span></li>
+        <li><span><code class="k">class Hand : public Deck</code> (both hold cards)</span> <span class="verdict-blank" style="min-width:2in;"></span></li>
+        <li><span><code class="k">class ConsoleView : public GameView</code></span> <span class="verdict-blank" style="min-width:2in;"></span></li>
+        <li><span><code class="k">class Employee : public Person</code>, but people can be <em>re</em>-hired as contractors</span> <span class="verdict-blank" style="min-width:2in;"></span></li>
+      </ul>
+      <div class="prompt" style="margin-top:0.05in;">Rule of thumb: &ldquo;<strong>prefer</strong> <span class="blank"></span> <strong>over</strong> <span class="blank"></span>.&rdquo;</div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 2 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 3</span>
+      <span class="part-title">Coupling and Cohesion</span>
+    </div>
+    <p class="copy"><strong>Coupling</strong> is how much one class depends on the <em>insides</em> of another. Keep it <strong>low</strong>, so a change in one class doesn't break five others. <strong>Cohesion</strong> is how closely a class's methods belong together. Keep it <strong>high</strong>: one class, one job. Two guidelines help:</p>
+    <ul class="copy" style="margin:0 0 0.06in;padding-left:1.2em;">
+      <li><strong>Law of Demeter</strong> (&ldquo;only talk to your friends&rdquo;): call methods on your own members and parameters, not on objects <em>they</em> return. Chains like <code class="k">a.getB().getC().doIt()</code> are a warning sign.</li>
+      <li><strong>Tell, don't ask:</strong> instead of pulling data out of an object and deciding for it, tell the object what you want and let it decide.</li>
+    </ul>
+    <p class="copy">Here is part of a real FTXUI renderer for a game of War (trimmed slightly). The lambda builds the whole screen:</p>
+    <pre><code>auto renderer = Renderer(buttons, [&amp;] {
+    std::string status = "Ready to play";
+    if (game.isGameOver()) {
+        status = "Game Over: " + game.winnerName();
+    } else if (lastRound.winner == 1) {
+        status = game.getPlayer1().getName() + " wins the round!";
+    } else if (lastRound.winner == 2) {
+        status = game.getPlayer2().getName() + " wins the round!";
+    }
+    if (lastRound.wasWar) {
+        status += " (WAR!)";
+    }
+    auto player1Display = vbox({
+        text(game.getPlayer1().getName()) | bold | center,
+        text("Cards: " + std::to_string(game.getPlayer1().cardCount())) | center,
+        renderPlayedCard(lastRound.card1) | center,
+    }) | border;
+    auto player2Display = vbox({ /* ... the same, for player 2 ... */ }) | border;
+    return vbox({
+        text("WAR") | bold | center,
+        hbox({ player1Display, text("   VS   ") | center, player2Display }) | center,
+        text(status) | center,
+        buttons-&gt;Render() | center,
+    }) | border;
+});</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 5</span><span>read the coupling</span></div>
+      <ol class="blanks">
+        <li>List every class or struct from the <em>game</em> side that this view has to know about. <span class="answer-rule"></span></li>
+        <li>Copy one line that breaks the Law of Demeter: <span class="answer-rule"></span></li>
+        <li>The <code class="k">status</code> logic decides who won. Is that a <em>display</em> job or a <em>game rules</em> job? What goes wrong when you add a <code class="k">--text</code> console view (P01 style)? <span class="answer-rule"></span><span class="answer-rule"></span></li>
+        <li>Suppose <code class="k">Player</code> renames <code class="k">cardCount()</code> to <code class="k">size()</code>. How many places in this lambda break? <span class="blank" style="min-width:0.6in;"></span></li>
+      </ol>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 3 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 4</span>
+      <span class="part-title">SOLID: Four Principles You'll Use</span>
+    </div>
+    <table class="cheat">
+      <tr><th>Principle</th><th>In one sentence</th><th>You've seen it</th></tr>
+      <tr><td><strong>S</strong>ingle Responsibility</td><td>A class should have one reason to change.</td><td>P01: the game class has no I/O, and the views have no rules</td></tr>
+      <tr><td><strong>O</strong>pen / Closed</td><td>Open for extension, closed for modification: add features by adding code, not by editing working code.</td><td>W06: adding a <code class="k">Bard</code> class vs. editing every <code class="k">if (type == ...)</code> chain</td></tr>
+      <tr><td><strong>L</strong>iskov Substitution</td><td>Derived objects must work wherever the base is expected.</td><td>Part 2</td></tr>
+      <tr><td><strong>D</strong>ependency Inversion</td><td>Depend on abstractions (interfaces), not on concrete classes.</td><td>P01: <code class="k">main</code> holds a <code class="k">GameView</code>, not a <code class="k">TuiView</code></td></tr>
+    </table>
+    <p class="copy">(The &ldquo;I&rdquo;, Interface Segregation, says to keep interfaces small, so no class must implement methods it doesn't need.) Dependency inversion is what makes code <strong>testable</strong>. Compare:</p>
+    <div class="twocol" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);">
+      <div>
+      <pre style="margin:0;"><code>// BEFORE: welded to randomness
+class Combat {
+public:
+    int Damage(int bonus) {
+        return rand() % 6 + 1 + bonus;
+    }
+};</code></pre>
+      <pre style="margin:0.06in 0 0;"><code>// A "fake" for tests: replays a list
+class FixedDice : public Dice {
+public:
+    explicit FixedDice(vector&lt;int&gt; rolls)
+        : rolls_(rolls) {
+    }
+    int Roll() override {
+        int value = rolls_[next_ % rolls_.size()];
+        ++next_;
+        return value;
+    }
+private:
+    vector&lt;int&gt; rolls_;
+    size_t next_ = 0;
+};</code></pre>
+      </div>
+      <pre style="margin:0;"><code>// AFTER: depends on an abstraction
+class Dice {
+public:
+    virtual ~Dice() = default;
+    virtual int Roll() = 0;
+};
+
+class Combat {
+public:
+    explicit Combat(Dice&amp; dice)
+        : dice_(dice) {
+    }
+    int Damage(int bonus) {
+        return dice_.Roll() + bonus;
+    }
+private:
+    Dice&amp; dice_;
+};</code></pre>
+    </div>
+
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 6</span><span>predict and explain</span></div>
+      <div class="prompt"><code class="k">FixedDice dice({6, 1}); Combat combat(dice);</code> &nbsp;Then three calls to <code class="k">combat.Damage(2)</code> return <span class="blank" style="min-width:0.4in;"></span>, <span class="blank" style="min-width:0.4in;"></span>, <span class="blank" style="min-width:0.4in;"></span>.</div>
+      <ol class="blanks" style="margin-top:0.05in;">
+        <li>Write a test that checks a critical hit (a roll of 6, bonus 2) does 8 damage. Why couldn't you write it reliably for the BEFORE version? <span class="answer-rule"></span><span class="answer-rule"></span></li>
+        <li>Which part of your P01 starter code does the same job as <code class="k">FixedDice</code>? <span class="blank" style="min-width:2.2in;"></span></li>
+        <li><code class="k">Combat</code> stores <code class="k">Dice&amp;</code>. Using W08's vocabulary, what is that relationship, and who must outlive whom? <span class="answer-rule"></span></li>
+      </ol>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 4 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 5</span>
+      <span class="part-title">Pattern: Strategy</span>
+      <span class="part-note">swap an algorithm at run time</span>
+    </div>
+    <p class="copy">A <strong>design pattern</strong> is a named, proven solution to a design problem that keeps coming up. <strong>Strategy</strong> pulls a decision out into its own class hierarchy, so the object that uses it can switch strategies while running. W07's <code class="k">SortedList&lt;T, Compare&gt;</code> was the compile-time version. This one uses <code class="k">virtual</code>.</p>
+    <pre><code>class HitStrategy {
+public:
+    virtual ~HitStrategy() = default;
+    virtual bool ShouldHit(int total) const = 0;
+};
+class Cautious : public HitStrategy {      // hits below 12
+public:
+    bool ShouldHit(int total) const override {
+        return total &lt; 12;
+    }
+};
+class HouseRule : public HitStrategy { /* hits below 17 */ };
+class Reckless : public HitStrategy { /* hits below 20 */ };
+
+class Dealer {
+public:
+    explicit Dealer(unique_ptr&lt;HitStrategy&gt; strategy)
+        : strategy_(std::move(strategy)) {
+    }
+    void SetStrategy(unique_ptr&lt;HitStrategy&gt; strategy) {
+        strategy_ = std::move(strategy);
+    }
+    string Decide(int total) const {
+        return strategy_-&gt;ShouldHit(total) ? "hit" : "stand";
+    }
+private:
+    unique_ptr&lt;HitStrategy&gt; strategy_;
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 7</span><span>fill in the table</span></div>
+      <table class="trace">
+        <tr><th>Dealer's strategy</th><th>total 11</th><th>total 14</th><th>total 18</th></tr>
+        <tr><td><code class="k">HouseRule</code> (from the constructor)</td><td></td><td></td><td></td></tr>
+        <tr><td>after <code class="k">SetStrategy(make_unique&lt;Cautious&gt;())</code></td><td></td><td></td><td></td></tr>
+        <tr><td>after <code class="k">SetStrategy(make_unique&lt;Reckless&gt;())</code></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 8</span><span>strategy vs. subclassing</span></div>
+      <div class="prompt">Another design makes <code class="k">CautiousDealer</code>, <code class="k">HouseDealer</code>, and <code class="k">RecklessDealer</code> subclasses of <code class="k">Dealer</code>. Give two things the Strategy version can do that the subclass version can't (or can't do easily). <em>Hint:</em> the dealer gets nervous after losing three hands in a row. Also, what if betting style needs its own three variations too?</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 5 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 6</span>
+      <span class="part-title">Pattern: Factory</span>
+      <span class="part-note">create the right subclass from data</span>
+    </div>
+    <p class="copy">In W06's <code class="k">makeCharacter</code>, a <code class="k">switch</code> picked a subclass. Real programs pick from <em>data</em>: a save file, a config line, a menu choice. A <strong>factory</strong> keeps the &ldquo;which class do I <code class="k">new</code>?&rdquo; decision in <strong>one place</strong>, so the rest of the program only ever sees the base class.</p>
+    <pre><code>using Maker = function&lt;unique_ptr&lt;Character&gt;(const string&amp;)&gt;;
+
+unique_ptr&lt;Character&gt; MakeCharacter(const string&amp; kind, const string&amp; name) {
+    static const map&lt;string, Maker&gt; registry = {
+        {"warrior", [](const string&amp; n) {
+             return make_unique&lt;Warrior&gt;(n);
+         }},
+        {"wizard", [](const string&amp; n) {
+             return make_unique&lt;Wizard&gt;(n);
+         }},
+    };
+    auto found = registry.find(kind);
+    if (found == registry.end()) {
+        return nullptr;
+    }
+    return found-&gt;second(name);
+}
+
+// Loading a party from a save file:   wizard Merlin
+//                                     warrior Conan
+string kind;
+string name;
+while (save &gt;&gt; kind &gt;&gt; name) {
+    party.push_back(MakeCharacter(kind, name));
+}</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 9</span><span>short answer</span></div>
+      <ol class="blanks">
+        <li><code class="k">MakeCharacter("bard", "Jaskier")</code> returns <span class="blank" style="min-width:1in;"></span>. What happens if the loading loop pushes that into the party, and later the game calls <code class="k">member-&gt;Attack()</code>? Suggest a better choice. <span class="answer-rule"></span></li>
+        <li>To add a <code class="k">Bard</code>, list every place in the program that changes. Does the loading loop change? <span class="answer-rule"></span><span class="answer-rule"></span></li>
+        <li>Which SOLID principle does a factory protect, and why? <span class="answer-rule"></span></li>
+        <li>Why does the factory return <code class="k">unique_ptr&lt;Character&gt;</code> rather than <code class="k">Character</code> or <code class="k">Character*</code>? (Two reasons: one from W06, one from W08.) <span class="answer-rule"></span></li>
+      </ol>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 6 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 7</span>
+      <span class="part-title">Pattern: Observer</span>
+      <span class="part-note">&ldquo;tell me when something happens&rdquo;</span>
+    </div>
+    <p class="copy">The game knows when a score changes. A log file, a high-score banner, and an achievement tracker all care. If the game called each of them directly, it would be coupled to all of them. Instead, the <strong>subject</strong> keeps a list of <strong>listeners</strong> and calls each one when something happens. It never knows what they do.</p>
+    <div class="twocol">
+      <pre style="margin:0;"><code>class ScoreBoard {
+public:
+    using Listener = function&lt;void(const string&amp;, int)&gt;;
+    void Subscribe(Listener listener) {
+        listeners_.push_back(listener);
+    }
+    void Record(const string&amp; player, int points) {
+        totals_[player] += points;
+        for (const Listener&amp; listener : listeners_) {
+            listener(player, totals_[player]);
+        }
+    }
+private:
+    map&lt;string, int&gt; totals_;
+    vector&lt;Listener&gt; listeners_;
+};</code></pre>
+      <pre style="margin:0;"><code>ScoreBoard board;
+board.Subscribe([](const string&amp; who, int total) {
+    cout &lt;&lt; "[log] " &lt;&lt; who
+         &lt;&lt; "=" &lt;&lt; total &lt;&lt; " ";
+});
+int high = 0;
+board.Subscribe([&amp;high](const string&amp; who, int total) {
+    if (total &gt; high) {
+        high = total;
+        cout &lt;&lt; "[HIGH " &lt;&lt; who &lt;&lt; "] ";
+    }
+});
+board.Record("Rhea", 10);
+board.Record("Vex", 8);
+board.Record("Rhea", 5);
+board.Record("Vex", 9);</code></pre>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 10</span><span>predict the output</span></div>
+      <div class="prompt">Write everything printed, in order.</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 11</span><span>short answer</span></div>
+      <ol class="blanks">
+        <li>Add an achievement: print <code class="k">[100 CLUB]</code> the first time anyone reaches 100. How many lines of <code class="k">ScoreBoard</code> change? <span class="blank" style="min-width:0.5in;"></span> Write the <code class="k">Subscribe</code> call: <span class="taskbox" style="display:block;min-height:1.0in;margin-top:0.04in;"></span></li>
+        <li>The second listener captures <code class="k">high</code> <strong>by reference</strong>. Suppose that code were inside a function that returns, while <code class="k">board</code> lives on. What W08 bug happens at the next <code class="k">Record</code>? <span class="answer-rule"></span><span class="answer-rule"></span></li>
+        <li>FTXUI's <code class="k">Button("Deal", [&amp;] { ... })</code> takes a lambda to call later. Which pattern is that? <span class="blank" style="min-width:1.2in;"></span></li>
+      </ol>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 7 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 8</span>
+      <span class="part-title">Pattern: Facade</span>
+      <span class="part-note">one simple front door</span>
+    </div>
+    <p class="copy">A <strong>facade</strong> gives a complicated set of classes one simple interface. Callers talk to the facade only. Here it fixes Part 3's renderer: the game side offers a <code class="k">WarTable</code> that answers one question, &ldquo;what should the screen show right now?&rdquo; It answers with a plain <code class="k">TableView</code> struct, so the view never touches <code class="k">Game</code>, <code class="k">Player</code>, or <code class="k">RoundResult</code> again.</p>
+    <pre><code>struct SeatView {                     // plain data: everything a view needs, nothing more
+    string name;
+    int cardsLeft = 0;
+    string lastCard;
+};
+struct TableView {
+    SeatView left;
+    SeatView right;
+    string status;
+    bool gameOver = false;
+};
+
+class WarTable {                      // the facade
+public:
+    WarTable(const string&amp; leftName, const string&amp; rightName)
+        : game_(leftName, rightName) {
+    }
+    void PlayRound() {
+        if (!game_.isGameOver()) {
+            last_ = game_.playRound();
+        }
+    }
+    TableView View() const {
+        TableView view;
+        view.left = Seat(game_.getPlayer1(), last_.card1);
+        view.right = Seat(game_.getPlayer2(), last_.card2);
+        view.status = Status();
+        view.gameOver = game_.isGameOver();
+        return view;
+    }
+private:
+    static SeatView Seat(const Player&amp; player, const Card&amp; card);   // fills in one SeatView
+    string Status() const;                                         // Question 12
+    Game game_;                       // composition: the table owns the game
+    RoundResult last_;
+};</code></pre>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 12 &mdash; Move the Logic</span><span><code>WarTable::Status()</code></span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Write <code class="k">Status()</code> as an out-of-class definition. It produces the same text the renderer used to build. (Look back at Part 3.)</div>
+      <div class="taskbox" style="min-height:2.0in;"></div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 8 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 8</span>
+      <span class="part-title">Pattern: Facade (continued)</span>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 13 &mdash; Rewrite the Renderer</span><span>FTXUI or pseudocode</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Rewrite the renderer lambda using only <code class="k">table.View()</code>. Write a helper <code class="k">Element SeatBox(const SeatView&amp; seat)</code> so the two player boxes aren't copy-pasted. (Pseudocode for the FTXUI calls is fine.)</div>
+      <div class="taskbox" style="min-height:3.1in;"></div>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 14</span><span>before vs. after</span></div>
+      <table class="trace">
+        <tr><th style="width:2.6in;"></th><th>Before (Part 3)</th><th>After (facade)</th></tr>
+        <tr><td>Game-side types the view must know</td><td></td><td></td></tr>
+        <tr><td>Where the &ldquo;who won&rdquo; text is built</td><td></td><td></td></tr>
+        <tr><td>Work to add a <code class="k">--text</code> console view</td><td></td><td></td></tr>
+        <tr><td>Can you test the status text without a screen?</td><td></td><td></td></tr>
+      </table>
+      <div class="prompt">A facade <em>hides</em> complexity. It doesn't remove it. Where did the complexity go, and why is that a better place for it?</div>
+      <span class="answer-rule"></span>
+      <span class="answer-rule"></span>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 9 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 9</span>
+      <span class="part-title">Which Pattern Fits?</span>
+    </div>
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 15</span><span>match each problem to a pattern</span></div>
+      <div class="prompt" style="margin-bottom:0.05in;">Choose from: <strong>Strategy</strong>, <strong>Factory</strong>, <strong>Observer</strong>, <strong>Facade</strong>, <strong>Adapter</strong> (W07's <code class="k">RankedMonster</code>), <strong>RAII</strong> (W08).</div>
+      <ul class="matchlist">
+        <li><span>A chess AI that can play &ldquo;easy&rdquo;, &ldquo;normal&rdquo;, or &ldquo;hard&rdquo;, changeable mid-game</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span>A level file lists enemies by name (<code class="k">goblin</code>, <code class="k">troll</code>), and the game must build the right objects</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span>When the player's health changes, the health bar, the sound system, and the achievement tracker all need to react</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span>A third-party audio library needs 6 calls to play one sound. You want <code class="k">audio.Play("win")</code>.</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span>A library's <code class="k">Monster</code> has <code class="k">Species()</code>, but your code expects <code class="k">Name()</code></span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span>The terminal must be restored to normal even if the game throws</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+        <li><span>Shipping cost can be calculated by weight, by distance, or as a flat rate, chosen at checkout</span> <span class="verdict-blank" style="min-width:1in;"></span></li>
+      </ul>
+    </div>
+
+    <div class="part-head" style="margin-top:0.14in;">
+      <span class="part-tag">part 10</span>
+      <span class="part-title">Design Review</span>
+      <span class="part-note">put it all together</span>
+    </div>
+    <p class="copy">A student turns in this Blackjack design. It works. Review it the way a senior developer would.</p>
+    <pre><code>class BlackjackGame {
+public:
+    string playerCards[12];          // e.g. "10H"
+    int playerCount = 0;
+    string dealerCards[12];
+    int dealerCount = 0;
+    Card* deck = new Card[52];
+    string dealerStyle = "normal";   // "normal", "cautious", or "reckless"
+
+    void play() {
+        while (true) {
+            cout &lt;&lt; "Your cards: ";
+            for (int i = 0; i &lt; playerCount; ++i) {
+                cout &lt;&lt; playerCards[i] &lt;&lt; " ";
+            }
+            cout &lt;&lt; "\nHit or stand? ";
+            string choice;
+            cin &gt;&gt; choice;
+            // ... 80 more lines: dealing, scoring aces, dealer turn ...
+            if (dealerStyle == "cautious" &amp;&amp; dealerTotal() &lt; 12) { /* hit */ }
+            else if (dealerStyle == "normal" &amp;&amp; dealerTotal() &lt; 17) { /* hit */ }
+            else if (dealerStyle == "reckless" &amp;&amp; dealerTotal() &lt; 20) { /* hit */ }
+        }
+    }
+    int dealerTotal();
+    // no destructor
+};</code></pre>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 10 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">part 10</span>
+      <span class="part-title">Design Review (continued)</span>
+    </div>
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 16</span><span>find five problems</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">For each problem, name the principle, guideline, or worksheet it breaks (encapsulation, SRP, OCP, Rule of Three/Zero, composition, &hellip;).</div>
+      <table class="trace">
+        <tr><th style="width:0.3in;">#</th><th>Problem (quote the code)</th><th style="width:1.8in;">Breaks&hellip;</th></tr>
+        <tr><td>1</td><td style="height:0.36in;"></td><td></td></tr>
+        <tr><td>2</td><td style="height:0.36in;"></td><td></td></tr>
+        <tr><td>3</td><td style="height:0.36in;"></td><td></td></tr>
+        <tr><td>4</td><td style="height:0.36in;"></td><td></td></tr>
+        <tr><td>5</td><td style="height:0.36in;"></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="snippet">
+      <div class="snippet-head"><span>Question 17 &mdash; Redesign</span><span>class sketch</span></div>
+      <div class="prompt" style="margin-bottom:0.04in;">Sketch a better design. List each class, its <strong>one job</strong>, its key data members (with their types, so ownership is clear), and the relationships between classes (composition, association, inheritance). Draw UML boxes and arrows if you like.</div>
+      <div class="taskbox" style="min-height:3.6in;"></div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 11 of 12</span></div>
+  </section>
+
+  <!-- PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Designing with Objects &mdash; Relationships, Principles, Patterns</h1>
+        <div class="tagline">Review worksheet &mdash; composition vs. aggregation vs. inheritance, Liskov, coupling &amp; cohesion, SOLID, dependency injection, Strategy, Factory, Observer, Facade &mdash; builds on Worksheets 05&ndash;08</div>
+      </div>
+    </div>
+    <div class="part-head">
+      <span class="part-tag">cheat sheet</span>
+      <span class="part-title">Designing with Objects at a Glance</span>
+    </div>
+    <table class="cheat">
+      <tr><th>Idea</th><th>Ask yourself</th><th>C++ shape</th></tr>
+      <tr><td>Composition</td><td>Is it <em>part of</em> me, and does it die with me?</td><td>value member, <code class="k">unique_ptr</code> member</td></tr>
+      <tr><td>Association / aggregation</td><td>Do I just need to <em>know</em> about it?</td><td>reference, raw pointer, <code class="k">weak_ptr</code>, <code class="k">shared_ptr</code></td></tr>
+      <tr><td>Inheritance</td><td>Can I be used <em>everywhere</em> my base is, without surprises? (LSP)</td><td><code class="k">class D : public B</code> + <code class="k">virtual</code></td></tr>
+      <tr><td>Low coupling</td><td>Am I reaching through objects? (<code class="k">a.getB().getC()</code>)</td><td>tell, don't ask; pass plain data</td></tr>
+      <tr><td>High cohesion / SRP</td><td>Does this class have one reason to change?</td><td>split I/O from rules, rules from storage</td></tr>
+      <tr><td>Open / Closed</td><td>Can I add a variant without editing working code?</td><td>new subclass + factory, not another <code class="k">else if</code></td></tr>
+      <tr><td>Dependency inversion</td><td>Can I test this without the real screen, dice, or file?</td><td>take an interface (<code class="k">Dice&amp;</code>) in the constructor</td></tr>
+    </table>
+
+    <table class="cheat" style="margin-top:0.14in;">
+      <tr><th>Pattern</th><th>Problem it solves</th><th>Shape</th><th>Seen in</th></tr>
+      <tr><td><strong>Strategy</strong></td><td>Swap an algorithm, even at run time</td><td>object holds <code class="k">unique_ptr&lt;Strategy&gt;</code></td><td><code class="k">Dealer</code>, W07 <code class="k">SortedList</code></td></tr>
+      <tr><td><strong>Factory</strong></td><td>Build the right subclass from data, in one place</td><td><code class="k">unique_ptr&lt;Base&gt; Make(kind)</code></td><td><code class="k">MakeCharacter</code>, W07 <code class="k">Spawn&lt;T&gt;</code></td></tr>
+      <tr><td><strong>Observer</strong></td><td>Many objects react to an event without the source knowing them</td><td>list of callbacks / listeners</td><td><code class="k">ScoreBoard</code>, FTXUI buttons</td></tr>
+      <tr><td><strong>Facade</strong></td><td>One simple interface over a complicated subsystem</td><td>wrapper class returning plain data</td><td><code class="k">WarTable</code></td></tr>
+      <tr><td><strong>Adapter</strong></td><td>Make an existing class fit the interface you need</td><td>wrapper that translates calls</td><td>W07 <code class="k">RankedMonster</code></td></tr>
+      <tr><td><strong>RAII</strong></td><td>Never forget to release a resource</td><td>constructor acquires, destructor releases</td><td>W08 <code class="k">FileHandle</code>, <code class="k">unique_ptr</code></td></tr>
+    </table>
+
+    <div class="snippet" style="margin-top:0.12in;">
+      <div class="snippet-head"><span>Takeaway</span><span>the course in one line</span></div>
+      <p class="copy" style="margin:0;">The goal is never &ldquo;more classes&rdquo; or &ldquo;more inheritance.&rdquo; It's <strong>useful abstractions</strong>: each class has one clear job, a small interface, obvious ownership, and as little knowledge of other classes' insides as possible.</p>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>page 12 of 12</span></div>
+  </section>
+
+</div>
