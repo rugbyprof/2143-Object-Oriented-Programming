@@ -47,10 +47,10 @@ int main() {
     cout << LargerString("apple", "banana") << "\n";
 
     cout << "\n--- One template, many types ---\n";
-    cout << Larger(3, 7) << "\n";                          // T deduced as int
-    cout << Larger(2.5, 1.5) << "\n";                      // T deduced as double
-    cout << Larger(string("apple"), string("banana")) << "\n";  // T is string
-    cout << Larger('a', 'z') << "\n";                      // T is char
+    cout << Larger(3, 7) << "\n"; // T deduced as int
+    cout << Larger(2.5, 1.5) << "\n"; // T deduced as double
+    cout << Larger(string("apple"), string("banana")) << "\n"; // T is string
+    cout << Larger('a', 'z') << "\n"; // T is char
 
     // Deduction needs ONE consistent T. These disagree (int vs double):
     // cout << Larger(4, 9.2) << "\n";   // Error: conflicting types for T
