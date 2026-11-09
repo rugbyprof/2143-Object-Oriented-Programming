@@ -2,31 +2,57 @@
 <summary>⚙️ Metadata (auto-managed by <code>readmees</code> — edit values, not structure)</summary>
 
 ```yaml
-is_due: true
+is_due: false
 id: P03
 name: P03
-title: Args Parser
-description: Command-line argument parser for imgtool, with FTXUI error messages
+title: Image Tool — Filter Pipeline
+description: Inheritance, abstract classes, polymorphism; Strategy and Factory patterns; unique_ptr ownership
 category: Assignments
 date_due:
-  month: '11'
-  day: '23'
-  year: 2026
+  month: ''
+  day: ''
+  year: ''
   hour: 11
 ```
 
 </details>
 
 
-# P03 — Command-Line Args Parser
+# P03 — Image Tool, Part 2: The Filter Pipeline
 
 ## Overview
 
-In P02 you hard-coded two things: the input/output filenames came straight from `argv[1]` and `argv[2]`, and the only operation was grayscale. That works for a demo, but a real tool needs to accept options.
+In P02, `args.order` held a list of operations, and `main` could apply exactly one of them (grayscale) with a hard-coded `if`. Now every operation becomes a **class**, and a `Pipeline` runs them in order:
 
-Your job in P03 is to build the `Args` component that `imgtool` will eventually use. You are **not** doing any image processing here. You are building the configuration layer: read raw command-line tokens, validate them, and package the result into a clean object that the rest of the program can query.
+```text
+             ┌──────────────────────┐
+             │   Filter (abstract)  │   virtual void apply(Grid&) = 0;
+             └──────────┬───────────┘   virtual std::string name() const = 0;
+   ┌─────────┬──────────┼──────────┬─────────┬─────────┬─────────┐
+Grayscale Brighten    FlipH      FlipV    Rotate    Blur     Invert
+                                                             (you, from scratch)
 
-The next program plugs your `Args` parser directly into your P02 image code, so build it carefully.
+Pipeline ──owns──▶ vector<unique_ptr<Filter>>     FilterFactory: "rotate" ─▶ new Rotate
+```
+
+**OOP ideas in this program:** inheritance, abstract base classes, pure virtual functions, virtual destructors, run-time polymorphism, ownership with `std::unique_ptr`, lambdas and `std::function`, `std::map`.
+**Patterns:** **Strategy** (each filter is an interchangeable algorithm) and **Factory** (a name→constructor registry).
+
+---
+
+## What Carried Over From P02
+
+| P02 piece                    | In P03                                                                        |
+| ---------------------------- | ----------------------------------------------------------------------------- |
+| `Args`, `Operation`          | Provided (P02 solution). You add one flag: `--invert`. Your own P02 code is fine too. |
+| `Image`                      | Provided, **minus `toGrayscale()`** (see below)                               |
+| `Platform`, `Console`        | Provided, unchanged                                                           |
+
+### Why `toGrayscale` moved
+
+In P02, grayscale was a member function of `Image`. If every operation were an `Image` member, adding a filter would mean editing `Image` every time, and `Image` would grow forever. Instead, each operation becomes its own class, and `Image` goes back to just being an image.
+
+That's the **Open/Closed Principle**: the program is *open* for extension (write a new `Filter` class) but *closed* for modification (`Image`, `Pipeline`, and `main` never change when you do). By the end of P03, adding a filter touches exactly three places: the new class, one line in the factory, and one flag in `Args`.
 
 ---
 
@@ -34,333 +60,176 @@ The next program plugs your `Args` parser directly into your P02 image code, so 
 
 ```
 P03/
-├── README.md
-├── CMakeLists.txt            ← build recipe (provided, downloads FTXUI)
+├── CMakeLists.txt                 ← provided (compiles every src/*.cpp)
 ├── src/
-│   ├── main.cpp              ← do not modify (calls parse and print)
-│   ├── Args.h                ← class declaration (data members provided)
-│   └── Args.cpp              ← your implementation goes here
-├── docs/
-│   ├── factory.md            ← design discussion: constructor vs factory
-│   └── solution.cpp          ← reference solution (look after you attempt it)
-└── classroom_examples/
-    ├── args_ex1.cpp          ← annotated sketch of what NOT to do
-    └── args_ex2.cpp          ← annotated factory pattern skeleton
+│   ├── main.cpp                   ← provided, do not modify
+│   ├── Args.h / Args.cpp          ← provided; YOU add --invert / -i
+│   ├── Operation.h, Console.h     ← provided
+│   ├── Image.h / Image.cpp        ← provided
+│   ├── Platform.h / .cpp          ← provided
+│   ├── stb_impl.cpp               ← provided
+│   ├── Filter.h                   ← provided: the abstract base class
+│   ├── Pipeline.h                 ← provided
+│   ├── Pipeline.cpp               ← YOU
+│   ├── Brighten.h / .cpp          ← provided: complete example, read first
+│   ├── Blur.h / .cpp              ← provided: complete neighborhood example
+│   ├── Grayscale.h / .cpp         ← .h provided, YOU write .cpp
+│   ├── FlipH.h / .cpp             ← .h provided, YOU write .cpp
+│   ├── FlipV.h / .cpp             ← .h provided, YOU write .cpp
+│   ├── Rotate.h / .cpp            ← .h provided, YOU write .cpp
+│   ├── Invert.h / .cpp            ← YOU write BOTH, from scratch
+│   ├── FilterFactory.h            ← provided
+│   └── FilterFactory.cpp          ← YOU finish the registry
+├── include/, images/
 ```
+
+Build and run exactly as in P02 (`cmake -S . -B build`, `cmake --build build`, `./build/imgtool ...`). The starter builds and runs; it just applies nothing yet.
 
 ---
 
-## Starter Code
-
-`src/main.cpp` is given and should not be modified. It builds as soon as you start, and it does something useful once `Args.cpp` is filled in.
+## Part 1 — `Filter` (read `Filter.h`)
 
 ```cpp
-#include "Args.h"
-
-int main(int argc, char* argv[]) {
-    Args args = Args::parse(argc, argv);
-    args.print();
-    return 0;
-}
+class Filter {
+public:
+    virtual void apply(Grid& pixels) = 0;    // change the grid in place
+    virtual std::string name() const = 0;    // "grayscale", "brighten(50)", ...
+    virtual ~Filter() = default;
+};
 ```
 
-`src/Args.h` gives you the class skeleton with all data members defined. Fill in the implementation in `src/Args.cpp`. It already includes the FTXUI headers, so you can bring over your `printLine` helper from P02.
+- `= 0` makes these **pure virtual**: `Filter` is abstract, so you can't create a plain `Filter`, only derived classes that implement both functions.
+- `Grid` is `std::vector<std::vector<Pixel>>`, indexed `pixels[row][col]`.
+- The **virtual destructor** matters: the pipeline deletes filters through `Filter` pointers. Without `virtual`, deleting a `Rotate` through a `Filter*` runs only `~Filter()`, which is undefined behavior.
+- Write `override` on every function you implement. If you misspell `apply` or get a parameter wrong, `override` turns a silent bug into a compile error.
 
 ---
 
-## Build & Run
-
-This project builds with **CMake**, exactly like P02. If your P02 builds, this will too. If not, go back to P01's [SETUP.md](../P01/SETUP.md) and [CMake_Basics.md](../P01/CMake_Basics.md).
-
-Run these from the `P03/` folder:
-
-```bash
-# 1) Configure (once, or after editing CMakeLists.txt)
-cmake -S . -B build              # macOS / Linux
-cmake -S . -B build -G Ninja     # Windows (MSYS2)
-
-# 2) Build (every time you change a .cpp or .h)
-cmake --build build
-
-# 3) Run with valid input
-./build/imgtool in.png out.png --grayscale --brighten 20
-
-# Run with an invalid option to test your error handling
-./build/imgtool in.png out.png --graycale
-```
-
-On Windows, run `.\build\imgtool.exe` instead of `./build/imgtool`.
-
-This time there are **two** `.cpp` files. `CMakeLists.txt` compiles both and links them into one program:
-
-```cmake
-add_executable(imgtool src/main.cpp src/Args.cpp)
-```
-
-The files named on the command line (`in.png`, `out.png`) don't have to exist. P03 only checks that the names *look* like image files.
-
----
-
-## Program Usage Requirements
-
-Your tool will be called like this:
-
-```bash
-./build/imgtool <input_image> <output_image> [options]
-```
-
-The first two positional arguments are required:
-
-- `input_image` must end in a recognized image extension: `.png`, `.jpg`, `.jpeg`, `.bmp`, `.ppm`
-- `output_image` has the same extension requirement
-
-Everything after that is optional flags and options.
-
----
-
-## Required Options
-
-### Flags (no value required)
-
-| Long form     | Short form | Description          |
-| ------------- | ---------- | -------------------- |
-| `--grayscale` | `-g`       | Convert to grayscale |
-| `--blur`      | `-l`       | Apply blur filter    |
-| `--flipH`     | `-h`       | Flip horizontally    |
-| `--flipV`     | `-v`       | Flip vertically      |
-
-> Note: `--blur` uses `-l` (not `-b`). Yes, it's a weird letter. Life is weird.
-
-### Options with values
-
-| Long form      | Short form | Value   | Constraint            |
-| -------------- | ---------- | ------- | --------------------- |
-| `--brighten N` | `-b N`     | integer | N ∈ [-255, 255]       |
-| `--rotate N`   | `-r N`     | integer | N ∈ {0, 90, 180, 270} |
-
----
-
-## Accepted Token Formats
-
-Your parser must accept both of these styles:
-
-```bash
---brighten 20        # value as the next token
---brighten=20        # value joined with =
-```
-
-Both must work for `--brighten` and `--rotate`. Short forms take a space:
-
-```bash
--b 20
--r 90
-```
-
-**Negative values are legal.** `--brighten -20` must work, even though `-20` starts with a dash. When you check whether the next token "looks like another option," a dash followed by a digit is a number, not an option.
-
-### Extra Credit: grouped short flags
-
-`-glhv` should behave like `-g -l -h -v`. Only valid when all grouped characters are flags (no values).
-
----
-
-## Error Rules
-
-If anything is wrong, your parser must:
-
-1. Stop parsing immediately
-2. Print a helpful, **colored** error message to `std::cerr` using FTXUI (see [Error Output](#error-output-ftxui))
-3. Print a usage line
-4. Exit with a non-zero status
-
-### Cases you must handle
-
-**Missing required positional args**
-
-```bash
-./build/imgtool in.png
-# Error: output file is required
-```
-
-**Unknown option**
-
-```bash
-./build/imgtool in.png out.png --graycale
-# Error: unknown option '--graycale'
-```
-
-**Missing option value**
-
-```bash
-./build/imgtool in.png out.png --brighten
-# Error: '--brighten' requires an integer value
-```
-
-**Value looks like another option**
-
-```bash
-./build/imgtool in.png out.png --brighten --blur
-# Error: '--brighten' expected a value but got option '--blur'
-```
-
-**Invalid integer format**
-
-```bash
-./build/imgtool in.png out.png --brighten twenty
-# Error: invalid integer for '--brighten': 'twenty'
-```
-
-**Out of range**
-
-```bash
-./build/imgtool in.png out.png --brighten 999
-# Error: '--brighten' must be in [-255, 255]
-```
-
-**Invalid rotate value**
-
-```bash
-./build/imgtool in.png out.png --rotate 45
-# Error: '--rotate' must be one of {0, 90, 180, 270}
-```
-
-Your wording doesn't have to match exactly, but each message must say **what** was wrong and **which** option or file caused it.
-
----
-
-## Whitespace and Quoting
-
-Your program receives arguments already split by the shell.
-
-- `--brighten 20` → two tokens, always, regardless of spacing in the shell
-- `--brighten=20` → one token; your parser splits it on `=`
-- Filenames with spaces must be quoted by the user (`"my photo.png"`). The shell hands you the whole name as one token, so you don't need to do anything special.
-
----
-
-## Output Requirements
-
-### Success output
-
-If parsing succeeds, `print()` writes plain text to `std::cout`:
-
-```
-INPUT  : in.png
-OUTPUT : out.png
-FLAGS  : grayscale blur flipH
-PARAMS : brighten=20 rotate=90
-```
-
-Only print flags and params that were actually set. If no flags were given, `FLAGS  :` prints with nothing after the colon. Keep this output plain (no color) so it can be checked exactly.
-
-### Error output (FTXUI)
-
-If parsing fails, print two lines to `std::cerr`, colored with FTXUI exactly like the P02 messages:
-
-```
-Error: <message>
-Usage: ./imgtool <input_image> <output_image> [options]
-```
-
-Use the `printLine` helper from P02 (the second argument sends it to `std::cerr`). For example, with `Error:` in red and the usage text in blue:
+## Part 2 — `Pipeline` (implement `Pipeline.cpp`)
 
 ```cpp
-[[noreturn]] void error(const std::string& msg) {
-    printLine(hbox({
-        text("Error: ") | color(Color::Red) | bold,
-        text(msg),
-    }), std::cerr);
-    printLine(hbox({
-        text("Usage: ") | color(Color::Red),
-        text("./imgtool <input_image> <output_image> [options]") | color(Color::Blue),
-    }), std::cerr);
-    std::exit(1);
-}
+void add(std::unique_ptr<Filter> f);   // take ownership; ignore nullptr
+void run(Grid& pixels) const;          // apply every filter, in order
+void printSteps() const;               // FILTERS : rotate(90) -> grayscale    or    FILTERS : (none)
+int  size() const;
 ```
 
-`[[noreturn]]` tells the compiler this function never returns (it always calls `std::exit`). `std::exit` needs `#include <cstdlib>`.
-
----
-
-## Design Requirements
-
-### A) An `Args` type
-
-Your `Args` must store:
-
-- `std::string input, output`: positional args
-- `bool grayscale, blur, flipH, flipV`: flags
-- `bool use_brighten; int brighten`: valued option + presence flag
-- `bool use_rotate; int rotate`: valued option + presence flag
-
-### B) A parsing method
-
-You must provide **one** of these interfaces:
-
-**Option 1 (recommended): static factory method**
+### Ownership (this is W08 in practice)
 
 ```cpp
-static Args parse(int argc, char* argv[]);
+std::vector<std::unique_ptr<Filter>> filters_;
 ```
 
-**Option 2: parsing constructor**
+- **Why pointers?** The vector holds *different* types. `vector<Filter>` can't: `Filter` is abstract, and a `Rotate` stored in a `Filter`-sized slot would be **sliced** down to just its `Filter` part. A pointer to the base class can point at any derived object, and the virtual call runs the right `apply()`.
+- **Why `unique_ptr`?** With raw `Filter*`, `Pipeline` would need a destructor that `delete`s every filter. It would also need the rule of three, because copying a `Pipeline` would copy the pointers and both copies would delete the same filters. `unique_ptr` deletes automatically and **can't be copied**, so the compiler rules that bug out. `Pipeline` has no destructor at all.
+- `unique_ptr` can only be **moved**: `filters_.push_back(std::move(f));`
+- Loop with `for (const auto& f : filters_)`. Without the `&`, the loop would try to copy each `unique_ptr`, which won't compile.
+
+---
+
+## Part 3 — Four Filters
+
+**Read `Brighten.cpp` first.** Every per-pixel filter has its shape. Read `Blur.cpp` to see why neighborhood filters work from a copy.
+
+**Grayscale:** move your P02 `toGrayscale` loop here: `gray = 0.299*r + 0.587*g + 0.114*b`.
+
+**FlipH:** in each row, swap `row[col]` with `row[width-1-col]`, for `col < width/2` only. Going past the middle swaps everything back.
+
+**FlipV:** swap `pixels[row]` with `pixels[height-1-row]`, for `row < height/2`. `std::swap` on two whole rows is one call.
+
+**Rotate:** clockwise. The constructor throws `std::invalid_argument` unless degrees is 0, 90, 180, or 270. `Args` already checks, but a class should protect its own rules.
+
+| Degrees | Result size      | Mapping (`old` is `pixels`, H × W)                  |
+| ------- | ---------------- | --------------------------------------------------- |
+| 0       | unchanged        | nothing to do                                       |
+| 90      | **W rows × H cols** | `result[col][H-1-row] = old[row][col]`           |
+| 180     | unchanged        | `result[H-1-row][W-1-col] = old[row][col]`          |
+| 270     | **W rows × H cols** | `result[W-1-col][row] = old[row][col]`           |
+
+Build `Grid result(rows, std::vector<Pixel>(cols));`, fill it, then `pixels = std::move(result);`. After a 90° turn the image's width and height swap. That's why P02 made `Image::width()` computed instead of stored.
+
+### Check yourself with identities
+
+These must produce **byte-identical** files (`cmp a.png b.png` prints nothing):
+
+```bash
+./build/imgtool images/Hulda.png a.png
+./build/imgtool images/Hulda.png b.png -r 90 -r 90 -r 90 -r 90    # same as a
+./build/imgtool images/Hulda.png c.png -h -h                      # same as a
+./build/imgtool images/Hulda.png d.png -r 180
+./build/imgtool images/Hulda.png e.png -h -v                      # same as d
+./build/imgtool images/Hulda.png f.png -r 270
+./build/imgtool images/Hulda.png g.png -r 90 -r 180               # same as f
+```
+
+---
+
+## Part 4 — `Invert`, From Scratch
+
+Write `Invert.h` and `Invert.cpp` yourself: a photographic negative, where every channel `c` becomes `255 - c`. `name()` returns `"invert"`. Then wire it in:
+
+1. **Args:** `--invert` / `-i` pushes `{"invert", 0}` onto `args.order` (one `else if` in `Args.cpp`).
+2. **Factory:** one line in the registry (Part 5).
+
+`main.cpp`, `Pipeline`, and `Image` don't change. If you find yourself editing them, stop: that's the Open/Closed Principle telling you something's off.
+
+`-i -i` must give back the original image exactly.
+
+---
+
+## Part 5 — `FilterFactory` (finish `FilterFactory.cpp`)
+
+`main.cpp` builds the pipeline without naming a single filter class:
 
 ```cpp
-Args(int argc, char* argv[]);
+for (const Operation& op : args.order)
+    pipeline.add(FilterFactory::create(op));
 ```
 
-You choose. Be prepared to justify your choice. See [docs/factory.md](./docs/factory.md) for the full design discussion.
-
-> The provided `main.cpp` calls `Args::parse`. If you pick Option 2, you may change that one line of `main.cpp` to `Args args(argc, argv);`.
-
----
-
-## Implementation Hints
-
-Helper functions that will make your life easier:
+The factory is a **registry**: a `std::map` from a name to a **Creator**, a small function that builds that filter:
 
 ```cpp
-// Returns true if the filename ends in a known image extension.
-bool isImageFile(const std::string& filename);
+using Creator = std::function<std::unique_ptr<Filter>(const Operation&)>;
 
-// Splits "--brighten=20" into ("--brighten", "20").
-// Returns ("token", "") when there is no '='.
-std::pair<std::string, std::string> splitEq(const std::string& token);
-
-// Returns true if s begins with prefix.
-bool startsWith(const std::string& s, const std::string& prefix);
-
-// Returns true for "--blur" or "-g", false for "-20" (a negative number).
-bool looksLikeOption(const std::string& s);
+static const std::map<std::string, Creator> table = {
+    {"blur",     [](const Operation&)    { return std::make_unique<Blur>(); }},
+    {"brighten", [](const Operation& op) { return std::make_unique<Brighten>(op.value); }},
+    // TODO: grayscale, flipH, flipV, rotate, invert
+};
 ```
 
-For converting strings to integers, use `std::stoi`, wrapped in a try/catch. It throws `std::invalid_argument` for non-numeric input and `std::out_of_range` for overflow.
+- Each Creator is a **lambda**, like the ones you passed to FTXUI in P01.
+- `std::function` can hold any callable with that signature.
+- `make_unique<Blur>()` returns a `unique_ptr<Blur>`, which converts to `unique_ptr<Filter>` automatically. That's the derived-to-base conversion, applied to smart pointers.
+- `static` inside a function means the table is built once, the first time `registry()` runs.
 
-You may **not** use external CLI parsing libraries (no `getopt`, no `cxxopts`, no Boost.ProgramOptions).
+Implement `create`: find `op.name` in the table, throw `std::invalid_argument("no filter named '...'")` if it isn't there, otherwise call the Creator: `return it->second(op);`.
 
----
-
-## Submission Requirements
-
-Submit:
-
-- `src/Args.h`
-- `src/Args.cpp`
-- `src/main.cpp` (unchanged from starter is fine)
-- A short section in your `README.md` describing:
-  - how to build
-  - all supported options
-  - 5 example commands (at least 2 that trigger errors)
-
-Don't commit the `build/` folder or the program it makes.
+> **Note:** the factory takes an `Operation`, not all of `Args`. It doesn't need file names or `--open`, so it shouldn't see them. Depend on the smallest thing that does the job.
 
 ---
 
-## Notes
+## Sample Run
 
-- Do not add image processing here. Keep `main.cpp` as a pure parse-and-print driver.
-- The next program takes your `Args` class and wires it into your P02 image code.
-- Your code must build with the provided `CMakeLists.txt` with **no errors and no warnings**.
+```text
+$ ./build/imgtool images/Hulda.png out.png -r 90 -g -b=-30 -i --open
+INPUT   : images/Hulda.png
+OUTPUT  : out.png
+ORDER   : rotate(90) grayscale brighten(-30) invert
+
+Loaded: Image(546 x 640)
+FILTERS : rotate(90) -> grayscale -> brighten(-30) -> invert
+Result: Image(640 x 546)
+Saved: out.png
+```
+
+---
+
+## What to Submit
+
+`Pipeline.cpp`, `Grayscale.cpp`, `FlipH.cpp`, `FlipV.cpp`, `Rotate.cpp`, `Invert.h`, `Invert.cpp`, `FilterFactory.cpp`, `Args.cpp`. In your README: 5 example commands, including at least 2 that apply the same filters in different orders, and one sentence on why the two orders differ.
+
+Don't commit `build/`.
 
 ---
 
@@ -368,31 +237,31 @@ Don't commit the `build/` folder or the program it makes.
 
 > _The program must build. If it doesn't, it's graded as a failure._
 
-| Category                 | Points  | Details                                                                                             |
-| ------------------------ | ------- | --------------------------------------------------------------------------------------------------- |
-| **Positional args**      | 10      | Input and output parsed and validated (extension check)                                             |
-| **Flags**                | 15      | All four flags work, both long and short forms                                                      |
-| **Valued options**       | 20      | `--brighten` and `--rotate` parse correctly in space form, including negative brighten values       |
-| **`--opt=value` format** | 10      | `--brighten=20` and `--rotate=90` work without a space                                              |
-| **Error messages**       | 20      | All 7 error cases produce clear, specific messages + usage line, colored with FTXUI, on `std::cerr` |
-| **Range checking**       | 15      | Brighten [-255,255] and rotate {0,90,180,270} enforced                                              |
-| **Class design**         | 10      | Clean packaging; private constructor or equivalent; `print()` output matches spec                   |
-| **Total**                | **100** |                                                                                                     |
+| Category                | Points  | Details                                                                  |
+| ----------------------- | ------- | ------------------------------------------------------------------------ |
+| **Builds clean**        | 5       | No errors, no warnings                                                   |
+| **Pipeline**            | 15      | `add` moves ownership and ignores null; `run` in order; `printSteps` format |
+| **Grayscale**           | 5       | Correct formula                                                          |
+| **FlipH / FlipV**       | 15      | Correct, including odd sizes; identities hold                            |
+| **Rotate**              | 20      | All four angles; shape swaps on 90/270; constructor validates            |
+| **Invert (from scratch)** | 15    | Own `.h`/`.cpp`, `override`s, wired through `Args` and the factory only  |
+| **FilterFactory**       | 15      | All filters registered; `create` throws on an unknown name               |
+| **Code quality**        | 10      | `override` everywhere, `const` where it belongs, consistent style        |
+| **Total**               | **100** |                                                                          |
 
 ### Extra Credit (up to +10)
 
-| Option                                                            | Points |
-| ----------------------------------------------------------------- | ------ |
-| Grouped short flags: `-glhv`                                      | +5     |
-| Typo suggestion for unknown options (edit distance ≤ 2)           | +5     |
-| Collect all errors and print them all instead of failing on first | +5     |
+| Option                                                                                        | Points |
+| --------------------------------------------------------------------------------------------- | ------ |
+| `--resize W H` (nearest-neighbor) as a new `Filter` (needs a two-value `Operation`; explain your change) | +10 |
+| `--list` prints every name from `FilterFactory::names()`                                       | +5     |
 
 ### Deductions
 
-| Issue                                                              | Penalty     |
-| ------------------------------------------------------------------ | ----------- |
-| Does not build on the grader's machine                             | up to −50   |
-| Segfault or undefined behavior on any valid input                  | −20         |
-| Hardcoded index access (`argv[3]`) without bounds check            | −10         |
-| Raw ANSI escape codes (`"\033[31m"`) or termcolor instead of FTXUI | −10         |
-| Missing usage line on error output                                 | −5 per case |
+| Issue                                                         | Penalty       |
+| ------------------------------------------------------------- | ------------- |
+| Raw `new` / `delete` anywhere                                 | −10           |
+| Modified `main.cpp`, `Filter.h`, `Pipeline.h`, or `Image`     | −10 per file  |
+| An if/else chain of filter names anywhere but the factory     | −10           |
+| Off-by-one at an image edge (flip or rotate)                  | −5 per filter |
+| Does not build on the grader's machine                        | up to −50     |

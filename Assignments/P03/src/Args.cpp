@@ -1,106 +1,143 @@
+// Args.cpp — provided (the P02 solution). You may use your own instead.
+//
+// TODO (P03): add the --invert / -i flag. See "Part 4" in the README.
+
 #include "Args.h"
+#include "Console.h"
+
+#include <algorithm>
+#include <cctype>
+#include <cstdlib>
 #include <iostream>
-#include <string>
-#include <vector>
+#include <stdexcept>
+#include <utility>
 
-#include <ftxui/dom/elements.hpp>   // text, hbox, color, bold, ...
-#include <ftxui/screen/screen.hpp>  // Screen, Render
+namespace {
 
-using namespace ftxui;
+// Everything in an unnamed namespace is private to this .cpp file.
 
-// -----------------------------------------------------------------------
-// TODO: add any helper functions here.
-//
-// Suggestions to get you started:
-//
-//   void printLine(Element line, std::ostream& out = std::cout)
-//       — copy this straight from your P02 main.cpp
-//
-//   bool isImageFile(const std::string& filename)
-//       — return true if the filename ends with .png, .jpg, .jpeg, etc.
-//
-//   std::pair<std::string, std::string> splitEq(const std::string& token)
-//       — split "--brighten=20" into ("--brighten", "20")
-//       — return ("token", "") if there is no '='
-//
-//   bool startsWith(const std::string& s, const std::string& prefix)
-//       — return true if s begins with prefix
-//
-//   [[noreturn]] void error(const std::string& msg)
-//       — use printLine to print a colored "Error:" line and the
-//         usage line to std::cerr, then std::exit(1)
-//         (std::exit needs #include <cstdlib>)
-// -----------------------------------------------------------------------
+bool isImageFile(const std::string& filename) {
+    std::string lower = filename;
+    std::transform(lower.begin(), lower.end(), lower.begin(),
+                   [](unsigned char c) { return static_cast<char>(std::tolower(c)); });
 
+    for (const std::string ext : {".png", ".jpg", ".jpeg", ".bmp"}) {
+        if (lower.size() > ext.size() &&
+            lower.compare(lower.size() - ext.size(), ext.size(), ext) == 0)
+            return true;
+    }
+    return false;
+}
 
-// -----------------------------------------------------------------------
-// Args::parse
-//
-// Strategy:
-//   1. Copy argv[1..argc-1] into a vector<string> (token queue).
-//   2. Consume the two required positional args (input, output).
-//   3. Loop over remaining tokens, matching flags and valued options.
-//   4. On any error: print a helpful message + usage line, then exit(1).
-//
-// Token queue pattern:
-//   tokens.front()           — peek at the next token (does not remove it)
-//   tokens.erase(tokens.begin()) — consume (remove) the front token
-// -----------------------------------------------------------------------
+[[noreturn]] void fail(const std::string& msg) {
+    printError(msg);
+    printUsage();
+    std::exit(1);
+}
+
+// "--brighten=20" -> ("--brighten", "20");  "--blur" -> ("--blur", "")
+std::pair<std::string, std::string> splitEq(const std::string& token) {
+    size_t eq = token.find('=');
+    if (eq == std::string::npos)
+        return {token, ""};
+    return {token.substr(0, eq), token.substr(eq + 1)};
+}
+
+// "--blur" and "-g" look like options. "-20" is a negative number.
+bool looksLikeOption(const std::string& s) {
+    return s.size() > 1 && s[0] == '-' &&
+           !std::isdigit(static_cast<unsigned char>(s[1]));
+}
+
+// The value for a valued option: the part after '=', or the next token.
+std::string takeValue(const std::string& flag, const std::string& inlineVal,
+                      std::vector<std::string>& tokens) {
+    if (!inlineVal.empty())
+        return inlineVal;
+    if (tokens.empty())
+        fail("'" + flag + "' requires an integer value");
+    if (looksLikeOption(tokens.front()))
+        fail("'" + flag + "' expected a value but got option '" + tokens.front() + "'");
+
+    std::string val = tokens.front();
+    tokens.erase(tokens.begin());
+    return val;
+}
+
+// std::stoi, but the whole token must be a number ("20abc" is rejected).
+int toInt(const std::string& flag, const std::string& val) {
+    try {
+        size_t used = 0;
+        int n = std::stoi(val, &used);
+        if (used != val.size())
+            throw std::invalid_argument(val);
+        return n;
+    } catch (const std::exception&) {
+        fail("invalid integer for '" + flag + "': '" + val + "'");
+    }
+}
+
+}  // namespace
+
 Args Args::parse(int argc, char* argv[]) {
     Args args;
 
-    // Step 1 — load tokens into a vector so we can process them one by one
-    std::vector<std::string> tokens;
-    for (int i = 1; i < argc; ++i)
-        tokens.push_back(argv[i]);
+    std::vector<std::string> tokens(argv + 1, argv + argc);
 
-    // Helpful while building: print all tokens to see what arrived
-    // for (const auto& t : tokens)
-    //     std::cout << "token: " << t << "\n";
+    // ---- positional ----
+    if (tokens.empty())
+        fail("input and output files are required");
+    args.input = tokens.front();
+    tokens.erase(tokens.begin());
+    if (!isImageFile(args.input))
+        fail("input must be an image file (.png, .jpg, .jpeg, .bmp): '" + args.input + "'");
 
-    // TODO: check that tokens is not empty (missing both positional args)
+    if (tokens.empty())
+        fail("output file is required");
+    args.output = tokens.front();
+    tokens.erase(tokens.begin());
+    if (!isImageFile(args.output))
+        fail("output must be an image file (.png, .jpg, .jpeg, .bmp): '" + args.output + "'");
 
-    // TODO: read and validate args.input (first positional arg)
+    // ---- options ----
+    while (!tokens.empty()) {
+        auto [flag, inlineVal] = splitEq(tokens.front());
+        tokens.erase(tokens.begin());
 
-    // TODO: check that at least one more token remains (missing output)
-
-    // TODO: read and validate args.output (second positional arg)
-
-    // TODO: loop over remaining tokens and match flags / valued options
-    //
-    //   while (!tokens.empty()) {
-    //       auto [flag, inline_val] = splitEq(tokens.front());
-    //       tokens.erase(tokens.begin());
-    //
-    //       if (flag == "--grayscale" || flag == "-g") {
-    //           args.grayscale = true;
-    //       } else if ...
-    //   }
+        if (flag == "--grayscale" || flag == "-g") {
+            args.order.push_back({"grayscale", 0});
+        } else if (flag == "--blur" || flag == "-l") {
+            args.order.push_back({"blur", 0});
+        } else if (flag == "--flipH" || flag == "-h") {
+            args.order.push_back({"flipH", 0});
+        } else if (flag == "--flipV" || flag == "-v") {
+            args.order.push_back({"flipV", 0});
+        } else if (flag == "--open") {
+            args.open = true;
+        } else if (flag == "--brighten" || flag == "-b") {
+            int n = toInt(flag, takeValue(flag, inlineVal, tokens));
+            if (n < -255 || n > 255)
+                fail("'" + flag + "' must be in [-255, 255]");
+            args.order.push_back({"brighten", n});
+        } else if (flag == "--rotate" || flag == "-r") {
+            int n = toInt(flag, takeValue(flag, inlineVal, tokens));
+            if (n != 0 && n != 90 && n != 180 && n != 270)
+                fail("'" + flag + "' must be one of {0, 90, 180, 270}");
+            args.order.push_back({"rotate", n});
+        } else {
+            fail("unknown option '" + flag + "'");
+        }
+    }
 
     return args;
 }
 
-
-// -----------------------------------------------------------------------
-// Args::print
-//
-// Expected output on success:
-//   INPUT  : in.png
-//   OUTPUT : out.png
-//   FLAGS  : grayscale blur
-//   PARAMS : brighten=20 rotate=90
-//
-// Only print flags/params that were actually set.
-// -----------------------------------------------------------------------
 void Args::print() const {
-    std::cout << "INPUT  : " << input  << "\n";
-    std::cout << "OUTPUT : " << output << "\n";
+    std::cout << "INPUT   : " << input << "\n";
+    std::cout << "OUTPUT  : " << output << "\n";
 
-    std::cout << "FLAGS  :";
-    // TODO: append each enabled flag name (separated by spaces)
-    std::cout << "\n";
-
-    std::cout << "PARAMS :";
-    // TODO: append each set param as name=value (separated by spaces)
+    std::cout << "ORDER   :";
+    for (const Operation& op : order)
+        std::cout << " " << op.label();
     std::cout << "\n";
 }

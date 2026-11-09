@@ -1,48 +1,44 @@
 #pragma once
+
+#include "Operation.h"
+
 #include <string>
+#include <vector>
 
-struct Args {
-    // ----------------------------------------------------------------
-    // Positional arguments (required — must appear in this order)
-    // ----------------------------------------------------------------
-    std::string input;   // argv[1]
-    std::string output;  // argv[2]
+// -----------------------------------------------------------------------
+// Args — parsed and validated command-line options.  (header provided)
+//
+// You implement Args::parse and Args::print in Args.cpp.
+//
+//   ./imgtool <input_image> <output_image> [options]
+//
+// The data members are public: once parsing succeeds, an Args is just a
+// bundle of settings that the rest of the program reads.
+//
+// The CONSTRUCTOR is private: the only way to get an Args is
+// Args::parse(), which validates everything first. So any Args object
+// that exists anywhere in the program is guaranteed to be valid.
+// That guarantee is the whole point of the static factory method.
+// (See docs/factory.md.)
+// -----------------------------------------------------------------------
+class Args {
+public:
+    std::string input;    // first positional argument
+    std::string output;   // second positional argument
+    bool open = false;    // --open : show the result in the default viewer
 
-    // ----------------------------------------------------------------
-    // Flags — true if the flag was present on the command line
-    // ----------------------------------------------------------------
-    bool grayscale = false;  // --grayscale  / -g
-    bool blur      = false;  // --blur       / -l
-    bool flipH     = false;  // --flipH      / -h
-    bool flipV     = false;  // --flipV      / -v
+    // Every image operation, in the order it was typed:
+    //   ./imgtool a.png b.png -b 20 -g -r 90
+    //   order = { {"brighten", 20}, {"grayscale", 0}, {"rotate", 90} }
+    std::vector<Operation> order;   // P03: you add --invert / -i -> {"invert", 0}
 
-    // ----------------------------------------------------------------
-    // Valued options — track the value AND whether it was given.
-    //
-    // Why two fields per option instead of a sentinel like -1?
-    // Because -1 is a valid brighten value. Keeping "was it set?" and
-    // "what is the value?" separate avoids that ambiguity.
-    // ----------------------------------------------------------------
-    bool use_brighten = false;
-    int  brighten     = 0;   // must be in [-255, 255]
-
-    bool use_rotate   = false;
-    int  rotate       = 0;   // must be one of {0, 90, 180, 270}
-
-    // ----------------------------------------------------------------
-    // Static factory method — the only way to construct a valid Args.
-    //
-    // Reads argc/argv, validates everything, and returns a filled-in
-    // Args object. On any error it prints a message and calls exit(1).
-    //
-    // Why a static factory instead of Args(argc, argv)?
-    // See docs/factory.md for the full discussion.
-    // ----------------------------------------------------------------
+    // Reads argc/argv and returns a fully validated Args.
+    // On any error: prints a colored error + usage line and exits(1).
     static Args parse(int argc, char* argv[]);
 
-    // Print a formatted summary of what was parsed.
+    // Prints what was parsed (see README for the exact format).
     void print() const;
 
 private:
-    Args() = default;  // prevent construction outside of parse()
+    Args() = default;
 };
