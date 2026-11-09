@@ -330,23 +330,23 @@ Then try the extra images in `images/`. If a file name has a space in it, put th
 
 > _The program must build. If it doesn't, it's graded as a failure._
 
-| Category                      | Points  | Details                                                                     |
-| ----------------------------- | ------- | --------------------------------------------------------------------------- |
-| **Builds clean**              | 20      | No errors and no warnings from the provided `CMakeLists.txt`                |
-| **Task A: FTXUI setup**       | 10      | FTXUI headers included, `printLine` helper (or equivalent) used, not copy-pasted |
-| **Task A: Usage message**     | 10      | At least two distinct colors in one line, printed to `std::cerr`            |
-| **Task A: Error message**     | 5       | Load failure uses color, printed to `std::cerr`                             |
-| **Task A: Success message**   | 15      | Save success uses color                                                     |
-| **Task B: Function defined**  | 20      | `open_file_default_app()` present, handles all 3 platforms                  |
-| **Task B: Function called**   | 10      | Called after a successful save, with an appropriate message                 |
-| **Code quality**              | 10      | No dead code, no unused variables or includes, consistent style             |
-| **Total**                     | **100** |                                                                             |
+| Category                     | Points  | Details                                                                          |
+| ---------------------------- | ------- | -------------------------------------------------------------------------------- |
+| **Builds clean**             | 20      | No errors and no warnings from the provided `CMakeLists.txt`                     |
+| **Task A: FTXUI setup**      | 10      | FTXUI headers included, `printLine` helper (or equivalent) used, not copy-pasted |
+| **Task A: Usage message**    | 10      | At least two distinct colors in one line, printed to `std::cerr`                 |
+| **Task A: Error message**    | 5       | Load failure uses color, printed to `std::cerr`                                  |
+| **Task A: Success message**  | 15      | Save success uses color                                                          |
+| **Task B: Function defined** | 20      | `open_file_default_app()` present, handles all 3 platforms                       |
+| **Task B: Function called**  | 10      | Called after a successful save, with an appropriate message                      |
+| **Code quality**             | 10      | No dead code, no unused variables or includes, consistent style                  |
+| **Total**                    | **100** |                                                                                  |
 
 ### Deductions
 
-| Issue                                                            | Penalty   |
-| ---------------------------------------------------------------- | --------- |
+| Issue                                                              | Penalty   |
+| ------------------------------------------------------------------ | --------- |
 | Raw ANSI escape codes (`"\033[31m"`) or termcolor instead of FTXUI | −10       |
-| Hardcoded platform command instead of `#if defined(...)`          | −10       |
-| Extra features added beyond what was asked                        | −10       |
-| Does not build on the grader's machine                            | up to −50 |
+| Hardcoded platform command instead of `#if defined(...)`           | −10       |
+| Extra features added beyond what was asked                         | −10       |
+| Does not build on the grader's machine                             | up to −50 |

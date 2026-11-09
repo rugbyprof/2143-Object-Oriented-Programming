@@ -5,8 +5,8 @@
 | Yes | [W07](./W07/) | Templates | Write It Once, Use It for Any Type | Nov 9th @ 11:00 AM | DUE TODAY! |
 | Yes | [P02](./P02/) | Image Tool | Grayscale conversion with colored output and auto-open | Nov 16th @ 11:00 AM | 7 |
 | Yes | [W08](./W08/) | Object Lifetime and Ownership | Who Cleans Up? | Nov 16th @ 11:00 AM | 7 |
+| Yes | [P03](./P03/) | Args Parser | Command-line argument parser for imgtool, with FTXUI error messages | Nov 23rd @ 11:00 AM | 14 |
 | Yes | [W09](./W09/) | Designing with Objects | Relationships, Principles, Patterns | Nov 30th @ 11:00 AM | 21 |
-| Yes | [P03](./P03/) | Args Parser | Command-line argument parser for imgtool, with FTXUI error messages | Dec 7th @ 11:00 AM | 28 |
 | ~~Yes~~ | ~~[P01](./P01/)~~ | ~~Terminal Card Game~~ | ~~Video Poker or Blackjack with a polymorphic UI (FTXUI)~~ | ~~Nov 2nd @ 11:00 AM~~ | ~~-7~~ |
 | ~~Yes~~ | ~~[T02](./T02/)~~ | ~~Test 2 — Constructors, Inheritance, and Polymorphism~~ | ~~Exam 2 study guide, combining Quiz 04 and Quiz 06 along with worksheets W04, W05 and W06~~ | ~~Oct 23rd @ 11:00 AM~~ | ~~-17~~ |
 | ~~Yes~~ | ~~[Q06](./Q06/)~~ | ~~Polymorphism~~ | ~~Sixth quiz~~ | ~~Oct 16th @ 11:00 AM~~ | ~~-24~~ |
@@ -22,4 +22,4 @@
 | ~~Yes~~ | ~~[Q01](./Q01/)~~ | ~~Class Syntax & Datamembers~~ | ~~First week quiz~~ | ~~Aug 28th @ 11:00 AM~~ | ~~-73~~ |
 | ~~Yes~~ | ~~[W01](./W01/)~~ | ~~Stacks and Access Control~~ | ~~First week worksheet~~ | ~~Aug 28th @ 11:00 AM~~ | ~~-73~~ |
 
-<sup>Last Updated: 2026-11-09 (Mon @ 10:29)</sup>
+<sup>Last Updated: 2026-11-09 (Mon @ 10:31)</sup>

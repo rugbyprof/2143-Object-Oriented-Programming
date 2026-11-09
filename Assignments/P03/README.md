@@ -9,8 +9,8 @@ title: Args Parser
 description: Command-line argument parser for imgtool, with FTXUI error messages
 category: Assignments
 date_due:
-  month: 11
-  day: 14
+  month: '11'
+  day: '23'
   year: 2026
   hour: 11
 ```
