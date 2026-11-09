@@ -3,8 +3,8 @@
 
 ```yaml
 is_due: false
-id: L01-GameOfWar
-name: L01-GameOfWar
+id: L02-GameOfWar
+name: L02-GameOfWar
 title: NO TITLE
 description: NO DESCRIPTION
 category: Lectures

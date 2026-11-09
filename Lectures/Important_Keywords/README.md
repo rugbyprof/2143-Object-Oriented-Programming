@@ -3,8 +3,8 @@
 
 ```yaml
 is_due: false
-id: L02-Important_Keywords
-name: L02-Important_Keywords
+id: L03-Important_Keywords
+name: L03-Important_Keywords
 title: NO TITLE
 description: NO DESCRIPTION
 category: Lectures

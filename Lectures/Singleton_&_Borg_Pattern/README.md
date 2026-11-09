@@ -3,14 +3,14 @@
 
 ```yaml
 is_due: true
-id: Factory_Pattern_Example
-name: Factory_Pattern_Example
+id: L06-Singleton_&_Borg_Pattern
+name: L06-Singleton_&_Borg_Pattern
 title: Static Members in C++
-description: Singleton and Borg Design Patterns 
-category: Assignments
+description: Singleton and Borg Design Patterns
+category: Lectures
 date_due:
-  month: 11
-  day: 09
+  month: '11'
+  day: '09'
   year: 2026
   hour: 11
 ```

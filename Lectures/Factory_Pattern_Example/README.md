@@ -3,20 +3,14 @@
 
 ```yaml
 is_due: true
-id: Factory_Pattern_Example
-name: Factory_Pattern_Example
+id: L01-Factory_Pattern_Example
+name: L01-Factory_Pattern_Example
 title: Factory Methods in C++
 description: Constructors, Static Factories, and the Factory Method Design Pattern
-category: Assignments
-topics:
-  - Object Creation
-  - Static Member Functions
-  - Factory Method Pattern
-  - Polymorphism
-  - Encapsulation
+category: Lectures
 date_due:
-  month: 11
-  day: 09
+  month: '11'
+  day: '09'
   year: 2026
   hour: 11
 ```
