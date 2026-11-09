@@ -9,8 +9,8 @@ title: Args Parser
 description: Command-line argument parser for imgtool, with FTXUI error messages
 category: Assignments
 date_due:
-  month: '12'
-  day: '07'
+  month: 11
+  day: 14
   year: 2026
   hour: 11
 ```
@@ -368,16 +368,16 @@ Don't commit the `build/` folder or the program it makes.
 
 > _The program must build. If it doesn't, it's graded as a failure._
 
-| Category                 | Points  | Details                                                                                    |
-| ------------------------ | ------- | ------------------------------------------------------------------------------------------ |
-| **Positional args**      | 10      | Input and output parsed and validated (extension check)                                    |
-| **Flags**                | 15      | All four flags work, both long and short forms                                             |
-| **Valued options**       | 20      | `--brighten` and `--rotate` parse correctly in space form, including negative brighten values |
-| **`--opt=value` format** | 10      | `--brighten=20` and `--rotate=90` work without a space                                     |
+| Category                 | Points  | Details                                                                                             |
+| ------------------------ | ------- | --------------------------------------------------------------------------------------------------- |
+| **Positional args**      | 10      | Input and output parsed and validated (extension check)                                             |
+| **Flags**                | 15      | All four flags work, both long and short forms                                                      |
+| **Valued options**       | 20      | `--brighten` and `--rotate` parse correctly in space form, including negative brighten values       |
+| **`--opt=value` format** | 10      | `--brighten=20` and `--rotate=90` work without a space                                              |
 | **Error messages**       | 20      | All 7 error cases produce clear, specific messages + usage line, colored with FTXUI, on `std::cerr` |
-| **Range checking**       | 15      | Brighten [-255,255] and rotate {0,90,180,270} enforced                                     |
-| **Class design**         | 10      | Clean packaging; private constructor or equivalent; `print()` output matches spec          |
-| **Total**                | **100** |                                                                                            |
+| **Range checking**       | 15      | Brighten [-255,255] and rotate {0,90,180,270} enforced                                              |
+| **Class design**         | 10      | Clean packaging; private constructor or equivalent; `print()` output matches spec                   |
+| **Total**                | **100** |                                                                                                     |
 
 ### Extra Credit (up to +10)
 
