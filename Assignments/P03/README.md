@@ -6,12 +6,13 @@ is_due: false
 id: P03
 name: P03
 title: Image Tool — Filter Pipeline
-description: Inheritance, abstract classes, polymorphism; Strategy and Factory patterns; unique_ptr ownership
+description: Inheritance, abstract classes, polymorphism; Strategy and Factory patterns;
+  unique_ptr ownership
 category: Assignments
 date_due:
-  month: ''
-  day: ''
-  year: ''
+  month: '11'
+  day: '23'
+  year: 2026
   hour: 11
 ```
 

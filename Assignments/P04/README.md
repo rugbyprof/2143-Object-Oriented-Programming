@@ -6,12 +6,13 @@ is_due: false
 id: P04
 name: P04
 title: Image Tool — Templates, Color, and Kernels
-description: Class templates, operator overloading, convolution; Adapter and Composite patterns; unit tests
+description: Class templates, operator overloading, convolution; Adapter and Composite
+  patterns; unit tests
 category: Assignments
 date_due:
-  month: ''
-  day: ''
-  year: ''
+  month: '11'
+  day: '23'
+  year: 2026
   hour: 11
 ```
 

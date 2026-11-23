@@ -9,9 +9,9 @@ title: Image Tool — Args and Image
 description: Command-line parser and an RAII Image class (static factories, exceptions)
 category: Assignments
 date_due:
-  month: ''
-  day: ''
-  year: ''
+  month: '11'
+  day: '23'
+  year: 2026
   hour: 11
 ```
 

@@ -3,8 +3,8 @@
 
 ```yaml
 is_due: false
-id: L07-Templates
-name: L07-Templates
+id: L06-Templates
+name: L06-Templates
 title: NO TITLE
 description: NO DESCRIPTION
 category: Lectures

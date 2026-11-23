@@ -1,3 +1,22 @@
+<details>
+<summary>⚙️ Metadata (auto-managed by <code>readmees</code> — edit values, not structure)</summary>
+
+```yaml
+is_due: false
+id: L05-Python_OOP_Lessons
+name: L05-Python_OOP_Lessons
+title: NO TITLE
+description: NO DESCRIPTION
+category: Lectures
+date_due:
+  month: '11'
+  day: '23'
+  year: 2026
+  hour: 10
+```
+
+</details>
+
 # OOP Battle Arena — Python OOP Series
 
 An eight-lesson, student-facing introduction to Python object-oriented programming. Each lesson includes learning objectives, runnable Python 3 examples, common mistakes, exercises, a mini-lab, and review questions.

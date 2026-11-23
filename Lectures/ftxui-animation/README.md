@@ -3,8 +3,8 @@
 
 ```yaml
 is_due: false
-id: L12-ftxui-animation
-name: L12-ftxui-animation
+id: L11-ftxui-animation
+name: L11-ftxui-animation
 title: NO TITLE
 description: NO DESCRIPTION
 category: Lectures
