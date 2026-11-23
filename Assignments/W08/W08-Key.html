@@ -1,0 +1,575 @@
+<title>Answer Key &mdash; Object Lifetime &amp; Ownership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.4in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 0.16in;
+    margin-bottom: 0.14in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+  .stamp {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 3px;
+    padding: 0.05in 0.14in;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.05in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.03em 0.48em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.58rem;
+    line-height: 1.2;
+    color: var(--ink);
+    white-space: pre;
+  }
+
+  .blankgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.06in 0.4in;
+    margin: 0 0 0.06in;
+    padding: 0;
+    list-style: none;
+  }
+  .blankgrid li {
+    font-size: 0.79rem;
+    line-height: 1.4;
+    display: flex;
+    gap: 0.4em;
+  }
+  .blankgrid .n {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--ink-soft);
+    flex: 0 0 auto;
+  }
+  .blankgrid .a {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .case {
+    display: grid;
+    grid-template-columns: 3.9em 1fr;
+    gap: 0.04in 0.2in;
+    font-size: 0.78rem;
+    line-height: 1.38;
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.12in;
+    margin-bottom: 0.05in;
+  }
+  .case .label {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--amber);
+  }
+
+  table.trace, table.cheat {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.72rem;
+    margin: 0 0 0.07in;
+  }
+  table.trace th, table.trace td,
+  table.cheat th, table.cheat td {
+    border: 1px solid var(--rule);
+    padding: 0.05in 0.08in;
+    text-align: left;
+  }
+  table.trace th, table.cheat th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .a { color: var(--accent); font-weight: 600; }
+
+  ol.matchans {
+    margin: 0 0 0.08in;
+    padding-left: 1.2em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.04in;
+  }
+  ol.matchans li { font-size: 0.78rem; line-height: 1.3; }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.28in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+  table.compact td, table.compact th { padding: 0.025in 0.08in; }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 0.14in; margin: 0 0 0.06in; }
+  pre, code, .diagram { font-variant-ligatures: none; }   /* show >= and != as typed */
+  pre, code, .diagram { font-variant-ligatures: none; }   /* show >= and != as typed */
+  .twocol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }   /* long code lines must not squeeze the other column */
+</style>
+
+<div class="wrap">
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Object Lifetime &amp; Ownership</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 1 of 5</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 1</span><span class="part-title">When Do Objects Die? &mdash; Q1, Q2</span></div>
+    <p style="font-size:0.79rem;margin:0 0 0.04in;"><strong>Q1:</strong> <code class="k a">+A +B +C copy:B' visit -B' -B +D end -D -A</code></p>
+    <ol class="matchans">
+      <li><span class="a">C</span>. It was made with <code class="k">new</code>, and nothing ever calls <code class="k">delete</code>. Heap objects don't care about scope. This is a <strong>leak</strong>.</li>
+      <li>Destroying a raw pointer only destroys the pointer variable (an address). A raw pointer doesn't <em>own</em> what it points to. Compare <code class="k">unique_ptr</code> in Part 7, which does.</li>
+    </ol>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><em>Also worth discussing:</em> <code class="k">B'</code> is <code class="k">Visit</code>'s parameter, and it dies when <code class="k">Visit</code> returns, before <code class="k">b</code> leaves its block. <code class="k">D</code> dies before <code class="k">A</code>: locals die in reverse order of creation.</p>
+
+    <div class="part-head"><span class="part-tag">part 2</span><span class="part-title">The Big Three &mdash; Q3, Q4</span></div>
+    <table class="trace compact">
+      <tr><th>Line</th><th>Runs</th><th>Line</th><th>Runs</th></tr>
+      <tr><td><code class="k">IntStack a(10);</code></td><td class="a">ctor</td><td><code class="k">Show(a);</code></td><td class="a">copy ctor (by-value parameter)</td></tr>
+      <tr><td><code class="k">IntStack b = a;</code></td><td class="a">copy ctor</td><td><code class="k">Peek(a);</code></td><td class="a">none</td></tr>
+      <tr><td><code class="k">IntStack c(a);</code></td><td class="a">copy ctor</td><td><code class="k">IntStack* p = &amp;a;</code></td><td class="a">none (just an address)</td></tr>
+      <tr><td><code class="k">c = b;</code></td><td class="a">copy assign</td><td><code class="k">a = a;</code></td><td class="a">copy assign (onto itself)</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;"><code class="k">IntStack b = a;</code> <strong>declares</strong> <code class="k">b</code>. A new object is being created, so a constructor runs. Assignment only happens to an object that already exists. (Checked with a printing version: <code class="k">ctor | copy-ctor | copy-ctor | copy-assign | copy-ctor | — | — | copy-assign</code>.)</p>
+    <table class="trace compact">
+      <tr><th>Line</th><th>Problem</th></tr>
+      <tr><td><code class="k">IntStack b = a;</code></td><td><code class="k">b.data_</code> holds the <em>same address</em> as <code class="k">a.data_</code>. Changes through one show up in the other, and at the end of <code class="k">main</code> both destructors <code class="k">delete[]</code> the same array: a <span class="a">double free</span> (AddressSanitizer: <code class="k">attempting double-free</code>).</td></tr>
+      <tr><td><code class="k">c = b;</code></td><td><code class="k">c</code>'s original array is lost forever (a <span class="a">leak</span>). <code class="k">c</code> now shares <code class="k">b</code>'s array, which causes another <span class="a">double free</span>.</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;"><strong>Rule of Three:</strong> <span class="a">destructor &middot; copy constructor &middot; copy assignment operator</span> (any order).</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>instructor copy 1/5</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Object Lifetime &amp; Ownership</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 2 of 5</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 3</span><span class="part-title">Writing Copy Assignment &mdash; Q5, Q6</span></div>
+    <ol class="matchans">
+      <li><strong>Version 1:</strong> a shallow copy. It <span class="a">leaks</span> the old <code class="k">data_</code> and <span class="a">shares</span> <code class="k">other</code>'s array, so there's a double free later. This is exactly what the compiler-generated version does.</li>
+      <li><strong>Version 2:</strong> breaks on <span class="a">self-assignment</span>. When <code class="k">this == &amp;other</code>, <code class="k">delete[] data_</code> frees the very array it's about to copy from, then reads freed memory. (Also: if <code class="k">new</code> throws, <code class="k">data_</code> is left dangling.)</li>
+      <li><strong>Version 3:</strong> <span class="a"><code class="k">a = b = c;</code></span> fails (<code class="k">no viable overloaded '='</code>). <code class="k">b = c</code> returns <code class="k">void</code>, so <code class="k">a = void</code> makes no sense. Return <code class="k">IntStack&amp;</code> and <code class="k">*this</code>, like the built-in types do.</li>
+    </ol>
+    <div class="twocol">
+      <pre style="margin:0;"><code>IntStack&amp; operator=(const IntStack&amp; other) {
+    if (this == &amp;other) {
+        return *this;
+    }
+    int* fresh = new int[other.capacity_];
+    for (int i = 0; i &lt; other.size_; ++i) {
+        fresh[i] = other.data_[i];
+    }
+    delete[] data_;
+    data_ = fresh;
+    size_ = other.size_;
+    capacity_ = other.capacity_;
+    return *this;
+}</code></pre>
+      <div style="font-size:0.78rem;line-height:1.35;">
+        <p style="margin:0 0 0.04in;"><strong>Q6 grading:</strong> self-check, free the old array, deep copy, update all three members, <code class="k">return *this</code>. Allocating <em>before</em> deleting (as shown) is a bonus: if <code class="k">new</code> throws, the object is unchanged. Also accept delete-then-allocate with a self-check.</p>
+        <p style="margin:0;"><strong>Enrichment, copy-and-swap:</strong> take the parameter <em>by value</em>, which reuses the copy constructor, swap the members, and let the parameter's destructor free the old data. That's self-assignment-safe and exception-safe in three lines.</p>
+      </div>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 4</span><span class="part-title">Move Semantics &mdash; Q7&ndash;Q9</span></div>
+    <div class="twocol">
+      <pre style="margin:0;"><code>IntStack(IntStack&amp;&amp; other) noexcept
+    : data_(other.data_),
+      size_(other.size_),
+      capacity_(other.capacity_) {
+    other.data_ = nullptr;
+    other.size_ = 0;
+    other.capacity_ = 0;
+}</code></pre>
+      <ol class="matchans" style="margin:0;">
+        <li>Both objects point at one array. When the temporary dies it <code class="k">delete[]</code>s it, leaving the new object <span class="a">dangling</span>, and later there's a double free. (<code class="k">delete[] nullptr</code> is safe, which is why we null it.)</li>
+        <li><span class="a">O(n)</span>: allocate and copy all <em>n</em> items. A move is O(1).</li>
+        <li>Copying pointers and ints can't fail. A deep copy calls <code class="k">new</code>, which can throw <code class="k">bad_alloc</code>. (<code class="k">vector</code> only moves elements while growing if the move is <code class="k">noexcept</code>. Otherwise it copies, to stay safe.)</li>
+      </ol>
+    </div>
+    <ul class="blankgrid" style="margin-top:0.06in;">
+      <li><span class="n">Q8</span><span><span class="a">F</span> &mdash; it's only a cast</span></li>
+      <li><span class="n"></span><span><span class="a">T</span> &mdash; moved-from is valid, so destroy or assign it</span></li>
+      <li><span class="n"></span><span><span class="a">F</span> &mdash; ours has <code class="k">size_ = 0</code>, so <code class="k">Top()</code> is undefined</span></li>
+      <li><span class="n"></span><span><span class="a">F</span> &mdash; moving an <code class="k">int</code> is just a copy</span></li>
+      <li><span class="n"></span><span><span class="a">T</span></span></li>
+    </ul>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>instructor copy 2/5</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Object Lifetime &amp; Ownership</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 3 of 5</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 4</span><span class="part-title">Move Semantics (continued) &mdash; Q9, Q10</span></div>
+    <table class="trace compact">
+      <tr><th>Line</th><th>Output</th><th>Why</th></tr>
+      <tr><td><code class="k">Tracer a("A");</code></td><td class="a">+A</td><td></td></tr>
+      <tr><td><code class="k">Tracer b = a;</code></td><td class="a">copy:A'</td><td><code class="k">a</code> is an lvalue, so it's copied</td></tr>
+      <tr><td><code class="k">Tracer c = std::move(a);</code></td><td class="a">move:A*</td><td><code class="k">a</code> is now named <code class="k">~</code></td></tr>
+      <tr><td><code class="k">Tracer d = MakeTracer();</code></td><td class="a">+T</td><td>copy elision: <code class="k">T</code> is built directly in <code class="k">d</code></td></tr>
+      <tr><td><code class="k">v.push_back(b);</code></td><td class="a">copy:A''</td><td><code class="k">b</code> (named <code class="k">A'</code>) is copied</td></tr>
+      <tr><td><code class="k">v.push_back(std::move(b));</code></td><td class="a">move:A'*</td><td></td></tr>
+      <tr><td><code class="k">v.push_back(Tracer("X"));</code></td><td class="a">+X move:X* -~</td><td>build a temporary, move it in, then the empty temporary dies</td></tr>
+      <tr><td><code class="k">v.emplace_back("Y");</code></td><td class="a">+Y</td><td>constructed directly inside the vector</td></tr>
+    </table>
+    <ol class="matchans">
+      <li><strong>Q10.1</strong> <span class="a">Copy elision</span>. Since C++17, returning a temporary (a prvalue) builds it straight into the destination, so there's no copy and no move. That's why returning big objects by value is cheap.</li>
+      <li><strong>Q10.2</strong> <code class="k">push_back</code> takes an already-built object, so it constructs a temporary and moves it. <code class="k">emplace_back</code> passes the <em>constructor arguments</em> through and builds the element in place.</li>
+      <li><strong>Q10.3</strong> <span class="a"><code class="k">~</code></span>. <span class="a">Yes</span>: valid but emptied. It can be destroyed (it prints <code class="k">-~</code>) or given a new value.</li>
+    </ol>
+
+    <div class="part-head"><span class="part-tag">part 5</span><span class="part-title">Rule of Five / Zero &mdash; Q11&ndash;Q14</span></div>
+    <ul class="blankgrid">
+      <li><span class="n">Plain</span><span class="a">move</span></li>
+      <li><span class="n">WithDtor</span><span class="a">copy</span></li>
+      <li><span class="n">WithCopy</span><span class="a">copy</span></li>
+    </ul>
+    <p style="font-size:0.79rem;margin:0 0 0.06in;"><strong>Q11:</strong> declaring a destructor (even an empty one) <span class="a">stops the compiler from generating the move operations</span>, so every &ldquo;move&rdquo; quietly becomes a copy. It still works, but it's slower. Fix: delete the useless destructor (Rule of Zero), or write <code class="k">= default</code> for all five.</p>
+    <div class="twocol">
+      <pre style="margin:0;"><code>class IntStack {
+public:
+    explicit IntStack(int capacity) {
+        data_.reserve(capacity);
+    }
+    void Push(int value) {
+        data_.push_back(value);
+    }
+    void Pop() {
+        data_.pop_back();
+    }
+    int Top() const {
+        return data_.back();
+    }
+    int Size() const {
+        return static_cast&lt;int&gt;(data_.size());
+    }
+private:
+    vector&lt;int&gt; data_;
+};</code></pre>
+      <div style="font-size:0.78rem;line-height:1.35;">
+        <p style="margin:0 0 0.04in;"><strong>Q12:</strong> <span class="a"><code class="k">vector&lt;int&gt;</code></span> does it. Its own destructor, copy, and move are correct, and the compiler-generated versions for <code class="k">IntStack</code> just call them. Tested: copy, then push to the copy, leaves the original's size unchanged, and a move works.</p>
+        <p style="margin:0;">Accept <code class="k">capacity</code> being ignored, or stored in a member to enforce a limit in <code class="k">Push</code>.</p>
+      </div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>instructor copy 3/5</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Object Lifetime &amp; Ownership</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 4 of 5</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <table class="trace compact">
+      <tr><th>Q13 code</th><th>Y / N</th><th>Why</th></tr>
+      <tr><td><code class="k">FileHandle log("game.log");</code></td><td class="a">Y</td><td></td></tr>
+      <tr><td><code class="k">FileHandle copy = log;</code></td><td class="a">N</td><td><code class="k">call to deleted constructor of 'FileHandle'</code></td></tr>
+      <tr><td><code class="k">Save(log)</code> by value</td><td class="a">N</td><td>Passing by value needs the (deleted) copy constructor</td></tr>
+      <tr><td><code class="k">Save(log)</code> by reference</td><td class="a">Y</td><td>Borrowing copies nothing</td></tr>
+      <tr><td><code class="k">logs.push_back(log);</code></td><td class="a">N</td><td><code class="k">push_back</code> copies. (Even <code class="k">push_back(std::move(log))</code> fails here, because the deleted copy operations also stop the compiler from generating moves. Add <code class="k">FileHandle(FileHandle&amp;&amp;) noexcept</code> to allow it.)</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.03in;"><strong>Q14:</strong></p>
+    <ul class="blankgrid">
+      <li><span class="n">Card</span><span class="a">Zero</span></li>
+      <li><span class="n">Hand</span><span class="a">Zero</span></li>
+      <li><span class="n">Party</span><span class="a">copying deleted (Zero gives you that: a <code class="k">unique_ptr</code> member already makes it move-only)</span></li>
+      <li><span class="n">Matrix</span><span class="a">Three/Five (or better: <code class="k">vector&lt;double&gt;</code> &rarr; Zero)</span></li>
+      <li><span class="n">Player</span><span class="a">Zero</span></li>
+    </ul>
+
+    <div class="part-head"><span class="part-tag">part 6</span><span class="part-title">RAII &mdash; Q15, Q16</span></div>
+    <ol class="matchans">
+      <li><code class="k a">+guard done -guard +guard -guard caught:boom</code> (<code class="k">after</code> never prints)</li>
+      <li><span class="a">Yes</span>. Leaving a scope through an exception destroys its locals (&ldquo;stack unwinding&rdquo;). <span class="a">The 100-int array</span> leaked: <code class="k">delete[] scores</code> was skipped.</li>
+      <li><code class="k a">vector&lt;int&gt; scores(100);</code> &nbsp;(or <code class="k">auto scores = make_unique&lt;int[]&gt;(100);</code>). Remove the <code class="k">delete[]</code> line too.</li>
+    </ol>
+    <div class="twocol">
+      <pre style="margin:0;"><code>class LogScope {
+public:
+    explicit LogScope(const string&amp; name)
+        : name_(name) {
+        cout &lt;&lt; "enter " &lt;&lt; name_ &lt;&lt; " ";
+    }
+    ~LogScope() {
+        cout &lt;&lt; "exit " &lt;&lt; name_ &lt;&lt; " ";
+    }
+    LogScope(const LogScope&amp;) = delete;
+    LogScope&amp; operator=(const LogScope&amp;) = delete;
+private:
+    string name_;
+};</code></pre>
+      <div style="font-size:0.78rem;line-height:1.35;">
+        <p style="margin:0 0 0.04in;"><strong>Q16 output:</strong> <code class="k a">enter outer enter inner exit inner exit outer caught</code></p>
+        <p style="margin:0;">Both destructors run while the exception travels up to <code class="k">main</code>, innermost first. <code class="k">unreachable</code> never prints. The same pattern locks and unlocks a mutex (<code class="k">lock_guard</code>), starts and stops a timer, or saves and restores the terminal state in FTXUI.</p>
+      </div>
+    </div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>instructor copy 4/5</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Object Lifetime &amp; Ownership</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 5 of 5</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 7</span><span class="part-title">Smart Pointers &mdash; Q17, Q18</span></div>
+    <ul class="blankgrid">
+      <li><span class="n">(a)</span><span class="a">1</span></li>
+      <li><span class="n">(b)</span><span class="a">No: <code class="k">unique_ptr</code> can't be copied</span></li>
+      <li><span class="n">(c)</span><span class="a">1</span></li>
+      <li><span class="n">(d)</span><span class="a">2</span></li>
+      <li><span class="n">(e)</span><span class="a">1</span></li>
+      <li><span class="n">(f)</span><span class="a">1 (a weak_ptr doesn't count)</span></li>
+      <li><span class="n">(g)</span><span class="a">0</span></li>
+      <li><span class="n">(h)</span><span class="a">-S (the last owner let go)</span></li>
+      <li><span class="n">(i)</span><span class="a">1</span></li>
+    </ul>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;">The <code class="k">"U"</code> Tracer is destroyed <span class="a">when <code class="k">b</code> goes out of scope</span> (the end of <code class="k">main</code>), and printed last. Tested output: <code class="k">+U 1 | +S 1 2 1 1 0 -S 1 ... -U</code>.</p>
+    <ol class="matchans">
+      <li><strong>Q18.1</strong> <span class="a">2 and 2</span> (each is held by its local variable <em>and</em> by the other object).</li>
+      <li><strong>Q18.2</strong> <span class="a">Only <code class="k">end</code></span>. At <code class="k">}</code> each count drops to 1, never 0, because each keeps the other alive. Neither destructor runs: a <strong>leak</strong>, even though we used smart pointers.</li>
+      <li><strong>Q18.3</strong> <code class="k a">weak_ptr&lt;Team&gt; team_;</code> in <code class="k">Player</code>. The team owns its players, and a player only refers back to its team. Tested: it then prints <code class="k">~Mustangs ~Rhea end</code>.</li>
+    </ol>
+
+
+    <div class="part-head"><span class="part-tag">part 8</span><span class="part-title">Ownership Is a Design Decision &mdash; Q19&ndash;Q21</span></div>
+    <ul class="blankgrid">
+      <li><span class="n">Inspect</span><span class="a">B</span></li>
+      <li><span class="n">Discard</span><span class="a">A</span></li>
+      <li><span class="n">Track</span><span class="a">D</span></li>
+      <li><span class="n">MaybeShow</span><span class="a">E</span></li>
+      <li><span class="n">Draw</span><span class="a">C</span></li>
+      <li><span class="n">TopCard</span><span class="a">F</span></li>
+    </ul>
+    <ul class="blankgrid">
+      <li><span class="n">Hand</span><span class="a">value (<code class="k">vector&lt;Card&gt;</code>)</span></li>
+      <li><span class="n">main/view</span><span class="a"><code class="k">unique_ptr&lt;GameView&gt;</code></span></li>
+      <li><span class="n">ConsoleView</span><span class="a">reference (<code class="k">VideoPoker&amp; game_;</code>)</span></li>
+      <li><span class="n">texture</span><span class="a"><code class="k">shared_ptr</code></span></li>
+      <li><span class="n">Player&rarr;Team</span><span class="a"><code class="k">weak_ptr</code> (raw pointer or reference also OK, if the team outlives the player)</span></li>
+      <li><span class="n">Party</span><span class="a"><code class="k">vector&lt;unique_ptr&lt;Character&gt;&gt;</code></span></li>
+    </ul>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><strong>Q21:</strong> <code class="k">Card</code> is small, has <strong>no subclasses</strong>, and is cheap to copy, so storing it by value is simplest: no heap, no ownership questions, and the Rule of Zero. <code class="k">Character</code> is <strong>polymorphic</strong>. A <code class="k">vector&lt;Character&gt;</code> would slice every <code class="k">Wizard</code> down to a plain <code class="k">Character</code> (W06 Part 4), so the objects must live on the heap behind a base pointer. <code class="k">unique_ptr</code> makes that heap object owned and freed automatically.</p>
+
+    <div class="part-head"><span class="part-tag">part 9</span><span class="part-title">Find the Error &mdash; Cases A&ndash;D</span></div>
+    <div class="case"><span class="label">Case A</span><span>Returns a reference to a <strong>local</strong>, which is destroyed when the function returns, so the reference dangles (clang warns: <code class="k">reference to stack memory associated with local variable 'message' returned</code>). <strong>Fix:</strong> return <code class="k">string</code> by value. Copy elision or a move makes it cheap.</span></div>
+    <div class="case"><span class="label">Case B</span><span><code class="k">push_back</code> may <strong>reallocate</strong>: the vector moves its elements to a bigger array and frees the old one. <code class="k">first</code> still refers into the freed array (AddressSanitizer: <code class="k">heap-use-after-free</code>). <strong>Fix:</strong> keep an index, re-read <code class="k">names[0]</code> after inserting, or copy the string.</span></div>
+    <div class="case"><span class="label">Case C</span><span>Two <code class="k">unique_ptr</code>s each think they're the <em>unique</em> owner, so both delete the same <code class="k">int</code>: a <span class="a">double free</span>. <strong>Habit:</strong> never put a raw <code class="k">new</code> in a smart pointer by hand. Use <code class="k">make_unique</code> / <code class="k">make_shared</code>, and transfer with <code class="k">std::move</code>.</span></div>
+    <div class="case"><span class="label">Case D</span><span><strong>Use after move.</strong> In practice it prints <code class="k">Welcome, </code> with an empty name (tested), but the standard only promises a <em>valid but unspecified</em> string. <strong>Rule:</strong> after <code class="k">std::move(x)</code>, don't read <code class="k">x</code> again until you give it a new value.</span></div>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 8</span><span>instructor copy 5/5</span></div>
+  </section>
+
+</div>

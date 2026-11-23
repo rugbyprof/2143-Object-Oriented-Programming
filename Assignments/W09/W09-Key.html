@@ -1,0 +1,520 @@
+<title>Answer Key &mdash; Designing with Objects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.4in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 0.16in;
+    margin-bottom: 0.14in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+  .stamp {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 3px;
+    padding: 0.05in 0.14in;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.05in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.03em 0.48em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.58rem;
+    line-height: 1.2;
+    color: var(--ink);
+    white-space: pre;
+  }
+
+  .blankgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.06in 0.4in;
+    margin: 0 0 0.06in;
+    padding: 0;
+    list-style: none;
+  }
+  .blankgrid li {
+    font-size: 0.79rem;
+    line-height: 1.4;
+    display: flex;
+    gap: 0.4em;
+  }
+  .blankgrid .n {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--ink-soft);
+    flex: 0 0 auto;
+  }
+  .blankgrid .a {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .case {
+    display: grid;
+    grid-template-columns: 3.9em 1fr;
+    gap: 0.04in 0.2in;
+    font-size: 0.78rem;
+    line-height: 1.38;
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.12in;
+    margin-bottom: 0.05in;
+  }
+  .case .label {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--amber);
+  }
+
+  table.trace, table.cheat {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.72rem;
+    margin: 0 0 0.07in;
+  }
+  table.trace th, table.trace td,
+  table.cheat th, table.cheat td {
+    border: 1px solid var(--rule);
+    padding: 0.05in 0.08in;
+    text-align: left;
+  }
+  table.trace th, table.cheat th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .a { color: var(--accent); font-weight: 600; }
+
+  ol.matchans {
+    margin: 0 0 0.08in;
+    padding-left: 1.2em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.04in;
+  }
+  ol.matchans li { font-size: 0.78rem; line-height: 1.3; }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.28in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+  table.compact td, table.compact th { padding: 0.025in 0.08in; }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 0.14in; margin: 0 0 0.06in; }
+  pre, code, .diagram { font-variant-ligatures: none; }   /* show >= and != as typed */
+  pre, code, .diagram { font-variant-ligatures: none; }   /* show >= and != as typed */
+  .twocol { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }   /* long code lines must not squeeze the other column */
+</style>
+
+<div class="wrap">
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Designing with Objects</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 1 of 4</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 1</span><span class="part-title">Four Ways Objects Relate &mdash; Q1, Q2</span></div>
+    <ul class="blankgrid">
+      <li><span class="n">Hand</span><span class="a">composition</span></li>
+      <li><span class="n">ConsoleView</span><span class="a">association</span></li>
+      <li><span class="n">Tournament</span><span class="a">aggregation</span></li>
+      <li><span class="n">Scorer</span><span class="a">dependency</span></li>
+      <li><span class="n">Car</span><span class="a">composition</span></li>
+      <li><span class="n">Blackjack</span><span class="a">inheritance</span></li>
+      <li><span class="n">Party</span><span class="a">composition (via <code class="k">unique_ptr</code>)</span></li>
+      <li><span class="n">Sprite</span><span class="a">aggregation (shared)</span></li>
+    </ul>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><strong>Q2:</strong> &ldquo;<span class="a">If the whole is destroyed, are the parts destroyed too?</span>&rdquo; (Equivalently: can a part exist on its own, or belong to another whole?) Department &rarr; Professor is <span class="a">aggregation</span>. Closing a department doesn't destroy its professors, who can move to another department. By contrast, a <code class="k">Hand</code>'s cards (in P01, value copies) are composition.</p>
+
+    <div class="part-head"><span class="part-tag">part 2</span><span class="part-title">Is It Really &ldquo;Is-A&rdquo;? &mdash; Q3, Q4</span></div>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;"><strong>Q3:</strong> <code class="k a">20 16</code> (tested). <code class="k">Stretch</code> reasonably assumed that setting the height doesn't change the width. A <code class="k">Square</code> must break that assumption to stay square. So a <code class="k">Square</code> <em>can't</em> stand in for a <code class="k">Rectangle</code>, which violates <span class="a">LSP</span>. Nothing crashes, so this bug is easy to miss. The fault is the <strong>hierarchy</strong>, not <code class="k">Stretch</code>: &ldquo;is-a&rdquo; in code means <em>behaves like</em>, not &ldquo;is a special case of, in math class.&rdquo; Fix: don't derive one from the other. Make both derive from an abstract <code class="k">Shape</code> with <code class="k">Area()</code>, or make them immutable (no setters).</p>
+    <table class="trace compact">
+      <tr><th>Hierarchy</th><th>Verdict</th><th>Better</th></tr>
+      <tr><td><code class="k">Car : Engine</code></td><td class="a">USE HAS-A</td><td><code class="k">Engine engine_;</code> A car isn't a kind of engine.</td></tr>
+      <tr><td><code class="k">Stack : vector&lt;int&gt;</code></td><td class="a">USE HAS-A</td><td><code class="k">vector&lt;int&gt; items_;</code> It would expose <code class="k">insert</code>, <code class="k">[]</code>, and so on.</td></tr>
+      <tr><td><code class="k">Wizard : Character</code></td><td class="a">IS-A OK</td><td>Used through <code class="k">Character&amp;</code> everywhere</td></tr>
+      <tr><td><code class="k">Hand : Deck</code></td><td class="a">USE HAS-A</td><td><code class="k">vector&lt;Card&gt; cards_;</code> &ldquo;Both hold cards&rdquo; is code reuse, not is-a. (A hand doesn't <code class="k">Shuffle()</code>.)</td></tr>
+      <tr><td><code class="k">ConsoleView : GameView</code></td><td class="a">IS-A OK</td><td>Exactly what P01's <code class="k">unique_ptr&lt;GameView&gt;</code> relies on</td></tr>
+      <tr><td><code class="k">Employee : Person</code></td><td class="a">USE HAS-A</td><td>An object can't change its class at run time. Give <code class="k">Person</code> a <code class="k">unique_ptr&lt;Role&gt; role_</code>.</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;">&ldquo;Prefer <span class="a">composition</span> over <span class="a">inheritance</span>.&rdquo;</p>
+
+    <div class="part-head"><span class="part-tag">part 3</span><span class="part-title">Coupling and Cohesion &mdash; Q5</span></div>
+    <ol class="matchans">
+      <li><span class="a"><code class="k">Game</code>, <code class="k">Player</code>, the round result (<code class="k">lastRound</code>), and <code class="k">Card</code></span> (via <code class="k">card1</code> / <code class="k">renderPlayedCard</code>). That's four game types in one view lambda.</li>
+      <li>Any <code class="k">game.getPlayer1().getName()</code> or <code class="k">game.getPlayer1().cardCount()</code>: the view talks to the game's <em>player</em>, a stranger it reached by going through the game.</li>
+      <li>A <span class="a">game rules / presentation-logic</span> job. A second (console) view would have to <strong>copy</strong> the whole if/else, and the two copies drift apart. That's the P01 lesson again.</li>
+      <li><span class="a">2</span> (player 1 and the &ldquo;same, for player 2&rdquo; box), and every other view that does the same.</li>
+    </ol>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>instructor copy 1/4</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Designing with Objects</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 2 of 4</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 4</span><span class="part-title">SOLID &mdash; Q6</span></div>
+    <p style="font-size:0.79rem;margin:0 0 0.04in;">Damage: <code class="k a">8, 3, 8</code> (6+2, 1+2, then it wraps around to 6+2). Tested.</p>
+    <div class="twocol">
+      <pre style="margin:0;"><code>FixedDice dice({6});
+Combat combat(dice);
+if (combat.Damage(2) == 8) {
+    cout &lt;&lt; "PASS critical hit\n";
+} else {
+    cout &lt;&lt; "FAIL critical hit\n";
+}</code></pre>
+      <ol class="matchans" style="margin:0;">
+        <li>With <code class="k">rand()</code> inside, you can't choose the roll. The test passes 1 time in 6, which makes it useless. Injecting <code class="k">Dice&amp;</code> lets the test decide.</li>
+        <li><span class="a">The stacked <code class="k">Deck</code> constructor</span>, <code class="k">Deck d({Card(26), ...})</code>, which you use for <code class="k">--test</code>.</li>
+        <li><span class="a">Association</span> (a non-owning reference). The <span class="a">dice must outlive the <code class="k">Combat</code></span>, or <code class="k">dice_</code> dangles (W08 Part 9).</li>
+      </ol>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 5</span><span class="part-title">Strategy &mdash; Q7, Q8</span></div>
+    <table class="trace compact">
+      <tr><th>Strategy</th><th>11</th><th>14</th><th>18</th></tr>
+      <tr><td><code class="k">HouseRule</code> (&lt; 17)</td><td class="a">hit</td><td class="a">hit</td><td class="a">stand</td></tr>
+      <tr><td><code class="k">Cautious</code> (&lt; 12)</td><td class="a">hit</td><td class="a">stand</td><td class="a">stand</td></tr>
+      <tr><td><code class="k">Reckless</code> (&lt; 20)</td><td class="a">hit</td><td class="a">hit</td><td class="a">hit</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><strong>Q8:</strong> (1) <span class="a">Change behavior while running</span>: the same <code class="k">Dealer</code> object switches to <code class="k">Cautious</code> after three losses, but an object can't change its own class. (2) <span class="a">Combine independent variations</span>: 3 hit styles &times; 3 betting styles is 3 + 3 strategy classes, against 9 <code class="k">Dealer</code> subclasses (and it multiplies with every new dimension). Also accept: strategies can be reused (an AI <em>player</em> can use the same <code class="k">HitStrategy</code>), and each is small enough to test on its own.</p>
+
+    <div class="part-head"><span class="part-tag">part 6</span><span class="part-title">Factory &mdash; Q9</span></div>
+    <ol class="matchans">
+      <li><span class="a"><code class="k">nullptr</code></span>. The loop stores it, and the later <code class="k">member-&gt;Attack()</code> dereferences null, so it <strong>crashes</strong> far from the real mistake (a bad save file). Better: <code class="k">throw invalid_argument("unknown kind: " + kind)</code>, so you fail loudly at the cause, or check the result and skip the line with a warning.</li>
+      <li>Write the <code class="k">Bard</code> class, and add <strong>one</strong> registry entry. The loading loop, the party, and the battle code <span class="a">don't change</span>.</li>
+      <li><span class="a">Open/Closed</span>: new kinds are added without editing the code that uses characters. (Also accept Dependency Inversion: the rest of the program depends only on <code class="k">Character</code>.)</li>
+      <li>W06: a value <code class="k">Character</code> would <strong>slice</strong> (and an abstract class can't be returned by value at all), so polymorphism needs a pointer. W08: <code class="k">unique_ptr</code> makes <strong>ownership</strong> obvious and frees the object automatically. A raw <code class="k">Character*</code> leaves &ldquo;who deletes it?&rdquo; unanswered.</li>
+    </ol>
+
+    <div class="part-head"><span class="part-tag">part 7</span><span class="part-title">Observer &mdash; Q10, Q11</span></div>
+    <p style="font-size:0.79rem;margin:0 0 0.04in;"><strong>Q10:</strong> <code class="k a">[log] Rhea=10 [HIGH Rhea] [log] Vex=8 [log] Rhea=15 [HIGH Rhea] [log] Vex=17 [HIGH Vex]</code> (tested). Listeners run in the order they subscribed, and they see the running <em>total</em>, not the points just added.</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>instructor copy 2/4</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Designing with Objects</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 3 of 4</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div>
+      <pre style="margin:0 0 0.04in;"><code>board.Subscribe(
+    [announced = false](const string&amp; who, int total) mutable {
+        if (!announced &amp;&amp; total &gt;= 100) {
+            announced = true;
+            cout &lt;&lt; "[100 CLUB] ";
+        }
+    });</code></pre>
+      <div style="font-size:0.78rem;line-height:1.35;">
+        <p style="margin:0 0 0.04in;"><strong>Q11.1:</strong> <span class="a">0</span> lines of <code class="k">ScoreBoard</code> change. That's the point of Observer. (Tested: fires once.) The <code class="k">mutable</code> init-capture is the tidy version. Also accept a <code class="k">bool</code> declared alongside <code class="k">high</code> and captured by reference.</p>
+      </div>
+    </div>
+    <ol class="matchans" style="margin-top:0.05in;">
+      <li><strong>Q11.2</strong> A <span class="a">dangling reference</span>. The lambda still refers to <code class="k">high</code> after the function's stack frame is gone, so the next <code class="k">Record</code> reads and writes dead memory (undefined behavior). Fix: capture by value (<code class="k">[high = 0](...) mutable</code>), or store the state in something that lives as long as the board. Observers and lifetime are a classic source of bugs.</li>
+      <li><strong>Q11.3</strong> <span class="a">Observer</span> (a callback): the button doesn't know what clicking does. It just calls whatever it was handed.</li>
+    </ol>
+
+    <div class="part-head"><span class="part-tag">part 8</span><span class="part-title">Facade &mdash; Q12&ndash;Q14</span></div>
+    <div class="twocol">
+      <pre style="margin:0;"><code>string WarTable::Status() const {
+    if (game_.isGameOver()) {
+        return "Game Over: " + game_.winnerName();
+    }
+    string status = "Ready to play";
+    if (last_.winner == 1) {
+        status = game_.getPlayer1().getName()
+                 + " wins the round!";
+    } else if (last_.winner == 2) {
+        status = game_.getPlayer2().getName()
+                 + " wins the round!";
+    }
+    if (last_.wasWar) {
+        status += " (WAR!)";
+    }
+    return status;
+}</code></pre>
+      <pre style="margin:0;"><code>Element SeatBox(const SeatView&amp; seat) {
+    return vbox({
+        text(seat.name) | bold | center,
+        text("Cards: "
+             + std::to_string(seat.cardsLeft))
+            | center,
+        text(seat.lastCard) | center,
+    }) | border;
+}
+
+auto renderer = Renderer(buttons, [&amp;] {
+    TableView view = table.View();
+    return vbox({
+        text("WAR") | bold | center,
+        hbox({
+            SeatBox(view.left),
+            text("   VS   ") | center,
+            SeatBox(view.right),
+        }) | center,
+        text(view.status) | center,
+        buttons-&gt;Render() | center,
+    }) | border;
+});</code></pre>
+    </div>
+    <p style="font-size:0.79rem;margin:0.05in 0 0.06in;">Both compiled and ran against the real FTXUI from the P01 build. The rendered screen shows both seats, <code class="k">VS</code>, and &ldquo;Rhea wins the round! (WAR!)&rdquo;. <strong>Grading Q12:</strong> <code class="k">WarTable::</code> prefix, <code class="k">const</code>, the game-over case first, and the WAR suffix. (The original renderer let a game-over status get &ldquo;(WAR!)&rdquo; appended; returning early fixes that small bug, and is worth pointing out.)</p>
+    <table class="trace compact">
+      <tr><th>Q14</th><th>Before</th><th>After</th></tr>
+      <tr><td>Game types the view knows</td><td class="a"><code class="k">Game</code>, <code class="k">Player</code>, <code class="k">RoundResult</code>, <code class="k">Card</code></td><td class="a">Only <code class="k">WarTable</code> and the plain-data <code class="k">TableView</code> / <code class="k">SeatView</code></td></tr>
+      <tr><td>&ldquo;Who won&rdquo; text built in</td><td class="a">the FTXUI lambda</td><td class="a"><code class="k">WarTable::Status()</code></td></tr>
+      <tr><td>Adding a <code class="k">--text</code> view</td><td class="a">copy the status logic and every getter chain</td><td class="a">print the fields of <code class="k">table.View()</code>, about 10 lines</td></tr>
+      <tr><td>Test status without a screen?</td><td class="a">No (it lives inside the renderer)</td><td class="a">Yes: <code class="k">table.PlayRound(); check(table.View().status == ...)</code></td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;">The complexity moved <span class="a">into the facade, on the game side</span>, where it's written <strong>once</strong>, can be tested without a terminal, and is shared by every view. The views became short and dumb, which is what views should be. (Strictly, <code class="k">WarTable</code> mixes Facade with a &ldquo;view model&rdquo;: the plain <code class="k">TableView</code> data is what decouples the screen.)</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>instructor copy 3/4</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Designing with Objects</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 4 of 4</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 9</span><span class="part-title">Which Pattern Fits? &mdash; Q15</span></div>
+    <ol class="matchans">
+      <li>Chess AI difficulty &mdash; <span class="a">Strategy</span></li>
+      <li>Enemies by name from a level file &mdash; <span class="a">Factory</span></li>
+      <li>Health bar, sound, and achievements react to health &mdash; <span class="a">Observer</span></li>
+      <li>Six audio calls behind <code class="k">audio.Play("win")</code> &mdash; <span class="a">Facade</span></li>
+      <li><code class="k">Species()</code> vs <code class="k">Name()</code> &mdash; <span class="a">Adapter</span></li>
+      <li>Always restore the terminal &mdash; <span class="a">RAII</span></li>
+      <li>Shipping cost chosen at checkout &mdash; <span class="a">Strategy</span></li>
+    </ol>
+
+    <div class="part-head"><span class="part-tag">part 10</span><span class="part-title">Design Review &mdash; Q16, Q17</span></div>
+    <table class="trace compact">
+      <tr><th>Problem</th><th>Breaks</th></tr>
+      <tr><td>Every member is <code class="k">public</code> (<code class="k">playerCount</code> can be set to 500)</td><td class="a">Encapsulation / class invariants (W01)</td></tr>
+      <tr><td><code class="k">cout</code> / <code class="k">cin</code> inside the game class</td><td class="a">SRP, and the P01 &ldquo;no I/O in the game&rdquo; rule</td></tr>
+      <tr><td><code class="k">dealerStyle</code> string and an <code class="k">if / else if</code> chain</td><td class="a">Open/Closed. Use a <code class="k">HitStrategy</code>.</td></tr>
+      <tr><td><code class="k">Card* deck = new Card[52]</code> with no destructor</td><td class="a">Leak, and copies are shallow: Rule of Three / Zero (W08). Use <code class="k">Deck deck_;</code>.</td></tr>
+      <tr><td>Two parallel <code class="k">string[12]</code> + count pairs; cards stored as strings</td><td class="a">Missing abstraction: compose a <code class="k">Hand</code> (twice) out of <code class="k">Card</code>s</td></tr>
+      <tr><td><code class="k">play()</code> is 80+ lines doing input, rules, and output</td><td class="a">Low cohesion, a &ldquo;god method&rdquo;. Also untestable: no injection seam.</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.03in;"><strong>Q17 model sketch</strong> (accept any design with clear jobs and clear ownership):</p>
+    <div class="diagram">Card            value type: rank, suit; ToString()                         (Rule of Zero)
+Hand            ◆ vector&lt;Card&gt; cards_; Add, Clear, Value(), IsSoft(), IsBust()
+Deck            ◆ vector&lt;Card&gt; cards_; Shuffle(), Deal(); stacked ctor for tests
+HitStrategy     abstract: ShouldHit(int) ──▷ Cautious, HouseRule, Reckless
+Blackjack       ◆ Deck deck_; ◆ Hand player_, dealer_; ◆ unique_ptr&lt;HitStrategy&gt; dealerStyle_;
+                Phase phase_; actions Deal/Hit/Stand (guarded by phase); const queries;
+                NO cout/cin
+GameView        abstract: virtual void run() = 0  ──▷ ConsoleView, TuiView
+ConsoleView     ── Blackjack&amp; game_   (association: borrows, doesn't own)
+main()          ◆ Blackjack game; ◆ unique_ptr&lt;GameView&gt; view (chosen from argv); view-&gt;run()</div>
+    <p style="font-size:0.79rem;margin:0.04in 0 0;">Look for: no public data, no I/O in the game, a strategy (or at least a virtual) instead of the string chain, value or <code class="k">unique_ptr</code> members instead of raw <code class="k">new</code>, and <code class="k">Hand</code> reused for both player and dealer.</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 9</span><span>instructor copy 4/4</span></div>
+  </section>
+
+</div>

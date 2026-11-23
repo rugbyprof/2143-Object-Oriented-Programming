@@ -1,0 +1,626 @@
+<title>Answer Key &mdash; Templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --paper: #f5f6f2;
+    --paper-line: #dfe3da;
+    --ink: #1c211d;
+    --ink-soft: #55605a;
+    --rule: #c7cec4;
+    --accent: #2f6f5e;
+    --accent-soft: #e4ede9;
+    --amber: #9c5a1f;
+    --amber-soft: #f3e6d6;
+    --code-bg: #eceee7;
+    --code-border: #d3d8cd;
+    --shadow: rgba(20, 30, 24, 0.18);
+    --wrap-bg: #e4e6de;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14181a;
+      --paper-line: #23282a;
+      --ink: #e9ece6;
+      --ink-soft: #a9b3aa;
+      --rule: #3a413b;
+      --accent: #6fc2a8;
+      --accent-soft: #1c2f29;
+      --amber: #e0a25f;
+      --amber-soft: #332417;
+      --code-bg: #1c211f;
+      --code-border: #333b34;
+      --shadow: rgba(0, 0, 0, 0.5);
+      --wrap-bg: #0c0f0d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181a;
+    --paper-line: #23282a;
+    --ink: #e9ece6;
+    --ink-soft: #a9b3aa;
+    --rule: #3a413b;
+    --accent: #6fc2a8;
+    --accent-soft: #1c2f29;
+    --amber: #e0a25f;
+    --amber-soft: #332417;
+    --code-bg: #1c211f;
+    --code-border: #333b34;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --wrap-bg: #0c0f0d;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--wrap-bg);
+    color: var(--ink);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1rem 4rem;
+  }
+
+  .wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.25rem;
+  }
+
+  .sheet {
+    width: 8.5in;
+    min-height: 11in;
+    flex: 0 0 auto;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      var(--paper);
+    background-size: 0.25in 0.25in, 0.25in 0.25in, auto;
+    background-position: -1px -1px;
+    box-shadow: 0 12px 32px var(--shadow);
+    padding: 0.4in 0.62in;
+    position: relative;
+  }
+
+  .band {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 0.16in;
+    margin-bottom: 0.14in;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  h1 {
+    font-family: "Archivo", sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.01em;
+    margin: 0.05em 0 0;
+    text-wrap: balance;
+  }
+  .tagline {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.08in;
+  }
+  .stamp {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    border-radius: 3px;
+    padding: 0.05in 0.14in;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.1in 0 0.05in;
+  }
+  .part-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.03em 0.48em;
+  }
+  .part-title {
+    font-family: "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+  }
+  .part-note {
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    margin-left: auto;
+  }
+
+  code.k {
+    font-family: "JetBrains Mono", monospace;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 3px;
+    padding: 0.02em 0.32em;
+    font-size: 0.85em;
+  }
+  pre {
+    margin: 0 0 0.06in;
+    overflow-x: auto;
+    background: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: 4px;
+    padding: 0.06in 0.1in;
+  }
+  pre, pre code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.58rem;
+    line-height: 1.2;
+    color: var(--ink);
+    white-space: pre;
+  }
+
+  .blankgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.06in 0.4in;
+    margin: 0 0 0.06in;
+    padding: 0;
+    list-style: none;
+  }
+  .blankgrid li {
+    font-size: 0.79rem;
+    line-height: 1.4;
+    display: flex;
+    gap: 0.4em;
+  }
+  .blankgrid .n {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--ink-soft);
+    flex: 0 0 auto;
+  }
+  .blankgrid .a {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .case {
+    display: grid;
+    grid-template-columns: 3.9em 1fr;
+    gap: 0.04in 0.2in;
+    font-size: 0.78rem;
+    line-height: 1.38;
+    border-left: 3px solid var(--amber);
+    background: var(--amber-soft);
+    border-radius: 0 5px 5px 0;
+    padding: 0.06in 0.12in;
+    margin-bottom: 0.05in;
+  }
+  .case .label {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    color: var(--amber);
+  }
+
+  table.trace, table.cheat {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.72rem;
+    margin: 0 0 0.07in;
+  }
+  table.trace th, table.trace td,
+  table.cheat th, table.cheat td {
+    border: 1px solid var(--rule);
+    padding: 0.05in 0.08in;
+    text-align: left;
+  }
+  table.trace th, table.cheat th {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .a { color: var(--accent); font-weight: 600; }
+
+  ol.matchans {
+    margin: 0 0 0.08in;
+    padding-left: 1.2em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.04in;
+  }
+  ol.matchans li { font-size: 0.78rem; line-height: 1.3; }
+
+  .footer-rule {
+    position: absolute;
+    bottom: 0.28in;
+    left: 0.62in;
+    right: 0.62in;
+    display: flex;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.66rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 0.06in;
+  }
+
+  @page { size: letter; margin: 0; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap { gap: 0; align-items: stretch; }
+    .sheet {
+      box-shadow: none;
+      width: 8.5in;
+      min-height: 11in;
+      page-break-after: always;
+    }
+  }
+  @media (max-width: 9in) {
+    .sheet { width: 100%; min-width: 8.5in; }
+  }
+  table.compact td, table.compact th { padding: 0.025in 0.08in; }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 0.14in; margin: 0 0 0.06in; }
+  pre, code, .diagram { font-variant-ligatures: none; }   /* show >= and != as typed */
+</style>
+
+<div class="wrap">
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Templates</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 1 of 6</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 1</span><span class="part-title">One Recipe, Many Types &mdash; Q1, Q2</span></div>
+    <ul class="blankgrid">
+      <li><span class="n">1.</span><span class="a">parameter &middot; argument</span></li>
+      <li><span class="n">2.</span><span class="a">deduction</span></li>
+      <li><span class="n">3.</span><span class="a">instantiation &middot; compile</span></li>
+      <li><span class="n">4.</span><span class="a">typename</span></li>
+    </ul>
+    <table class="trace">
+      <tr><th>Call</th><th>T</th><th>Prints</th></tr>
+      <tr><td><code class="k">(a) Larger(3, 7)</code></td><td class="a">int</td><td class="a">7</td></tr>
+      <tr><td><code class="k">(b) Larger(2.5, 1.5)</code></td><td class="a">double</td><td class="a">2.5</td></tr>
+      <tr><td><code class="k">(c) Larger(4, 9.2)</code></td><td class="a">&mdash;</td><td class="a">ERROR</td></tr>
+      <tr><td><code class="k">(d) Larger&lt;double&gt;(4, 9.2)</code></td><td class="a">double</td><td class="a">9.2</td></tr>
+      <tr><td><code class="k">(e) Larger('a', 'Z')</code></td><td class="a">char</td><td class="a">a</td></tr>
+      <tr><td><code class="k">(f) Larger(string("apple"), string("Banana"))</code></td><td class="a">string</td><td class="a">apple</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.06in;"><strong>(e) and (f) are the traps.</strong> Characters compare by character code, and every uppercase letter comes before every lowercase one (<code class="k">'Z'</code> is 90, <code class="k">'a'</code> is 97). Strings compare the same way, one character at a time, so <code class="k">"apple" &gt; "Banana"</code>.</p>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><strong>(c):</strong> the first argument says <code class="k">T</code> is <code class="k">int</code> and the second says <code class="k">double</code>. Deduction needs <em>one</em> consistent <code class="k">T</code>, and it won't convert to make them agree. Fixes: <code class="k">Larger(4.0, 9.2)</code> or <code class="k">Larger(static_cast&lt;double&gt;(4), 9.2)</code>. Compiler message: <code class="k">no matching function for call to 'Larger'</code>.</p>
+
+    <div class="part-head"><span class="part-tag">part 2</span><span class="part-title">What a Template Requires &mdash; Q3, Q4, Q5</span></div>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;"><strong>Q3:</strong> <span class="a">default construction</span> (<code class="k">T total{}</code>), <span class="a"><code class="k">+=</code></span>, <span class="a">division by a <code class="k">size_t</code></span> (<code class="k">total / values.size()</code>), and <span class="a">copying</span> (returned by value).</p>
+    <ol class="matchans">
+      <li><code class="k">vector&lt;double&gt;{7, 8}</code> &mdash; <span class="a">7.5</span></li>
+      <li><code class="k">vector&lt;int&gt;{7, 8}</code> &mdash; <span class="a">7</span>. It compiles, but <code class="k">15 / 2</code> is integer division. A template does what the type does, even when that's not what you meant.</li>
+      <li><code class="k">vector&lt;string&gt;{"a", "b"}</code> &mdash; <span class="a">ERROR</span>: <code class="k">+=</code> works for strings, but there's no <code class="k">string / size_t</code>. The error points <strong>inside</strong> <code class="k">Average</code> at the <code class="k">return total / values.size();</code> line, followed by a &ldquo;in instantiation of ... requested here&rdquo; note pointing back at <code class="k">main()</code>.</li>
+    </ol>
+    <p style="font-size:0.79rem;margin:0 0 0.03in;"><strong>Q5 model answer</strong> (a non-member, because <code class="k">Score()</code> is public):</p>
+    <pre><code>bool operator&gt;(const Player&amp; left, const Player&amp; right) {
+    return left.Score() &gt; right.Score();
+}</code></pre>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;">The template sets the rules (&ldquo;<code class="k">T</code> must support <code class="k">&gt;</code>&rdquo;). Any class that follows them can use it. One template serves every type that fits, and nobody has to edit it to add a new type.</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>instructor copy 1/6</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Templates</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 2 of 6</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 3</span><span class="part-title">Class Templates &mdash; Q6, Q7</span></div>
+    <div class="twocol">
+      <pre style="margin:0;"><code>template &lt;typename T&gt;
+Box&lt;T&gt;::Box(const T&amp; value)
+    : value_(value) {
+}
+
+template &lt;typename T&gt;
+const T&amp; Box&lt;T&gt;::Get() const {
+    return value_;
+}
+
+template &lt;typename T&gt;
+T Box&lt;T&gt;::Replace(const T&amp; new_value) {
+    T old_value = value_;
+    value_ = new_value;
+    return old_value;
+}</code></pre>
+      <div style="font-size:0.78rem;line-height:1.35;">
+        <p style="margin:0 0 0.05in;">The two things every definition needs: <span class="a">repeat <code class="k">template &lt;typename T&gt;</code></span> and <span class="a">name the class as <code class="k">Box&lt;T&gt;::</code></span>. Don't repeat <code class="k">explicit</code> outside the class. It only goes on the declaration.</p>
+        <ol class="matchans" style="margin:0;">
+          <li><span class="a">F</span>. Different template arguments make different, unrelated types.</li>
+          <li><span class="a">F</span>. The constructor is <code class="k">explicit</code>, so there is no implicit <code class="k">int</code> &rarr; <code class="k">Box&lt;int&gt;</code> conversion.</li>
+          <li><span class="a">T</span>. Class template argument deduction (CTAD, C++17).</li>
+          <li><span class="a">T</span>. Member functions are only instantiated when used.</li>
+          <li><span class="a">F</span>. They go in the header. A <code class="k">.cpp</code> leads to linker errors (Case A).</li>
+          <li><span class="a">T</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 4</span><span class="part-title">Value Parameters and Defaults &mdash; Q8, Q9</span></div>
+    <table class="trace compact">
+      <tr><th>#</th><th>Y / N</th><th>Reason</th></tr>
+      <tr><td>1</td><td class="a">Y</td><td></td></tr>
+      <tr><td>2</td><td class="a">N</td><td><code class="k">Inventory&lt;int,4&gt;</code> and <code class="k">Inventory&lt;int,8&gt;</code> are different types (<code class="k">no viable overloaded '='</code>)</td></tr>
+      <tr><td>3</td><td class="a">N</td><td><code class="k">n</code> isn't known at compile time (<code class="k">non-type template argument is not a constant expression</code>)</td></tr>
+      <tr><td>4</td><td class="a">Y</td><td><code class="k">constexpr</code> makes it a compile-time constant</td></tr>
+      <tr><td>5</td><td class="a">Y</td><td><code class="k">Counter&lt;int&gt;</code>, using the default</td></tr>
+      <tr><td>6</td><td class="a">Y</td><td>Nothing that needs <code class="k">++</code> has been used yet</td></tr>
+      <tr><td>7</td><td class="a">N</td><td><code class="k">cannot increment value of type 'std::string'</code></td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;"><strong>Lines 6/7:</strong> a class template's methods are only generated when they're <span class="a">called</span>. A type can work with part of a template's interface. The error waits until you use a method the type can't support.</p>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;"><strong>Q9:</strong> <em>Template argument:</em> the size is checked at compile time, it can use <code class="k">std::array</code> with no dynamic memory, and the size is part of the type (a 4-slot and a 10-slot bag can't be mixed up). <em>Constructor argument:</em> the size can come from the user, a file, or a level number at <strong>run time</strong>, and all bags are the same type, so they fit in one <code class="k">vector</code>.</p>
+
+    <div class="part-head"><span class="part-tag">part 5</span><span class="part-title">A Generic Container &mdash; Q10, Q11, Q12</span></div>
+    <ul class="blankgrid">
+      <li><span class="n">(a)</span><span class="a">blue</span></li>
+      <li><span class="n">(b)</span><span class="a">gold</span></li>
+      <li><span class="n">(c)</span><span class="a">3</span></li>
+      <li><span class="n">(d)</span><span class="a">gold</span></li>
+      <li><span class="n">(e)</span><span class="a">green</span></li>
+      <li><span class="n">(f)</span><span class="a">throws <code class="k">underflow_error</code> (only "red" was left, and it was popped on the line before)</span></li>
+    </ul>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>instructor copy 2/6</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Templates</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 3 of 6</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 5</span><span class="part-title">A Generic Container (continued) &mdash; Q11, Q12</span></div>
+    <div class="twocol">
+      <pre style="margin:0;"><code>bool Contains(const T&amp; item) const {
+    for (const T&amp; current : items_) {
+        if (current == item) {
+            return true;
+        }
+    }
+    return false;
+}</code></pre>
+      <div style="font-size:0.78rem;line-height:1.35;">
+        <p style="margin:0;"><strong>Q11:</strong> new requirement: <span class="a"><code class="k">T</code> supports <code class="k">==</code></span>. <span class="a">Yes</span>, <code class="k">Stack&lt;Card&gt;</code> still compiles and works without it. Only a call to <code class="k">Contains</code> fails (methods are generated only when used).</p>
+      </div>
+    </div>
+    <p style="font-size:0.79rem;margin:0.05in 0 0.1in;"><strong>Q12:</strong> anything <code class="k">vector</code> offers becomes public: <code class="k">s[0]</code> or <code class="k">s.at(i)</code> (read the bottom), <code class="k">s.insert(s.begin(), x)</code> (push to the bottom), <code class="k">s.erase(...)</code>, <code class="k">s.front()</code>, sorting it, and so on. Public inheritance says &ldquo;a Stack <em>is a</em> vector,&rdquo; which isn't true. Composition shows only the operations you choose.</p>
+
+    <div class="part-head"><span class="part-tag">part 6</span><span class="part-title">An Interface Without Inheritance &mdash; Q13&ndash;Q17</span></div>
+    <table class="trace compact">
+      <tr><th>Submit</th><th>Board after</th></tr>
+      <tr><td><code class="k">Thorin 85</code></td><td class="a">Thorin 85</td></tr>
+      <tr><td><code class="k">Malakai 92</code></td><td class="a">Malakai 92, Thorin 85</td></tr>
+      <tr><td><code class="k">Jordan 77</code></td><td class="a">Malakai 92, Thorin 85, Jordan 77</td></tr>
+      <tr><td><code class="k">Rhea 99</code></td><td class="a">Rhea 99, Malakai 92, Thorin 85 &nbsp;(Jordan drops off)</td></tr>
+      <tr><td><code class="k">Vex 80</code></td><td class="a">Rhea 99, Malakai 92, Thorin 85 &nbsp;(Vex is added, sorted last, and removed at once)</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.05in;"><strong>Q14:</strong> only <span class="a">(3)</span> fails (<code class="k">no member named 'Score' in 'Monster'</code>, reported <em>inside</em> <code class="k">Submit</code>'s lambda). Line (2) only needs the constructor, and the constructor never touches <code class="k">Score()</code>. <code class="k">Submit</code> isn't generated until it's called. Line (1) is fine because the template only needs <code class="k">Score()</code> results to support <code class="k">&gt;</code>, and <code class="k">double</code> does.</p>
+    <div class="twocol">
+      <pre style="margin:0;"><code>class RankedMonster {
+public:
+    explicit RankedMonster(const Monster&amp; monster)
+        : monster_(monster) {
+    }
+    string Name() const {
+        return monster_.Species();
+    }
+    int Score() const {
+        return monster_.HitPoints();
+    }
+private:
+    Monster monster_;
+};</code></pre>
+      <div style="font-size:0.78rem;line-height:1.35;">
+        <p style="margin:0 0 0.04in;"><strong>Q15:</strong> an <em>adapter</em> (composition again). Holding a <code class="k">Monster</code> by value is fine. Holding <code class="k">const Monster&amp;</code> also works if the monster outlives the board. Both methods must be <code class="k">const</code>, because the lambda takes <code class="k">const T&amp;</code>.</p>
+        <p style="margin:0;"><strong>Q16:</strong> (1) <span class="a">inherit publicly from <code class="k">Rankable</code> and override both</span>. Every class must change, including <code class="k">Monster</code>, which we can't edit, so we'd still need an adapter. (2) <span class="a">pick one type, for example <code class="k">double</code></span>, and <code class="k">Player::Score()</code> has to return <code class="k">double</code> too. (3) <span class="a">hold Players <em>and</em> Teams on one board</span>, or decide at run time what goes on it.</p>
+      </div>
+    </div>
+    <table class="trace compact" style="margin-top:0.06in;">
+      <tr><th>Q17</th><th>Template</th><th>Abstract base</th></tr>
+      <tr><td>Interface written</td><td class="a">Nowhere but the template's code (a concept fixes this, Part 10)</td><td class="a">Pure virtual functions in the base class</td></tr>
+      <tr><td>Missing method caught</td><td class="a">Compile time, when the method using it is instantiated</td><td class="a">Compile time, when you try to create the abstract class</td></tr>
+      <tr><td>Mix Players &amp; Teams?</td><td class="a">No</td><td class="a">Yes (<code class="k">Rankable*</code> / <code class="k">unique_ptr&lt;Rankable&gt;</code>)</td></tr>
+    </table>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>instructor copy 3/6</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Templates</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 4 of 6</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 7</span><span class="part-title">Passing Behavior In &mdash; Q18&ndash;Q21</span></div>
+    <table class="trace compact">
+      <tr><th>Expression</th><th>Result</th></tr>
+      <tr><td><code class="k">Filter(scores, IsEven)</code></td><td class="a">72 88 100</td></tr>
+      <tr><td><code class="k">Filter(scores, AtLeast(80))</code></td><td class="a">95 88 100</td></tr>
+      <tr><td><code class="k">Filter(scores, [](int s) { return s &lt; 70; })</code></td><td class="a">41 63</td></tr>
+      <tr><td>Q20: <code class="k">SortedList&lt;int, greater&lt;int&gt;&gt;</code> &larr; 5, 1, 4, 1</td><td class="a">5 4 1 1</td></tr>
+      <tr><td>Q20: <code class="k">SortedList&lt;string, ByLength&gt;</code> &larr; dragon, elf, wizard, orc</td><td class="a">orc elf wizard dragon</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.06in;"><strong>The tie trap:</strong> <code class="k">Insert</code> only moves past items that are <em>strictly</em> shorter. A new item goes in <em>before</em> existing items of the same length. So <code class="k">wizard</code> lands before <code class="k">dragon</code>, and <code class="k">orc</code> lands before <code class="k">elf</code>. Order among equal items depends on how the algorithm handles ties.</p>
+    <div class="twocol">
+      <pre style="margin:0;"><code>class Between {
+public:
+    Between(int low, int high)
+        : low_(low), high_(high) {
+    }
+    bool operator()(int value) const {
+        return value &gt;= low_ &amp;&amp; value &lt;= high_;
+    }
+private:
+    int low_;
+    int high_;
+};
+// Filter(scores, Between(60, 90)) -&gt; 72 88 63</code></pre>
+      <div style="font-size:0.78rem;line-height:1.35;">
+        <p style="margin:0 0 0.04in;"><strong>Q19:</strong> a plain function has nowhere to store <code class="k">60</code> and <code class="k">90</code>, because <code class="k">Filter</code> calls it with only one argument. You'd need a separate function for every range, or globals. A function object <span class="a">carries its own state</span> (data members set by the constructor). A capturing lambda, <code class="k">[low, high](int v) {...}</code>, is the compiler writing this class for you.</p>
+      </div>
+    </div>
+    <ol class="matchans" style="margin-top:0.06in;">
+      <li><strong>Q21.1</strong> <span class="a">No</span>. <code class="k">Compare</code> is a template parameter, so different strategies make different types (they can't be assigned to each other).</li>
+      <li><strong>Q21.2</strong> The default <span class="a"><code class="k">less&lt;int&gt;</code></span>, which uses <code class="k">&lt;</code>, so the list is <span class="a">ascending</span>.</li>
+      <li><strong>Q21.3</strong> When the ordering must be chosen or changed <strong>at run time</strong> (the user clicks &ldquo;sort by name&rdquo; or &ldquo;sort by score&rdquo;), or when lists with different orderings must be the same type (stored together, passed to one function).</li>
+    </ol>
+
+    <div class="part-head"><span class="part-tag">part 8</span><span class="part-title">Specialization &mdash; Q22&ndash;Q24</span></div>
+    <table class="trace compact">
+      <tr><th>Call</th><th>Prints</th></tr>
+      <tr><td><code class="k">Show("level", 7)</code></td><td class="a">level = 7</td></tr>
+      <tr><td><code class="k">Show("alive", true)</code></td><td class="a">alive = yes</td></tr>
+      <tr><td><code class="k">Show("name", string("Thorin"))</code></td><td class="a">name = "Thorin"</td></tr>
+      <tr><td><code class="k">Show("flags", vector&lt;bool&gt;{true, false})</code></td><td class="a">flags = [yes, no]</td></tr>
+      <tr><td><code class="k">Show("party", vector&lt;string&gt;{"Thorin", "Rhea"})</code></td><td class="a">party = ["Thorin", "Rhea"]</td></tr>
+      <tr><td><code class="k">Show("grid", vector&lt;vector&lt;int&gt;&gt;{{1, 2}, {3}})</code></td><td class="a">grid = [[1, 2], [3]]</td></tr>
+      <tr><td><code class="k">Show("name", "Thorin")</code></td><td class="a">name = Thorin &nbsp;(no quotes)</td></tr>
+    </table>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>instructor copy 4/6</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Templates</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 5 of 6</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <ol class="matchans">
+      <li><strong>Q23.1</strong> <code class="k">"Thorin"</code> is a <code class="k">const char[7]</code>, not a <code class="k">string</code>, so <span class="a"><code class="k">T</code> is <code class="k">char[7]</code></span>. Specializations must match <em>exactly</em> (no conversions), so the <span class="a">primary</span> <code class="k">Formatter</code> runs and prints it with <code class="k">&lt;&lt;</code>, with no quotes.</li>
+      <li><strong>Q23.2</strong> The <code class="k">vector&lt;T&gt;</code> partial specialization matches with <code class="k">T = vector&lt;int&gt;</code>. It calls <code class="k">Formatter&lt;vector&lt;int&gt;&gt;</code> for each row, which matches the partial specialization again with <code class="k">T = int</code>, which calls the primary. Each specialization builds on the others.</li>
+      <li><strong>Q23.3</strong> <span class="a">alive = 1</span>. The primary template handles it, and <code class="k">&lt;&lt;</code> prints a <code class="k">bool</code> as <code class="k">1</code>/<code class="k">0</code>.</li>
+    </ol>
+    <table class="trace compact">
+      <tr><th>Q24 call</th><th>Version</th><th>Returns</th></tr>
+      <tr><td><code class="k">Total(vector&lt;int&gt;{5, 10, 15})</code></td><td class="a">(1)</td><td class="a">30</td></tr>
+      <tr><td><code class="k">Total(vector&lt;double&gt;{1.5, 2.25})</code></td><td class="a">(1)</td><td class="a">3.75</td></tr>
+      <tr><td><code class="k">Total(vector&lt;bool&gt;{true, true, false, true})</code></td><td class="a">(2)</td><td class="a">3</td></tr>
+      <tr><td><code class="k">Total(vector&lt;string&gt;{"ab", "cd"})</code></td><td class="a">(1)</td><td class="a">"abcd"</td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.1in;">Without (2), <code class="k">T</code> is <code class="k">bool</code>, so the sum is a <code class="k">bool</code>. It returns <span class="a"><code class="k">true</code></span> (any <code class="k">true</code> makes it <code class="k">true</code>), which is useless as a count. When both match, the compiler prefers the non-template function, which is an exact match.</p>
+
+    <div class="part-head"><span class="part-tag">part 9</span><span class="part-title">Templates and Inheritance Together &mdash; Q25&ndash;Q27</span></div>
+    <ol class="matchans">
+      <li><code class="k">Matrix</code> for <code class="k">int</code>/<code class="k">double</code>/<code class="k">Fraction</code> &mdash; <span class="a">TEMPLATE</span></li>
+      <li>Mixed party calling <code class="k">attack()</code> &mdash; <span class="a">VIRTUAL</span></li>
+      <li><code class="k">Queue</code> for print jobs / game events &mdash; <span class="a">TEMPLATE</span></li>
+      <li>Shapes created from a file at run time &mdash; <span class="a">VIRTUAL</span> (the type isn't known until the program runs)</li>
+      <li><code class="k">Spawn&lt;Derived&gt;</code> returning <code class="k">unique_ptr&lt;Character&gt;</code> &mdash; <span class="a">BOTH</span> (a template factory building a polymorphic hierarchy)</li>
+    </ol>
+    <ul class="blankgrid">
+      <li><span class="n">(a)</span><span class="a">1</span></li>
+      <li><span class="n">(b)</span><span class="a">0</span></li>
+      <li><span class="n">(c)</span><span class="a">0 &nbsp;(neither is less than the other)</span></li>
+      <li><span class="n">(d)</span><span class="a">4 &nbsp;(dime, quarter, penny, copy; the temporary <code class="k">Coin(10)</code> is already gone)</span></li>
+      <li><span class="n">(e)</span><span class="a">2</span></li>
+      <li><span class="n">(f)</span><span class="a">1</span></li>
+    </ul>
+    <p style="font-size:0.79rem;margin:0 0 0.04in;">The copy constructor in <code class="k">Counted</code> matters for (d). Without it, <code class="k">Coin copy = penny;</code> wouldn't count, but its destructor would still subtract one.</p>
+    <ol class="matchans">
+      <li><strong>Q27.1</strong> <code class="k">Counted&lt;Coin&gt;</code> and <code class="k">Counted&lt;Gem&gt;</code> are <span class="a">two different classes</span>, generated from one template, so each has its own <code class="k">static alive_</code>. (A plain base class would share one counter between them.)</li>
+      <li><strong>Q27.2</strong> <span class="a">No</span>. <code class="k">Comparable&lt;Coin&gt;</code> only defines <code class="k">operator&lt;(const Coin&amp;, const Coin&amp;)</code>, so there's no operator taking a <code class="k">Coin</code> and a <code class="k">Gem</code> (<code class="k">invalid operands to binary expression ('Coin' and 'Gem')</code>). That's a good thing.</li>
+      <li><strong>Q27.3</strong> The only choice for <code class="k">???</code> is the <span class="a">base class itself</span> (<code class="k">const Comparable&amp;</code>). Then <code class="k">Coin::LessThan</code> receives a base reference and can't see <code class="k">cents_</code> without a downcast, and nothing stops comparing a <code class="k">Coin</code> to a <code class="k">Gem</code>. CRTP lets the base name the exact derived type. It also avoids a virtual call.</li>
+    </ol>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>instructor copy 5/6</span></div>
+  </section>
+
+  <!-- KEY PAGE -->
+  <section class="sheet">
+    <div class="band">
+      <div>
+        <div class="eyebrow">CS 2143 &middot; Object-Oriented Programming</div>
+        <h1>Answer Key &mdash; Templates</h1>
+        <div class="tagline">Instructor reference for the review worksheet &mdash; page 6 of 6</div>
+      </div>
+      <span class="stamp">Not for students</span>
+    </div>
+
+    <div class="part-head"><span class="part-tag">part 10</span><span class="part-title">Concepts &mdash; Q28, Q29</span></div>
+    <table class="trace compact">
+      <tr><th>Type</th><th>Y / N</th><th>Why</th></tr>
+      <tr><td><code class="k">Player</code></td><td class="a">Y</td><td></td></tr>
+      <tr><td><code class="k">Monster</code></td><td class="a">N</td><td>No <code class="k">Name()</code> or <code class="k">Score()</code></td></tr>
+      <tr><td><code class="k">int</code></td><td class="a">N</td><td>No member functions at all</td></tr>
+      <tr><td><code class="k">Ghost</code></td><td class="a">Y</td><td><code class="k">string</code> supports <code class="k">&lt; &gt; == ...</code>, so it is <code class="k">totally_ordered</code></td></tr>
+      <tr><td><code class="k">Bot</code></td><td class="a">N</td><td><code class="k">int</code> is not <code class="k">convertible_to&lt;string&gt;</code></td></tr>
+      <tr><td><code class="k">Drone</code></td><td class="a">N</td><td><code class="k">Score()</code> isn't <code class="k">const</code>, and the concept calls it on a <code class="k">const T&amp;</code></td></tr>
+    </table>
+    <p style="font-size:0.79rem;margin:0 0 0.06in;"><strong>Ghost:</strong> a concept checks <span class="a">syntax, not meaning</span>. It confirms that the operations <em>exist</em> and have usable types. It can't know whether a score makes sense, or whether higher is better. That's still your job (design and testing). The same is true of an abstract base class.</p>
+    <p style="font-size:0.79rem;margin:0 0 0.03in;"><strong>Q29 model answer:</strong></p>
+    <pre><code>template &lt;typename T&gt;
+concept Printable = requires(ostream&amp; out, const T&amp; item) {
+    out &lt;&lt; item;
+};
+
+template &lt;Printable T&gt;
+void PrintAll(const vector&lt;T&gt;&amp; items)
+
+// Also correct:
+template &lt;typename T&gt;
+    requires Printable&lt;T&gt;
+void PrintAll(const vector&lt;T&gt;&amp; items)</code></pre>
+
+    <div class="part-head"><span class="part-tag">part 11</span><span class="part-title">Find the Error &mdash; Cases A&ndash;D, Q30</span></div>
+    <div class="case"><span class="label">Case A</span><span><strong>Link</strong> error: <code class="k">Undefined symbols ... Box&lt;int&gt;::Box(int const&amp;)</code>. When <code class="k">main.cpp</code> is compiled it only sees declarations, so it expects <code class="k">Box&lt;int&gt;</code>'s code to exist somewhere else. <code class="k">Box.cpp</code> never uses <code class="k">Box&lt;int&gt;</code>, so it never generates it. <strong>Fix:</strong> put the definitions in <code class="k">Box.h</code> (or explicitly instantiate <code class="k">template class Box&lt;int&gt;;</code> in <code class="k">Box.cpp</code>, which is advanced).</span></div>
+    <div class="case"><span class="label">Case B</span><span><strong>N</strong>. (1) Missing <code class="k">template &lt;typename T&gt;</code> above the definition (<code class="k">unknown type name 'T'</code>). (2) <code class="k">Box::</code> must be <code class="k">Box&lt;T&gt;::</code> (<code class="k">use of class template 'Box' requires template arguments</code>).</span></div>
+    <div class="case"><span class="label">Case C</span><span><strong>N</strong>. <code class="k">slots</code> is read at run time, but a non-type template argument must be a compile-time constant. Redesign: take the capacity as a <strong>constructor argument</strong>, store it in a member, and use a <code class="k">vector&lt;T&gt;</code> instead of <code class="k">array&lt;T, N&gt;</code>.</span></div>
+    <div class="case"><span class="label">Case D</span><span><strong>N</strong> (<code class="k">no viable constructor or deduction guide for deduction of template arguments of 'Stack'</code>). CTAD only uses the <strong>constructor's</strong> arguments. <code class="k">Box b{2.5}</code> passes a <code class="k">double</code> to the constructor. <code class="k">Stack s;</code> passes nothing, and the compiler won't look ahead to the <code class="k">Push(5)</code> calls. Write <code class="k">Stack&lt;int&gt; s;</code>.</span></div>
+    <p style="font-size:0.79rem;margin:0.06in 0 0;"><strong>Q30 (open-ended), examples of good answers:</strong> <em>template:</em> a <code class="k">Deck&lt;T&gt;</code> / <code class="k">Pile&lt;T&gt;</code> that shuffles and draws <code class="k">Card</code>s (or tiles, or dice faces); a <code class="k">Stack&lt;Move&gt;</code> for undo; a <code class="k">Leaderboard&lt;Player&gt;</code>. <em>Virtual:</em> the UI screens, or the game variant (<code class="k">VideoPoker</code> vs <code class="k">Blackjack</code>), chosen at run time. Look for the reasoning: <strong>&ldquo;same behavior, different type&rdquo; &rarr; template</strong>. <strong>&ldquo;different behavior picked at run time&rdquo; &rarr; virtual</strong>.</p>
+
+    <div class="footer-rule"><span>2143 &middot; Review Day 7</span><span>instructor copy 6/6</span></div>
+  </section>
+
+</div>
